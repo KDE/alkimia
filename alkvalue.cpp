@@ -20,6 +20,29 @@
 #include <iostream>
 #include <QRegExp>
 
+/**
+  * Helper function to convert an mpq_class object into
+  * its internal QString representation. Mainly used for
+  * debugging.
+  */
+static QString mpqToString(mpq_class val)
+{
+  char *p = 0;
+  // use the gmp provided conversion routine
+  gmp_asprintf(&p, "%Qd", val.get_mpq_t());
+
+  // convert it into a QString
+  QString result(p);
+
+  // and free up the resources allocated by gmp_asprintf
+  __gmp_freefunc_t freefunc;
+  mp_get_memory_functions (NULL, NULL, &freefunc);
+  (*freefunc) (p, std::strlen(p)+1);
+
+  // done
+  return result;
+}
+
 AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   m_val(0)
 {
@@ -29,10 +52,11 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
 
   // take care of mixed prices of the form "5 8/16" as well
   // as own internal string representation
-  QRegExp regExp("^(?:(\\d+)\\s+|-)?(\\d+)/(\\d+)");
-  //                  +-#1-+        +-#2-+ +-#3-+
+  QRegExp regExp("^((\\d+)\\s+|-)?(\\d+/\\d+)");
+  //                +-#2-+        +---#3----+
+  //               +-----#1-----+
   if (regExp.indexIn(str) > -1) {
-    m_val = qPrintable(str.mid(regExp.pos(2)));
+    m_val = qPrintable(str.mid(regExp.pos(3)));
     m_val.canonicalize();
     const QString& part1 = regExp.cap(1);
     if(!part1.isEmpty()) {
@@ -40,7 +64,7 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
         mpq_neg(m_val.get_mpq_t(), m_val.get_mpq_t());
 
       } else {
-        mpq_class summand(qPrintable(regExp.cap(2)));
+        mpq_class summand(qPrintable(part1));
         mpq_add(m_val.get_mpq_t(), m_val.get_mpq_t(), summand.get_mpq_t());
         m_val.canonicalize();
       }
