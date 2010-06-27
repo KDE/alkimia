@@ -1,12 +1,14 @@
 /***************************************************************************
  *   Copyright 2010  Thomas Baumgart  ipwizard@users.sourceforge.net       *
  *                                                                         *
- *   This program is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU General Public License as        *
- *   published by the Free Software Foundation; either version 2 of        *
+ *   This file is part of libalkimia.                                      *
+ *                                                                         *
+ *   libalkimia is free software; you can redistribute it and/or           *
+ *   modify it under the terms of the GNU Lesser General Public License    *
+ *   as published by the Free Software Foundation; either version 2.1 of   *
  *   the License or (at your option) version 3 or any later version.       *
  *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
+ *   libalkimia is distributed in the hope that it will be useful,         *
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
  *   GNU General Public License for more details.                          *
@@ -15,8 +17,8 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
-#ifndef _ALKVALUE_H
-#define _ALKVALUE_H
+#ifndef ALKVALUE_H
+#define ALKVALUE_H
 
 // So we can save this object
 
@@ -65,7 +67,7 @@ public:
     * @param num numerator of the rational number
     * @param denom denominator of the rational number (defaults to 1)
     */
-  AlkValue( const int num, const unsigned int denom = 1  );
+  explicit AlkValue( const int num, const unsigned int denom = 1  );
 
   /**
     * This constructor converts a QString into an AlkValue.
@@ -82,7 +84,7 @@ public:
     */
   AlkValue(const QString& str, const QChar& decimalSymbol);
 
-  // AlkValue( const double dAmount, const qint64 denom = 100  );
+  // explicit AlkValue( const double dAmount, const qint64 denom = 100  );
 
   // assignment operators
   const AlkValue& operator=(const AlkValue& val);

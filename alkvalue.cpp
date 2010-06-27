@@ -1,12 +1,14 @@
 /***************************************************************************
  *   Copyright 2010  Thomas Baumgart  ipwizard@users.sourceforge.net       *
  *                                                                         *
- *   This program is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU General Public License as        *
- *   published by the Free Software Foundation; either version 2 of        *
+ *   This file is part of libalkimia.                                      *
+ *                                                                         *
+ *   libalkimia is free software; you can redistribute it and/or           *
+ *   modify it under the terms of the GNU Lesser General Public License    *
+ *   as published by the Free Software Foundation; either version 2.1 of   *
  *   the License or (at your option) version 3 or any later version.       *
  *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
+ *   libalkimia is distributed in the hope that it will be useful,         *
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
  *   GNU General Public License for more details.                          *
@@ -25,7 +27,7 @@
   * its internal QString representation. Mainly used for
   * debugging.
   */
-static QString mpqToString(mpq_class val)
+static QString mpqToString(const mpq_class& val)
 {
   char *p = 0;
   // use the gmp provided conversion routine
@@ -123,20 +125,7 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
 
 QString AlkValue::toString(void) const
 {
-  char *p = 0;
-  // use the gmp provided conversion routine
-  gmp_asprintf(&p, "%Qd", m_val.get_mpq_t());
-
-  // convert it into a QString
-  QString result(p);
-
-  // and free up the resources allocated by gmp_asprintf
-  __gmp_freefunc_t freefunc;
-  mp_get_memory_functions (NULL, NULL, &freefunc);
-  (*freefunc) (p, std::strlen(p)+1);
-
-  // done
-  return result;
+  return mpqToString(m_val);
 }
 
 #if 0
