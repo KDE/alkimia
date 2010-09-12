@@ -109,6 +109,17 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   if((pos != -1) && (pos < len)) {
     fraction += QString(len - pos - 1, '0');
     res.remove(pos, 1);
+
+    // check if the resulting numerator contains any leading zeros ...
+    int cnt=0;
+    while (res[cnt] == '0' && cnt < len-2) {
+      ++cnt;
+    }
+
+    // ... and remove them
+    if (cnt) {
+      res.remove(0, cnt);
+    }
   }
   res += fraction;
 

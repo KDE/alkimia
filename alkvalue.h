@@ -69,6 +69,8 @@ public:
     */
   explicit AlkValue( const int num, const unsigned int denom = 1  );
 
+  explicit AlkValue( const mpq_class& val );
+
   /**
     * This constructor converts a QString into an AlkValue.
     * Several formats are supported:
@@ -105,6 +107,8 @@ public:
   AlkValue operator-( const AlkValue& minuend ) const;
   AlkValue operator*( const AlkValue& factor ) const;
   AlkValue operator/( const AlkValue& divisor ) const;
+
+  AlkValue operator*( int factor) const;
 
   // unary operators
   AlkValue operator-() const;
@@ -152,6 +156,11 @@ inline AlkValue::AlkValue(const int num, const unsigned int denom) :
 {
 }
 
+inline AlkValue::AlkValue(const mpq_class& val) :
+  m_val(val)
+{
+}
+
 inline AlkValue AlkValue::operator+(const AlkValue& right) const
 {
   AlkValue result;
@@ -180,6 +189,15 @@ inline AlkValue AlkValue::operator/(const AlkValue& right) const
 {
   AlkValue result;
   mpq_div(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
+  result.m_val.canonicalize();
+  return result;
+}
+
+inline AlkValue AlkValue::operator*(int factor) const
+{
+  AlkValue result;
+  mpq_class right(factor);
+  mpq_mul(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.get_mpq_t());
   result.m_val.canonicalize();
   return result;
 }
