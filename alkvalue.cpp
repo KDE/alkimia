@@ -41,6 +41,9 @@ static QString mpqToString(const mpq_class& val)
   mp_get_memory_functions (NULL, NULL, &freefunc);
   (*freefunc) (p, std::strlen(p)+1);
 
+  if( !result.contains('/'))
+    result += "/1";
+
   // done
   return result;
 }
@@ -76,7 +79,7 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
 
   // qDebug("we got '%s' to convert", qPrintable(str));
   // everything else gets down here
-  const QString validChars = QString("\\d%1-()").arg(decimalSymbol);
+  const QString validChars = QString("\\d\\%1-()").arg(decimalSymbol);
   const QString negChars = QString("-()");
   QRegExp invCharSet(QString("[^%1]").arg(validChars));
   QRegExp negCharSet(QString("[%1]").arg(negChars));
@@ -84,6 +87,14 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   QString res(str);
   // get rid of any character that is not allowed.
   res.remove(invCharSet);
+
+  // in case res contains a comma and the comma is not a valid
+  // character and the invCharSet is [^\d\.-()], res.remove(invCharSet)
+  // does not remove the comma. This looks like a Qt problem which
+  // I did not investigate further but rather remove them seperately.
+  if (decimalSymbol != ',') {
+    res.remove(QChar(','));
+  }
 
   // qDebug("we reduced it to '%s'", qPrintable(res));
   // check if number is negative
