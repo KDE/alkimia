@@ -79,22 +79,14 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
 
   // qDebug("we got '%s' to convert", qPrintable(str));
   // everything else gets down here
-  const QString validChars = QString("\\d\\%1-()").arg(decimalSymbol);
-  const QString negChars = QString("-()");
+  const QString negChars = QString("\\-\\(\\)");
+  const QString validChars = QString("\\d\\%1%2").arg(decimalSymbol, negChars);
   QRegExp invCharSet(QString("[^%1]").arg(validChars));
   QRegExp negCharSet(QString("[%1]").arg(negChars));
 
   QString res(str);
   // get rid of any character that is not allowed.
   res.remove(invCharSet);
-
-  // in case res contains a comma and the comma is not a valid
-  // character and the invCharSet is [^\d\.-()], res.remove(invCharSet)
-  // does not remove the comma. This looks like a Qt problem which
-  // I did not investigate further but rather remove them seperately.
-  if (decimalSymbol != ',') {
-    res.remove(QChar(','));
-  }
 
   // qDebug("we reduced it to '%s'", qPrintable(res));
   // check if number is negative
@@ -132,9 +124,13 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
       res.remove(0, cnt);
     }
   }
+
+  // in case the numerator is empty, we convert it to "0"
+  if (res.isEmpty())
+    res = '0';
   res += fraction;
 
-  // looks like we now have a pretty normalized string now that we
+  // looks like we now have a pretty normalized string that we
   // can convert right away
   // qDebug("and try to convert '%s'", qPrintable(res));
   m_val = mpq_class(qPrintable(res));
