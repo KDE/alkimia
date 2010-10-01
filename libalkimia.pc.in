@@ -1,0 +1,19 @@
+# pkg-config configuration for libalkimia
+# For information about the syntax, see pkg-config(1)
+
+# General installation directories
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=@CMAKE_INSTALL_PREFIX@
+libdir=@KDE4_LIB_DIR@
+includedir=@INCLUDE_INSTALL_DIR@/alkimia
+
+# Human-readable name
+Name: Alkimia
+# Human-readable description
+Description: A library for financial data handling
+Version: @ALKIMIA_LIB_SOVERSION@
+
+Libs: -lalkimia
+Libs.private: -lgmp -lQtCore -lstdc++
+Cflags: -I${includedir}
+
