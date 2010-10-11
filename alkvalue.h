@@ -86,7 +86,7 @@ public:
     */
   AlkValue(const QString& str, const QChar& decimalSymbol);
 
-  // explicit AlkValue( const double dAmount, const qint64 denom = 100  );
+  AlkValue(const double& dAmount);
 
   // assignment operators
   const AlkValue& operator=(const AlkValue& val);
@@ -154,11 +154,19 @@ inline AlkValue::AlkValue() :
 inline AlkValue::AlkValue(const int num, const unsigned int denom) :
   m_val(num, denom)
 {
+  m_val.canonicalize();
 }
 
 inline AlkValue::AlkValue(const mpq_class& val) :
   m_val(val)
 {
+  m_val.canonicalize();
+}
+
+inline AlkValue::AlkValue(const double& dAmount)
+{
+  m_val = dAmount;
+  m_val.canonicalize();
 }
 
 inline AlkValue AlkValue::operator+(const AlkValue& right) const
@@ -211,12 +219,14 @@ inline const AlkValue& AlkValue::operator=(const AlkValue& right)
 inline const AlkValue& AlkValue::operator=(int right)
 {
   m_val = right;
+  m_val.canonicalize();
   return *this;
 }
 
 inline const AlkValue& AlkValue::operator=(double right)
 {
   m_val = right;
+  m_val.canonicalize();
   return *this;
 }
 

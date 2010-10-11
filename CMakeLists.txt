@@ -43,6 +43,17 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc IMMEDIATE @ONLY)
 
+# If no build type is set, use "Release with Debug Info"
+IF(NOT CMAKE_BUILD_TYPE)
+  SET(CMAKE_BUILD_TYPE RelWithDebInfo)
+ENDIF(NOT CMAKE_BUILD_TYPE)
+
+SET(CMAKE_BUILD_TYPE "${CMAKE_BUILD_TYPE}" CACHE STRING
+  "Choose the type of build.
+Possible values are: 'Release' 'RelWithDebInfo' 'Debug' 'Debugfull' 'Profile'
+The default value is: 'RelWithDebInfo'" FORCE)
+
+
 IF(NOT WIN32)
   # use position independent code
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
@@ -76,3 +87,20 @@ INSTALL(FILES ${alkimia_HEADERS}
 
 INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
         DESTINATION ${KDE4_LIB_DIR}/pkgconfig)
+
+########### tests ###################
+
+IF( KDE4_BUILD_TESTS )
+  # INCLUDE(CTest) # (makes sense only with a ctest online dashboard)
+  ENABLE_TESTING()
+
+
+  # alkvaluetest
+  set( alkvaluetest_SRCS alkvaluetest.cpp )
+
+  kde4_add_unit_test( alkvaluetest TESTNAME alkimia-alkvalue ${alkvaluetest_SRCS} )
+  ADD_DEPENDENCIES( alkvaluetest alkimia )
+
+  target_link_libraries( alkvaluetest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTTEST_LIBRARY} )
+
+ENDIF( KDE4_BUILD_TESTS )
