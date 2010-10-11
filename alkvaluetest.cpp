@@ -139,13 +139,9 @@ void AlkValueTest::stringCtor(void)
   delete m;
 }
 
-  // qDebug("%s", qPrintable(m->toString()));
-  // qDebug("%s", qPrintable(AlkValue(-0.25).toString()));
-
 void AlkValueTest::assignment(void)
 {
   // const AlkValue& operator=(const AlkValue& val);
-
   AlkValue m0;
   AlkValue m1(10, 2);
   m0 = m1;
@@ -314,17 +310,17 @@ void AlkValueTest::multiplication(void)
   // AlkValue& operator*= ( const AlkValue&  val );
   m0 *= m1;
   QVERIFY(m0 == AlkValue(2300));
- 
+
   m0 = 100;
   m1 = -23;
   QVERIFY((m0 * m1) == AlkValue(-2300));
 
   m0 *= m1;
   QVERIFY(m0 == AlkValue(-2300));
- 
+
   // AlkValue operator*( int factor) const;
   QVERIFY((m1 * 4) == AlkValue(-92));
-  QVERIFY((m1 * (-4)) == AlkValue(92));
+  QVERIFY((m1 *(-4)) == AlkValue(92));
 }
 
 void AlkValueTest::division(void)
@@ -338,7 +334,7 @@ void AlkValueTest::division(void)
   // AlkValue& operator/= ( const AlkValue&  val );
   m0 /= m1;
   QVERIFY(m0 == AlkValue(5));
- 
+
   m0 = 100;
   m1 = -20;
   QVERIFY((m0 / m1) == AlkValue(-5));

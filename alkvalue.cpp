@@ -38,10 +38,10 @@ static QString mpqToString(const mpq_class& val)
 
   // and free up the resources allocated by gmp_asprintf
   __gmp_freefunc_t freefunc;
-  mp_get_memory_functions (NULL, NULL, &freefunc);
-  (*freefunc) (p, std::strlen(p)+1);
+  mp_get_memory_functions(NULL, NULL, &freefunc);
+  (*freefunc)(p, std::strlen(p) + 1);
 
-  if( !result.contains('/'))
+  if (!result.contains('/'))
     result += "/1";
 
   // done
@@ -49,10 +49,10 @@ static QString mpqToString(const mpq_class& val)
 }
 
 AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
-  m_val(0)
+    m_val(0)
 {
   // empty strings are easy
-  if(str.isEmpty())
+  if (str.isEmpty())
     return;
 
   // take care of mixed prices of the form "5 8/16" as well
@@ -64,8 +64,8 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
     m_val = qPrintable(str.mid(regExp.pos(3)));
     m_val.canonicalize();
     const QString& part1 = regExp.cap(1);
-    if(!part1.isEmpty()) {
-      if(part1 == QLatin1String("-")) {
+    if (!part1.isEmpty()) {
+      if (part1 == QLatin1String("-")) {
         mpq_neg(m_val.get_mpq_t(), m_val.get_mpq_t());
 
       } else {
@@ -91,7 +91,7 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   // qDebug("we reduced it to '%s'", qPrintable(res));
   // check if number is negative
   bool isNegative = false;
-  if(res.indexOf(negCharSet) != -1) {
+  if (res.indexOf(negCharSet) != -1) {
     isNegative = true;
     res.remove(negCharSet);
   }
@@ -100,7 +100,7 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   // if someone uses the decimal symbol more than once, we get
   // rid of them except the right most one
   int pos;
-  while(res.count(decimalSymbol) > 1) {
+  while (res.count(decimalSymbol) > 1) {
     pos = res.indexOf(decimalSymbol);
     res.remove(pos, 1);
   }
@@ -109,13 +109,13 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   pos = res.indexOf(decimalSymbol);
   int len = res.length();
   QString fraction("/1");
-  if((pos != -1) && (pos < len)) {
+  if ((pos != -1) && (pos < len)) {
     fraction += QString(len - pos - 1, '0');
     res.remove(pos, 1);
 
     // check if the resulting numerator contains any leading zeros ...
-    int cnt=0;
-    while (res[cnt] == '0' && cnt < len-2) {
+    int cnt = 0;
+    while (res[cnt] == '0' && cnt < len - 2) {
       ++cnt;
     }
 
@@ -137,7 +137,7 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   m_val.canonicalize();
 
   // now we make sure that we use the right sign
-  if(isNegative)
+  if (isNegative)
     m_val = -m_val;
 }
 
@@ -150,7 +150,7 @@ QString AlkValue::toString(void) const
 std::ostream& operator<<(std::ostream& ostr, const AlkValue& val)
 {
   ostr << val.m_val;
-  if(val.m_val.get_den() == 1)
+  if (val.m_val.get_den() == 1)
     ostr << "/1";
   return ostr;
 }
