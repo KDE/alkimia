@@ -34,6 +34,7 @@ private slots:
   void emptyCtor(void);
   void intCtor(void);
   void stringCtor(void);
+  void doubleCtor(void);
   void assignment(void);
   void equality(void);
   void inequality(void);
@@ -47,6 +48,11 @@ private slots:
   void division(void);
   void unaryMinus(void);
   void abs(void);
+  void precision(void);
+  void convertDenom(void);
+  void convertPrec(void);
+  void denomToPrec(void);
+  void precToDenom(void);
 };
 
 #endif // ALKVALUETEST_H

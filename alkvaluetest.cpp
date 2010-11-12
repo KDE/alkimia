@@ -139,6 +139,28 @@ void AlkValueTest::stringCtor(void)
   delete m;
 }
 
+void AlkValueTest::doubleCtor(void)
+{
+  for (int i = -123456; i < 123456; ++i) {
+    double d = i;
+    AlkValue r(i, 100);
+    d /= 100;
+    AlkValue t(d, 100);
+    QVERIFY(t == r);
+  }
+
+  AlkValue a = AlkValue(1.9999999999998);
+  QVERIFY(a != AlkValue(2, 1));
+  QVERIFY(a < AlkValue(2, 1));
+  QVERIFY(a > AlkValue("1.999999999", '.'));
+
+  a = AlkValue(1.9999999999998, 100);
+  QVERIFY(a == AlkValue(2, 1));
+
+  a = AlkValue(1.234, AlkValue::precToDenom(2).get_ui());
+  QVERIFY(a == AlkValue(123, 100));
+}
+
 void AlkValueTest::assignment(void)
 {
   // const AlkValue& operator=(const AlkValue& val);
@@ -186,8 +208,9 @@ void AlkValueTest::inequality(void)
 
 void AlkValueTest::less(void)
 {
-  AlkValue m0 = 12;
-  AlkValue m1 = 13;
+  AlkValue m0, m1;
+  m0 = 12;
+  m1 = 13;
   QVERIFY(m0 < m1);
   m0 = -m0;
   m1 = -m1;
@@ -209,8 +232,9 @@ void AlkValueTest::less(void)
 
 void AlkValueTest::greater(void)
 {
-  AlkValue m0 = 12;
-  AlkValue m1 = 13;
+  AlkValue m0, m1;
+  m0 = 12;
+  m1 = 13;
   QVERIFY(m1 > m0);
   m0 = -m0;
   m1 = -m1;
@@ -232,9 +256,10 @@ void AlkValueTest::greater(void)
 
 void AlkValueTest::lessThan(void)
 {
-  AlkValue m0 = 12;
+  AlkValue m0, m2;
   AlkValue m1 = AlkValue("12.0000000000000000000000000000001", '.');
-  AlkValue m2 = 12;
+  m0 = 12;
+  m2 = 12;
   QVERIFY(m0 <= m1);
   QVERIFY(m0 <= m2);
   m0 = -m0;
@@ -246,9 +271,10 @@ void AlkValueTest::lessThan(void)
 
 void AlkValueTest::greaterThan(void)
 {
-  AlkValue m0 = 12;
+  AlkValue m0, m2;
   AlkValue m1 = AlkValue("12.0000000000000000000000000000001", '.');
-  AlkValue m2 = 12;
+  m0 = 12;
+  m2 = 12;
   QVERIFY(m1 >= m0);
   QVERIFY(m2 >= m0);
   m0 = -m0;
@@ -356,5 +382,133 @@ void AlkValueTest::abs(void)
   AlkValue m1(5);
   QVERIFY(m0.abs() == AlkValue(5));
   QVERIFY(m1.abs() == AlkValue(5));
+}
+
+void AlkValueTest::precision(void)
+{
+  AlkValue a("1234567890", '.');
+  AlkValue b("1234567890", '.');
+  AlkValue c;
+
+  // QVERIFY(c.isZero() == true);
+  c = a * b;
+  QVERIFY(c == AlkValue("1524157875019052100", '.'));
+  c /= b;
+  QVERIFY(c == AlkValue("1234567890", '.'));
+}
+
+void AlkValueTest::convertDenom(void)
+{
+  AlkValue a(123.456);
+  QVERIFY(a.convertDenom() == AlkValue(12346,100));
+
+  AlkValue b;
+  a = "-73010.28";
+  b = "1.95583";
+  QVERIFY((a * b).convertDenom(100) == AlkValue(-14279570, 100));
+
+  a = "-142795.69";
+  QVERIFY((a / b).convertDenom(100) == AlkValue(-7301028, 100));
+
+  a = "142795.69";
+  QVERIFY((a / b).convertDenom(100) == AlkValue(7301028, 100));
+
+  a = AlkValue(1.9999999999998);
+  QVERIFY(a != AlkValue(2,1));
+  QVERIFY(a < AlkValue(2,1));
+  QVERIFY(a > AlkValue("1.999999999", '.'));
+
+  a = AlkValue(1.9999999999998, 100);
+  QVERIFY(a == AlkValue(2, 1));
+}
+
+void AlkValueTest::convertPrec(void)
+{
+  AlkValue a(123.456);
+  QVERIFY(a.convertPrec() == AlkValue(12346,100));
+
+  AlkValue b;
+  a = "-73010.28";
+  b = "1.95583";
+  QVERIFY((a * b).convertPrec(2) == AlkValue(-14279570, 100));
+
+  a = "-142795.69";
+  QVERIFY((a / b).convertPrec(2) == AlkValue(-7301028, 100));
+
+  a = "142795.69";
+  QVERIFY((a / b).convertPrec(2) == AlkValue(7301028, 100));
+
+  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RndFloor) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RndFloor) == AlkValue(-1));
+  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RndFloor) == AlkValue(1));
+  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RndFloor) == AlkValue(-2));
+
+  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RndCeil) == AlkValue(1));
+  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RndCeil) == AlkValue());
+  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RndCeil) == AlkValue(2));
+  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RndCeil) == AlkValue(-1));
+
+  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RndTrunc) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RndTrunc) == AlkValue());
+  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RndTrunc) == AlkValue(1));
+  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RndTrunc) == AlkValue(-1));
+
+  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RndPromote) == AlkValue(1));
+  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RndPromote) == AlkValue(-1));
+  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RndPromote) == AlkValue(2));
+  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RndPromote) == AlkValue(-2));
+
+  QVERIFY(AlkValue(4, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue());
+  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue());
+  QVERIFY(AlkValue(6, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue(1));
+  QVERIFY(AlkValue(-4, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue());
+  QVERIFY(AlkValue(-6, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue(-1));
+  QVERIFY(AlkValue(14, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue(1));
+  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue(1));
+  QVERIFY(AlkValue(16, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue(2));
+  QVERIFY(AlkValue(-14, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue(-1));
+  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue(-1));
+  QVERIFY(AlkValue(-16, 10).convertPrec(0, AlkValue::RndHalfDown) == AlkValue(-2));
+
+  QVERIFY(AlkValue(4, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue());
+  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(1));
+  QVERIFY(AlkValue(6, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(1));
+  QVERIFY(AlkValue(-4, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(-1));
+  QVERIFY(AlkValue(-6, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(-1));
+  QVERIFY(AlkValue(14, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(1));
+  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(2));
+  QVERIFY(AlkValue(16, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(2));
+  QVERIFY(AlkValue(-14, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(-1));
+  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(-2));
+  QVERIFY(AlkValue(-16, 10).convertPrec(0, AlkValue::RndHalfUp) == AlkValue(-2));
+
+  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RndRound) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RndRound) == AlkValue());
+  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RndRound) == AlkValue(2));
+  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RndRound) == AlkValue(-2));
+  QVERIFY(AlkValue(25, 10).convertPrec(0, AlkValue::RndRound) == AlkValue(2));
+  QVERIFY(AlkValue(-25, 10).convertPrec(0, AlkValue::RndRound) == AlkValue(-2));
+}
+
+void AlkValueTest::denomToPrec(void)
+{
+  QVERIFY(AlkValue::denomToPrec(100) == 2);
+  QVERIFY(AlkValue::denomToPrec(1000000) == 6);
+  QVERIFY(AlkValue::denomToPrec(1) == 0);
+  QVERIFY(AlkValue::denomToPrec(0) == 0);
+  QVERIFY(AlkValue::denomToPrec(-1) == 0);
+  QVERIFY(AlkValue::denomToPrec(-188) == 0);
+  QVERIFY(AlkValue::denomToPrec(200) == 3);
+}
+
+void AlkValueTest::precToDenom(void)
+{
+  QVERIFY(AlkValue::precToDenom(2) == 100);
+  QVERIFY(AlkValue::precToDenom(6) == 1000000);
+  QVERIFY(AlkValue::precToDenom(0) == 1);
+  QVERIFY(AlkValue::precToDenom(-1) == 1);
+  QVERIFY(AlkValue::precToDenom(-5) == 1);
 }
 
