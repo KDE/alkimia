@@ -177,17 +177,17 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
   AlkValue out; // initialize to zero
 
   int sign = sgn(in_num);
-  if(sign != 0) {
+  if (sign != 0) {
     // sign is either -1 for negative numbers or +1 in all other cases
 
     AlkValue temp;
     mpz_class denom = _denom;
     // only process in case the denominators are different
-    if(mpz_cmpabs(denom.get_mpz_t(), mpq_denref(m_val.get_mpq_t())) != 0) {
+    if (mpz_cmpabs(denom.get_mpz_t(), mpq_denref(m_val.get_mpq_t())) != 0) {
       mpz_class in_denom(mpq_denref(in.m_val.get_mpq_t()));
       mpz_class out_num, out_denom;
 
-      if(sgn(in_denom) == -1) {  // my denom is negative
+      if (sgn(in_denom) == -1) { // my denom is negative
         in_num = in_num * (- in_denom);
         in_num = 1;
       }
@@ -197,7 +197,7 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
 
       // if the denominator is less than zero, we are to interpret it as
       // the reciprocal of its magnitude.
-      if(sgn(denom) < 0) {
+      if (sgn(denom) < 0) {
         mpz_class temp_a;
         mpz_class temp_bc;
         denom        = -denom;
@@ -218,7 +218,7 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
         out_denom    = denom;
       }
 
-      if(remainder != 0) {
+      if (remainder != 0) {
         switch (how) {
           case RndFloor:
             if (sign < 0) {
@@ -279,9 +279,9 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
             }
             break;
 
-        case RndNever:
+          case RndNever:
             qWarning("AlkValue: have remainder \"%s\"->convert(%d, %d)",
-                    qPrintable(toString()), _denom, how);
+                     qPrintable(toString()), _denom, how);
             break;
         }
       }

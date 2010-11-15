@@ -256,7 +256,7 @@ inline AlkValue::AlkValue(const double& dAmount, const unsigned int denom)
 {
   m_val = dAmount;
   m_val.canonicalize();
-  if(denom != 0) {
+  if (denom != 0) {
     *this = convertDenom(denom);
   }
 }

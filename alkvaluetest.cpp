@@ -400,7 +400,7 @@ void AlkValueTest::precision(void)
 void AlkValueTest::convertDenom(void)
 {
   AlkValue a(123.456);
-  QVERIFY(a.convertDenom() == AlkValue(12346,100));
+  QVERIFY(a.convertDenom() == AlkValue(12346, 100));
 
   AlkValue b;
   a = "-73010.28";
@@ -414,8 +414,8 @@ void AlkValueTest::convertDenom(void)
   QVERIFY((a / b).convertDenom(100) == AlkValue(7301028, 100));
 
   a = AlkValue(1.9999999999998);
-  QVERIFY(a != AlkValue(2,1));
-  QVERIFY(a < AlkValue(2,1));
+  QVERIFY(a != AlkValue(2, 1));
+  QVERIFY(a < AlkValue(2, 1));
   QVERIFY(a > AlkValue("1.999999999", '.'));
 
   a = AlkValue(1.9999999999998, 100);
@@ -425,7 +425,7 @@ void AlkValueTest::convertDenom(void)
 void AlkValueTest::convertPrec(void)
 {
   AlkValue a(123.456);
-  QVERIFY(a.convertPrec() == AlkValue(12346,100));
+  QVERIFY(a.convertPrec() == AlkValue(12346, 100));
 
   AlkValue b;
   a = "-73010.28";
