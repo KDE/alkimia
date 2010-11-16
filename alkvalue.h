@@ -22,7 +22,7 @@
 
 // So we can save this object
 
-#include <gmpxx.h>
+#include <gmpxx.h>                 // krazy:exclude=camelcase
 #include <QString>
 #include <kdemacros.h>
 
@@ -114,12 +114,12 @@ public:
     * @param num numerator of the rational number
     * @param denom denominator of the rational number (defaults to 1)
     */
-  explicit AlkValue(const mpz_class& num, const mpz_class& denom);
+  explicit AlkValue(const mpz_class &num, const mpz_class &denom);
 
   /**
     * Convenience ctor to create an AlkValue object based on an mpq_class object
     */
-  explicit AlkValue(const mpq_class& val);
+  explicit AlkValue(const mpq_class &val);
 
   /**
     * This constructor converts a double into an AlkValue. In case
@@ -140,7 +140,7 @@ public:
     *  // alk == 1.23
     * @endcode
     */
-  explicit AlkValue(const double& val, const unsigned int denom = 0);
+  explicit AlkValue(const double &val, const unsigned int denom = 0);
 
   /**
     * This constructor converts a QString into an AlkValue.
@@ -155,7 +155,7 @@ public:
     * The rightmost non-numeric character is treated as decimal symbol
     * All other non-numeric characters are skipped
     */
-  AlkValue(const QString& str, const QChar& decimalSymbol);
+  AlkValue(const QString &str, const QChar &decimalSymbol);
 
   /**
     * Returns the current value converted to the given @a denom (default is 100
@@ -173,33 +173,33 @@ public:
   AlkValue convertPrec(const int precision = 2, const RoundingMethod how = RndRound) const;
 
   // assignment operators
-  const AlkValue& operator=(const AlkValue& val);
-  const AlkValue& operator=(int num);
-  const AlkValue& operator=(double num);
-  const AlkValue& operator=(const QString& str);
+  const AlkValue & operator=(const AlkValue &val);
+  const AlkValue & operator=(int num);
+  const AlkValue & operator=(double num);
+  const AlkValue & operator=(const QString &str);
 
   // comparison
-  bool operator==(const AlkValue& val) const;
-  bool operator!=(const AlkValue& val) const;
-  bool operator<(const AlkValue& val) const;
-  bool operator>(const AlkValue& val) const;
-  bool operator<=(const AlkValue& val) const;
-  bool operator>=(const AlkValue& val) const;
+  bool operator==(const AlkValue &val) const;
+  bool operator!=(const AlkValue &val) const;
+  bool operator<(const AlkValue &val) const;
+  bool operator>(const AlkValue &val) const;
+  bool operator<=(const AlkValue &val) const;
+  bool operator>=(const AlkValue &val) const;
 
   // calculation
-  AlkValue operator+(const AlkValue& summand) const;
-  AlkValue operator-(const AlkValue& minuend) const;
-  AlkValue operator*(const AlkValue& factor) const;
-  AlkValue operator/(const AlkValue& divisor) const;
+  AlkValue operator+(const AlkValue &summand) const;
+  AlkValue operator-(const AlkValue &minuend) const;
+  AlkValue operator*(const AlkValue &factor) const;
+  AlkValue operator/(const AlkValue &divisor) const;
 
   AlkValue operator*(int factor) const;
 
   // unary operators
   AlkValue operator-() const;
-  AlkValue& operator+= (const AlkValue&  val);
-  AlkValue& operator-= (const AlkValue&  val);
-  AlkValue& operator/= (const AlkValue&  val);
-  AlkValue& operator*= (const AlkValue&  val);
+  AlkValue & operator+= (const AlkValue &val);
+  AlkValue & operator-= (const AlkValue &val);
+  AlkValue & operator/= (const AlkValue &val);
+  AlkValue & operator*= (const AlkValue &val);
 
   // functions
 
@@ -208,7 +208,6 @@ public:
 
   /// @return QString representation in form 'num/denom'.
   QString toString(void) const;
-
 
   /// convert a denomination to a precision
   /// e.g. 100 -> 2, 1000 -> 3
@@ -228,13 +227,12 @@ protected:
   // ALKIMIA_EXPORT friend QDataStream &operator>>(QDataStream &, AlkValue &);
 };
 
-
 inline AlkValue::AlkValue() :
     m_val(0)
 {
 }
 
-inline AlkValue::AlkValue(const mpz_class& num, const mpz_class& denom) :
+inline AlkValue::AlkValue(const mpz_class &num, const mpz_class &denom) :
     m_val(num, denom)
 {
   m_val.canonicalize();
@@ -246,13 +244,13 @@ inline AlkValue::AlkValue(const int num, const unsigned int denom) :
   m_val.canonicalize();
 }
 
-inline AlkValue::AlkValue(const mpq_class& val) :
+inline AlkValue::AlkValue(const mpq_class &val) :
     m_val(val)
 {
   m_val.canonicalize();
 }
 
-inline AlkValue::AlkValue(const double& dAmount, const unsigned int denom)
+inline AlkValue::AlkValue(const double &dAmount, const unsigned int denom)
 {
   m_val = dAmount;
   m_val.canonicalize();
@@ -261,7 +259,7 @@ inline AlkValue::AlkValue(const double& dAmount, const unsigned int denom)
   }
 }
 
-inline AlkValue AlkValue::operator+(const AlkValue& right) const
+inline AlkValue AlkValue::operator+(const AlkValue &right) const
 {
   AlkValue result;
   mpq_add(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
@@ -269,7 +267,7 @@ inline AlkValue AlkValue::operator+(const AlkValue& right) const
   return result;
 }
 
-inline AlkValue AlkValue::operator-(const AlkValue& right) const
+inline AlkValue AlkValue::operator-(const AlkValue &right) const
 {
   AlkValue result;
   mpq_sub(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
@@ -277,7 +275,7 @@ inline AlkValue AlkValue::operator-(const AlkValue& right) const
   return result;
 }
 
-inline AlkValue AlkValue::operator*(const AlkValue& right) const
+inline AlkValue AlkValue::operator*(const AlkValue &right) const
 {
   AlkValue result;
   mpq_mul(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
@@ -285,7 +283,7 @@ inline AlkValue AlkValue::operator*(const AlkValue& right) const
   return result;
 }
 
-inline AlkValue AlkValue::operator/(const AlkValue& right) const
+inline AlkValue AlkValue::operator/(const AlkValue &right) const
 {
   AlkValue result;
   mpq_div(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
@@ -302,27 +300,27 @@ inline AlkValue AlkValue::operator*(int factor) const
   return result;
 }
 
-inline const AlkValue& AlkValue::operator=(const AlkValue & right)
+inline const AlkValue & AlkValue::operator=(const AlkValue & right)
 {
   m_val = right.m_val;
   return *this;
 }
 
-inline const AlkValue& AlkValue::operator=(int right)
+inline const AlkValue & AlkValue::operator=(int right)
 {
   m_val = right;
   m_val.canonicalize();
   return *this;
 }
 
-inline const AlkValue& AlkValue::operator=(double right)
+inline const AlkValue & AlkValue::operator=(double right)
 {
   m_val = right;
   m_val.canonicalize();
   return *this;
 }
 
-inline const AlkValue& AlkValue::operator=(const QString & right)
+inline const AlkValue & AlkValue::operator=(const QString & right)
 {
   m_val = AlkValue(right, '.').m_val;
   return *this;
@@ -335,32 +333,32 @@ inline AlkValue AlkValue::abs(void) const
   return result;
 }
 
-inline  bool AlkValue::operator==(const AlkValue& val) const
+inline  bool AlkValue::operator==(const AlkValue &val) const
 {
   return mpq_equal(m_val.get_mpq_t(), val.m_val.get_mpq_t());
 }
 
-inline  bool AlkValue::operator!=(const AlkValue& val) const
+inline  bool AlkValue::operator!=(const AlkValue &val) const
 {
   return !mpq_equal(m_val.get_mpq_t(), val.m_val.get_mpq_t());
 }
 
-inline  bool AlkValue::operator<(const AlkValue& val) const
+inline  bool AlkValue::operator<(const AlkValue &val) const
 {
   return mpq_cmp(m_val.get_mpq_t(), val.m_val.get_mpq_t()) < 0 ? true : false;
 }
 
-inline  bool AlkValue::operator>(const AlkValue& val) const
+inline  bool AlkValue::operator>(const AlkValue &val) const
 {
   return mpq_cmp(m_val.get_mpq_t(), val.m_val.get_mpq_t()) > 0 ? true : false;
 }
 
-inline  bool AlkValue::operator<=(const AlkValue& val) const
+inline  bool AlkValue::operator<=(const AlkValue &val) const
 {
   return mpq_cmp(m_val.get_mpq_t(), val.m_val.get_mpq_t()) <= 0 ? true : false;
 }
 
-inline  bool AlkValue::operator>=(const AlkValue& val) const
+inline  bool AlkValue::operator>=(const AlkValue &val) const
 {
   return mpq_cmp(m_val.get_mpq_t(), val.m_val.get_mpq_t()) >= 0 ? true : false;
 }
@@ -372,28 +370,28 @@ inline AlkValue AlkValue::operator-() const
   return result;
 }
 
-inline AlkValue& AlkValue::operator+=(const AlkValue & right)
+inline AlkValue & AlkValue::operator+=(const AlkValue & right)
 {
   mpq_add(m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
   m_val.canonicalize();
   return *this;
 }
 
-inline AlkValue& AlkValue::operator-=(const AlkValue & right)
+inline AlkValue & AlkValue::operator-=(const AlkValue & right)
 {
   mpq_sub(m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
   m_val.canonicalize();
   return *this;
 }
 
-inline AlkValue& AlkValue::operator*=(const AlkValue & right)
+inline AlkValue & AlkValue::operator*=(const AlkValue & right)
 {
   mpq_mul(m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
   m_val.canonicalize();
   return *this;
 }
 
-inline AlkValue& AlkValue::operator/=(const AlkValue & right)
+inline AlkValue & AlkValue::operator/=(const AlkValue & right)
 {
   mpq_div(m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
   m_val.canonicalize();

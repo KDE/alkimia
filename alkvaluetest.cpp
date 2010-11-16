@@ -39,7 +39,6 @@ void AlkValueTest::emptyCtor(void)
   delete m;
 }
 
-
 void AlkValueTest::intCtor(void)
 {
   AlkValue *m;
@@ -303,7 +302,6 @@ void AlkValueTest::addition(void)
   m0 += m1;
   QVERIFY(m0 == AlkValue(77));
 }
-
 
 void AlkValueTest::subtraction(void)
 {

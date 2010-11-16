@@ -27,7 +27,7 @@
   * its internal QString representation. Mainly used for
   * debugging.
   */
-static QString mpqToString(const mpq_class& val)
+static QString mpqToString(const mpq_class & val)
 {
   char *p = 0;
   // use the gmp provided conversion routine
@@ -41,8 +41,9 @@ static QString mpqToString(const mpq_class& val)
   mp_get_memory_functions(NULL, NULL, &freefunc);
   (*freefunc)(p, std::strlen(p) + 1);
 
-  if (!result.contains('/'))
+  if (!result.contains('/')) {
     result += "/1";
+  }
 
   // done
   return result;
@@ -53,7 +54,7 @@ static QString mpqToString(const mpq_class& val)
   * its internal QString representation. Mainly used for
   * debugging.
   */
-static QString mpzToString(const mpz_class& val)
+static QString mpzToString(const mpz_class & val)
 {
   char *p = 0;
   // use the gmp provided conversion routine
@@ -71,12 +72,13 @@ static QString mpzToString(const mpz_class& val)
   return result;
 }
 
-AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
+AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
     m_val(0)
 {
   // empty strings are easy
-  if (str.isEmpty())
+  if (str.isEmpty()) {
     return;
+  }
 
   // take care of mixed prices of the form "5 8/16" as well
   // as own internal string representation
@@ -86,7 +88,7 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   if (regExp.indexIn(str) > -1) {
     m_val = qPrintable(str.mid(regExp.pos(3)));
     m_val.canonicalize();
-    const QString& part1 = regExp.cap(1);
+    const QString &part1 = regExp.cap(1);
     if (!part1.isEmpty()) {
       if (part1 == QLatin1String("-")) {
         mpq_neg(m_val.get_mpq_t(), m_val.get_mpq_t());
@@ -149,8 +151,9 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   }
 
   // in case the numerator is empty, we convert it to "0"
-  if (res.isEmpty())
+  if (res.isEmpty()) {
     res = '0';
+  }
   res += fraction;
 
   // looks like we now have a pretty normalized string that we
@@ -160,8 +163,9 @@ AlkValue::AlkValue(const QString& str, const QChar& decimalSymbol) :
   m_val.canonicalize();
 
   // now we make sure that we use the right sign
-  if (isNegative)
+  if (isNegative) {
     m_val = -m_val;
+  }
 }
 
 QString AlkValue::toString(void) const
