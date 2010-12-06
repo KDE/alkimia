@@ -88,6 +88,20 @@ INSTALL(FILES ${alkimia_HEADERS}
 INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
         DESTINATION ${KDE4_LIB_DIR}/pkgconfig)
 
+########### documentation ###################
+
+# check for Doxygen
+FIND_PACKAGE(Doxygen)
+IF(DOXYGEN_FOUND)
+  SET(APIDOC_DIR ${CMAKE_CURRENT_BINARY_DIR}/apidocs)
+
+  MAKE_DIRECTORY(${APIDOC_DIR})
+
+  CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.doxygen.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen IMMEDIATE)
+
+  ADD_CUSTOM_TARGET(apidoc ${DOXYGEN} ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen)
+ENDIF(DOXYGEN_FOUND)
+
 ########### tests ###################
 
 IF( KDE4_BUILD_TESTS )

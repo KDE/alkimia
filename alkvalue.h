@@ -20,13 +20,9 @@
 #ifndef ALKVALUE_H
 #define ALKVALUE_H
 
-// So we can save this object
-
 #include <gmpxx.h>                 // krazy:exclude=camelcase
 #include <QString>
 #include <kdemacros.h>
-
-//#include <QDataStream.h>
 
 #define ALKIMIA_EXPORT KDE_EXPORT
 
@@ -40,52 +36,51 @@ class ALKIMIA_EXPORT AlkValue
 public:
   // TODO check if we still need those (they are a leftover from the old stuff)
   enum RoundingMethod {
-    RndNever = 0,                /**
-                                   * don't do any rounding, simply truncate a and
+    RndNever = 0,                /**<
+                                   * don't do any rounding, simply truncate and
                                    * print a warning in case of a remainder. Otherwise
                                    * the same as RndTrunc.
                                    */
 
-    RndFloor,                    /**
+    RndFloor,                    /**<
                                    * Round to the largest integral value not greater
                                    * than @p this.
                                    * e.g. 0.5 -> 0.0 and -0.5 -> -1.0
                                    */
 
-    RndCeil,                     /**
+    RndCeil,                     /**<
                                    * Round to the smallest integral value not less
                                    * than @p this.
                                    * e.g. 0.5 -> 1.0 and -0.5 -> -0.0
                                    */
 
-    RndTrunc,                    /**
+    RndTrunc,                    /**<
                                    * No rounding, simply truncate any fraction
                                    */
 
-    RndPromote,                  /**
+    RndPromote,                  /**<
                                    * Use RndCeil for positive and RndFloor for
                                    * negative values of @p this.
                                    * e.g. 0.5 -> 1.0 and -0.5 -> -1.0
                                    */
 
-    RndHalfDown,                 /**
+    RndHalfDown,                 /**<
                                    * Round up or down with the following constraints:
                                    * 0.1 .. 0.5 -> 0.0 and 0.6 .. 0.9 -> 1.0
                                    */
 
-    RndHalfUp,                   /**
+    RndHalfUp,                   /**<
                                    * Round up or down with the following constraints:
                                    * 0.1 .. 0.4 -> 0.0 and 0.5 .. 0.9 -> 1.0
                                    */
 
-    RndRound                     /**
+    RndRound                     /**<
                                    * Use RndHalfDown for 0.1 .. 0.4 and RndHalfUp
                                    * for 0.6 .. 0.9. Use RndHalfUp for 0.5 in case
                                    * the resulting numerator is odd, RndHalfDown
                                    * in case the resulting numerator is even.
                                    * e.g. 0.5 -> 0.0 and 1.5 -> 2.0
                                    */
-
   };
 
   // Con- / Destructors
@@ -133,7 +128,8 @@ public:
     * @param val the double value
     * @param denom the denominator of the resulting AlkValue
     *
-    * @note In case one wants to provide the precision as argument, use
+    * @note In case one wants to use the number of precision digits
+    * to specify the fractional length, use
     *
     * @code
     *  AlkValue alk(1.234, AlkValue::precToDenom(2).get_ui());
@@ -146,13 +142,13 @@ public:
     * This constructor converts a QString into an AlkValue.
     * Several formats are supported:
     *
-    *  a) prices in the form "8 5/16"
-    *  b) our own 'toString' format
-    *  c) others
+    * -# prices in the form "8 5/16"
+    * -# our own toString() format
+    * -# others
 
     * Others may be enclosed in "(" and ")" and treated as negative.
     * They may start or end with a dash and treated as negative.
-    * The rightmost non-numeric character is treated as decimal symbol
+    * The decimal symbols is identified as provided in @a decimalSymbol.
     * All other non-numeric characters are skipped
     */
   AlkValue(const QString &str, const QChar &decimalSymbol);
@@ -206,7 +202,7 @@ public:
   /// @return the absolute value of the AlkValue
   AlkValue abs(void) const;
 
-  /// @return QString representation in form 'num/denom'.
+  /// @return QString representation in form '[-]num/denom'.
   QString toString(void) const;
 
   /// convert a denomination to a precision
