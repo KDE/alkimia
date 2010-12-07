@@ -34,15 +34,15 @@ static QString mpqToString(const mpq_class & val)
   gmp_asprintf(&p, "%Qd", val.get_mpq_t());
 
   // convert it into a QString
-  QString result(p);
+  QString result = QString::fromLatin1( p );
 
   // and free up the resources allocated by gmp_asprintf
   __gmp_freefunc_t freefunc;
   mp_get_memory_functions(NULL, NULL, &freefunc);
   (*freefunc)(p, std::strlen(p) + 1);
 
-  if (!result.contains('/')) {
-    result += "/1";
+  if (!result.contains(QLatin1Char( '/' ))) {
+      result += QString::fromLatin1( "/1" );
   }
 
   // done
@@ -61,7 +61,7 @@ static QString mpzToString(const mpz_class & val)
   gmp_asprintf(&p, "%Zd", val.get_mpz_t());
 
   // convert it into a QString
-  QString result(p);
+  QString result(QString::fromLatin1( p ));
 
   // and free up the resources allocated by gmp_asprintf
   __gmp_freefunc_t freefunc;
@@ -82,7 +82,7 @@ AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
 
   // take care of mixed prices of the form "5 8/16" as well
   // as own internal string representation
-  QRegExp regExp("^((\\d+)\\s+|-)?(\\d+/\\d+)");
+  QRegExp regExp(QLatin1String( "^((\\d+)\\s+|-)?(\\d+/\\d+)" ));
   //                +-#2-+        +---#3----+
   //               +-----#1-----+
   if (regExp.indexIn(str) > -1) {
@@ -104,10 +104,10 @@ AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
 
   // qDebug("we got '%s' to convert", qPrintable(str));
   // everything else gets down here
-  const QString negChars = QString("\\-\\(\\)");
-  const QString validChars = QString("\\d\\%1%2").arg(decimalSymbol, negChars);
-  QRegExp invCharSet(QString("[^%1]").arg(validChars));
-  QRegExp negCharSet(QString("[%1]").arg(negChars));
+  const QString negChars = QString::fromLatin1("\\-\\(\\)");
+  const QString validChars = QString::fromLatin1("\\d\\%1%2").arg(decimalSymbol, negChars);
+  QRegExp invCharSet(QString::fromLatin1("[^%1]").arg(validChars));
+  QRegExp negCharSet(QString::fromLatin1("[%1]").arg(negChars));
 
   QString res(str);
   // get rid of any character that is not allowed.
@@ -133,14 +133,14 @@ AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
   // take care of any fraction
   pos = res.indexOf(decimalSymbol);
   int len = res.length();
-  QString fraction("/1");
+  QString fraction = QString::fromLatin1("/1");
   if ((pos != -1) && (pos < len)) {
-    fraction += QString(len - pos - 1, '0');
+    fraction += QString(len - pos - 1, QLatin1Char( '0' ));
     res.remove(pos, 1);
 
     // check if the resulting numerator contains any leading zeros ...
     int cnt = 0;
-    while (res[cnt] == '0' && cnt < len - 2) {
+    while (res[cnt] == QLatin1Char( '0' ) && cnt < len - 2) {
       ++cnt;
     }
 
@@ -152,7 +152,7 @@ AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
 
   // in case the numerator is empty, we convert it to "0"
   if (res.isEmpty()) {
-    res = '0';
+    res = QLatin1Char( '0' );
   }
   res += fraction;
 
