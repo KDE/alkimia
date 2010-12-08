@@ -32,6 +32,7 @@ private slots:
   void init();
   void cleanup();
   void emptyCtor(void);
+  void copyCtor(void);
   void intCtor(void);
   void stringCtor(void);
   void doubleCtor(void);

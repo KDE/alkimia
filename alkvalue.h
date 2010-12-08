@@ -27,30 +27,30 @@
 #define ALKIMIA_EXPORT KDE_EXPORT
 
 /**
-  * This class represents a value within Alkimia
+  * This class represents a financial value within Alkimia.
+  * It can be used to represent balances, shares, amounts etc.
   *
   * @author Thomas Baumgart
   */
 class ALKIMIA_EXPORT AlkValue
 {
 public:
-  // TODO check if we still need those (they are a leftover from the old stuff)
   enum RoundingMethod {
     RndNever = 0,                /**<
                                    * don't do any rounding, simply truncate and
-                                   * print a warning in case of a remainder. Otherwise
-                                   * the same as RndTrunc.
+                                   * print a warning in case of a remainder.
+                                   * Otherwise the same as RndTrunc.
                                    */
 
     RndFloor,                    /**<
-                                   * Round to the largest integral value not greater
-                                   * than @p this.
+                                   * Round to the largest integral value not
+                                   * greater than @p this.
                                    * e.g. 0.5 -> 0.0 and -0.5 -> -1.0
                                    */
 
     RndCeil,                     /**<
-                                   * Round to the smallest integral value not less
-                                   * than @p this.
+                                   * Round to the smallest integral value not
+                                   * less than @p this.
                                    * e.g. 0.5 -> 1.0 and -0.5 -> -0.0
                                    */
 
@@ -65,25 +65,28 @@ public:
                                    */
 
     RndHalfDown,                 /**<
-                                   * Round up or down with the following constraints:
+                                   * Round up or down with the following
+                                   * constraints:
                                    * 0.1 .. 0.5 -> 0.0 and 0.6 .. 0.9 -> 1.0
                                    */
 
     RndHalfUp,                   /**<
-                                   * Round up or down with the following constraints:
+                                   * Round up or down with the following
+                                   * constraints:
                                    * 0.1 .. 0.4 -> 0.0 and 0.5 .. 0.9 -> 1.0
                                    */
 
     RndRound                     /**<
-                                   * Use RndHalfDown for 0.1 .. 0.4 and RndHalfUp
-                                   * for 0.6 .. 0.9. Use RndHalfUp for 0.5 in case
-                                   * the resulting numerator is odd, RndHalfDown
-                                   * in case the resulting numerator is even.
+                                   * Use RndHalfDown for 0.1 .. 0.4 and
+                                   * RndHalfUp for 0.6 .. 0.9. Use RndHalfUp
+                                   * for 0.5 in case the resulting numerator
+                                   * is odd, RndHalfDown in case the resulting
+                                   * numerator is even.
                                    * e.g. 0.5 -> 0.0 and 1.5 -> 2.0
                                    */
   };
 
-  // Con- / Destructors
+  // Constructors / Destructor
   /**
     * This is the standard constructor of an AlkValue object.
     * The value will be initialized to 0.
@@ -91,7 +94,10 @@ public:
   AlkValue();
 
   /// The destructor
-  ~AlkValue() {}
+  ~AlkValue();
+
+  /// Copy constructor
+  AlkValue(const AlkValue &val);
 
   /**
     * This constructor converts an int into an AlkValue. It can
@@ -215,184 +221,16 @@ public:
   /// in case of a negative @a prec, the function returns 1
   static mpz_class precToDenom(mpz_class prec);
 
-protected:
-  mpq_class m_val;
+private:
+  /// \internal d-pointer class.
+  class Private;
+  /// \internal d-pointer instance.
+  Private* const d;
 
   // The following methods are not implemented (yet)
   // ALKIMIA_EXPORT friend QDataStream &operator<<(QDataStream &, const AlkValue &);
   // ALKIMIA_EXPORT friend QDataStream &operator>>(QDataStream &, AlkValue &);
 };
-
-inline AlkValue::AlkValue() :
-    m_val(0)
-{
-}
-
-inline AlkValue::AlkValue(const mpz_class &num, const mpz_class &denom) :
-    m_val(num, denom)
-{
-  m_val.canonicalize();
-}
-
-inline AlkValue::AlkValue(const int num, const unsigned int denom) :
-    m_val(num, denom)
-{
-  m_val.canonicalize();
-}
-
-inline AlkValue::AlkValue(const mpq_class &val) :
-    m_val(val)
-{
-  m_val.canonicalize();
-}
-
-inline AlkValue::AlkValue(const double &dAmount, const unsigned int denom)
-{
-  m_val = dAmount;
-  m_val.canonicalize();
-  if (denom != 0) {
-    *this = convertDenom(denom);
-  }
-}
-
-inline AlkValue AlkValue::operator+(const AlkValue &right) const
-{
-  AlkValue result;
-  mpq_add(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
-  result.m_val.canonicalize();
-  return result;
-}
-
-inline AlkValue AlkValue::operator-(const AlkValue &right) const
-{
-  AlkValue result;
-  mpq_sub(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
-  result.m_val.canonicalize();
-  return result;
-}
-
-inline AlkValue AlkValue::operator*(const AlkValue &right) const
-{
-  AlkValue result;
-  mpq_mul(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
-  result.m_val.canonicalize();
-  return result;
-}
-
-inline AlkValue AlkValue::operator/(const AlkValue &right) const
-{
-  AlkValue result;
-  mpq_div(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
-  result.m_val.canonicalize();
-  return result;
-}
-
-inline AlkValue AlkValue::operator*(int factor) const
-{
-  AlkValue result;
-  mpq_class right(factor);
-  mpq_mul(result.m_val.get_mpq_t(), m_val.get_mpq_t(), right.get_mpq_t());
-  result.m_val.canonicalize();
-  return result;
-}
-
-inline const AlkValue & AlkValue::operator=(const AlkValue & right)
-{
-  m_val = right.m_val;
-  return *this;
-}
-
-inline const AlkValue & AlkValue::operator=(int right)
-{
-  m_val = right;
-  m_val.canonicalize();
-  return *this;
-}
-
-inline const AlkValue & AlkValue::operator=(double right)
-{
-  m_val = right;
-  m_val.canonicalize();
-  return *this;
-}
-
-inline const AlkValue & AlkValue::operator=(const QString & right)
-{
-  m_val = AlkValue(right, QLatin1Char( '.' )).m_val;
-  return *this;
-}
-
-inline AlkValue AlkValue::abs(void) const
-{
-  AlkValue result;
-  mpq_abs(result.m_val.get_mpq_t(), m_val.get_mpq_t());
-  return result;
-}
-
-inline  bool AlkValue::operator==(const AlkValue &val) const
-{
-  return mpq_equal(m_val.get_mpq_t(), val.m_val.get_mpq_t());
-}
-
-inline  bool AlkValue::operator!=(const AlkValue &val) const
-{
-  return !mpq_equal(m_val.get_mpq_t(), val.m_val.get_mpq_t());
-}
-
-inline  bool AlkValue::operator<(const AlkValue &val) const
-{
-  return mpq_cmp(m_val.get_mpq_t(), val.m_val.get_mpq_t()) < 0 ? true : false;
-}
-
-inline  bool AlkValue::operator>(const AlkValue &val) const
-{
-  return mpq_cmp(m_val.get_mpq_t(), val.m_val.get_mpq_t()) > 0 ? true : false;
-}
-
-inline  bool AlkValue::operator<=(const AlkValue &val) const
-{
-  return mpq_cmp(m_val.get_mpq_t(), val.m_val.get_mpq_t()) <= 0 ? true : false;
-}
-
-inline  bool AlkValue::operator>=(const AlkValue &val) const
-{
-  return mpq_cmp(m_val.get_mpq_t(), val.m_val.get_mpq_t()) >= 0 ? true : false;
-}
-
-inline AlkValue AlkValue::operator-() const
-{
-  AlkValue result;
-  mpq_neg(result.m_val.get_mpq_t(), m_val.get_mpq_t());
-  return result;
-}
-
-inline AlkValue & AlkValue::operator+=(const AlkValue & right)
-{
-  mpq_add(m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
-  m_val.canonicalize();
-  return *this;
-}
-
-inline AlkValue & AlkValue::operator-=(const AlkValue & right)
-{
-  mpq_sub(m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
-  m_val.canonicalize();
-  return *this;
-}
-
-inline AlkValue & AlkValue::operator*=(const AlkValue & right)
-{
-  mpq_mul(m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
-  m_val.canonicalize();
-  return *this;
-}
-
-inline AlkValue & AlkValue::operator/=(const AlkValue & right)
-{
-  mpq_div(m_val.get_mpq_t(), m_val.get_mpq_t(), right.m_val.get_mpq_t());
-  m_val.canonicalize();
-  return *this;
-}
 
 #endif
 

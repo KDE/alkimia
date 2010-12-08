@@ -39,6 +39,15 @@ void AlkValueTest::emptyCtor(void)
   delete m;
 }
 
+void AlkValueTest::copyCtor(void)
+{
+  AlkValue a(41, 152);
+  AlkValue b(a);
+
+  QVERIFY(a.toString() == QLatin1String("41/152"));
+  QVERIFY(b.toString() == QLatin1String("41/152"));
+}
+
 void AlkValueTest::intCtor(void)
 {
   AlkValue *m;
