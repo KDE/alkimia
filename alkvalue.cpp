@@ -278,26 +278,26 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
 
       if (remainder != 0) {
         switch (how) {
-          case RndFloor:
+          case RoundFloor:
             if (sign < 0) {
               out_num = out_num + 1;
             }
             break;
 
-          case RndCeil:
+          case RoundCeil:
             if (sign > 0) {
               out_num = out_num + 1;
             }
             break;
 
-          case RndTrunc:
+          case RoundTrunc:
             break;
 
-          case RndPromote:
+          case RoundPromote:
             out_num = out_num + 1;
             break;
 
-          case RndHalfDown:
+          case RoundHalfDown:
             if (denom_neg) {
               if ((2 * remainder) > (in_denom * denom)) {
                 out_num = out_num + 1;
@@ -307,7 +307,7 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
             }
             break;
 
-          case RndHalfUp:
+          case RoundHalfUp:
             if (denom_neg) {
               if ((2 * remainder) >= (in_denom * denom)) {
                 out_num = out_num + 1;
@@ -317,7 +317,7 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
             }
             break;
 
-          case RndRound:
+          case RoundRound:
             if (denom_neg) {
               if ((remainder * 2) > (in_denom * denom)) {
                 out_num = out_num + 1;
@@ -337,7 +337,7 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
             }
             break;
 
-          case RndNever:
+          case RoundNever:
             qWarning("AlkValue: have remainder \"%s\"->convert(%d, %d)",
                      qPrintable(toString()), _denom, how);
             break;

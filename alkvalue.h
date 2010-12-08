@@ -36,51 +36,51 @@ class ALKIMIA_EXPORT AlkValue
 {
 public:
   enum RoundingMethod {
-    RndNever = 0,                /**<
+    RoundNever = 0,              /**<
                                    * don't do any rounding, simply truncate and
                                    * print a warning in case of a remainder.
-                                   * Otherwise the same as RndTrunc.
+                                   * Otherwise the same as RoundTrunc.
                                    */
 
-    RndFloor,                    /**<
+    RoundFloor,                  /**<
                                    * Round to the largest integral value not
                                    * greater than @p this.
                                    * e.g. 0.5 -> 0.0 and -0.5 -> -1.0
                                    */
 
-    RndCeil,                     /**<
+    RoundCeil,                   /**<
                                    * Round to the smallest integral value not
                                    * less than @p this.
                                    * e.g. 0.5 -> 1.0 and -0.5 -> -0.0
                                    */
 
-    RndTrunc,                    /**<
+    RoundTrunc,                  /**<
                                    * No rounding, simply truncate any fraction
                                    */
 
-    RndPromote,                  /**<
-                                   * Use RndCeil for positive and RndFloor for
-                                   * negative values of @p this.
+    RoundPromote,                /**<
+                                   * Use RoundCeil for positive and RoundFloor
+                                   * for negative values of @p this.
                                    * e.g. 0.5 -> 1.0 and -0.5 -> -1.0
                                    */
 
-    RndHalfDown,                 /**<
+    RoundHalfDown,               /**<
                                    * Round up or down with the following
                                    * constraints:
                                    * 0.1 .. 0.5 -> 0.0 and 0.6 .. 0.9 -> 1.0
                                    */
 
-    RndHalfUp,                   /**<
+    RoundHalfUp,                 /**<
                                    * Round up or down with the following
                                    * constraints:
                                    * 0.1 .. 0.4 -> 0.0 and 0.5 .. 0.9 -> 1.0
                                    */
 
-    RndRound                     /**<
-                                   * Use RndHalfDown for 0.1 .. 0.4 and
-                                   * RndHalfUp for 0.6 .. 0.9. Use RndHalfUp
+    RoundRound                     /**<
+                                   * Use RoundHalfDown for 0.1 .. 0.4 and
+                                   * RoundHalfUp for 0.6 .. 0.9. Use RoundHalfUp
                                    * for 0.5 in case the resulting numerator
-                                   * is odd, RndHalfDown in case the resulting
+                                   * is odd, RoundHalfDown in case the resulting
                                    * numerator is even.
                                    * e.g. 0.5 -> 0.0 and 1.5 -> 2.0
                                    */
@@ -127,7 +127,7 @@ public:
     * a @a denom is supplied with a value different from zero, the
     * @a val will be rounded to be based on the supplied @a denom.
     * e.g. val = 1.234 and denom = 100 will construct an AlkValue
-    * of 1.23. The rounding method is @p RndRound.
+    * of 1.23. The rounding method is @p RoundRound.
     *
     * @sa AlkValue::convertDenom()
     *
@@ -162,17 +162,17 @@ public:
   /**
     * Returns the current value converted to the given @a denom (default is 100
     * or two digits of precision). The rounding method used is controlled by
-    * the @a how argument and defaults to @p RndRound.
+    * the @a how argument and defaults to @p RoundRound.
     */
-  AlkValue convertDenom(const int denom = 100, const RoundingMethod how = RndRound) const;
+  AlkValue convertDenom(const int denom = 100, const RoundingMethod how = RoundRound) const;
 
   /**
     * This is a convenience function for convertDenom but instead of providing
     * the new denomiator one provides the number of digits for the @a precision.
     * This value defaults to 2.  The rounding method used is controlled by
-    * the @a how argument and defaults to @p RndRound.
+    * the @a how argument and defaults to @p RoundRound.
     */
-  AlkValue convertPrec(const int precision = 2, const RoundingMethod how = RndRound) const;
+  AlkValue convertPrec(const int precision = 2, const RoundingMethod how = RoundRound) const;
 
   // assignment operators
   const AlkValue & operator=(const AlkValue &val);
