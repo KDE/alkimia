@@ -519,3 +519,16 @@ void AlkValueTest::precToDenom(void)
   QVERIFY(AlkValue::precToDenom(-5) == 1);
 }
 
+void AlkValueTest::valueRef(void)
+{
+  AlkValue a(5);
+
+  mpq_class &val = a.valueRef();
+  val = mpq_class(1, 3);
+
+  QVERIFY(a == AlkValue(1, 3));
+
+  a = "1/7";
+
+  QVERIFY(val == mpq_class(1,7));
+}

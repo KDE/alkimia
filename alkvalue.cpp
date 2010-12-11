@@ -517,3 +517,7 @@ AlkValue & AlkValue::operator/=(const AlkValue & right)
   return *this;
 }
 
+mpq_class & AlkValue::valueRef(void) const
+{
+  return d->m_val;
+}

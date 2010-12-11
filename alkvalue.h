@@ -221,6 +221,14 @@ public:
   /// in case of a negative @a prec, the function returns 1
   static mpz_class precToDenom(mpz_class prec);
 
+protected:
+  /// \internal unit test class
+  friend class AlkValueTest;
+
+  /// provides an access method to the private value storage
+  /// for derived classes
+  mpq_class &valueRef(void) const;
+
 private:
   /// \internal d-pointer class.
   class Private;

@@ -54,6 +54,7 @@ private slots:
   void convertPrec(void);
   void denomToPrec(void);
   void precToDenom(void);
+  void valueRef(void);
 };
 
 #endif // ALKVALUETEST_H
