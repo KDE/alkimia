@@ -168,7 +168,7 @@ public:
 
   /**
     * This is a convenience function for convertDenom but instead of providing
-    * the new denomiator one provides the number of digits for the @a precision.
+    * the new denominator one provides the number of digits for the @a precision.
     * This value defaults to 2.  The rounding method used is controlled by
     * the @a how argument and defaults to @p RoundRound.
     */
