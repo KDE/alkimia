@@ -79,70 +79,70 @@ void AlkValueTest::stringCtor(void)
   AlkValue *m;
 
   // mixed mode used for some price information in QIF
-  m = new AlkValue("5 8/16", '.');
+  m = new AlkValue(QLatin1String("5 8/16"), QLatin1Char('.'));
   QVERIFY(*m == AlkValue(5.5));
   delete m;
 
   // standard representation
-  m = new AlkValue("12345/100", '.');
+  m = new AlkValue(QLatin1String("12345/100"), QLatin1Char('.'));
   QVERIFY(m->toString() == QLatin1String("2469/20"));
   delete m;
 
   // negative standard representation
-  m = new AlkValue("-8/32", '.');
+  m = new AlkValue(QLatin1String("-8/32"), QLatin1Char('.'));
   QVERIFY(*m == AlkValue(-0.25));
   delete m;
 
   // false negative standard representation
-  m = new AlkValue("(8/32)", '.');
+  m = new AlkValue(QLatin1String("(8/32)"), QLatin1Char('.'));
   QVERIFY(*m == AlkValue(-832));
   delete m;
 
   // duplicate negative standard representation
-  m = new AlkValue("(-8/32)", '.');
+  m = new AlkValue(QLatin1String("(-8/32)"), QLatin1Char('.'));
   QVERIFY(*m == AlkValue(-832));
   delete m;
 
   // duplicate negative standard representation
-  m = new AlkValue("-(8/32)", '.');
+  m = new AlkValue(QLatin1String("-(8/32)"), QLatin1Char('.'));
   QVERIFY(*m == AlkValue(-832));
   delete m;
 
   // different decimal symbol
-  m = new AlkValue("x1.234,568 EUR", ',');
+  m = new AlkValue(QLatin1String("x1.234,568 EUR"), QLatin1Char(','));
   QVERIFY(m->toString() == QLatin1String("154321/125"));
   delete m;
 
   // octal leadin
-  m = new AlkValue("0.07", '.');
+  m = new AlkValue(QLatin1String("0.07"), QLatin1Char('.'));
   QVERIFY(m->toString() == QLatin1String("7/100"));
   delete m;
-  m = new AlkValue("0.09", '.');
+  m = new AlkValue(QLatin1String("0.09"), QLatin1Char('.'));
   QVERIFY(m->toString() == QLatin1String("9/100"));
   delete m;
 
   // negative numbers
-  m = new AlkValue("x(1,234.)", '.');
+  m = new AlkValue(QLatin1String("x(1,234.)"), QLatin1Char('.'));
   QVERIFY(*m == AlkValue(-1234));
   delete m;
-  m = new AlkValue("x-1,234.", '.');
+  m = new AlkValue(QLatin1String("x-1,234."), QLatin1Char('.'));
   QVERIFY(*m == AlkValue(-1234));
   delete m;
-  m = new AlkValue("x1,234.-", '.');
+  m = new AlkValue(QLatin1String("x1,234.-"), QLatin1Char('.'));
   QVERIFY(*m == AlkValue(-1234));
   delete m;
 
   // empty string
-  m = new AlkValue("", '.');
+  m = new AlkValue(QLatin1String(""), QLatin1Char('.'));
   QVERIFY(*m == AlkValue());
   delete m;
-  m = new AlkValue(".", '.');
+  m = new AlkValue(QLatin1String("."), QLatin1Char('.'));
   QVERIFY(*m == AlkValue());
   delete m;
-  m = new AlkValue(",", '.');
+  m = new AlkValue(QLatin1String(","), QLatin1Char('.'));
   QVERIFY(*m == AlkValue());
   delete m;
-  m = new AlkValue(".", ',');
+  m = new AlkValue(QLatin1String("."), QLatin1Char(','));
   QVERIFY(*m == AlkValue());
   delete m;
 }
@@ -160,7 +160,7 @@ void AlkValueTest::doubleCtor(void)
   AlkValue a = AlkValue(1.9999999999998);
   QVERIFY(a != AlkValue(2, 1));
   QVERIFY(a < AlkValue(2, 1));
-  QVERIFY(a > AlkValue("1.999999999", '.'));
+  QVERIFY(a > AlkValue(QLatin1String("1.999999999"), QLatin1Char('.')));
 
   a = AlkValue(1.9999999999998, 100);
   QVERIFY(a == AlkValue(2, 1));
@@ -204,6 +204,10 @@ void AlkValueTest::equality(void)
   m0 = 123;
   m1 = QLatin1String("123");
   QVERIFY(m0 == m1);
+
+  m0 = QLatin1String("511/100");
+  m1 = QLatin1String("5753348523965686/1125899906842600");
+  QVERIFY(m0 == m1);
 }
 
 void AlkValueTest::inequality(void)
@@ -211,6 +215,10 @@ void AlkValueTest::inequality(void)
   AlkValue m0, m1;
   m0 = 123;
   m1 = QLatin1String("124");
+  QVERIFY(m0 != m1);
+
+  m0 = QLatin1String("511/100");
+  m1 = QLatin1String("5753348523965809/1125899906842624");
   QVERIFY(m0 != m1);
 }
 
@@ -225,7 +233,7 @@ void AlkValueTest::less(void)
   QVERIFY(m1 < m0);
 
   m0 = 12;
-  m1 = AlkValue("12.0000000000000000000000000000001", '.');
+  m1 = AlkValue(QLatin1String("12.0000000000000000000000000000001"), QLatin1Char('.'));
   QVERIFY(m0 < m1);
   QVERIFY(!(m1 < m0));
   m0 = -m0;
@@ -249,7 +257,7 @@ void AlkValueTest::greater(void)
   QVERIFY(m0 > m1);
 
   m0 = 12;
-  m1 = AlkValue("12.0000000000000000000000000000001", '.');
+  m1 = AlkValue(QLatin1String("12.0000000000000000000000000000001"), QLatin1Char('.'));
   QVERIFY(m1 > m0);
   QVERIFY(!(m0 > m1));
   m0 = -m0;
@@ -265,7 +273,7 @@ void AlkValueTest::greater(void)
 void AlkValueTest::lessThan(void)
 {
   AlkValue m0, m2;
-  AlkValue m1 = AlkValue("12.0000000000000000000000000000001", '.');
+  AlkValue m1 = AlkValue(QLatin1String("12.0000000000000000000000000000001"), QLatin1Char('.'));
   m0 = 12;
   m2 = 12;
   QVERIFY(m0 <= m1);
@@ -280,7 +288,7 @@ void AlkValueTest::lessThan(void)
 void AlkValueTest::greaterThan(void)
 {
   AlkValue m0, m2;
-  AlkValue m1 = AlkValue("12.0000000000000000000000000000001", '.');
+  AlkValue m1 = AlkValue(QLatin1String("12.0000000000000000000000000000001"), QLatin1Char('.'));
   m0 = 12;
   m2 = 12;
   QVERIFY(m1 >= m0);
@@ -393,15 +401,15 @@ void AlkValueTest::abs(void)
 
 void AlkValueTest::precision(void)
 {
-  AlkValue a("1234567890", '.');
-  AlkValue b("1234567890", '.');
+  AlkValue a(QLatin1String("1234567890"), QLatin1Char('.'));
+  AlkValue b(QLatin1String("1234567890"), QLatin1Char('.'));
   AlkValue c;
 
   // QVERIFY(c.isZero() == true);
   c = a * b;
-  QVERIFY(c == AlkValue("1524157875019052100", '.'));
+  QVERIFY(c == AlkValue(QLatin1String("1524157875019052100"), QLatin1Char('.')));
   c /= b;
-  QVERIFY(c == AlkValue("1234567890", '.'));
+  QVERIFY(c == AlkValue(QLatin1String("1234567890"), QLatin1Char('.')));
 }
 
 void AlkValueTest::convertDenom(void)
@@ -410,20 +418,20 @@ void AlkValueTest::convertDenom(void)
   QVERIFY(a.convertDenom() == AlkValue(12346, 100));
 
   AlkValue b;
-  a = "-73010.28";
-  b = "1.95583";
+  a = QLatin1String("-73010.28");
+  b = QLatin1String("1.95583");
   QVERIFY((a * b).convertDenom(100) == AlkValue(-14279570, 100));
 
-  a = "-142795.69";
+  a = QLatin1String("-142795.69");
   QVERIFY((a / b).convertDenom(100) == AlkValue(-7301028, 100));
 
-  a = "142795.69";
+  a = QLatin1String("142795.69");
   QVERIFY((a / b).convertDenom(100) == AlkValue(7301028, 100));
 
   a = AlkValue(1.9999999999998);
   QVERIFY(a != AlkValue(2, 1));
   QVERIFY(a < AlkValue(2, 1));
-  QVERIFY(a > AlkValue("1.999999999", '.'));
+  QVERIFY(a > AlkValue(QLatin1String("1.999999999"), QLatin1Char('.')));
 
   a = AlkValue(1.9999999999998, 100);
   QVERIFY(a == AlkValue(2, 1));
@@ -435,14 +443,14 @@ void AlkValueTest::convertPrec(void)
   QVERIFY(a.convertPrec() == AlkValue(12346, 100));
 
   AlkValue b;
-  a = "-73010.28";
-  b = "1.95583";
+  a = QLatin1String("-73010.28");
+  b = QLatin1String("1.95583");
   QVERIFY((a * b).convertPrec(2) == AlkValue(-14279570, 100));
 
-  a = "-142795.69";
+  a = QLatin1String("-142795.69");
   QVERIFY((a / b).convertPrec(2) == AlkValue(-7301028, 100));
 
-  a = "142795.69";
+  a = QLatin1String("142795.69");
   QVERIFY((a / b).convertPrec(2) == AlkValue(7301028, 100));
 
   QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RoundFloor) == AlkValue());
@@ -528,7 +536,7 @@ void AlkValueTest::valueRef(void)
 
   QVERIFY(a == AlkValue(1, 3));
 
-  a = "1/7";
+  a = QLatin1String("1/7");
 
   QVERIFY(val == mpq_class(1,7));
 }
