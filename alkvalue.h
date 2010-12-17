@@ -37,7 +37,7 @@ class ALKIMIA_EXPORT AlkValue
 public:
   enum RoundingMethod {
     RoundNever = 0,              /**<
-                                   * don't do any rounding, simply truncate and
+                                   * Don't do any rounding, simply truncate and
                                    * print a warning in case of a remainder.
                                    * Otherwise the same as RoundTrunc.
                                    */
