@@ -22,9 +22,8 @@
 
 #include <gmpxx.h>                 // krazy:exclude=camelcase
 #include <QString>
-#include <kdemacros.h>
 
-#define ALKIMIA_EXPORT KDE_EXPORT
+#include "alk_export.h"
 
 /**
   * This class represents a financial value within Alkimia.
@@ -32,7 +31,7 @@
   *
   * @author Thomas Baumgart
   */
-class ALKIMIA_EXPORT AlkValue
+class ALK_EXPORT AlkValue
 {
 public:
   enum RoundingMethod {
@@ -54,7 +53,7 @@ public:
                                    * e.g. 0.5 -> 1.0 and -0.5 -> -0.0
                                    */
 
-    RoundTrunc,                  /**<
+    RoundTruncate,               /**<
                                    * No rounding, simply truncate any fraction
                                    */
 
@@ -129,7 +128,7 @@ public:
     * e.g. val = 1.234 and denom = 100 will construct an AlkValue
     * of 1.23. The rounding method is @p RoundRound.
     *
-    * @sa AlkValue::convertDenom()
+    * @sa AlkValue::convertDenominator()
     *
     * @param val the double value
     * @param denom the denominator of the resulting AlkValue
@@ -138,7 +137,7 @@ public:
     * to specify the fractional length, use
     *
     * @code
-    *  AlkValue alk(1.234, AlkValue::precToDenom(2).get_ui());
+    *  AlkValue alk(1.234, AlkValue::precisionToDenominator(2).get_ui());
     *  // alk == 1.23
     * @endcode
     */
@@ -164,7 +163,7 @@ public:
     * or two digits of precision). The rounding method used is controlled by
     * the @a how argument and defaults to @p RoundRound.
     */
-  AlkValue convertDenom(const int denom = 100, const RoundingMethod how = RoundRound) const;
+  AlkValue convertDenominator(const int denom = 100, const RoundingMethod how = RoundRound) const;
 
   /**
     * This is a convenience function for convertDenom but instead of providing
@@ -172,7 +171,7 @@ public:
     * This value defaults to 2.  The rounding method used is controlled by
     * the @a how argument and defaults to @p RoundRound.
     */
-  AlkValue convertPrec(const int precision = 2, const RoundingMethod how = RoundRound) const;
+  AlkValue convertPrecision(const int precision = 2, const RoundingMethod how = RoundRound) const;
 
   // assignment operators
   const AlkValue & operator=(const AlkValue &val);
@@ -211,15 +210,27 @@ public:
   /// @return QString representation in form '[-]num/denom'.
   QString toString(void) const;
 
-  /// convert a denomination to a precision
+  /**
+    * This method transforms the AlkValue into its canonicalized
+    * form by reducing it to the smallest denominator. Example:
+    * 25/100 will be converted to 1/4. Use this function at the
+    * end of a longer calculation as all AlkValue methods require
+    * the object to be in the canonicalized form. For speed purposes
+    * the conversion is not performed before each operation.
+    *
+    * @return const reference to the object
+    */
+  const AlkValue& canonicalize(void);
+
+  /// convert a denominator to a precision
   /// e.g. 100 -> 2, 1000 -> 3
   /// in case of a negative @a denom, the function returns 0
-  static mpz_class denomToPrec(mpz_class denom);
+  static mpz_class denominatorToPrecision(mpz_class denom);
 
   /// convert a precision to the corresponding denominator
   /// e.g. 2 -> 100, 4 -> 10000
   /// in case of a negative @a prec, the function returns 1
-  static mpz_class precToDenom(mpz_class prec);
+  static mpz_class precisionToDenominator(mpz_class prec);
 
 protected:
   /// \internal unit test class

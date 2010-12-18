@@ -165,7 +165,7 @@ void AlkValueTest::doubleCtor(void)
   a = AlkValue(1.9999999999998, 100);
   QVERIFY(a == AlkValue(2, 1));
 
-  a = AlkValue(1.234, AlkValue::precToDenom(2).get_ui());
+  a = AlkValue(1.234, AlkValue::precisionToDenominator(2).get_ui());
   QVERIFY(a == AlkValue(123, 100));
 }
 
@@ -207,6 +207,14 @@ void AlkValueTest::equality(void)
 
   m0 = QLatin1String("511/100");
   m1 = QLatin1String("5753348523965686/1125899906842600");
+  QVERIFY(m0 == m1);
+
+  m0 = QLatin1String("-14279570/100");
+  m1 = QLatin1String("-1427957/10");
+  QVERIFY(m0 == m1);
+
+  m0 = QLatin1String("-7301028/100");
+  m1 = QLatin1String("-1825257/25");
   QVERIFY(m0 == m1);
 }
 
@@ -412,21 +420,21 @@ void AlkValueTest::precision(void)
   QVERIFY(c == AlkValue(QLatin1String("1234567890"), QLatin1Char('.')));
 }
 
-void AlkValueTest::convertDenom(void)
+void AlkValueTest::convertDenominator(void)
 {
   AlkValue a(123.456);
-  QVERIFY(a.convertDenom() == AlkValue(12346, 100));
+  QVERIFY(a.convertDenominator() == AlkValue(12346, 100));
 
   AlkValue b;
   a = QLatin1String("-73010.28");
   b = QLatin1String("1.95583");
-  QVERIFY((a * b).convertDenom(100) == AlkValue(-14279570, 100));
+  QVERIFY((a * b).convertDenominator(100) == AlkValue(-14279570, 100));
 
   a = QLatin1String("-142795.69");
-  QVERIFY((a / b).convertDenom(100) == AlkValue(-7301028, 100));
+  QVERIFY((a / b).convertDenominator(100) == AlkValue(-7301028, 100));
 
   a = QLatin1String("142795.69");
-  QVERIFY((a / b).convertDenom(100) == AlkValue(7301028, 100));
+  QVERIFY((a / b).convertDenominator(100) == AlkValue(7301028, 100));
 
   a = AlkValue(1.9999999999998);
   QVERIFY(a != AlkValue(2, 1));
@@ -437,94 +445,94 @@ void AlkValueTest::convertDenom(void)
   QVERIFY(a == AlkValue(2, 1));
 }
 
-void AlkValueTest::convertPrec(void)
+void AlkValueTest::convertPrecision(void)
 {
   AlkValue a(123.456);
-  QVERIFY(a.convertPrec() == AlkValue(12346, 100));
+  QVERIFY(a.convertPrecision() == AlkValue(12346, 100));
 
   AlkValue b;
   a = QLatin1String("-73010.28");
   b = QLatin1String("1.95583");
-  QVERIFY((a * b).convertPrec(2) == AlkValue(-14279570, 100));
+  QVERIFY((a * b).convertPrecision(2) == AlkValue(-14279570, 100));
 
   a = QLatin1String("-142795.69");
-  QVERIFY((a / b).convertPrec(2) == AlkValue(-7301028, 100));
+  QVERIFY((a / b).convertPrecision(2) == AlkValue(-7301028, 100));
 
   a = QLatin1String("142795.69");
-  QVERIFY((a / b).convertPrec(2) == AlkValue(7301028, 100));
+  QVERIFY((a / b).convertPrecision(2) == AlkValue(7301028, 100));
 
-  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RoundFloor) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RoundFloor) == AlkValue(-1));
-  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RoundFloor) == AlkValue(1));
-  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RoundFloor) == AlkValue(-2));
+  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundFloor) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundFloor) == AlkValue(-1));
+  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundFloor) == AlkValue(1));
+  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundFloor) == AlkValue(-2));
 
-  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RoundCeil) == AlkValue(1));
-  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RoundCeil) == AlkValue());
-  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RoundCeil) == AlkValue(2));
-  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RoundCeil) == AlkValue(-1));
+  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundCeil) == AlkValue(1));
+  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundCeil) == AlkValue());
+  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundCeil) == AlkValue(2));
+  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundCeil) == AlkValue(-1));
 
-  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RoundTrunc) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RoundTrunc) == AlkValue());
-  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RoundTrunc) == AlkValue(1));
-  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RoundTrunc) == AlkValue(-1));
+  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundTruncate) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundTruncate) == AlkValue());
+  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundTruncate) == AlkValue(1));
+  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundTruncate) == AlkValue(-1));
 
-  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RoundPromote) == AlkValue(1));
-  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RoundPromote) == AlkValue(-1));
-  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RoundPromote) == AlkValue(2));
-  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RoundPromote) == AlkValue(-2));
+  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundPromote) == AlkValue(1));
+  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundPromote) == AlkValue(-1));
+  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundPromote) == AlkValue(2));
+  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundPromote) == AlkValue(-2));
 
-  QVERIFY(AlkValue(4, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue());
-  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue());
-  QVERIFY(AlkValue(6, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue(1));
-  QVERIFY(AlkValue(-4, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue());
-  QVERIFY(AlkValue(-6, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue(-1));
-  QVERIFY(AlkValue(14, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue(1));
-  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue(1));
-  QVERIFY(AlkValue(16, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue(2));
-  QVERIFY(AlkValue(-14, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue(-1));
-  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue(-1));
-  QVERIFY(AlkValue(-16, 10).convertPrec(0, AlkValue::RoundHalfDown) == AlkValue(-2));
+  QVERIFY(AlkValue(4, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue());
+  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue());
+  QVERIFY(AlkValue(6, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(1));
+  QVERIFY(AlkValue(-4, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue());
+  QVERIFY(AlkValue(-6, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(-1));
+  QVERIFY(AlkValue(14, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(1));
+  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(1));
+  QVERIFY(AlkValue(16, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(2));
+  QVERIFY(AlkValue(-14, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(-1));
+  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(-1));
+  QVERIFY(AlkValue(-16, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(-2));
 
-  QVERIFY(AlkValue(4, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue());
-  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(1));
-  QVERIFY(AlkValue(6, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(1));
-  QVERIFY(AlkValue(-4, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(-1));
-  QVERIFY(AlkValue(-6, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(-1));
-  QVERIFY(AlkValue(14, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(1));
-  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(2));
-  QVERIFY(AlkValue(16, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(2));
-  QVERIFY(AlkValue(-14, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(-1));
-  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(-2));
-  QVERIFY(AlkValue(-16, 10).convertPrec(0, AlkValue::RoundHalfUp) == AlkValue(-2));
+  QVERIFY(AlkValue(4, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue());
+  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(1));
+  QVERIFY(AlkValue(6, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(1));
+  QVERIFY(AlkValue(-4, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-1));
+  QVERIFY(AlkValue(-6, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-1));
+  QVERIFY(AlkValue(14, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(1));
+  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(2));
+  QVERIFY(AlkValue(16, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(2));
+  QVERIFY(AlkValue(-14, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-1));
+  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-2));
+  QVERIFY(AlkValue(-16, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-2));
 
-  QVERIFY(AlkValue(5, 10).convertPrec(0, AlkValue::RoundRound) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrec(0, AlkValue::RoundRound) == AlkValue());
-  QVERIFY(AlkValue(15, 10).convertPrec(0, AlkValue::RoundRound) == AlkValue(2));
-  QVERIFY(AlkValue(-15, 10).convertPrec(0, AlkValue::RoundRound) == AlkValue(-2));
-  QVERIFY(AlkValue(25, 10).convertPrec(0, AlkValue::RoundRound) == AlkValue(2));
-  QVERIFY(AlkValue(-25, 10).convertPrec(0, AlkValue::RoundRound) == AlkValue(-2));
+  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue());
+  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue());
+  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(2));
+  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(-2));
+  QVERIFY(AlkValue(25, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(2));
+  QVERIFY(AlkValue(-25, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(-2));
 }
 
-void AlkValueTest::denomToPrec(void)
+void AlkValueTest::denominatorToPrecision(void)
 {
-  QVERIFY(AlkValue::denomToPrec(100) == 2);
-  QVERIFY(AlkValue::denomToPrec(1000000) == 6);
-  QVERIFY(AlkValue::denomToPrec(1) == 0);
-  QVERIFY(AlkValue::denomToPrec(0) == 0);
-  QVERIFY(AlkValue::denomToPrec(-1) == 0);
-  QVERIFY(AlkValue::denomToPrec(-188) == 0);
-  QVERIFY(AlkValue::denomToPrec(200) == 3);
+  QVERIFY(AlkValue::denominatorToPrecision(100) == 2);
+  QVERIFY(AlkValue::denominatorToPrecision(1000000) == 6);
+  QVERIFY(AlkValue::denominatorToPrecision(1) == 0);
+  QVERIFY(AlkValue::denominatorToPrecision(0) == 0);
+  QVERIFY(AlkValue::denominatorToPrecision(-1) == 0);
+  QVERIFY(AlkValue::denominatorToPrecision(-188) == 0);
+  QVERIFY(AlkValue::denominatorToPrecision(200) == 3);
 }
 
-void AlkValueTest::precToDenom(void)
+void AlkValueTest::precisionToDenominator(void)
 {
-  QVERIFY(AlkValue::precToDenom(2) == 100);
-  QVERIFY(AlkValue::precToDenom(6) == 1000000);
-  QVERIFY(AlkValue::precToDenom(0) == 1);
-  QVERIFY(AlkValue::precToDenom(-1) == 1);
-  QVERIFY(AlkValue::precToDenom(-5) == 1);
+  QVERIFY(AlkValue::precisionToDenominator(2) == 100);
+  QVERIFY(AlkValue::precisionToDenominator(6) == 1000000);
+  QVERIFY(AlkValue::precisionToDenominator(0) == 1);
+  QVERIFY(AlkValue::precisionToDenominator(-1) == 1);
+  QVERIFY(AlkValue::precisionToDenominator(-5) == 1);
 }
 
 void AlkValueTest::valueRef(void)
@@ -540,3 +548,22 @@ void AlkValueTest::valueRef(void)
 
   QVERIFY(val == mpq_class(1,7));
 }
+
+void AlkValueTest::canonicalize(void)
+{
+  AlkValue a(5);
+  mpq_class & val(a.valueRef());
+  QVERIFY(val == mpq_class(5,1));
+
+  mpz_class i;
+  i = 10;
+  mpq_set_num(val.get_mpq_t(), i.get_mpz_t());
+  i = 2;
+  mpq_set_den(val.get_mpq_t(), i.get_mpz_t());
+  QVERIFY(val != mpq_class(5,1));
+  QVERIFY(val == mpq_class(10,2));
+
+  a.canonicalize();
+  QVERIFY(val == mpq_class(5,1));
+}
+

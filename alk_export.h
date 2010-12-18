@@ -17,46 +17,24 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
-#ifndef ALKVALUETEST_H
-#define ALKVALUETEST_H
+#ifndef ALK_EXPORT_H
+#define ALK_EXPORT_H
 
-#include <QtCore/QObject>
+/* needed for KDE_EXPORT and KDE_IMPORT macros */
+#include <kdemacros.h>
 
-class AlkValue;
+#ifndef ALK_EXPORT
+# if defined(MAKE_ALK_LIB)
+   /* We are building this library */ 
+#  define ALK_EXPORT KDE_EXPORT
+# else
+   /* We are using this library */ 
+#  define ALK_EXPORT KDE_IMPORT
+# endif
+#endif
 
-class AlkValueTest : public QObject
-{
-  Q_OBJECT
+# ifndef ALK_EXPORT_DEPRECATED
+#  define ALK_EXPORT_DEPRECATED KDE_DEPRECATED ALK_EXPORT
+# endif
 
-private slots:
-  void init();
-  void cleanup();
-  void emptyCtor(void);
-  void copyCtor(void);
-  void intCtor(void);
-  void stringCtor(void);
-  void doubleCtor(void);
-  void assignment(void);
-  void equality(void);
-  void inequality(void);
-  void less(void);
-  void greater(void);
-  void lessThan(void);
-  void greaterThan(void);
-  void addition(void);
-  void subtraction(void);
-  void multiplication(void);
-  void division(void);
-  void unaryMinus(void);
-  void abs(void);
-  void precision(void);
-  void convertDenominator(void);
-  void convertPrecision(void);
-  void denominatorToPrecision(void);
-  void precisionToDenominator(void);
-  void valueRef(void);
-  void canonicalize(void);
-};
-
-#endif // ALKVALUETEST_H
-
+#endif

@@ -117,7 +117,7 @@ AlkValue::AlkValue(const double &dAmount, const unsigned int denom) :
   d->m_val = dAmount;
   d->m_val.canonicalize();
   if (denom != 0) {
-    *this = convertDenom(denom);
+    *this = convertDenominator(denom);
   }
 }
 
@@ -227,7 +227,7 @@ QString AlkValue::toString(void) const
   return mpqToString(d->m_val);
 }
 
-AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
+AlkValue AlkValue::convertDenominator(int _denom, const RoundingMethod how) const
 {
   AlkValue in(*this);
   mpz_class in_num(mpq_numref(in.d->m_val.get_mpq_t()));
@@ -290,7 +290,7 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
             }
             break;
 
-          case RoundTrunc:
+          case RoundTruncate:
             break;
 
           case RoundPromote:
@@ -354,12 +354,12 @@ AlkValue AlkValue::convertDenom(int _denom, const RoundingMethod how) const
   return out;
 }
 
-AlkValue AlkValue::convertPrec(int prec, const RoundingMethod how) const
+AlkValue AlkValue::convertPrecision(int prec, const RoundingMethod how) const
 {
-  return convertDenom(precToDenom(prec).get_si(), how);
+  return convertDenominator(precisionToDenominator(prec).get_si(), how);
 }
 
-mpz_class AlkValue::denomToPrec(mpz_class denom)
+mpz_class AlkValue::denominatorToPrecision(mpz_class denom)
 {
   mpz_class rc = 0;
   while (denom > 1) {
@@ -369,13 +369,19 @@ mpz_class AlkValue::denomToPrec(mpz_class denom)
   return rc;
 }
 
-mpz_class AlkValue::precToDenom(mpz_class prec)
+mpz_class AlkValue::precisionToDenominator(mpz_class prec)
 {
   mpz_class denom = 1;
   while ((prec--) > 0) {
     denom *= 10;
   }
   return denom;
+}
+
+const AlkValue & AlkValue::canonicalize(void)
+{
+  d->m_val.canonicalize();
+  return *this;
 }
 
 AlkValue AlkValue::operator+(const AlkValue &right) const
@@ -422,6 +428,7 @@ AlkValue AlkValue::operator*(int factor) const
 const AlkValue & AlkValue::operator=(const AlkValue & right)
 {
   d->m_val = right.d->m_val;
+  d->m_val.canonicalize();
   return *this;
 }
 
@@ -449,6 +456,7 @@ AlkValue AlkValue::abs(void) const
 {
   AlkValue result;
   mpq_abs(result.d->m_val.get_mpq_t(), d->m_val.get_mpq_t());
+  result.d->m_val.canonicalize();
   return result;
 }
 
@@ -486,6 +494,7 @@ AlkValue AlkValue::operator-() const
 {
   AlkValue result;
   mpq_neg(result.d->m_val.get_mpq_t(), d->m_val.get_mpq_t());
+  result.d->m_val.canonicalize();
   return result;
 }
 

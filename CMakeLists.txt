@@ -1,120 +1,89 @@
-
 # The CMake version we require
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6.4)
+cmake_minimum_required(VERSION 2.6.4)
 
-SET(ALKIMIA_LIB_VERSION "4.3.0")
-SET(ALKIMIA_LIB_SOVERSION "4.3.0")
+######################### libalkimia Version ##########################
+# The current version of libalkimia (used for packages and config.h)
+set(VERSION_MAJOR "4")
+set(VERSION_MINOR "3")
+set(VERSION_PATCH "0")
+
+# Determine the SVN revision number (if we're based on SVN)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
+  # make sure we don't use translated messages here
+  set(LANG $ENV{LANG})
+  set(ENV{LANG} "C")
+  execute_process(COMMAND svn info ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE VERSION_SUFFIX)
+  string(REGEX MATCH "Revision: ([0-9]+)" VERSION_SUFFIX "${VERSION_SUFFIX}") 
+  string(REPLACE "Revision: " "" VERSION_SUFFIX "${VERSION_SUFFIX}")
+  set(VERSION_SUFFIX "-svn${VERSION_SUFFIX}")
+  # switch back to the original language setting
+  set(ENV{LANG} ${LANG})
+endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
+
+set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 # check for PkgConfig, KDE and GMP
-FIND_PACKAGE(PkgConfig REQUIRED)
-FIND_PACKAGE(KDE4 REQUIRED)
-FIND_PACKAGE(GMP REQUIRED)
+find_package(PkgConfig REQUIRED)
+find_package(KDE4 REQUIRED)
+find_package(GMP REQUIRED)
 
-include(${QT_USE_FILE})
+include(KDE4Defaults)
+include_directories(${KDE4_INCLUDES})
+add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS} -DMAKE_ALK_LIB)
 
-SET ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}" )
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 
-SET(alkimia_LIB_SRCS
+set(alkimia_LIB_SRCS
   alkvalue.cpp
   )
 
-SET(alkimia_HEADERS
+set(alkimia_HEADERS
   alkvalue.h
+  alk_export.h
   )
 
-ADD_LIBRARY(alkimia SHARED ${alkimia_LIB_SRCS})
+kde4_add_library(alkimia SHARED ${alkimia_LIB_SRCS})
  
-TARGET_LINK_LIBRARIES(alkimia ${QT_LIBRARIES} ${GMP_LIBRARIES})
+target_link_libraries(alkimia ${QT_QTCORE_LIBRARY} ${GMP_LIBRARIES})
 
-SET_TARGET_PROPERTIES(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION})
+set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION})
 
-IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  SET(CMAKE_INSTALL_PREFIX "${KDE4_INSTALL_DIR}" CACHE PATH
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  set(CMAKE_INSTALL_PREFIX "${KDE4_INSTALL_DIR}" CACHE PATH
     "Alkimia install prefix defaults to the KDE4 install prefix: ${KDE4_INSTALL_DIR}" FORCE)
-ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
-# the RPATH to be used when installing
-# (cf. http://www.vtk.org/Wiki/CMake_RPATH_handling)
-SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
-# add the automatically determined parts of the RPATH
-# which point to directories outside the build tree to the install RPATH
-SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc IMMEDIATE @ONLY)
 
-
-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc IMMEDIATE @ONLY)
-
-# If no build type is set, use "Release with Debug Info"
-IF(NOT CMAKE_BUILD_TYPE)
-  SET(CMAKE_BUILD_TYPE RelWithDebInfo)
-ENDIF(NOT CMAKE_BUILD_TYPE)
-
-SET(CMAKE_BUILD_TYPE "${CMAKE_BUILD_TYPE}" CACHE STRING
-  "Choose the type of build.
-Possible values are: 'Release' 'RelWithDebInfo' 'Debug' 'Debugfull' 'Profile'
-The default value is: 'RelWithDebInfo'" FORCE)
-
-
-IF(NOT WIN32)
-  # use position independent code
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
-ENDIF(NOT WIN32)
-IF(NOT MSVC)
-  # be more pedantic about common symbols
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-common")
-
-  # Debug, Debugfull, Profile
-  SET(CMAKE_CXX_FLAGS_DEBUG
-    "-g -O2 -fno-reorder-blocks -fno-schedule-insns -fno-inline")
-  SET(CMAKE_CXX_FLAGS_DEBUGFULL
-    "-g3 -fno-inline")
-  SET(CMAKE_CXX_FLAGS_PROFILE
-    "-g3 -fno-inline -ftest-coverage -fprofile-arcs")
-
-  # be pedantic about undefined symbols when linking shared libraries
-  IF(CMAKE_SYSTEM_NAME MATCHES Linux)
-    SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-undefined -Wl,--as-needed")
-  ELSE(CMAKE_SYSTEM_NAME MATCHES Linux)
-    SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl")
-  ENDIF(CMAKE_SYSTEM_NAME MATCHES Linux)
-ENDIF(NOT MSVC)
 
 ########### install files ###############
 
-INSTALL(TARGETS alkimia ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS alkimia ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
-INSTALL(FILES ${alkimia_HEADERS}
-        DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia COMPONENT Devel)
+install(FILES ${alkimia_HEADERS}
+        DESTINATION ${KDE4_INCLUDE_DIR}/alkimia COMPONENT Devel)
 
-INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
         DESTINATION ${KDE4_LIB_DIR}/pkgconfig)
 
 ########### documentation ###################
 
 # check for Doxygen
-FIND_PACKAGE(Doxygen)
-IF(DOXYGEN_FOUND)
-  SET(APIDOC_DIR ${CMAKE_CURRENT_BINARY_DIR}/apidocs)
+find_package(Doxygen)
+if(DOXYGEN_FOUND)
+  set(APIDOC_DIR ${CMAKE_CURRENT_BINARY_DIR}/apidocs)
 
-  MAKE_DIRECTORY(${APIDOC_DIR})
+  make_directory(${APIDOC_DIR})
 
-  CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.doxygen.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen IMMEDIATE)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.doxygen.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen IMMEDIATE)
 
-  ADD_CUSTOM_TARGET(apidoc ${DOXYGEN} ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen)
-ENDIF(DOXYGEN_FOUND)
+  add_custom_target(apidoc ${DOXYGEN} ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen)
+endif(DOXYGEN_FOUND)
 
 ########### tests ###################
 
-IF( KDE4_BUILD_TESTS )
-  # INCLUDE(CTest) # (makes sense only with a ctest online dashboard)
-  ENABLE_TESTING()
+set( alkvaluetest_SRCS alkvaluetest.cpp )
+kde4_add_unit_test( alkvaluetest TESTNAME alkimia-alkvalue ${alkvaluetest_SRCS} )
+target_link_libraries( alkvaluetest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTTEST_LIBRARY} )
 
-
-  # alkvaluetest
-  set( alkvaluetest_SRCS alkvaluetest.cpp )
-
-  kde4_add_unit_test( alkvaluetest TESTNAME alkimia-alkvalue ${alkvaluetest_SRCS} )
-  ADD_DEPENDENCIES( alkvaluetest alkimia )
-
-  target_link_libraries( alkvaluetest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTTEST_LIBRARY} )
-
-ENDIF( KDE4_BUILD_TESTS )
