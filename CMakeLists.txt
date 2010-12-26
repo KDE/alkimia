@@ -23,6 +23,14 @@ endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
 set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
+# setup default CMAKE_INSTALL_PREFIX before calling FIND_PACKAGE(KDE4)
+# see https://bugs.kde.org/show_bug.cgi?id=261132
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  execute_process(COMMAND kde4-config --prefix COMMAND tr -d "\n" OUTPUT_VARIABLE KDE4_INSTALL_PREFIX)
+  set(CMAKE_INSTALL_PREFIX "${KDE4_INSTALL_PREFIX}" CACHE PATH
+    "Alkimia install prefix defaults to the KDE4 install prefix: ${KDE4_INSTALL_DIR}" FORCE)
+endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+
 # check for PkgConfig, KDE and GMP
 find_package(PkgConfig REQUIRED)
 find_package(KDE4 REQUIRED)
@@ -48,11 +56,6 @@ kde4_add_library(alkimia SHARED ${alkimia_LIB_SRCS})
 target_link_libraries(alkimia ${QT_QTCORE_LIBRARY} ${GMP_LIBRARIES})
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION})
-
-if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  set(CMAKE_INSTALL_PREFIX "${KDE4_INSTALL_DIR}" CACHE PATH
-    "Alkimia install prefix defaults to the KDE4 install prefix: ${KDE4_INSTALL_DIR}" FORCE)
-endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc IMMEDIATE @ONLY)
 
