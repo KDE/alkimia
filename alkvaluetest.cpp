@@ -546,24 +546,24 @@ void AlkValueTest::valueRef(void)
 
   a = QLatin1String("1/7");
 
-  QVERIFY(val == mpq_class(1,7));
+  QVERIFY(val == mpq_class(1, 7));
 }
 
 void AlkValueTest::canonicalize(void)
 {
   AlkValue a(5);
   mpq_class & val(a.valueRef());
-  QVERIFY(val == mpq_class(5,1));
+  QVERIFY(val == mpq_class(5, 1));
 
   mpz_class i;
   i = 10;
   mpq_set_num(val.get_mpq_t(), i.get_mpz_t());
   i = 2;
   mpq_set_den(val.get_mpq_t(), i.get_mpz_t());
-  QVERIFY(val != mpq_class(5,1));
-  QVERIFY(val == mpq_class(10,2));
+  QVERIFY(val != mpq_class(5, 1));
+  QVERIFY(val == mpq_class(10, 2));
 
   a.canonicalize();
-  QVERIFY(val == mpq_class(5,1));
+  QVERIFY(val == mpq_class(5, 1));
 }
 
