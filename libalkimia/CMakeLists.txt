@@ -57,8 +57,9 @@ target_link_libraries(alkimia ${QT_QTCORE_LIBRARY} ${GMP_LIBRARIES})
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION})
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc IMMEDIATE @ONLY)
-
+if (NOT WIN32)
+   configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc IMMEDIATE @ONLY)
+endif(NOT WIN32)
 
 ########### install files ###############
 
@@ -67,9 +68,10 @@ install(TARGETS alkimia ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install(FILES ${alkimia_HEADERS}
         DESTINATION ${KDE4_INCLUDE_DIR}/alkimia COMPONENT Devel)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
-        DESTINATION ${KDE4_LIB_DIR}/pkgconfig)
-
+if (NOT WIN32)
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
+          DESTINATION ${KDE4_LIB_DIR}/pkgconfig)
+endif(NOT WIN32)
 ########### documentation ###################
 
 # check for Doxygen
