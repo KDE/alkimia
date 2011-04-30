@@ -66,11 +66,11 @@ endif(NOT WIN32)
 install(TARGETS alkimia ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 install(FILES ${alkimia_HEADERS}
-        DESTINATION ${KDE4_INCLUDE_DIR}/alkimia COMPONENT Devel)
+        DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia COMPONENT Devel)
 
 if (NOT WIN32)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
-          DESTINATION ${KDE4_LIB_DIR}/pkgconfig)
+          DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 endif(NOT WIN32)
 ########### documentation ###################
 
