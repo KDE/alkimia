@@ -37,23 +37,27 @@ find_package(KDE4 REQUIRED)
 find_package(GMP REQUIRED)
 
 include(KDE4Defaults)
-include_directories(${KDE4_INCLUDES})
+include_directories(${QDBUS_INCLUDE_DIRS} ${KDE4_INCLUDES})
 add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS} -DMAKE_ALK_LIB)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 
 set(alkimia_LIB_SRCS
   alkvalue.cpp
+  alkquoteitem.cpp
+  alkcompany.cpp
   )
 
 set(alkimia_HEADERS
   alkvalue.h
+  alkquoteitem.h
+  alkcompany.h
   alk_export.h
   )
 
 kde4_add_library(alkimia SHARED ${alkimia_LIB_SRCS})
  
-target_link_libraries(alkimia ${QT_QTCORE_LIBRARY} ${GMP_LIBRARIES})
+target_link_libraries(alkimia ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${GMP_LIBRARIES})
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION})
 
@@ -89,6 +93,12 @@ endif(DOXYGEN_FOUND)
 ########### tests ###################
 
 set( alkvaluetest_SRCS alkvaluetest.cpp )
+set( alkquoteitemtest_SRCS alkquoteitemtest.cpp )
+set( alkcompanytest_SRCS alkcompanytest.cpp )
 kde4_add_unit_test( alkvaluetest TESTNAME alkimia-alkvalue ${alkvaluetest_SRCS} )
+kde4_add_unit_test( alkquoteitemtest TESTNAME alkimia-alkquoteitem ${alkquoteitemtest_SRCS} )
+kde4_add_unit_test( alkcompanytest TESTNAME alkimia-alkcompany ${alkcompanytest_SRCS} )
 target_link_libraries( alkvaluetest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTTEST_LIBRARY} )
+target_link_libraries( alkquoteitemtest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTTEST_LIBRARY} )
+target_link_libraries( alkcompanytest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTTEST_LIBRARY} )
 
