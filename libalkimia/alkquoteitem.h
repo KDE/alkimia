@@ -40,65 +40,65 @@ class ALK_EXPORT AlkQuoteItem : public QObject
 public:
   AlkQuoteItem(QObject *parent = 0);
   ~AlkQuoteItem();
-  
+
   AlkQuoteItem(const AlkQuoteItem &item, QObject* parent = 0);
-  
+
   /**
    * This is the symbol of the equity
    */
   const QString& symbol() const;
-  
+
   /**
    * Date and time of the quote
    */
   const QDateTime& dateTime() const;
-  
+
   /**
    * Value of the share at the time of the quote
-   */ 
+   */
   const AlkValue& currentValue() const;
-  
+
   /**
    * Value of the share when the market opened
    */
   const AlkValue& openingValue() const;
-  
+
   /**
    * Highest value of the share since the market opened that day
    */
   const AlkValue& highValue() const;
-  
+
   /**
    * Lowest value of the share since the market opened that day
    */
   const AlkValue& lowValue() const;
-  
+
   /**
    * Value of the share when the market closed
    */
   const AlkValue& closingValue() const;
-  
+
   /**
    * Number of shares traded
    */
   const AlkValue& volume() const;
-  
+
   /**
    * Market capitalization
    */
   const AlkValue& marketCap() const;
-  
-  
+
+
   /**
    * Earning per share
    */
   const AlkValue& earningsPerShare() const;
-  
+
   /**
    * Today's change
    */
   const AlkValue& changeToday() const;
-  
+
   /**
    * Earnings Before Interest, Taxes, Depreciation, and Amortization
    */
@@ -109,7 +109,7 @@ public:
    */
   const QString& recordId() const;
 
-  
+
   void setSymbol(const QString &symbol);
   void setDateTime(const QDateTime &datetime);
   void setCurrentValue(const AlkValue &value);
@@ -124,12 +124,12 @@ public:
   void setEbitda(const AlkValue &value);
   void setRecordId(const QString &recordId);
 
-  private:
-    /// \internal d-pointer class.
+private:
+  /// \internal d-pointer class.
   class Private;
   /// \internal d-pointer instance.
   Private* const d;
-  
+
 };
 
 ALK_EXPORT QDBusArgument& operator<<(QDBusArgument& argument, const AlkQuoteItem &item);

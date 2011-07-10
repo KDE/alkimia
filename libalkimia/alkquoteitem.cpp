@@ -35,12 +35,12 @@ public:
   AlkValue m_earnings;
   AlkValue m_ebitda;
   QString m_id;
- 
+
 };
 
 AlkQuoteItem::AlkQuoteItem(QObject *parent) :
-  QObject(parent),
-  d(new Private)
+    QObject(parent),
+    d(new Private)
 {
 }
 
@@ -49,8 +49,8 @@ AlkQuoteItem::~AlkQuoteItem()
 }
 
 AlkQuoteItem::AlkQuoteItem(const AlkQuoteItem& item, QObject* parent):
-  QObject(parent),
-  d(new Private)
+    QObject(parent),
+    d(new Private)
 {
   setSymbol(item.symbol());
   setDateTime(item.dateTime());
@@ -126,7 +126,7 @@ const AlkValue& AlkQuoteItem::ebitda() const
 {
   return d->m_ebitda;
 }
- 
+
 const QString& AlkQuoteItem::recordId() const
 {
   return d->m_id;
@@ -202,10 +202,10 @@ QDBusArgument& operator<<(QDBusArgument& argument, const AlkQuoteItem &item)
 {
   argument.beginStructure();
   argument << item.symbol() << item.dateTime().toString(Qt::ISODate) << item.currentValue().toString()
-      << item.openingValue().toString()
-      << item.highValue().toString() << item.lowValue().toString() << item.closingValue().toString()
-      << item.marketCap().toString() << item.volume().toString() << item.earningsPerShare().toString()
-      << item.changeToday().toString() << item.ebitda().toString() << item.recordId();
+  << item.openingValue().toString()
+  << item.highValue().toString() << item.lowValue().toString() << item.closingValue().toString()
+  << item.marketCap().toString() << item.volume().toString() << item.earningsPerShare().toString()
+  << item.changeToday().toString() << item.ebitda().toString() << item.recordId();
   argument.endStructure();
   return argument;
 }
@@ -226,9 +226,9 @@ const QDBusArgument& operator>>(const QDBusArgument& argument, AlkQuoteItem &ite
   QString change;
   QString ebitda;
   QString recordId;
-  
+
   argument >> symbol >> dateTime >> currentValue >> openingValue >> highValue >> lowValue
-    >> closingValue >> marketCap >> volume >> earnings >> change >> ebitda >> recordId;
+  >> closingValue >> marketCap >> volume >> earnings >> change >> ebitda >> recordId;
   item.setSymbol(symbol);
   item.setDateTime(QDateTime::fromString(dateTime, Qt::ISODate));
   item.setCurrentValue(AlkValue(currentValue, '.'));
@@ -242,7 +242,7 @@ const QDBusArgument& operator>>(const QDBusArgument& argument, AlkQuoteItem &ite
   item.setChangeToday(AlkValue(change, '.'));
   item.setEbitda(AlkValue(ebitda, '.'));
   item.setRecordId(recordId);
-  
+
   argument.endStructure();
   return argument;
 }

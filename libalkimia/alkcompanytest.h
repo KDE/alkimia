@@ -27,7 +27,7 @@ class AlkCompany;
 class AlkCompanyTest : public QObject
 {
   Q_OBJECT
-  
+
 private slots:
 
   void init();

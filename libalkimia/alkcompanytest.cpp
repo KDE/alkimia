@@ -34,59 +34,59 @@ void AlkCompanyTest::cleanup()
 
 void AlkCompanyTest::emptyCtor()
 {
-AlkCompany company;
-  
-QVERIFY(company.symbol().isEmpty());
-QVERIFY(company.name().isEmpty());
-QVERIFY(company.exchange().isEmpty());
-QVERIFY(company.type().isEmpty());
-QVERIFY(company.recordId().isEmpty());
+  AlkCompany company;
+
+  QVERIFY(company.symbol().isEmpty());
+  QVERIFY(company.name().isEmpty());
+  QVERIFY(company.exchange().isEmpty());
+  QVERIFY(company.type().isEmpty());
+  QVERIFY(company.recordId().isEmpty());
 }
 
 void AlkCompanyTest::copyCtor()
 {
-AlkCompany company;
-QString symbol = QString("TESTSYMBOL");
-QString name = QString("TESTNAME");
-QString exchange = QString("TESTEXCHANGE");
-QString type = QString("TESTTYPE");
-QString recordId = QString("A1337");
+  AlkCompany company;
+  QString symbol = QString("TESTSYMBOL");
+  QString name = QString("TESTNAME");
+  QString exchange = QString("TESTEXCHANGE");
+  QString type = QString("TESTTYPE");
+  QString recordId = QString("A1337");
 
-company.setSymbol(symbol);
-company.setName(name);
-company.setExchange(exchange);
-company.setType(type);
-company.setRecordId(recordId);
+  company.setSymbol(symbol);
+  company.setName(name);
+  company.setExchange(exchange);
+  company.setType(type);
+  company.setRecordId(recordId);
 
-AlkCompany copy(company);
+  AlkCompany copy(company);
 
-QVERIFY(symbol == copy.symbol());
-QVERIFY(name == copy.name());
-QVERIFY(exchange == copy.exchange());
-QVERIFY(type == copy.type());
-QVERIFY(recordId == copy.recordId());
+  QVERIFY(symbol == copy.symbol());
+  QVERIFY(name == copy.name());
+  QVERIFY(exchange == copy.exchange());
+  QVERIFY(type == copy.type());
+  QVERIFY(recordId == copy.recordId());
 }
 
 void AlkCompanyTest::settersAndGetters()
 {
-AlkCompany company;
-QString symbol = QString("TESTSYMBOL");
-QString name = QString("TESTNAME");
-QString exchange = QString("TESTEXCHANGE");
-QString type = QString("TESTTYPE");
-QString recordId = QString("A1337");
+  AlkCompany company;
+  QString symbol = QString("TESTSYMBOL");
+  QString name = QString("TESTNAME");
+  QString exchange = QString("TESTEXCHANGE");
+  QString type = QString("TESTTYPE");
+  QString recordId = QString("A1337");
 
-company.setSymbol(symbol);
-company.setName(name);
-company.setExchange(exchange);
-company.setType(type);
-company.setRecordId(recordId);
+  company.setSymbol(symbol);
+  company.setName(name);
+  company.setExchange(exchange);
+  company.setType(type);
+  company.setRecordId(recordId);
 
-QVERIFY(symbol == company.symbol());
-QVERIFY(name == company.name());
-QVERIFY(exchange == company.exchange());
-QVERIFY(type == company.type());
-QVERIFY(recordId == company.recordId());
+  QVERIFY(symbol == company.symbol());
+  QVERIFY(name == company.name());
+  QVERIFY(exchange == company.exchange());
+  QVERIFY(type == company.type());
+  QVERIFY(recordId == company.recordId());
 }
 
 void AlkCompanyTest::qDbusArgument()

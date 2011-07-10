@@ -27,7 +27,7 @@ class AlkQuoteItem;
 class AlkQuoteItemTest : public QObject
 {
   Q_OBJECT
-  
+
 private slots:
 
   void init();
