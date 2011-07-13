@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.6.4)
 # The current version of libalkimia (used for packages and config.h)
 set(VERSION_MAJOR "4")
 set(VERSION_MINOR "3")
-set(VERSION_PATCH "0")
+set(VERSION_PATCH "1")
 
 # Determine the SVN revision number (if we're based on SVN)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
@@ -56,6 +56,10 @@ set(alkimia_HEADERS
   alk_export.h
   )
 
+set(alkimia_CMAKE_MODULES
+  FindLibAlkimia.cmake
+  )
+
 kde4_add_library(alkimia SHARED ${alkimia_LIB_SRCS})
  
 target_link_libraries(alkimia ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${GMP_LIBRARIES})
@@ -72,6 +76,9 @@ install(TARGETS alkimia ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 install(FILES ${alkimia_HEADERS}
         DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia COMPONENT Devel)
+
+install(FILES ${alkimia_CMAKE_MODULES}
+        DESTINATION ${KDE4_DATA_DIR}/cmake/modules COMPONENT Devel)
 
 if (NOT WIN32)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
