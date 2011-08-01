@@ -1,3 +1,12 @@
+2011-08-01 10:09  tbaumgart
+
+	* [r1244271] FindLibAlkimia.cmake, libalkimia.pc.in: Fix versison
+	  check for correct library version
+
+2011-08-01 09:13  tbaumgart
+
+	* [r1244268] ChangeLog[ADD], ReleaseLog[ADD]: Released 4.3.1
+
 2011-07-13 05:59  tbaumgart
 
 	* [r1241408] ., CMakeLists.txt, FindLibAlkimia.cmake[ADD]: Provide
