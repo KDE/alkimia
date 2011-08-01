@@ -11,7 +11,7 @@ includedir=@INCLUDE_INSTALL_DIR@/alkimia
 Name: Alkimia
 # Human-readable description
 Description: A library for financial data handling
-Version: @ALKIMIA_LIB_SOVERSION@
+Version: @ALKIMIA_LIB_VERSION@
 
 Libs: -lalkimia
 Libs.private: -lgmp -lQtCore -lstdc++

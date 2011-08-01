@@ -15,7 +15,7 @@ include(MacroEnsureVersion)
 set(LIBALKIMIA_FOUND FALSE)
 
 if(NOT LIBALKIMIA_MIN_VERSION)
-  set(LIBALKIMIA_MIN_VERSION "4.3")
+  set(LIBALKIMIA_MIN_VERSION "4.3.1")
 endif(NOT LIBALKIMIA_MIN_VERSION)
 
 if (WIN32)
@@ -36,7 +36,7 @@ IF (NOT WIN32)
    # use pkg-config to get the directories and then use these values
    # in the FIND_PATH() and FIND_LIBRARY() calls
    find_package(PkgConfig)
-   pkg_check_modules(PC_ALKIMIA libalkimia)
+   pkg_check_modules(PC_ALKIMIA REQUIRED libalkimia>=${LIBALKIMIA_MIN_VERSION})
    SET(LIBALKIMIA_DEFINITIONS ${PC_ALKIMIA_CFLAGS_OTHER})
 ENDIF (NOT WIN32)
 
