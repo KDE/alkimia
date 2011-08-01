@@ -1,0 +1,176 @@
+2011-07-13 05:59  tbaumgart
+
+	* [r1241408] ., CMakeLists.txt, FindLibAlkimia.cmake[ADD]: Provide
+	  cmake module to find the library
+
+2011-06-14 11:18  mlaurent
+
+	* [r1236681] CMakeLists.txt: it compiles fine with
+	  "-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS"
+
+2011-05-30 02:39  asoliverez
+
+	* [r1234194] alkcompany.h, alkquoteitem.cpp, alkquoteitem.h,
+	  alkquoteitemtest.cpp: Added API documentation
+	  Added more properties to AlkQuoteItem
+
+2011-05-16 02:34  asoliverez
+
+	* [r1232142] CMakeLists.txt, alkcompany.cpp[ADD],
+	  alkcompany.h[ADD], alkcompanytest.cpp[ADD],
+	  alkcompanytest.h[ADD], alkquoteitem.cpp[ADD],
+	  alkquoteitem.h[ADD], alkquoteitemtest.cpp[ADD],
+	  alkquoteitemtest.h[ADD]: Add two new classes that will be used
+	  for data transfer of quote information in Alkimia server
+
+2011-04-30 19:43  tbaumgart
+
+	* [r1229874] CMakeLists.txt: Installation path for include and
+	  pkgconfig files follows CMAKE_INSTALL_PREFIX
+	  
+	  BUG: 271738
+
+2011-01-14 12:39  mlaurent
+
+	* [r1214382] CMakeLists.txt: not generate pc file when we are on
+	  windows
+
+2011-01-12 20:40  tbaumgart
+
+	* [r1214071] CMakeLists.txt: Added libalkimia to build system
+
+2011-01-03 13:59  tbaumgart
+
+	* [r1211274] .[CPY]: Move libalkimia to extragear
+
+2011-01-01 18:18  tbaumgart
+
+	* [r1210669] Generate all necessary symbolic links
+
+2010-12-26 09:19  tbaumgart
+
+	* [r1209270] Make sure to setup the default CMAKE_INSTALL_PREFIX
+	  before using it the first time
+
+2010-12-26 09:13  tbaumgart
+
+	* [r1209268] Ran astyle
+
+2010-12-18 10:38  tbaumgart
+
+	* [r1207506] - Consistent use of QLatin1String and QLatin1Char
+	  - Use full names instead of abbreviated ones for methods and
+	  constants
+	  - Added use of alk_export.h
+	  - Cleaned up CMakeLists.txt
+	  - Added canonicalize() method
+
+2010-12-17 14:21  tbaumgart
+
+	* [r1207307] Make sure tests compile with QT_NO_CAST_FROM_ASCII
+	  being defined.
+
+2010-12-17 02:27  rkcosta
+
+	* [r1207120] Start comment in uppercase.
+	  
+	  SVN_SILENT
+
+2010-12-17 01:57  rkcosta
+
+	* [r1207115] Fix typo: denomiator -> denominator.
+	  
+	  SVN_SILENT
+
+2010-12-11 14:05  tbaumgart
+
+	* [r1205547] Added method to access the underlying mpq_class object
+	  from derived implementations
+
+2010-12-08 09:15  tbaumgart
+
+	* [r1204585] Replaced prefix 'Rnd' for rounding methods with
+	  'Round'
+
+2010-12-08 09:10  tbaumgart
+
+	* [r1204583] - Moved inline code into implementation file
+	  - Added dptr to be used for member variables
+
+2010-12-07 12:22  mlaurent
+
+	* [r1204467] cmakelint
+
+2010-12-07 12:19  mlaurent
+
+	* [r1204465] compile with "( -DQT_NO_CAST_FROM_ASCII
+	  -DQT_NO_CAST_TO_ASCII )"
+
+2010-12-06 13:32  tbaumgart
+
+	* [r1204233] Moved libalkimia to kdereview
+
+2010-12-06 07:56  tbaumgart
+
+	* [r1204090] Added doxygen support to build environment
+	  Improved comments
+
+2010-11-16 20:41  tbaumgart
+
+	* [r1197863] Resolved krazy warnings
+
+2010-11-15 08:16  tbaumgart
+
+	* [r1197245] Ran astyle
+
+2010-11-12 10:46  tbaumgart
+
+	* [r1195999] * Added rounding function
+	  * Removed input and output stream functions
+	  * Added testcases
+
+2010-10-11 11:25  tbaumgart
+
+	* [r1184784] Ran astyle on libalkimia
+
+2010-10-11 11:04  tbaumgart
+
+	* [r1184780] Added unit test support
+
+2010-10-01 12:37  tbaumgart
+
+	* [r1181586] Added pkg-config support
+
+2010-09-18 06:38  tbaumgart
+
+	* [r1176569] Fix problem when numerator is empty during conversion
+
+2010-09-17 13:33  tbaumgart
+
+	* [r1176374] Added build support for MS-Windows
+
+2010-09-13 08:25  tbaumgart
+
+	* [r1174787] * Add a trailing /1 in any case to the return value of
+	  mpqToString()
+	  * Remove commas if they are not the decimal symbol
+
+2010-09-12 12:17  tbaumgart
+
+	* [r1174435] Added copy ctor
+	  Added multiplication operator with int
+	  Fixed problem in string conversion with leading 0's which cause
+	  libgmp to interpret numbers as octal.
+
+2010-06-27 05:27  tbaumgart
+
+	* [r1143260] Changed license to LGPL
+
+2010-05-26 06:58  tbaumgart
+
+	* [r1130736] Fixed regexp
+
+2010-05-23 13:15  tbaumgart
+
+	* [r1129706] First import of alkimia code
+
