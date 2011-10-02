@@ -179,7 +179,7 @@ AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
     res.remove(pos, 1);
   }
 
-  // take care of any fraction
+  // take care of any fractional part
   pos = res.indexOf(decimalSymbol);
   int len = res.length();
   QString fraction = QString::fromLatin1("/1");

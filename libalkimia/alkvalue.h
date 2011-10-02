@@ -133,8 +133,8 @@ public:
     * @param val the double value
     * @param denom the denominator of the resulting AlkValue
     *
-    * @note In case one wants to use the number of precision digits
-    * to specify the fractional length, use
+    * @note In case one wants to use the number of decimal places
+    * to specify the length of the fractional part, use
     *
     * @code
     *  AlkValue alk(1.234, AlkValue::precisionToDenominator(2).get_ui());
