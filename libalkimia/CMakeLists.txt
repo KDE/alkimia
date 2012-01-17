@@ -78,7 +78,7 @@ install(FILES ${alkimia_HEADERS}
         DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia COMPONENT Devel)
 
 install(FILES ${alkimia_CMAKE_MODULES}
-        DESTINATION ${KDE4_DATA_DIR}/cmake/modules COMPONENT Devel)
+        DESTINATION ${DATA_INSTALL_DIR}/cmake/modules COMPONENT Devel)
 
 if (NOT WIN32)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
