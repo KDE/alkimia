@@ -186,17 +186,18 @@ AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
   if ((pos != -1) && (pos < len)) {
     fraction += QString(len - pos - 1, QLatin1Char('0'));
     res.remove(pos, 1);
+  }
 
-    // check if the resulting numerator contains any leading zeros ...
-    int cnt = 0;
-    while (res[cnt] == QLatin1Char('0') && cnt < len - 2) {
-      ++cnt;
-    }
+  // check if the resulting numerator contains any leading zeros ...
+  int cnt = 0;
+  len = res.length() - 1;
+  while (res[cnt] == QLatin1Char('0') && cnt < len) {
+    ++cnt;
+  }
 
-    // ... and remove them
-    if (cnt) {
-      res.remove(0, cnt);
-    }
+  // ... and remove them
+  if (cnt) {
+    res.remove(0, cnt);
   }
 
   // in case the numerator is empty, we convert it to "0"
@@ -208,7 +209,12 @@ AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
   // looks like we now have a pretty normalized string that we
   // can convert right away
   // qDebug("and try to convert '%s'", qPrintable(res));
-  d->m_val = mpq_class(qPrintable(res));
+  try {
+    d->m_val = mpq_class(qPrintable(res));
+  } catch (const std::invalid_argument &) {
+    qWarning("Invalid argument '%s' to mpq_class() in AlkValue. Arguments to ctor: '%s', '%c'", qPrintable(res), qPrintable(str), decimalSymbol.toLatin1());
+    d->m_val = mpq_class(0);
+  }
   d->m_val.canonicalize();
 
   // now we make sure that we use the right sign
