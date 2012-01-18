@@ -120,6 +120,9 @@ void AlkValueTest::stringCtor(void)
   m = new AlkValue(QLatin1String("0.09"), QLatin1Char('.'));
   QVERIFY(m->toString() == QLatin1String("9/100"));
   delete m;
+  m = new AlkValue(QLatin1String("09"), QLatin1Char('.'));
+  QVERIFY(m->toString() == QLatin1String("9/1"));
+  delete m;
 
   // negative numbers
   m = new AlkValue(QLatin1String("x(1,234.)"), QLatin1Char('.'));
