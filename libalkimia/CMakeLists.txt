@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.6.4)
 # The current version of libalkimia (used for packages and config.h)
 set(VERSION_MAJOR "4")
 set(VERSION_MINOR "3")
-set(VERSION_PATCH "1")
+set(VERSION_PATCH "2")
 
 # Determine the SVN revision number (if we're based on SVN)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
