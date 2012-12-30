@@ -1,6 +1,3 @@
-# The CMake version we require
-cmake_minimum_required(VERSION 2.6.4)
-
 ######################### libalkimia Version ##########################
 # The current version of libalkimia (used for packages and config.h)
 set(VERSION_MAJOR "4")
