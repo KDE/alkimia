@@ -43,7 +43,7 @@ void AlkValueTest::cleanup()
 void AlkValueTest::emptyCtor()
 {
   AlkValue *m = new AlkValue();
-  QVERIFY(m->toString() == QLatin1String("0/1"));
+  QCOMPARE(m->toString(), QLatin1String("0/1"));
   delete m;
 }
 
@@ -52,27 +52,27 @@ void AlkValueTest::copyCtor()
   AlkValue a(41, 152);
   AlkValue b(a);
 
-  QVERIFY(a.toString() == QLatin1String("41/152"));
-  QVERIFY(b.toString() == QLatin1String("41/152"));
+  QCOMPARE(a.toString(), QLatin1String("41/152"));
+  QCOMPARE(b.toString(), QLatin1String("41/152"));
 }
 
 void AlkValueTest::intCtor()
 {
   AlkValue *m;
   m = new AlkValue(10);
-  QVERIFY(m->toString() == QLatin1String("10/1"));
+  QCOMPARE(m->toString(), QLatin1String("10/1"));
   delete m;
 
   m = new AlkValue(-10);
-  QVERIFY(m->toString() == QLatin1String("-10/1"));
+  QCOMPARE(m->toString(), QLatin1String("-10/1"));
   delete m;
 
   m = new AlkValue(10, 2);
-  QVERIFY(m->toString() == QLatin1String("5/1"));
+  QCOMPARE(m->toString(), QLatin1String("5/1"));
   delete m;
 
   m = new AlkValue(-10, 2);
-  QVERIFY(m->toString() == QLatin1String("-5/1"));
+  QCOMPARE(m->toString(), QLatin1String("-5/1"));
   delete m;
 
   // the denominator is an unsigned value thus sticking in a negative
@@ -88,73 +88,73 @@ void AlkValueTest::stringCtor()
 
   // mixed mode used for some price information in QIF
   m = new AlkValue(QLatin1String("5 8/16"), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue(5.5));
+  QCOMPARE(*m, AlkValue(5.5));
   delete m;
 
   // standard representation
   m = new AlkValue(QLatin1String("12345/100"), QLatin1Char('.'));
-  QVERIFY(m->toString() == QLatin1String("2469/20"));
+  QCOMPARE(m->toString(), QLatin1String("2469/20"));
   delete m;
 
   // negative standard representation
   m = new AlkValue(QLatin1String("-8/32"), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue(-0.25));
+  QCOMPARE(*m, AlkValue(-0.25));
   delete m;
 
   // false negative standard representation
   m = new AlkValue(QLatin1String("(8/32)"), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue(-832));
+  QCOMPARE(*m, AlkValue(-832));
   delete m;
 
   // duplicate negative standard representation
   m = new AlkValue(QLatin1String("(-8/32)"), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue(-832));
+  QCOMPARE(*m, AlkValue(-832));
   delete m;
 
   // duplicate negative standard representation
   m = new AlkValue(QLatin1String("-(8/32)"), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue(-832));
+  QCOMPARE(*m, AlkValue(-832));
   delete m;
 
   // different decimal symbol
   m = new AlkValue(QLatin1String("x1.234,568 EUR"), QLatin1Char(','));
-  QVERIFY(m->toString() == QLatin1String("154321/125"));
+  QCOMPARE(m->toString(), QLatin1String("154321/125"));
   delete m;
 
   // octal leadin
   m = new AlkValue(QLatin1String("0.07"), QLatin1Char('.'));
-  QVERIFY(m->toString() == QLatin1String("7/100"));
+  QCOMPARE(m->toString(), QLatin1String("7/100"));
   delete m;
   m = new AlkValue(QLatin1String("0.09"), QLatin1Char('.'));
-  QVERIFY(m->toString() == QLatin1String("9/100"));
+  QCOMPARE(m->toString(), QLatin1String("9/100"));
   delete m;
   m = new AlkValue(QLatin1String("09"), QLatin1Char('.'));
-  QVERIFY(m->toString() == QLatin1String("9/1"));
+  QCOMPARE(m->toString(), QLatin1String("9/1"));
   delete m;
 
   // negative numbers
   m = new AlkValue(QLatin1String("x(1,234.)"), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue(-1234));
+  QCOMPARE(*m, AlkValue(-1234));
   delete m;
   m = new AlkValue(QLatin1String("x-1,234."), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue(-1234));
+  QCOMPARE(*m, AlkValue(-1234));
   delete m;
   m = new AlkValue(QLatin1String("x1,234.-"), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue(-1234));
+  QCOMPARE(*m, AlkValue(-1234));
   delete m;
 
   // empty string
   m = new AlkValue(QLatin1String(""), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue());
+  QCOMPARE(*m, AlkValue());
   delete m;
   m = new AlkValue(QLatin1String("."), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue());
+  QCOMPARE(*m, AlkValue());
   delete m;
   m = new AlkValue(QLatin1String(","), QLatin1Char('.'));
-  QVERIFY(*m == AlkValue());
+  QCOMPARE(*m, AlkValue());
   delete m;
   m = new AlkValue(QLatin1String("."), QLatin1Char(','));
-  QVERIFY(*m == AlkValue());
+  QCOMPARE(*m, AlkValue());
   delete m;
 }
 
@@ -165,7 +165,7 @@ void AlkValueTest::doubleCtor()
     AlkValue r(i, 100);
     d /= 100;
     AlkValue t(d, 100);
-    QVERIFY(t == r);
+    QCOMPARE(t, r);
   }
 
   AlkValue a = AlkValue(1.9999999999998);
@@ -174,10 +174,10 @@ void AlkValueTest::doubleCtor()
   QVERIFY(a > AlkValue(QLatin1String("1.999999999"), QLatin1Char('.')));
 
   a = AlkValue(1.9999999999998, 100);
-  QVERIFY(a == AlkValue(2, 1));
+  QCOMPARE(a, AlkValue(2, 1));
 
   a = AlkValue(1.234, AlkValue::precisionToDenominator(2).get_ui());
-  QVERIFY(a == AlkValue(123, 100));
+  QCOMPARE(a, AlkValue(123, 100));
 }
 
 void AlkValueTest::assignment()
@@ -186,27 +186,27 @@ void AlkValueTest::assignment()
   AlkValue m0;
   AlkValue m1(10, 2);
   m0 = m1;
-  QVERIFY(m0.toString() == QLatin1String("5/1"));
+  QCOMPARE(m0.toString(), QLatin1String("5/1"));
 
   // const AlkValue& operator=(int num);
   m0 = 6;
-  QVERIFY(m0.toString() == QLatin1String("6/1"));
+  QCOMPARE(m0.toString(), QLatin1String("6/1"));
   m0 = -12;
-  QVERIFY(m0.toString() == QLatin1String("-12/1"));
+  QCOMPARE(m0.toString(), QLatin1String("-12/1"));
 
   // const AlkValue& operator=(double num);
   m0 = 123.45;
-  QVERIFY(m0.toString() == QLatin1String("8687021468732621/70368744177664"));
+  QCOMPARE(m0.toString(), QLatin1String("8687021468732621/70368744177664"));
   m0 = 1.23e7;
-  QVERIFY(m0.toString() == QLatin1String("12300000/1"));
+  QCOMPARE(m0.toString(), QLatin1String("12300000/1"));
 
   // const AlkValue& operator=(const QString& str);
   m0 = QLatin1String("x1234.567");
-  QVERIFY(m0.toString() == QLatin1String("1234567/1000"));
+  QCOMPARE(m0.toString(), QLatin1String("1234567/1000"));
   m0 = QLatin1String("(x1234.567)");
-  QVERIFY(m0.toString() == QLatin1String("-1234567/1000"));
+  QCOMPARE(m0.toString(), QLatin1String("-1234567/1000"));
   m0 = QLatin1String("-1234.567");
-  QVERIFY(m0.toString() == QLatin1String("-1234567/1000"));
+  QCOMPARE(m0.toString(), QLatin1String("-1234567/1000"));
 }
 
 void AlkValueTest::equality()
@@ -214,19 +214,19 @@ void AlkValueTest::equality()
   AlkValue m0, m1;
   m0 = 123;
   m1 = QLatin1String("123");
-  QVERIFY(m0 == m1);
+  QCOMPARE(m0, m1);
 
   m0 = QLatin1String("511/100");
   m1 = QLatin1String("5753348523965686/1125899906842600");
-  QVERIFY(m0 == m1);
+  QCOMPARE(m0, m1);
 
   m0 = QLatin1String("-14279570/100");
   m1 = QLatin1String("-1427957/10");
-  QVERIFY(m0 == m1);
+  QCOMPARE(m0, m1);
 
   m0 = QLatin1String("-7301028/100");
   m1 = QLatin1String("-1825257/25");
-  QVERIFY(m0 == m1);
+  QCOMPARE(m0, m1);
 }
 
 void AlkValueTest::inequality()
@@ -325,18 +325,18 @@ void AlkValueTest::addition()
   AlkValue m0, m1;
   m0 = 100;
   m1 = 23;
-  QVERIFY((m0 + m1) == AlkValue(123));
+  QCOMPARE((m0 + m1), AlkValue(123));
 
   // AlkValue& operator+= ( const AlkValue&  val );
   m0 += m1;
-  QVERIFY(m0 == AlkValue(123));
+  QCOMPARE(m0, AlkValue(123));
 
   m0 = 100;
   m1 = -23;
-  QVERIFY((m0 + m1) == AlkValue(77));
+  QCOMPARE((m0 + m1), AlkValue(77));
 
   m0 += m1;
-  QVERIFY(m0 == AlkValue(77));
+  QCOMPARE(m0, AlkValue(77));
 }
 
 void AlkValueTest::subtraction()
@@ -345,18 +345,18 @@ void AlkValueTest::subtraction()
   AlkValue m0, m1;
   m0 = 100;
   m1 = 23;
-  QVERIFY((m0 - m1) == AlkValue(77));
+  QCOMPARE((m0 - m1), AlkValue(77));
 
   // AlkValue& operator-= ( const AlkValue&  val );
   m0 -= m1;
-  QVERIFY(m0 == AlkValue(77));
+  QCOMPARE(m0, AlkValue(77));
 
   m0 = 100;
   m1 = -23;
-  QVERIFY((m0 - m1) == AlkValue(123));
+  QCOMPARE((m0 - m1), AlkValue(123));
 
   m0 -= m1;
-  QVERIFY(m0 == AlkValue(123));
+  QCOMPARE(m0, AlkValue(123));
 }
 
 void AlkValueTest::multiplication()
@@ -365,22 +365,22 @@ void AlkValueTest::multiplication()
   AlkValue m0, m1;
   m0 = 100;
   m1 = 23;
-  QVERIFY((m0 * m1) == AlkValue(2300));
+  QCOMPARE((m0 * m1), AlkValue(2300));
 
   // AlkValue& operator*= ( const AlkValue&  val );
   m0 *= m1;
-  QVERIFY(m0 == AlkValue(2300));
+  QCOMPARE(m0, AlkValue(2300));
 
   m0 = 100;
   m1 = -23;
-  QVERIFY((m0 * m1) == AlkValue(-2300));
+  QCOMPARE((m0 * m1), AlkValue(-2300));
 
   m0 *= m1;
-  QVERIFY(m0 == AlkValue(-2300));
+  QCOMPARE(m0, AlkValue(-2300));
 
   // AlkValue operator*( int factor) const;
-  QVERIFY((m1 * 4) == AlkValue(-92));
-  QVERIFY((m1 *(-4)) == AlkValue(92));
+  QCOMPARE((m1 * 4), AlkValue(-92));
+  QCOMPARE((m1 *(-4)), AlkValue(92));
 }
 
 void AlkValueTest::division()
@@ -389,33 +389,33 @@ void AlkValueTest::division()
   AlkValue m0, m1;
   m0 = 100;
   m1 = 20;
-  QVERIFY((m0 / m1) == AlkValue(5));
+  QCOMPARE((m0 / m1), AlkValue(5));
 
   // AlkValue& operator/= ( const AlkValue&  val );
   m0 /= m1;
-  QVERIFY(m0 == AlkValue(5));
+  QCOMPARE(m0, AlkValue(5));
 
   m0 = 100;
   m1 = -20;
-  QVERIFY((m0 / m1) == AlkValue(-5));
+  QCOMPARE((m0 / m1), AlkValue(-5));
 
   m0 /= m1;
-  QVERIFY(m0 == AlkValue(-5));
+  QCOMPARE(m0, AlkValue(-5));
 }
 
 void AlkValueTest::unaryMinus()
 {
   // AlkValue operator-() const;
   AlkValue m0(5);
-  QVERIFY(-m0 == AlkValue(-5));
+  QCOMPARE(-m0, AlkValue(-5));
 }
 
 void AlkValueTest::abs()
 {
   AlkValue m0(-5);
   AlkValue m1(5);
-  QVERIFY(m0.abs() == AlkValue(5));
-  QVERIFY(m1.abs() == AlkValue(5));
+  QCOMPARE(m0.abs(), AlkValue(5));
+  QCOMPARE(m1.abs(), AlkValue(5));
 }
 
 void AlkValueTest::precision()
@@ -426,26 +426,26 @@ void AlkValueTest::precision()
 
   // QVERIFY(c.isZero() == true);
   c = a * b;
-  QVERIFY(c == AlkValue(QLatin1String("1524157875019052100"), QLatin1Char('.')));
+  QCOMPARE(c, AlkValue(QLatin1String("1524157875019052100"), QLatin1Char('.')));
   c /= b;
-  QVERIFY(c == AlkValue(QLatin1String("1234567890"), QLatin1Char('.')));
+  QCOMPARE(c, AlkValue(QLatin1String("1234567890"), QLatin1Char('.')));
 }
 
 void AlkValueTest::convertDenominator()
 {
   AlkValue a(123.456);
-  QVERIFY(a.convertDenominator() == AlkValue(12346, 100));
+  QCOMPARE(a.convertDenominator(), AlkValue(12346, 100));
 
   AlkValue b;
   a = QLatin1String("-73010.28");
   b = QLatin1String("1.95583");
-  QVERIFY((a * b).convertDenominator(100) == AlkValue(-14279570, 100));
+  QCOMPARE((a * b).convertDenominator(100), AlkValue(-14279570, 100));
 
   a = QLatin1String("-142795.69");
-  QVERIFY((a / b).convertDenominator(100) == AlkValue(-7301028, 100));
+  QCOMPARE((a / b).convertDenominator(100), AlkValue(-7301028, 100));
 
   a = QLatin1String("142795.69");
-  QVERIFY((a / b).convertDenominator(100) == AlkValue(7301028, 100));
+  QCOMPARE((a / b).convertDenominator(100), AlkValue(7301028, 100));
 
   a = AlkValue(1.9999999999998);
   QVERIFY(a != AlkValue(2, 1));
@@ -453,77 +453,77 @@ void AlkValueTest::convertDenominator()
   QVERIFY(a > AlkValue(QLatin1String("1.999999999"), QLatin1Char('.')));
 
   a = AlkValue(1.9999999999998, 100);
-  QVERIFY(a == AlkValue(2, 1));
+  QCOMPARE(a, AlkValue(2, 1));
 }
 
 void AlkValueTest::convertPrecision()
 {
   AlkValue a(123.456);
-  QVERIFY(a.convertPrecision() == AlkValue(12346, 100));
+  QCOMPARE(a.convertPrecision(), AlkValue(12346, 100));
 
   AlkValue b;
   a = QLatin1String("-73010.28");
   b = QLatin1String("1.95583");
-  QVERIFY((a * b).convertPrecision(2) == AlkValue(-14279570, 100));
+  QCOMPARE((a * b).convertPrecision(2), AlkValue(-14279570, 100));
 
   a = QLatin1String("-142795.69");
-  QVERIFY((a / b).convertPrecision(2) == AlkValue(-7301028, 100));
+  QCOMPARE((a / b).convertPrecision(2), AlkValue(-7301028, 100));
 
   a = QLatin1String("142795.69");
-  QVERIFY((a / b).convertPrecision(2) == AlkValue(7301028, 100));
+  QCOMPARE((a / b).convertPrecision(2), AlkValue(7301028, 100));
 
-  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundFloor) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundFloor) == AlkValue(-1));
-  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundFloor) == AlkValue(1));
-  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundFloor) == AlkValue(-2));
+  QCOMPARE(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundFloor), AlkValue());
+  QCOMPARE(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundFloor), AlkValue(-1));
+  QCOMPARE(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundFloor), AlkValue(1));
+  QCOMPARE(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundFloor), AlkValue(-2));
 
-  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundCeil) == AlkValue(1));
-  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundCeil) == AlkValue());
-  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundCeil) == AlkValue(2));
-  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundCeil) == AlkValue(-1));
+  QCOMPARE(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundCeil), AlkValue(1));
+  QCOMPARE(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundCeil), AlkValue());
+  QCOMPARE(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundCeil), AlkValue(2));
+  QCOMPARE(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundCeil), AlkValue(-1));
 
-  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundTruncate) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundTruncate) == AlkValue());
-  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundTruncate) == AlkValue(1));
-  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundTruncate) == AlkValue(-1));
+  QCOMPARE(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundTruncate), AlkValue());
+  QCOMPARE(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundTruncate), AlkValue());
+  QCOMPARE(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundTruncate), AlkValue(1));
+  QCOMPARE(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundTruncate), AlkValue(-1));
 
-  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundPromote) == AlkValue(1));
-  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundPromote) == AlkValue(-1));
-  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundPromote) == AlkValue(2));
-  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundPromote) == AlkValue(-2));
+  QCOMPARE(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundPromote), AlkValue(1));
+  QCOMPARE(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundPromote), AlkValue(-1));
+  QCOMPARE(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundPromote), AlkValue(2));
+  QCOMPARE(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundPromote), AlkValue(-2));
 
-  QVERIFY(AlkValue(4, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue());
-  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue());
-  QVERIFY(AlkValue(6, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(1));
-  QVERIFY(AlkValue(-4, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue());
-  QVERIFY(AlkValue(-6, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(-1));
-  QVERIFY(AlkValue(14, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(1));
-  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(1));
-  QVERIFY(AlkValue(16, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(2));
-  QVERIFY(AlkValue(-14, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(-1));
-  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(-1));
-  QVERIFY(AlkValue(-16, 10).convertPrecision(0, AlkValue::RoundHalfDown) == AlkValue(-2));
+  QCOMPARE(AlkValue(4, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue());
+  QCOMPARE(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue());
+  QCOMPARE(AlkValue(6, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue(1));
+  QCOMPARE(AlkValue(-4, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue());
+  QCOMPARE(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue());
+  QCOMPARE(AlkValue(-6, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue(-1));
+  QCOMPARE(AlkValue(14, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue(1));
+  QCOMPARE(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue(1));
+  QCOMPARE(AlkValue(16, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue(2));
+  QCOMPARE(AlkValue(-14, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue(-1));
+  QCOMPARE(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue(-1));
+  QCOMPARE(AlkValue(-16, 10).convertPrecision(0, AlkValue::RoundHalfDown), AlkValue(-2));
 
-  QVERIFY(AlkValue(4, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue());
-  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(1));
-  QVERIFY(AlkValue(6, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(1));
-  QVERIFY(AlkValue(-4, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-1));
-  QVERIFY(AlkValue(-6, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-1));
-  QVERIFY(AlkValue(14, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(1));
-  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(2));
-  QVERIFY(AlkValue(16, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(2));
-  QVERIFY(AlkValue(-14, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-1));
-  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-2));
-  QVERIFY(AlkValue(-16, 10).convertPrecision(0, AlkValue::RoundHalfUp) == AlkValue(-2));
+  QCOMPARE(AlkValue(4, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue());
+  QCOMPARE(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(1));
+  QCOMPARE(AlkValue(6, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(1));
+  QCOMPARE(AlkValue(-4, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue());
+  QCOMPARE(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(-1));
+  QCOMPARE(AlkValue(-6, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(-1));
+  QCOMPARE(AlkValue(14, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(1));
+  QCOMPARE(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(2));
+  QCOMPARE(AlkValue(16, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(2));
+  QCOMPARE(AlkValue(-14, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(-1));
+  QCOMPARE(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(-2));
+  QCOMPARE(AlkValue(-16, 10).convertPrecision(0, AlkValue::RoundHalfUp), AlkValue(-2));
 
-  QVERIFY(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue());
-  QVERIFY(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue());
-  QVERIFY(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(2));
-  QVERIFY(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(-2));
-  QVERIFY(AlkValue(25, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(2));
-  QVERIFY(AlkValue(-25, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(-2));
+  QCOMPARE(AlkValue(5, 10).convertPrecision(0, AlkValue::RoundRound), AlkValue());
+  QCOMPARE(AlkValue(-5, 10).convertPrecision(0, AlkValue::RoundRound), AlkValue());
+  QCOMPARE(AlkValue(15, 10).convertPrecision(0, AlkValue::RoundRound), AlkValue(2));
+  QCOMPARE(AlkValue(-15, 10).convertPrecision(0, AlkValue::RoundRound), AlkValue(-2));
+  QCOMPARE(AlkValue(25, 10).convertPrecision(0, AlkValue::RoundRound), AlkValue(2));
+  QCOMPARE(AlkValue(-25, 10).convertPrecision(0, AlkValue::RoundRound), AlkValue(-2));
 }
 
 void AlkValueTest::denominatorToPrecision()
@@ -553,7 +553,7 @@ void AlkValueTest::valueRef()
   mpq_class &val = a.valueRef();
   val = mpq_class(1, 3);
 
-  QVERIFY(a == AlkValue(1, 3));
+  QCOMPARE(a, AlkValue(1, 3));
 
   a = QLatin1String("1/7");
 

@@ -38,16 +38,16 @@ void AlkQuoteItemTest::emptyCtor()
 
   QVERIFY(item.symbol().isEmpty());
   QVERIFY(!item.dateTime().isValid());
-  QVERIFY(item.currentValue() == AlkValue(0, 1));
-  QVERIFY(item.openingValue() == AlkValue(0, 1));
-  QVERIFY(item.lowValue() == AlkValue(0, 1));
-  QVERIFY(item.highValue()  == AlkValue(0, 1));
-  QVERIFY(item.closingValue() == AlkValue(0, 1));
-  QVERIFY(item.volume() == AlkValue(0, 1));
-  QVERIFY(item.marketCap() == AlkValue(0, 1));
-  QVERIFY(item.earningsPerShare() == AlkValue(0, 1));
-  QVERIFY(item.changeToday() == AlkValue(0, 1));
-  QVERIFY(item.ebitda() == AlkValue(0, 1));
+  QCOMPARE(item.currentValue(), AlkValue(0, 1));
+  QCOMPARE(item.openingValue(), AlkValue(0, 1));
+  QCOMPARE(item.lowValue(), AlkValue(0, 1));
+  QCOMPARE(item.highValue(), AlkValue(0, 1));
+  QCOMPARE(item.closingValue(), AlkValue(0, 1));
+  QCOMPARE(item.volume(), AlkValue(0, 1));
+  QCOMPARE(item.marketCap(), AlkValue(0, 1));
+  QCOMPARE(item.earningsPerShare(), AlkValue(0, 1));
+  QCOMPARE(item.changeToday(), AlkValue(0, 1));
+  QCOMPARE(item.ebitda(), AlkValue(0, 1));
   QVERIFY(item.recordId().isEmpty());
 }
 
@@ -84,19 +84,19 @@ void AlkQuoteItemTest::copyCtor()
 
   AlkQuoteItem itemCopy(item);
 
-  QVERIFY(symbol == itemCopy.symbol());
-  QVERIFY(dateTime == itemCopy.dateTime());
-  QVERIFY(currentValue == itemCopy.currentValue());
-  QVERIFY(opening == itemCopy.openingValue());
-  QVERIFY(lowValue == itemCopy.lowValue());
-  QVERIFY(highValue == itemCopy.highValue());
-  QVERIFY(closing == itemCopy.closingValue());
-  QVERIFY(volume == itemCopy.volume());
-  QVERIFY(marketCap == itemCopy.marketCap());
-  QVERIFY(earnings == itemCopy.earningsPerShare());
-  QVERIFY(change == itemCopy.changeToday());
-  QVERIFY(ebitda == itemCopy.ebitda());
-  QVERIFY(recordId == itemCopy.recordId());
+  QCOMPARE(itemCopy.symbol(), symbol);
+  QCOMPARE(itemCopy.dateTime(), dateTime);
+  QCOMPARE(itemCopy.currentValue(), currentValue);
+  QCOMPARE(itemCopy.openingValue(), opening);
+  QCOMPARE(itemCopy.lowValue(), lowValue);
+  QCOMPARE(itemCopy.highValue(), highValue);
+  QCOMPARE(itemCopy.closingValue(), closing);
+  QCOMPARE(itemCopy.volume(), volume);
+  QCOMPARE(itemCopy.marketCap(), marketCap);
+  QCOMPARE(itemCopy.earningsPerShare(), earnings);
+  QCOMPARE(itemCopy.changeToday(), change);
+  QCOMPARE(itemCopy.ebitda(), ebitda);
+  QCOMPARE(itemCopy.recordId(), recordId);
 }
 
 void AlkQuoteItemTest::settersAndGetters()
@@ -130,19 +130,19 @@ void AlkQuoteItemTest::settersAndGetters()
   item.setEbitda(ebitda);
   item.setRecordId(recordId);
 
-  QVERIFY(symbol == item.symbol());
-  QVERIFY(dateTime == item.dateTime());
-  QVERIFY(currentValue == item.currentValue());
-  QVERIFY(opening == item.openingValue());
-  QVERIFY(lowValue == item.lowValue());
-  QVERIFY(highValue == item.highValue());
-  QVERIFY(closing == item.closingValue());
-  QVERIFY(volume == item.volume());
-  QVERIFY(marketCap == item.marketCap());
-  QVERIFY(earnings == item.earningsPerShare());
-  QVERIFY(change == item.changeToday());
-  QVERIFY(ebitda == item.ebitda());
-  QVERIFY(recordId == item.recordId());
+  QCOMPARE(item.symbol(), symbol);
+  QCOMPARE(item.dateTime(), dateTime);
+  QCOMPARE(item.currentValue(), currentValue);
+  QCOMPARE(item.openingValue(), opening);
+  QCOMPARE(item.lowValue(), lowValue);
+  QCOMPARE(item.highValue(), highValue);
+  QCOMPARE(item.closingValue(), closing);
+  QCOMPARE(item.volume(), volume);
+  QCOMPARE(item.marketCap(), marketCap);
+  QCOMPARE(item.earningsPerShare(), earnings);
+  QCOMPARE(item.changeToday(), change);
+  QCOMPARE(item.ebitda(), ebitda);
+  QCOMPARE(item.recordId(), recordId);
 }
 
 void AlkQuoteItemTest::qDbusArgument()

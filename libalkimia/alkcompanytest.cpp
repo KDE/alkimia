@@ -60,11 +60,11 @@ void AlkCompanyTest::copyCtor()
 
   AlkCompany copy(company);
 
-  QVERIFY(symbol == copy.symbol());
-  QVERIFY(name == copy.name());
-  QVERIFY(exchange == copy.exchange());
-  QVERIFY(type == copy.type());
-  QVERIFY(recordId == copy.recordId());
+  QCOMPARE(copy.symbol(), symbol);
+  QCOMPARE(copy.name(), name);
+  QCOMPARE(copy.exchange(), exchange);
+  QCOMPARE(copy.type(), type);
+  QCOMPARE(copy.recordId(), recordId);
 }
 
 void AlkCompanyTest::settersAndGetters()
@@ -82,11 +82,11 @@ void AlkCompanyTest::settersAndGetters()
   company.setType(type);
   company.setRecordId(recordId);
 
-  QVERIFY(symbol == company.symbol());
-  QVERIFY(name == company.name());
-  QVERIFY(exchange == company.exchange());
-  QVERIFY(type == company.type());
-  QVERIFY(recordId == company.recordId());
+  QCOMPARE(company.symbol(), symbol);
+  QCOMPARE(company.name(), name);
+  QCOMPARE(company.exchange(), exchange);
+  QCOMPARE(company.type(), type);
+  QCOMPARE(company.recordId(), recordId);
 }
 
 void AlkCompanyTest::qDbusArgument()
