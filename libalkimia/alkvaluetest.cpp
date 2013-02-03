@@ -24,6 +24,14 @@
 
 QTEST_MAIN(AlkValueTest)
 
+namespace QTest {
+  template<>
+  char* toString(const AlkValue &val)
+  {
+    return qstrdup(val.toString().toUtf8());
+  }
+}
+
 void AlkValueTest::init()
 {
 }
