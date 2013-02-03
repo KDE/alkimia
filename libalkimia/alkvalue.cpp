@@ -228,7 +228,7 @@ AlkValue::~AlkValue()
   delete d;
 }
 
-QString AlkValue::toString(void) const
+QString AlkValue::toString() const
 {
   return mpqToString(d->m_val);
 }
@@ -384,7 +384,7 @@ mpz_class AlkValue::precisionToDenominator(mpz_class prec)
   return denom;
 }
 
-const AlkValue & AlkValue::canonicalize(void)
+const AlkValue & AlkValue::canonicalize()
 {
   d->m_val.canonicalize();
   return *this;
@@ -458,7 +458,7 @@ const AlkValue & AlkValue::operator=(const QString & right)
   return *this;
 }
 
-AlkValue AlkValue::abs(void) const
+AlkValue AlkValue::abs() const
 {
   AlkValue result;
   mpq_abs(result.d->m_val.get_mpq_t(), d->m_val.get_mpq_t());
@@ -532,7 +532,7 @@ AlkValue & AlkValue::operator/=(const AlkValue & right)
   return *this;
 }
 
-mpq_class & AlkValue::valueRef(void) const
+mpq_class & AlkValue::valueRef() const
 {
   return d->m_val;
 }

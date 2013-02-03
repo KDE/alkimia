@@ -24,22 +24,22 @@
 
 QTEST_MAIN(AlkValueTest)
 
-void AlkValueTest::init(void)
+void AlkValueTest::init()
 {
 }
 
-void AlkValueTest::cleanup(void)
+void AlkValueTest::cleanup()
 {
 }
 
-void AlkValueTest::emptyCtor(void)
+void AlkValueTest::emptyCtor()
 {
   AlkValue *m = new AlkValue();
   QVERIFY(m->toString() == QLatin1String("0/1"));
   delete m;
 }
 
-void AlkValueTest::copyCtor(void)
+void AlkValueTest::copyCtor()
 {
   AlkValue a(41, 152);
   AlkValue b(a);
@@ -48,7 +48,7 @@ void AlkValueTest::copyCtor(void)
   QVERIFY(b.toString() == QLatin1String("41/152"));
 }
 
-void AlkValueTest::intCtor(void)
+void AlkValueTest::intCtor()
 {
   AlkValue *m;
   m = new AlkValue(10);
@@ -74,7 +74,7 @@ void AlkValueTest::intCtor(void)
   delete m;
 }
 
-void AlkValueTest::stringCtor(void)
+void AlkValueTest::stringCtor()
 {
   AlkValue *m;
 
@@ -150,7 +150,7 @@ void AlkValueTest::stringCtor(void)
   delete m;
 }
 
-void AlkValueTest::doubleCtor(void)
+void AlkValueTest::doubleCtor()
 {
   for (int i = -123456; i < 123456; ++i) {
     double d = i;
@@ -172,7 +172,7 @@ void AlkValueTest::doubleCtor(void)
   QVERIFY(a == AlkValue(123, 100));
 }
 
-void AlkValueTest::assignment(void)
+void AlkValueTest::assignment()
 {
   // const AlkValue& operator=(const AlkValue& val);
   AlkValue m0;
@@ -201,7 +201,7 @@ void AlkValueTest::assignment(void)
   QVERIFY(m0.toString() == QLatin1String("-1234567/1000"));
 }
 
-void AlkValueTest::equality(void)
+void AlkValueTest::equality()
 {
   AlkValue m0, m1;
   m0 = 123;
@@ -221,7 +221,7 @@ void AlkValueTest::equality(void)
   QVERIFY(m0 == m1);
 }
 
-void AlkValueTest::inequality(void)
+void AlkValueTest::inequality()
 {
   AlkValue m0, m1;
   m0 = 123;
@@ -233,7 +233,7 @@ void AlkValueTest::inequality(void)
   QVERIFY(m0 != m1);
 }
 
-void AlkValueTest::less(void)
+void AlkValueTest::less()
 {
   AlkValue m0, m1;
   m0 = 12;
@@ -257,7 +257,7 @@ void AlkValueTest::less(void)
   QVERIFY(!(m0 < m1));
 }
 
-void AlkValueTest::greater(void)
+void AlkValueTest::greater()
 {
   AlkValue m0, m1;
   m0 = 12;
@@ -281,7 +281,7 @@ void AlkValueTest::greater(void)
   QVERIFY(!(m0 > m1));
 }
 
-void AlkValueTest::lessThan(void)
+void AlkValueTest::lessThan()
 {
   AlkValue m0, m2;
   AlkValue m1 = AlkValue(QLatin1String("12.0000000000000000000000000000001"), QLatin1Char('.'));
@@ -296,7 +296,7 @@ void AlkValueTest::lessThan(void)
   QVERIFY(m2 <= m0);
 }
 
-void AlkValueTest::greaterThan(void)
+void AlkValueTest::greaterThan()
 {
   AlkValue m0, m2;
   AlkValue m1 = AlkValue(QLatin1String("12.0000000000000000000000000000001"), QLatin1Char('.'));
@@ -311,7 +311,7 @@ void AlkValueTest::greaterThan(void)
   QVERIFY(m0 >= m2);
 }
 
-void AlkValueTest::addition(void)
+void AlkValueTest::addition()
 {
   // AlkValue operator+( const AlkValue& summand ) const;
   AlkValue m0, m1;
@@ -331,7 +331,7 @@ void AlkValueTest::addition(void)
   QVERIFY(m0 == AlkValue(77));
 }
 
-void AlkValueTest::subtraction(void)
+void AlkValueTest::subtraction()
 {
   // AlkValue operator-( const AlkValue& minuend ) const;
   AlkValue m0, m1;
@@ -351,7 +351,7 @@ void AlkValueTest::subtraction(void)
   QVERIFY(m0 == AlkValue(123));
 }
 
-void AlkValueTest::multiplication(void)
+void AlkValueTest::multiplication()
 {
   // AlkValue operator*( const AlkValue& factor ) const;
   AlkValue m0, m1;
@@ -375,7 +375,7 @@ void AlkValueTest::multiplication(void)
   QVERIFY((m1 *(-4)) == AlkValue(92));
 }
 
-void AlkValueTest::division(void)
+void AlkValueTest::division()
 {
   // AlkValue operator/( const AlkValue& divisor ) const;
   AlkValue m0, m1;
@@ -395,14 +395,14 @@ void AlkValueTest::division(void)
   QVERIFY(m0 == AlkValue(-5));
 }
 
-void AlkValueTest::unaryMinus(void)
+void AlkValueTest::unaryMinus()
 {
   // AlkValue operator-() const;
   AlkValue m0(5);
   QVERIFY(-m0 == AlkValue(-5));
 }
 
-void AlkValueTest::abs(void)
+void AlkValueTest::abs()
 {
   AlkValue m0(-5);
   AlkValue m1(5);
@@ -410,7 +410,7 @@ void AlkValueTest::abs(void)
   QVERIFY(m1.abs() == AlkValue(5));
 }
 
-void AlkValueTest::precision(void)
+void AlkValueTest::precision()
 {
   AlkValue a(QLatin1String("1234567890"), QLatin1Char('.'));
   AlkValue b(QLatin1String("1234567890"), QLatin1Char('.'));
@@ -423,7 +423,7 @@ void AlkValueTest::precision(void)
   QVERIFY(c == AlkValue(QLatin1String("1234567890"), QLatin1Char('.')));
 }
 
-void AlkValueTest::convertDenominator(void)
+void AlkValueTest::convertDenominator()
 {
   AlkValue a(123.456);
   QVERIFY(a.convertDenominator() == AlkValue(12346, 100));
@@ -448,7 +448,7 @@ void AlkValueTest::convertDenominator(void)
   QVERIFY(a == AlkValue(2, 1));
 }
 
-void AlkValueTest::convertPrecision(void)
+void AlkValueTest::convertPrecision()
 {
   AlkValue a(123.456);
   QVERIFY(a.convertPrecision() == AlkValue(12346, 100));
@@ -518,7 +518,7 @@ void AlkValueTest::convertPrecision(void)
   QVERIFY(AlkValue(-25, 10).convertPrecision(0, AlkValue::RoundRound) == AlkValue(-2));
 }
 
-void AlkValueTest::denominatorToPrecision(void)
+void AlkValueTest::denominatorToPrecision()
 {
   QVERIFY(AlkValue::denominatorToPrecision(100) == 2);
   QVERIFY(AlkValue::denominatorToPrecision(1000000) == 6);
@@ -529,7 +529,7 @@ void AlkValueTest::denominatorToPrecision(void)
   QVERIFY(AlkValue::denominatorToPrecision(200) == 3);
 }
 
-void AlkValueTest::precisionToDenominator(void)
+void AlkValueTest::precisionToDenominator()
 {
   QVERIFY(AlkValue::precisionToDenominator(2) == 100);
   QVERIFY(AlkValue::precisionToDenominator(6) == 1000000);
@@ -538,7 +538,7 @@ void AlkValueTest::precisionToDenominator(void)
   QVERIFY(AlkValue::precisionToDenominator(-5) == 1);
 }
 
-void AlkValueTest::valueRef(void)
+void AlkValueTest::valueRef()
 {
   AlkValue a(5);
 
@@ -552,7 +552,7 @@ void AlkValueTest::valueRef(void)
   QVERIFY(val == mpq_class(1, 7));
 }
 
-void AlkValueTest::canonicalize(void)
+void AlkValueTest::canonicalize()
 {
   AlkValue a(5);
   mpq_class & val(a.valueRef());

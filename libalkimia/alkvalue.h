@@ -205,10 +205,10 @@ public:
   // functions
 
   /// @return the absolute value of the AlkValue
-  AlkValue abs(void) const;
+  AlkValue abs() const;
 
   /// @return QString representation in form '[-]num/denom'.
-  QString toString(void) const;
+  QString toString() const;
 
   /**
     * This method transforms the AlkValue into its canonicalized
@@ -220,7 +220,7 @@ public:
     *
     * @return const reference to the object
     */
-  const AlkValue& canonicalize(void);
+  const AlkValue& canonicalize();
 
   /// convert a denominator to a precision
   /// e.g. 100 -> 2, 1000 -> 3
@@ -238,7 +238,7 @@ protected:
 
   /// provides an access method to the private value storage
   /// for derived classes
-  mpq_class &valueRef(void) const;
+  mpq_class &valueRef() const;
 
 private:
   /// \internal d-pointer class.
