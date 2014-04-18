@@ -39,12 +39,8 @@ set(alkimia_HEADERS
   alk_export.h
   )
 
-set(alkimia_CMAKE_MODULES
-  FindLibAlkimia.cmake
-  )
-
 kde4_add_library(alkimia SHARED ${alkimia_LIB_SRCS})
- 
+
 target_link_libraries(alkimia ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${GMP_LIBRARIES})
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION} DEFINE_SYMBOL MAKE_ALK_LIB)
@@ -53,20 +49,57 @@ if (NOT WIN32)
    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc IMMEDIATE @ONLY)
 endif(NOT WIN32)
 
+########### create package configuration file ###########
+
+# create a Config.cmake and a ConfigVersion.cmake file and install them
+set(CMAKECONFIG_INSTALL_DIR "${LIB_INSTALL_DIR}/cmake/LibAlkimia")
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+  "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfigVersion.cmake"
+  VERSION ${ALKIMIA_LIB_VERSION}
+  COMPATIBILITY AnyNewerVersion
+)
+
+configure_package_config_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfig.cmake"
+  INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
+)
+
 ########### install files ###############
 
-install(TARGETS alkimia ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS alkimia
+        EXPORT  alkimiaTargets
+        ${INSTALL_TARGETS_DEFAULT_ARGS}
+        )
+
+export( TARGETS alkimia
+        FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaTargets.cmake"
+        NAMESPACE Alkimia::
+      )
+
+install( EXPORT alkimiaTargets
+         FILE LibAlkimiaTargets.cmake
+         NAMESPACE Alkimia::
+         DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+       )
 
 install(FILES ${alkimia_HEADERS}
-        DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia COMPONENT Devel)
+        DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia
+        COMPONENT Devel)
 
-install(FILES ${alkimia_CMAKE_MODULES}
-        DESTINATION ${DATA_INSTALL_DIR}/cmake/modules COMPONENT Devel)
+install(FILES
+          "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfig.cmake"
+          "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfigVersion.cmake"
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        COMPONENT Devel)
 
 if (NOT WIN32)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc
           DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 endif(NOT WIN32)
+
 ########### documentation ###################
 
 # check for Doxygen
