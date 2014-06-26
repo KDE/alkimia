@@ -4,6 +4,9 @@ set(VERSION_MAJOR "4")
 set(VERSION_MINOR "3")
 set(VERSION_PATCH "2")
 
+# The CMake version we require
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6.4)
+
 # Determine the SVN revision number (if we're based on SVN)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
   # make sure we don't use translated messages here
@@ -17,8 +20,28 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
   set(ENV{LANG} ${LANG})
 endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
 
+# Determine the GIT reference (if we're based on GIT)
+IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
+  # make sure we don't use translated messages here
+  SET(LANG $ENV{LANG})
+  SET(ENV{LANG} "C")
+  EXECUTE_PROCESS(COMMAND git log -1 COMMAND head -n 1 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE BRANCH)
+  # extract branch name
+  STRING(REGEX MATCH "commit ([^$]+)" BRANCH "${BRANCH}")
+  SET(BRANCH ${CMAKE_MATCH_1})
+  # and use the first 10 chars of the commit id
+  STRING(SUBSTRING ${BRANCH} 0 10 BRANCH)
+  SET(VERSION_SUFFIX "-${BRANCH}")
+  # switch back to the original language setting
+  SET(ENV{LANG} ${LANG})
+ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
+
 set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}")
+
+FIND_PACKAGE(KDE4 4.6.0 REQUIRED)
+
+include( KDE4Defaults )
 
 include_directories(${KDE4_INCLUDES})
 add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
