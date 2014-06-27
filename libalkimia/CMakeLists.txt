@@ -1,11 +1,11 @@
 ######################### libalkimia Version ##########################
 # The current version of libalkimia (used for packages and config.h)
 set(VERSION_MAJOR "4")
-set(VERSION_MINOR "3")
-set(VERSION_PATCH "2")
+set(VERSION_MINOR "100")
+set(VERSION_PATCH "0")
 
 # The CMake version we require
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6.4)
+cmake_minimum_required(VERSION 2.8.12)
 
 # Determine the SVN revision number (if we're based on SVN)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
@@ -21,30 +21,24 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
 endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
 
 # Determine the GIT reference (if we're based on GIT)
-IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
   # make sure we don't use translated messages here
-  SET(LANG $ENV{LANG})
-  SET(ENV{LANG} "C")
-  EXECUTE_PROCESS(COMMAND git log -1 COMMAND head -n 1 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE BRANCH)
+  set(LANG $ENV{LANG})
+  set(ENV{LANG} "C")
+  execute_process(COMMAND git log -1 COMMAND head -n 1 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE BRANCH)
   # extract branch name
-  STRING(REGEX MATCH "commit ([^$]+)" BRANCH "${BRANCH}")
-  SET(BRANCH ${CMAKE_MATCH_1})
+  string(REGEX MATCH "commit ([^$]+)" BRANCH "${BRANCH}")
+  set(BRANCH ${CMAKE_MATCH_1})
   # and use the first 10 chars of the commit id
-  STRING(SUBSTRING ${BRANCH} 0 10 BRANCH)
-  SET(VERSION_SUFFIX "-${BRANCH}")
+  string(SUBSTRING ${BRANCH} 0 10 BRANCH)
+  set(VERSION_SUFFIX "-${BRANCH}")
   # switch back to the original language setting
-  SET(ENV{LANG} ${LANG})
-ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
+  set(ENV{LANG} ${LANG})
+endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
 
 set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}")
 
-FIND_PACKAGE(KDE4 4.6.0 REQUIRED)
-
-include( KDE4Defaults )
-
-include_directories(${KDE4_INCLUDES})
-add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
@@ -62,9 +56,11 @@ set(alkimia_HEADERS
   alk_export.h
   )
 
-kde4_add_library(alkimia SHARED ${alkimia_LIB_SRCS})
+add_library(alkimia SHARED ${alkimia_LIB_SRCS})
 
-target_link_libraries(alkimia ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${GMP_LIBRARIES})
+kde_target_enable_exceptions(alkimia PUBLIC)
+
+target_link_libraries(alkimia PUBLIC Qt5::Core Qt5::DBus ${GMP_LIBRARIES})
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION} DEFINE_SYMBOL MAKE_ALK_LIB)
 
@@ -97,15 +93,15 @@ install(TARGETS alkimia
         ${INSTALL_TARGETS_DEFAULT_ARGS}
         )
 
-export( TARGETS alkimia
-        FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaTargets.cmake"
-        NAMESPACE Alkimia::
+export(TARGETS alkimia
+       FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaTargets.cmake"
+       NAMESPACE Alkimia::
       )
 
-install( EXPORT alkimiaTargets
-         FILE LibAlkimiaTargets.cmake
-         NAMESPACE Alkimia::
-         DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+install(EXPORT alkimiaTargets
+        FILE LibAlkimiaTargets.cmake
+        NAMESPACE Alkimia::
+        DESTINATION ${CMAKECONFIG_INSTALL_DIR}
        )
 
 install(FILES ${alkimia_HEADERS}
@@ -138,14 +134,25 @@ if(DOXYGEN_FOUND)
 endif(DOXYGEN_FOUND)
 
 ########### tests ###################
+include(ECMMarkAsTest)
 
-set( alkvaluetest_SRCS alkvaluetest.cpp )
-set( alkquoteitemtest_SRCS alkquoteitemtest.cpp )
-set( alkcompanytest_SRCS alkcompanytest.cpp )
-kde4_add_unit_test( alkvaluetest TESTNAME alkimia-alkvalue ${alkvaluetest_SRCS} )
-kde4_add_unit_test( alkquoteitemtest TESTNAME alkimia-alkquoteitem ${alkquoteitemtest_SRCS} )
-kde4_add_unit_test( alkcompanytest TESTNAME alkimia-alkcompany ${alkcompanytest_SRCS} )
-target_link_libraries( alkvaluetest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${QT_QTTEST_LIBRARY} ${GMP_LIBRARIES})
-target_link_libraries( alkquoteitemtest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${QT_QTTEST_LIBRARY} )
-target_link_libraries( alkcompanytest alkimia ${QT_QTCORE_LIBRARY} ${QT_QTTEST_LIBRARY} )
+set(alkvaluetest_SRCS alkvaluetest.cpp)
+set(alkquoteitemtest_SRCS alkquoteitemtest.cpp)
+set(alkcompanytest_SRCS alkcompanytest.cpp)
+
+add_executable(alkvaluetest ${alkvaluetest_SRCS})
+ecm_mark_as_test(alkvaluetest)
+add_test(alkvaluetest alkvaluetest)
+
+add_executable(alkquoteitemtest ${alkquoteitemtest_SRCS})
+ecm_mark_as_test(alkquoteitemtest)
+add_test(alkquoteitemtest alkquoteitemtest)
+
+add_executable(alkcompanytest ${alkcompanytest_SRCS})
+ecm_mark_as_test(alkcompanytest)
+add_test(alkcompanytest alkcompanytest)
+
+target_link_libraries(alkvaluetest PRIVATE alkimia Qt5::Core Qt5::DBus Qt5::Test ${GMP_LIBRARIES})
+target_link_libraries(alkquoteitemtest PRIVATE alkimia Qt5::Core Qt5::DBus Qt5::Test)
+target_link_libraries(alkcompanytest PRIVATE alkimia Qt5::Core Qt5::Test)
 

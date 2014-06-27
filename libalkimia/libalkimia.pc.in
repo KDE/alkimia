@@ -14,6 +14,6 @@ Description: A library for financial data handling
 Version: @ALKIMIA_LIB_VERSION@
 
 Libs: -lalkimia
-Libs.private: -lgmp -lQtCore -lstdc++
+Libs.private: -lgmp -lQt5Core -lQt5DBus -lstdc++
 Cflags: -I${includedir}
 
