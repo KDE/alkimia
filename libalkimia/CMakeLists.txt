@@ -41,7 +41,7 @@ set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}")
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE_ENABLE_EXCEPTIONS}")
 
 set(alkimia_LIB_SRCS
   alkvalue.cpp
@@ -60,7 +60,7 @@ add_library(alkimia SHARED ${alkimia_LIB_SRCS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
 
-target_link_libraries(alkimia PUBLIC Qt5::Core Qt5::DBus ${GMP_LIBRARIES})
+target_link_libraries(alkimia PUBLIC Qt5::Core Qt5::DBus KF5::KDELibs4Support ${GMP_LIBRARIES})
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION} DEFINE_SYMBOL MAKE_ALK_LIB)
 
