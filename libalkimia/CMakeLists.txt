@@ -7,6 +7,17 @@ set(VERSION_PATCH "0")
 # The CMake version we require
 cmake_minimum_required(VERSION 2.8.12)
 
+include(GenerateExportHeader)
+include(ECMGenerateHeaders)
+include(ECMGeneratePriFile)
+include(ECMPackageConfigHelpers)
+include(ECMSetupVersion)
+include(FeatureSummary)
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+# TODO: add when QStrings are no longer constructed from ASCII strings
+#include(KDEFrameworkCompilerSettings)
+
 # Determine the SVN revision number (if we're based on SVN)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
   # make sure we don't use translated messages here
@@ -72,16 +83,13 @@ endif(NOT WIN32)
 ########### create package configuration file ###########
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${LIB_INSTALL_DIR}/cmake/LibAlkimia")
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia")
 
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-  "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfigVersion.cmake"
-  VERSION ${ALKIMIA_LIB_VERSION}
-  COMPATIBILITY AnyNewerVersion
+ecm_setup_version(${ALKIMIA_LIB_VERSION} VARIABLE_PREFIX ALKIMIA
+  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfigVersion.cmake"
 )
 
-configure_package_config_file(
+ecm_configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
