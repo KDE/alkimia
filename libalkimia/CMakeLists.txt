@@ -18,19 +18,6 @@ include(KDECMakeSettings)
 # TODO: add when QStrings are no longer constructed from ASCII strings
 #include(KDEFrameworkCompilerSettings)
 
-# Determine the SVN revision number (if we're based on SVN)
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
-  # make sure we don't use translated messages here
-  set(LANG $ENV{LANG})
-  set(ENV{LANG} "C")
-  execute_process(COMMAND svn info ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE VERSION_SUFFIX)
-  string(REGEX MATCH "Revision: ([0-9]+)" VERSION_SUFFIX "${VERSION_SUFFIX}") 
-  string(REPLACE "Revision: " "" VERSION_SUFFIX "${VERSION_SUFFIX}")
-  set(VERSION_SUFFIX "-svn${VERSION_SUFFIX}")
-  # switch back to the original language setting
-  set(ENV{LANG} ${LANG})
-endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.svn)
-
 # Determine the GIT reference (if we're based on GIT)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
   # make sure we don't use translated messages here
@@ -50,7 +37,6 @@ endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linu
 set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}")
 
-include_directories(${GMP_INCLUDE_DIR})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE_ENABLE_EXCEPTIONS}")
@@ -72,6 +58,7 @@ add_library(alkimia SHARED ${alkimia_LIB_SRCS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
 
+target_include_directories(alkimia PUBLIC ${GMP_INCLUDE_DIR})
 target_link_libraries(alkimia PUBLIC Qt5::Core Qt5::DBus KF5::KDELibs4Support ${GMP_LIBRARIES})
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION} DEFINE_SYMBOL MAKE_ALK_LIB)
