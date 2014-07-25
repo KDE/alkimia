@@ -18,22 +18,6 @@ include(KDECMakeSettings)
 # TODO: add when QStrings are no longer constructed from ASCII strings
 #include(KDEFrameworkCompilerSettings)
 
-# Determine the GIT reference (if we're based on GIT)
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
-  # make sure we don't use translated messages here
-  set(LANG $ENV{LANG})
-  set(ENV{LANG} "C")
-  execute_process(COMMAND git log -1 COMMAND head -n 1 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE BRANCH)
-  # extract branch name
-  string(REGEX MATCH "commit ([^$]+)" BRANCH "${BRANCH}")
-  set(BRANCH ${CMAKE_MATCH_1})
-  # and use the first 10 chars of the commit id
-  string(SUBSTRING ${BRANCH} 0 10 BRANCH)
-  set(VERSION_SUFFIX "-${BRANCH}")
-  # switch back to the original language setting
-  set(ENV{LANG} ${LANG})
-endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git AND CMAKE_SYSTEM_NAME MATCHES Linux)
-
 set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}")
 
@@ -51,7 +35,7 @@ set(alkimia_HEADERS
   alkvalue.h
   alkquoteitem.h
   alkcompany.h
-  alk_export.h
+  ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
   )
 
 add_library(alkimia SHARED ${alkimia_LIB_SRCS})
@@ -60,6 +44,7 @@ kde_target_enable_exceptions(alkimia PUBLIC)
 
 target_include_directories(alkimia PUBLIC ${GMP_INCLUDE_DIR})
 target_link_libraries(alkimia PUBLIC Qt5::Core Qt5::DBus KF5::KDELibs4Support ${GMP_LIBRARIES})
+generate_export_header(alkimia BASE_NAME alk)
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION} DEFINE_SYMBOL MAKE_ALK_LIB)
 
@@ -79,7 +64,7 @@ ecm_setup_version(${ALKIMIA_LIB_VERSION} VARIABLE_PREFIX ALKIMIA
 ecm_configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfig.cmake"
-  INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
+  INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
 )
 
 ########### install files ###############
