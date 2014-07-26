@@ -46,7 +46,7 @@ target_include_directories(alkimia PUBLIC ${GMP_INCLUDE_DIR})
 target_link_libraries(alkimia PUBLIC Qt5::Core Qt5::DBus KF5::KDELibs4Support ${GMP_LIBRARIES})
 generate_export_header(alkimia BASE_NAME alk)
 
-set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION} DEFINE_SYMBOL MAKE_ALK_LIB)
+set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION})
 
 if (NOT WIN32)
    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.pc IMMEDIATE @ONLY)

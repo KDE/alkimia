@@ -12,7 +12,7 @@ include(KDECompilerSettings)
 include(FeatureSummary)
 
 # check for PkgConfig, KDE and GMP
-find_package(PkgConfig REQUIRED)
+find_package(PkgConfig)
 # Xml Network PrintSupport needed by KDELibs4Support
 find_package(Qt5 REQUIRED COMPONENTS Core DBus Test Xml Network PrintSupport)
 # KDELibs4Support needed to find 'GMP'
