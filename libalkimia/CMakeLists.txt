@@ -65,6 +65,7 @@ ecm_configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfig.cmake"
   INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+  PATH_VARS INCLUDE_INSTALL_DIR
 )
 
 ########### install files ###############
