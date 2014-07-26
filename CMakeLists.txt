@@ -12,7 +12,7 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
 # check for PkgConfig, KDE and GMP
-find_package(PkgConfig REQUIRED)
+find_package(PkgConfig)
 find_package(KDE4 REQUIRED)
 find_package(GMP REQUIRED)
 
