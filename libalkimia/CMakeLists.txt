@@ -43,7 +43,7 @@ add_library(alkimia SHARED ${alkimia_LIB_SRCS})
 kde_target_enable_exceptions(alkimia PUBLIC)
 
 target_include_directories(alkimia PUBLIC ${GMP_INCLUDE_DIR})
-target_link_libraries(alkimia PUBLIC Qt5::Core Qt5::DBus KF5::KDELibs4Support ${GMP_LIBRARIES})
+target_link_libraries(alkimia PUBLIC Qt5::Core Qt5::DBus ${GMP_LIBRARIES})
 generate_export_header(alkimia BASE_NAME alk)
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION})
