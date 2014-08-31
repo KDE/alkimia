@@ -5,7 +5,7 @@ set(VERSION_MINOR "3")
 set(VERSION_PATCH "2")
 
 # The CMake version we require
-cmake_minimum_required(VERSION 2.8.6)
+cmake_minimum_required(VERSION 2.8.7)
 
 set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}")
@@ -38,7 +38,7 @@ kde4_add_library(alkimia SHARED ${alkimia_LIB_SRCS})
 
 generate_export_header(alkimia BASE_NAME alk)
 
-target_link_libraries(alkimia PUBLIC ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${GMP_LIBRARIES})
+target_link_libraries(alkimia LINK_PUBLIC ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${GMP_LIBRARIES})
 
 set_target_properties(alkimia PROPERTIES VERSION ${ALKIMIA_LIB_VERSION} SOVERSION ${ALKIMIA_LIB_SOVERSION})
 
