@@ -21,10 +21,13 @@
 
 #include <iostream>
 #include <QRegExp>
+#include <QSharedData>
 
-class AlkValue::Private
+class AlkValue::Private : public QSharedData
 {
 public:
+  Private() {}
+  Private(const Private& other) : QSharedData(other), m_val(other.m_val) {}
   mpq_class m_val;
 };
 
@@ -55,6 +58,7 @@ static QString mpqToString(const mpq_class & val)
   return result;
 }
 
+#if 0
 /**
   * Helper function to convert an mpz_class object into
   * its internal QString representation. Mainly used for
@@ -77,16 +81,22 @@ static QString mpzToString(const mpz_class & val)
   // done
   return result;
 }
+#endif
+
+QSharedDataPointer<AlkValue::Private>& AlkValue::sharedZero()
+{
+  static QSharedDataPointer<AlkValue::Private> sharedZeroPointer(new AlkValue::Private);
+  return sharedZeroPointer;
+}
 
 AlkValue::AlkValue() :
-    d(new Private)
+    d(sharedZero())
 {
 }
 
 AlkValue::AlkValue(const AlkValue &val) :
-    d(new Private)
+    d(val.d)
 {
-  d->m_val = val.d->m_val;
 }
 
 AlkValue::AlkValue(const int num, const unsigned int denom) :
@@ -225,7 +235,6 @@ AlkValue::AlkValue(const QString & str, const QChar & decimalSymbol) :
 
 AlkValue::~AlkValue()
 {
-  delete d;
 }
 
 QString AlkValue::toString() const
@@ -433,8 +442,7 @@ AlkValue AlkValue::operator*(int factor) const
 
 const AlkValue & AlkValue::operator=(const AlkValue & right)
 {
-  d->m_val = right.d->m_val;
-  d->m_val.canonicalize();
+  d = right.d;
   return *this;
 }
 
@@ -454,7 +462,7 @@ const AlkValue & AlkValue::operator=(double right)
 
 const AlkValue & AlkValue::operator=(const QString & right)
 {
-  d->m_val = AlkValue(right, QLatin1Char('.')).d->m_val;
+  d = AlkValue(right, QLatin1Char('.')).d;
   return *this;
 }
 
@@ -468,11 +476,15 @@ AlkValue AlkValue::abs() const
 
 bool AlkValue::operator==(const AlkValue &val) const
 {
+  if (d == val.d)
+    return true;
   return mpq_equal(d->m_val.get_mpq_t(), val.d->m_val.get_mpq_t());
 }
 
 bool AlkValue::operator!=(const AlkValue &val) const
 {
+  if (d == val.d)
+    return false;
   return !mpq_equal(d->m_val.get_mpq_t(), val.d->m_val.get_mpq_t());
 }
 
@@ -532,7 +544,12 @@ AlkValue & AlkValue::operator/=(const AlkValue & right)
   return *this;
 }
 
-mpq_class & AlkValue::valueRef() const
+const mpq_class & AlkValue::valueRef() const
+{
+  return d->m_val;
+}
+
+mpq_class & AlkValue::valueRef()
 {
   return d->m_val;
 }

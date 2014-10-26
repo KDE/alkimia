@@ -22,6 +22,7 @@
 
 #include <gmpxx.h>                 // krazy:exclude=camelcase
 #include <QString>
+#include <QSharedDataPointer>
 
 #include "alk_export.h"
 
@@ -238,13 +239,16 @@ protected:
 
   /// provides an access method to the private value storage
   /// for derived classes
-  mpq_class &valueRef() const;
+  const mpq_class &valueRef() const;
+  mpq_class &valueRef();
 
 private:
   /// \internal d-pointer class.
   class Private;
   /// \internal d-pointer instance.
-  Private* const d;
+  QSharedDataPointer<Private> d;
+  /// \internal shared zero value.
+  static QSharedDataPointer<AlkValue::Private>& sharedZero();
 
   // The following methods are not implemented (yet)
   // ALKIMIA_EXPORT friend QDataStream &operator<<(QDataStream &, const AlkValue &);
