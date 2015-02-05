@@ -20,6 +20,9 @@
 #ifndef ALKVALUE_H
 #define ALKVALUE_H
 
+// Workaround: include before gmpxx.h to fix build with gcc-4.9
+/** @todo When gmp version is higer than 5.1.3, remove cstddef include */
+#include <cstddef>
 #include <gmpxx.h>                 // krazy:exclude=camelcase
 #include <QString>
 #include <QSharedDataPointer>
