@@ -1,7 +1,7 @@
-project(alkimia)
+# The CMake version we require (must be first)
+cmake_minimum_required(VERSION 2.8.9)
 
-# The CMake version we require
-cmake_minimum_required(VERSION 2.6.7)
+project(alkimia)
 
 # setup default CMAKE_INSTALL_PREFIX before calling FIND_PACKAGE(KDE4)
 # see https://bugs.kde.org/show_bug.cgi?id=261132
