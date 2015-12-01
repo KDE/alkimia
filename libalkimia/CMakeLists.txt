@@ -2,7 +2,7 @@
 # The current version of libalkimia (used for packages and config.h)
 set(VERSION_MAJOR "5")
 set(VERSION_MINOR "0")
-set(VERSION_PATCH "1")
+set(VERSION_PATCH "90")
 
 # The CMake version we require
 cmake_minimum_required(VERSION 2.8.7)
