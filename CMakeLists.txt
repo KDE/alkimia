@@ -1,21 +1,22 @@
 # The CMake version we require (must be first)
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 2.8.12)
 
 project(alkimia)
 
-# setup default CMAKE_INSTALL_PREFIX before calling FIND_PACKAGE(KDE4)
-# see https://bugs.kde.org/show_bug.cgi?id=261132
-if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  execute_process(COMMAND kde4-config --prefix COMMAND tr -d "\n" OUTPUT_VARIABLE KDE4_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "${KDE4_INSTALL_PREFIX}" CACHE PATH
-    "Alkimia install prefix defaults to the KDE4 install prefix: ${KDE4_INSTALL_DIR}" FORCE)
-endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+find_package(ECM 0.0.11 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
+include(FeatureSummary)
 
 # check for PkgConfig, KDE and GMP
 find_package(PkgConfig)
-find_package(KDE4 REQUIRED)
+# Xml Network PrintSupport needed by KDELibs4Support
+find_package(Qt5 REQUIRED COMPONENTS Core DBus Test Xml Network PrintSupport)
+# KDELibs4Support needed to find 'GMP'
+find_package(KF5 REQUIRED COMPONENTS CoreAddons KDELibs4Support)
 find_package(GMP REQUIRED)
-
-include(KDE4Defaults)
 
 add_subdirectory(libalkimia)
