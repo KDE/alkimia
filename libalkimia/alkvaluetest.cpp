@@ -557,14 +557,14 @@ void AlkValueTest::valueRef()
 
   a = QLatin1String("1/7");
 
-  QVERIFY(val == mpq_class(1, 7));
+  QCOMPARE(val, mpq_class(1, 7));
 }
 
 void AlkValueTest::canonicalize()
 {
   AlkValue a(5);
   mpq_class & val(a.valueRef());
-  QVERIFY(val == mpq_class(5, 1));
+  QCOMPARE(val, mpq_class(5, 1));
 
   mpz_class i;
   i = 10;
@@ -572,9 +572,9 @@ void AlkValueTest::canonicalize()
   i = 2;
   mpq_set_den(val.get_mpq_t(), i.get_mpz_t());
   QVERIFY(val != mpq_class(5, 1));
-  QVERIFY(val == mpq_class(10, 2));
+  QCOMPARE(val, mpq_class(10, 2));
 
   a.canonicalize();
-  QVERIFY(val == mpq_class(5, 1));
+  QCOMPARE(val, mpq_class(5, 1));
 }
 
