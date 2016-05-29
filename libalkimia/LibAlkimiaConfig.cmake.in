@@ -1,8 +1,5 @@
 @PACKAGE_INIT@
 
-find_dependency(KF5KDELibs4Support)
-find_dependency(KF5CoreAddons)
-
 find_dependency(Qt5Core)
 find_dependency(Qt5DBus)
 find_dependency(Qt5Xml)

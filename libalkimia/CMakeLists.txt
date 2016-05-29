@@ -134,7 +134,7 @@ add_executable(alkcompanytest ${alkcompanytest_SRCS})
 ecm_mark_as_test(alkcompanytest)
 add_test(alkcompanytest alkcompanytest)
 
-target_link_libraries(alkvaluetest PRIVATE alkimia Qt5::Core Qt5::DBus Qt5::Test ${GMP_LIBRARIES})
-target_link_libraries(alkquoteitemtest PRIVATE alkimia Qt5::Core Qt5::DBus Qt5::Test)
-target_link_libraries(alkcompanytest PRIVATE alkimia Qt5::Core Qt5::Test)
+target_link_libraries(alkvaluetest PRIVATE alkimia Qt5::Test)
+target_link_libraries(alkquoteitemtest PRIVATE alkimia Qt5::Test)
+target_link_libraries(alkcompanytest PRIVATE alkimia Qt5::Test)
 
