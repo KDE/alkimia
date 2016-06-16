@@ -93,6 +93,7 @@ install(FILES ${alkimia_HEADERS}
 install(FILES
           "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfig.cmake"
           "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfigVersion.cmake"
+          "../cmake/modules/FindGMP.cmake"
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel)
 
