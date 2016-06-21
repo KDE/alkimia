@@ -462,7 +462,8 @@ const AlkValue & AlkValue::operator=(double right)
 
 const AlkValue & AlkValue::operator=(const QString & right)
 {
-  d = AlkValue(right, QLatin1Char('.')).d;
+  AlkValue other(right, QLatin1Char('.'));
+  d->m_val = other.d->m_val;
   return *this;
 }
 
