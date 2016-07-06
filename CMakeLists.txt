@@ -17,4 +17,11 @@ find_package(PkgConfig)
 find_package(Qt5 REQUIRED COMPONENTS Core DBus Test)
 find_package(GMP REQUIRED)
 
+# check for Doxygen (for API documentation)
+find_package(Doxygen)
+
+feature_summary(WHAT ALL)
+
+add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+
 add_subdirectory(libalkimia)

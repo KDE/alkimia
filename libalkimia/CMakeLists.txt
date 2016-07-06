@@ -4,26 +4,14 @@ set(VERSION_MAJOR "6")
 set(VERSION_MINOR "0")
 set(VERSION_PATCH "90")
 
-# The CMake version we require
-cmake_minimum_required(VERSION 2.8.12)
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
 include(ECMGeneratePriFile)
 include(ECMPackageConfigHelpers)
 include(ECMSetupVersion)
-include(FeatureSummary)
-include(KDEInstallDirs)
-include(KDECMakeSettings)
-# TODO: add when QStrings are no longer constructed from ASCII strings
-#include(KDEFrameworkCompilerSettings)
 
 set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}")
-
-include( GenerateExportHeader )
-add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE_ENABLE_EXCEPTIONS}")
 
 set(alkimia_LIB_SRCS
   alkvalue.cpp
@@ -104,8 +92,6 @@ endif(NOT WIN32)
 
 ########### documentation ###################
 
-# check for Doxygen
-find_package(Doxygen)
 if(DOXYGEN_FOUND)
   set(APIDOC_DIR ${CMAKE_CURRENT_BINARY_DIR}/apidocs)
 
