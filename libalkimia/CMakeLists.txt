@@ -102,26 +102,3 @@ if(DOXYGEN_FOUND)
   add_custom_target(libalkimia_apidoc ${DOXYGEN} ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen)
 endif(DOXYGEN_FOUND)
 
-########### tests ###################
-include(ECMMarkAsTest)
-
-set(alkvaluetest_SRCS alkvaluetest.cpp)
-set(alkquoteitemtest_SRCS alkquoteitemtest.cpp)
-set(alkcompanytest_SRCS alkcompanytest.cpp)
-
-add_executable(alkvaluetest ${alkvaluetest_SRCS})
-ecm_mark_as_test(alkvaluetest)
-add_test(alkvaluetest alkvaluetest)
-
-add_executable(alkquoteitemtest ${alkquoteitemtest_SRCS})
-ecm_mark_as_test(alkquoteitemtest)
-add_test(alkquoteitemtest alkquoteitemtest)
-
-add_executable(alkcompanytest ${alkcompanytest_SRCS})
-ecm_mark_as_test(alkcompanytest)
-add_test(alkcompanytest alkcompanytest)
-
-target_link_libraries(alkvaluetest PRIVATE alkimia Qt5::Test)
-target_link_libraries(alkquoteitemtest PRIVATE alkimia Qt5::Test)
-target_link_libraries(alkcompanytest PRIVATE alkimia Qt5::Test)
-
