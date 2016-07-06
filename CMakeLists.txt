@@ -24,5 +24,5 @@ feature_summary(WHAT ALL)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
-add_subdirectory(libalkimia)
+add_subdirectory(src)
 add_subdirectory(autotests)
