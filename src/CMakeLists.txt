@@ -47,6 +47,7 @@ set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia-${VERSION_
 
 ecm_setup_version(${ALKIMIA_LIB_VERSION} VARIABLE_PREFIX ALKIMIA
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimiaConfigVersion.cmake"
+  COMPATIBILITY SameMajorVersion
 )
 
 ecm_configure_package_config_file(
