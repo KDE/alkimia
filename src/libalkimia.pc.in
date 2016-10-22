@@ -5,7 +5,7 @@
 prefix=@CMAKE_INSTALL_PREFIX@
 exec_prefix=@CMAKE_INSTALL_PREFIX@
 libdir=@KDE4_LIB_DIR@
-includedir=@INCLUDE_INSTALL_DIR@/alkimia
+includedir=@INCLUDE_INSTALL_DIR@/alkimia/@CMAKE_DIR_PREFIX@
 
 # Human-readable name
 Name: Alkimia
@@ -14,6 +14,6 @@ Description: A library for financial data handling
 Version: @ALKIMIA_LIB_VERSION@
 
 Libs: -lalkimia
-Libs.private: -lgmp -lQt5Core -lQt5DBus -lstdc++
+Libs.private: -lgmp -l@PC_TARGET_PREFIX@Core -l@PC_TARGET_PREFIX@DBus -lstdc++
 Cflags: -I${includedir}
 
