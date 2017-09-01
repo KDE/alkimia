@@ -1,9 +1,15 @@
 include(ECMAddTests)
 
+if(BUILD_QT4)
+    set(TEST_LIB QtTest)
+else()
+    set(TEST_LIB Qt5::Test)
+endif()
+
 ecm_add_tests(
     alkvaluetest.cpp
     alkquoteitemtest.cpp
     alkcompanytest.cpp
   LINK_LIBRARIES
-    alkimia Qt5::Test
+    alkimia ${TEST_LIB}
 )
