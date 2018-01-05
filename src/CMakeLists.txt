@@ -2,7 +2,7 @@
 # The current version of libalkimia (used for packages and config.h)
 set(VERSION_MAJOR "7")
 set(VERSION_MINOR "0")
-set(VERSION_PATCH "0")
+set(VERSION_PATCH "80")
 
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
