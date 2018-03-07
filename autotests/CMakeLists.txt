@@ -1,7 +1,7 @@
 include(ECMAddTests)
 
 if(BUILD_QT4)
-    set(TEST_LIB QtTest)
+    set(TEST_LIB ${QT_QTTEST_LIBRARY})
 else()
     set(TEST_LIB Qt5::Test)
 endif()
