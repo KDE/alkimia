@@ -5,7 +5,7 @@ Requirements
 * git
 * cmake supported C++ compiler including linker
 * Qt4 or Qt5 development package
-
+* libMPIR or libGMP
 
 Fetch alkimia source package from git repo and unpack into a subdirectory with
 
