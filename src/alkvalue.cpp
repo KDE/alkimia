@@ -1,5 +1,6 @@
 /***************************************************************************
- *   Copyright 2010  Thomas Baumgart  ipwizard@users.sourceforge.net       *
+ *   Copyright 2010  Thomas Baumgart  tbaumgart@kde.org                    *
+ *   Copyright 2018  Thomas Baumgart  tbaumgart@kde.org                    *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -46,7 +47,7 @@ static QString mpqToString(const mpq_class & val)
   QString result = QString::fromLatin1(p);
 
   // and free up the resources allocated by gmp_asprintf
-  __gmp_freefunc_t freefunc;
+  void (*freefunc) (void *, size_t);
   mp_get_memory_functions(NULL, NULL, &freefunc);
   (*freefunc)(p, std::strlen(p) + 1);
 
