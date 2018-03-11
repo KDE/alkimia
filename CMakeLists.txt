@@ -12,7 +12,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 
-# check for PkgConfig, Qt and GMP
+# check for PkgConfig, Qt and MPIR/GMP
 find_package(PkgConfig)
 if(BUILD_QT4)
     find_package(Qt4 REQUIRED COMPONENTS QtCore QtDBus QtTest)
@@ -31,7 +31,24 @@ else()
     set(PC_TARGET_QTPREFIX Qt5)
     set(PC_TARGET_SUFFIX 5)
 endif()
-find_package(GMP REQUIRED)
+
+# figure out which multi-precision library to use
+# MPIR is preferred over GMP
+find_package(MPIR)
+if(MPIR_FOUND)
+  set(MP_INCLUDE_DIR ${MPIR_INCLUDE_DIR})
+  set(MP_LIBRARIES ${MPIR_LIBRARIES})
+  set(MP_HEADER mpirxx.h)
+  set(MP_CMAKE_MODULE "MPIR")
+  set(PC_LIB mpir)
+else()
+  find_package(GMP REQUIRED)
+  set(MP_INCLUDE_DIR ${GMP_INCLUDE_DIR})
+  set(MP_LIBRARIES ${GMP_LIBRARIES})
+  set(MP_HEADER gmpxx.h)
+  set(MP_CMAKE_MODULE "GMP")
+  set(PC_LIB gmp)
+endif()
 
 # check for Doxygen (for API documentation)
 find_package(Doxygen)

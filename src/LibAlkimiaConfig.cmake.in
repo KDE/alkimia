@@ -8,7 +8,7 @@ else()
     find_dependency(Qt5Core)
     find_dependency(Qt5DBus)
 endif()
-find_dependency(GMP)
+find_dependency(@MP_CMAKE_MODULE@)
 
 include("${CMAKE_CURRENT_LIST_DIR}/LibAlkimia@ALKIMIA_PATH_SUFFIX@Targets.cmake")
 

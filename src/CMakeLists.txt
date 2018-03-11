@@ -2,7 +2,7 @@
 # The current version of libalkimia (used for packages and config.h)
 set(VERSION_MAJOR "7")
 set(VERSION_MINOR "0")
-set(VERSION_PATCH "0")
+set(VERSION_PATCH "1")
 
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
@@ -20,7 +20,7 @@ set(alkimia_LIB_SRCS
   )
 
 set(alkimia_HEADERS
-  alkvalue.h
+  ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h
   alkquoteitem.h
   alkcompany.h
   ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
@@ -30,8 +30,8 @@ add_library(alkimia SHARED ${alkimia_LIB_SRCS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
 
-target_include_directories(alkimia PUBLIC ${GMP_INCLUDE_DIR})
-target_link_libraries(alkimia PUBLIC ${QT_USE_LIBSPREFIX}Core ${QT_USE_LIBSPREFIX}DBus ${GMP_LIBRARIES})
+target_include_directories(alkimia PUBLIC ${MP_INCLUDE_DIR})
+target_link_libraries(alkimia PUBLIC ${QT_USE_LIBSPREFIX}Core ${QT_USE_LIBSPREFIX}DBus ${MP_LIBRARIES})
 generate_export_header(alkimia BASE_NAME alk)
 
 if(WIN32)
@@ -45,6 +45,7 @@ set(INCLUDE_INSTALL_DIR include/alkimia/${ALKIMIA_INCLUDE_SUFFIX})
 if (NOT WIN32)
    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc IMMEDIATE @ONLY)
 endif(NOT WIN32)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/alkvalue.h.in ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h IMMEDIATE)
 
 ########### create package configuration file ###########
 
@@ -88,7 +89,7 @@ install(FILES ${alkimia_HEADERS}
 install(FILES
           "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
           "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
-          "../cmake/modules/FindGMP.cmake"
+          "../cmake/modules/Find${MP_CMAKE_MODULE}.cmake"
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel)
 
