@@ -1,17 +1,11 @@
-######################### libalkimia Version ##########################
-# The current version of libalkimia (used for packages and config.h)
-set(VERSION_MAJOR "7")
-set(VERSION_MINOR "0")
-set(VERSION_PATCH "1")
-
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
 include(ECMGeneratePriFile)
-include(ECMPackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 
-set(ALKIMIA_LIB_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
-set(ALKIMIA_LIB_SOVERSION "${VERSION_MAJOR}")
+set(ALKIMIA_LIB_VERSION ${alkimia_VERSION})
+set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
   alkvalue.cpp
@@ -50,14 +44,14 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/alkvalue.h.in ${CMAKE_CURRENT_BINARY_
 ########### create package configuration file ###########
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${VERSION_MAJOR}.${VERSION_MINOR}")
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
 
-ecm_setup_version(${ALKIMIA_LIB_VERSION} VARIABLE_PREFIX ALKIMIA
+ecm_setup_version(${alkimia_VERSION} VARIABLE_PREFIX ALKIMIA
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
   COMPATIBILITY SameMajorVersion
 )
 
-ecm_configure_package_config_file(
+configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
   INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
