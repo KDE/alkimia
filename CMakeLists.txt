@@ -56,6 +56,7 @@ find_package(Doxygen)
 feature_summary(WHAT ALL)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+include_directories(${MP_INCLUDE_DIR})
 
 add_subdirectory(src)
 add_subdirectory(autotests)
