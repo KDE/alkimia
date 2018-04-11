@@ -1,7 +1,7 @@
 # The CMake version we require (must be first)
 cmake_minimum_required(VERSION 3.0.2)
 
-project(alkimia VERSION 7.0.1)
+project(alkimia VERSION 7.0.2)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 
