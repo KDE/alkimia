@@ -1,15 +1,19 @@
 include(ECMAddTests)
 
-if(BUILD_QT4)
-    set(TEST_LIB ${QT_QTTEST_LIBRARY})
-else()
-    set(TEST_LIB Qt5::Test)
-endif()
+set(TEST_LIB alkimia alkimia-internal ${QT_USE_LIBSPREFIX}Test ${QT_USE_LIBSPREFIX}Core ${QT_USE_LIBSPREFIX}WebKit ${KDE_LIBRARIES})
 
 ecm_add_tests(
     alkvaluetest.cpp
     alkquoteitemtest.cpp
     alkcompanytest.cpp
+    alkexceptiontest.cpp
   LINK_LIBRARIES
     alkimia ${TEST_LIB}
+)
+
+ecm_add_test(
+    alkonlinequotetest.cpp
+    ../src/alkquotereceiver.cpp
+    LINK_LIBRARIES ${TEST_LIB}
+    TEST_NAME alkonlinequotestest
 )

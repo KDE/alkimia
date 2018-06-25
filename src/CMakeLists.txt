@@ -4,27 +4,76 @@ include(ECMGeneratePriFile)
 include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 
+include_directories(
+  ${CMAKE_CURRENT_BINARY_DIR}
+)
+
+########### target alkimia-internal ###########
+
+set(alkimia_INTERNAL_SRCS
+  alkdateformat.cpp
+  alkexception.cpp
+  alkmoney.cpp
+  alkquotereceiver.cpp
+  alkonlinequoteprocess.cpp
+)
+
+set(alkimia_INTERNAL_HEADERS
+  alkdateformat.h
+  alkexception.h
+  alkmoney.h
+  alkquotereceiver.h
+  alkonlinequoteprocess.h
+)
+
+add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
+target_link_libraries(alkimia-internal PUBLIC ${QT_USE_LIBSPREFIX}Core)
+kde_target_enable_exceptions(alkimia-internal PUBLIC)
+
+########### target alkimia ###########
+
 set(ALKIMIA_LIB_VERSION ${alkimia_VERSION})
 set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
-  alkvalue.cpp
-  alkquoteitem.cpp
   alkcompany.cpp
-  )
+  alkquoteitem.cpp
+  alkvalue.cpp
+  alkonlinequote.cpp
+  alkonlinequoteswidget.cpp
+)
 
-set(alkimia_HEADERS
-  ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h
-  alkquoteitem.h
+set(alkimia_LIB_HEADERS
   alkcompany.h
+  alkquoteitem.h
+  ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h
+  alkonlinequote.h
+  alkonlinequoteswidget.h
   ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
-  )
+)
 
-add_library(alkimia SHARED ${alkimia_LIB_SRCS})
+set(alkimia_UI
+  alkonlinequoteswidget.ui
+)
+
+add_definitions(-DKNSRC_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
+
+kde4_add_ui_files(alkimia_LIB_SRCS ${alkimia_UI} )
+add_library(alkimia SHARED ${alkimia_LIB_SRCS} ${alkimia_INTERNAL_SRCS} ${alkimia_LIB_HEADERS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
 
-target_link_libraries(alkimia PUBLIC ${QT_USE_LIBSPREFIX}Core ${QT_USE_LIBSPREFIX}DBus ${MP_LIBRARIES})
+target_link_libraries(alkimia
+  PUBLIC
+  ${QT_USE_LIBSPREFIX}Core
+  ${QT_USE_LIBSPREFIX}DBus
+  ${QT_USE_LIBSPREFIX}WebKit
+  ${MP_LIBRARIES}
+  ${KDE_LIBRARIES}
+  ${KDE4_KDEUI_LIBS}
+  ${KDE4_KNEWSTUFF3_LIBS}
+)
+
 generate_export_header(alkimia BASE_NAME alk)
 
 if(WIN32)
@@ -34,6 +83,22 @@ else()
 endif()
 set_target_properties(alkimia PROPERTIES OUTPUT_NAME alkimia${ALKIMIA_LIB_SUFFIX})
 set(INCLUDE_INSTALL_DIR include/alkimia/${ALKIMIA_INCLUDE_SUFFIX})
+
+install(TARGETS alkimia
+  EXPORT  alkimiaTargets
+  ${INSTALL_TARGETS_DEFAULT_ARGS}
+)
+
+install(FILES ${alkimia_LIB_HEADERS}
+  DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia
+  COMPONENT Devel
+)
+
+install(FILES skrooge_unit.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
+
+install(FILES financequote.pl
+  DESTINATION ${DATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
+)
 
 if (NOT WIN32)
    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc IMMEDIATE @ONLY)
@@ -59,11 +124,6 @@ configure_package_config_file(
 
 ########### install files ###############
 
-install(TARGETS alkimia
-        EXPORT  alkimiaTargets
-        ${INSTALL_TARGETS_DEFAULT_ARGS}
-        )
-
 export(TARGETS alkimia
        FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Targets.cmake"
        NAMESPACE Alkimia::
@@ -74,10 +134,6 @@ install(EXPORT alkimiaTargets
         NAMESPACE Alkimia::
         DESTINATION ${CMAKECONFIG_INSTALL_DIR}
        )
-
-install(FILES ${alkimia_HEADERS}
-        DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia
-        COMPONENT Devel)
 
 install(FILES
           "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
