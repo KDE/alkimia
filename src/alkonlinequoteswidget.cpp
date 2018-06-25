@@ -24,6 +24,7 @@
 #include <QRegExp>
 #include <QCheckBox>
 #include <QDesktopServices>
+#include <QtDebug>
 
 #include <KConfig>
 #include <KGlobal>
@@ -74,6 +75,10 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
                          i18n("Create a new source entry for online quotes"),
                          i18n("Use this to create a new entry for online quotes"));
   m_newButton->setGuiItem(newButtenItem);
+
+  connect(m_newProfile, SIGNAL(clicked()), this, SLOT(slotNewProfile()));
+  connect(m_deleteProfile, SIGNAL(clicked()), this, SLOT(slotDeleteProfile()));
+  connect(m_selectProfile, SIGNAL(clicked()), this, SLOT(slotSelectProfile()));
 
   connect(m_updateButton, SIGNAL(clicked()), this, SLOT(slotUpdateEntry()));
   connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
@@ -147,6 +152,23 @@ void AlkOnlineQuotesWidget::resetConfig()
   }
 
   loadList();
+}
+
+void AlkOnlineQuotesWidget::slotNewProfile()
+{
+    QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget*>(m_profileList));
+    item->setText(QLatin1String("new profile"));
+    item->setFlags(item->flags() | Qt::ItemIsEditable);
+}
+
+void AlkOnlineQuotesWidget::slotDeleteProfile()
+{
+    delete m_profileList->currentItem();
+}
+
+void AlkOnlineQuotesWidget::slotSelectProfile()
+{
+    qDebug() << "selecting" << m_profileList->currentItem()->text();
 }
 
 void AlkOnlineQuotesWidget::slotLoadWidgets()

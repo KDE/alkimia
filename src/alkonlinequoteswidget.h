@@ -48,6 +48,10 @@ public:
   void resetConfig();
 
 protected slots:
+  void slotNewProfile();
+  void slotDeleteProfile();
+  void slotSelectProfile();
+
   void slotDeleteEntry();
   void slotShowEntry();
   void slotUpdateEntry();
