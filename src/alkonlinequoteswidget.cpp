@@ -44,6 +44,7 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
 
   m_updateButton->setEnabled(false);
 
+  // TODO move to ui file
   KGuiItem updateButtenItem(i18nc("Accepts the entered data and stores it", "&Accept"),
                             KIcon("dialog-ok"),
                             i18n("Accepts the entered data and stores it"),
