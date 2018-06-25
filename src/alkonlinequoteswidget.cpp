@@ -25,11 +25,10 @@
 #include <QCheckBox>
 #include <QDesktopServices>
 
-#include <kconfig.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kguiitem.h>
+#include <KConfig>
+#include <KGlobal>
+#include <KIconLoader>
+#include <KGuiItem>
 #include <KMessageBox>
 #include <KStandardDirs>
 #include <knewstuff3/downloaddialog.h>

@@ -28,7 +28,7 @@
 
 #include <ui_alkonlinequoteswidget.h>
 
-class AlkOnlineQuotesWidgetDecl : public QWidget, public Ui::AlkOnlineQuotesWidget
+class ALK_NO_EXPORT AlkOnlineQuotesWidgetDecl : public QWidget, public Ui::AlkOnlineQuotesWidget
 {
 public:
   AlkOnlineQuotesWidgetDecl(QWidget *parent) : QWidget(parent) {
