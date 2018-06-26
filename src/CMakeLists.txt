@@ -40,6 +40,7 @@ set(alkimia_LIB_SRCS
   alkquoteitem.cpp
   alkvalue.cpp
   alkonlinequote.cpp
+  alkonlinequotesource.cpp
   alkonlinequoteswidget.cpp
 )
 
@@ -48,6 +49,7 @@ set(alkimia_LIB_HEADERS
   alkquoteitem.h
   ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h
   alkonlinequote.h
+  alkonlinequotesource.h
   alkonlinequoteswidget.h
   ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
 )

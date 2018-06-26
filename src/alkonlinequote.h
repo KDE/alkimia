@@ -21,6 +21,7 @@
 #define ALKONLINEQUOTE_H
 
 #include "alkmoney.h"
+#include "alkonlinequotesource.h"
 
 #include <QObject>
 #include <QDateTime>
@@ -30,34 +31,6 @@
 
 #include <KProcess>
 #include <KUrl>
-
-/**
-  * @author Thomas Baumgart & Ace Jones
-  *
-  * This is a helper class to store information about an online source
-  * for stock prices or currency exchange rates.
-  */
-class ALK_EXPORT AlkOnlineQuoteSource
-{
-public:
-  AlkOnlineQuoteSource() : m_skipStripping(false) {}
-  explicit AlkOnlineQuoteSource(const QString& name);
-  AlkOnlineQuoteSource(const QString& name, const QString& url, const QString& sym, const QString& price, const QString& date, const QString& dateformat, bool skipStripping = false);
-  ~AlkOnlineQuoteSource() {}
-  bool isValid() { return !m_name.isEmpty(); }
-
-  void write() const;
-  void rename(const QString& name);
-  void remove() const;
-
-  QString    m_name;
-  QString    m_url;
-  QString    m_sym;
-  QString    m_price;
-  QString    m_date;
-  QString    m_dateformat;
-  bool       m_skipStripping;
-};
 
 /**
 Retrieves a price quote from a web-based quote source

@@ -190,12 +190,12 @@ void AlkOnlineQuotesWidget::slotLoadWidgets()
 
   if (item) {
     m_currentItem = AlkOnlineQuoteSource(item->text());
-    m_editURL->setText(m_currentItem.m_url);
-    m_editSymbol->setText(m_currentItem.m_sym);
-    m_editPrice->setText(m_currentItem.m_price);
-    m_editDate->setText(m_currentItem.m_date);
-    m_editDateFormat->setText(m_currentItem.m_dateformat);
-    m_skipStripping->setChecked(m_currentItem.m_skipStripping);
+    m_editURL->setText(m_currentItem.url());
+    m_editSymbol->setText(m_currentItem.sym());
+    m_editPrice->setText(m_currentItem.price());
+    m_editDate->setText(m_currentItem.date());
+    m_editDateFormat->setText(m_currentItem.dateformat());
+    m_skipStripping->setChecked(m_currentItem.skipStripping());
   } else {
     m_editURL->setEnabled(false);
     m_editSymbol->setEnabled(false);
@@ -212,22 +212,22 @@ void AlkOnlineQuotesWidget::slotLoadWidgets()
 void AlkOnlineQuotesWidget::slotEntryChanged()
 {
   clearIcons();
-  bool modified = m_editURL->text() != m_currentItem.m_url
-                  || m_editSymbol->text() != m_currentItem.m_sym
-                  || m_editDate->text() != m_currentItem.m_date
-                  || m_editDateFormat->text() != m_currentItem.m_dateformat
-                  || m_editPrice->text() != m_currentItem.m_price
-                  || m_skipStripping->isChecked() != m_currentItem.m_skipStripping;
+  bool modified = m_editURL->text() != m_currentItem.url()
+                  || m_editSymbol->text() != m_currentItem.sym()
+                  || m_editDate->text() != m_currentItem.date()
+                  || m_editDateFormat->text() != m_currentItem.dateformat()
+                  || m_editPrice->text() != m_currentItem.price()
+                  || m_skipStripping->isChecked() != m_currentItem.skipStripping();
 
   m_updateButton->setEnabled(modified);
   m_checkButton->setEnabled(!modified);
-  m_checkSymbol->setEnabled(!m_currentItem.m_url.contains("%2"));
-  m_checkSymbol2->setEnabled(m_currentItem.m_url.contains("%2"));
+  m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
+  m_checkSymbol2->setEnabled(m_currentItem.url().contains("%2"));
 }
 
 void AlkOnlineQuotesWidget::slotDeleteEntry()
 {
-  QList<QListWidgetItem*> items = m_quoteSourceList->findItems(m_currentItem.m_name, Qt::MatchExactly);
+  QList<QListWidgetItem*> items = m_quoteSourceList->findItems(m_currentItem.name(), Qt::MatchExactly);
   if (items.size() == 0)
     return;
   QListWidgetItem* item = items.at(0);
@@ -256,12 +256,12 @@ void AlkOnlineQuotesWidget::slotShowEntry()
 
 void AlkOnlineQuotesWidget::slotUpdateEntry()
 {
-  m_currentItem.m_url = m_editURL->text();
-  m_currentItem.m_sym = m_editSymbol->text();
-  m_currentItem.m_date = m_editDate->text();
-  m_currentItem.m_dateformat = m_editDateFormat->text();
-  m_currentItem.m_price = m_editPrice->text();
-  m_currentItem.m_skipStripping = m_skipStripping->isChecked();
+  m_currentItem.setUrl(m_editURL->text());
+  m_currentItem.setSym(m_editSymbol->text());
+  m_currentItem.setDate(m_editDate->text());
+  m_currentItem.setDateformat(m_editDateFormat->text());
+  m_currentItem.setPrice(m_editPrice->text());
+  m_currentItem.setSkipStripping(m_skipStripping->isChecked());
   m_currentItem.write();
   m_checkButton->setEnabled(true);
   slotEntryChanged();
@@ -320,10 +320,10 @@ void AlkOnlineQuotesWidget::slotCheckEntry()
   connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogStatus(QString)));
   connect(&quote, SIGNAL(failed(QString, QString)), this, SLOT(slotLogFailed(QString, QString)));
   connect(&quote, SIGNAL(quote(QString, QString, QDate, double)), this, SLOT(slotLogQuote(QString, QString, QDate, double)));
-  if (m_currentItem.m_url.contains("%2"))
-    quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.m_name);
+  if (m_currentItem.url().contains("%2"))
+    quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.name());
   else
-    quote.launch(m_checkSymbol->text(), m_checkSymbol->text(), m_currentItem.m_name);
+    quote.launch(m_checkSymbol->text(), m_checkSymbol->text(), m_currentItem.name());
   setupIcons(quote.errors());
 }
 
@@ -368,7 +368,7 @@ void AlkOnlineQuotesWidget::slotEntryRenamed(QListWidgetItem* item)
   if (text.length() > 0 && nameCount == 1) {
     m_currentItem.rename(text);
   } else {
-    item->setText(m_currentItem.m_name);
+    item->setText(m_currentItem.name());
   }
   m_quoteSourceList->sortItems();
   m_newButton->setEnabled(m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0);
@@ -389,8 +389,8 @@ void AlkOnlineQuotesWidget::slotInstallEntries()
 
 QString AlkOnlineQuotesWidget::expandedUrl() const
 {
-  if (m_currentItem.m_url.contains("%2"))
-    return m_currentItem.m_url.arg(m_checkSymbol2->text());
+  if (m_currentItem.url().contains("%2"))
+    return m_currentItem.url().arg(m_checkSymbol2->text());
   else
-    return m_currentItem.m_url.arg(m_checkSymbol->text());
+    return m_currentItem.url().arg(m_checkSymbol->text());
 }

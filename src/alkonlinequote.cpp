@@ -127,18 +127,18 @@ bool AlkOnlineQuote::initLaunch(const QString& _symbol, const QString& _id, cons
   KUrl url;
 
   // if the source has room for TWO symbols..
-  if (d->m_source.m_url.contains("%2")) {
+  if (d->m_source.url().contains("%2")) {
     // this is a two-symbol quote.  split the symbol into two.  valid symbol
     // characters are: 0-9, A-Z and the dot.  anything else is a separator
     QRegExp splitrx("([0-9a-z\\.]+)[^a-z0-9]+([0-9a-z\\.]+)", Qt::CaseInsensitive);
     // if we've truly found 2 symbols delimited this way...
     if (splitrx.indexIn(d->m_symbol) != -1)
-      url = KUrl(d->m_source.m_url.arg(splitrx.cap(1), splitrx.cap(2)));
+      url = KUrl(d->m_source.url().arg(splitrx.cap(1), splitrx.cap(2)));
     else
       kDebug(Private::dbgArea()) << "WebPriceQuote::launch() did not find 2 symbols";
   } else
     // a regular one-symbol quote
-    url = KUrl(d->m_source.m_url.arg(d->m_symbol));
+    url = KUrl(d->m_source.url().arg(d->m_symbol));
 
   d->m_url = url;
 
@@ -167,7 +167,7 @@ void AlkOnlineQuote::slotLoadFinishedCssSelector(bool ok)
   } else {
     // parse symbol
     QWebFrame *frame = d->m_webView->page()->mainFrame();
-    QWebElement element = frame->findFirstElement(d->m_source.m_sym);
+    QWebElement element = frame->findFirstElement(d->m_source.sym());
     QString symbol = element.toPlainText();
     if (!symbol.isEmpty()) {
       emit status(i18n("Symbol found: '%1'", symbol));
@@ -177,12 +177,12 @@ void AlkOnlineQuote::slotLoadFinishedCssSelector(bool ok)
     }
 
     // parse price
-    element = frame->findFirstElement(d->m_source.m_price);
+    element = frame->findFirstElement(d->m_source.price());
     QString price = element.toPlainText();
     bool gotprice = parsePrice(price);
 
     // parse date
-    element = frame->findFirstElement(d->m_source.m_date);
+    element = frame->findFirstElement(d->m_source.date());
     QString date = element.toPlainText();
     bool gotdate = parseDate(date);
 
@@ -368,7 +368,7 @@ bool AlkOnlineQuote::parseDate(const QString &datestr)
   if (!datestr.isEmpty()) {
     emit status(i18n("Date found: '%1'", datestr));
 
-    AlkDateFormat dateparse(d->m_source.m_dateformat);
+    AlkDateFormat dateparse(d->m_source.dateformat());
     try {
       d->m_date = dateparse.convertString(datestr, false /*strict*/);
       kDebug(Private::dbgArea()) << "Date" << datestr;
@@ -407,7 +407,7 @@ bool AlkOnlineQuote::slotParseQuote(const QString& _quotedata)
   kDebug(Private::dbgArea()) << "quotedata" << _quotedata;
 
   if (! quotedata.isEmpty()) {
-    if (!d->m_source.m_skipStripping) {
+    if (!d->m_source.skipStripping()) {
       //
       // First, remove extranous non-data elements
       //
@@ -423,9 +423,9 @@ bool AlkOnlineQuote::slotParseQuote(const QString& _quotedata)
       kDebug(Private::dbgArea()) << "stripped text" << quotedata;
     }
 
-    QRegExp symbolRegExp(d->m_source.m_sym);
-    QRegExp dateRegExp(d->m_source.m_date);
-    QRegExp priceRegExp(d->m_source.m_price);
+    QRegExp symbolRegExp(d->m_source.sym());
+    QRegExp dateRegExp(d->m_source.date());
+    QRegExp priceRegExp(d->m_source.price());
 
     if (symbolRegExp.indexIn(quotedata) > -1) {
       kDebug(Private::dbgArea()) << "Symbol" << symbolRegExp.cap(1);
@@ -475,13 +475,13 @@ const QMap<QString, AlkOnlineQuoteSource> AlkOnlineQuote::defaultQuoteSources()
   // name for the source.
   result["Alkimia Currency"] =
         AlkOnlineQuoteSource("Alkimia Currency",
-                               "https://fx-rate.net/%1/%2",
-                                QString(),  // symbolregexp
-                               "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
-                               "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                               "%d/%m/%y",
-                               true // skip HTML stripping
-                               );
+                             "https://fx-rate.net/%1/%2",
+                              QString(),  // symbolregexp
+                             "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
+                             "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
+                             "%d/%m/%y",
+                             true // skip HTML stripping
+                            );
   return result;
 }
 
@@ -519,8 +519,8 @@ const QStringList AlkOnlineQuote::quoteSourcesNative()
   QMap<QString, AlkOnlineQuoteSource> defaults = defaultQuoteSources();
   QMap<QString, AlkOnlineQuoteSource>::const_iterator it_source = defaults.constBegin();
   while (it_source != defaults.constEnd()) {
-    if (! groups.contains((*it_source).m_name)) {
-      groups += (*it_source).m_name;
+    if (! groups.contains((*it_source).name())) {
+      groups += (*it_source).name();
       (*it_source).write();
       kconfig->sync();
     }
@@ -562,98 +562,3 @@ const QStringList AlkOnlineQuote::quoteSourcesSkrooge()
 
   return sources;
 }
-
-//
-// Helper class to load/save an individual source
-//
-
-AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name, const QString& url, const QString& sym, const QString& price, const QString& date, const QString& dateformat, bool skipStripping):
-    m_name(name),
-    m_url(url),
-    m_sym(sym),
-    m_price(price),
-    m_date(date),
-    m_dateformat(dateformat),
-    m_skipStripping(skipStripping)
-{ }
-
-AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name)
-{
-  if (name.endsWith(".txt")) {
-    QString configFile = KStandardDirs::locate("data", "skrooge/quotes/" + name);
-    if (configFile.isEmpty())
-      return;
-    KConfig config(configFile);
-    KConfigGroup group(&config, "<default>");
-
-//      url=https://markets.ft.com/data/funds/tearsheet/charts?s=%1
-//      mode=HTML
-//      price=<span class="mod-ui-data-list__value">([^<]*)</span>
-//      date=Data delayed at least 15 minutes, as of ([^\.]*)\.
-//      dateformat=MMM dd yyyy
-    if (group.hasKey("mode") && group.readEntry("mode") == "HTML" &&
-        group.hasKey("url") && group.hasKey("date") &&
-        group.hasKey("dateformat") && group.hasKey("price")) {
-      m_skipStripping = false;
-      m_name = name;
-      //m_name.replace(".txt", " (skrooge)");
-      m_url = group.readEntry("url");
-      m_price = group.readEntry("price");
-      m_date = group.readEntry("date");
-      m_dateformat = group.readEntry("dateformat");
-    }
-  } else {
-    m_name = name;
-    KSharedConfigPtr kconfig = KGlobal::config();
-    KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
-    m_sym = grp.readEntry("SymbolRegex");
-    m_date = grp.readEntry("DateRegex");
-    m_dateformat = grp.readEntry("DateFormatRegex", "%m %d %y");
-    m_price = grp.readEntry("PriceRegex");
-    m_url = grp.readEntry("URL");
-    m_skipStripping = grp.readEntry("SkipStripping", false);
-  }
-}
-
-void AlkOnlineQuoteSource::write() const
-{
-  if (m_name.endsWith(".txt")) {
-    QString configFile = KStandardDirs::locateLocal("data", "skrooge/quotes/" + m_name);
-    if (configFile.isEmpty())
-      return;
-    KConfig config(configFile);
-    KConfigGroup group(&config, "<default>");
-    group.writeEntry("url", m_url);
-    group.writeEntry("price", m_price);
-    group.writeEntry("date", m_date);
-    group.writeEntry("dateformat", m_dateformat);
-    group.writeEntry("mode", "HTML");
-  } else {
-    KSharedConfigPtr kconfig = KGlobal::config();
-    KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
-    grp.writeEntry("URL", m_url);
-    grp.writeEntry("PriceRegex", m_price);
-    grp.writeEntry("DateRegex", m_date);
-    grp.writeEntry("DateFormatRegex", m_dateformat);
-    grp.writeEntry("SymbolRegex", m_sym);
-    if (m_skipStripping)
-      grp.writeEntry("SkipStripping", m_skipStripping);
-    else
-      grp.deleteEntry("SkipStripping");
-  }
-}
-
-void AlkOnlineQuoteSource::rename(const QString& name)
-{
-  remove();
-  m_name = name;
-  write();
-}
-
-void AlkOnlineQuoteSource::remove() const
-{
-  KSharedConfigPtr kconfig = KGlobal::config();
-  kconfig->deleteGroup(QString("Online-Quote-Source-%1").arg(m_name));
-  kconfig->sync();
-}
-
