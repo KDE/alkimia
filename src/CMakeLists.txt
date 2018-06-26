@@ -93,7 +93,7 @@ install(TARGETS alkimia
   ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
-install(FILES ${alkimia_LIB_HEADERS}
+install(FILES ${alkimia_LIB_HEADERS} ${CMAKE_CURRENT_BINARY_DIR}/ui_alkonlinequoteswidget.h
   DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia
   COMPONENT Devel
 )
