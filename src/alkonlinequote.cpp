@@ -20,6 +20,7 @@
 #include "alkonlinequote.h"
 
 #include "alkonlinequoteprocess.h"
+#include "alkfinancequoteprocess.h"
 #include "alkdateformat.h"
 #include "alkexception.h"
 

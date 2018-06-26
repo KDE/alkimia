@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2004  Ace Jones <acejones@users.sourceforge.net>            *
+ *   Copyright 2004  Thomas Baumgart <thb@net-bembel.de>                   *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -17,27 +18,39 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
-#include "alkonlinequoteprocess.h"
+#ifndef ALKFINANCEQUOTEPROCESS_H
+#define ALKFINANCEQUOTEPROCESS_H
 
-//
-// Helper class to babysit the KProcess used for running the local script in that case
-//
+#include "alk_export.h"
 
-AlkOnlineQuoteProcess::AlkOnlineQuoteProcess()
+#include <KProcess>
+
+/**
+Helper class to run the Finance::Quote process. This is used only for the purpose of obtaining
+a list of valid sources. The actual price quotes are obtained thru AlkFinanceQouteProcess.
+The class also contains functions to convert between the rather cryptic source names used
+by the Finance::Quote package, and more user-friendly names.
+
+@author Thomas Baumgart <thb@net-bembel.de> & Ace Jones <acejones@users.sourceforge.net>, Tony B<tonybloom@users.sourceforge.net>
+ */
+class ALK_NO_EXPORT AlkFinanceQuoteProcess: public KProcess
 {
-  connect(this, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReceivedDataFromFilter()));
-  connect(this, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(slotProcessExited(int,QProcess::ExitStatus)));
-}
+  Q_OBJECT
+public:
+  AlkFinanceQuoteProcess();
+  void launch(const QString& scriptPath);
+  bool isFinished() const;
+  const QStringList getSourceList() const;
+  const QString crypticName(const QString& niceName) const;
+  const QString niceName(const QString& crypticName) const;
 
-void AlkOnlineQuoteProcess::slotReceivedDataFromFilter()
-{
-//   kDebug(2) << "WebPriceQuoteProcess::slotReceivedDataFromFilter(): " << QString(data);
-  m_string += QString(readAllStandardOutput());
-}
+public slots:
+  void slotReceivedDataFromFilter();
+  void slotProcessExited();
 
-void AlkOnlineQuoteProcess::slotProcessExited(int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/)
-{
-//   kDebug(2) << "WebPriceQuoteProcess::slotProcessExited()";
-  emit processExited(m_string);
-  m_string.truncate(0);
-}
+private:
+  class Private;
+  Private *d;
+};
+
+#endif // ALKFINANCEQUOTEPROCESS_H
