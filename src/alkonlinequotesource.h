@@ -22,6 +22,8 @@
 
 #include "alk_export.h"
 
+#include "alkonlinequotesprofile.h"
+
 #include <QString>
 
 /**
@@ -60,6 +62,9 @@ public:
   void setDate(const QString &date);
   void setDateformat(const QString &dateformat);
   void setSkipStripping(bool state);
+
+  static void setProfile(AlkOnlineQuotesProfile *profile);
+  static AlkOnlineQuotesProfile* profile();
 
 protected:
   class Private;

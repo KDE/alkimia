@@ -20,10 +20,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "alkonlinequotesprofilemanager.h"
+
+AlkOnlineQuotesProfileManager manager;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
+    AlkOnlineQuoteSource::setProfile(manager.profiles().first());
     ui->setupUi(this);
 }
 

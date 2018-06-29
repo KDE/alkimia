@@ -20,11 +20,13 @@
 #include "alkonlinequoteswidget.h"
 
 #include "alkonlinequote.h"
+#include "alkonlinequotesprofilemanager.h"
 
 #include <QRegExp>
 #include <QCheckBox>
 #include <QDesktopServices>
 #include <QtDebug>
+#include <QWebInspector>
 
 #include <KConfig>
 #include <KGlobal>
@@ -41,7 +43,8 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
 {
   QStringList groups = AlkOnlineQuote::quoteSources();
 
-  loadList(true /*updateResetList*/);
+  loadProfiles();
+  loadQuotesList(true /*updateResetList*/);
 
   m_updateButton->setEnabled(false);
 
@@ -79,6 +82,7 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
   connect(m_newProfile, SIGNAL(clicked()), this, SLOT(slotNewProfile()));
   connect(m_deleteProfile, SIGNAL(clicked()), this, SLOT(slotDeleteProfile()));
   connect(m_selectProfile, SIGNAL(clicked()), this, SLOT(slotSelectProfile()));
+  connect(m_profileList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadProfile()));
 
   connect(m_updateButton, SIGNAL(clicked()), this, SLOT(slotUpdateEntry()));
   connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
@@ -102,7 +106,17 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
   m_checkSymbol2->setText("BTC GBP");
 }
 
-void AlkOnlineQuotesWidget::loadList(const bool updateResetList)
+void AlkOnlineQuotesWidget::loadProfiles()
+{
+  AlkOnlineQuotesProfileList list = AlkOnlineQuoteSource::profile()->manager()->profiles();
+  foreach(AlkOnlineQuotesProfile *profile, list) {
+    QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget*>(m_profileList));
+    item->setText(profile->name());
+    item->setFlags(item->flags() | Qt::ItemIsEditable);
+  }
+}
+
+void AlkOnlineQuotesWidget::loadQuotesList(const bool updateResetList)
 {
   //disconnect the slot while items are being loaded and reconnect at the end
   disconnect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(slotEntryRenamed(QListWidgetItem*)));
@@ -151,7 +165,7 @@ void AlkOnlineQuotesWidget::resetConfig()
     (*itr).write();
   }
 
-  loadList();
+  loadQuotesList();
 }
 
 void AlkOnlineQuotesWidget::slotNewProfile()
@@ -169,6 +183,17 @@ void AlkOnlineQuotesWidget::slotDeleteProfile()
 void AlkOnlineQuotesWidget::slotSelectProfile()
 {
     qDebug() << "selecting" << m_profileList->currentItem()->text();
+}
+
+void AlkOnlineQuotesWidget::slotLoadProfile()
+{
+  AlkOnlineQuotesProfileList list = AlkOnlineQuoteSource::profile()->manager()->profiles();
+  foreach(AlkOnlineQuotesProfile *profile, list) {
+    if (m_profileList->currentItem()->text() == profile->name()) {
+      AlkOnlineQuoteSource::setProfile(profile);
+      loadQuotesList();
+    }
+  }
 }
 
 void AlkOnlineQuotesWidget::slotLoadWidgets()
@@ -271,7 +296,7 @@ void AlkOnlineQuotesWidget::slotNewEntry()
 {
   AlkOnlineQuoteSource newSource(i18n("New Quote Source"));
   newSource.write();
-  loadList();
+  loadQuotesList();
   QListWidgetItem* item = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).at(0);
   if (item) {
     m_quoteSourceList->setCurrentItem(item);
@@ -376,15 +401,12 @@ void AlkOnlineQuotesWidget::slotEntryRenamed(QListWidgetItem* item)
 
 void AlkOnlineQuotesWidget::slotInstallEntries()
 {
-  QString configFile = "skrooge_unit.knsrc";
-  if (KStandardDirs::locate("config", configFile).isEmpty()) {
-    configFile.prepend(QString("%1/").arg(KNSRC_DIR));
-  }
+  QString configFile = AlkOnlineQuoteSource::profile()->hotNewStuffConfigFile();
 
   QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(configFile, this);
   dialog->exec();
   delete dialog;
-  loadList();
+  loadQuotesList();
 }
 
 QString AlkOnlineQuotesWidget::expandedUrl() const

@@ -499,7 +499,9 @@ const QStringList AlkOnlineQuote::quoteSources(const _quoteSystemE _system)
 
 const QStringList AlkOnlineQuote::quoteSourcesNative()
 {
-  KSharedConfigPtr kconfig = KGlobal::config();
+  //KSharedConfigPtr kconfig = KGlobal::config();
+  KConfig config(AlkOnlineQuoteSource::profile()->kConfigFile());
+  KConfig *kconfig = &config;
   QStringList groups = kconfig->groupList();
 
   QStringList::Iterator it;
@@ -553,7 +555,9 @@ const QStringList AlkOnlineQuote::quoteSourcesFinanceQuote()
 const QStringList AlkOnlineQuote::quoteSourcesSkrooge()
 {
   QStringList sources;
-  foreach(const QString &file, KStandardDirs().findAllResources("data", QString::fromLatin1("skrooge/quotes/*.txt"))) {
+  QString relPath = AlkOnlineQuoteSource::profile()->hotNewStuffRelPath();
+
+  foreach(const QString &file, KStandardDirs().findAllResources("data", relPath + QString::fromLatin1("/*.txt"))) {
     QFileInfo f(file);
     QString file2 = f.fileName();
     if (!sources.contains(file2)) {

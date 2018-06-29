@@ -19,7 +19,10 @@
 
 #include "alkonlinequotesource.h"
 
-#include <KStandardDirs>
+#include "alkonlinequotesprofile.h"
+
+#include <QtDebug>
+
 #include <KConfig>
 #include <KConfigGroup>
 
@@ -37,10 +40,9 @@ public:
       m_skipStripping(other->m_skipStripping)
   {}
 
-  bool read(const QString &groupName)
+  bool read(KConfig *kconfig, const QString &groupName)
   {
     const QString &group = QString("Online-Quote-Source-%1").arg(groupName);
-    KSharedConfigPtr kconfig = KGlobal::config();
     if (!kconfig->hasGroup(group))
       return false;
     KConfigGroup grp = kconfig->group(group);
@@ -54,9 +56,8 @@ public:
     return true;
   }
 
-  bool write(const QString &groupName)
+  bool write(KConfig *kconfig, const QString &groupName)
   {
-    KSharedConfigPtr kconfig = KGlobal::config();
     KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(groupName));
     grp.writeEntry("URL", m_url);
     grp.writeEntry("PriceRegex", m_price);
@@ -72,9 +73,8 @@ public:
   }
 
   // This is currently in skrooge format
-  bool readFromGHNSFile(const QString &relPath, const QString &name)
+  bool readFromGHNSFile(const QString &configFile)
   {
-    QString configFile = KStandardDirs::locate("data", relPath + name);
     if (configFile.isEmpty())
       return false;
     KConfig config(configFile);
@@ -84,7 +84,6 @@ public:
       group.hasKey("dateformat") && group.hasKey("price")))
        return false;
     m_skipStripping = false;
-    m_name = name;
     m_url = group.readEntry("url");
     m_price = group.readEntry("price");
     m_date = group.readEntry("date");
@@ -93,9 +92,8 @@ public:
   }
 
   // This is currently in skrooge format
-  bool writeToGHNSFile(const QString &relPath, const QString &name)
+  bool writeToGHNSFile(const QString &configFile)
   {
-    QString configFile = KStandardDirs::locateLocal("data", relPath + name);
     if (configFile.isEmpty())
       return false;
     KConfig config(configFile);
@@ -108,14 +106,17 @@ public:
     return true;
   }
 
-  QString    m_name;
-  QString    m_url;
-  QString    m_sym;
-  QString    m_price;
-  QString    m_date;
-  QString    m_dateformat;
-  bool       m_skipStripping;
+  QString m_name;
+  QString m_url;
+  QString m_sym;
+  QString m_price;
+  QString m_date;
+  QString m_dateformat;
+  bool m_skipStripping;
+  static AlkOnlineQuotesProfile *m_profile;
 };
+
+AlkOnlineQuotesProfile *AlkOnlineQuoteSource::Private::m_profile = 0;
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource()
   : d(new Private)
@@ -150,9 +151,10 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name)
   : d(new Private)
 {
   if (name.endsWith(".txt")) {
-    d->readFromGHNSFile("skrooge/quotes/", name);
+    d->readFromGHNSFile(profile()->hotNewStuffReadFilePath(name));
+    d->m_name = name;
   } else {
-    d->read(name);
+    d->read(profile()->kConfig(), name);
   }
 }
 
@@ -236,13 +238,24 @@ void AlkOnlineQuoteSource::setSkipStripping(bool state)
   d->m_skipStripping = state;
 }
 
+void AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfile *profile)
+{
+  Private::m_profile = profile;
+  qDebug() << "using profile" << profile->name();
+}
+
+AlkOnlineQuotesProfile *AlkOnlineQuoteSource::profile()
+{
+  return Private::m_profile;
+}
+
 bool AlkOnlineQuoteSource::write() const
 {
   // FIXME
   if (d->m_name.endsWith(".txt")) {
-    return d->writeToGHNSFile("skrooge/quotes/", d->m_name);
+    return d->writeToGHNSFile(profile()->hotNewStuffWriteFilePath(d->m_name));
   } else {
-    return d->write(d->m_name);
+    return d->write(profile()->kConfig(), d->m_name);
   }
 }
 
@@ -255,7 +268,7 @@ void AlkOnlineQuoteSource::rename(const QString& name)
 
 void AlkOnlineQuoteSource::remove() const
 {
-  KSharedConfigPtr kconfig = KGlobal::config();
+  KConfig *kconfig = profile()->kConfig();
   kconfig->deleteGroup(QString("Online-Quote-Source-%1").arg(d->m_name));
   kconfig->sync();
 }

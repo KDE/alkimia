@@ -51,6 +51,7 @@ protected slots:
   void slotNewProfile();
   void slotDeleteProfile();
   void slotSelectProfile();
+  void slotLoadProfile();
 
   void slotDeleteEntry();
   void slotShowEntry();
@@ -67,7 +68,8 @@ protected slots:
   void slotInstallEntries();
 
 protected:
-  void loadList(const bool updateResetList = false);
+  void loadProfiles();
+  void loadQuotesList(const bool updateResetList = false);
   void clearIcons();
   void setupIcons(const AlkOnlineQuote::Errors &errors);
   QString singleSymbol() const;
