@@ -410,9 +410,6 @@
        </item>
       </layout>
      </item>
-     <item>
-      <widget class="QWebView" name="m_webView" native="true"/>
-     </item>
     </layout>
    </item>
   </layout>
@@ -420,9 +417,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <class>KListWidget</class>
+   <extends>QListWidget</extends>
+   <header>klistwidget.h</header>
   </customwidget>
   <customwidget>
    <class>KPushButton</class>
@@ -430,20 +427,14 @@
    <header>kpushbutton.h</header>
   </customwidget>
   <customwidget>
-   <class>KListWidget</class>
-   <extends>QListWidget</extends>
-   <header>klistwidget.h</header>
-  </customwidget>
-  <customwidget>
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
    <header>ktextedit.h</header>
   </customwidget>
   <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QWebView</header>
-   <container>1</container>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

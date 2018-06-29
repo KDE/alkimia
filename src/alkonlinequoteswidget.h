@@ -36,16 +36,20 @@ public:
   }
 };
 
+class QWebView;
+
 class ALK_EXPORT AlkOnlineQuotesWidget : public AlkOnlineQuotesWidgetDecl
 {
   Q_OBJECT
 public:
   AlkOnlineQuotesWidget(QWidget* parent = 0);
-  virtual ~AlkOnlineQuotesWidget() {}
+  virtual ~AlkOnlineQuotesWidget();
 
   void writeConfig() {}
   void readConfig() {}
   void resetConfig();
+
+  void setView(QWebView *view);
 
 protected slots:
   void slotNewProfile();
@@ -54,7 +58,6 @@ protected slots:
   void slotLoadProfile();
 
   void slotDeleteEntry();
-  void slotShowEntry();
   void slotUpdateEntry();
   void slotLoadWidgets();
   void slotEntryChanged();
@@ -78,6 +81,8 @@ protected:
   QString expandedUrl() const;
 
 private:
+  class Private;
+  Private *d;
   QList<AlkOnlineQuoteSource>  m_resetList;
   AlkOnlineQuoteSource         m_currentItem;
   bool                           m_quoteInEditing;

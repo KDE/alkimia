@@ -37,8 +37,15 @@
 #include <knewstuff3/downloaddialog.h>
 #include <knewstuff3/uploaddialog.h>
 
+class AlkOnlineQuotesWidget::Private
+{
+public:
+    QWebView *m_webView;
+};
+
 AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
  : AlkOnlineQuotesWidgetDecl(parent),
+   d(new Private),
    m_quoteInEditing(false)
 {
   QStringList groups = AlkOnlineQuote::quoteSources();
@@ -104,12 +111,11 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
 
   m_checkSymbol->setText("ORCL");
   m_checkSymbol2->setText("BTC GBP");
+}
 
-  // setup inspector
-  m_webView->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-  QWebInspector *inspector = new QWebInspector;
-  inspector->setPage(m_webView->page());
-//  inspector->show();
+AlkOnlineQuotesWidget::~AlkOnlineQuotesWidget()
+{
+    delete d;
 }
 
 void AlkOnlineQuotesWidget::loadProfiles()
@@ -172,6 +178,11 @@ void AlkOnlineQuotesWidget::resetConfig()
   }
 
   loadQuotesList();
+}
+
+void AlkOnlineQuotesWidget::setView(QWebView *view)
+{
+    d->m_webView = view;
 }
 
 void AlkOnlineQuotesWidget::slotNewProfile()
@@ -280,11 +291,6 @@ void AlkOnlineQuotesWidget::slotDeleteEntry()
   slotEntryChanged();
 }
 
-void AlkOnlineQuotesWidget::slotShowEntry()
-{
-  m_webView->setVisible(!m_webView->isVisible());
-}
-
 void AlkOnlineQuotesWidget::slotUpdateEntry()
 {
   m_currentItem.setUrl(m_editURL->text());
@@ -346,8 +352,7 @@ void AlkOnlineQuotesWidget::slotCheckEntry()
   m_logWindow->setVisible(true);
   m_logWindow->clear();
   clearIcons();
-  quote.setWebView(m_webView);
-  m_webView->setVisible(true);
+  quote.setWebView(d->m_webView);
 
   connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
   connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));
