@@ -104,6 +104,9 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
 
   m_checkSymbol->setText("ORCL");
   m_checkSymbol2->setText("BTC GBP");
+
+  // setup inspector
+  m_webView->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
   QWebInspector *inspector = new QWebInspector;
   inspector->setPage(m_webView->page());
 //  inspector->show();
@@ -279,7 +282,7 @@ void AlkOnlineQuotesWidget::slotDeleteEntry()
 
 void AlkOnlineQuotesWidget::slotShowEntry()
 {
-  QDesktopServices::openUrl(expandedUrl());
+  m_webView->setVisible(!m_webView->isVisible());
 }
 
 void AlkOnlineQuotesWidget::slotUpdateEntry()
