@@ -204,7 +204,6 @@ void AlkOnlineQuote::slotLoadStarted()
 void AlkOnlineQuote::setWebView(QWebView *view)
 {
     d->m_webView = view;
-    d->m_webView->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
 }
 
 bool AlkOnlineQuote::launchWebKitCssSelector(const QString& _symbol, const QString& _id, const QString& _source)
