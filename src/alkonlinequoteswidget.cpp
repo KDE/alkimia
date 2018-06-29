@@ -104,6 +104,9 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
 
   m_checkSymbol->setText("ORCL");
   m_checkSymbol2->setText("BTC GBP");
+  QWebInspector *inspector = new QWebInspector;
+  inspector->setPage(m_webView->page());
+//  inspector->show();
 }
 
 void AlkOnlineQuotesWidget::loadProfiles()
@@ -340,6 +343,8 @@ void AlkOnlineQuotesWidget::slotCheckEntry()
   m_logWindow->setVisible(true);
   m_logWindow->clear();
   clearIcons();
+  quote.setWebView(m_webView);
+  m_webView->setVisible(true);
 
   connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
   connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));

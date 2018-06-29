@@ -32,6 +32,8 @@
 #include <KProcess>
 #include <KUrl>
 
+class QWebView;
+
 /**
 Retrieves a price quote from a web-based quote source
 
@@ -80,6 +82,13 @@ public:
     Native = 0,
     FinanceQuote
   } quoteSystemE;
+
+  /**
+   * Set webkit view for fetching web urls using javascript
+   *
+   * @param view webkit view to set
+   */
+  void setWebView(QWebView *view);
 
   /**
     * This launches a web-based quote update for the given @p _symbol.

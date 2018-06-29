@@ -201,11 +201,16 @@ void AlkOnlineQuote::slotLoadStarted()
   emit status(i18n("Fetching URL %1...", d->m_url.prettyUrl()));
 }
 
+void AlkOnlineQuote::setWebView(QWebView *view)
+{
+    d->m_webView = view;
+    d->m_webView->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+}
+
 bool AlkOnlineQuote::launchWebKitCssSelector(const QString& _symbol, const QString& _id, const QString& _source)
 {
   if (!initLaunch(_symbol, _id, _source))
     return false;
-  d->m_webView = new QWebView;
   connect(d->m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
   connect(d->m_webView, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedCssSelector(bool)));
   d->m_webView->setUrl(d->m_url);
@@ -213,25 +218,24 @@ bool AlkOnlineQuote::launchWebKitCssSelector(const QString& _symbol, const QStri
   d->m_eventLoop->exec();
   delete d->m_eventLoop;
   delete d->m_webView;
+  disconnect(d->m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+  disconnect(d->m_webView, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedCssSelector(bool)));
 
   return !(d->m_errors & Errors::URL || d->m_errors & Errors::Price || d->m_errors & Errors::Date || d->m_errors & Errors::Data);
-//      webView->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-//      QWebInspector *inspector = new QWebInspector;
-//      inspector->setPage(webView->page());
-//      inspector->show();
 }
 
 bool AlkOnlineQuote::launchWebKitHtmlParser(const QString& _symbol, const QString& _id, const QString& _source)
 {
   if (!initLaunch(_symbol, _id, _source))
     return false;
-  d->m_webView = new QWebView;
+  connect(d->m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
   connect(d->m_webView, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
   d->m_webView->setUrl(d->m_url);
   d->m_eventLoop = new QEventLoop;
   d->m_eventLoop->exec();
   delete d->m_eventLoop;
-  delete d->m_webView;
+  disconnect(d->m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+  disconnect(d->m_webView, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
 
   return !(d->m_errors & Errors::URL || d->m_errors & Errors::Price || d->m_errors & Errors::Date || d->m_errors & Errors::Data);
 }
