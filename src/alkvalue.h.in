@@ -215,6 +215,8 @@ public:
   /// @return QString representation in form '[-]num/denom'.
   QString toString() const;
 
+  double toDouble() const;
+
   /**
     * This method transforms the AlkValue into its canonicalized
     * form by reducing it to the smallest denominator. Example:

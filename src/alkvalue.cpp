@@ -251,6 +251,11 @@ QString AlkValue::toString() const
     return mpqToString(d->m_val);
 }
 
+double AlkValue::toDouble() const
+{
+  return d->m_val.get_d();
+}
+
 AlkValue AlkValue::convertDenominator(int _denom, const RoundingMethod how) const
 {
     AlkValue in(*this);
