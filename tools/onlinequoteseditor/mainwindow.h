@@ -22,6 +22,8 @@
 
 #include <QMainWindow>
 
+class QUrl;
+
 namespace Ui {
 class MainWindow;
 }
@@ -34,7 +36,13 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+protected slots:
+    void slotUrlChanged(const QUrl &url);
+    void slotEditingFinished();
+
 private:
+    class Private;
+    Private *d;
     Ui::MainWindow *ui;
 };
 

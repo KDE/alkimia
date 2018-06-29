@@ -21,12 +21,34 @@
 #include "ui_mainwindow.h"
 
 #include "alkonlinequotesprofilemanager.h"
+#include "alkonlinequoteswidget.h"
+
+#include <QDockWidget>
+#include <QWebInspector>
 
 AlkOnlineQuotesProfileManager manager;
 
+class MainWindow::Private
+{
+public:
+    QWebView *view;
+    QLineEdit *urlLine;
+};
+
+void MainWindow::slotUrlChanged(const QUrl &url)
+{
+    d->urlLine->setText(url.toString());
+}
+
+void MainWindow::slotEditingFinished()
+{
+    d->view->setUrl(QUrl(d->urlLine->text()));
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    d(new Private)
 {
     manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
     //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit_local.knsrc"));
@@ -34,6 +56,31 @@ MainWindow::MainWindow(QWidget *parent) :
     //manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMymoney));
     AlkOnlineQuoteSource::setProfile(manager.profiles().first());
     ui->setupUi(this);
+
+    QDockWidget *dockWidget = new QDockWidget(tr("Browser"), this);
+    d->view = new QWebView;
+    connect(d->view, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    d->urlLine = new QLineEdit;
+    connect(d->urlLine, SIGNAL(editingFinished()), this, SLOT(slotEditingFinished()));
+    layout->addWidget(d->urlLine);
+    layout->addWidget(d->view);
+    QWidget *group = new QWidget;
+    group->setLayout(layout);
+    QUrl url("https://support.cegit.sag.de");
+    d->view->setUrl(url);
+    dockWidget->setWidget(group);
+    addDockWidget(Qt::RightDockWidgetArea, dockWidget);
+
+    // setup inspector
+    d->view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+    QWebInspector *inspector = new QWebInspector;
+    inspector->setPage(d->view->page());
+
+    AlkOnlineQuotesWidget *quotesWidget = new AlkOnlineQuotesWidget;
+    quotesWidget->setView(d->view);
+    setCentralWidget(quotesWidget);
 }
 
 MainWindow::~MainWindow()
