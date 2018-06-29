@@ -93,10 +93,10 @@ bool AlkOnlineQuote::launch(const QString& _symbol, const QString& _id, const QS
     return launchFinanceQuote(_symbol, _id, _source);
   else if (_source.endsWith(".css"))
     return launchWebKitCssSelector(_symbol, _id, _source);
-  else if (_source.endsWith(".webkit"))
-    return launchWebKitHtmlParser(_symbol, _id, _source);
-  else
+  else if (_source.endsWith(".kio"))
     return launchNative(_symbol, _id, _source);
+  else
+    return launchWebKitHtmlParser(_symbol, _id, _source);
 }
 
 const AlkOnlineQuote::Errors &AlkOnlineQuote::errors()
