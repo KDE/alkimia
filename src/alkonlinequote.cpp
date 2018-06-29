@@ -157,6 +157,7 @@ void AlkOnlineQuote::slotLoadFinishedHtmlParser(bool ok)
     QWebFrame *frame = d->m_webView->page()->mainFrame();
     slotParseQuote(frame->toHtml());
   }
+   d->m_eventLoop->exit();
 }
 
 void AlkOnlineQuote::slotLoadFinishedCssSelector(bool ok)
