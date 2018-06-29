@@ -17,6 +17,8 @@ set(alkimia_INTERNAL_SRCS
   alkquotereceiver.cpp
   alkonlinequoteprocess.cpp
   alkfinancequoteprocess.cpp
+  alkonlinequotesprofile.cpp
+  alkonlinequotesprofilemanager.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
@@ -26,6 +28,8 @@ set(alkimia_INTERNAL_HEADERS
   alkquotereceiver.h
   alkonlinequoteprocess.h
   alkfinancequoteprocess.h
+  alkonlinequotesprofile.h
+  alkonlinequotesprofilemanager.h
 )
 
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
