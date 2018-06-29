@@ -368,23 +368,7 @@
            </layout>
           </item>
           <item>
-           <widget class="QListWidget" name="m_logWindow">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>400</width>
-              <height>0</height>
-             </size>
-            </property>
-           </widget>
+           <widget class="KTextEdit" name="m_logWindow"/>
           </item>
          </layout>
         </item>
@@ -442,6 +426,10 @@
    <class>KListWidget</class>
    <extends>QListWidget</extends>
    <header>klistwidget.h</header>
+  <customwidget>
+   <class>KTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>ktextedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

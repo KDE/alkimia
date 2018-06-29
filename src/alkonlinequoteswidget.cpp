@@ -342,7 +342,7 @@ void AlkOnlineQuotesWidget::slotCheckEntry()
   clearIcons();
 
   connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
-  connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogStatus(QString)));
+  connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));
   connect(&quote, SIGNAL(failed(QString, QString)), this, SLOT(slotLogFailed(QString, QString)));
   connect(&quote, SIGNAL(quote(QString, QString, QDate, double)), this, SLOT(slotLogQuote(QString, QString, QDate, double)));
   if (m_currentItem.url().contains("%2"))
@@ -354,19 +354,22 @@ void AlkOnlineQuotesWidget::slotCheckEntry()
 
 void AlkOnlineQuotesWidget::slotLogStatus(const QString &s)
 {
-    new QListWidgetItem(s, m_logWindow);
-    m_logWindow->scrollToBottom();
+  m_logWindow->append(s);
+}
+
+void AlkOnlineQuotesWidget::slotLogError(const QString &s)
+{
+  slotLogStatus(QString("<font color=\"red\"><b>") + s + QString("</b></font>"));
 }
 
 void AlkOnlineQuotesWidget::slotLogFailed(const QString &id, const QString &symbol)
 {
-    new QListWidgetItem(QString("%1 %2").arg(id, symbol), m_logWindow);
-    m_logWindow->scrollToBottom();
+  slotLogStatus(QString("%1 %2").arg(id, symbol));
 }
 
 void AlkOnlineQuotesWidget::slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price)
 {
-  slotLogStatus(QString("%1 %2 %3 %4").arg(id, symbol, date.toString()).arg(price));
+  slotLogStatus(QString("<font color=\"green\">%1 %2 %3 %4</font>").arg(id, symbol, date.toString()).arg(price));
 }
 
 void AlkOnlineQuotesWidget::slotStartRename(QListWidgetItem* item)
