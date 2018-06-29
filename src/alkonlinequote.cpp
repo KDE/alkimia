@@ -227,7 +227,7 @@ bool AlkOnlineQuote::launchWebKitHtmlParser(const QString& _symbol, const QStrin
 {
   if (!initLaunch(_symbol, _id, _source))
     return false;
-  connect(d->m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+  connect(d->m_webView, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
   connect(d->m_webView, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
   d->m_webView->setUrl(d->m_url);
   d->m_eventLoop = new QEventLoop;
