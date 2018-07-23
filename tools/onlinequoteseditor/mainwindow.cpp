@@ -69,8 +69,6 @@ MainWindow::MainWindow(QWidget *parent) :
     layout->addWidget(d->view);
     QWidget *group = new QWidget;
     group->setLayout(layout);
-    QUrl url("https://support.cegit.sag.de");
-    d->view->setUrl(url);
     dockWidget->setWidget(group);
     addDockWidget(Qt::RightDockWidgetArea, dockWidget);
 
