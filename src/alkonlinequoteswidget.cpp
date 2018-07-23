@@ -51,8 +51,6 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
   QStringList groups = AlkOnlineQuote::quoteSources();
 
   loadProfiles();
-  loadQuotesList(true /*updateResetList*/);
-
   m_updateButton->setEnabled(false);
 
   // TODO move to ui file
@@ -89,7 +87,6 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
   connect(m_newProfile, SIGNAL(clicked()), this, SLOT(slotNewProfile()));
   connect(m_deleteProfile, SIGNAL(clicked()), this, SLOT(slotDeleteProfile()));
   connect(m_selectProfile, SIGNAL(clicked()), this, SLOT(slotSelectProfile()));
-  connect(m_profileList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadProfile()));
 
   connect(m_updateButton, SIGNAL(clicked()), this, SLOT(slotUpdateEntry()));
   connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
@@ -126,6 +123,8 @@ void AlkOnlineQuotesWidget::loadProfiles()
     item->setText(profile->name());
     item->setFlags(item->flags() | Qt::ItemIsEditable);
   }
+  m_profileList->setCurrentRow(0);
+  loadQuotesList();
 }
 
 void AlkOnlineQuotesWidget::loadQuotesList(const bool updateResetList)
@@ -199,7 +198,7 @@ void AlkOnlineQuotesWidget::slotDeleteProfile()
 
 void AlkOnlineQuotesWidget::slotSelectProfile()
 {
-    qDebug() << "selecting" << m_profileList->currentItem()->text();
+    slotLoadProfile();
 }
 
 void AlkOnlineQuotesWidget::slotLoadProfile()
