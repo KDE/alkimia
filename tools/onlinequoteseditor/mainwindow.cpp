@@ -47,8 +47,8 @@ void MainWindow::slotEditingFinished()
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    d(new Private)
+    d(new Private),
+    ui(new Ui::MainWindow)
 {
     manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
     //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit_local.knsrc"));
