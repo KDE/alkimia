@@ -26,8 +26,6 @@
 #include <QDockWidget>
 #include <QWebInspector>
 
-AlkOnlineQuotesProfileManager manager;
-
 class MainWindow::Private
 {
 public:
@@ -50,10 +48,13 @@ MainWindow::MainWindow(QWidget *parent) :
     d(new Private),
     ui(new Ui::MainWindow)
 {
-    manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
+    AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
+
+    manager.addProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney));
+    //manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
     //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit_local.knsrc"));
     //manager.addProfile(new AlkOnlineQuotesProfile("skrooge", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
-    //manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
+    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
     AlkOnlineQuoteSource::setProfile(manager.profiles().first());
     ui->setupUi(this);
 

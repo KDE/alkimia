@@ -478,15 +478,18 @@ const QMap<QString, AlkOnlineQuoteSource> AlkOnlineQuote::defaultQuoteSources()
   // Use fx-rate.net as the standard currency exchange rate source until
   // we have the capability to use more than one source. Use a neutral
   // name for the source.
-  result["Alkimia Currency"] =
-        AlkOnlineQuoteSource("Alkimia Currency",
-                             "https://fx-rate.net/%1/%2",
-                              QString(),  // symbolregexp
-                             "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
-                             "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                             "%d/%m/%y",
-                             true // skip HTML stripping
-                            );
+
+  if (AlkOnlineQuoteSource::profile()->name() == "alkimia") {
+    result["Alkimia Currency"] =
+      AlkOnlineQuoteSource("Alkimia Currency",
+                           "https://fx-rate.net/%1/%2",
+                            QString(),  // symbolregexp
+                           "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
+                           "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
+                           "%d/%m/%y",
+                           true // skip HTML stripping
+                          );
+  }
   return result;
 }
 

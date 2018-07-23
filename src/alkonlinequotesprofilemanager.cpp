@@ -48,3 +48,9 @@ AlkOnlineQuotesProfileList AlkOnlineQuotesProfileManager::profiles()
 {
   return d->m_profiles;
 }
+
+AlkOnlineQuotesProfileManager &AlkOnlineQuotesProfileManager::instance()
+{
+  static AlkOnlineQuotesProfileManager manager;
+  return manager;
+}

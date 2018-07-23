@@ -37,6 +37,7 @@ public:
     void addProfile(AlkOnlineQuotesProfile *profile);
     AlkOnlineQuotesProfileList profiles();
 
+    static AlkOnlineQuotesProfileManager &instance();
 private:
     class Private;
     Private *d;
