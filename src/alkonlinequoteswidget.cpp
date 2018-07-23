@@ -92,7 +92,6 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
   connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
   connect(m_checkButton, SIGNAL(clicked()), this, SLOT(slotCheckEntry()));
   connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
-  connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowEntry()));
   connect(m_installButton, SIGNAL(clicked()), this, SLOT(slotInstallEntries()));
 
   connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadWidgets()));
