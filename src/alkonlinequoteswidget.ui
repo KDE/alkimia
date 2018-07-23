@@ -44,6 +44,13 @@
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
+               <widget class="QPushButton" name="m_selectProfile">
+                <property name="text">
+                 <string>Select</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QPushButton" name="m_newProfile">
                 <property name="enabled">
                  <bool>false</bool>
@@ -60,13 +67,6 @@
                 </property>
                 <property name="text">
                  <string>Delete</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="m_selectProfile">
-                <property name="text">
-                 <string>Select</string>
                 </property>
                </widget>
               </item>
