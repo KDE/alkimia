@@ -51,7 +51,6 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
   QStringList groups = AlkOnlineQuote::quoteSources();
 
   loadProfiles();
-  m_updateButton->setEnabled(false);
 
   // TODO move to ui file
   KGuiItem updateButtenItem(i18nc("Accepts the entered data and stores it", "&Accept"),
@@ -107,6 +106,7 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
 
   m_checkSymbol->setText("ORCL");
   m_checkSymbol2->setText("BTC GBP");
+  m_updateButton->setEnabled(false);
 }
 
 AlkOnlineQuotesWidget::~AlkOnlineQuotesWidget()
