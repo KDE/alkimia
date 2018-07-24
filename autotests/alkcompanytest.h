@@ -26,16 +26,16 @@ class AlkCompany;
 
 class AlkCompanyTest : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
 private slots:
 
-  void init();
-  void cleanup();
-  void emptyCtor();
-  void settersAndGetters();
-  void copyCtor();
-  void qDbusArgument();
+    void init();
+    void cleanup();
+    void emptyCtor();
+    void settersAndGetters();
+    void copyCtor();
+    void qDbusArgument();
 };
 
 #endif

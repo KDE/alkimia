@@ -26,37 +26,36 @@ class AlkValue;
 
 class AlkValueTest : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
 private slots:
-  void init();
-  void cleanup();
-  void emptyCtor();
-  void copyCtor();
-  void intCtor();
-  void stringCtor();
-  void doubleCtor();
-  void assignment();
-  void equality();
-  void inequality();
-  void less();
-  void greater();
-  void lessThan();
-  void greaterThan();
-  void addition();
-  void subtraction();
-  void multiplication();
-  void division();
-  void unaryMinus();
-  void abs();
-  void precision();
-  void convertDenominator();
-  void convertPrecision();
-  void denominatorToPrecision();
-  void precisionToDenominator();
-  void valueRef();
-  void canonicalize();
+    void init();
+    void cleanup();
+    void emptyCtor();
+    void copyCtor();
+    void intCtor();
+    void stringCtor();
+    void doubleCtor();
+    void assignment();
+    void equality();
+    void inequality();
+    void less();
+    void greater();
+    void lessThan();
+    void greaterThan();
+    void addition();
+    void subtraction();
+    void multiplication();
+    void division();
+    void unaryMinus();
+    void abs();
+    void precision();
+    void convertDenominator();
+    void convertPrecision();
+    void denominatorToPrecision();
+    void precisionToDenominator();
+    void valueRef();
+    void canonicalize();
 };
 
 #endif // ALKVALUETEST_H
-
