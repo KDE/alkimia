@@ -28,88 +28,92 @@
 
 class AlkOnlineQuotesProfile::Private : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  AlkOnlineQuotesProfile *m_p;
-  QString m_name;
-  QString m_GHNSFile;
-  QString m_GHNSFilePath;
-  QString m_kconfigFile;
-  AlkOnlineQuotesProfileManager *m_profileManager;
-  KNS3::DownloadManager *m_manager;
-  KConfig *m_config;
+    AlkOnlineQuotesProfile *m_p;
+    QString m_name;
+    QString m_GHNSFile;
+    QString m_GHNSFilePath;
+    QString m_kconfigFile;
+    AlkOnlineQuotesProfileManager *m_profileManager;
+    KNS3::DownloadManager *m_manager;
+    KConfig *m_config;
 
-  Private(AlkOnlineQuotesProfile *p)
-    : m_p(p),
-      m_profileManager(0),
-      m_manager(0),
-      m_config(0)
-  {
-  }
+    Private(AlkOnlineQuotesProfile *p)
+        : m_p(p)
+        , m_profileManager(0)
+        , m_manager(0)
+        , m_config(0)
+    {
+    }
 
-  ~Private()
-  {
-    delete m_manager;
-    delete m_config;
-  }
+    ~Private()
+    {
+        delete m_manager;
+        delete m_config;
+    }
 
-  void checkUpdates()
-  {
-    m_manager = new KNS3::DownloadManager(m_p->hotNewStuffConfigFile(), this);
-    // to know when checking for updates is done
-    connect(m_manager, SIGNAL(searchResult(KNS3::Entry::List)), this, SLOT(slotUpdatesFound(KNS3::Entry::List)));
-    // to know about finished installations
-    connect(m_manager, SIGNAL(entryStatusChanged(KNS3::Entry)), this, SLOT(entryStatusChanged(KNS3::Entry)));
-    // start checking for updates
-    m_manager->checkForUpdates();
-  }
+    void checkUpdates()
+    {
+        m_manager = new KNS3::DownloadManager(m_p->hotNewStuffConfigFile(), this);
+        // to know when checking for updates is done
+        connect(m_manager, SIGNAL(searchResult(KNS3::Entry::List)), this,
+                SLOT(slotUpdatesFound(KNS3::Entry::List)));
+        // to know about finished installations
+        connect(m_manager, SIGNAL(entryStatusChanged(KNS3::Entry)), this,
+                SLOT(entryStatusChanged(KNS3::Entry)));
+        // start checking for updates
+        m_manager->checkForUpdates();
+    }
 
 public Q_SLOTS:
-  void slotUpdatesFound(const KNS3::Entry::List &updates)
-  {
-    foreach (const KNS3::Entry& entry, updates) {
-      qDebug() << entry.name();
+    void slotUpdatesFound(const KNS3::Entry::List &updates)
+    {
+        foreach (const KNS3::Entry &entry, updates) {
+            qDebug() << entry.name();
+        }
     }
-  }
 
-  // to know about finished installations
-  void entryStatusChanged(const KNS3::Entry &entry)
-  {
-    qDebug() << entry.summary();
-  }
+    // to know about finished installations
+    void entryStatusChanged(const KNS3::Entry &entry)
+    {
+        qDebug() << entry.summary();
+    }
 };
 
-AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type, const QString &configFile)
-  : d(new Private(this))
+AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
+                                               const QString &configFile)
+    : d(new Private(this))
 {
-  d->m_name = name;
-  d->m_GHNSFile = configFile;
-  if (type == Type::GHNS) {
-      // TODO read file
-      d->m_GHNSFilePath = "skrooge/quotes";
-  }
-  d->m_kconfigFile = name + "rc";
-  d->m_config = new KConfig(d->m_kconfigFile);
-  d->checkUpdates();
+    d->m_name = name;
+    d->m_GHNSFile = configFile;
+    if (type == Type::GHNS) {
+        // TODO read file
+        d->m_GHNSFilePath = "skrooge/quotes";
+    }
+    d->m_kconfigFile = name + "rc";
+    d->m_config = new KConfig(d->m_kconfigFile);
+    d->checkUpdates();
 }
 
 AlkOnlineQuotesProfile::~AlkOnlineQuotesProfile()
 {
-  delete d;
+    delete d;
 }
 
 QString AlkOnlineQuotesProfile::name() const
 {
-  return d->m_name;
+    return d->m_name;
 }
 
 QString AlkOnlineQuotesProfile::hotNewStuffConfigFile() const
 {
     QString configFile = KStandardDirs::locate("config", d->m_GHNSFile);
-    if (configFile.isEmpty())
+    if (configFile.isEmpty()) {
         configFile = QString("%1/%2").arg(KNSRC_DIR, d->m_GHNSFile);
+    }
 
-  return configFile;
+    return configFile;
 }
 
 QString AlkOnlineQuotesProfile::hotNewStuffReadFilePath(const QString &fileName) const
@@ -124,7 +128,7 @@ QString AlkOnlineQuotesProfile::hotNewStuffWriteFilePath(const QString &fileName
 
 QString AlkOnlineQuotesProfile::hotNewStuffRelPath() const
 {
-  return d->m_GHNSFilePath;
+    return d->m_GHNSFilePath;
 }
 
 QString AlkOnlineQuotesProfile::kConfigFile() const

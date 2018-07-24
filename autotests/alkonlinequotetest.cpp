@@ -37,21 +37,23 @@ void AlkOnlineQuoteTest::cleanup()
 
 void AlkOnlineQuoteTest::testQuoteSources()
 {
-  AlkOnlineQuoteSource::setProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney));
+    AlkOnlineQuoteSource::setProfile(new AlkOnlineQuotesProfile("alkimia",
+                                                                AlkOnlineQuotesProfile::Type::
+                                                                KMyMoney));
 
-  QStringList sources = AlkOnlineQuote::quoteSources();
-  qDebug() << sources;
-  QVERIFY(sources.size() > 0);
+    QStringList sources = AlkOnlineQuote::quoteSources();
+    qDebug() << sources;
+    QVERIFY(sources.size() > 0);
 }
 
 void AlkOnlineQuoteTest::testLaunch()
 {
-  AlkOnlineQuote quote;
-  convertertest::AlkQuoteReceiver receiver(&quote);
-  QWebView *view = new QWebView;
-  quote.setWebView(view);
-  receiver.setVerbose(true);
+    AlkOnlineQuote quote;
+    convertertest::AlkQuoteReceiver receiver(&quote);
+    QWebView *view = new QWebView;
+    quote.setWebView(view);
+    receiver.setVerbose(true);
 
-  QVERIFY(quote.launch("EUR USD", "EUR USD", AlkOnlineQuote::quoteSources().first()));
-  delete view;
+    QVERIFY(quote.launch("EUR USD", "EUR USD", AlkOnlineQuote::quoteSources().first()));
+    delete view;
 }

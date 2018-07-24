@@ -26,15 +26,14 @@
 
 class AlkExceptionTest : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
 private slots:
-  void init();
-  void cleanup();
+    void init();
+    void cleanup();
 
-  void testDefaultConstructor();
+    void testDefaultConstructor();
 
-  void testConstructor();
-
+    void testConstructor();
 };
 #endif

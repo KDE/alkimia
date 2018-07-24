@@ -25,19 +25,20 @@
 
 AlkOnlineQuoteProcess::AlkOnlineQuoteProcess()
 {
-  connect(this, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReceivedDataFromFilter()));
-  connect(this, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(slotProcessExited(int,QProcess::ExitStatus)));
+    connect(this, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReceivedDataFromFilter()));
+    connect(this, SIGNAL(finished(int,QProcess::ExitStatus)), this,
+            SLOT(slotProcessExited(int,QProcess::ExitStatus)));
 }
 
 void AlkOnlineQuoteProcess::slotReceivedDataFromFilter()
 {
 //   kDebug(2) << "WebPriceQuoteProcess::slotReceivedDataFromFilter(): " << QString(data);
-  m_string += QString(readAllStandardOutput());
+    m_string += QString(readAllStandardOutput());
 }
 
 void AlkOnlineQuoteProcess::slotProcessExited(int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/)
 {
 //   kDebug(2) << "WebPriceQuoteProcess::slotProcessExited()";
-  emit processExited(m_string);
-  m_string.truncate(0);
+    emit processExited(m_string);
+    m_string.truncate(0);
 }

@@ -39,14 +39,20 @@
 class ALK_NO_EXPORT AlkDateFormat
 {
 public:
-  explicit AlkDateFormat(const QString& _format): m_format(_format) {}
-  const QString convertDate(const QDate& _in) const;
-  const QDate convertString(const QString& _in, bool _strict = true, unsigned _centurymidpoint = QDate::currentDate().year()) const;
-  const QString& format() const {
-    return m_format;
-  }
+    explicit AlkDateFormat(const QString &_format) : m_format(_format)
+    {
+    }
+
+    const QString convertDate(const QDate &_in) const;
+    const QDate convertString(const QString &_in, bool _strict = true,
+                              unsigned _centurymidpoint = QDate::currentDate().year()) const;
+    const QString &format() const
+    {
+        return m_format;
+    }
+
 private:
-  QString m_format;
+    QString m_format;
 };
 
 #endif // ALKDATEFORMAT_H

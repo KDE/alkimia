@@ -22,12 +22,15 @@
 
 #include "alk_export.h"
 
-class ALK_NO_EXPORT AlkMoney {
+class ALK_NO_EXPORT AlkMoney
+{
 public:
-  AlkMoney(double value = 0.0) : m_value(value) {}
-protected:
-  double m_value;
-};
+    AlkMoney(double value = 0.0) : m_value(value)
+    {
+    }
 
+protected:
+    double m_value;
+};
 
 #endif // ALKMONEY_H

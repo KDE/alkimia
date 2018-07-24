@@ -31,61 +31,68 @@
 class ALK_NO_EXPORT AlkOnlineQuotesWidgetDecl : public QWidget, public Ui::AlkOnlineQuotesWidget
 {
 public:
-  AlkOnlineQuotesWidgetDecl(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    AlkOnlineQuotesWidgetDecl(QWidget *parent) : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
 class QWebView;
 
 class ALK_EXPORT AlkOnlineQuotesWidget : public AlkOnlineQuotesWidgetDecl
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  AlkOnlineQuotesWidget(QWidget* parent = 0);
-  virtual ~AlkOnlineQuotesWidget();
+    AlkOnlineQuotesWidget(QWidget *parent = 0);
+    virtual ~AlkOnlineQuotesWidget();
 
-  void writeConfig() {}
-  void readConfig() {}
-  void resetConfig();
+    void writeConfig()
+    {
+    }
 
-  void setView(QWebView *view);
+    void readConfig()
+    {
+    }
+
+    void resetConfig();
+
+    void setView(QWebView *view);
 
 protected slots:
-  void slotNewProfile();
-  void slotDeleteProfile();
-  void slotSelectProfile();
-  void slotLoadProfile();
+    void slotNewProfile();
+    void slotDeleteProfile();
+    void slotSelectProfile();
+    void slotLoadProfile();
 
-  void slotDeleteEntry();
-  void slotUpdateEntry();
-  void slotLoadWidgets();
-  void slotEntryChanged();
-  void slotNewEntry();
-  void slotCheckEntry();
-  void slotLogStatus(const QString &s);
-  void slotLogError(const QString &s);
-  void slotLogFailed(const QString &id, const QString &symbol);
-  void slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price);
-  void slotEntryRenamed(QListWidgetItem* item);
-  void slotStartRename(QListWidgetItem* item);
-  void slotInstallEntries();
+    void slotDeleteEntry();
+    void slotUpdateEntry();
+    void slotLoadWidgets();
+    void slotEntryChanged();
+    void slotNewEntry();
+    void slotCheckEntry();
+    void slotLogStatus(const QString &s);
+    void slotLogError(const QString &s);
+    void slotLogFailed(const QString &id, const QString &symbol);
+    void slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price);
+    void slotEntryRenamed(QListWidgetItem *item);
+    void slotStartRename(QListWidgetItem *item);
+    void slotInstallEntries();
 
 protected:
-  void loadProfiles();
-  void loadQuotesList(const bool updateResetList = false);
-  void clearIcons();
-  void setupIcons(const AlkOnlineQuote::Errors &errors);
-  QString singleSymbol() const;
-  QStringList doubleSymbol() const;
-  QString expandedUrl() const;
+    void loadProfiles();
+    void loadQuotesList(const bool updateResetList = false);
+    void clearIcons();
+    void setupIcons(const AlkOnlineQuote::Errors &errors);
+    QString singleSymbol() const;
+    QStringList doubleSymbol() const;
+    QString expandedUrl() const;
 
 private:
-  class Private;
-  Private *d;
-  QList<AlkOnlineQuoteSource>  m_resetList;
-  AlkOnlineQuoteSource         m_currentItem;
-  bool                           m_quoteInEditing;
+    class Private;
+    Private *d;
+    QList<AlkOnlineQuoteSource> m_resetList;
+    AlkOnlineQuoteSource m_currentItem;
+    bool m_quoteInEditing;
 };
 
 #endif

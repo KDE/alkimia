@@ -253,7 +253,7 @@ QString AlkValue::toString() const
 
 double AlkValue::toDouble() const
 {
-  return d->m_val.get_d();
+    return d->m_val.get_d();
 }
 
 AlkValue AlkValue::convertDenominator(int _denom, const RoundingMethod how) const

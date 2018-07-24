@@ -31,8 +31,12 @@ class AlkOnlineQuotesProfileManager;
 class ALK_EXPORT AlkOnlineQuotesProfile
 {
 public:
-    enum class Type { GHNS, KMyMoney, Skrooge};
-    AlkOnlineQuotesProfile(const QString &name=QString(), Type type=Type::KMyMoney, const QString &configFile = QString());
+    enum class Type {
+        GHNS, KMyMoney, Skrooge
+    };
+    AlkOnlineQuotesProfile(
+        const QString &name = QString(), Type type = Type::KMyMoney,
+        const QString &configFile = QString());
     ~AlkOnlineQuotesProfile();
 
     QString name() const;

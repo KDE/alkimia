@@ -26,7 +26,7 @@
 
 class AlkOnlineQuotesProfile;
 
-typedef QList<AlkOnlineQuotesProfile*> AlkOnlineQuotesProfileList;
+typedef QList<AlkOnlineQuotesProfile *> AlkOnlineQuotesProfileList;
 
 class ALK_EXPORT AlkOnlineQuotesProfileManager
 {

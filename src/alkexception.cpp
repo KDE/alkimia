@@ -19,12 +19,12 @@
 
 #include "alkexception.h"
 
-AlkException::AlkException(const QString& msg, const QString& file, const unsigned long line)
+AlkException::AlkException(const QString &msg, const QString &file, const unsigned long line)
 {
-  // qDebug("ALKEXCEPTION(%s,%s,%ul)", qPrintable(msg), qPrintable(file), line);
-  m_msg = msg;
-  m_file = file;
-  m_line = line;
+    // qDebug("ALKEXCEPTION(%s,%s,%ul)", qPrintable(msg), qPrintable(file), line);
+    m_msg = msg;
+    m_file = file;
+    m_line = line;
 }
 
 AlkException::~AlkException()

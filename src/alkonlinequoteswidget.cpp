@@ -44,69 +44,71 @@ public:
 };
 
 AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
- : AlkOnlineQuotesWidgetDecl(parent),
-   d(new Private),
-   m_quoteInEditing(false)
+    : AlkOnlineQuotesWidgetDecl(parent)
+    , d(new Private)
+    , m_quoteInEditing(false)
 {
-  QStringList groups = AlkOnlineQuote::quoteSources();
+    QStringList groups = AlkOnlineQuote::quoteSources();
 
-  loadProfiles();
+    loadProfiles();
 
-  // TODO move to ui file
-  KGuiItem updateButtenItem(i18nc("Accepts the entered data and stores it", "&Accept"),
-                            KIcon("dialog-ok"),
-                            i18n("Accepts the entered data and stores it"),
-                            i18n("Use this to accept the modified data."));
-  m_updateButton->setGuiItem(updateButtenItem);
+    // TODO move to ui file
+    KGuiItem updateButtenItem(i18nc("Accepts the entered data and stores it", "&Accept"),
+                              KIcon("dialog-ok"),
+                              i18n("Accepts the entered data and stores it"),
+                              i18n("Use this to accept the modified data."));
+    m_updateButton->setGuiItem(updateButtenItem);
 
-  KGuiItem deleteButtenItem(i18n("&Delete"),
-                            KIcon("edit-delete"),
-                            i18n("Delete the selected source entry"),
-                            i18n("Use this to delete the selected online source entry"));
-  m_deleteButton->setGuiItem(deleteButtenItem);
+    KGuiItem deleteButtenItem(i18n("&Delete"),
+                              KIcon("edit-delete"),
+                              i18n("Delete the selected source entry"),
+                              i18n("Use this to delete the selected online source entry"));
+    m_deleteButton->setGuiItem(deleteButtenItem);
 
-  KGuiItem checkButtonItem(i18nc("Check the selected source entry", "&Check Source"),
-                            KIcon("document-edit-verify"),
-                            i18n("Check the selected source entry"),
-                            i18n("Use this to check the selected online source entry"));
-  m_checkButton->setGuiItem(checkButtonItem);
+    KGuiItem checkButtonItem(i18nc("Check the selected source entry", "&Check Source"),
+                             KIcon("document-edit-verify"),
+                             i18n("Check the selected source entry"),
+                             i18n("Use this to check the selected online source entry"));
+    m_checkButton->setGuiItem(checkButtonItem);
 
-  KGuiItem showButtonItem(i18nc("Show the selected source entry in a web browser", "&Show page"),
+    KGuiItem showButtonItem(i18nc("Show the selected source entry in a web browser", "&Show page"),
                             KIcon("applications-internet"),
                             i18n("Show the selected source entry in a web browser"),
                             i18n("Use this to show the selected online source entry"));
-  m_showButton->setGuiItem(showButtonItem);
+    m_showButton->setGuiItem(showButtonItem);
 
-  KGuiItem newButtenItem(i18nc("Create a new source entry for online quotes", "&New..."),
-                         KIcon("document-new"),
-                         i18n("Create a new source entry for online quotes"),
-                         i18n("Use this to create a new entry for online quotes"));
-  m_newButton->setGuiItem(newButtenItem);
+    KGuiItem newButtenItem(i18nc("Create a new source entry for online quotes", "&New..."),
+                           KIcon("document-new"),
+                           i18n("Create a new source entry for online quotes"),
+                           i18n("Use this to create a new entry for online quotes"));
+    m_newButton->setGuiItem(newButtenItem);
 
-  connect(m_newProfile, SIGNAL(clicked()), this, SLOT(slotNewProfile()));
-  connect(m_deleteProfile, SIGNAL(clicked()), this, SLOT(slotDeleteProfile()));
-  connect(m_selectProfile, SIGNAL(clicked()), this, SLOT(slotSelectProfile()));
+    connect(m_newProfile, SIGNAL(clicked()), this, SLOT(slotNewProfile()));
+    connect(m_deleteProfile, SIGNAL(clicked()), this, SLOT(slotDeleteProfile()));
+    connect(m_selectProfile, SIGNAL(clicked()), this, SLOT(slotSelectProfile()));
 
-  connect(m_updateButton, SIGNAL(clicked()), this, SLOT(slotUpdateEntry()));
-  connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
-  connect(m_checkButton, SIGNAL(clicked()), this, SLOT(slotCheckEntry()));
-  connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
-  connect(m_installButton, SIGNAL(clicked()), this, SLOT(slotInstallEntries()));
+    connect(m_updateButton, SIGNAL(clicked()), this, SLOT(slotUpdateEntry()));
+    connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
+    connect(m_checkButton, SIGNAL(clicked()), this, SLOT(slotCheckEntry()));
+    connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
+    connect(m_installButton, SIGNAL(clicked()), this, SLOT(slotInstallEntries()));
 
-  connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadWidgets()));
-  connect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(slotEntryRenamed(QListWidgetItem*)));
-  connect(m_quoteSourceList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotStartRename(QListWidgetItem*)));
+    connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadWidgets()));
+    connect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem *)), this,
+            SLOT(slotEntryRenamed(QListWidgetItem *)));
+    connect(m_quoteSourceList, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this,
+            SLOT(slotStartRename(QListWidgetItem *)));
 
-  connect(m_editURL, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
-  connect(m_editSymbol, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
-  connect(m_editDate, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
-  connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
-  connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
-  connect(m_skipStripping, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
+    connect(m_editURL, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
+    connect(m_editSymbol, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
+    connect(m_editDate, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
+    connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
+    connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
+    connect(m_skipStripping, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
 
-  m_checkSymbol->setText("ORCL");
-  m_checkSymbol2->setText("BTC GBP");
-  m_updateButton->setEnabled(false);
+    m_checkSymbol->setText("ORCL");
+    m_checkSymbol2->setText("BTC GBP");
+    m_updateButton->setEnabled(false);
 }
 
 AlkOnlineQuotesWidget::~AlkOnlineQuotesWidget()
@@ -116,66 +118,73 @@ AlkOnlineQuotesWidget::~AlkOnlineQuotesWidget()
 
 void AlkOnlineQuotesWidget::loadProfiles()
 {
-  AlkOnlineQuotesProfileList list = AlkOnlineQuoteSource::profile()->manager()->profiles();
-  foreach(AlkOnlineQuotesProfile *profile, list) {
-    QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget*>(m_profileList));
-    item->setText(profile->name());
-    item->setFlags(item->flags() | Qt::ItemIsEditable);
-  }
-  m_profileList->setCurrentRow(0);
-  loadQuotesList();
+    AlkOnlineQuotesProfileList list = AlkOnlineQuoteSource::profile()->manager()->profiles();
+    foreach (AlkOnlineQuotesProfile *profile, list) {
+        QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget *>(m_profileList));
+        item->setText(profile->name());
+        item->setFlags(item->flags() | Qt::ItemIsEditable);
+    }
+    m_profileList->setCurrentRow(0);
+    loadQuotesList();
 }
 
 void AlkOnlineQuotesWidget::loadQuotesList(const bool updateResetList)
 {
-  //disconnect the slot while items are being loaded and reconnect at the end
-  disconnect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(slotEntryRenamed(QListWidgetItem*)));
-  m_quoteInEditing = false;
-  QStringList groups = AlkOnlineQuote::quoteSources();
+    //disconnect the slot while items are being loaded and reconnect at the end
+    disconnect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem *)), this,
+               SLOT(slotEntryRenamed(QListWidgetItem *)));
+    m_quoteInEditing = false;
+    QStringList groups = AlkOnlineQuote::quoteSources();
 
-  if (updateResetList)
-    m_resetList.clear();
-  m_quoteSourceList->clear();
-  QStringList::Iterator it;
-  for (it = groups.begin(); it != groups.end(); ++it) {
-    AlkOnlineQuoteSource source(*it);
-    if (!source.isValid())
-      continue;
+    if (updateResetList) {
+        m_resetList.clear();
+    }
+    m_quoteSourceList->clear();
+    QStringList::Iterator it;
+    for (it = groups.begin(); it != groups.end(); ++it) {
+        AlkOnlineQuoteSource source(*it);
+        if (!source.isValid()) {
+            continue;
+        }
 
-    QListWidgetItem* item = new QListWidgetItem(*it);
-    item->setFlags(Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
-    m_quoteSourceList->addItem(item);
-    if (updateResetList)
-      m_resetList += source;
-  }
-  m_quoteSourceList->sortItems();
+        QListWidgetItem *item = new QListWidgetItem(*it);
+        item->setFlags(Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+        m_quoteSourceList->addItem(item);
+        if (updateResetList) {
+            m_resetList += source;
+        }
+    }
+    m_quoteSourceList->sortItems();
 
-  QListWidgetItem* first = m_quoteSourceList->item(0);
-  if (first)
-    m_quoteSourceList->setCurrentItem(first);
-  slotLoadWidgets();
+    QListWidgetItem *first = m_quoteSourceList->item(0);
+    if (first) {
+        m_quoteSourceList->setCurrentItem(first);
+    }
+    slotLoadWidgets();
 
-  m_newButton->setEnabled((m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly)).count() == 0);
-  connect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(slotEntryRenamed(QListWidgetItem*)));
+    m_newButton->setEnabled((m_quoteSourceList->findItems(i18n("New Quote Source"),
+                                                          Qt::MatchExactly)).count() == 0);
+    connect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem *)), this,
+            SLOT(slotEntryRenamed(QListWidgetItem *)));
 }
 
 void AlkOnlineQuotesWidget::resetConfig()
 {
-  QStringList::ConstIterator it;
-  QStringList groups = AlkOnlineQuote::quoteSources();
+    QStringList::ConstIterator it;
+    QStringList groups = AlkOnlineQuote::quoteSources();
 
-  // delete all currently defined entries
-  for (it = groups.constBegin(); it != groups.constEnd(); ++it) {
-    AlkOnlineQuoteSource(*it).remove();
-  }
+    // delete all currently defined entries
+    for (it = groups.constBegin(); it != groups.constEnd(); ++it) {
+        AlkOnlineQuoteSource(*it).remove();
+    }
 
-  // and write back the one's from the reset list
-  QList<AlkOnlineQuoteSource>::ConstIterator itr;
-  for (itr = m_resetList.constBegin(); itr != m_resetList.constEnd(); ++itr) {
-    (*itr).write();
-  }
+    // and write back the one's from the reset list
+    QList<AlkOnlineQuoteSource>::ConstIterator itr;
+    for (itr = m_resetList.constBegin(); itr != m_resetList.constEnd(); ++itr) {
+        (*itr).write();
+    }
 
-  loadQuotesList();
+    loadQuotesList();
 }
 
 void AlkOnlineQuotesWidget::setView(QWebView *view)
@@ -185,7 +194,7 @@ void AlkOnlineQuotesWidget::setView(QWebView *view)
 
 void AlkOnlineQuotesWidget::slotNewProfile()
 {
-    QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget*>(m_profileList));
+    QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget *>(m_profileList));
     item->setText(QLatin1String("new profile"));
     item->setFlags(item->flags() | Qt::ItemIsEditable);
 }
@@ -202,231 +211,247 @@ void AlkOnlineQuotesWidget::slotSelectProfile()
 
 void AlkOnlineQuotesWidget::slotLoadProfile()
 {
-  AlkOnlineQuotesProfileList list = AlkOnlineQuoteSource::profile()->manager()->profiles();
-  foreach(AlkOnlineQuotesProfile *profile, list) {
-    if (m_profileList->currentItem()->text() == profile->name()) {
-      AlkOnlineQuoteSource::setProfile(profile);
-      loadQuotesList();
+    AlkOnlineQuotesProfileList list = AlkOnlineQuoteSource::profile()->manager()->profiles();
+    foreach (AlkOnlineQuotesProfile *profile, list) {
+        if (m_profileList->currentItem()->text() == profile->name()) {
+            AlkOnlineQuoteSource::setProfile(profile);
+            loadQuotesList();
+        }
     }
-  }
 }
 
 void AlkOnlineQuotesWidget::slotLoadWidgets()
 {
-  m_quoteInEditing = false;
-  QListWidgetItem* item = m_quoteSourceList->currentItem();
+    m_quoteInEditing = false;
+    QListWidgetItem *item = m_quoteSourceList->currentItem();
 
-  m_editURL->setEnabled(true);
-  m_editSymbol->setEnabled(true);
-  m_editPrice->setEnabled(true);
-  m_editDate->setEnabled(true);
-  m_editDateFormat->setEnabled(true);
-  m_skipStripping->setEnabled(true);
-  m_editURL->setText(QString());
-  m_editSymbol->setText(QString());
-  m_editPrice->setText(QString());
-  m_editDate->setText(QString());
-  m_editDateFormat->setText(QString());
+    m_editURL->setEnabled(true);
+    m_editSymbol->setEnabled(true);
+    m_editPrice->setEnabled(true);
+    m_editDate->setEnabled(true);
+    m_editDateFormat->setEnabled(true);
+    m_skipStripping->setEnabled(true);
+    m_editURL->setText(QString());
+    m_editSymbol->setText(QString());
+    m_editPrice->setText(QString());
+    m_editDate->setText(QString());
+    m_editDateFormat->setText(QString());
 
-  if (item) {
-    m_currentItem = AlkOnlineQuoteSource(item->text());
-    m_editURL->setText(m_currentItem.url());
-    m_editSymbol->setText(m_currentItem.sym());
-    m_editPrice->setText(m_currentItem.price());
-    m_editDate->setText(m_currentItem.date());
-    m_editDateFormat->setText(m_currentItem.dateformat());
-    m_skipStripping->setChecked(m_currentItem.skipStripping());
-  } else {
-    m_editURL->setEnabled(false);
-    m_editSymbol->setEnabled(false);
-    m_editPrice->setEnabled(false);
-    m_editDate->setEnabled(false);
-    m_editDateFormat->setEnabled(false);
-    m_skipStripping->setEnabled(false);
-  }
+    if (item) {
+        m_currentItem = AlkOnlineQuoteSource(item->text());
+        m_editURL->setText(m_currentItem.url());
+        m_editSymbol->setText(m_currentItem.sym());
+        m_editPrice->setText(m_currentItem.price());
+        m_editDate->setText(m_currentItem.date());
+        m_editDateFormat->setText(m_currentItem.dateformat());
+        m_skipStripping->setChecked(m_currentItem.skipStripping());
+    } else {
+        m_editURL->setEnabled(false);
+        m_editSymbol->setEnabled(false);
+        m_editPrice->setEnabled(false);
+        m_editDate->setEnabled(false);
+        m_editDateFormat->setEnabled(false);
+        m_skipStripping->setEnabled(false);
+    }
 
-  m_updateButton->setEnabled(false);
-
+    m_updateButton->setEnabled(false);
 }
 
 void AlkOnlineQuotesWidget::slotEntryChanged()
 {
-  clearIcons();
-  bool modified = m_editURL->text() != m_currentItem.url()
-                  || m_editSymbol->text() != m_currentItem.sym()
-                  || m_editDate->text() != m_currentItem.date()
-                  || m_editDateFormat->text() != m_currentItem.dateformat()
-                  || m_editPrice->text() != m_currentItem.price()
-                  || m_skipStripping->isChecked() != m_currentItem.skipStripping();
+    clearIcons();
+    bool modified = m_editURL->text() != m_currentItem.url()
+                    || m_editSymbol->text() != m_currentItem.sym()
+                    || m_editDate->text() != m_currentItem.date()
+                    || m_editDateFormat->text() != m_currentItem.dateformat()
+                    || m_editPrice->text() != m_currentItem.price()
+                    || m_skipStripping->isChecked() != m_currentItem.skipStripping();
 
-  m_updateButton->setEnabled(modified);
-  m_checkButton->setEnabled(!modified);
-  m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
-  m_checkSymbol2->setEnabled(m_currentItem.url().contains("%2"));
+    m_updateButton->setEnabled(modified);
+    m_checkButton->setEnabled(!modified);
+    m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
+    m_checkSymbol2->setEnabled(m_currentItem.url().contains("%2"));
 }
 
 void AlkOnlineQuotesWidget::slotDeleteEntry()
 {
-  QList<QListWidgetItem*> items = m_quoteSourceList->findItems(m_currentItem.name(), Qt::MatchExactly);
-  if (items.size() == 0)
-    return;
-  QListWidgetItem* item = items.at(0);
-  if (!item)
-    return;
+    QList<QListWidgetItem *> items = m_quoteSourceList->findItems(
+        m_currentItem.name(), Qt::MatchExactly);
+    if (items.size() == 0) {
+        return;
+    }
+    QListWidgetItem *item = items.at(0);
+    if (!item) {
+        return;
+    }
 
-  int ret = KMessageBox::warningContinueCancel(this,
-                i18n("Are you sure to delete this online quote ?"),
-                i18n("Delete online quote"),
-                KStandardGuiItem::cont(),
-                KStandardGuiItem::cancel(),
-                QString("DeletingOnlineQuote"));
-  if (ret == KMessageBox::Cancel)
-    return;
+    int ret = KMessageBox::warningContinueCancel(this,
+                                                 i18n("Are you sure to delete this online quote ?"),
+                                                 i18n("Delete online quote"),
+                                                 KStandardGuiItem::cont(),
+                                                 KStandardGuiItem::cancel(),
+                                                 QString("DeletingOnlineQuote"));
+    if (ret == KMessageBox::Cancel) {
+        return;
+    }
 
-  // keep this order to avoid deleting the wrong current item
-  m_currentItem.remove();
-  delete item;
-  slotEntryChanged();
+    // keep this order to avoid deleting the wrong current item
+    m_currentItem.remove();
+    delete item;
+    slotEntryChanged();
 }
 
 void AlkOnlineQuotesWidget::slotUpdateEntry()
 {
-  m_currentItem.setUrl(m_editURL->text());
-  m_currentItem.setSym(m_editSymbol->text());
-  m_currentItem.setDate(m_editDate->text());
-  m_currentItem.setDateformat(m_editDateFormat->text());
-  m_currentItem.setPrice(m_editPrice->text());
-  m_currentItem.setSkipStripping(m_skipStripping->isChecked());
-  m_currentItem.write();
-  m_checkButton->setEnabled(true);
-  slotEntryChanged();
+    m_currentItem.setUrl(m_editURL->text());
+    m_currentItem.setSym(m_editSymbol->text());
+    m_currentItem.setDate(m_editDate->text());
+    m_currentItem.setDateformat(m_editDateFormat->text());
+    m_currentItem.setPrice(m_editPrice->text());
+    m_currentItem.setSkipStripping(m_skipStripping->isChecked());
+    m_currentItem.write();
+    m_checkButton->setEnabled(true);
+    slotEntryChanged();
 }
 
 void AlkOnlineQuotesWidget::slotNewEntry()
 {
-  AlkOnlineQuoteSource newSource(i18n("New Quote Source"));
-  newSource.write();
-  loadQuotesList();
-  QListWidgetItem* item = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).at(0);
-  if (item) {
-    m_quoteSourceList->setCurrentItem(item);
-    slotLoadWidgets();
-  }
+    AlkOnlineQuoteSource newSource(i18n("New Quote Source"));
+    newSource.write();
+    loadQuotesList();
+    QListWidgetItem *item
+        = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).at(0);
+    if (item) {
+        m_quoteSourceList->setCurrentItem(item);
+        slotLoadWidgets();
+    }
 }
 
 void AlkOnlineQuotesWidget::clearIcons()
 {
-  QPixmap emptyIcon;
-  m_urlCheckLabel->setPixmap(emptyIcon);
-  m_dateCheckLabel->setPixmap(emptyIcon);
-  m_priceCheckLabel->setPixmap(emptyIcon);
-  m_symbolCheckLabel->setPixmap(emptyIcon);
-  m_dateFormatCheckLabel->setPixmap(emptyIcon);
+    QPixmap emptyIcon;
+    m_urlCheckLabel->setPixmap(emptyIcon);
+    m_dateCheckLabel->setPixmap(emptyIcon);
+    m_priceCheckLabel->setPixmap(emptyIcon);
+    m_symbolCheckLabel->setPixmap(emptyIcon);
+    m_dateFormatCheckLabel->setPixmap(emptyIcon);
 }
 
 void AlkOnlineQuotesWidget::setupIcons(const AlkOnlineQuote::Errors &errors)
 {
-  QPixmap okIcon(BarIcon("dialog-ok-apply"));
-  QPixmap failIcon(BarIcon("dialog-cancel"));
+    QPixmap okIcon(BarIcon("dialog-ok-apply"));
+    QPixmap failIcon(BarIcon("dialog-cancel"));
 
-  if (errors & AlkOnlineQuote::Errors::URL)
-    m_urlCheckLabel->setPixmap(failIcon);
-  else {
-    m_urlCheckLabel->setPixmap(okIcon);
-    m_symbolCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Symbol ? failIcon : okIcon);
-    m_priceCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Price ? failIcon : okIcon);
-    if (errors & AlkOnlineQuote::Errors::Date)
-      m_dateCheckLabel->setPixmap(failIcon);
-    else {
-      m_dateCheckLabel->setPixmap(okIcon);
-      m_dateFormatCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::DateFormat? failIcon : okIcon);
+    if (errors & AlkOnlineQuote::Errors::URL) {
+        m_urlCheckLabel->setPixmap(failIcon);
+    } else {
+        m_urlCheckLabel->setPixmap(okIcon);
+        m_symbolCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Symbol ? failIcon : okIcon);
+        m_priceCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Price ? failIcon : okIcon);
+        if (errors & AlkOnlineQuote::Errors::Date) {
+            m_dateCheckLabel->setPixmap(failIcon);
+        } else {
+            m_dateCheckLabel->setPixmap(okIcon);
+            m_dateFormatCheckLabel->setPixmap(
+                errors & AlkOnlineQuote::Errors::DateFormat ? failIcon : okIcon);
+        }
     }
-  }
 }
 
 void AlkOnlineQuotesWidget::slotCheckEntry()
 {
-  AlkOnlineQuote quote;
-  m_logWindow->setVisible(true);
-  m_logWindow->clear();
-  clearIcons();
-  quote.setWebView(d->m_webView);
+    AlkOnlineQuote quote;
+    m_logWindow->setVisible(true);
+    m_logWindow->clear();
+    clearIcons();
+    quote.setWebView(d->m_webView);
 
-  connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
-  connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));
-  connect(&quote, SIGNAL(failed(QString, QString)), this, SLOT(slotLogFailed(QString, QString)));
-  connect(&quote, SIGNAL(quote(QString, QString, QDate, double)), this, SLOT(slotLogQuote(QString, QString, QDate, double)));
-  if (m_currentItem.url().contains("%2"))
-    quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.name());
-  else
-    quote.launch(m_checkSymbol->text(), m_checkSymbol->text(), m_currentItem.name());
-  setupIcons(quote.errors());
+    connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
+    connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));
+    connect(&quote, SIGNAL(failed(QString,QString)), this, SLOT(slotLogFailed(QString,QString)));
+    connect(&quote, SIGNAL(quote(QString,QString,QDate,double)), this,
+            SLOT(slotLogQuote(QString,QString,QDate,double)));
+    if (m_currentItem.url().contains("%2")) {
+        quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.name());
+    } else {
+        quote.launch(m_checkSymbol->text(), m_checkSymbol->text(), m_currentItem.name());
+    }
+    setupIcons(quote.errors());
 }
 
 void AlkOnlineQuotesWidget::slotLogStatus(const QString &s)
 {
-  m_logWindow->append(s);
+    m_logWindow->append(s);
 }
 
 void AlkOnlineQuotesWidget::slotLogError(const QString &s)
 {
-  slotLogStatus(QString("<font color=\"red\"><b>") + s + QString("</b></font>"));
+    slotLogStatus(QString("<font color=\"red\"><b>") + s + QString("</b></font>"));
 }
 
 void AlkOnlineQuotesWidget::slotLogFailed(const QString &id, const QString &symbol)
 {
-  slotLogStatus(QString("%1 %2").arg(id, symbol));
+    slotLogStatus(QString("%1 %2").arg(id, symbol));
 }
 
-void AlkOnlineQuotesWidget::slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price)
+void AlkOnlineQuotesWidget::slotLogQuote(const QString &id, const QString &symbol,
+                                         const QDate &date, double price)
 {
-  slotLogStatus(QString("<font color=\"green\">%1 %2 %3 %4</font>").arg(id, symbol, date.toString()).arg(price));
+    slotLogStatus(QString("<font color=\"green\">%1 %2 %3 %4</font>").arg(id, symbol,
+                                                                          date.toString()).arg(
+                      price));
 }
 
-void AlkOnlineQuotesWidget::slotStartRename(QListWidgetItem* item)
+void AlkOnlineQuotesWidget::slotStartRename(QListWidgetItem *item)
 {
-  m_quoteInEditing = true;
-  m_quoteSourceList->editItem(item);
+    m_quoteInEditing = true;
+    m_quoteSourceList->editItem(item);
 }
 
-void AlkOnlineQuotesWidget::slotEntryRenamed(QListWidgetItem* item)
+void AlkOnlineQuotesWidget::slotEntryRenamed(QListWidgetItem *item)
 {
-  //if there is no current item selected, exit
-  if (m_quoteInEditing == false || !m_quoteSourceList->currentItem() || item != m_quoteSourceList->currentItem())
-    return;
+    //if there is no current item selected, exit
+    if (m_quoteInEditing == false || !m_quoteSourceList->currentItem()
+        || item != m_quoteSourceList->currentItem()) {
+        return;
+    }
 
-  m_quoteInEditing = false;
-  QString text = item->text();
-  int nameCount = 0;
-  for (int i = 0; i < m_quoteSourceList->count(); ++i) {
-    if (m_quoteSourceList->item(i)->text() == text)
-      ++nameCount;
-  }
+    m_quoteInEditing = false;
+    QString text = item->text();
+    int nameCount = 0;
+    for (int i = 0; i < m_quoteSourceList->count(); ++i) {
+        if (m_quoteSourceList->item(i)->text() == text) {
+            ++nameCount;
+        }
+    }
 
-  // Make sure we get a non-empty and unique name
-  if (text.length() > 0 && nameCount == 1) {
-    m_currentItem.rename(text);
-  } else {
-    item->setText(m_currentItem.name());
-  }
-  m_quoteSourceList->sortItems();
-  m_newButton->setEnabled(m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0);
+    // Make sure we get a non-empty and unique name
+    if (text.length() > 0 && nameCount == 1) {
+        m_currentItem.rename(text);
+    } else {
+        item->setText(m_currentItem.name());
+    }
+    m_quoteSourceList->sortItems();
+    m_newButton->setEnabled(m_quoteSourceList->findItems(i18n(
+                                                             "New Quote Source"),
+                                                         Qt::MatchExactly).count() == 0);
 }
 
 void AlkOnlineQuotesWidget::slotInstallEntries()
 {
-  QString configFile = AlkOnlineQuoteSource::profile()->hotNewStuffConfigFile();
+    QString configFile = AlkOnlineQuoteSource::profile()->hotNewStuffConfigFile();
 
-  QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(configFile, this);
-  dialog->exec();
-  delete dialog;
-  loadQuotesList();
+    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(configFile, this);
+    dialog->exec();
+    delete dialog;
+    loadQuotesList();
 }
 
 QString AlkOnlineQuotesWidget::expandedUrl() const
 {
-  if (m_currentItem.url().contains("%2"))
-    return m_currentItem.url().arg(m_checkSymbol2->text());
-  else
-    return m_currentItem.url().arg(m_checkSymbol->text());
+    if (m_currentItem.url().contains("%2")) {
+        return m_currentItem.url().arg(m_checkSymbol2->text());
+    } else {
+        return m_currentItem.url().arg(m_checkSymbol->text());
+    }
 }

@@ -34,25 +34,27 @@ of a local script being used to fetch the quote.
 
 @author Thomas Baumgart <thb@net-bembel.de> & Ace Jones <acejones@users.sourceforge.net>
 */
-class ALK_NO_EXPORT AlkOnlineQuoteProcess: public KProcess
+class ALK_NO_EXPORT AlkOnlineQuoteProcess : public KProcess
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  AlkOnlineQuoteProcess();
-  inline void setSymbol(const QString& _symbol) {
-    m_symbol = _symbol; m_string.truncate(0);
-  }
+    AlkOnlineQuoteProcess();
+    inline void setSymbol(const QString &_symbol)
+    {
+        m_symbol = _symbol;
+        m_string.truncate(0);
+    }
 
 public slots:
-  void slotReceivedDataFromFilter();
-  void slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus);
+    void slotReceivedDataFromFilter();
+    void slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus);
 
 signals:
-  void processExited(const QString&);
+    void processExited(const QString &);
 
 private:
-  QString m_symbol;
-  QString m_string;
+    QString m_symbol;
+    QString m_string;
 };
 
 #endif // ALKONLINEQUOTEPROCESS_H

@@ -33,24 +33,24 @@ by the Finance::Quote package, and more user-friendly names.
 
 @author Thomas Baumgart <thb@net-bembel.de> & Ace Jones <acejones@users.sourceforge.net>, Tony B<tonybloom@users.sourceforge.net>
  */
-class ALK_NO_EXPORT AlkFinanceQuoteProcess: public KProcess
+class ALK_NO_EXPORT AlkFinanceQuoteProcess : public KProcess
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  AlkFinanceQuoteProcess();
-  void launch(const QString& scriptPath);
-  bool isFinished() const;
-  const QStringList getSourceList() const;
-  const QString crypticName(const QString& niceName) const;
-  const QString niceName(const QString& crypticName) const;
+    AlkFinanceQuoteProcess();
+    void launch(const QString &scriptPath);
+    bool isFinished() const;
+    const QStringList getSourceList() const;
+    const QString crypticName(const QString &niceName) const;
+    const QString niceName(const QString &crypticName) const;
 
 public slots:
-  void slotReceivedDataFromFilter();
-  void slotProcessExited();
+    void slotReceivedDataFromFilter();
+    void slotProcessExited();
 
 private:
-  class Private;
-  Private *d;
+    class Private;
+    Private *d;
 };
 
 #endif // ALKFINANCEQUOTEPROCESS_H

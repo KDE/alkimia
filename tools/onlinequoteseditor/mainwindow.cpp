@@ -43,18 +43,20 @@ void MainWindow::slotEditingFinished()
     d->view->setUrl(QUrl(d->urlLine->text()));
 }
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    d(new Private),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , d(new Private)
+    , ui(new Ui::MainWindow)
 {
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
 
-    manager.addProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney));
+    manager.addProfile(new AlkOnlineQuotesProfile("alkimia",
+                                                  AlkOnlineQuotesProfile::Type::KMyMoney));
     //manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
     //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit_local.knsrc"));
     //manager.addProfile(new AlkOnlineQuotesProfile("skrooge", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
-    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
+    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney",
+                                                  AlkOnlineQuotesProfile::Type::KMyMoney));
     AlkOnlineQuoteSource::setProfile(manager.profiles().first());
     ui->setupUi(this);
 
@@ -86,4 +88,3 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-

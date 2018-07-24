@@ -29,10 +29,10 @@ int main(int argc, char **argv)
                      ki18n("Editor for online price quotes used by finance applications"),
                      KAboutData::License_GPL,
                      ki18n("(C) 2018 Ralf Habacker"));
-    KCmdLineArgs::init( argc, argv, &about);
+    KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
-    KCmdLineArgs::addCmdLineOptions( options ); // Add my own options.
+    KCmdLineArgs::addCmdLineOptions(options);   // Add my own options.
 
     KComponentData a(&about);
 

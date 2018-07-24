@@ -22,41 +22,46 @@
 
 #include <QtDebug>
 
-convertertest::AlkQuoteReceiver::AlkQuoteReceiver(AlkOnlineQuote* q, QObject* parent) :
-    QObject(parent)
+convertertest::AlkQuoteReceiver::AlkQuoteReceiver(AlkOnlineQuote *q, QObject *parent)
+    : QObject(parent)
 {
-  connect(q, SIGNAL(quote(QString,QString,QDate,double)),
-          this, SLOT(slotGetQuote(QString,QString,QDate,double)));
-  connect(q, SIGNAL(status(QString)),
-          this, SLOT(slotStatus(QString)));
-  connect(q, SIGNAL(error(QString)),
-          this, SLOT(slotError(QString)));
+    connect(q, SIGNAL(quote(QString,QString,QDate,double)),
+            this, SLOT(slotGetQuote(QString,QString,QDate,double)));
+    connect(q, SIGNAL(status(QString)),
+            this, SLOT(slotStatus(QString)));
+    connect(q, SIGNAL(error(QString)),
+            this, SLOT(slotError(QString)));
 }
 
 convertertest::AlkQuoteReceiver::~AlkQuoteReceiver()
 {
 }
 
-void convertertest::AlkQuoteReceiver::slotGetQuote(const QString& a, const QString& b, const QDate& d, const double& m)
+void convertertest::AlkQuoteReceiver::slotGetQuote(const QString &a, const QString &b,
+                                                   const QDate &d, const double &m)
 {
-  if (m_verbose)
-    qDebug() << "test::AlkQuoteReceiver::slotGetQuote( , " << a << " , " << b << " , " << d << " , " << m << " )";
-  m_price = AlkMoney(m);
-  m_date = d;
+    if (m_verbose) {
+        qDebug() << "test::AlkQuoteReceiver::slotGetQuote( , " << a << " , " << b << " , " << d
+                 << " , " << m << " )";
+    }
+    m_price = AlkMoney(m);
+    m_date = d;
 }
 
-void convertertest::AlkQuoteReceiver::slotStatus(const QString& msg)
+void convertertest::AlkQuoteReceiver::slotStatus(const QString &msg)
 {
-  if (m_verbose)
-    qDebug() << "test::AlkQuoteReceiver::slotStatus( " << msg << " )";
+    if (m_verbose) {
+        qDebug() << "test::AlkQuoteReceiver::slotStatus( " << msg << " )";
+    }
 
-  m_statuses += msg;
+    m_statuses += msg;
 }
 
-void convertertest::AlkQuoteReceiver::slotError(const QString& msg)
+void convertertest::AlkQuoteReceiver::slotError(const QString &msg)
 {
-  if (m_verbose)
-    qDebug() << "test::AlkQuoteReceiver::slotError( " << msg << " )";
+    if (m_verbose) {
+        qDebug() << "test::AlkQuoteReceiver::slotError( " << msg << " )";
+    }
 
-  m_errors += msg;
+    m_errors += msg;
 }

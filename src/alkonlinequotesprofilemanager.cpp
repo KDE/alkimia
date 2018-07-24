@@ -23,34 +23,34 @@
 class AlkOnlineQuotesProfileManager::Private
 {
 public:
-  AlkOnlineQuotesProfileList m_profiles;
+    AlkOnlineQuotesProfileList m_profiles;
 };
 
 AlkOnlineQuotesProfileManager::AlkOnlineQuotesProfileManager()
-  : d(new Private)
+    : d(new Private)
 {
 }
 
 AlkOnlineQuotesProfileManager::~AlkOnlineQuotesProfileManager()
 {
-  delete d;
+    delete d;
 }
 
 void AlkOnlineQuotesProfileManager::addProfile(AlkOnlineQuotesProfile *profile)
 {
-  if (!d->m_profiles.contains(profile)) {
-    d->m_profiles.append(profile);
-    profile->setManager(this);
-  }
+    if (!d->m_profiles.contains(profile)) {
+        d->m_profiles.append(profile);
+        profile->setManager(this);
+    }
 }
 
 AlkOnlineQuotesProfileList AlkOnlineQuotesProfileManager::profiles()
 {
-  return d->m_profiles;
+    return d->m_profiles;
 }
 
 AlkOnlineQuotesProfileManager &AlkOnlineQuotesProfileManager::instance()
 {
-  static AlkOnlineQuotesProfileManager manager;
-  return manager;
+    static AlkOnlineQuotesProfileManager manager;
+    return manager;
 }
