@@ -67,7 +67,7 @@ public:
 
     static int dbgArea()
     {
-        static int s_area = KDebug::registerArea("KMyMoney (WebPriceQuote)");
+        static int s_area = KDebug::registerArea("Alkimia (AlkOnlineQuote)");
         return s_area;
     }
 };
