@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2004  Ace Jones <acejones@users.sourceforge.net>            *
+ *   Copyright 2018 Ralf Habacker <ralf.habacker@freenet.de>               *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
