@@ -23,6 +23,7 @@
 #include <QString>
 #include <QtDebug>
 
+#include <KConfig>
 #include <KStandardDirs>
 #include <knewstuff3/downloadmanager.h>
 

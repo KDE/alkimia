@@ -5,35 +5,43 @@ include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 
 include_directories(
-  ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 ########### target alkimia-internal ###########
 
 set(alkimia_INTERNAL_SRCS
-  alkdateformat.cpp
-  alkexception.cpp
-  alkmoney.cpp
-  alkquotereceiver.cpp
-  alkonlinequoteprocess.cpp
-  alkfinancequoteprocess.cpp
-  alkonlinequotesprofile.cpp
-  alkonlinequotesprofilemanager.cpp
+    alkdateformat.cpp
+    alkexception.cpp
+    alkmoney.cpp
+    alkquotereceiver.cpp
+    alkonlinequoteprocess.cpp
+    alkfinancequoteprocess.cpp
+    alkonlinequotesprofile.cpp
+    alkonlinequotesprofilemanager.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
-  alkdateformat.h
-  alkexception.h
-  alkmoney.h
-  alkquotereceiver.h
-  alkonlinequoteprocess.h
-  alkfinancequoteprocess.h
-  alkonlinequotesprofile.h
-  alkonlinequotesprofilemanager.h
+    alkdateformat.h
+    alkexception.h
+    alkmoney.h
+    alkquotereceiver.h
+    alkonlinequoteprocess.h
+    alkfinancequoteprocess.h
+    alkonlinequotesprofile.h
+    alkonlinequotesprofilemanager.h
 )
 
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
-target_link_libraries(alkimia-internal PUBLIC ${QT_USE_LIBSPREFIX}Core)
+if(NOT BUILD_QT4)
+    set (ALKIMIA_INTERNAL_LIBS
+        PUBLIC
+        KF5::CoreAddons
+        KF5::KDELibs4Support
+        KF5::NewStuff
+    )
+endif()
+target_link_libraries(alkimia-internal PUBLIC ${QT_USE_LIBSPREFIX}Core ${ALKIMIA_INTERNAL_LIBS})
 kde_target_enable_exceptions(alkimia-internal PUBLIC)
 
 ########### target alkimia ###########
@@ -42,46 +50,58 @@ set(ALKIMIA_LIB_VERSION ${alkimia_VERSION})
 set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
-  alkcompany.cpp
-  alkquoteitem.cpp
-  alkvalue.cpp
-  alkonlinequote.cpp
-  alkonlinequotesource.cpp
-  alkonlinequoteswidget.cpp
+    alkcompany.cpp
+    alkquoteitem.cpp
+    alkvalue.cpp
+    alkonlinequote.cpp
+    alkonlinequotesource.cpp
+    alkonlinequoteswidget.cpp
 )
 
 set(alkimia_LIB_HEADERS
-  alkcompany.h
-  alkquoteitem.h
-  ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h
-  alkonlinequote.h
-  alkonlinequotesource.h
-  alkonlinequoteswidget.h
-  ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
+    alkcompany.h
+    alkquoteitem.h
+    ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h
+    alkonlinequote.h
+    alkonlinequotesource.h
+    alkonlinequoteswidget.h
+    ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
 )
 
 set(alkimia_UI
-  alkonlinequoteswidget.ui
+    alkonlinequoteswidget.ui
 )
 
 add_definitions(-DKNSRC_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 
-kde4_add_ui_files(alkimia_LIB_SRCS ${alkimia_UI} )
+ki18n_wrap_ui(alkimia_LIB_SRCS ${alkimia_UI} )
 add_library(alkimia SHARED ${alkimia_LIB_SRCS} ${alkimia_INTERNAL_SRCS} ${alkimia_LIB_HEADERS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
-
+if(BUILD_QT4)
+    set(ALKIMIA_LIBS
+        PUBLIC
+        ${KDE_LIBRARIES}
+        ${KDE4_KDEUI_LIBS}
+        ${KDE4_KNEWSTUFF3_LIBS})
+else()
+    set(ALKIMIA_LIBS
+        PUBLIC
+        ${QT_USE_LIBSPREFIX}WebKitWidgets
+        KF5::KDELibs4Support
+        KF5::NewStuff
+    )
+endif()
 target_link_libraries(alkimia
-  PUBLIC
-  ${QT_USE_LIBSPREFIX}Core
-  ${QT_USE_LIBSPREFIX}DBus
-  ${QT_USE_LIBSPREFIX}WebKit
-  ${MP_LIBRARIES}
-  ${KDE_LIBRARIES}
-  ${KDE4_KDEUI_LIBS}
-  ${KDE4_KNEWSTUFF3_LIBS}
+    PRIVATE
+    alkimia-internal
+    PUBLIC
+    ${QT_USE_LIBSPREFIX}Core
+    ${QT_USE_LIBSPREFIX}DBus
+    ${QT_USE_LIBSPREFIX}WebKit
+    ${MP_LIBRARIES}
+    ${ALKIMIA_LIBS}
 )
-
 generate_export_header(alkimia BASE_NAME alk)
 
 if(WIN32)

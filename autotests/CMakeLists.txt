@@ -1,6 +1,15 @@
 include(ECMAddTests)
+set(TEST_LIB
+    alkimia
+    alkimia-internal
+    ${QT_USE_LIBSPREFIX}Test
+    ${QT_USE_LIBSPREFIX}Core
+    ${QT_USE_LIBSPREFIX}WebKit
+)
 
-set(TEST_LIB alkimia alkimia-internal ${QT_USE_LIBSPREFIX}Test ${QT_USE_LIBSPREFIX}Core ${QT_USE_LIBSPREFIX}WebKit ${KDE_LIBRARIES})
+if(BUILD_QT4)
+    list(APPEND TEST_LIB ${KDE_LIBRARIES})
+endif()
 
 ecm_add_tests(
     alkvaluetest.cpp

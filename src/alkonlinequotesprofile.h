@@ -24,7 +24,7 @@
 
 #include <QString>
 
-#include <KConfig>
+class KConfig;
 
 class AlkOnlineQuotesProfileManager;
 

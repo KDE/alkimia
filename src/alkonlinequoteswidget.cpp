@@ -30,6 +30,7 @@
 
 #include <KConfig>
 #include <KGlobal>
+#include <KIcon>
 #include <KIconLoader>
 #include <KGuiItem>
 #include <KMessageBox>

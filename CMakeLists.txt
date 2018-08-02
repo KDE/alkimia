@@ -29,14 +29,52 @@ if(BUILD_QT4)
     include(KDE4Defaults)
     set(KDE_LIBRARIES ${KDE4_KDECORE_LIBS} ${KDE4_KIO_LIBS})
     include_directories(${KDE4_INCLUDES})
+    macro(ki18n_wrap_ui)
+        kde4_add_ui_files(${ARGN})
+    endmacro(ki18n_wrap_ui)
+    macro(kconfig_add_kcfg_files)
+        kde4_add_kcfg_files(${ARGN})
+    endmacro(kconfig_add_kcfg_files)
+    macro(ecm_add_executable)
+        kde4_add_executable(${ARGN})
+    endmacro(ecm_add_executable)
+
+    macro(ecm_mark_nongui_executable)
+        foreach(_target ${ARGN})
+            set_target_properties(${_target}
+                                  PROPERTIES
+                                  WIN32_EXECUTABLE FALSE
+                                  MACOSX_BUNDLE FALSE
+                                 )
+        endforeach()
+    endmacro(ecm_mark_nongui_executable)
 else()
-    find_package(Qt5 REQUIRED COMPONENTS Core DBus Test WebKit)
+    find_package(Qt5 REQUIRED COMPONENTS
+        Core
+        Test
+        WebKitWidgets
+    )
+    # search packages used by KDE
+    find_package(KF5 REQUIRED COMPONENTS
+        Config
+        CoreAddons
+        KDELibs4Support
+        #I18n
+        #WebKit
+        NewStuff
+    )
     set(QT_USE_LIBSPREFIX Qt5::)
     set(ALKIMIA_LIB_SUFFIX "5")
     set(ALKIMIA_INCLUDE_SUFFIX "Qt5")
     set(ALKIMIA_PATH_SUFFIX 5)
     set(PC_TARGET_QTPREFIX Qt5)
     set(PC_TARGET_SUFFIX 5)
+    macro(ecm_add_executable)
+        add_executable(${ARGN})
+    endmacro(ecm_add_executable)
+    if(CMAKE_COMPILER_IS_GNUCC)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
+    endif()
 endif()
 
 # figure out which multi-precision library to use

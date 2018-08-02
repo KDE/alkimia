@@ -19,18 +19,28 @@
 
 #include "mainwindow.h"
 
+#if QT_VERSION >= 0x050000
+#define KABOUTDATA_H
+#include <K4AboutData>
+#define KAboutData K4AboutData
+#else
 #include <KAboutData>
+#endif
+
 #include <KApplication>
 #include <KCmdLineArgs>
 
 int main(int argc, char **argv)
 {
-    KAboutData about("onlinequoteseditor", 0, ki18n("onlinequoteseditor"), "1.0",
+    KAboutData about("onlinequoteseditor", 0,
+                     ki18n("onlinequoteseditor"),
+                     "1.0",
                      ki18n("Editor for online price quotes used by finance applications"),
                      KAboutData::License_GPL,
                      ki18n("(C) 2018 Ralf Habacker"));
     KCmdLineArgs::init(argc, argv, &about);
 
+    KApplication app(true);
     KCmdLineOptions options;
     KCmdLineArgs::addCmdLineOptions(options);   // Add my own options.
 
@@ -39,7 +49,6 @@ int main(int argc, char **argv)
     // Get application specific arguments
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
-    KApplication app(true);
     MainWindow w;
     w.show();
     return app.exec();

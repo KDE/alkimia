@@ -25,13 +25,15 @@
 #include "alkexception.h"
 
 #include <QApplication>
+#include <QByteArray>
 #include <QFile>
 #include <QFileInfo>
 #include <QRegExp>
 #include <QtWebKit>
 #include <QTextStream>
 #include <QTextCodec>
-#include <QByteArray>
+#include <QWebView>
+#include <QWebFrame>
 
 #include <KConfigGroup>
 #include <KDebug>
