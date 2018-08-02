@@ -69,32 +69,11 @@ public:
             URL,
         };
 
-        inline Errors()
-        {
-        }
-
-        inline Errors(Type type)
-        {
-            m_type.append(type);
-        }
-
-        inline Errors(const Errors &e)
-        {
-            m_type = e.m_type;
-        }
-
-        inline Errors &operator |=(Type t)
-        {
-            if (!m_type.contains(t)) {
-                m_type.append(t);
-            }
-            return *this;
-        }
-
-        inline bool operator &(Type t) const
-        {
-            return m_type.contains(t);
-        }
+        Errors();
+        Errors(Type type);
+        Errors(const Errors &e);
+        Errors &operator |=(Type t);
+        bool operator &(Type t) const;
 
     protected:
         QList<Type> m_type;

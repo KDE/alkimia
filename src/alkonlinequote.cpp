@@ -46,6 +46,35 @@
 #include <KShell>
 #include <KStandardDirs>
 
+
+AlkOnlineQuote::Errors::Errors()
+{
+}
+
+AlkOnlineQuote::Errors::Errors(Type type)
+{
+    m_type.append(type);
+}
+
+AlkOnlineQuote::Errors::Errors(const Errors &e)
+{
+    m_type = e.m_type;
+}
+
+AlkOnlineQuote::Errors &AlkOnlineQuote::Errors::operator |=(Type t)
+{
+    if (!m_type.contains(t)) {
+        m_type.append(t);
+    }
+    return *this;
+}
+
+bool AlkOnlineQuote::Errors::operator &(Type t) const
+{
+    return m_type.contains(t);
+}
+
+
 class AlkOnlineQuote::Private : public QObject
 {
     Q_OBJECT
