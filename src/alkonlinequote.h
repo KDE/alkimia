@@ -152,37 +152,9 @@ signals:
     void status(const QString &);
     void error(const QString &);
 
-protected slots:
-    void slotLoadStarted();
-    void slotLoadFinishedHtmlParser(bool ok);
-    void slotLoadFinishedCssSelector(bool ok);
-    bool slotParseQuote(const QString &_quotedata);
-protected:
-    static const QMap<QString, AlkOnlineQuoteSource> defaultQuoteSources();
-
 private:
-    bool initLaunch(const QString &_symbol, const QString &_id, const QString &_source);
-    bool launchWebKitCssSelector(const QString &_symbol, const QString &_id,
-                                 const QString &_source);
-    bool launchWebKitHtmlParser(const QString &_symbol, const QString &_id, const QString &_source);
-    bool launchNative(const QString &_symbol, const QString &_id, const QString &_source);
-    bool launchFinanceQuote(const QString &_symbol, const QString &_id, const QString &_source);
-    void enter_loop();
-    bool parsePrice(const QString &pricestr);
-    bool parseDate(const QString &datestr);
-
-    static const QStringList quoteSourcesNative();
-    static const QStringList quoteSourcesFinanceQuote();
-    static const QStringList quoteSourcesSkrooge();
-
-private:
-    /// \internal d-pointer class.
     class Private;
-    /// \internal d-pointer instance.
-    Private *const d;
-
-    static QString m_financeQuoteScriptPath;
-    static QStringList m_financeQuoteSources;
+    Private *d;
 };
 
 #endif // WEBPRICEQUOTE_H
