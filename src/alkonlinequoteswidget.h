@@ -57,6 +57,8 @@ public:
     void resetConfig();
 
     void setView(QWebView *view);
+    QString acceptLanguage() const;
+    void setAcceptLanguage(const QString &text);
 
 protected slots:
     void slotNewProfile();

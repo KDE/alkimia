@@ -39,6 +39,7 @@ public:
 protected slots:
     void slotUrlChanged(const QUrl &url);
     void slotEditingFinished();
+    void slotLanguageChanged(const QString &);
 
 private:
     class Private;

@@ -92,6 +92,13 @@ public:
     void setWebView(QWebView *view);
 
     /**
+     * Set accepted language the online quote should be returned for
+     *
+     * @param language accepted language to set
+     */
+    void setAcceptLanguage(const QString &language);
+
+    /**
       * This launches a web-based quote update for the given @p _symbol.
       * When the quote is received back from the web source, it will be
       * emitted on the 'quote' signal.

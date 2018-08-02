@@ -23,14 +23,22 @@
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequoteswidget.h"
 
+#include <QComboBox>
 #include <QDockWidget>
+#include <QNetworkRequest>
 #include <QWebInspector>
 
 class MainWindow::Private
 {
 public:
+    ~Private()
+    {
+        delete view;
+        delete quotesWidget;
+    }
     QWebView *view;
     QLineEdit *urlLine;
+    AlkOnlineQuotesWidget *quotesWidget;
 };
 
 void MainWindow::slotUrlChanged(const QUrl &url)
@@ -40,7 +48,19 @@ void MainWindow::slotUrlChanged(const QUrl &url)
 
 void MainWindow::slotEditingFinished()
 {
-    d->view->setUrl(QUrl(d->urlLine->text()));
+    QUrl url(d->urlLine->text());
+    QNetworkRequest request;
+    request.setUrl(url);
+    if (!d->quotesWidget->acceptLanguage().isEmpty())
+        request.setRawHeader("Accept-Language", d->quotesWidget->acceptLanguage().toLocal8Bit());
+    d->view->load(request);
+}
+
+void MainWindow::slotLanguageChanged(const QString &text)
+{
+    d->quotesWidget->setAcceptLanguage(text);
+    if (!d->urlLine->text().isEmpty())
+        slotEditingFinished();
 }
 
 MainWindow::MainWindow(QWidget *parent)
@@ -64,10 +84,36 @@ MainWindow::MainWindow(QWidget *parent)
     d->view = new QWebView;
     connect(d->view, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
 
-    QVBoxLayout *layout = new QVBoxLayout;
     d->urlLine = new QLineEdit;
     connect(d->urlLine, SIGNAL(editingFinished()), this, SLOT(slotEditingFinished()));
-    layout->addWidget(d->urlLine);
+
+    d->quotesWidget = new AlkOnlineQuotesWidget;
+    d->quotesWidget->setView(d->view);
+    setCentralWidget(d->quotesWidget);
+
+    // setup language box
+    QComboBox *box = new QComboBox;
+    QList<QLocale> allLocales = QLocale::matchingLocales(
+            QLocale::AnyLanguage,
+            QLocale::AnyScript,
+            QLocale::AnyCountry);
+
+    QStringList languages;
+    foreach(const QLocale &locale, allLocales) {
+        languages.append(locale.uiLanguages());
+    }
+    languages.sort();
+    box->addItems(languages);
+    d->quotesWidget->setAcceptLanguage(box->currentText());
+    connect(box, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotLanguageChanged(QString)));
+
+    // setup layouts
+    QHBoxLayout *hLayout = new QHBoxLayout;
+    hLayout->addWidget(d->urlLine);
+    hLayout->addWidget(box);
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addLayout(hLayout);
     layout->addWidget(d->view);
     QWidget *group = new QWidget;
     group->setLayout(layout);
@@ -78,13 +124,10 @@ MainWindow::MainWindow(QWidget *parent)
     d->view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     QWebInspector *inspector = new QWebInspector;
     inspector->setPage(d->view->page());
-
-    AlkOnlineQuotesWidget *quotesWidget = new AlkOnlineQuotesWidget;
-    quotesWidget->setView(d->view);
-    setCentralWidget(quotesWidget);
 }
 
 MainWindow::~MainWindow()
 {
+    delete d;
     delete ui;
 }

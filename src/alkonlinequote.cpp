@@ -28,6 +28,7 @@
 #include <QByteArray>
 #include <QFile>
 #include <QFileInfo>
+#include <QNetworkRequest>
 #include <QRegExp>
 #include <QtWebKit>
 #include <QTextStream>
@@ -91,6 +92,7 @@ public:
     KUrl m_url;
     QEventLoop *m_eventLoop;
     QWebView *m_webView;
+    QString m_acceptLanguage;
     static QString m_financeQuoteScriptPath;
     static QStringList m_financeQuoteSources;
 
@@ -268,7 +270,8 @@ void AlkOnlineQuote::Private::slotLoadFinishedHtmlParser(bool ok)
         QWebFrame *frame = m_webView->page()->mainFrame();
         slotParseQuote(frame->toHtml());
     }
-    d->m_eventLoop->exit();
+    if (m_eventLoop)
+        m_eventLoop->exit();
 }
 
 void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
@@ -305,7 +308,8 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
             emit m_p->failed(m_id, m_symbol);
         }
     }
-    d->m_eventLoop->exit();
+    if (m_eventLoop)
+        m_eventLoop->exit();
 }
 
 void AlkOnlineQuote::Private::slotLoadStarted()
@@ -343,7 +347,11 @@ bool AlkOnlineQuote::Private::launchWebKitHtmlParser(const QString &_symbol, con
     }
     connect(m_webView, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
-    m_webView->setUrl(m_url);
+    QNetworkRequest request;
+    request.setUrl(m_url);
+    if (!m_acceptLanguage.isEmpty())
+        request.setRawHeader("Accept-Language", m_acceptLanguage.toLocal8Bit());
+    m_webView->load(request);
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
     delete m_eventLoop;
@@ -631,9 +639,9 @@ void AlkOnlineQuote::setWebView(QWebView *view)
     d->m_webView = view;
 }
 
-void AlkOnlineQuote::setAcceptLanguage(const QString &text)
+void AlkOnlineQuote::setAcceptLanguage(const QString &language)
 {
-    d->m_acceptLanguage = text;
+    d->m_acceptLanguage = language;
 }
 
 bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QString &_source)
