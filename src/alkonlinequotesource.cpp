@@ -91,7 +91,7 @@ public:
               && group.hasKey("dateformat") && group.hasKey("price"))) {
             return false;
         }
-        m_skipStripping = false;
+        m_skipStripping = true;
         m_url = group.readEntry("url");
         m_price = group.readEntry("price");
         m_date = group.readEntry("date");
