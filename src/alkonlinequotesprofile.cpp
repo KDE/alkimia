@@ -39,12 +39,14 @@ public:
     AlkOnlineQuotesProfileManager *m_profileManager;
     KNS3::DownloadManager *m_manager;
     KConfig *m_config;
+    Type m_type;
 
     Private(AlkOnlineQuotesProfile *p)
         : m_p(p)
         , m_profileManager(0)
         , m_manager(0)
         , m_config(0)
+        , m_type(Type::Undefined)
     {
     }
 
@@ -88,6 +90,7 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
 {
     d->m_name = name;
     d->m_GHNSFile = configFile;
+    d->m_type = type;
     if (type == Type::GHNS) {
         // TODO read file
         d->m_GHNSFilePath = "skrooge/quotes";
@@ -140,6 +143,11 @@ QString AlkOnlineQuotesProfile::kConfigFile() const
 KConfig *AlkOnlineQuotesProfile::kConfig() const
 {
     return d->m_config;
+}
+
+AlkOnlineQuotesProfile::Type AlkOnlineQuotesProfile::type()
+{
+    return d->m_type;
 }
 
 void AlkOnlineQuotesProfile::setManager(AlkOnlineQuotesProfileManager *manager)

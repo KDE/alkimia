@@ -32,7 +32,7 @@ class ALK_EXPORT AlkOnlineQuotesProfile
 {
 public:
     enum class Type {
-        GHNS, KMyMoney, Skrooge
+        Undefined, GHNS, KMyMoney, Skrooge
     };
     AlkOnlineQuotesProfile(
         const QString &name = QString(), Type type = Type::KMyMoney,
@@ -48,6 +48,7 @@ public:
     void setManager(AlkOnlineQuotesProfileManager *manager);
     AlkOnlineQuotesProfileManager *manager();
     KConfig *kConfig() const;
+    Type type();
 private:
     class Private;
     Private *d;

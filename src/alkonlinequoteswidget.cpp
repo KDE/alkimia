@@ -229,6 +229,7 @@ void AlkOnlineQuotesWidget::slotLoadProfile()
         if (m_profileList->currentItem()->text() == profile->name()) {
             AlkOnlineQuoteSource::setProfile(profile);
             loadQuotesList();
+            m_installButton->setVisible(profile->type() == AlkOnlineQuotesProfile::Type::GHNS);
         }
     }
 }
