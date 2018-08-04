@@ -112,6 +112,7 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
     m_checkSymbol2->setText("BTC GBP");
     m_updateButton->setEnabled(false);
     m_showButton->setVisible(false);
+    slotLoadProfile();
 }
 
 AlkOnlineQuotesWidget::~AlkOnlineQuotesWidget()
