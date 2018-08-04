@@ -330,7 +330,6 @@ bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, co
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
     delete m_eventLoop;
-    delete m_webView;
     disconnect(m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
     disconnect(m_webView, SIGNAL(loadFinished(bool)), this,
                SLOT(slotLoadFinishedCssSelector(bool)));
