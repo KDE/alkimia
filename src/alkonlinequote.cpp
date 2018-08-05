@@ -489,7 +489,7 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
         emit m_p->status(i18n("Price found: '%1' (%2)", pricestr, m_price));
     } else {
         m_errors |= Errors::Price;
-        emit m_p->error(i18n("Unable to parse price for %1", m_symbol));
+        emit m_p->error(i18n("Unable to parse price for '%1'", m_symbol));
         result = false;
     }
     return result;
@@ -505,14 +505,14 @@ bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
             try {
                 m_date = dateparse.convertString(datestr, false /*strict*/);
                 kDebug(Private::dbgArea()) << "Date" << datestr;
-                emit m_p->status(i18n("Date format found: '%1' -> %2", datestr, m_date.toString()));
+                emit m_p->status(i18n("Date format found: '%1' -> '%2'", datestr, m_date.toString()));
             } catch (const AlkException &e) {
                 m_errors |= Errors::DateFormat;
-                emit m_p->error(i18n("Unable to parse date %1 using format %2: %3").arg(datestr,
+                emit m_p->error(i18n("Unable to parse date '%1' using format '%2': %3").arg(datestr,
                                                                                    dateparse.format(),
                                                                                    e.what()));
                 m_date = QDate::currentDate();
-                emit m_p->status(i18n("Using current date for %1").arg(m_symbol));
+                emit m_p->status(i18n("Using current date for '%1'").arg(m_symbol));
             }
         } else {
             QDate date = QDate::fromString(datestr, m_source.dateformat());
@@ -521,16 +521,16 @@ bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
                 emit m_p->error(i18n("Unable to parse date '%1' using format '%2'").arg(datestr,
                                                                                    m_source.dateformat()));
                 m_date = QDate::currentDate();
-                emit m_p->status(i18n("Using current date for %1").arg(m_symbol));
+                emit m_p->status(i18n("Using current date for '%1'").arg(m_symbol));
             } else {
                 m_date = date;
             }
         }
     } else {
         m_errors |= Errors::Date;
-        emit m_p->error(i18n("Unable to parse date for %1").arg(m_symbol));
+        emit m_p->error(i18n("Unable to parse date for '%1'").arg(m_symbol));
         m_date = QDate::currentDate();
-        emit m_p->status(i18n("Using current date for %1").arg(m_symbol));
+        emit m_p->status(i18n("Using current date for '%1'").arg(m_symbol));
     }
     return true;
 }
