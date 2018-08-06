@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Online Quote
+Comment=Plasma applet for an online quote
+Type=Service
+ServiceTypes=Plasma/Applet
+
+X-KDE-Library=plasma_applet_onlinequote
+X-KDE-PluginInfo-Name=OnlineQuote
+X-KDE-PluginInfo-Category=Finance
+X-KDE-PluginInfo-Author=Ralf Habacker
+X-KDE-PluginInfo-Email=ralf.habacker@freenet.de
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://plasma.kde.org/
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true

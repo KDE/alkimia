@@ -105,4 +105,5 @@ include_directories(${MP_INCLUDE_DIR})
 
 add_subdirectory(src)
 add_subdirectory(autotests)
+add_subdirectory(plasma/applets/onlinequote)
 add_subdirectory(tools)
