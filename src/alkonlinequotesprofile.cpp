@@ -29,6 +29,7 @@
 #include <QFileInfo>
 
 #include <KConfig>
+#include <KGlobal>
 #include <KStandardDirs>
 #include <knewstuff3/downloadmanager.h>
 

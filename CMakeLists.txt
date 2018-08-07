@@ -61,6 +61,8 @@ else()
         KDELibs4Support
         #I18n
         #WebKit
+        Package
+        Plasma
         NewStuff
     )
     set(QT_USE_LIBSPREFIX Qt5::)

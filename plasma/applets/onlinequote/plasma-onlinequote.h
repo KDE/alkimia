@@ -11,6 +11,10 @@ class QSizeF;
 class MyWidget;
 class AlkOnlineQuotesProfile;
 
+// KF5
+class KConfigDialog;
+class QStyleOptionGraphicsItem;
+
 // Define our plasma Applet
 class PlasmaOnlineQuote : public Plasma::Applet
 {

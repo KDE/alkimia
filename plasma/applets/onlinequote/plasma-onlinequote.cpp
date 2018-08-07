@@ -10,6 +10,7 @@
 #include <QFontMetrics>
 #include <QSizeF>
 #include <QTimer>
+#include <QtDebug>
 
 #include <plasma/svg.h>
 #include <plasma/theme.h>
@@ -36,9 +37,11 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
 {
     setHasConfigurationInterface(true);
     m_svg.setImagePath("widgets/background");
+#if QT_VERSION < 0x050000
     // this will get us the standard applet background, for free!
     setBackgroundHints(DefaultBackground);
     resize(200, 200);
+#endif
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
     // manager is shared between plasmoids
     if(AlkOnlineQuotesProfileManager::instance().profiles().size() == 0) {
@@ -49,9 +52,12 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
 
 PlasmaOnlineQuote::~PlasmaOnlineQuote()
 {
+#if QT_VERSION < 0x050000
     if (hasFailedToLaunch()) {
         // Do some cleanup here
-    } else {
+    } else
+#endif
+    {
         // Save settings
         config().sync();
     }
@@ -59,10 +65,12 @@ PlasmaOnlineQuote::~PlasmaOnlineQuote()
 
 void PlasmaOnlineQuote::init()
 {
+#if QT_VERSION < 0x050000
     // A small demonstration of the setFailedToLaunch function
     if (m_icon.isNull()) {
         setFailedToLaunch(true, "No world to say hello");
     }
+#endif
     QString currentProfile = config().readEntry("profile");
     qDebug() << "reading current profile" << currentProfile;
     if (currentProfile.isEmpty())
@@ -165,7 +173,11 @@ void PlasmaOnlineQuote::slotReceivedQuote(const QString &id, const QString &symb
     qDebug() << "got quote" << date << price;
     m_date = date;
     m_price = price;
+#if QT_VERSION < 0x050000
     update();
+#else
+#warning how to update ui ?
+#endif
 }
 
 void PlasmaOnlineQuote::paintInterface(QPainter *p,
