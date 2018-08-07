@@ -91,13 +91,13 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
     d->m_name = name;
     d->m_GHNSFile = configFile;
     d->m_type = type;
+    d->m_kconfigFile = name + "rc";
+    d->m_config = new KConfig(d->m_kconfigFile);
     if (type == Type::GHNS) {
         // TODO read file
         d->m_GHNSFilePath = "skrooge/quotes";
+        d->checkUpdates();
     }
-    d->m_kconfigFile = name + "rc";
-    d->m_config = new KConfig(d->m_kconfigFile);
-    d->checkUpdates();
 }
 
 AlkOnlineQuotesProfile::~AlkOnlineQuotesProfile()
