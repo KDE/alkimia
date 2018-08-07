@@ -23,6 +23,7 @@
 #include "alk_export.h"
 
 #include <QObject>
+#include <QStringList>
 
 class AlkOnlineQuotesProfile;
 
@@ -36,6 +37,8 @@ public:
 
     void addProfile(AlkOnlineQuotesProfile *profile);
     AlkOnlineQuotesProfileList profiles();
+    AlkOnlineQuotesProfile *profile(const QString &name);
+    QStringList profileNames();
 
     static AlkOnlineQuotesProfileManager &instance();
 private:

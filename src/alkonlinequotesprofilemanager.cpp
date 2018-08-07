@@ -49,6 +49,25 @@ AlkOnlineQuotesProfileList AlkOnlineQuotesProfileManager::profiles()
     return d->m_profiles;
 }
 
+AlkOnlineQuotesProfile *AlkOnlineQuotesProfileManager::profile(const QString &name)
+{
+    foreach (AlkOnlineQuotesProfile *profile, profiles()) {
+        if (name == profile->name()) {
+            return profile;
+        }
+    }
+    return nullptr;
+}
+
+QStringList AlkOnlineQuotesProfileManager::profileNames()
+{
+    QStringList profiles;
+    foreach(AlkOnlineQuotesProfile *profile, AlkOnlineQuotesProfileManager::instance().profiles()) {
+        profiles.append(profile->name());
+    }
+    return profiles;
+}
+
 AlkOnlineQuotesProfileManager &AlkOnlineQuotesProfileManager::instance()
 {
     static AlkOnlineQuotesProfileManager manager;

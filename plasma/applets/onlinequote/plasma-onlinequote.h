@@ -26,6 +26,7 @@ protected slots:
     void slotLogStatus(const QString &s);
     void slotLogError(const QString &s);
     void slotLogFailed(const QString &id, const QString &symbol);
+    void slotProfileChanged(const QString &name);
 protected:
     // The paintInterface procedure paints the applet to screen
     void paintInterface(QPainter *p, const QStyleOptionGraphicsItem *option, const QRect& contentsRect);

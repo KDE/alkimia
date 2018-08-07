@@ -37,6 +37,14 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
     // this will get us the standard applet background, for free!
     setBackgroundHints(DefaultBackground);
     resize(200, 200);
+    AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
+    // manager is shared between plasmoids
+    if(AlkOnlineQuotesProfileManager::instance().profiles().size() == 0) {
+        manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
+        manager.addProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney));
+    }
+    QString currentProfile = config().readEntry("profile", AlkOnlineQuotesProfileManager::instance().profiles().first()->name());
+    AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfileManager::instance().profile(currentProfile));
 }
 
 PlasmaOnlineQuote::~PlasmaOnlineQuote()
@@ -55,9 +63,6 @@ void PlasmaOnlineQuote::init()
     if (m_icon.isNull()) {
         setFailedToLaunch(true, "No world to say hello");
     }
-    AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
-    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
-    AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfileManager::instance().profiles().first());
     QTimer::singleShot(100, this, SLOT(slotFetchQuote()));
 }
 
@@ -69,11 +74,19 @@ void PlasmaOnlineQuote::configChanged()
 void PlasmaOnlineQuote::createConfigurationInterface(KConfigDialog *parent)
 {
     m_widget = new MyWidget;
+    QStringList profiles = AlkOnlineQuotesProfileManager::instance().profileNames();
+    m_widget->m_profile->addItems(profiles);
+    QString currentProfile = config().readEntry("profile", AlkOnlineQuotesProfileManager::instance().profiles().first()->name());
+    int index = profiles.indexOf(currentProfile);
+    m_widget->m_profile->setCurrentIndex(index);
+    connect(m_widget->m_profile, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotProfileChanged(QString)));
+    AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfileManager::instance().profile(currentProfile));
+
     QStringList sources = AlkOnlineQuote::quoteSources();
-    m_widget->m_onlineQuote->clear();
     m_widget->m_onlineQuote->addItems(sources);
-    int index = sources.indexOf(config().readEntry("onlinequote"));
+    index = sources.indexOf(config().readEntry("onlinequote"));
     m_widget->m_onlineQuote->setCurrentIndex(index);
+
     m_widget->m_symbol->setText(config().readEntry("symbol"));
     m_widget->m_interval->setValue(config().readEntry("interval", 60));
     parent->addPage(dynamic_cast<QWidget*>(m_widget), "Online Source");
@@ -81,8 +94,24 @@ void PlasmaOnlineQuote::createConfigurationInterface(KConfigDialog *parent)
     connect(parent, SIGNAL(okClicked()), this, SLOT(slotConfigAccepted()));
 }
 
+void PlasmaOnlineQuote::slotProfileChanged(const QString &name)
+{
+    AlkOnlineQuotesProfile *profile = AlkOnlineQuoteSource::profile()->manager()->profile(name);
+    if (!profile) {
+        qWarning() << "profile" << name << "not present";
+        return;
+    }
+    AlkOnlineQuoteSource::setProfile(profile);
+    QStringList sources = AlkOnlineQuote::quoteSources();
+    m_widget->m_onlineQuote->clear();
+    m_widget->m_onlineQuote->addItems(sources);
+    int index = sources.indexOf(config().readEntry("onlinequote"));
+    m_widget->m_onlineQuote->setCurrentIndex(index);
+}
+
 void PlasmaOnlineQuote::slotConfigAccepted()
 {
+    config().writeEntry("profile", m_widget->m_profile->currentText());
     config().writeEntry("onlinequote", m_widget->m_onlineQuote->currentText());
     config().writeEntry("symbol", m_widget->m_symbol->text());
     config().writeEntry("interval", m_widget->m_interval->value());
