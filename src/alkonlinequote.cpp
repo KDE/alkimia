@@ -408,7 +408,8 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
                 QString quote = codec->toUnicode(page);
                 f.close();
                 emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
-                m_webView->setContent(quote.toLocal8Bit());
+                if (m_webView)
+                    m_webView->setContent(quote.toLocal8Bit());
                 result = slotParseQuote(quote);
             } else {
                 emit m_p->error(i18n("Failed to open downloaded file"));
