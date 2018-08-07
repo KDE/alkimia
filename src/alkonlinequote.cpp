@@ -663,10 +663,10 @@ bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QS
         return d->launchFinanceQuote(_symbol, _id, _source);
     } else if (_source.endsWith(".css")) {
         return d->launchWebKitCssSelector(_symbol, _id, _source);
-    } else if (_source.endsWith(".kio")) {
-        return d->launchNative(_symbol, _id, _source);
-    } else {
+    } else if (_source.endsWith(".webkit")) {
         return d->launchWebKitHtmlParser(_symbol, _id, _source);
+    } else {
+        return d->launchNative(_symbol, _id, _source);
     }
 }
 
