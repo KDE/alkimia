@@ -1,5 +1,5 @@
-#ifndef ONLINEQUOTE_HEADER
-#define ONLINEQUOTE_HEADER
+#ifndef PLASMA_APPLET_ONLINEQUOTE_HEADER
+#define PLASMA_APPLET_ONLINEQUOTE_HEADER
 
 #include <KIcon>
 // Here we avoid loading the header multiple times
