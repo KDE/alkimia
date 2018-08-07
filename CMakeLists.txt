@@ -101,7 +101,11 @@ find_package(Doxygen)
 feature_summary(WHAT ALL)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-include_directories(${MP_INCLUDE_DIR})
+include_directories(
+    ${MP_INCLUDE_DIR}
+    ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_BINARY_DIR}/src
+)
 
 add_subdirectory(src)
 add_subdirectory(autotests)
