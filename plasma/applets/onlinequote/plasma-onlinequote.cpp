@@ -45,9 +45,6 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
         manager.addProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney));
         manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
     }
-    QString currentProfile = config().readEntry("profile", AlkOnlineQuotesProfileManager::instance().profiles().first()->name());
-    qDebug() << "setup current profile" << currentProfile;
-    m_profile = AlkOnlineQuotesProfileManager::instance().profile(currentProfile);
 }
 
 PlasmaOnlineQuote::~PlasmaOnlineQuote()
@@ -66,6 +63,12 @@ void PlasmaOnlineQuote::init()
     if (m_icon.isNull()) {
         setFailedToLaunch(true, "No world to say hello");
     }
+    QString currentProfile = config().readEntry("profile");
+    qDebug() << "reading current profile" << currentProfile;
+    if (currentProfile.isEmpty())
+        currentProfile = AlkOnlineQuotesProfileManager::instance().profiles().first()->name();
+    qDebug() << "setup current profile" << currentProfile;
+    m_profile = AlkOnlineQuotesProfileManager::instance().profile(currentProfile);
     QTimer::singleShot(100, this, SLOT(slotFetchQuote()));
 }
 
