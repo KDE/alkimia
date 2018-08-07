@@ -116,12 +116,12 @@ void PlasmaOnlineQuote::slotLogStatus(const QString &s)
 
 void PlasmaOnlineQuote::slotLogError(const QString &s)
 {
-    slotLogStatus(QString("<font color=\"red\"><b>") + s + QString("</b></font>"));
+    slotLogStatus("Error:" + s);
 }
 
 void PlasmaOnlineQuote::slotLogFailed(const QString &id, const QString &symbol)
 {
-    slotLogStatus(QString("%1 %2").arg(id, symbol));
+    slotLogStatus(QString("Failed: %1 %2").arg(id, symbol));
 }
 
 void PlasmaOnlineQuote::slotReceivedQuote(const QString &id, const QString &symbol, const QDate &date, const double &price)
@@ -150,7 +150,7 @@ void PlasmaOnlineQuote::paintInterface(QPainter *p,
     p->save();
     p->setPen(Qt::white);
     if (true) {
-        qDebug() << "drawing" << m_price;
+        qDebug() << "drawing" << config().readEntry("onlinequote") << "price" << m_price;
         p->drawText(contentsRect,
                     Qt::AlignVCenter | Qt::AlignHCenter,
                     config().readEntry("onlinequote"));
