@@ -37,7 +37,6 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
     // this will get us the standard applet background, for free!
     setBackgroundHints(DefaultBackground);
     resize(200, 200);
-    slotFetchQuote();
 }
 
 PlasmaOnlineQuote::~PlasmaOnlineQuote()
@@ -46,6 +45,7 @@ PlasmaOnlineQuote::~PlasmaOnlineQuote()
         // Do some cleanup here
     } else {
         // Save settings
+        config().sync();
     }
 }
 
@@ -55,6 +55,10 @@ void PlasmaOnlineQuote::init()
     if (m_icon.isNull()) {
         setFailedToLaunch(true, "No world to say hello");
     }
+    AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
+    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
+    AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfileManager::instance().profiles().first());
+    QTimer::singleShot(100, this, SLOT(slotFetchQuote()));
 }
 
 void PlasmaOnlineQuote::configChanged()
@@ -64,10 +68,6 @@ void PlasmaOnlineQuote::configChanged()
 
 void PlasmaOnlineQuote::createConfigurationInterface(KConfigDialog *parent)
 {
-    AlkOnlineQuotesProfile *p = new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney);
-    AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
-    manager.addProfile(p);
-    AlkOnlineQuoteSource::setProfile(p);
     m_widget = new MyWidget;
     QStringList sources = AlkOnlineQuote::quoteSources();
     m_widget->m_onlineQuote->clear();
@@ -94,8 +94,10 @@ void PlasmaOnlineQuote::slotConfigAccepted()
 
 void PlasmaOnlineQuote::slotFetchQuote()
 {
-    if (config().readEntry("symbol").isEmpty() || config().readEntry("interval").toInt() == 0)
+    if (config().readEntry("symbol").isEmpty() || config().readEntry("interval").toInt() == 0) {
+        qDebug() << __FUNCTION__ << "no configuration found";
         return;
+    }
     AlkOnlineQuote quote;
     connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
     connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));
@@ -105,7 +107,6 @@ void PlasmaOnlineQuote::slotFetchQuote()
     int interval = config().readEntry("interval").toInt()*1000;
     qDebug() << "setting timer to " << interval << "ms";
     QTimer::singleShot(interval, this, SLOT(slotFetchQuote()));
-    // TODO trigger redraw
 }
 
 void PlasmaOnlineQuote::slotLogStatus(const QString &s)
@@ -129,6 +130,7 @@ void PlasmaOnlineQuote::slotReceivedQuote(const QString &id, const QString &symb
     qDebug() << "got quote" << date << price;
     m_date = date;
     m_price = price;
+    update();
 }
 
 void PlasmaOnlineQuote::paintInterface(QPainter *p,
