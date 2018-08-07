@@ -28,7 +28,7 @@ public:
 PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
     m_svg(this),
-    m_icon("document"),
+    m_icon("preferences-system-network"),
     m_widget(0),
     m_price(0)
 {
