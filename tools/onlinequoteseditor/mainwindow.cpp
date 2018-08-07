@@ -20,6 +20,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequoteswidget.h"
 
@@ -31,6 +32,13 @@
 class MainWindow::Private
 {
 public:
+    Private()
+        : view(nullptr)
+        , urlLine(nullptr)
+        , quotesWidget(nullptr)
+    {
+    }
+
     ~Private()
     {
         delete view;
@@ -75,9 +83,7 @@ MainWindow::MainWindow(QWidget *parent)
     //manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
     //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit_local.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("skrooge", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
-    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney",
-                                                  AlkOnlineQuotesProfile::Type::KMyMoney));
-    AlkOnlineQuoteSource::setProfile(manager.profiles().first());
+    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
     ui->setupUi(this);
 
     QDockWidget *dockWidget = new QDockWidget(tr("Browser"), this);

@@ -9,6 +9,7 @@
 class QSizeF;
 
 class MyWidget;
+class AlkOnlineQuotesProfile;
 
 // Define our plasma Applet
 class PlasmaOnlineQuote : public Plasma::Applet
@@ -38,6 +39,6 @@ protected:
     MyWidget *m_widget;
     QDate m_date;
     double m_price;
+    AlkOnlineQuotesProfile *m_profile;
 };
-
 #endif

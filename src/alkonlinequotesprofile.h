@@ -23,16 +23,19 @@
 #include "alk_export.h"
 
 #include <QString>
+#include <QMap>
 
 class KConfig;
 
+class AlkOnlineQuoteSource;
 class AlkOnlineQuotesProfileManager;
 
 class ALK_EXPORT AlkOnlineQuotesProfile
 {
 public:
+    typedef QMap<QString, AlkOnlineQuoteSource> Map;
     enum class Type {
-        Undefined, GHNS, KMyMoney, Skrooge
+        Undefined, GHNS, KMyMoney, Skrooge, Script
     };
     AlkOnlineQuotesProfile(
         const QString &name = QString(), Type type = Type::KMyMoney,
@@ -49,6 +52,17 @@ public:
     AlkOnlineQuotesProfileManager *manager();
     KConfig *kConfig() const;
     Type type();
+
+    /**
+     * return available default sources of this profile
+     */
+    const Map defaultQuoteSources();
+
+    /**
+     * return available sources of this profile
+     */
+    const QStringList quoteSources();
+
 private:
     class Private;
     Private *d;

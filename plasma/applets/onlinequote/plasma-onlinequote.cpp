@@ -1,6 +1,7 @@
 #include "plasma-onlinequote.h"
 
 #include "alkonlinequote.h"
+#include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 #include "ui_configwidget.h"
 
@@ -26,11 +27,12 @@ public:
 };
 
 PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
-    : Plasma::Applet(parent, args),
-    m_svg(this),
-    m_icon("preferences-system-network"),
-    m_widget(0),
-    m_price(0)
+    : Plasma::Applet(parent, args)
+    , m_svg(this)
+    , m_icon("preferences-system-network")
+    , m_widget(0)
+    , m_price(0)
+    , m_profile(nullptr)
 {
     setHasConfigurationInterface(true);
     m_svg.setImagePath("widgets/background");
@@ -40,11 +42,12 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
     // manager is shared between plasmoids
     if(AlkOnlineQuotesProfileManager::instance().profiles().size() == 0) {
-        manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
         manager.addProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney));
+        manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
     }
     QString currentProfile = config().readEntry("profile", AlkOnlineQuotesProfileManager::instance().profiles().first()->name());
-    AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfileManager::instance().profile(currentProfile));
+    qDebug() << "setup current profile" << currentProfile;
+    m_profile = AlkOnlineQuotesProfileManager::instance().profile(currentProfile);
 }
 
 PlasmaOnlineQuote::~PlasmaOnlineQuote()
@@ -76,13 +79,12 @@ void PlasmaOnlineQuote::createConfigurationInterface(KConfigDialog *parent)
     m_widget = new MyWidget;
     QStringList profiles = AlkOnlineQuotesProfileManager::instance().profileNames();
     m_widget->m_profile->addItems(profiles);
-    QString currentProfile = config().readEntry("profile", AlkOnlineQuotesProfileManager::instance().profiles().first()->name());
+    QString currentProfile = m_profile->name();
     int index = profiles.indexOf(currentProfile);
     m_widget->m_profile->setCurrentIndex(index);
     connect(m_widget->m_profile, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotProfileChanged(QString)));
-    AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfileManager::instance().profile(currentProfile));
 
-    QStringList sources = AlkOnlineQuote::quoteSources();
+    QStringList sources = m_profile->quoteSources();
     m_widget->m_onlineQuote->addItems(sources);
     index = sources.indexOf(config().readEntry("onlinequote"));
     m_widget->m_onlineQuote->setCurrentIndex(index);
@@ -96,13 +98,13 @@ void PlasmaOnlineQuote::createConfigurationInterface(KConfigDialog *parent)
 
 void PlasmaOnlineQuote::slotProfileChanged(const QString &name)
 {
-    AlkOnlineQuotesProfile *profile = AlkOnlineQuoteSource::profile()->manager()->profile(name);
+    AlkOnlineQuotesProfile *profile = AlkOnlineQuotesProfileManager::instance().profile(name);
     if (!profile) {
         qWarning() << "profile" << name << "not present";
         return;
     }
-    AlkOnlineQuoteSource::setProfile(profile);
-    QStringList sources = AlkOnlineQuote::quoteSources();
+    m_profile = profile;
+    QStringList sources = m_profile->quoteSources();
     m_widget->m_onlineQuote->clear();
     m_widget->m_onlineQuote->addItems(sources);
     int index = sources.indexOf(config().readEntry("onlinequote"));
@@ -127,7 +129,7 @@ void PlasmaOnlineQuote::slotFetchQuote()
         qDebug() << __FUNCTION__ << "no configuration found";
         return;
     }
-    AlkOnlineQuote quote;
+    AlkOnlineQuote quote(m_profile);
     connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
     connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));
     connect(&quote, SIGNAL(failed(QString,QString)), this, SLOT(slotLogFailed(QString,QString)));

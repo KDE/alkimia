@@ -92,9 +92,6 @@ protected:
 private:
     class Private;
     Private *d;
-    QList<AlkOnlineQuoteSource> m_resetList;
-    AlkOnlineQuoteSource m_currentItem;
-    bool m_quoteInEditing;
 };
 
 #endif

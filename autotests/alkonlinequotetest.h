@@ -22,6 +22,8 @@
 
 #include <QtCore/QObject>
 
+class AlkOnlineQuotesProfile;
+
 class AlkOnlineQuoteTest : public QObject
 {
     Q_OBJECT
@@ -31,6 +33,8 @@ private slots:
     void cleanup();
     void testQuoteSources();
     void testLaunch();
+private:
+    AlkOnlineQuotesProfile *m_profile;
 };
 
 #endif // ALKONLINEQUOTETEST_H

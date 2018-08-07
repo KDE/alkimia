@@ -29,7 +29,9 @@
 class AlkOnlineQuoteSource::Private
 {
 public:
-    Private() : m_skipStripping(false)
+    Private()
+        : m_skipStripping(false)
+        , m_profile(nullptr)
     {
     }
 
@@ -41,6 +43,7 @@ public:
         , m_date(other->m_date)
         , m_dateformat(other->m_dateformat)
         , m_skipStripping(other->m_skipStripping)
+        , m_profile(other->m_profile)
     {
     }
 
@@ -122,10 +125,8 @@ public:
     QString m_date;
     QString m_dateformat;
     bool m_skipStripping;
-    static AlkOnlineQuotesProfile *m_profile;
+    AlkOnlineQuotesProfile *m_profile;
 };
-
-AlkOnlineQuotesProfile *AlkOnlineQuoteSource::Private::m_profile = 0;
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource()
     : d(new Private)
@@ -159,14 +160,15 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, const QString &u
     d->m_skipStripping = skipStripping;
 }
 
-AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name)
+AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile)
     : d(new Private)
 {
+    d->m_profile = profile;
     if (name.endsWith(".txt")) {
-        d->readFromGHNSFile(profile()->hotNewStuffReadFilePath(name));
+        d->readFromGHNSFile(profile->hotNewStuffReadFilePath(name));
         d->m_name = name;
     } else {
-        d->read(profile()->kConfig(), name);
+        d->read(profile->kConfig(), name);
     }
 }
 
@@ -252,16 +254,16 @@ void AlkOnlineQuoteSource::setSkipStripping(bool state)
 
 void AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfile *profile)
 {
-    Private::m_profile = profile;
+    d->m_profile = profile;
     qDebug() << "using profile" << profile->name();
 }
 
 AlkOnlineQuotesProfile *AlkOnlineQuoteSource::profile()
 {
-    return Private::m_profile;
+    return d->m_profile;
 }
 
-bool AlkOnlineQuoteSource::write() const
+bool AlkOnlineQuoteSource::write()
 {
     // FIXME
     if (d->m_name.endsWith(".txt")) {
@@ -278,7 +280,7 @@ void AlkOnlineQuoteSource::rename(const QString &name)
     write();
 }
 
-void AlkOnlineQuoteSource::remove() const
+void AlkOnlineQuoteSource::remove()
 {
     KConfig *kconfig = profile()->kConfig();
     kconfig->deleteGroup(QString("Online-Quote-Source-%1").arg(d->m_name));

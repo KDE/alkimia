@@ -38,16 +38,16 @@ public:
     AlkOnlineQuoteSource();
     AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other);
     AlkOnlineQuoteSource &operator=(const AlkOnlineQuoteSource &other);
-    AlkOnlineQuoteSource(const QString &name);
+    AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile);
     AlkOnlineQuoteSource(const QString &name, const QString &url, const QString &sym,
                          const QString &price, const QString &date, const QString &dateformat,
                          bool skipStripping = false);
     ~AlkOnlineQuoteSource();
     bool isValid();
 
-    bool write() const;
+    bool write();
     void rename(const QString &name);
-    void remove() const;
+    void remove();
 
     QString name() const;
     QString url() const;
@@ -65,8 +65,8 @@ public:
     void setDateformat(const QString &dateformat);
     void setSkipStripping(bool state);
 
-    static void setProfile(AlkOnlineQuotesProfile *profile);
-    static AlkOnlineQuotesProfile *profile();
+    void setProfile(AlkOnlineQuotesProfile *profile);
+    AlkOnlineQuotesProfile *profile();
 
 protected:
     class Private;

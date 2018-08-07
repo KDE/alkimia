@@ -20,8 +20,13 @@
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 
+#include "alkonlinequotesource.h"
+#include "alkfinancequoteprocess.h"
+
+#include <QApplication>
 #include <QString>
 #include <QtDebug>
+#include <QFileInfo>
 
 #include <KConfig>
 #include <KStandardDirs>
@@ -40,6 +45,8 @@ public:
     KNS3::DownloadManager *m_manager;
     KConfig *m_config;
     Type m_type;
+    static QString m_financeQuoteScriptPath;
+    static QStringList m_financeQuoteSources;
 
     Private(AlkOnlineQuotesProfile *p)
         : m_p(p)
@@ -48,6 +55,11 @@ public:
         , m_config(0)
         , m_type(Type::Undefined)
     {
+
+        if (m_financeQuoteScriptPath.isEmpty()) {
+            m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
+                                                                     QString("misc/financequote.pl"));
+        }
     }
 
     ~Private()
@@ -82,7 +94,106 @@ public Q_SLOTS:
     {
         qDebug() << entry.summary();
     }
+
+    const QStringList quoteSourcesNative()
+    {
+        //KSharedConfigPtr kconfig = KGlobal::config();
+        KConfig config(m_kconfigFile);
+        KConfig *kconfig = &config;
+        QStringList groups = kconfig->groupList();
+
+        QStringList::Iterator it;
+        QRegExp onlineQuoteSource(QString("^Online-Quote-Source-(.*)$"));
+
+        // get rid of all 'non online quote source' entries
+        for (it = groups.begin(); it != groups.end(); it = groups.erase(it)) {
+            if (onlineQuoteSource.indexIn(*it) >= 0) {
+                // Insert the name part
+                it = groups.insert(it, onlineQuoteSource.cap(1));
+                ++it;
+            }
+        }
+
+        // Set up each of the default sources.  These are done piecemeal so that
+        // when we add a new source, it's automatically picked up. And any changes
+        // are also picked up.
+        QMap<QString, AlkOnlineQuoteSource> defaults = defaultQuoteSources();
+        QMap<QString, AlkOnlineQuoteSource>::iterator it_source = defaults.begin();
+        while (it_source != defaults.end()) {
+            if (!groups.contains((*it_source).name())) {
+                groups += (*it_source).name();
+                (*it_source).write();
+                kconfig->sync();
+            }
+            ++it_source;
+        }
+
+        return groups;
+    }
+
+    const QStringList quoteSourcesFinanceQuote()
+    {
+        if (m_financeQuoteSources.empty()) { // run the process one time only
+            // since this is a static function it can be called without constructing an object
+            // so we need to make sure that m_financeQuoteScriptPath is properly initialized
+            if (m_financeQuoteScriptPath.isEmpty()) {
+                m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
+                                                                         QString("financequote.pl"));
+            }
+            AlkFinanceQuoteProcess getList;
+            getList.launch(m_financeQuoteScriptPath);
+            while (!getList.isFinished()) {
+                qApp->processEvents();
+            }
+            m_financeQuoteSources = getList.getSourceList();
+        }
+        return m_financeQuoteSources;
+    }
+
+    const QStringList quoteSourcesSkrooge()
+    {
+        QStringList sources;
+        QString relPath = m_GHNSFilePath;
+
+        foreach (const QString &file,
+                 KStandardDirs().findAllResources("data", relPath + QString::fromLatin1("/*.txt"))) {
+            QFileInfo f(file);
+            QString file2 = f.fileName();
+            if (!sources.contains(file2)) {
+                sources.push_back(file2);
+            }
+        }
+
+        return sources;
+    }
+
+    const AlkOnlineQuotesProfile::Map defaultQuoteSources()
+    {
+        QMap<QString, AlkOnlineQuoteSource> result;
+
+        // Use fx-rate.net as the standard currency exchange rate source until
+        // we have the capability to use more than one source. Use a neutral
+        // name for the source.
+
+        if (m_p->name() == "alkimia") {
+            result["Alkimia Currency"]
+                = AlkOnlineQuoteSource("Alkimia Currency",
+                                       "https://fx-rate.net/%1/%2",
+                                       QString(), // symbolregexp
+                                       "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
+                                       "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
+                                       "%d/%m/%y",
+                                       true // skip HTML stripping
+                                       );
+        }
+        return result;
+    }
 };
+
+// define static members
+QString AlkOnlineQuotesProfile::Private::m_financeQuoteScriptPath;
+QStringList AlkOnlineQuotesProfile::Private::m_financeQuoteSources;
+
 
 AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
                                                const QString &configFile)
@@ -148,6 +259,30 @@ KConfig *AlkOnlineQuotesProfile::kConfig() const
 AlkOnlineQuotesProfile::Type AlkOnlineQuotesProfile::type()
 {
     return d->m_type;
+}
+
+const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::defaultQuoteSources()
+{
+    return d->defaultQuoteSources();
+}
+
+const QStringList AlkOnlineQuotesProfile::quoteSources()
+{
+    QStringList result;
+    switch(d->m_type) {
+    case AlkOnlineQuotesProfile::Type::KMyMoney:
+        result << d->quoteSourcesNative();
+        break;
+    case AlkOnlineQuotesProfile::Type::Script:
+        result << d->quoteSourcesFinanceQuote();
+        break;
+    case AlkOnlineQuotesProfile::Type::Skrooge:
+        result << d->quoteSourcesSkrooge();
+        break;
+    default:
+        break;
+    }
+    return result;
 }
 
 void AlkOnlineQuotesProfile::setManager(AlkOnlineQuotesProfileManager *manager)

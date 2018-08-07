@@ -20,6 +20,7 @@
 #include "alkonlinequotetest.h"
 
 #include "alkonlinequote.h"
+#include "alkonlinequotesprofile.h"
 #include "alkquotereceiver.h"
 
 #include <QtTest/QtTest>
@@ -29,31 +30,29 @@ QTEST_MAIN(AlkOnlineQuoteTest)
 
 void AlkOnlineQuoteTest::init()
 {
+    m_profile = new AlkOnlineQuotesProfile("alkimia",AlkOnlineQuotesProfile::Type::KMyMoney);
 }
 
 void AlkOnlineQuoteTest::cleanup()
 {
+    delete m_profile;
 }
 
 void AlkOnlineQuoteTest::testQuoteSources()
 {
-    AlkOnlineQuoteSource::setProfile(new AlkOnlineQuotesProfile("alkimia",
-                                                                AlkOnlineQuotesProfile::Type::
-                                                                KMyMoney));
-
-    QStringList sources = AlkOnlineQuote::quoteSources();
+    QStringList sources = m_profile->quoteSources();
     qDebug() << sources;
     QVERIFY(sources.size() > 0);
 }
 
 void AlkOnlineQuoteTest::testLaunch()
 {
-    AlkOnlineQuote quote;
+    AlkOnlineQuote quote(m_profile);
     convertertest::AlkQuoteReceiver receiver(&quote);
     QWebView *view = new QWebView;
     quote.setWebView(view);
     receiver.setVerbose(true);
 
-    QVERIFY(quote.launch("EUR USD", "EUR USD", AlkOnlineQuote::quoteSources().first()));
+    QVERIFY(quote.launch("EUR USD", "EUR USD", m_profile->quoteSources().first()));
     delete view;
 }

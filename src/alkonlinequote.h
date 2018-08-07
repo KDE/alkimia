@@ -22,7 +22,6 @@
 #define ALKONLINEQUOTE_H
 
 #include "alkmoney.h"
-#include "alkonlinequotesource.h"
 
 #include <QObject>
 #include <QDateTime>
@@ -33,6 +32,7 @@
 #include <KProcess>
 #include <KUrl>
 
+class AlkOnlineQuotesProfile;
 class QWebView;
 
 /**
@@ -44,7 +44,7 @@ class ALK_EXPORT AlkOnlineQuote : public QObject
 {
     Q_OBJECT
 public:
-    explicit AlkOnlineQuote(QObject * = 0);
+    explicit AlkOnlineQuote(AlkOnlineQuotesProfile *profile, QObject * = 0);
     ~AlkOnlineQuote();
 
     /**
@@ -79,11 +79,6 @@ public:
     protected:
         QList<Type> m_type;
     };
-
-    typedef enum _quoteSystemE {
-        Native = 0,
-        FinanceQuote
-    } quoteSystemE;
 
     /**
      * Set webkit view for fetching web urls using javascript
@@ -123,15 +118,6 @@ public:
       * @return bit map of errors, see class @ref Errors for details
      */
     const Errors &errors();
-
-    /**
-      * This returns a list of the names of the quote sources
-      * currently defined.
-      *
-     * @param _system whether to return Native or Finance::Quote source list
-     * @return QStringList of quote source names
-      */
-    static const QStringList quoteSources(const _quoteSystemE _system = Native);
 
 signals:
     void quote(const QString &, const QString &, const QDate &, const double &);
