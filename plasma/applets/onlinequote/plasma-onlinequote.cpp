@@ -76,7 +76,7 @@ void PlasmaOnlineQuote::createConfigurationInterface(KConfigDialog *parent)
     m_widget->m_onlineQuote->setCurrentIndex(index);
     m_widget->m_symbol->setText(config().readEntry("symbol"));
     m_widget->m_interval->setValue(config().readEntry("interval", 60));
-    KPageWidgetItem *page = parent->addPage(dynamic_cast<QWidget*>(m_widget), "Online Source");
+    parent->addPage(dynamic_cast<QWidget*>(m_widget), "Online Source");
     connect(parent, SIGNAL(applyClicked()), this, SLOT(slotConfigAccepted()));
     connect(parent, SIGNAL(okClicked()), this, SLOT(slotConfigAccepted()));
 }
@@ -127,6 +127,7 @@ void PlasmaOnlineQuote::slotLogFailed(const QString &id, const QString &symbol)
 void PlasmaOnlineQuote::slotReceivedQuote(const QString &id, const QString &symbol, const QDate &date, const double &price)
 {
     Q_UNUSED(id)
+    Q_UNUSED(symbol)
     qDebug() << "got quote" << date << price;
     m_date = date;
     m_price = price;
