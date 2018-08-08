@@ -29,9 +29,6 @@
 #include <QStringList>
 #include <QMap>
 
-#include <KProcess>
-#include <KUrl>
-
 class AlkOnlineQuotesProfile;
 class QWebView;
 
