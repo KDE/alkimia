@@ -48,7 +48,7 @@
 #include <KProcess>
 #include <KShell>
 #include <KStandardDirs>
-
+#include <KUrl>
 
 AlkOnlineQuote::Errors::Errors()
 {
@@ -535,12 +535,25 @@ AlkOnlineQuote::AlkOnlineQuote(AlkOnlineQuotesProfile *profile, QObject *_parent
     : QObject(_parent)
     , d(new Private(this))
 {
-    d->m_profile = profile;
+    if (profile)
+        d->m_profile = profile;
+    else
+        d->m_profile = new AlkOnlineQuotesProfile;
 }
 
 AlkOnlineQuote::~AlkOnlineQuote()
 {
     delete d;
+}
+
+AlkOnlineQuotesProfile *AlkOnlineQuote::profile()
+{
+    return d->m_profile;
+}
+
+void AlkOnlineQuote::setProfile(AlkOnlineQuotesProfile *profile)
+{
+    d->m_profile = profile;
 }
 
 void AlkOnlineQuote::setWebView(QWebView *view)

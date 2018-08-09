@@ -38,7 +38,7 @@ public:
         Undefined, GHNS, KMyMoney, Skrooge, Script
     };
     AlkOnlineQuotesProfile(
-        const QString &name = QString(), Type type = Type::KMyMoney,
+        const QString &name = "alkimia", Type type = Type::KMyMoney,
         const QString &configFile = QString());
     ~AlkOnlineQuotesProfile();
 

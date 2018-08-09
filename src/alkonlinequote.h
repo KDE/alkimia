@@ -41,7 +41,7 @@ class ALK_EXPORT AlkOnlineQuote : public QObject
 {
     Q_OBJECT
 public:
-    explicit AlkOnlineQuote(AlkOnlineQuotesProfile *profile, QObject * = 0);
+    explicit AlkOnlineQuote(AlkOnlineQuotesProfile *profile = 0, QObject * = 0);
     ~AlkOnlineQuote();
 
     /**
@@ -77,6 +77,9 @@ public:
         QList<Type> m_type;
     };
 
+    AlkOnlineQuotesProfile *profile();
+    void setProfile(AlkOnlineQuotesProfile *profile);
+
     /**
      * Set webkit view for fetching web urls using javascript
      *
@@ -106,6 +109,7 @@ public:
       *              In case of failures it returns false and @ref errors()
       *              could be used to get error details.
       */
+public slots:
     bool launch(const QString &_symbol, const QString &_id, const QString &_source = QString());
 
     /**
@@ -117,14 +121,15 @@ public:
     const Errors &errors();
 
 signals:
-    void quote(const QString &, const QString &, const QDate &, const double &);
-    void failed(const QString &, const QString &);
-    void status(const QString &);
-    void error(const QString &);
+    void quote(QString id, QString symbol, QDate date, double price);
+    void failed(QString id, QString symbol);
+    void status(QString s);
+    //void error(const QString &s);
+    void error(QString s);
 
 private:
     class Private;
     Private *d;
 };
 
-#endif // WEBPRICEQUOTE_H
+#endif // ALKONLINEQUOTE_H

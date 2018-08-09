@@ -17,7 +17,7 @@ include(FeatureSummary)
 # check for PkgConfig, Qt and MPIR/GMP
 find_package(PkgConfig)
 if(BUILD_QT4)
-    find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui QtDBus QtTest QtWebKit)
+    find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui QtDBus QtTest QtWebKit QtDeclarative)
     set(QT_USE_LIBSPREFIX Qt4::Qt)
     set(ALKIMIA_LIB_SUFFIX "")
     set(ALKIMIA_INCLUDE_SUFFIX "Qt4")
@@ -53,6 +53,7 @@ else()
         Core
         Test
         WebKitWidgets
+        Qml
     )
     # search packages used by KDE
     find_package(KF5 REQUIRED COMPONENTS
@@ -112,4 +113,5 @@ include_directories(
 add_subdirectory(src)
 add_subdirectory(autotests)
 add_subdirectory(plasma/applets/onlinequote)
+add_subdirectory(tests)
 add_subdirectory(tools)
