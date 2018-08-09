@@ -1,6 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.0
-import org.kde.AlkOnlineQuote 1.0
+import org.kde.alkimia 1.0
 
 ApplicationWindow {
     id: root

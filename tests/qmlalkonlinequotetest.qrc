@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>alkonlinequoteqmltest.qml</file>
+        <file>qmlalkonlinequotetest.qml</file>
     </qresource>
 </RCC>

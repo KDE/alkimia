@@ -17,40 +17,14 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
+#include "qmlalkimiaplugin.h"
+
 #include "alkonlinequote.h"
 
-#if QT_VERSION >= 0x050000
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#else
-#include <QApplication>
-class QGuiApplication : public QApplication
+#include <QtQml>
+
+void QmlAlkimiaPlugin::registerTypes(const char *uri)
 {
-public:
-    QGuiApplication(int &argc, char **argv) : QApplication(argc, argv) {}
-};
-
-#include <QDeclarativeEngine>
-#include <QDeclarativeComponent>
-
-class QQmlApplicationEngine : public QDeclarativeEngine
-{
-public:
-    void load(const QUrl &url)
-    {
-        QDeclarativeComponent component(this, url);
-    }
-};
-#endif
-
-int main(int argc, char *argv[])
-{
-    QGuiApplication app(argc, argv);
-
-    qmlRegisterType<AlkOnlineQuote>("org.kde.AlkOnlineQuote", 1, 0, "AlkOnlineQuote");
-
-    QQmlApplicationEngine engine;
-    engine.load(QUrl("qrc:/alkonlinequoteqmltest.qml"));
-
-    return app.exec();
+    Q_ASSERT(uri == QLatin1String("org.kde.alkimia"));
+    qmlRegisterType<AlkOnlineQuote>(uri, 1, 0, "AlkOnlineQuote");
 }

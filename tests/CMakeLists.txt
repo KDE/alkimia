@@ -11,15 +11,15 @@ endif()
 
 if(BUILD_QT4)
     list(APPEND TEST_LIB ${QT_USE_LIBSPREFIX}Declarative)
-    set(RESOURCES alkonlinequoteqmltest.qrc)
-    message("FIXME: alkonlinequoteqmltest need to be implemented")
+    set(RESOURCES qmlalkonlinequotetest.qrc)
+    message("FIXME: qmlalkonlinequotetest need to be implemented")
 else()
     list(APPEND TEST_LIB ${QT_USE_LIBSPREFIX}Qml)
     find_package(Qt5QuickCompiler)
-    qtquick_compiler_add_resources(RESOURCES alkonlinequoteqmltest.qrc)
-    add_executable(alkonlinequoteqmltest
-        alkonlinequoteqmltest.cpp
+    qtquick_compiler_add_resources(RESOURCES qmlalkonlinequotetest.qrc)
+    add_executable(qmlalkonlinequotetest
+        qmlalkonlinequotetest.cpp
         ${RESOURCES}
     )
-    target_link_libraries(alkonlinequoteqmltest ${TEST_LIB})
+    target_link_libraries(qmlalkonlinequotetest ${TEST_LIB})
 endif()
