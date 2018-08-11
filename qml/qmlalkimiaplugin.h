@@ -17,7 +17,18 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
-#include <QQmlExtensionPlugin>
+#include <QtGlobal>
+#if QT_VERSION >= 0x050000
+#include <QtQml>
+#else
+#include <QtDeclarative>
+class QQmlExtensionPlugin : public QDeclarativeExtensionPlugin
+{
+};
+#undef Q_PLUGIN_METADATA
+#define Q_PLUGIN_METADATA(s)
+#define Q_DECL_OVERRIDE
+#endif
 
 class QmlAlkimiaPlugin : public QQmlExtensionPlugin
 {

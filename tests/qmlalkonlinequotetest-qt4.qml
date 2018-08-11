@@ -1,12 +1,9 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.0
+import QtQuick 1.0
 import org.kde.alkimia 1.0
 
-ApplicationWindow {
-    id: root
+Item {
     width: 500
     height: 300
-    visible: true
 
     AlkOnlineQuote {
         id: quote
@@ -25,71 +22,80 @@ ApplicationWindow {
         }
     }
 
-    Label {
+    Text {
         id: symbolLabel
-        y: 56
+        y: 50
         x: 0
-        text: "Enter symbol:"
+        text: "Enter Symbol:"
     }
-
-    TextField {
+    TextInput {
         y: 50
         x: 100
         id: symbol
         text: "CAD EUR"
-        placeholderText: qsTr("Symbol")
+        //placeholderText: qsTr("Symbol")
     }
 
-    Label {
+    Text {
         id: quoteLabel
-        y: 86
+        y: 80
         x: 0
-        text: "Enter quote:"
+        text: "Enter Quote:"
     }
-
-    TextField {
+    TextInput {
         y: 80
         x: 100
         id: source
         text: "Alkimia Currency"
-        placeholderText: qsTr("Source")
+        //placeholderText: qsTr("Source")
     }
 
-    Button {
+    Rectangle {
         width: 200
         height: 30
         y: 122
         x: 100
-        text: "Fetch"
+        color: "lightgray"
+        MouseArea {
+            id: mouseArea;
+            anchors.fill: parent; 
 
-        onClicked: {
-            dateLabel.text = ""
-            priceLabel.text = ""
-            errorLabel.text = ""
-            statusLabel.text = ""
-            quote.launch(symbol.text, "", source.text)
+            onClicked: {
+                dateLabel.text = ""
+                priceLabel.text = ""
+                errorLabel.text = ""
+                statusLabel.text = ""
+                quote.launch(symbol.text, "", source.text)
+            }
         }
     }
 
-    Label {
+    Text {
+        id: fetchLabel
+        y: 128
+        x: 170
+        text: "Fetch"
+    }
+
+    Text {
         id: statusLabel
         y: 150
         x: 100
     }
 
-    Label {
+    Text {
         id: priceLabel
         y: 180
         x: 100
     }
 
-    Label {
+    Text {
         id: dateLabel
         y: 210
         x: 100
     }
 
-    Label {
+    Text {
         id: errorLabel
         y: 240
         x: 100

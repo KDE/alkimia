@@ -21,10 +21,12 @@
 
 #include "alkonlinequote.h"
 
-#include <QtQml>
-
 void QmlAlkimiaPlugin::registerTypes(const char *uri)
 {
     Q_ASSERT(uri == QLatin1String("org.kde.alkimia"));
     qmlRegisterType<AlkOnlineQuote>(uri, 1, 0, "AlkOnlineQuote");
 }
+
+#if QT_VERSION < 0x050000
+Q_EXPORT_PLUGIN2(qmlalkimiaplugin, QmlAlkimiaPlugin);
+#endif

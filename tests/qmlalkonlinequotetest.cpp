@@ -38,7 +38,9 @@ class QQmlApplicationEngine : public QDeclarativeEngine
 public:
     void load(const QUrl &url)
     {
-        QDeclarativeComponent component(this, url);
+        QString s = url.toString();
+        s.replace(".qml","-qt4.qml");
+        QDeclarativeComponent component(this, QUrl(a));
     }
 };
 #endif
