@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
         <file>qmlalkonlinequotetest.qml</file>
-        <file>qmlalkonlinequotetest-qt4.qml</file>
     </qresource>
 </RCC>

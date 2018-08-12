@@ -31,7 +31,8 @@ public:
 };
 
 #include <QDeclarativeEngine>
-#include <QDeclarativeComponent>
+#include <QDeclarativeView>
+#include <QFile>
 
 class QQmlApplicationEngine : public QDeclarativeEngine
 {
@@ -39,9 +40,13 @@ public:
     void load(const QUrl &url)
     {
         QString s = url.toString();
-        s.replace(".qml","-qt4.qml");
-        QDeclarativeComponent component(this, QUrl(a));
+        s.replace(".qml", "-qt4.qml");
+        s.replace("qrc:", CMAKE_CURRENT_SOURCE_DIR);
+        QUrl a = QUrl::fromLocalFile(s);
+        view.setSource(a);
+        view.show();
     }
+    QDeclarativeView view;
 };
 #endif
 
