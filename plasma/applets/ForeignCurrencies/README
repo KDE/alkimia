@@ -1,0 +1,18 @@
+Displays currency pair price on your plasma desktop. 
+
+This is a fork of Foreign currencies plasmoid by bravenec2nd
+https://store.kde.org/p/1170603
+that stopped working along with yahoo API
+
+Prices are downloaded from http://free.currencyconverterapi.com/api/v5/
+Prices are updated every 15 minutes.
+When you click to the line with the price then the browser with Finance Yahoo with selected currency pair is opened.
+
+Pair names examples:
+- USD_EUR = USD to EUR price
+- EUR_CZK = USD to CZK price
+- XAU_USD = USD to Gold price
+- XAG_USD = USD to Silver price
+- XAU_CZK = CZK to Gold price
+- XAG_CZK = CZK to Silver price
+

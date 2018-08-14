@@ -1,0 +1,17 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Foreign Currencies
+Comment=Plasmoid showing current foreign currencies prices. Fork of Foreign Currencies plasmoid by bravenec2nd.
+Type=Service
+Icon=applications-internet
+X-Plasma-MainScript=ui/main.qml
+X-Plasma-API=declarativeappletscript
+
+X-KDE-PluginInfo-Author=Petr Bravenec, wincak
+X-KDE-PluginInfo-Email=petr@bravenec.eu, wincak@seznam.cz
+X-KDE-PluginInfo-License=GPL2
+X-KDE-PluginInfo-Version=1.1
+X-KDE-PluginInfo-Website=https://gitlab.com/wincak/ForeignCurrencies
+X-KDE-PluginInfo-Name=org.wincak.foreigncurrencies
+X-KDE-PluginInfo-Category=Online Services
+X-KDE-ServiceTypes=Plasma/Applet
