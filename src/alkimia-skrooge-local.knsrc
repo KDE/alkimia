@@ -2,4 +2,4 @@
 ProvidersUrl=http://kmymoney.wh.sag.de/ocs/providers.xml
 Categories=Skrooge quote source
 TargetDir=skrooge/quotes
-Uncompress=archive 
+Uncompress=archive

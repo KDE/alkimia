@@ -122,7 +122,7 @@ install(FILES ${alkimia_LIB_HEADERS} ${CMAKE_CURRENT_BINARY_DIR}/ui_alkonlinequo
   COMPONENT Devel
 )
 
-install(FILES skrooge_unit.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
+install(FILES alkimia-skrooge.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
 
 install(FILES financequote.pl
   DESTINATION ${DATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc

@@ -2,4 +2,4 @@
 ProvidersUrl=http://download.kde.org/ocs/providers.xml
 Categories=Skrooge quote source
 TargetDir=skrooge/quotes
-Uncompress=archive 
+Uncompress=archive

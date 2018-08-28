@@ -80,9 +80,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     manager.addProfile(new AlkOnlineQuotesProfile("alkimia",
                                                   AlkOnlineQuotesProfile::Type::KMyMoney));
-    //manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
-    //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit_local.knsrc"));
-    manager.addProfile(new AlkOnlineQuotesProfile("skrooge", AlkOnlineQuotesProfile::Type::GHNS, "skrooge_unit.knsrc"));
+    //manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "alkimia-skrooge.knsrc"));
+    //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "alkimia-skrooge-local.knsrc"));
+    manager.addProfile(new AlkOnlineQuotesProfile("skrooge", AlkOnlineQuotesProfile::Type::GHNS, "alkimia-skrooge.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
     ui->setupUi(this);
 
