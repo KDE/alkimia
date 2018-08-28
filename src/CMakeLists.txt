@@ -34,6 +34,11 @@ set(alkimia_INTERNAL_HEADERS
     alkonlinequoteswidget.h
 )
 
+set(alkimia_INTERNAL_UI
+    alkonlinequoteswidget.ui
+)
+
+ki18n_wrap_ui(alkimia_INTERNAL_SRCS ${alkimia_UI} )
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
 if(NOT BUILD_QT4)
     set (ALKIMIA_INTERNAL_LIBS
@@ -68,13 +73,9 @@ set(alkimia_LIB_HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
 )
 
-set(alkimia_UI
-    alkonlinequoteswidget.ui
-)
 
 add_definitions(-DKNSRC_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 
-ki18n_wrap_ui(alkimia_LIB_SRCS ${alkimia_UI} )
 add_library(alkimia SHARED ${alkimia_LIB_SRCS} ${alkimia_INTERNAL_SRCS} ${alkimia_LIB_HEADERS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
@@ -117,7 +118,7 @@ install(TARGETS alkimia
   ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
-install(FILES ${alkimia_LIB_HEADERS} ${CMAKE_CURRENT_BINARY_DIR}/ui_alkonlinequoteswidget.h
+install(FILES ${alkimia_LIB_HEADERS}
   DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia
   COMPONENT Devel
 )
