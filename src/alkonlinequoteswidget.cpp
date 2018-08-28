@@ -126,7 +126,7 @@ AlkOnlineQuotesWidget::Private::Private(QWidget *parent)
 
     connect(m_newProfile, SIGNAL(clicked()), this, SLOT(slotNewProfile()));
     connect(m_deleteProfile, SIGNAL(clicked()), this, SLOT(slotDeleteProfile()));
-    connect(m_selectProfile, SIGNAL(clicked()), this, SLOT(slotSelectProfile()));
+    connect(m_profileList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadProfile()));
 
     connect(m_updateButton, SIGNAL(clicked()), this, SLOT(slotUpdateEntry()));
     connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
