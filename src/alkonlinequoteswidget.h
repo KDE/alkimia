@@ -79,6 +79,7 @@ protected slots:
     void slotEntryRenamed(QListWidgetItem *item);
     void slotStartRename(QListWidgetItem *item);
     void slotInstallEntries();
+    void slotUploadEntry();
 
 protected:
     void loadProfiles();

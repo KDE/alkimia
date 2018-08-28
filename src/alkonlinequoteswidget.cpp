@@ -104,6 +104,7 @@ AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
     connect(m_checkButton, SIGNAL(clicked()), this, SLOT(slotCheckEntry()));
     connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
     connect(m_installButton, SIGNAL(clicked()), this, SLOT(slotInstallEntries()));
+    connect(m_uploadButton, SIGNAL(clicked()), this, SLOT(slotUploadEntry()));
 
     connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadWidgets()));
     connect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem *)), this,
@@ -472,6 +473,19 @@ void AlkOnlineQuotesWidget::slotInstallEntries()
     dialog->exec();
     delete dialog;
     loadQuotesList();
+}
+
+void AlkOnlineQuotesWidget::slotUploadEntry()
+{
+    QString configFile = d->m_profile->hotNewStuffConfigFile();
+
+    QUrl url = QUrl::fromLocalFile(d->m_profile->hotNewStuffWriteFilePath(d->m_currentItem.name()));
+    qDebug() << "uploading file" << url;
+    QPointer<KNS3::UploadDialog> dialog = new KNS3::UploadDialog(configFile, this);
+    dialog->setUploadName(d->m_currentItem.name());
+    dialog->setUploadFile(url);
+    dialog->exec();
+    delete dialog;
 }
 
 QString AlkOnlineQuotesWidget::expandedUrl() const
