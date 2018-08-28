@@ -277,6 +277,7 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::Script:
         result << d->quoteSourcesFinanceQuote();
         break;
+    case AlkOnlineQuotesProfile::Type::GHNS:
     case AlkOnlineQuotesProfile::Type::Skrooge:
         result << d->quoteSourcesSkrooge();
         break;
