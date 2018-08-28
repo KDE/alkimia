@@ -29,6 +29,7 @@
 #include <QFileInfo>
 
 #include <KConfig>
+#include <KConfigGroup>
 #include <KGlobal>
 #include <KStandardDirs>
 #include <knewstuff3/downloadmanager.h>
@@ -206,8 +207,9 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
     d->m_kconfigFile = name + "rc";
     d->m_config = new KConfig(d->m_kconfigFile);
     if (type == Type::GHNS) {
-        // TODO read file
-        d->m_GHNSFilePath = "skrooge/quotes";
+        KConfig ghnsFile(hotNewStuffConfigFile());
+        KConfigGroup group = ghnsFile.group("KNewStuff3");
+        d->m_GHNSFilePath = group.readEntry("TargetDir");
         d->checkUpdates();
     }
 }
