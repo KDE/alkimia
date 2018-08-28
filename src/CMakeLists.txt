@@ -19,6 +19,7 @@ set(alkimia_INTERNAL_SRCS
     alkfinancequoteprocess.cpp
     alkonlinequotesprofile.cpp
     alkonlinequotesprofilemanager.cpp
+    alkonlinequoteswidget.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
@@ -30,6 +31,7 @@ set(alkimia_INTERNAL_HEADERS
     alkfinancequoteprocess.h
     alkonlinequotesprofile.h
     alkonlinequotesprofilemanager.h
+    alkonlinequoteswidget.h
 )
 
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
@@ -55,7 +57,6 @@ set(alkimia_LIB_SRCS
     alkvalue.cpp
     alkonlinequote.cpp
     alkonlinequotesource.cpp
-    alkonlinequoteswidget.cpp
 )
 
 set(alkimia_LIB_HEADERS
@@ -64,7 +65,6 @@ set(alkimia_LIB_HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h
     alkonlinequote.h
     alkonlinequotesource.h
-    alkonlinequoteswidget.h
     ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
 )
 
