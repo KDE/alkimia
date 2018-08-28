@@ -21,6 +21,7 @@
 
 #include "alkonlinequotesprofile.h"
 
+#include <QFileInfo>
 #include <QtDebug>
 
 #include <KConfig>
@@ -32,6 +33,8 @@ public:
     Private()
         : m_skipStripping(false)
         , m_profile(nullptr)
+        , m_isGHNSSource(false)
+        , m_storageChanged(false)
     {
     }
 
@@ -44,29 +47,32 @@ public:
         , m_dateformat(other->m_dateformat)
         , m_skipStripping(other->m_skipStripping)
         , m_profile(other->m_profile)
+        , m_isGHNSSource(other->m_isGHNSSource)
     {
     }
 
-    bool read(KConfig *kconfig, const QString &groupName)
+    bool read()
     {
-        const QString &group = QString("Online-Quote-Source-%1").arg(groupName);
+        KConfig *kconfig = m_profile->kConfig();
+        const QString &group = QString("Online-Quote-Source-%1").arg(m_name);
         if (!kconfig->hasGroup(group)) {
             return false;
         }
         KConfigGroup grp = kconfig->group(group);
-        m_name = groupName;
         m_sym = grp.readEntry("SymbolRegex");
         m_date = grp.readEntry("DateRegex");
         m_dateformat = grp.readEntry("DateFormatRegex", "%m %d %y");
         m_price = grp.readEntry("PriceRegex");
         m_url = grp.readEntry("URL");
         m_skipStripping = grp.readEntry("SkipStripping", false);
+        m_isGHNSSource = false;
         return true;
     }
 
-    bool write(KConfig *kconfig, const QString &groupName)
+    bool write()
     {
-        KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(groupName));
+        KConfig *kconfig = m_profile->kConfig();
+        KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
         grp.writeEntry("URL", m_url);
         grp.writeEntry("PriceRegex", m_price);
         grp.writeEntry("DateRegex", m_date);
@@ -81,13 +87,37 @@ public:
         return true;
     }
 
-    // This is currently in skrooge format
-    bool readFromGHNSFile(const QString &configFile)
+    bool remove()
     {
-        if (configFile.isEmpty()) {
-            return false;
-        }
-        KConfig config(configFile);
+        KConfig *kconfig = m_profile->kConfig();
+        kconfig->deleteGroup(QString("Online-Quote-Source-%1").arg(m_name));
+        kconfig->sync();
+        return true;
+    }
+
+    QString ghnsReadFilePath()
+    {
+        QString fileName = m_profile->hotNewStuffReadFilePath(m_name);
+        if (!fileName.endsWith(".txt"))
+            fileName.append(".txt");
+        return fileName;
+    }
+
+    QString ghnsWriteFilePath()
+    {
+        QString fileName = m_profile->hotNewStuffWriteFilePath(m_name);
+        if (!fileName.endsWith(".txt"))
+            fileName.append(".txt");
+        return fileName;
+    }
+
+    // This is currently in skrooge format
+    bool readFromGHNSFile()
+    {
+        QFileInfo f(ghnsReadFilePath());
+        if (!f.exists())
+            f.setFile(ghnsWriteFilePath());
+        KConfig config(f.absoluteFilePath());
         KConfigGroup group(&config, "<default>");
         if (!(group.hasKey("mode") && group.readEntry("mode") == "HTML"
               && group.hasKey("url") && group.hasKey("date")
@@ -99,22 +129,26 @@ public:
         m_price = group.readEntry("price");
         m_date = group.readEntry("date");
         m_dateformat = group.readEntry("dateformat");
+        m_isGHNSSource = true;
         return true;
     }
 
     // This is currently in skrooge format
-    bool writeToGHNSFile(const QString &configFile)
+    bool writeToGHNSFile()
     {
-        if (configFile.isEmpty()) {
-            return false;
-        }
-        KConfig config(configFile);
+        KConfig config(ghnsWriteFilePath());
         KConfigGroup group(&config, "<default>");
         group.writeEntry("url", m_url);
         group.writeEntry("price", m_price);
         group.writeEntry("date", m_date);
         group.writeEntry("dateformat", m_dateformat);
         group.writeEntry("mode", "HTML");
+        return true;
+    }
+
+    bool removeGHNSFile()
+    {
+        qDebug() << "delete" << ghnsWriteFilePath();
         return true;
     }
 
@@ -126,6 +160,8 @@ public:
     QString m_dateformat;
     bool m_skipStripping;
     AlkOnlineQuotesProfile *m_profile;
+    bool m_isGHNSSource;
+    bool m_storageChanged;
 };
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource()
@@ -158,18 +194,15 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, const QString &u
     d->m_date = date;
     d->m_dateformat = dateformat;
     d->m_skipStripping = skipStripping;
+    d->m_isGHNSSource = false;
 }
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile)
     : d(new Private)
 {
     d->m_profile = profile;
-    if (name.endsWith(".txt")) {
-        d->readFromGHNSFile(profile->hotNewStuffReadFilePath(name));
-        d->m_name = name;
-    } else {
-        d->read(profile->kConfig(), name);
-    }
+    d->m_name = name;
+    read();
 }
 
 AlkOnlineQuoteSource::~AlkOnlineQuoteSource()
@@ -252,6 +285,22 @@ void AlkOnlineQuoteSource::setSkipStripping(bool state)
     d->m_skipStripping = state;
 }
 
+void AlkOnlineQuoteSource::setGHNS(bool state)
+{
+    d->m_storageChanged = d->m_isGHNSSource != state;
+    d->m_isGHNSSource = state;
+}
+
+bool AlkOnlineQuoteSource::isGHNS()
+{
+    return d->m_isGHNSSource;
+}
+
+QString AlkOnlineQuoteSource::ghnsWriteFileName()
+{
+    return d->ghnsWriteFilePath();
+}
+
 void AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfile *profile)
 {
     d->m_profile = profile;
@@ -263,14 +312,34 @@ AlkOnlineQuotesProfile *AlkOnlineQuoteSource::profile()
     return d->m_profile;
 }
 
+bool AlkOnlineQuoteSource::read()
+{
+    bool result = false;
+    if (d->m_profile->hasGHNSSupport()) {
+        result = d->readFromGHNSFile();
+        if (result)
+            return true;
+    }
+    return d->read();
+}
+
 bool AlkOnlineQuoteSource::write()
 {
-    // FIXME
-    if (d->m_name.endsWith(".txt")) {
-        return d->writeToGHNSFile(profile()->hotNewStuffWriteFilePath(d->m_name));
+    bool result = false;
+    // check if type has been changedd->isGHNS
+    if (d->m_profile->hasGHNSSupport() && d->m_isGHNSSource) {
+        result = d->writeToGHNSFile();
+        if (d->m_storageChanged)
+            d->remove();
+        return result;
     } else {
-        return d->write(profile()->kConfig(), d->m_name);
+        result = d->write();
+        if (d->m_profile->hasGHNSSupport() && d->m_storageChanged) {
+            d->removeGHNSFile();
+        }
     }
+    d->m_storageChanged = false;
+    return result;
 }
 
 void AlkOnlineQuoteSource::rename(const QString &name)
@@ -282,7 +351,9 @@ void AlkOnlineQuoteSource::rename(const QString &name)
 
 void AlkOnlineQuoteSource::remove()
 {
-    KConfig *kconfig = profile()->kConfig();
-    kconfig->deleteGroup(QString("Online-Quote-Source-%1").arg(d->m_name));
-    kconfig->sync();
+    if (d->m_profile->hasGHNSSupport() && d->m_isGHNSSource) {
+        d->removeGHNSFile();
+    } else {
+        d->remove();
+    }
 }

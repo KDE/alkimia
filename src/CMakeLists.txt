@@ -126,7 +126,12 @@ install(FILES ${alkimia_LIB_HEADERS}
   COMPONENT Devel
 )
 
-install(FILES alkimia-skrooge.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
+install(FILES
+    alkimia-quotes.knsrc
+    kmymoney-quotes.knsrc
+    skrooge-quotes.knsrc
+    DESTINATION ${CONFIG_INSTALL_DIR}
+)
 
 install(FILES financequote.pl
   DESTINATION ${DATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc

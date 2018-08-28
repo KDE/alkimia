@@ -147,6 +147,7 @@ AlkOnlineQuotesWidget::Private::Private(QWidget *parent)
     connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_skipStripping, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
+    connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
 
     m_checkSymbol->setText("ORCL");
     m_checkSymbol2->setText("BTC GBP");
@@ -248,6 +249,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
     m_editDate->setEnabled(true);
     m_editDateFormat->setEnabled(true);
     m_skipStripping->setEnabled(true);
+    m_ghnsSource->setEnabled(true);
     m_editURL->setText(QString());
     m_editSymbol->setText(QString());
     m_editPrice->setText(QString());
@@ -262,6 +264,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
         m_editDate->setText(m_currentItem.date());
         m_editDateFormat->setText(m_currentItem.dateformat());
         m_skipStripping->setChecked(m_currentItem.skipStripping());
+        m_ghnsSource->setChecked(m_currentItem.isGHNS());
     } else {
         m_editURL->setEnabled(false);
         m_editSymbol->setEnabled(false);
@@ -269,6 +272,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
         m_editDate->setEnabled(false);
         m_editDateFormat->setEnabled(false);
         m_skipStripping->setEnabled(false);
+        m_ghnsSource->setEnabled(false);
     }
 
     m_updateButton->setEnabled(false);
@@ -282,7 +286,8 @@ void AlkOnlineQuotesWidget::Private::slotEntryChanged()
                     || m_editDate->text() != m_currentItem.date()
                     || m_editDateFormat->text() != m_currentItem.dateformat()
                     || m_editPrice->text() != m_currentItem.price()
-                    || m_skipStripping->isChecked() != m_currentItem.skipStripping();
+                    || m_skipStripping->isChecked() != m_currentItem.skipStripping()
+                    || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
 
     m_updateButton->setEnabled(modified);
     m_checkButton->setEnabled(!modified);
@@ -326,6 +331,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
     m_currentItem.setDateformat(m_editDateFormat->text());
     m_currentItem.setPrice(m_editPrice->text());
     m_currentItem.setSkipStripping(m_skipStripping->isChecked());
+    m_currentItem.setGHNS(m_ghnsSource->isChecked());
     m_currentItem.write();
     m_checkButton->setEnabled(true);
     slotEntryChanged();
@@ -469,7 +475,7 @@ void AlkOnlineQuotesWidget::Private::slotUploadEntry()
 {
     QString configFile = m_profile->hotNewStuffConfigFile();
 
-    QUrl url = QUrl::fromLocalFile(m_profile->hotNewStuffWriteFilePath(m_currentItem.name()));
+    QUrl url = QUrl::fromLocalFile(m_currentItem.ghnsWriteFileName());
     qDebug() << "uploading file" << url;
     QPointer<KNS3::UploadDialog> dialog = new KNS3::UploadDialog(configFile, this);
     dialog->setUploadName(m_currentItem.name());

@@ -154,13 +154,18 @@ public Q_SLOTS:
 
     const QStringList quoteSourcesSkrooge()
     {
+        return quoteSourcesGHNS();
+    }
+
+    const QStringList quoteSourcesGHNS()
+    {
         QStringList sources;
         QString relPath = m_GHNSFilePath;
 
         foreach (const QString &file,
                  KStandardDirs().findAllResources("data", relPath + QString::fromLatin1("/*.txt"))) {
             QFileInfo f(file);
-            QString file2 = f.fileName();
+            QString file2 = f.completeBaseName();
             if (!sources.contains(file2)) {
                 sources.push_back(file2);
             }
@@ -198,15 +203,15 @@ QStringList AlkOnlineQuotesProfile::Private::m_financeQuoteSources;
 
 
 AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
-                                               const QString &configFile)
+                                               const QString &ghnsConfigFile)
     : d(new Private(this))
 {
     d->m_name = name;
-    d->m_GHNSFile = configFile;
+    d->m_GHNSFile = ghnsConfigFile;
     d->m_type = type;
     d->m_kconfigFile = name + "rc";
     d->m_config = new KConfig(d->m_kconfigFile);
-    if (type == Type::GHNS) {
+    if (!d->m_GHNSFile.isEmpty()) {
         KConfig ghnsFile(hotNewStuffConfigFile());
         KConfigGroup group = ghnsFile.group("KNewStuff3");
         d->m_GHNSFilePath = group.readEntry("TargetDir");
@@ -264,6 +269,11 @@ AlkOnlineQuotesProfile::Type AlkOnlineQuotesProfile::type()
     return d->m_type;
 }
 
+bool AlkOnlineQuotesProfile::hasGHNSSupport()
+{
+    return !d->m_GHNSFile.isEmpty();
+}
+
 const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::defaultQuoteSources()
 {
     return d->defaultQuoteSources();
@@ -279,13 +289,14 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::Script:
         result << d->quoteSourcesFinanceQuote();
         break;
-    case AlkOnlineQuotesProfile::Type::GHNS:
     case AlkOnlineQuotesProfile::Type::Skrooge:
         result << d->quoteSourcesSkrooge();
         break;
     default:
         break;
     }
+    if (hasGHNSSupport())
+        result << d->quoteSourcesGHNS();
     return result;
 }
 

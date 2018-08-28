@@ -37,9 +37,8 @@ public:
     enum class Type {
         Undefined, GHNS, KMyMoney, Skrooge, Script
     };
-    AlkOnlineQuotesProfile(
-        const QString &name = "alkimia", Type type = Type::KMyMoney,
-        const QString &configFile = QString());
+    AlkOnlineQuotesProfile(const QString &name = "alkimia", Type type = Type::KMyMoney,
+        const QString &ghnsConfigFile = QString());
     ~AlkOnlineQuotesProfile();
 
     QString name() const;
@@ -52,6 +51,7 @@ public:
     AlkOnlineQuotesProfileManager *manager();
     KConfig *kConfig() const;
     Type type();
+    bool hasGHNSSupport();
 
     /**
      * return available default sources of this profile

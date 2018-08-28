@@ -79,12 +79,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
 
-    manager.addProfile(new AlkOnlineQuotesProfile("alkimia",
-                                                  AlkOnlineQuotesProfile::Type::KMyMoney));
-    //manager.addProfile(new AlkOnlineQuotesProfile("onlinequoteseditor", AlkOnlineQuotesProfile::Type::GHNS, "alkimia-skrooge.knsrc"));
-    //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "alkimia-skrooge-local.knsrc"));
-    manager.addProfile(new AlkOnlineQuotesProfile("skrooge", AlkOnlineQuotesProfile::Type::GHNS, "alkimia-skrooge.knsrc"));
-    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
+    manager.addProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney, "alkimia-quotes.knsrc"));
+    //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "alkimia-quotes-local.knsrc"));
+    manager.addProfile(new AlkOnlineQuotesProfile("skrooge", AlkOnlineQuotesProfile::Type::GHNS, "skrooge-quotes.knsrc"));
+    manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney, "kmymoney-quotes.knsrc"));
     ui->setupUi(this);
 
     QDockWidget *dockWidget = new QDockWidget(tr("Browser"), this);

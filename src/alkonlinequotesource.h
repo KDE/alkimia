@@ -45,6 +45,7 @@ public:
     ~AlkOnlineQuoteSource();
     bool isValid();
 
+    bool read();
     bool write();
     void rename(const QString &name);
     void remove();
@@ -56,6 +57,7 @@ public:
     QString date() const;
     QString dateformat() const;
     bool skipStripping() const;
+    bool isGHNS();
 
     void setName(const QString &name);
     void setUrl(const QString &url);
@@ -64,7 +66,9 @@ public:
     void setDate(const QString &date);
     void setDateformat(const QString &dateformat);
     void setSkipStripping(bool state);
+    void setGHNS(bool state);
 
+    QString ghnsWriteFileName();
     void setProfile(AlkOnlineQuotesProfile *profile);
     AlkOnlineQuotesProfile *profile();
 
