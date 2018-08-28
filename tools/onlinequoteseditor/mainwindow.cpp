@@ -26,6 +26,7 @@
 
 #include <QComboBox>
 #include <QDockWidget>
+#include <QLineEdit>
 #include <QNetworkRequest>
 #include <QWebInspector>
 

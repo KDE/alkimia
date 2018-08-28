@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2004  Thomas Baumgart  tbaumgart@kde.org                    *
+ *   Copyright 2018  Ralf Habacker <ralf.habacker@freenet.de>              *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -25,70 +26,25 @@
 #include <alkonlinequote.h>
 
 #include <QList>
-
-#include <ui_alkonlinequoteswidget.h>
-
-class ALK_NO_EXPORT AlkOnlineQuotesWidgetDecl : public QWidget, public Ui::AlkOnlineQuotesWidget
-{
-public:
-    AlkOnlineQuotesWidgetDecl(QWidget *parent) : QWidget(parent)
-    {
-        setupUi(this);
-    }
-};
+#include <QWidget>
 
 class QWebView;
+class QListWidgetItem;
 
-class ALK_EXPORT AlkOnlineQuotesWidget : public AlkOnlineQuotesWidgetDecl
+class ALK_EXPORT AlkOnlineQuotesWidget : public QWidget
 {
     Q_OBJECT
 public:
     AlkOnlineQuotesWidget(QWidget *parent = 0);
     virtual ~AlkOnlineQuotesWidget();
 
-    void writeConfig()
-    {
-    }
-
-    void readConfig()
-    {
-    }
-
+    void writeConfig();
+    void readConfig();
     void resetConfig();
 
     void setView(QWebView *view);
     QString acceptLanguage() const;
     void setAcceptLanguage(const QString &text);
-
-protected slots:
-    void slotNewProfile();
-    void slotDeleteProfile();
-    void slotSelectProfile();
-    void slotLoadProfile();
-
-    void slotDeleteEntry();
-    void slotUpdateEntry();
-    void slotLoadWidgets();
-    void slotEntryChanged();
-    void slotNewEntry();
-    void slotCheckEntry();
-    void slotLogStatus(const QString &s);
-    void slotLogError(const QString &s);
-    void slotLogFailed(const QString &id, const QString &symbol);
-    void slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price);
-    void slotEntryRenamed(QListWidgetItem *item);
-    void slotStartRename(QListWidgetItem *item);
-    void slotInstallEntries();
-    void slotUploadEntry();
-
-protected:
-    void loadProfiles();
-    void loadQuotesList(const bool updateResetList = false);
-    void clearIcons();
-    void setupIcons(const AlkOnlineQuote::Errors &errors);
-    QString singleSymbol() const;
-    QStringList doubleSymbol() const;
-    QString expandedUrl() const;
 
 private:
     class Private;
