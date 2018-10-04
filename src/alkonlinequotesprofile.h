@@ -20,7 +20,7 @@
 #ifndef ALKONLINEQUOTESPROFILE_H
 #define ALKONLINEQUOTESPROFILE_H
 
-#include "alk_export.h"
+#include <alkimia/alk_export.h>
 
 #include <QString>
 #include <QMap>

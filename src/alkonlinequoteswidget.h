@@ -21,11 +21,8 @@
 #ifndef ALKONLINEQUOTESWIDGET_H
 #define ALKONLINEQUOTESWIDGET_H
 
-#include "alk_export.h"
+#include <alkimia/alkonlinequote.h>
 
-#include <alkonlinequote.h>
-
-#include <QList>
 #include <QWidget>
 
 class QWebView;

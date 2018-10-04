@@ -11,31 +11,12 @@ include_directories(
 ########### target alkimia-internal ###########
 
 set(alkimia_INTERNAL_SRCS
-    alkdateformat.cpp
-    alkexception.cpp
-    alkmoney.cpp
-    alkquotereceiver.cpp
-    alkonlinequoteprocess.cpp
-    alkfinancequoteprocess.cpp
-    alkonlinequotesprofile.cpp
-    alkonlinequotesprofilemanager.cpp
-    alkonlinequoteswidget.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
-    alkdateformat.h
-    alkexception.h
-    alkmoney.h
-    alkquotereceiver.h
-    alkonlinequoteprocess.h
-    alkfinancequoteprocess.h
-    alkonlinequotesprofile.h
-    alkonlinequotesprofilemanager.h
-    alkonlinequoteswidget.h
 )
 
 set(alkimia_INTERNAL_UI
-    alkonlinequoteswidget.ui
 )
 
 ki18n_wrap_ui(alkimia_INTERNAL_SRCS ${alkimia_INTERNAL_UI} )
@@ -58,23 +39,54 @@ set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
     alkcompany.cpp
-    alkquoteitem.cpp
-    alkvalue.cpp
+    alkdateformat.cpp
+    alkexception.cpp
+    alkfinancequoteprocess.cpp
+    alkmoney.cpp
     alkonlinequote.cpp
+    alkonlinequoteprocess.cpp
     alkonlinequotesource.cpp
+    alkonlinequotesprofile.cpp
+    alkonlinequotesprofilemanager.cpp
+    alkonlinequoteswidget.cpp
+    alkquoteitem.cpp
+    alkquotereceiver.cpp
+    alkvalue.cpp
 )
 
 set(alkimia_LIB_HEADERS
     alkcompany.h
-    alkquoteitem.h
-    ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h
+    alkdateformat.h
+    alkexception.h
+    alkfinancequoteprocess.h
+    alkmoney.h
     alkonlinequote.h
+    alkonlinequoteprocess.h
     alkonlinequotesource.h
-    ${CMAKE_CURRENT_BINARY_DIR}/alk_export.h
+    alkonlinequotesprofile.h
+    alkonlinequotesprofilemanager.h
+    alkonlinequoteswidget.h
+    alkquoteitem.h
+    alkquotereceiver.h
 )
 
 set(alkimia_UI
+    alkonlinequoteswidget.ui
 )
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/alkvalue.h.in
+    ${CMAKE_CURRENT_BINARY_DIR}/alkimia/alkvalue.h
+    IMMEDIATE
+)
+
+foreach(header ${alkimia_LIB_HEADERS})
+    configure_file(
+        ${CMAKE_CURRENT_SOURCE_DIR}/${header}
+        ${CMAKE_CURRENT_BINARY_DIR}/alkimia/${header}
+        COPYONLY
+    )
+endforeach()
 
 add_definitions(-DKNSRC_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 
@@ -106,7 +118,14 @@ target_link_libraries(alkimia
     ${MP_LIBRARIES}
     ${ALKIMIA_LIBS}
 )
-generate_export_header(alkimia BASE_NAME alk)
+
+install(
+    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/alkimia
+    DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia/${ALKIMIA_INCLUDE_SUFFIX}
+    COMPONENT Devel
+)
+
+generate_export_header(alkimia BASE_NAME alk EXPORT_FILE_NAME alkimia/alk_export.h)
 
 if(WIN32)
     set_target_properties(alkimia PROPERTIES SUFFIX "${ALKIMIA_LIB_SOVERSION}${CMAKE_SHARED_LIBRARY_SUFFIX}")
@@ -119,11 +138,6 @@ set(INCLUDE_INSTALL_DIR include/alkimia/${ALKIMIA_INCLUDE_SUFFIX})
 install(TARGETS alkimia
   EXPORT  alkimiaTargets
   ${INSTALL_TARGETS_DEFAULT_ARGS}
-)
-
-install(FILES ${alkimia_LIB_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia
-  COMPONENT Devel
 )
 
 install(FILES
@@ -140,7 +154,6 @@ install(FILES financequote.pl
 if (NOT WIN32)
    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc IMMEDIATE @ONLY)
 endif(NOT WIN32)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/alkvalue.h.in ${CMAKE_CURRENT_BINARY_DIR}/alkvalue.h IMMEDIATE)
 
 ########### create package configuration file ###########
 

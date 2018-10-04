@@ -20,7 +20,7 @@
 #ifndef ALKMONEY_H
 #define ALKMONEY_H
 
-#include "alk_export.h"
+#include <alkimia/alk_export.h>
 
 class ALK_NO_EXPORT AlkMoney
 {

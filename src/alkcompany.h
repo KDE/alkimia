@@ -20,7 +20,7 @@
 #ifndef ALKCOMPANY_H
 #define ALKCOMPANY_H
 
-#include "alk_export.h"
+#include <alkimia/alk_export.h>
 
 #include <QMetaType>
 #include <QDBusArgument>

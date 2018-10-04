@@ -21,10 +21,7 @@
 #ifndef ALKONLINEQUOTEPROCESS_H
 #define ALKONLINEQUOTEPROCESS_H
 
-#include "alk_export.h"
-
-#include <QMap>
-#include <QStringList>
+#include <alkimia/alk_export.h>
 
 #include <KProcess>
 

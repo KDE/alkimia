@@ -20,8 +20,7 @@
 #ifndef ALKQUOTEITEM_H
 #define ALKQUOTEITEM_H
 
-#include "alk_export.h"
-#include "alkvalue.h"
+#include <alkimia/alkvalue.h>
 
 #include <QDate>
 #include <QDBusArgument>

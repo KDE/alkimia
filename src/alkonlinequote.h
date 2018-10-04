@@ -21,13 +21,11 @@
 #ifndef ALKONLINEQUOTE_H
 #define ALKONLINEQUOTE_H
 
-#include "alkmoney.h"
+#include <alkimia/alk_export.h>
 
 #include <QObject>
 #include <QDateTime>
 #include <QString>
-#include <QStringList>
-#include <QMap>
 
 class AlkOnlineQuotesProfile;
 class QWebView;
@@ -124,7 +122,6 @@ signals:
     void quote(QString id, QString symbol, QDate date, double price);
     void failed(QString id, QString symbol);
     void status(QString s);
-    //void error(const QString &s);
     void error(QString s);
 
 private:

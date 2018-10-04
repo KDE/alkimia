@@ -20,12 +20,10 @@
 #ifndef ALKONLINEQUOTESPROFILEMANAGER_H
 #define ALKONLINEQUOTESPROFILEMANAGER_H
 
-#include "alk_export.h"
+#include <alkimia/alkonlinequotesprofile.h>
 
-#include <QObject>
+#include <QList>
 #include <QStringList>
-
-class AlkOnlineQuotesProfile;
 
 typedef QList<AlkOnlineQuotesProfile *> AlkOnlineQuotesProfileList;
 

@@ -21,14 +21,14 @@
 #ifndef ALKVALUE_H
 #define ALKVALUE_H
 
+#include <alkimia/alk_export.h>
+
 // Workaround: include before gmpxx.h to fix build with gcc-4.9
 /** @todo When gmp version is higer than 5.1.3, remove cstddef include */
 #include <cstddef>
 #include <@MP_HEADER@>                // krazy:exclude=camelcase
 #include <QString>
 #include <QSharedDataPointer>
-
-#include "alk_export.h"
 
 /**
   * This class represents a financial value within Alkimia.

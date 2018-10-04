@@ -20,9 +20,7 @@
 #ifndef ALKONLINEQUOTESOURCE_H
 #define ALKONLINEQUOTESOURCE_H
 
-#include "alk_export.h"
-
-#include "alkonlinequotesprofile.h"
+#include <alkimia/alkonlinequotesprofile.h>
 
 #include <QString>
 

@@ -20,7 +20,7 @@
 #ifndef ALKEXCEPTION_H
 #define ALKEXCEPTION_H
 
-#include "alk_export.h"
+#include <alkimia/alk_export.h>
 
 #include <QString>
 
