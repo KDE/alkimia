@@ -214,5 +214,3 @@ void PlasmaOnlineQuote::paintInterface(QPainter *p,
 
 // This is the command that links your applet to the .desktop file
 K_EXPORT_PLASMA_APPLET(onlinequote, PlasmaOnlineQuote)
- 
-#include "plasma-onlinequote.moc"
