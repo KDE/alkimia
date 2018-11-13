@@ -7,15 +7,17 @@ set(TEST_LIB
 )
 
 if(BUILD_QT4)
-    list(APPEND TEST_LIB ${KDE_LIBRARIES})
-endif()
-
-if(BUILD_QT4)
-    list(APPEND TEST_LIB ${QT_USE_LIBSPREFIX}Declarative)
+    list(APPEND TEST_LIB
+        ${QT_USE_LIBSPREFIX}Declarative
+        ${KDE_LIBRARIES}
+    )
     set(RESOURCES qmlalkonlinequotetest.qrc)
     message("FIXME: qmlalkonlinequotetest need to be implemented")
 else()
-    list(APPEND TEST_LIB ${QT_USE_LIBSPREFIX}Qml)
+    list(APPEND TEST_LIB
+        ${QT_USE_LIBSPREFIX}Qml
+        ${QT_USE_LIBSPREFIX}WebKitWidgets
+     )
     find_package(Qt5QuickCompiler)
     qtquick_compiler_add_resources(RESOURCES qmlalkonlinequotetest.qrc)
 endif()

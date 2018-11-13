@@ -23,7 +23,7 @@ ki18n_wrap_ui(alkimia_INTERNAL_SRCS ${alkimia_INTERNAL_UI} )
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
 if(NOT BUILD_QT4)
     set (ALKIMIA_INTERNAL_LIBS
-        PUBLIC
+        PRIVATE
         KF5::CoreAddons
         KF5::KDELibs4Support
         KF5::NewStuff
@@ -96,13 +96,13 @@ add_library(alkimia SHARED ${alkimia_LIB_SRCS} ${alkimia_INTERNAL_SRCS} ${alkimi
 kde_target_enable_exceptions(alkimia PUBLIC)
 if(BUILD_QT4)
     set(ALKIMIA_LIBS
-        PUBLIC
+        PRIVATE
         ${KDE_LIBRARIES}
         ${KDE4_KDEUI_LIBS}
         ${KDE4_KNEWSTUFF3_LIBS})
 else()
     set(ALKIMIA_LIBS
-        PUBLIC
+        PRIVATE
         ${QT_USE_LIBSPREFIX}WebKitWidgets
         KF5::KDELibs4Support
         KF5::NewStuff
@@ -111,12 +111,11 @@ endif()
 target_link_libraries(alkimia
     PRIVATE
     alkimia-internal
-    PUBLIC
     ${QT_USE_LIBSPREFIX}Core
-    ${QT_USE_LIBSPREFIX}DBus
-    ${QT_USE_LIBSPREFIX}WebKit
-    ${MP_LIBRARIES}
     ${ALKIMIA_LIBS}
+    ${QT_USE_LIBSPREFIX}WebKit
+    ${QT_USE_LIBSPREFIX}DBus
+    ${MP_LIBRARIES}
 )
 
 install(
