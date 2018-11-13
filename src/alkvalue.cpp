@@ -18,7 +18,7 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
-#include "alkvalue.h"
+#include "alkimia/alkvalue.h"
 
 #include <iostream>
 #include <QRegExp>

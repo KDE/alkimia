@@ -18,7 +18,8 @@
  ***************************************************************************/
 
 #include "alkvaluetest.h"
-#include "alkvalue.h"
+
+#include "alkimia/alkvalue.h"
 
 #include <QtTest/QtTest>
 
