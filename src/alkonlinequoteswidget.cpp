@@ -52,8 +52,10 @@ public:
     AlkOnlineQuoteSource m_currentItem;
     bool m_quoteInEditing;
     AlkOnlineQuotesProfile *m_profile;
+    bool m_showProfiles;
+    bool m_showUpload;
 
-    Private(QWidget *parent);
+    Private(bool showProfiles, bool showUpload, QWidget *parent);
 public slots:
     void slotNewProfile();
     void slotDeleteProfile();
@@ -85,12 +87,20 @@ public:
     QString expandedUrl() const;
 };
 
-AlkOnlineQuotesWidget::Private::Private(QWidget *parent)
+AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWidget *parent)
     : m_webView(nullptr)
     , m_quoteInEditing(false)
     , m_profile(nullptr)
+    , m_showProfiles(showProfiles)
+    , m_showUpload(showUpload)
 {
     setupUi(parent);
+
+    if (!showProfiles)
+        profilesGroupBox->setVisible(false);
+    if (!showUpload)
+        m_uploadButton->setVisible(false);
+
     loadProfiles();
 
     // TODO move to ui file
@@ -229,6 +239,13 @@ void AlkOnlineQuotesWidget::Private::slotSelectProfile()
 void AlkOnlineQuotesWidget::Private::slotLoadProfile()
 {
     AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
+    if (!m_showProfiles) {
+        AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
+        m_profile = list.first();
+        loadQuotesList();
+        return;
+    }
+
     foreach (AlkOnlineQuotesProfile *profile, list) {
         if (m_profileList->currentItem()->text() == profile->name()) {
             m_profile = profile;
@@ -493,9 +510,9 @@ QString AlkOnlineQuotesWidget::Private::expandedUrl() const
     }
 }
 
-AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(QWidget *parent)
+AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(bool showProfiles, bool showUpload, QWidget *parent)
     : QWidget(parent)
-    , d(new Private(this))
+    , d(new Private(showProfiles, showUpload, this))
 {
 }
 

@@ -92,7 +92,7 @@ MainWindow::MainWindow(QWidget *parent)
     d->urlLine = new QLineEdit;
     connect(d->urlLine, SIGNAL(editingFinished()), this, SLOT(slotEditingFinished()));
 
-    d->quotesWidget = new AlkOnlineQuotesWidget;
+    d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
     d->quotesWidget->setView(d->view);
     setCentralWidget(d->quotesWidget);
 
