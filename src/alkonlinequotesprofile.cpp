@@ -192,6 +192,7 @@ public Q_SLOTS:
                                        "%d/%m/%y",
                                        true // skip HTML stripping
                                        );
+            result["Alkimia Currency"].setProfile(m_p);
         }
         return result;
     }
