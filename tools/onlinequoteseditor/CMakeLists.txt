@@ -22,7 +22,7 @@ ki18n_wrap_ui(SOURCES ${UI} )
 
 ecm_add_executable(onlinequoteseditor ${SOURCES} ${HEADERS})
 if(BUILD_QT4)
-    set(LIBS ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS})
+    set(LIBS ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} QtCore QtNetwork QtWebKit)
 else()
     set(LIBS Qt5::Widgets Qt5::WebKitWidgets KF5::KDELibs4Support)
 endif()
