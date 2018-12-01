@@ -37,11 +37,10 @@ public:
 class QQmlApplicationEngine : public QDeclarativeEngine
 {
 public:
-    void load(const QUrl &url)
+    void load(const QString &url)
     {
-        QString s = url.toString();
+        QString s = url;
         s.replace(".qml", "-qt4.qml");
-        s.replace("qrc:", CMAKE_CURRENT_SOURCE_DIR);
         QUrl a = QUrl::fromLocalFile(s);
         view.setSource(a);
         view.show();
@@ -55,8 +54,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    //engine.addImportPath(CMAKE_BINARY_DIR "/bin");
-    engine.load(QUrl("qrc:/qmlalkonlinequotetest.qml"));
+    engine.load(CMAKE_CURRENT_SOURCE_DIR "/qmlalkonlinequotetest.qml");
 
     return app.exec();
 }

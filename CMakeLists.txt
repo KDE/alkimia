@@ -51,7 +51,6 @@ if(BUILD_QT4)
 else()
     find_package(Qt5 REQUIRED COMPONENTS
         Core
-        Quick
         Test
         WebKitWidgets
         Qml
