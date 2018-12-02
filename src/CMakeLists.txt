@@ -113,6 +113,7 @@ target_link_libraries(alkimia
     ${ALKIMIA_LIBS}
     ${QT_USE_LIBSPREFIX}WebKit
     ${QT_USE_LIBSPREFIX}DBus
+    PUBLIC
     ${MP_LIBRARIES}
 )
 
