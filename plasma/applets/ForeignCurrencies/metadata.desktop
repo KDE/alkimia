@@ -6,7 +6,6 @@ Type=Service
 Icon=applications-internet
 X-Plasma-MainScript=ui/main.qml
 X-Plasma-API=declarativeappletscript
-License=GPL2
 
 X-KDE-PluginInfo-Author=Petr Bravenec, wincak
 X-KDE-PluginInfo-Email=petr@bravenec.eu, wincak@seznam.cz
