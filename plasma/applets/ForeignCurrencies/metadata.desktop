@@ -6,10 +6,11 @@ Type=Service
 Icon=applications-internet
 X-Plasma-MainScript=ui/main.qml
 X-Plasma-API=declarativeappletscript
+License=GPL2
 
 X-KDE-PluginInfo-Author=Petr Bravenec, wincak
 X-KDE-PluginInfo-Email=petr@bravenec.eu, wincak@seznam.cz
-X-KDE-PluginInfo-License=GPL2
+X-KDE-PluginInfo-License=GPLv2
 X-KDE-PluginInfo-Version=1.1
 X-KDE-PluginInfo-Website=https://gitlab.com/wincak/ForeignCurrencies
 X-KDE-PluginInfo-Name=org.wincak.foreigncurrencies2
