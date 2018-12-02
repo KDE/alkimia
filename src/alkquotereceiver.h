@@ -20,7 +20,7 @@
 #ifndef ALKQUOTERECEIVER_H
 #define ALKQUOTERECEIVER_H
 
-#include "alkmoney.h"
+#include <alkimia/alkvalue.h>
 
 #include <QDate>
 #include <QObject>
@@ -52,7 +52,7 @@ public Q_SLOTS:
 public:
     QStringList m_statuses;
     QStringList m_errors;
-    AlkMoney m_price;
+    AlkValue m_price;
     QDate m_date;
 protected:
     bool m_verbose;

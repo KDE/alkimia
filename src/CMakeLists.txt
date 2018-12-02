@@ -42,7 +42,6 @@ set(alkimia_LIB_SRCS
     alkdateformat.cpp
     alkexception.cpp
     alkfinancequoteprocess.cpp
-    alkmoney.cpp
     alkonlinequote.cpp
     alkonlinequoteprocess.cpp
     alkonlinequotesource.cpp
@@ -59,7 +58,6 @@ set(alkimia_LIB_HEADERS
     alkdateformat.h
     alkexception.h
     alkfinancequoteprocess.h
-    alkmoney.h
     alkonlinequote.h
     alkonlinequoteprocess.h
     alkonlinequotesource.h

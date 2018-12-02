@@ -44,7 +44,7 @@ void convertertest::AlkQuoteReceiver::slotGetQuote(const QString &a, const QStri
         qDebug() << "test::AlkQuoteReceiver::slotGetQuote( , " << a << " , " << b << " , " << d
                  << " , " << m << " )";
     }
-    m_price = AlkMoney(m);
+    m_price = AlkValue(m);
     m_date = d;
 }
 
