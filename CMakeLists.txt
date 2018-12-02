@@ -1,5 +1,6 @@
 # The CMake version we require (must be first)
 cmake_minimum_required(VERSION 3.0.2)
+cmake_policy(SET CMP0071 NEW)
 
 project(alkimia VERSION 7.0.80)
 
