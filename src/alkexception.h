@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2000-2002 by Michael Edwardes mte@users.sourceforge.net     *
+ *   Copyright 2000-2018  Thomas Baumgart  tbaumgart@kde.org               *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
