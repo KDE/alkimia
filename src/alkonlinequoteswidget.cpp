@@ -96,10 +96,8 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 {
     setupUi(parent);
 
-    if (!showProfiles)
-        profilesGroupBox->setVisible(false);
-    if (!showUpload)
-        m_uploadButton->setVisible(false);
+    profilesGroupBox->setVisible(showProfiles);
+    m_uploadButton->setVisible(showUpload);
 
     loadProfiles();
 
@@ -260,18 +258,19 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
     m_quoteInEditing = false;
     QListWidgetItem *item = m_quoteSourceList->currentItem();
 
-    m_editURL->setEnabled(true);
-    m_editSymbol->setEnabled(true);
-    m_editPrice->setEnabled(true);
-    m_editDate->setEnabled(true);
-    m_editDateFormat->setEnabled(true);
-    m_skipStripping->setEnabled(true);
-    m_ghnsSource->setEnabled(true);
-    m_editURL->setText(QString());
-    m_editSymbol->setText(QString());
-    m_editPrice->setText(QString());
-    m_editDate->setText(QString());
-    m_editDateFormat->setText(QString());
+    m_editURL->setEnabled(item != nullptr);
+    m_editSymbol->setEnabled(item != nullptr);
+    m_editPrice->setEnabled(item != nullptr);
+    m_editDate->setEnabled(item != nullptr);
+    m_editDateFormat->setEnabled(item != nullptr);
+    m_skipStripping->setEnabled(item != nullptr);
+    m_ghnsSource->setEnabled(item != nullptr);
+
+    m_editURL->clear();
+    m_editSymbol->clear();
+    m_editPrice->clear();
+    m_editDate->clear();
+    m_editDateFormat->clear();
 
     if (item) {
         m_currentItem = AlkOnlineQuoteSource(item->text(), m_profile);
@@ -282,14 +281,6 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
         m_editDateFormat->setText(m_currentItem.dateformat());
         m_skipStripping->setChecked(m_currentItem.skipStripping());
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
-    } else {
-        m_editURL->setEnabled(false);
-        m_editSymbol->setEnabled(false);
-        m_editPrice->setEnabled(false);
-        m_editDate->setEnabled(false);
-        m_editDateFormat->setEnabled(false);
-        m_skipStripping->setEnabled(false);
-        m_ghnsSource->setEnabled(false);
     }
 
     m_updateButton->setEnabled(false);
