@@ -4,7 +4,7 @@ cmake_policy(SET CMP0071 NEW)
 
 project(alkimia VERSION 7.0.80)
 
-option(BUILD_QT4 "Build for Qt4" ON)
+option(BUILD_QT4 "Build for Qt4" OFF)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 
