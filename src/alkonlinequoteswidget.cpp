@@ -297,6 +297,8 @@ void AlkOnlineQuotesWidget::Private::slotEntryChanged()
                     || m_skipStripping->isChecked() != m_currentItem.skipStripping()
                     || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
 
+    m_newButton->setEnabled(m_quoteSourceList->findItems(i18n("New Quote Source"),
+                                                         Qt::MatchExactly).count() == 0);
     m_updateButton->setEnabled(modified);
     m_checkButton->setEnabled(!modified);
     m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
