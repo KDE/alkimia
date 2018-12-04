@@ -29,7 +29,6 @@
 #include <QCheckBox>
 #include <QDesktopServices>
 #include <QtDebug>
-#include <QWebInspector>
 
 #include <KComponentData>
 #include <KIcon>
@@ -584,7 +583,7 @@ void AlkOnlineQuotesWidget::Private::slotShowButton()
         QVBoxLayout *layout = new QVBoxLayout;
         AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
         webPage->setWebInspectorEnabled(true);
-        layout->addWidget(webPage);
+        layout->addWidget(webPage->widget());
         m_webPageDialog->setLayout(layout);
     }
     m_webPageDialog->show();

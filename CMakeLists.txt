@@ -31,6 +31,8 @@ if(BUILD_QT4)
     set(ALKIMIA_PATH_SUFFIX)
     set(PC_TARGET_QTPREFIX Qt)
     set(PC_TARGET_SUFFIX)
+    set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}WebKit)
+    add_definitions(-DBUILD_WITH_WEBKIT)
     set(_kde4_uninstall_rule_created 1)
     find_package(KDE4 REQUIRED)
     include(KDE4Defaults)
@@ -65,10 +67,17 @@ if(BUILD_QT4)
         set(SHARE_INSTALL_DIR ${DATA_INSTALL_DIR})
     endif()
 else()
+    option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" ON)
+    if(BUILD_WITH_WEBKIT)
+        add_definitions(-DBUILD_WITH_WEBKIT)
+        set(QT5_OPTIONAL_COMPONENTS WebKitWidgets)
+    else()
+        set(QT5_OPTIONAL_COMPONENTS Widgets)
+    endif()
     find_package(Qt5 REQUIRED COMPONENTS
         Core
         Test
-        WebKitWidgets
+        ${QT5_OPTIONAL_COMPONENTS}
         Qml
     )
     if(BUILD_APPLETS)
@@ -91,6 +100,13 @@ else()
     set(ALKIMIA_PATH_SUFFIX 5)
     set(PC_TARGET_QTPREFIX Qt5)
     set(PC_TARGET_SUFFIX 5)
+
+    if(BUILD_WITH_WEBKIT)
+        set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}WebKitWidgets)
+    else()
+        set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}Widgets)
+    endif()
+
     macro(ecm_add_executable)
         add_executable(${ARGN})
     endmacro(ecm_add_executable)

@@ -19,6 +19,7 @@
 
 #include "alkwebpage.h"
 
+#if defined(BUILD_WITH_WEBKIT)
 #include <QWebFrame>
 #include <QWebElement>
 #include <QWebInspector>
@@ -69,6 +70,11 @@ AlkWebPage::~AlkWebPage()
     delete d;
 }
 
+QWidget *AlkWebPage::widget()
+{
+    return this;
+}
+
 void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 {
     QNetworkRequest request;
@@ -100,3 +106,66 @@ bool AlkWebPage::webInspectorEnabled()
 {
     return d->webInspectorEnabled(page());
 }
+
+#else
+
+class AlkWebPage::Private
+{
+public:
+};
+
+AlkWebPage::AlkWebPage(QWidget *parent)
+  : QWidget(parent)
+  , d(new Private)
+{
+}
+
+AlkWebPage::~AlkWebPage()
+{
+    delete d;
+}
+
+QWidget *AlkWebPage::widget()
+{
+    return this;
+}
+
+void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
+{
+    Q_UNUSED(url)
+    Q_UNUSED(acceptLanguage)
+}
+
+void AlkWebPage::setUrl(const QUrl &url)
+{
+    Q_UNUSED(url)
+}
+
+void AlkWebPage::setContent(const QString &s)
+{
+    Q_UNUSED(s)
+}
+
+QString AlkWebPage::toHtml()
+{
+    return QString();
+}
+
+QString AlkWebPage::getFirstElement(const QString &symbol)
+{
+    Q_UNUSED(symbol)
+
+    return QString();
+}
+
+void AlkWebPage::setWebInspectorEnabled(bool enable)
+{
+    Q_UNUSED(enable)
+}
+
+bool AlkWebPage::webInspectorEnabled()
+{
+    return false;
+}
+
+#endif

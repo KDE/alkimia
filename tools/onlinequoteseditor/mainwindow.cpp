@@ -29,7 +29,6 @@
 #include <QDockWidget>
 #include <QLineEdit>
 #include <QNetworkRequest>
-#include <QWebInspector>
 
 class MainWindow::Private
 {
@@ -72,7 +71,6 @@ MainWindow::MainWindow(QWidget *parent)
     , d(new Private)
 {
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
-    manager.setWebPageEnabled(true);
 
     manager.addProfile(new AlkOnlineQuotesProfile("no-config-file", AlkOnlineQuotesProfile::Type::None));
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
@@ -114,12 +112,18 @@ MainWindow::MainWindow(QWidget *parent)
     quoteDetailsWidget->setWidget(d->quotesWidget->quoteDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, quoteDetailsWidget);
 
+#if defined(BUILD_WITH_WEBKIT)
+    manager.setWebPageEnabled(true);
     QDockWidget *browserWidget = new QDockWidget(i18n("Browser"), this);
     browserWidget->setObjectName("browserDockWidget");
     AlkWebPage *webPage = manager.webPage();
     connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
+
+    // setup url line
+    QHBoxLayout *hLayout = new QHBoxLayout;
     d->urlLine = new QLineEdit;
     connect(d->urlLine, SIGNAL(editingFinished()), this, SLOT(slotEditingFinished()));
+    hLayout->addWidget(d->urlLine);
 
     // setup language box
     QComboBox *box = new QComboBox;
@@ -136,23 +140,21 @@ MainWindow::MainWindow(QWidget *parent)
     box->addItems(languages);
     d->quotesWidget->setAcceptLanguage(box->currentText());
     connect(box, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotLanguageChanged(QString)));
-
-    // setup layouts
-    QHBoxLayout *hLayout = new QHBoxLayout;
-    hLayout->addWidget(d->urlLine);
     hLayout->addWidget(box);
 
+    // setup browser window
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addLayout(hLayout);
-    layout->addWidget(webPage);
+    layout->addWidget(webPage->widget());
     QWidget *group = new QWidget;
     group->setLayout(layout);
     browserWidget->setWidget(group);
     addDockWidget(Qt::RightDockWidgetArea, browserWidget);
+    webPage->setWebInspectorEnabled(true);
+#endif
 
     setCentralWidget(nullptr);
 
-    webPage->setWebInspectorEnabled(true);
     readPositionSettings();
 }
 

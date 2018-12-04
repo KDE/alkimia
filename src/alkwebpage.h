@@ -23,9 +23,12 @@
 #include <alkimia/alk_export.h>
 
 #include <QObject>
-#include <QWebView>
 
 class QUrl;
+
+#if defined(BUILD_WITH_WEBKIT)
+
+#include <QWebView>
 
 /**
  * The AlkWebPage class provides an interface
@@ -40,6 +43,7 @@ public:
     AlkWebPage(QWidget *parent = nullptr);
     virtual ~AlkWebPage();
 
+    QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
     QString getFirstElement(const QString &symbol);
@@ -50,5 +54,40 @@ private:
     class Private;
     Private *d;
 };
+
+#else
+
+#include <QWidget>
+
+/**
+ * The AlkWebPage class provides an interface
+ * to a browser component with javascript support
+ * It is used for fetching and showing web pages.
+ *
+ * @author Ralf Habacker <ralf.habacker@freenet.de>
+ */
+class ALK_EXPORT AlkWebPage : public QWidget
+{
+public:
+    AlkWebPage(QWidget *parent = nullptr);
+    virtual ~AlkWebPage();
+
+    QWidget *widget();
+    void load(const QUrl &url, const QString &acceptLanguage);
+    void setUrl(const QUrl &url);
+    void setContent(const QString &s);
+    QString toHtml();
+    QString getFirstElement(const QString &symbol);
+    void setWebInspectorEnabled(bool enable);
+    bool webInspectorEnabled();
+Q_SIGNALS:
+    void loadStarted();
+    void loadFinished(bool);
+
+private:
+    class Private;
+    Private *d;
+};
+#endif
 
 #endif // ALKWEBPAGE_H

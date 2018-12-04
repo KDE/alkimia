@@ -34,7 +34,6 @@ add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_
 if(NOT BUILD_QT4)
     set (ALKIMIA_INTERNAL_LIBS
         PRIVATE
-        ${QT_USE_LIBSPREFIX}WebKitWidgets
         KF5::CoreAddons
         KF5::KDELibs4Support
         KF5::NewStuff
@@ -100,16 +99,17 @@ if(BUILD_QT4)
         PRIVATE
         ${KDE_LIBRARIES}
         ${KDE4_KDEUI_LIBS}
-        ${KDE4_KNEWSTUFF3_LIBS})
+        ${KDE4_KNEWSTUFF3_LIBS}
+    )
 else()
     set(ALKIMIA_LIBS
         PRIVATE
-        ${QT_USE_LIBSPREFIX}WebKitWidgets
         KF5::KDELibs4Support
         KF5::NewStuff
     )
     add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
 endif()
+
 target_link_libraries(alkimia
     PRIVATE
     alkimia-internal
@@ -117,8 +117,8 @@ target_link_libraries(alkimia
     ${ALKIMIA_LIBS}
     ${QT_USE_LIBSPREFIX}DBus
     PUBLIC
-    ${QT_USE_LIBSPREFIX}WebKit
     ${MP_LIBRARIES}
+    ${QT_BROWSER_LIB}
 )
 
 if(NOT BUILD_QT4 AND MSVC)
