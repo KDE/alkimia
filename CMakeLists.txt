@@ -4,7 +4,7 @@ if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
-project(alkimia VERSION 7.0.80)
+project(alkimia VERSION 8.0.0)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
 
