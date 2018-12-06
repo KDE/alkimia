@@ -2,12 +2,14 @@
 Name=Online Quote
 Name[de]=Online-Kursnotizen
 Name[es]=Cotización en línea
+Name[nl]=Online koersen
 Name[pt]=Cotação 'Online'
 Name[sv]=Direktkurs
 Name[uk]=Інтернет-курс
 Name[x-test]=xxOnline Quotexx
 Comment=Plasma applet for an online quote
 Comment[es]=Miniaplicación de Plasma para cotizaciones en línea
+Comment[nl]=Plasma-applet voor een online valutakoers
 Comment[pt]=Elemento do Plasma para obter cotações 'online'
 Comment[sv]=Plasma-miniprogram för direktkurser
 Comment[uk]=Аплет Плазми для інтернет-курсів
