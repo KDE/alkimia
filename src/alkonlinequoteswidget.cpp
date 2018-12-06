@@ -54,6 +54,11 @@ public:
     AlkOnlineQuotesProfile *m_profile;
     bool m_showProfiles;
     bool m_showUpload;
+    QPixmap m_emptyIcon;
+    QPixmap m_inWorkIcon;
+    QPixmap m_okIcon;
+    QPixmap m_failIcon;
+    QPixmap m_unknownIcon;
 
     Private(bool showProfiles, bool showUpload, QWidget *parent);
 public slots:
@@ -81,6 +86,7 @@ public:
     void loadProfiles();
     void loadQuotesList(const bool updateResetList = false);
     void clearIcons();
+    void initIcons();
     void setupIcons(const AlkOnlineQuote::Errors &errors);
     QString singleSymbol() const;
     QStringList doubleSymbol() const;
@@ -93,11 +99,15 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_profile(nullptr)
     , m_showProfiles(showProfiles)
     , m_showUpload(showUpload)
+    , m_inWorkIcon(BarIcon("view-refresh"))
+    , m_okIcon(BarIcon("dialog-ok-apply"))
+    , m_failIcon(BarIcon("dialog-cancel"))
 {
     setupUi(parent);
 
     profilesGroupBox->setVisible(showProfiles);
     m_uploadButton->setVisible(showUpload);
+    m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
     loadProfiles();
 
@@ -362,31 +372,37 @@ void AlkOnlineQuotesWidget::Private::slotNewEntry()
 
 void AlkOnlineQuotesWidget::Private::clearIcons()
 {
-    QPixmap emptyIcon;
-    m_urlCheckLabel->setPixmap(emptyIcon);
-    m_dateCheckLabel->setPixmap(emptyIcon);
-    m_priceCheckLabel->setPixmap(emptyIcon);
-    m_symbolCheckLabel->setPixmap(emptyIcon);
-    m_dateFormatCheckLabel->setPixmap(emptyIcon);
+    m_urlCheckLabel->setPixmap(m_emptyIcon);
+    m_dateCheckLabel->setPixmap(m_emptyIcon);
+    m_priceCheckLabel->setPixmap(m_emptyIcon);
+    m_symbolCheckLabel->setPixmap(m_emptyIcon);
+    m_dateFormatCheckLabel->setPixmap(m_emptyIcon);
+}
+
+void AlkOnlineQuotesWidget::Private::initIcons()
+{
+    m_urlCheckLabel->setPixmap(m_inWorkIcon);
+    m_dateCheckLabel->setPixmap(m_inWorkIcon);
+    m_priceCheckLabel->setPixmap(m_inWorkIcon);
+    m_symbolCheckLabel->setPixmap(m_inWorkIcon);
+    m_dateFormatCheckLabel->setPixmap(m_inWorkIcon);
 }
 
 void AlkOnlineQuotesWidget::Private::setupIcons(const AlkOnlineQuote::Errors &errors)
 {
-    QPixmap okIcon(BarIcon("dialog-ok-apply"));
-    QPixmap failIcon(BarIcon("dialog-cancel"));
-
+    clearIcons();
     if (errors & AlkOnlineQuote::Errors::URL) {
-        m_urlCheckLabel->setPixmap(failIcon);
+        m_urlCheckLabel->setPixmap(m_failIcon);
     } else {
-        m_urlCheckLabel->setPixmap(okIcon);
-        m_symbolCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Symbol ? failIcon : okIcon);
-        m_priceCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Price ? failIcon : okIcon);
+        m_urlCheckLabel->setPixmap(m_okIcon);
+        m_symbolCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Symbol ? m_failIcon : m_okIcon);
+        m_priceCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Price ? m_failIcon : m_okIcon);
         if (errors & AlkOnlineQuote::Errors::Date) {
-            m_dateCheckLabel->setPixmap(failIcon);
+            m_dateCheckLabel->setPixmap(m_failIcon);
         } else {
-            m_dateCheckLabel->setPixmap(okIcon);
+            m_dateCheckLabel->setPixmap(m_okIcon);
             m_dateFormatCheckLabel->setPixmap(
-                errors & AlkOnlineQuote::Errors::DateFormat ? failIcon : okIcon);
+                errors & AlkOnlineQuote::Errors::DateFormat ? m_failIcon : m_okIcon);
         }
     }
 }
@@ -405,6 +421,7 @@ void AlkOnlineQuotesWidget::Private::slotCheckEntry()
     connect(&quote, SIGNAL(failed(QString,QString)), this, SLOT(slotLogFailed(QString,QString)));
     connect(&quote, SIGNAL(quote(QString,QString,QDate,double)), this,
             SLOT(slotLogQuote(QString,QString,QDate,double)));
+    initIcons();
     if (m_currentItem.url().contains("%2")) {
         quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.name());
     } else {
