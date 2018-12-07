@@ -16,6 +16,7 @@ else()
 endif()
 
 ecm_add_tests(
+    alkonlinequotesourcetest.cpp
     alkvaluetest.cpp
     alkquoteitemtest.cpp
     alkcompanytest.cpp
