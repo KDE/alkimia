@@ -69,6 +69,9 @@ else()
         Plasma
         NewStuff
     )
+    find_package(Qt5Test REQUIRED)
+    include_directories(${Qt5Test_INCLUDE_DIRECTORIES})
+
     set(QT_USE_LIBSPREFIX Qt5::)
     set(ALKIMIA_LIB_SUFFIX "5")
     set(ALKIMIA_INCLUDE_SUFFIX "Qt5")
