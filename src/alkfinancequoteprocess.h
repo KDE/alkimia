@@ -33,7 +33,7 @@ by the Finance::Quote package, and more user-friendly names.
 
 @author Thomas Baumgart <thb@net-bembel.de> & Ace Jones <acejones@users.sourceforge.net>, Tony B<tonybloom@users.sourceforge.net>
  */
-class ALK_EXPORT AlkFinanceQuoteProcess : public KProcess
+class ALK_NO_EXPORT AlkFinanceQuoteProcess : public KProcess
 {
     Q_OBJECT
 public:

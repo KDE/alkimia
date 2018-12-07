@@ -33,7 +33,7 @@
   * This class describes an exception that is thrown by the engine
   * in case of a failure.
   */
-class ALK_EXPORT AlkException
+class ALK_NO_EXPORT AlkException
 {
 public:
 

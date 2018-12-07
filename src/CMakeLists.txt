@@ -11,10 +11,18 @@ include_directories(
 ########### target alkimia-internal ###########
 
 set(alkimia_INTERNAL_SRCS
+    alkdateformat.cpp
+    alkexception.cpp
+    alkonlinequoteprocess.cpp
+    alkquoteitem.cpp
     alkquotereceiver.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
+    alkdateformat.h
+    alkexception.h
+    alkonlinequoteprocess.h
+    alkquoteitem.h
     alkquotereceiver.h
 )
 
@@ -41,31 +49,23 @@ set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
     alkcompany.cpp
-    alkdateformat.cpp
-    alkexception.cpp
     alkfinancequoteprocess.cpp
     alkonlinequote.cpp
-    alkonlinequoteprocess.cpp
     alkonlinequotesource.cpp
     alkonlinequotesprofile.cpp
     alkonlinequotesprofilemanager.cpp
     alkonlinequoteswidget.cpp
-    alkquoteitem.cpp
     alkvalue.cpp
 )
 
 set(alkimia_LIB_HEADERS
     alkcompany.h
-    alkdateformat.h
-    alkexception.h
     alkfinancequoteprocess.h
     alkonlinequote.h
-    alkonlinequoteprocess.h
     alkonlinequotesource.h
     alkonlinequotesprofile.h
     alkonlinequotesprofilemanager.h
     alkonlinequoteswidget.h
-    alkquoteitem.h
 )
 
 set(alkimia_UI

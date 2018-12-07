@@ -32,7 +32,7 @@
  * It holds information of use to assess the equity value
  */
 
-class ALK_EXPORT AlkQuoteItem : public QObject
+class ALK_NO_EXPORT AlkQuoteItem : public QObject
 {
     Q_OBJECT
 
