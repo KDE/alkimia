@@ -70,7 +70,7 @@ else()
         NewStuff
     )
     find_package(Qt5Test REQUIRED)
-    include_directories(${Qt5Test_INCLUDE_DIRECTORIES})
+    include_directories(${Qt5Test_INCLUDE_DIRS})
 
     set(QT_USE_LIBSPREFIX Qt5::)
     set(ALKIMIA_LIB_SUFFIX "5")
