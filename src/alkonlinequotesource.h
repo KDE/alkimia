@@ -72,7 +72,7 @@ public:
 
 protected:
     class Private;
-    Private *d;
+    Private *const d;
 };
 
 #endif // ALKONLINEQUOTESOURCE_H

@@ -126,7 +126,7 @@ signals:
 
 private:
     class Private;
-    Private *d;
+    Private *const d;
 };
 
 #endif // ALKONLINEQUOTE_H

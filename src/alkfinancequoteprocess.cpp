@@ -37,6 +37,7 @@ public:
 };
 
 AlkFinanceQuoteProcess::AlkFinanceQuoteProcess()
+  : d(new Private)
 {
     d->m_fqNames["aex"] = "AEX";
     d->m_fqNames["aex_futures"] = "AEX Futures";

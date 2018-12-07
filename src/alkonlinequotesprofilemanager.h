@@ -41,7 +41,7 @@ public:
     static AlkOnlineQuotesProfileManager &instance();
 private:
     class Private;
-    Private *d;
+    Private *const d;
 };
 
 #endif // ALKONLINEQUOTESPROFILEMANAGER_H

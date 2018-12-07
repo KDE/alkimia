@@ -176,9 +176,8 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other)
 
 AlkOnlineQuoteSource &AlkOnlineQuoteSource::operator=(const AlkOnlineQuoteSource &other)
 {
-    delete d;
-    d = new Private(other.d);
-    return *this;
+    AlkOnlineQuoteSource *p = new AlkOnlineQuoteSource(other);
+    return *p;
 }
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, const QString &url,

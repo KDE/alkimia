@@ -50,7 +50,7 @@ public slots:
 
 private:
     class Private;
-    Private *d;
+    Private *const d;
 };
 
 #endif // ALKFINANCEQUOTEPROCESS_H
