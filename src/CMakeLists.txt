@@ -117,6 +117,14 @@ target_link_libraries(alkimia
     ${MP_LIBRARIES}
 )
 
+if(NOT BUILD_QT4 AND MSVC)
+    message(WARNING "Applying fix for broken Qt WebKit package (see https://phabricator.kde.org/T10146 for details)")
+    target_link_libraries(alkimia
+        PRIVATE
+        ${QT_USE_LIBSPREFIX}Test
+    )
+endif()
+
 install(
     DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/alkimia
     DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia/${ALKIMIA_INCLUDE_SUFFIX}
