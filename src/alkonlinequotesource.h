@@ -33,14 +33,19 @@
 class ALK_EXPORT AlkOnlineQuoteSource
 {
 public:
+
     AlkOnlineQuoteSource();
-    AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other);
-    AlkOnlineQuoteSource &operator=(const AlkOnlineQuoteSource &other);
-    AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile);
-    AlkOnlineQuoteSource(const QString &name, const QString &url, const QString &sym,
+    explicit AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile);
+    explicit AlkOnlineQuoteSource(const QString &name, const QString &url, const QString &sym,
                          const QString &price, const QString &date, const QString &dateformat,
                          bool skipStripping = false);
     ~AlkOnlineQuoteSource();
+
+    AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other);
+    AlkOnlineQuoteSource &operator=(AlkOnlineQuoteSource other);
+
+    friend void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second);
+
     bool isValid();
 
     bool read();
@@ -72,7 +77,13 @@ public:
 
 protected:
     class Private;
-    Private *const d;
+    Private *d;
 };
+
+inline void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second) // krazy:exclude=inline
+{
+  using std::swap;
+  swap(first.d, second.d);
+}
 
 #endif // ALKONLINEQUOTESOURCE_H

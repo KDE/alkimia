@@ -174,10 +174,10 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other)
 {
 }
 
-AlkOnlineQuoteSource &AlkOnlineQuoteSource::operator=(const AlkOnlineQuoteSource &other)
+AlkOnlineQuoteSource &AlkOnlineQuoteSource::operator=(AlkOnlineQuoteSource other)
 {
-    AlkOnlineQuoteSource *p = new AlkOnlineQuoteSource(other);
-    return *p;
+    swap(*this, other);
+    return *this;
 }
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, const QString &url,
