@@ -11,9 +11,11 @@ include_directories(
 ########### target alkimia-internal ###########
 
 set(alkimia_INTERNAL_SRCS
+    alkquotereceiver.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
+    alkquotereceiver.h
 )
 
 set(alkimia_INTERNAL_UI
@@ -49,7 +51,6 @@ set(alkimia_LIB_SRCS
     alkonlinequotesprofilemanager.cpp
     alkonlinequoteswidget.cpp
     alkquoteitem.cpp
-    alkquotereceiver.cpp
     alkvalue.cpp
 )
 
@@ -65,7 +66,6 @@ set(alkimia_LIB_HEADERS
     alkonlinequotesprofilemanager.h
     alkonlinequoteswidget.h
     alkquoteitem.h
-    alkquotereceiver.h
 )
 
 set(alkimia_UI
