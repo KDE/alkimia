@@ -1,14 +1,19 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Foreign Currencies
+Name[ca]=Monedes estrangeres
+Name[ca@valencia]=Monedes estrangeres
 Name[de]=Ausländische Währungen
 Name[es]=Monedas extranjeras
 Name[nl]=Vreemde valuta
 Name[pt]=Moedas Estrangeiras
+Name[sk]=Zahraničné meny
 Name[sv]=Utländska valutor
 Name[uk]=Іноземні валюти
 Name[x-test]=xxForeign Currenciesxx
 Comment=Plasmoid showing current foreign currencies prices. Fork of Foreign Currencies plasmoid by bravenec2nd.
+Comment[ca]=Plasmoide que mostra els preus actuals de les monedes estrangeres. Bifurcació del plasmoide monedes estrangeres per en «bravenec2nd».
+Comment[ca@valencia]=Plasmoide que mostra els preus actuals de les monedes estrangeres. Bifurcació del plasmoide monedes estrangeres per en «bravenec2nd».
 Comment[es]=Plasmoide para mostrar los precios actuales de monedas extranjeras. Bifurcación del plasmoide «Monedas extranjeras» de bravenec2nd.
 Comment[nl]=Plasmoid die huidige koersen van vreemde valuta toont. Afsplitsing van plasmoid Vreemde valuta door bravenec2nd.
 Comment[pt]=Plasmóide que mostra os preços actuais das moedas estrangeiras. Derivado do plasmóide de Moedas Estrangeiras de 'bravenec2nd'.
