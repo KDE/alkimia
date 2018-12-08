@@ -96,6 +96,7 @@ public:
     QWebView *m_webView;
     QString m_acceptLanguage;
     AlkOnlineQuotesProfile *m_profile;
+    bool m_ownProfile;
 
     static int dbgArea()
     {
@@ -107,8 +108,15 @@ public:
         : m_p(parent)
         , m_eventLoop(nullptr)
         , m_webView(nullptr)
+        , m_ownProfile(false)
     {
         connect(&m_filter, SIGNAL(processExited(QString)), this, SLOT(slotParseQuote(QString)));
+    }
+
+    ~Private()
+    {
+        if(m_ownProfile)
+            delete m_profile;
     }
 
     bool initLaunch(const QString &_symbol, const QString &_id, const QString &_source);
@@ -539,8 +547,10 @@ AlkOnlineQuote::AlkOnlineQuote(AlkOnlineQuotesProfile *profile, QObject *_parent
 {
     if (profile)
         d->m_profile = profile;
-    else
+    else {
         d->m_profile = new AlkOnlineQuotesProfile;
+        d->m_ownProfile = true;
+    }
 }
 
 AlkOnlineQuote::~AlkOnlineQuote()
