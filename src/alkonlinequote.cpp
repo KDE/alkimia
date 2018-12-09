@@ -565,7 +565,21 @@ AlkOnlineQuotesProfile *AlkOnlineQuote::profile()
 
 void AlkOnlineQuote::setProfile(AlkOnlineQuotesProfile *profile)
 {
-    d->m_profile = profile;
+    if (profile && d->m_ownProfile) {
+        // switching from own profile to external
+        delete d->m_profile;
+        d->m_ownProfile = false;
+        d->m_profile = profile;
+
+    } else if (!profile && !d->m_ownProfile) {
+        // switching from external to own profile
+        d->m_profile = new AlkOnlineQuotesProfile;
+        d->m_ownProfile = true;
+
+    } else if (profile) {
+        // exchange external profile
+        d->m_profile = profile;
+    }
 }
 
 void AlkOnlineQuote::setWebView(QWebView *view)
