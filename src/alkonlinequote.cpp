@@ -383,8 +383,9 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
         result = slotParseQuote(QString());
     }
 #else
+    Q_UNUSED(_sourcename);
 #if !defined(Q_CC_MSVC)
-  #warning to be implemented
+    #warning to be implemented
 #endif
 #endif
 
