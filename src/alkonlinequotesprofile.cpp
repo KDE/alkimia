@@ -184,6 +184,7 @@ public Q_SLOTS:
         // name for the source.
 
         switch (m_p->type()) {
+        case AlkOnlineQuotesProfile::Type::None:
         case AlkOnlineQuotesProfile::Type::Alkimia4:
         case AlkOnlineQuotesProfile::Type::Alkimia5:
             result["Alkimia Currency"]
@@ -216,7 +217,6 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
     d->m_name = name;
     d->m_GHNSFile = ghnsConfigFile;
     d->m_type = type;
-    d->m_kconfigFile = name + "rc";
     if (type == Type::KMyMoney5)
         d->m_kconfigFile = QString("%1/.config/kmymoney/kmymoneyrc").arg(QDir::homePath());
     else if (type == Type::KMyMoney4)
@@ -225,6 +225,8 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
         d->m_kconfigFile = QString("%1/.config/kmymoney/alkimiarc").arg(QDir::homePath());
     else if (type == Type::Alkimia4)
         d->m_kconfigFile = QString("%1/.kde4/share/config/alkimiarc").arg(QDir::homePath());
+    else
+        d->m_kconfigFile = "";
     if (!d->m_kconfigFile.isEmpty())
         d->m_config = new KConfig(d->m_kconfigFile);
     if (!d->m_GHNSFile.isEmpty()) {
@@ -311,6 +313,8 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::Skrooge:
         result << d->quoteSourcesSkrooge();
         break;
+    case AlkOnlineQuotesProfile::Type::None:
+        result << d->defaultQuoteSources().keys();
     default:
         break;
     }

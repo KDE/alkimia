@@ -36,9 +36,9 @@ class ALK_EXPORT AlkOnlineQuotesProfile
 public:
     typedef QMap<QString, AlkOnlineQuoteSource> Map;
     enum class Type {
-        Undefined, GHNS, Alkimia4, Alkimia5, KMyMoney4, KMyMoney5, Skrooge, Script
+        Undefined, None, Alkimia4, Alkimia5, KMyMoney4, KMyMoney5, Skrooge, Script
     };
-    AlkOnlineQuotesProfile(const QString &name = "alkimia", Type type = Type::KMyMoney4,
+    AlkOnlineQuotesProfile(const QString &name = "alkimia", Type type = Type::None,
         const QString &ghnsConfigFile = QString());
     ~AlkOnlineQuotesProfile();
 

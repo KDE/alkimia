@@ -54,6 +54,8 @@ public:
     bool read()
     {
         KConfig *kconfig = m_profile->kConfig();
+        if (!kconfig)
+            return false;
         const QString &group = QString("Online-Quote-Source-%1").arg(m_name);
         if (!kconfig->hasGroup(group)) {
             return false;
@@ -72,6 +74,8 @@ public:
     bool write()
     {
         KConfig *kconfig = m_profile->kConfig();
+        if (!kconfig)
+            return false;
         KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
         grp.writeEntry("URL", m_url);
         grp.writeEntry("PriceRegex", m_price);
@@ -90,6 +94,8 @@ public:
     bool remove()
     {
         KConfig *kconfig = m_profile->kConfig();
+        if (!kconfig)
+            return false;
         kconfig->deleteGroup(QString("Online-Quote-Source-%1").arg(m_name));
         kconfig->sync();
         return true;
@@ -199,9 +205,13 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, const QString &u
 AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile)
     : d(new Private)
 {
-    d->m_profile = profile;
-    d->m_name = name;
-    read();
+    if (profile->type() == AlkOnlineQuotesProfile::Type::None && profile->defaultQuoteSources().contains(name)) {
+        *this = profile->defaultQuoteSources()[name];
+    } else {
+        d->m_profile = profile;
+        d->m_name = name;
+        read();
+    }
 }
 
 AlkOnlineQuoteSource::~AlkOnlineQuoteSource()
@@ -343,16 +353,19 @@ bool AlkOnlineQuoteSource::write()
 
 void AlkOnlineQuoteSource::rename(const QString &name)
 {
-    remove();
-    d->m_name = name;
-    write();
+    if (d->m_profile->type() != AlkOnlineQuotesProfile::Type::None) {
+        remove();
+        d->m_name = name;
+        write();
+    } else
+        d->m_name = name;
 }
 
 void AlkOnlineQuoteSource::remove()
 {
     if (d->m_profile->hasGHNSSupport() && d->m_isGHNSSource) {
         d->removeGHNSFile();
-    } else {
+    } else if (d->m_profile->type() != AlkOnlineQuotesProfile::Type::None) {
         d->remove();
     }
 }
