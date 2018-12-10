@@ -104,6 +104,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     setupUi(parent);
 
     profilesGroupBox->setVisible(showProfiles);
+    profileDetailsBox->setVisible(showProfiles);
     m_uploadButton->setVisible(showUpload);
     m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
@@ -259,6 +260,16 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
             m_installButton->setVisible(profile->hasGHNSSupport());
         }
     }
+
+    bool visible = m_profile->type() != AlkOnlineQuotesProfile::Type::None;
+    m_configFilePath->setText(m_profile->kConfigFile());
+    m_configFilePath->setVisible(visible);
+    m_configLabel->setVisible(visible);
+
+    visible = m_profile->hasGHNSSupport();
+    m_GHNSConfigFilePath->setText(m_profile->hotNewStuffConfigFile());
+    m_GHNSConfigLabel->setVisible(visible);
+    m_GHNSConfigFilePath->setVisible(visible);
 }
 
 void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
