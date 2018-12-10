@@ -239,14 +239,14 @@ bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, co
         return false;
     }
     AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
-    connect(webPage, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+    connect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(webPage, SIGNAL(loadFinished(bool)), this,
             SLOT(slotLoadFinishedCssSelector(bool)));
     webPage->setUrl(m_url);
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
     delete m_eventLoop;
-    disconnect(webPage, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+    disconnect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     disconnect(webPage, SIGNAL(loadFinished(bool)), this,
                SLOT(slotLoadFinishedCssSelector(bool)));
 
@@ -267,7 +267,7 @@ bool AlkOnlineQuote::Private::launchWebKitHtmlParser(const QString &_symbol, con
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
     delete m_eventLoop;
-    disconnect(webPage, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+    disconnect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     disconnect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
 
     return !(m_errors & Errors::URL || m_errors & Errors::Price
