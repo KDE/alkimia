@@ -23,6 +23,7 @@
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequoteswidget.h"
+#include "alkwebpage.h"
 
 #include <QComboBox>
 #include <QDockWidget>
@@ -34,18 +35,15 @@ class MainWindow::Private
 {
 public:
     Private()
-        : view(nullptr)
-        , urlLine(nullptr)
+        : urlLine(nullptr)
         , quotesWidget(nullptr)
     {
     }
 
     ~Private()
     {
-        delete view;
         delete quotesWidget;
     }
-    QWebView *view;
     QLineEdit *urlLine;
     AlkOnlineQuotesWidget *quotesWidget;
 };
@@ -57,12 +55,7 @@ void MainWindow::slotUrlChanged(const QUrl &url)
 
 void MainWindow::slotEditingFinished()
 {
-    QUrl url(d->urlLine->text());
-    QNetworkRequest request;
-    request.setUrl(url);
-    if (!d->quotesWidget->acceptLanguage().isEmpty())
-        request.setRawHeader("Accept-Language", d->quotesWidget->acceptLanguage().toLocal8Bit());
-    d->view->load(request);
+    AlkOnlineQuotesProfileManager::instance().webPage()->load(QUrl(d->urlLine->text()), d->quotesWidget->acceptLanguage());
 }
 
 void MainWindow::slotLanguageChanged(const QString &text)
@@ -78,6 +71,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
+    manager.setWebPageEnabled(true);
 
     manager.addProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney, "alkimia-quotes.knsrc"));
     //manager.addProfile(new AlkOnlineQuotesProfile("local", AlkOnlineQuotesProfile::Type::GHNS, "alkimia-quotes-local.knsrc"));
@@ -86,14 +80,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     QDockWidget *dockWidget = new QDockWidget(tr("Browser"), this);
-    d->view = new QWebView;
-    connect(d->view, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
+    AlkWebPage *webPage = manager.webPage();
+    connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
 
     d->urlLine = new QLineEdit;
     connect(d->urlLine, SIGNAL(editingFinished()), this, SLOT(slotEditingFinished()));
 
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
-    d->quotesWidget->setView(d->view);
     setCentralWidget(d->quotesWidget);
 
     // setup language box
@@ -119,16 +112,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addLayout(hLayout);
-    layout->addWidget(d->view);
+    layout->addWidget(webPage);
     QWidget *group = new QWidget;
     group->setLayout(layout);
     dockWidget->setWidget(group);
     addDockWidget(Qt::RightDockWidgetArea, dockWidget);
 
-    // setup inspector
-    d->view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-    QWebInspector *inspector = new QWebInspector;
-    inspector->setPage(d->view->page());
+    webPage->setWebInspectorEnabled(true);
 }
 
 MainWindow::~MainWindow()

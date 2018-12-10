@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2018  Ralf Habacker <ralf.habacker@freenet.de>              *
+ *   Copyright 2018 Ralf Habacker <ralf.habacker@freenet.de>               *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -17,36 +17,38 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
-#ifndef ALKONLINEQUOTESPROFILEMANAGER_H
-#define ALKONLINEQUOTESPROFILEMANAGER_H
+#ifndef ALKWEBPAGE_H
+#define ALKWEBPAGE_H
 
-#include <alkimia/alkonlinequotesprofile.h>
+#include <alkimia/alk_export.h>
 
-#include <QList>
-#include <QStringList>
+#include <QObject>
+#include <QWebView>
 
-class AlkWebPage;
+class QUrl;
 
-typedef QList<AlkOnlineQuotesProfile *> AlkOnlineQuotesProfileList;
-
-class ALK_EXPORT AlkOnlineQuotesProfileManager
+/**
+ * The AlkWebPage class provides an interface
+ * to a browser component with javascript support
+ * It is used for fetching and showing web pages.
+ *
+ * @author Ralf Habacker <ralf.habacker@freenet.de>
+ */
+class ALK_NO_EXPORT AlkWebPage : public QWebView
 {
 public:
-    AlkOnlineQuotesProfileManager();
-    ~AlkOnlineQuotesProfileManager();
+    AlkWebPage(QWidget *parent = nullptr);
+    virtual ~AlkWebPage();
 
-    void addProfile(AlkOnlineQuotesProfile *profile);
-    AlkOnlineQuotesProfileList profiles();
-    AlkOnlineQuotesProfile *profile(const QString &name);
-    QStringList profileNames();
-    AlkWebPage *webPage();
-    void setWebPageEnabled(bool enable);
-    bool webPageEnabled();
+    void load(const QUrl &url, const QString &acceptLanguage);
+    QString toHtml();
+    QString getFirstElement(const QString &symbol);
+    void setWebInspectorEnabled(bool enable);
+    bool webInspectorEnabled();
 
-    static AlkOnlineQuotesProfileManager &instance();
 private:
     class Private;
-    Private *const d;
+    Private *d;
 };
 
-#endif // ALKONLINEQUOTESPROFILEMANAGER_H
+#endif // ALKWEBPAGE_H

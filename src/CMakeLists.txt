@@ -16,6 +16,7 @@ set(alkimia_INTERNAL_SRCS
     alkonlinequoteprocess.cpp
     alkquoteitem.cpp
     alkquotereceiver.cpp
+    alkwebpage.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
@@ -24,6 +25,7 @@ set(alkimia_INTERNAL_HEADERS
     alkonlinequoteprocess.h
     alkquoteitem.h
     alkquotereceiver.h
+    alkwebpage.h
 )
 
 set(alkimia_INTERNAL_UI
@@ -34,6 +36,7 @@ add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_
 if(NOT BUILD_QT4)
     set (ALKIMIA_INTERNAL_LIBS
         PRIVATE
+        ${QT_USE_LIBSPREFIX}WebKitWidgets
         KF5::CoreAddons
         KF5::KDELibs4Support
         KF5::NewStuff

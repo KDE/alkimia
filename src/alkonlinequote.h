@@ -28,7 +28,6 @@
 #include <QString>
 
 class AlkOnlineQuotesProfile;
-class QWebView;
 
 /**
 Retrieves a price quote from a web-based quote source
@@ -77,13 +76,6 @@ public:
 
     AlkOnlineQuotesProfile *profile();
     void setProfile(AlkOnlineQuotesProfile *profile);
-
-    /**
-     * Set webkit view for fetching web urls using javascript
-     *
-     * @param view webkit view to set
-     */
-    void setWebView(QWebView *view);
 
     /**
      * Set accepted language the online quote should be returned for

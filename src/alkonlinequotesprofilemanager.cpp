@@ -19,21 +19,45 @@
 
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesprofile.h"
+#include "alkwebpage.h"
+
+#include <QPointer>
 
 class AlkOnlineQuotesProfileManager::Private
 {
 public:
     AlkOnlineQuotesProfileList m_profiles;
+    QPointer<AlkWebPage> m_page;
+    bool m_withPage;
+    Private()
+      : m_withPage(false)
+    {
+    }
+
+    ~Private()
+    {
+        m_page.data()->deleteLater();
+    }
 };
 
 AlkOnlineQuotesProfileManager::AlkOnlineQuotesProfileManager()
-    : d(new Private)
+  : d(new Private)
 {
 }
 
 AlkOnlineQuotesProfileManager::~AlkOnlineQuotesProfileManager()
 {
     delete d;
+}
+
+bool AlkOnlineQuotesProfileManager::webPageEnabled()
+{
+    return d->m_withPage;
+}
+
+void AlkOnlineQuotesProfileManager::setWebPageEnabled(bool enable)
+{
+    d->m_withPage = enable;
 }
 
 void AlkOnlineQuotesProfileManager::addProfile(AlkOnlineQuotesProfile *profile)
@@ -66,6 +90,13 @@ QStringList AlkOnlineQuotesProfileManager::profileNames()
         profiles.append(profile->name());
     }
     return profiles;
+}
+
+AlkWebPage *AlkOnlineQuotesProfileManager::webPage()
+{
+    if (!d->m_page)
+        d->m_page = new AlkWebPage;
+    return d->m_page;
 }
 
 AlkOnlineQuotesProfileManager &AlkOnlineQuotesProfileManager::instance()

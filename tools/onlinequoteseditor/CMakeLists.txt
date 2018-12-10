@@ -29,6 +29,7 @@ endif()
 
 target_link_libraries(onlinequoteseditor
     alkimia
+    alkimia-internal
     ${LIBS}
 )
 

@@ -46,7 +46,6 @@ class AlkOnlineQuotesWidget::Private : public QWidget, public Ui::AlkOnlineQuote
 {
     Q_OBJECT
 public:
-    QWebView *m_webView;
     QString m_acceptLanguage;
     QList<AlkOnlineQuoteSource> m_resetList;
     AlkOnlineQuoteSource m_currentItem;
@@ -94,8 +93,7 @@ public:
 };
 
 AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWidget *parent)
-    : m_webView(nullptr)
-    , m_quoteInEditing(false)
+    : m_quoteInEditing(false)
     , m_profile(nullptr)
     , m_showProfiles(showProfiles)
     , m_showUpload(showUpload)
@@ -413,7 +411,6 @@ void AlkOnlineQuotesWidget::Private::slotCheckEntry()
     m_logWindow->setVisible(true);
     m_logWindow->clear();
     clearIcons();
-    quote.setWebView(m_webView);
     quote.setAcceptLanguage(m_acceptLanguage);
 
     connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
@@ -556,11 +553,6 @@ void AlkOnlineQuotesWidget::resetConfig()
     }
 
     d->loadQuotesList();
-}
-
-void AlkOnlineQuotesWidget::setView(QWebView *view)
-{
-    d->m_webView = view;
 }
 
 QString AlkOnlineQuotesWidget::acceptLanguage() const

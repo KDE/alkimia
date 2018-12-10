@@ -24,19 +24,17 @@
 #include "alkfinancequoteprocess.h"
 #include "alkonlinequoteprocess.h"
 #include "alkonlinequotesprofile.h"
+#include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesource.h"
+#include "alkwebpage.h"
 
 #include <QApplication>
 #include <QByteArray>
 #include <QFile>
 //#include <QFileInfo>
-#include <QNetworkRequest>
 #include <QRegExp>
-#include <QtWebKit>
 #include <QTextStream>
 #include <QTextCodec>
-#include <QWebView>
-#include <QWebFrame>
 
 #include <KConfigGroup>
 #include <KDebug>
@@ -93,7 +91,6 @@ public:
     AlkOnlineQuote::Errors m_errors;
     KUrl m_url;
     QEventLoop *m_eventLoop;
-    QWebView *m_webView;
     QString m_acceptLanguage;
     AlkOnlineQuotesProfile *m_profile;
     bool m_ownProfile;
@@ -107,7 +104,6 @@ public:
     Private(AlkOnlineQuote *parent)
         : m_p(parent)
         , m_eventLoop(nullptr)
-        , m_webView(nullptr)
         , m_ownProfile(false)
     {
         connect(&m_filter, SIGNAL(processExited(QString)), this, SLOT(slotParseQuote(QString)));
@@ -115,7 +111,7 @@ public:
 
     ~Private()
     {
-        if(m_ownProfile)
+        if (m_ownProfile)
             delete m_profile;
     }
 
@@ -190,8 +186,7 @@ void AlkOnlineQuote::Private::slotLoadFinishedHtmlParser(bool ok)
         emit m_p->failed(m_id, m_symbol);
     } else {
         // parse symbol
-        QWebFrame *frame = m_webView->page()->mainFrame();
-        slotParseQuote(frame->toHtml());
+        slotParseQuote(AlkOnlineQuotesProfileManager::instance().webPage()->toHtml());
     }
     if (m_eventLoop)
         m_eventLoop->exit();
@@ -204,10 +199,9 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
         m_errors |= Errors::URL;
         emit m_p->failed(m_id, m_symbol);
     } else {
+        AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
         // parse symbol
-        QWebFrame *frame = m_webView->page()->mainFrame();
-        QWebElement element = frame->findFirstElement(m_source.sym());
-        QString symbol = element.toPlainText();
+        QString symbol = webPage->getFirstElement(m_source.sym());
         if (!symbol.isEmpty()) {
             emit m_p->status(i18n("Symbol found: '%1'", symbol));
         } else {
@@ -216,13 +210,11 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
         }
 
         // parse price
-        element = frame->findFirstElement(m_source.price());
-        QString price = element.toPlainText();
+        QString price = webPage->getFirstElement(m_source.price());
         bool gotprice = parsePrice(price);
 
         // parse date
-        element = frame->findFirstElement(m_source.date());
-        QString date = element.toPlainText();
+        QString date = webPage->getFirstElement(m_source.date());
         bool gotdate = parseDate(date);
 
         if (gotprice && gotdate) {
@@ -246,15 +238,16 @@ bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, co
     if (!initLaunch(_symbol, _id, _source)) {
         return false;
     }
-    connect(m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
-    connect(m_webView, SIGNAL(loadFinished(bool)), this,
+    AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
+    connect(webPage, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+    connect(webPage, SIGNAL(loadFinished(bool)), this,
             SLOT(slotLoadFinishedCssSelector(bool)));
-    m_webView->setUrl(m_url);
+    webPage->setUrl(m_url);
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
     delete m_eventLoop;
-    disconnect(m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
-    disconnect(m_webView, SIGNAL(loadFinished(bool)), this,
+    disconnect(webPage, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+    disconnect(webPage, SIGNAL(loadFinished(bool)), this,
                SLOT(slotLoadFinishedCssSelector(bool)));
 
     return !(m_errors & Errors::URL || m_errors & Errors::Price
@@ -267,19 +260,15 @@ bool AlkOnlineQuote::Private::launchWebKitHtmlParser(const QString &_symbol, con
     if (!initLaunch(_symbol, _id, _source)) {
         return false;
     }
-    connect(m_webView, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
-    QNetworkRequest request;
-    request.setUrl(m_url);
-    if (!m_acceptLanguage.isEmpty())
-        request.setRawHeader("Accept-Language", m_acceptLanguage.toLocal8Bit());
-    m_webView->load(request);
+    AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
+    connect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
+    connect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
+    webPage->load(m_url, m_acceptLanguage);
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
     delete m_eventLoop;
-    disconnect(m_webView, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
-    disconnect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(
-                                                                        bool)));
+    disconnect(webPage, SIGNAL(loadStarted(bool)), this, SLOT(slotLoadStarted(bool)));
+    disconnect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
 
     return !(m_errors & Errors::URL || m_errors & Errors::Price
              || m_errors & Errors::Date || m_errors & Errors::Data);
@@ -331,8 +320,8 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
                 QString quote = codec->toUnicode(page);
                 f.close();
                 emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
-                if (m_webView)
-                    m_webView->setContent(quote.toLocal8Bit());
+                if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
+                    AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
                 result = slotParseQuote(quote);
             } else {
                 emit m_p->error(i18n("Failed to open downloaded file"));
@@ -581,11 +570,6 @@ void AlkOnlineQuote::setProfile(AlkOnlineQuotesProfile *profile)
         // exchange external profile
         d->m_profile = profile;
     }
-}
-
-void AlkOnlineQuote::setWebView(QWebView *view)
-{
-    d->m_webView = view;
 }
 
 void AlkOnlineQuote::setAcceptLanguage(const QString &language)

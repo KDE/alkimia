@@ -22,9 +22,9 @@
 #include "alkonlinequote.h"
 #include "alkonlinequotesprofile.h"
 #include "alkquotereceiver.h"
+#include "alkwebpage.h"
 
 #include <QtTest/QtTest>
-#include <QWebView>
 
 QTEST_MAIN(AlkOnlineQuoteTest)
 
@@ -49,10 +49,7 @@ void AlkOnlineQuoteTest::testLaunch()
 {
     AlkOnlineQuote quote(m_profile);
     convertertest::AlkQuoteReceiver receiver(&quote);
-    QWebView *view = new QWebView;
-    quote.setWebView(view);
     receiver.setVerbose(true);
 
     QVERIFY(quote.launch("EUR USD", "EUR USD", m_profile->quoteSources().first()));
-    delete view;
 }

@@ -25,7 +25,6 @@
 
 #include <QWidget>
 
-class QWebView;
 class QListWidgetItem;
 
 class ALK_EXPORT AlkOnlineQuotesWidget : public QWidget
@@ -39,7 +38,6 @@ public:
     void readConfig();
     void resetConfig();
 
-    void setView(QWebView *view);
     QString acceptLanguage() const;
     void setAcceptLanguage(const QString &text);
 
