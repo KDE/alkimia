@@ -19,10 +19,6 @@
   <property name="windowTitle">
    <string>Online Quotes</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_8">
-     <item>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
         <widget class="QGroupBox" name="profilesGroupBox">
@@ -451,10 +447,6 @@
         </widget>
        </item>
       </layout>
-     </item>
-    </layout>
-   </item>
-  </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
