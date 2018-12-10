@@ -51,5 +51,18 @@ void AlkOnlineQuoteTest::testLaunch()
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);
 
-    QVERIFY(quote.launch("EUR USD", "EUR USD", m_profile->quoteSources().first()));
+    foreach(const QString &source, m_profile->quoteSources())
+        if (!source.endsWith(".webkit"))
+            QVERIFY(quote.launch("EUR USD", "EUR USD", source));
+}
+
+void AlkOnlineQuoteTest::testLaunchWebKit()
+{
+    AlkOnlineQuote quote(m_profile);
+    convertertest::AlkQuoteReceiver receiver(&quote);
+    receiver.setVerbose(true);
+
+    foreach(const QString &source, m_profile->quoteSources())
+        if (source.endsWith(".webkit"))
+            QVERIFY(quote.launch("EUR USD", "EUR USD", source));
 }

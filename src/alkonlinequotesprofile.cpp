@@ -186,18 +186,21 @@ public Q_SLOTS:
         switch (m_p->type()) {
         case AlkOnlineQuotesProfile::Type::None:
         case AlkOnlineQuotesProfile::Type::Alkimia4:
-        case AlkOnlineQuotesProfile::Type::Alkimia5:
-            result["Alkimia Currency"]
-                = AlkOnlineQuoteSource("Alkimia Currency",
-                                       "https://fx-rate.net/%1/%2",
-                                       QString(), // symbolregexp
-                                       "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
-                                       "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                                       "%d/%m/%y",
-                                       true // skip HTML stripping
-                                       );
-            result["Alkimia Currency"].setProfile(m_p);
+        case AlkOnlineQuotesProfile::Type::Alkimia5: {
+            AlkOnlineQuoteSource source("Alkimia Currency",
+                                        "https://fx-rate.net/%1/%2",
+                                        QString(), // symbolregexp
+                                        "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
+                                        "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
+                                        "%d/%m/%y",
+                                        true // skip HTML stripping
+                                        );
+            source.setProfile(m_p);
+            result[source.name()] = source;
+            source.setName(source.name() + ".webkit");
+            result[source.name()] = source;
             break;
+        }
         default:
             break;
         }
