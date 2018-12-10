@@ -24,6 +24,7 @@
 #include "alkfinancequoteprocess.h"
 
 #include <QApplication>
+#include <QDir>
 #include <QString>
 #include <QtDebug>
 #include <QFileInfo>
@@ -182,7 +183,9 @@ public Q_SLOTS:
         // we have the capability to use more than one source. Use a neutral
         // name for the source.
 
-        if (m_p->name() == "alkimia") {
+        switch (m_p->type()) {
+        case AlkOnlineQuotesProfile::Type::Alkimia4:
+        case AlkOnlineQuotesProfile::Type::Alkimia5:
             result["Alkimia Currency"]
                 = AlkOnlineQuoteSource("Alkimia Currency",
                                        "https://fx-rate.net/%1/%2",
@@ -193,6 +196,9 @@ public Q_SLOTS:
                                        true // skip HTML stripping
                                        );
             result["Alkimia Currency"].setProfile(m_p);
+            break;
+        default:
+            break;
         }
         return result;
     }
@@ -211,7 +217,16 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
     d->m_GHNSFile = ghnsConfigFile;
     d->m_type = type;
     d->m_kconfigFile = name + "rc";
-    d->m_config = new KConfig(d->m_kconfigFile);
+    if (type == Type::KMyMoney5)
+        d->m_kconfigFile = QString("%1/.config/kmymoney/kmymoneyrc").arg(QDir::homePath());
+    else if (type == Type::KMyMoney4)
+        d->m_kconfigFile = QString("%1/.kde4/share/config/kmymoneyrc").arg(QDir::homePath());
+    else if (type == Type::Alkimia5)
+        d->m_kconfigFile = QString("%1/.config/kmymoney/alkimiarc").arg(QDir::homePath());
+    else if (type == Type::Alkimia4)
+        d->m_kconfigFile = QString("%1/.kde4/share/config/alkimiarc").arg(QDir::homePath());
+    if (!d->m_kconfigFile.isEmpty())
+        d->m_config = new KConfig(d->m_kconfigFile);
     if (!d->m_GHNSFile.isEmpty()) {
         KConfig ghnsFile(hotNewStuffConfigFile());
         KConfigGroup group = ghnsFile.group("KNewStuff3");
@@ -284,7 +299,10 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
 {
     QStringList result;
     switch(d->m_type) {
-    case AlkOnlineQuotesProfile::Type::KMyMoney:
+    case AlkOnlineQuotesProfile::Type::Alkimia4:
+    case AlkOnlineQuotesProfile::Type::Alkimia5:
+    case AlkOnlineQuotesProfile::Type::KMyMoney4:
+    case AlkOnlineQuotesProfile::Type::KMyMoney5:
         result << d->quoteSourcesNative();
         break;
     case AlkOnlineQuotesProfile::Type::Script:

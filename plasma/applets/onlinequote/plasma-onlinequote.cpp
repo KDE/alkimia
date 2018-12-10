@@ -45,8 +45,10 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
     // manager is shared between plasmoids
     if(AlkOnlineQuotesProfileManager::instance().profiles().size() == 0) {
-        manager.addProfile(new AlkOnlineQuotesProfile("alkimia", AlkOnlineQuotesProfile::Type::KMyMoney));
-        manager.addProfile(new AlkOnlineQuotesProfile("kmymoney", AlkOnlineQuotesProfile::Type::KMyMoney));
+        manager.addProfile(new AlkOnlineQuotesProfile("alkimia4", AlkOnlineQuotesProfile::Type::Alkimia4));
+        manager.addProfile(new AlkOnlineQuotesProfile("alkimia5", AlkOnlineQuotesProfile::Type::Alkimia5));
+        manager.addProfile(new AlkOnlineQuotesProfile("kmymoney4", AlkOnlineQuotesProfile::Type::KMyMoney4));
+        manager.addProfile(new AlkOnlineQuotesProfile("kmymoney5", AlkOnlineQuotesProfile::Type::KMyMoney5));
     }
 }
 

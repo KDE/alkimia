@@ -24,6 +24,8 @@
 
 #include <QString>
 
+class AlkOnlineQuotesProfile;
+
 /**
   * @author Thomas Baumgart & Ace Jones
   *

@@ -30,7 +30,7 @@ QTEST_MAIN(AlkOnlineQuoteTest)
 
 void AlkOnlineQuoteTest::init()
 {
-    m_profile = new AlkOnlineQuotesProfile("alkimia",AlkOnlineQuotesProfile::Type::KMyMoney);
+    m_profile = new AlkOnlineQuotesProfile("alkimia");
 }
 
 void AlkOnlineQuoteTest::cleanup()

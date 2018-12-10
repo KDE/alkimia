@@ -21,6 +21,7 @@
 #define ALKONLINEQUOTESPROFILE_H
 
 #include <alkimia/alk_export.h>
+#include <alkimia/alkonlinequotesource.h>
 
 #include <QString>
 #include <QMap>
@@ -35,9 +36,9 @@ class ALK_EXPORT AlkOnlineQuotesProfile
 public:
     typedef QMap<QString, AlkOnlineQuoteSource> Map;
     enum class Type {
-        Undefined, GHNS, KMyMoney, Skrooge, Script
+        Undefined, GHNS, Alkimia4, Alkimia5, KMyMoney4, KMyMoney5, Skrooge, Script
     };
-    AlkOnlineQuotesProfile(const QString &name = "alkimia", Type type = Type::KMyMoney,
+    AlkOnlineQuotesProfile(const QString &name = "alkimia", Type type = Type::KMyMoney4,
         const QString &ghnsConfigFile = QString());
     ~AlkOnlineQuotesProfile();
 
