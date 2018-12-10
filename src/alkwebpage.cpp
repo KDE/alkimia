@@ -59,6 +59,9 @@ AlkWebPage::AlkWebPage(QWidget *parent)
   : QWebView(parent)
   , d(new Private)
 {
+    page()->settings()->setAttribute(QWebSettings::JavaEnabled, false);
+    page()->settings()->setAttribute(QWebSettings::AutoLoadImages, false);
+    page()->settings()->setAttribute(QWebSettings::PluginsEnabled, false);
 }
 
 AlkWebPage::~AlkWebPage()
