@@ -167,6 +167,9 @@ public Q_SLOTS:
                  KStandardDirs().findAllResources("data", relPath + QString::fromLatin1("/*.txt"))) {
             QFileInfo f(file);
             QString file2 = f.completeBaseName();
+            AlkOnlineQuoteSource source(file2, m_p);
+            if (!source.isEmpty())
+                continue;
             if (!sources.contains(file2)) {
                 sources.push_back(file2);
             }

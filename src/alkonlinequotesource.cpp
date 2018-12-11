@@ -219,6 +219,11 @@ AlkOnlineQuoteSource::~AlkOnlineQuoteSource()
     delete d;
 }
 
+bool AlkOnlineQuoteSource::isEmpty()
+{
+    return !isValid()  && !d->m_url.isEmpty();
+}
+
 bool AlkOnlineQuoteSource::isValid()
 {
     return !d->m_name.isEmpty();

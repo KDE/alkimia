@@ -48,6 +48,7 @@ public:
 
     friend void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second);
 
+    bool isEmpty();
     bool isValid();
 
     bool read();
