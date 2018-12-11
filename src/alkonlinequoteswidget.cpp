@@ -289,7 +289,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
     m_GHNSConfigFilePath->setEnabled(visible);
     m_GHNSConfigLabel->setEnabled(visible);
 
-    m_GHNSDataPath->setText(m_profile->hotNewStuffWriteDir());
+    m_GHNSDataPath->setText(m_profile->hotNewStuffReadPath().join(" "));
     m_GHNSDataPath->setVisible(visible);
     m_GHNSDataLabel->setEnabled(visible);
 }
