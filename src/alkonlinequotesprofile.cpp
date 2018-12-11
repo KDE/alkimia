@@ -270,6 +270,11 @@ QString AlkOnlineQuotesProfile::hotNewStuffWriteFilePath(const QString &fileName
     return KStandardDirs::locateLocal("data", d->m_GHNSFilePath + "/" + fileName);
 }
 
+QString AlkOnlineQuotesProfile::hotNewStuffWriteDir() const
+{
+    return KStandardDirs().saveLocation("data", d->m_GHNSFilePath + "/");
+}
+
 QString AlkOnlineQuotesProfile::hotNewStuffRelPath() const
 {
     return d->m_GHNSFilePath;

@@ -45,6 +45,7 @@ public:
     QString name() const;
     QString hotNewStuffConfigFile() const;
     QString hotNewStuffRelPath() const;
+    QString hotNewStuffWriteDir() const;
     QString hotNewStuffReadFilePath(const QString &fileName) const;
     QString hotNewStuffWriteFilePath(const QString &fileName) const;
     QString kConfigFile() const;

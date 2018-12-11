@@ -264,12 +264,16 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
     bool visible = m_profile->type() != AlkOnlineQuotesProfile::Type::None;
     m_configFilePath->setText(m_profile->kConfigFile());
     m_configFilePath->setVisible(visible);
-    m_configLabel->setVisible(visible);
+    m_configLabel->setEnabled(visible);
 
     visible = m_profile->hasGHNSSupport();
     m_GHNSConfigFilePath->setText(m_profile->hotNewStuffConfigFile());
-    m_GHNSConfigLabel->setVisible(visible);
-    m_GHNSConfigFilePath->setVisible(visible);
+    m_GHNSConfigFilePath->setEnabled(visible);
+    m_GHNSConfigLabel->setEnabled(visible);
+
+    m_GHNSDataPath->setText(m_profile->hotNewStuffWriteDir());
+    m_GHNSDataPath->setVisible(visible);
+    m_GHNSDataLabel->setEnabled(visible);
 }
 
 void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
