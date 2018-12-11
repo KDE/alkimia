@@ -103,18 +103,12 @@ public:
 
     QString ghnsReadFilePath()
     {
-        QString fileName = m_profile->hotNewStuffReadFilePath(m_name);
-        if (!fileName.endsWith(".txt"))
-            fileName.append(".txt");
-        return fileName;
+        return m_profile->hotNewStuffReadFilePath(m_name + QLatin1String(".txt"));
     }
 
     QString ghnsWriteFilePath()
     {
-        QString fileName = m_profile->hotNewStuffWriteFilePath(m_name);
-        if (!fileName.endsWith(".txt"))
-            fileName.append(".txt");
-        return fileName;
+        return m_profile->hotNewStuffWriteFilePath(m_name + QLatin1String(".txt"));
     }
 
     // This is currently in skrooge format
