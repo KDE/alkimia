@@ -226,9 +226,18 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
     }
     m_quoteSourceList->sortItems();
 
-    QListWidgetItem *first = m_quoteSourceList->item(0);
-    if (first) {
-        m_quoteSourceList->setCurrentItem(first);
+    QListWidgetItem *item = nullptr;
+    if (!m_currentItem.name().isEmpty()) {
+        QList<QListWidgetItem*> items = m_quoteSourceList->findItems(m_currentItem.name(), Qt::MatchExactly);
+        if (items.size() > 0)
+            item = items.at(0);
+        if (item)
+            m_quoteSourceList->setCurrentItem(item);
+    }
+    if (!item) {
+        item = m_quoteSourceList->item(0);
+        if (item)
+            m_quoteSourceList->setCurrentItem(item);
     }
     slotLoadWidgets();
 
@@ -386,13 +395,8 @@ void AlkOnlineQuotesWidget::Private::slotNewEntry()
 {
     AlkOnlineQuoteSource newSource(i18n("New Quote Source"), m_profile);
     newSource.write();
+    m_currentItem = newSource;
     loadQuotesList();
-    QListWidgetItem *item
-        = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).at(0);
-    if (item) {
-        m_quoteSourceList->setCurrentItem(item);
-        slotLoadWidgets();
-    }
 }
 
 void AlkOnlineQuotesWidget::Private::clearIcons()
