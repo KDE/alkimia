@@ -240,11 +240,9 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
             m_quoteSourceList->setCurrentItem(item);
     }
     slotLoadWidgets();
-
-    m_newButton->setEnabled((m_quoteSourceList->findItems(i18n("New Quote Source"),
-                                                          Qt::MatchExactly)).count() == 0);
     connect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem *)), this,
             SLOT(slotEntryRenamed(QListWidgetItem *)));
+    slotEntryChanged();
 }
 
 void AlkOnlineQuotesWidget::Private::slotNewProfile()
