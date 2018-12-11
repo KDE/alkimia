@@ -70,6 +70,7 @@ public slots:
     void slotLoadProfile();
 
     void slotDeleteEntry();
+    void slotDuplicateEntry();
     void slotUpdateEntry();
     void slotLoadWidgets();
     void slotEntryChanged();
@@ -156,6 +157,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
     connect(m_checkButton, SIGNAL(clicked()), this, SLOT(slotCheckEntry()));
     connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
+    connect(m_duplicateButton, SIGNAL(clicked()), this, SLOT(slotDuplicateEntry()));
     connect(m_installButton, SIGNAL(clicked()), this, SLOT(slotInstallEntries()));
     connect(m_uploadButton, SIGNAL(clicked()), this, SLOT(slotUploadEntry()));
 
@@ -370,6 +372,25 @@ void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
     m_currentItem.remove();
     delete item;
     slotEntryChanged();
+}
+
+void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
+{
+    QList<QListWidgetItem *> items = m_quoteSourceList->findItems(
+        m_currentItem.name(), Qt::MatchExactly);
+    if (items.size() == 0) {
+        return;
+    }
+    QListWidgetItem *item = items.at(0);
+    if (!item) {
+        return;
+    }
+
+    AlkOnlineQuoteSource copy(m_currentItem);
+    copy.setName(copy.name() + i18n(".copy"));
+    copy.write();
+    m_currentItem = copy;
+    loadQuotesList();
 }
 
 void AlkOnlineQuotesWidget::Private::slotUpdateEntry()

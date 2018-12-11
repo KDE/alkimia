@@ -194,6 +194,22 @@
          </widget>
         </item>
         <item>
+         <widget class="KPushButton" name="m_duplicateButton">
+          <property name="toolTip">
+           <string>Create a duplicate of the currently selected source entry under a different name.</string>
+          </property>
+          <property name="whatsThis">
+           <string>Use this to create a duplicate of an entry for an online source</string>
+          </property>
+          <property name="text">
+           <string>Duplicate</string>
+          </property>
+          <property name="icon">
+           <iconset theme="edit-copy"/>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="KPushButton" name="m_installButton">
           <property name="text">
            <string>Install</string>
