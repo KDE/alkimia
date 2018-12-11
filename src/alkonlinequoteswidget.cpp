@@ -23,6 +23,7 @@
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesource.h"
+#include "alkwebpage.h"
 
 #include <QRegExp>
 #include <QCheckBox>
@@ -58,8 +59,10 @@ public:
     QPixmap m_okIcon;
     QPixmap m_failIcon;
     QPixmap m_unknownIcon;
+    QDialog *m_webPageDialog;
 
     Private(bool showProfiles, bool showUpload, QWidget *parent);
+    ~Private();
 public slots:
     void slotNewProfile();
     void slotDeleteProfile();
@@ -80,6 +83,7 @@ public slots:
     void slotStartRename(QListWidgetItem *item);
     void slotInstallEntries();
     void slotUploadEntry();
+    void slotShowButton();
 
 public:
     void loadProfiles();
@@ -93,18 +97,21 @@ public:
 };
 
 AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWidget *parent)
-    : m_quoteInEditing(false)
+    : QWidget(parent)
+    , m_quoteInEditing(false)
     , m_profile(nullptr)
     , m_showProfiles(showProfiles)
     , m_showUpload(showUpload)
     , m_inWorkIcon(BarIcon("view-refresh"))
     , m_okIcon(BarIcon("dialog-ok-apply"))
     , m_failIcon(BarIcon("dialog-cancel"))
+    , m_webPageDialog(nullptr)
 {
     setupUi(parent);
 
     profilesGroupBox->setVisible(showProfiles);
     profileDetailsBox->setVisible(showProfiles);
+    m_showButton->setVisible(!showProfiles);
     m_uploadButton->setVisible(showUpload);
     m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
@@ -165,12 +172,17 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_skipStripping, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
     connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
+    connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowButton()));
 
     m_checkSymbol->setText("ORCL");
     m_checkSymbol2->setText("BTC GBP");
     m_updateButton->setEnabled(false);
-    m_showButton->setVisible(false);
     slotLoadProfile();
+}
+
+AlkOnlineQuotesWidget::Private::~Private()
+{
+    m_webPageDialog->deleteLater();
 }
 
 void AlkOnlineQuotesWidget::Private::loadProfiles()
@@ -521,6 +533,20 @@ void AlkOnlineQuotesWidget::Private::slotUploadEntry()
     dialog->setUploadFile(url);
     dialog->exec();
     delete dialog;
+}
+
+void AlkOnlineQuotesWidget::Private::slotShowButton()
+{
+    if (!m_webPageDialog) {
+        m_webPageDialog = new QDialog;
+        m_webPageDialog->setWindowTitle(i18n("Online Quote HTML Result Window"));
+        QVBoxLayout *layout = new QVBoxLayout;
+        AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
+        webPage->setWebInspectorEnabled(true);
+        layout->addWidget(webPage);
+        m_webPageDialog->setLayout(layout);
+    }
+    m_webPageDialog->show();
 }
 
 QString AlkOnlineQuotesWidget::Private::expandedUrl() const
