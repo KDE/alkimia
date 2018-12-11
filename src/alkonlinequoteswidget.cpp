@@ -200,15 +200,13 @@ void AlkOnlineQuotesWidget::Private::loadProfiles()
 
 void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
 {
-    //disconnect the slot while items are being loaded and reconnect at the end
-    disconnect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem *)), this,
-               SLOT(slotEntryRenamed(QListWidgetItem *)));
     m_quoteInEditing = false;
     QStringList groups = m_profile->quoteSources();
 
     if (updateResetList) {
         m_resetList.clear();
     }
+    m_quoteSourceList->blockSignals(true);
     m_quoteSourceList->clear();
     QStringList::Iterator it;
     for (it = groups.begin(); it != groups.end(); ++it) {
@@ -239,9 +237,8 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
         if (item)
             m_quoteSourceList->setCurrentItem(item);
     }
+    m_quoteSourceList->blockSignals(false);
     slotLoadWidgets();
-    connect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem *)), this,
-            SLOT(slotEntryRenamed(QListWidgetItem *)));
     slotEntryChanged();
 }
 
