@@ -265,7 +265,12 @@ QString AlkOnlineQuotesProfile::hotNewStuffConfigFile() const
 
 QString AlkOnlineQuotesProfile::hotNewStuffReadFilePath(const QString &fileName) const
 {
-    return KStandardDirs::locate("data", d->m_GHNSFilePath + "/" +  fileName);
+    foreach(const QString &path, hotNewStuffReadPath()) {
+        QFileInfo f(path + fileName);
+        if (f.exists())
+            return f.absoluteFilePath();
+    }
+    return QString();
 }
 
 QString AlkOnlineQuotesProfile::hotNewStuffWriteFilePath(const QString &fileName) const
