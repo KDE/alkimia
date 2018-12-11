@@ -286,7 +286,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
 
     visible = m_profile->hasGHNSSupport();
     m_GHNSConfigFilePath->setText(m_profile->hotNewStuffConfigFile());
-    m_GHNSConfigFilePath->setEnabled(visible);
+    m_GHNSConfigFilePath->setVisible(visible);
     m_GHNSConfigLabel->setEnabled(visible);
 
     m_GHNSDataPath->setText(m_profile->hotNewStuffReadPath().join(" "));
