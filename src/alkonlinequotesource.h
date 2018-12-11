@@ -64,6 +64,7 @@ public:
     QString dateformat() const;
     bool skipStripping() const;
     bool isGHNS();
+    bool isReadOnly();
 
     void setName(const QString &name);
     void setUrl(const QString &url);

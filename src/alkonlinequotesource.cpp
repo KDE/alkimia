@@ -35,6 +35,7 @@ public:
         , m_profile(nullptr)
         , m_isGHNSSource(false)
         , m_storageChanged(false)
+        , m_readOnly(true)
     {
     }
 
@@ -48,6 +49,7 @@ public:
         , m_skipStripping(other->m_skipStripping)
         , m_profile(other->m_profile)
         , m_isGHNSSource(other->m_isGHNSSource)
+        , m_readOnly(other->m_readOnly)
     {
     }
 
@@ -68,6 +70,7 @@ public:
         m_url = grp.readEntry("URL");
         m_skipStripping = grp.readEntry("SkipStripping", false);
         m_isGHNSSource = false;
+        m_readOnly = false;
         return true;
     }
 
@@ -117,6 +120,7 @@ public:
         QFileInfo f(ghnsReadFilePath());
         if (!f.exists())
             f.setFile(ghnsWriteFilePath());
+        m_readOnly = !f.isWritable();
         KConfig config(f.absoluteFilePath());
         KConfigGroup group(&config, "<default>");
         if (!(group.hasKey("mode") && group.readEntry("mode") == "HTML"
@@ -162,6 +166,7 @@ public:
     AlkOnlineQuotesProfile *m_profile;
     bool m_isGHNSSource;
     bool m_storageChanged;
+    bool m_readOnly;
 };
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource()
@@ -302,6 +307,11 @@ void AlkOnlineQuoteSource::setGHNS(bool state)
 bool AlkOnlineQuoteSource::isGHNS()
 {
     return d->m_isGHNSSource;
+}
+
+bool AlkOnlineQuoteSource::isReadOnly()
+{
+    return d->m_readOnly;
 }
 
 QString AlkOnlineQuoteSource::ghnsWriteFileName()
