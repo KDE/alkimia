@@ -168,8 +168,10 @@ public Q_SLOTS:
             QFileInfo f(file);
             QString file2 = f.completeBaseName();
             AlkOnlineQuoteSource source(file2, m_p);
-            if (!source.isEmpty())
+            if (source.isEmpty()) {
+                qDebug() << "skipping" << file2;
                 continue;
+            }
             if (!sources.contains(file2)) {
                 sources.push_back(file2);
             }
