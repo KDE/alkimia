@@ -342,7 +342,7 @@ void AlkOnlineQuotesWidget::Private::slotEntryChanged()
     bool noNewEntry = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0;
     m_newButton->setEnabled(hasWriteSupport && noNewEntry);
     m_duplicateButton->setEnabled(hasWriteSupport);
-    m_deleteButton->setEnabled(!m_currentItem.isReadOnly());
+    m_deleteButton->setEnabled(!m_currentItem.isReadOnly() && !m_currentItem.isGHNS());
     m_uploadButton->setEnabled(m_profile->hasGHNSSupport() && m_currentItem.isGHNS());
     m_updateButton->setEnabled(modified);
     m_checkButton->setEnabled(!modified);
