@@ -113,6 +113,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     profilesGroupBox->setVisible(showProfiles);
     profileDetailsBox->setVisible(showProfiles);
     m_showButton->setVisible(!showProfiles);
+    m_ghnsSource->setEnabled(showProfiles);
     m_uploadButton->setVisible(showUpload);
     m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
@@ -305,7 +306,6 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
     m_editDate->setEnabled(item != nullptr);
     m_editDateFormat->setEnabled(item != nullptr);
     m_skipStripping->setEnabled(item != nullptr);
-    m_ghnsSource->setEnabled(item != nullptr);
 
     m_editURL->clear();
     m_editSymbol->clear();
