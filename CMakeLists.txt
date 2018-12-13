@@ -82,6 +82,7 @@ else()
     if(CMAKE_COMPILER_IS_GNUCC)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
     endif()
+    add_definitions(-DKDELIBS4SUPPORT_NO_DEPRECATED_NOISE)
 endif()
 
 # figure out which multi-precision library to use
