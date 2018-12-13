@@ -19,12 +19,32 @@
 
 #include "alkdateformat.h"
 
+#include <QtDebug>
+
+const QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
+                                         unsigned _centurymidpoint) const
+{
+    if (m_format.contains("%"))
+        return convertStringKMyMoney(_in, _strict, _centurymidpoint);
+    else
+        return convertStringSkrooge(_in);
+}
+
+const QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
+{
+    QDate date = QDate::fromString(_in, m_format);
+    if (!date.isValid()) {
+        throw ALKEXCEPTION(QString("Invalid date %s").arg(_in));
+    }
+    return date;
+}
+
 #if QT_VERSION < 0x050000
 #include <KGlobal>
 #include <KCalendarSystem>
 
-const QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
-                                         unsigned _centurymidpoint) const
+const QDate AlkDateFormat::convertStringKMyMoney(const QString &_in, bool _strict,
+                                                 unsigned _centurymidpoint) const
 {
     //
     // Break date format string into component parts
@@ -165,7 +185,7 @@ const QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
 #include <QLocale>
 #include <QRegularExpression>
 
-const QDate AlkDateFormat::convertString(const QString& _in, bool _strict, unsigned _centurymidpoint) const
+const QDate AlkDateFormat::convertStringKMyMoney(const QString& _in, bool _strict, unsigned _centurymidpoint) const
 {
   //
   // Break date format string into component parts

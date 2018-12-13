@@ -26,7 +26,8 @@ class AlkDateFormatTest : public QObject
 {
     Q_OBJECT
 private slots:
-    void testDateFormat();
+    void testDateFormatKMyMoney();
+    void testDateFormatSkrooge();
 };
 
 #endif // ALKDATEFORMATTEST_H

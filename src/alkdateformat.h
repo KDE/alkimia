@@ -51,6 +51,11 @@ public:
         return m_format;
     }
 
+protected:
+    const QDate convertStringKMyMoney(const QString &_in, bool _strict = true,
+                                      unsigned _centurymidpoint = QDate::currentDate().year()) const;
+    const QDate convertStringSkrooge(const QString &_in) const;
+
 private:
     QString m_format;
 };
