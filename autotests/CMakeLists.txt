@@ -31,3 +31,9 @@ ecm_add_test(
     LINK_LIBRARIES ${TEST_LIB}
     TEST_NAME alkonlinequotestest
 )
+
+ecm_add_test(
+    alkdateformattest.cpp
+    LINK_LIBRARIES ${TEST_LIB}
+    TEST_NAME alkdateformattest
+)
