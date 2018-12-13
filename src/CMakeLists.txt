@@ -149,11 +149,17 @@ install(TARGETS alkimia
   ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
+if(BUILD_QT4)
+    set(KNSRC_INSTALL_DIR ${DATA_INSTALL_DIR}/kde4/config)
+else()
+    set(KNSRC_INSTALL_DIR ${CONFIG_INSTALL_DIR})
+endif()
+
 install(FILES
     alkimia-quotes.knsrc
     kmymoney-quotes.knsrc
     skrooge-quotes.knsrc
-    DESTINATION ${CONFIG_INSTALL_DIR}
+    DESTINATION ${KNSRC_INSTALL_DIR}
 )
 
 install(FILES financequote.pl
