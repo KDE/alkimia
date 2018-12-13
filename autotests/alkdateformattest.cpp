@@ -75,7 +75,8 @@ void AlkDateFormatTest::testDateFormatSkrooge()
     AlkDateFormat format3("MMMM-dd-yyyy");
 
     QVERIFY(format1.convertString("1-5-2005") == QDate(2005, 1, 5));
-    QVERIFY(format2.convertString("jan-15-2005") == QDate(2005, 1, 15));
+    QVERIFY(format2.convertString("Dez-15-2005") == QDate(2005, 12, 15));
+    QVERIFY(format2.convertString("Dec-15-2005") == QDate(2005, 12, 15));
     QVERIFY(format3.convertString("august-25-2005") == QDate(2005, 8, 25));
 
     format1 = AlkDateFormat("M/d/yy");

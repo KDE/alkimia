@@ -32,9 +32,14 @@ const QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
 
 const QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
 {
-    QDate date = QDate::fromString(_in, m_format);
+    QLocale locale(QLocale::C);
+    QDate date = locale.toDate(_in, m_format);
     if (!date.isValid()) {
-        throw ALKEXCEPTION(QString("Invalid date %s").arg(_in));
+        locale = QLocale(QLocale::German);
+        date = locale.toDate(_in, m_format);
+        if (!date.isValid()) {
+            throw ALKEXCEPTION(QString("Invalid date '%1'").arg(_in));
+        }
     }
     return date;
 }
