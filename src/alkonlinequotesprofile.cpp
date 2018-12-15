@@ -230,7 +230,7 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
     else if (type == Type::KMyMoney4)
         d->m_kconfigFile = QString("%1/.kde4/share/config/kmymoneyrc").arg(QDir::homePath());
     else if (type == Type::Alkimia5)
-        d->m_kconfigFile = QString("%1/.config/kmymoney/alkimiarc").arg(QDir::homePath());
+        d->m_kconfigFile = QString("%1/.config/alkimiarc").arg(QDir::homePath());
     else if (type == Type::Alkimia4)
         d->m_kconfigFile = QString("%1/.kde4/share/config/alkimiarc").arg(QDir::homePath());
     else
