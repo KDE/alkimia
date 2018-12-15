@@ -38,6 +38,12 @@ public:
     void readConfig();
     void resetConfig();
 
+    QWidget *profilesWidget();
+    QWidget *profileDetailsWidget();
+    QWidget *onlineQuotesWidget();
+    QWidget *quoteDetailsWidget();
+    QWidget *debugWidget();
+
     QString acceptLanguage() const;
     void setAcceptLanguage(const QString &text);
 

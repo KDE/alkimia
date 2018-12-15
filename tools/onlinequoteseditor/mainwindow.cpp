@@ -81,15 +81,33 @@ MainWindow::MainWindow(QWidget *parent)
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney5", AlkOnlineQuotesProfile::Type::KMyMoney5, "kmymoney-quotes.knsrc"));
     ui->setupUi(this);
 
-    QDockWidget *dockWidget = new QDockWidget(tr("Browser"), this);
+    d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
+
+    QDockWidget *profilesWidget = new QDockWidget(tr("Profiles"), this);
+    profilesWidget->setWidget(d->quotesWidget->profilesWidget());
+    addDockWidget(Qt::LeftDockWidgetArea, profilesWidget);
+
+    QDockWidget *profileDetailsWidget = new QDockWidget(tr("Profile details"), this);
+    profileDetailsWidget->setWidget(d->quotesWidget->profileDetailsWidget());
+    addDockWidget(Qt::RightDockWidgetArea, profileDetailsWidget);
+
+    QDockWidget *onlineQuotesWidget = new QDockWidget(tr("Online quotes"), this);
+    onlineQuotesWidget->setWidget(d->quotesWidget->onlineQuotesWidget());
+    addDockWidget(Qt::LeftDockWidgetArea, onlineQuotesWidget);
+
+    QDockWidget *debugWidget = new QDockWidget(tr("Debug"), this);
+    debugWidget->setWidget(d->quotesWidget->debugWidget());
+    addDockWidget(Qt::LeftDockWidgetArea, debugWidget);
+
+    QDockWidget *quoteDetailsWidget = new QDockWidget(tr("Quote details"), this);
+    quoteDetailsWidget->setWidget(d->quotesWidget->quoteDetailsWidget());
+    addDockWidget(Qt::RightDockWidgetArea, quoteDetailsWidget);
+
+    QDockWidget *browserWidget = new QDockWidget(tr("Browser"), this);
     AlkWebPage *webPage = manager.webPage();
     connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
-
     d->urlLine = new QLineEdit;
     connect(d->urlLine, SIGNAL(editingFinished()), this, SLOT(slotEditingFinished()));
-
-    d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
-    setCentralWidget(d->quotesWidget);
 
     // setup language box
     QComboBox *box = new QComboBox;
@@ -117,8 +135,10 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(webPage);
     QWidget *group = new QWidget;
     group->setLayout(layout);
-    dockWidget->setWidget(group);
-    addDockWidget(Qt::RightDockWidgetArea, dockWidget);
+    browserWidget->setWidget(group);
+    addDockWidget(Qt::RightDockWidgetArea, browserWidget);
+
+    setCentralWidget(nullptr);
 
     webPage->setWebInspectorEnabled(true);
 }

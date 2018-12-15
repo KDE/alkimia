@@ -594,6 +594,41 @@ AlkOnlineQuotesWidget::~AlkOnlineQuotesWidget()
     delete d;
 }
 
+QWidget *AlkOnlineQuotesWidget::profilesWidget()
+{
+    QFrame *frame = new QFrame;
+    frame->setLayout(d->profilesGroupBox->layout());
+    return frame;
+}
+
+QWidget *AlkOnlineQuotesWidget::profileDetailsWidget()
+{
+    QFrame *frame = new QFrame;
+    frame->setLayout(d->profileDetailsBox->layout());
+    return frame;
+}
+
+QWidget *AlkOnlineQuotesWidget::onlineQuotesWidget()
+{
+    QFrame *frame = new QFrame;
+    frame->setLayout(d->onlineQuotesGroupBox->layout());
+    return frame;
+}
+
+QWidget *AlkOnlineQuotesWidget::quoteDetailsWidget()
+{
+    QFrame *frame = new QFrame;
+    frame->setLayout(d->detailsGroupBox->layout());
+    return frame;
+}
+
+QWidget *AlkOnlineQuotesWidget::debugWidget()
+{
+    QFrame *frame = new QFrame;
+    frame->setLayout(d->debugGroupBox->layout());
+    return frame;
+}
+
 void AlkOnlineQuotesWidget::readConfig()
 {
 }
