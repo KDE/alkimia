@@ -75,7 +75,11 @@ void AlkDateFormatTest::testDateFormatSkrooge()
     AlkDateFormat format3("MMMM-dd-yyyy");
 
     QVERIFY(format1.convertString("1-5-2005") == QDate(2005, 1, 5));
+#if QT_VERSION >= 0x050000
+    QVERIFY(format2.convertString("Dez.-15-2005") == QDate(2005, 12, 15));
+#else
     QVERIFY(format2.convertString("Dez-15-2005") == QDate(2005, 12, 15));
+#endif
     QVERIFY(format2.convertString("Dec-15-2005") == QDate(2005, 12, 15));
     QVERIFY(format3.convertString("august-25-2005") == QDate(2005, 8, 25));
 
