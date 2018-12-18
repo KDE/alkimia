@@ -128,8 +128,8 @@ private:
     Private *const d;
 };
 
-ALK_EXPORT QDBusArgument &operator<<(QDBusArgument &argument, const AlkQuoteItem &item);
-ALK_EXPORT const QDBusArgument &operator>>(const QDBusArgument &argument, AlkQuoteItem &item);
+ALK_NO_EXPORT QDBusArgument &operator<<(QDBusArgument &argument, const AlkQuoteItem &item);
+ALK_NO_EXPORT const QDBusArgument &operator>>(const QDBusArgument &argument, AlkQuoteItem &item);
 
 Q_DECLARE_METATYPE(AlkQuoteItem)
 
