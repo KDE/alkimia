@@ -461,7 +461,7 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
     if (!quotedata.isEmpty()) {
         if (!m_source.skipStripping()) {
             //
-            // First, remove extranous non-data elements
+            // First, remove extraneous non-data elements
             //
 
             // HTML tags

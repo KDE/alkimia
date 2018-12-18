@@ -43,7 +43,7 @@ public:
       * object. It automatically inserts the filename and the source
       * code line into the object upon creation.
       *
-      * It is equivilant to AlkException(text, __FILE__, __LINE__)
+      * It is equivalent to AlkException(text, __FILE__, __LINE__)
       */
 #define ALKEXCEPTION(what) AlkException(what, __FILE__, __LINE__)
 

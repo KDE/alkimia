@@ -31,10 +31,10 @@
  *
  * Universal date converter
  *
- * In 'strict' mode, this is designed to be compatable with the QIF profile date
+ * In 'strict' mode, this is designed to be compatible with the QIF profile date
  * converter.  However, that converter deals with the concept of an apostrophe
  * format in a way I don't understand.  So for the moment, they are 99%
- * compatable, waiting on that issue. (acejones)
+ * compatible, waiting on that issue. (acejones)
  */
 class ALK_NO_EXPORT AlkDateFormat
 {

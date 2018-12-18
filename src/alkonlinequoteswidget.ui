@@ -23,7 +23,7 @@
    <item>
     <widget class="QGroupBox" name="profilesGroupBox">
      <property name="whatsThis">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select, add or delete an application profile, where where to load profiles from and save into eg. kmymoney or skrooge.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select, add or delete an application profile, where to load profiles from and save into eg. kmymoney or skrooge.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="title">
       <string>Application Profiles</string>
