@@ -24,10 +24,6 @@
 
 class QUrl;
 
-namespace Ui {
-class MainWindow;
-}
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -44,7 +40,6 @@ protected slots:
 private:
     class Private;
     Private *const d;
-    Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H

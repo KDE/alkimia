@@ -46,6 +46,7 @@ public:
     }
     QLineEdit *urlLine;
     AlkOnlineQuotesWidget *quotesWidget;
+    Ui::MainWindow ui;
 };
 
 void MainWindow::slotUrlChanged(const QUrl &url)
@@ -68,7 +69,6 @@ void MainWindow::slotLanguageChanged(const QString &text)
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , d(new Private)
-    , ui(new Ui::MainWindow)
 {
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
     manager.setWebPageEnabled(true);
@@ -79,7 +79,7 @@ MainWindow::MainWindow(QWidget *parent)
     manager.addProfile(new AlkOnlineQuotesProfile("skrooge", AlkOnlineQuotesProfile::Type::None, "skrooge-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney4", AlkOnlineQuotesProfile::Type::KMyMoney4, "kmymoney-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney5", AlkOnlineQuotesProfile::Type::KMyMoney5, "kmymoney-quotes.knsrc"));
-    ui->setupUi(this);
+    d->ui.setupUi(this);
 
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
 
@@ -146,5 +146,4 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete d;
-    delete ui;
 }
