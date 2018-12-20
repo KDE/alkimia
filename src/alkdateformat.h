@@ -43,8 +43,8 @@ public:
     {
     }
 
-    const QString convertDate(const QDate &_in) const;
-    const QDate convertString(const QString &_in, bool _strict = true,
+    QString convertDate(const QDate &_in) const;
+    QDate convertString(const QString &_in, bool _strict = true,
                               unsigned _centurymidpoint = QDate::currentDate().year()) const;
     const QString &format() const
     {
@@ -52,9 +52,9 @@ public:
     }
 
 protected:
-    const QDate convertStringKMyMoney(const QString &_in, bool _strict = true,
+    QDate convertStringKMyMoney(const QString &_in, bool _strict = true,
                                       unsigned _centurymidpoint = QDate::currentDate().year()) const;
-    const QDate convertStringSkrooge(const QString &_in) const;
+    QDate convertStringSkrooge(const QString &_in) const;
 
 private:
     QString m_format;

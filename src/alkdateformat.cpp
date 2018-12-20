@@ -21,7 +21,7 @@
 
 #include <QtDebug>
 
-const QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
+QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
                                          unsigned _centurymidpoint) const
 {
     if (m_format.contains("%"))
@@ -30,7 +30,7 @@ const QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
         return convertStringSkrooge(_in);
 }
 
-const QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
+QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
 {
     QDate date;
     if (m_format == "UNIX") {
@@ -55,7 +55,7 @@ const QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
 #include <KGlobal>
 #include <KCalendarSystem>
 
-const QDate AlkDateFormat::convertStringKMyMoney(const QString &_in, bool _strict,
+QDate AlkDateFormat::convertStringKMyMoney(const QString &_in, bool _strict,
                                                  unsigned _centurymidpoint) const
 {
     //
@@ -197,7 +197,7 @@ const QDate AlkDateFormat::convertStringKMyMoney(const QString &_in, bool _stric
 #include <QLocale>
 #include <QRegularExpression>
 
-const QDate AlkDateFormat::convertStringKMyMoney(const QString& _in, bool _strict, unsigned _centurymidpoint) const
+QDate AlkDateFormat::convertStringKMyMoney(const QString& _in, bool _strict, unsigned _centurymidpoint) const
 {
   //
   // Break date format string into component parts
