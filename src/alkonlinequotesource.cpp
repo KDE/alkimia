@@ -21,6 +21,7 @@
 
 #include "alkonlinequotesprofile.h"
 
+#include <QFile>
 #include <QFileInfo>
 #include <QtDebug>
 
@@ -121,18 +122,30 @@ public:
         if (!f.exists())
             f.setFile(ghnsWriteFilePath());
         m_readOnly = !f.isWritable();
-        KConfig config(f.absoluteFilePath());
-        KConfigGroup group(&config, "<default>");
-        if (!(group.hasKey("mode") && group.readEntry("mode") == "HTML"
-              && group.hasKey("url") && group.hasKey("date")
-              && group.hasKey("dateformat") && group.hasKey("price"))) {
+
+        QFile file(f.absoluteFilePath());
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
             return false;
+
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            int index = line.indexOf("=");
+            if (index == -1)
+                return false;
+            QString key = line.left(index);
+            QString value = line.mid(index+1);
+            if (key == "url")
+                m_url = value;
+            else if (key == "price")
+                m_price = value;
+            else if (key == "date")
+                m_date = value;
+            else if (key == "dateformat")
+                m_dateformat = value;
         }
+
         m_skipStripping = true;
-        m_url = group.readEntry("url");
-        m_price = group.readEntry("price");
-        m_date = group.readEntry("date");
-        m_dateformat = group.readEntry("dateformat");
         m_isGHNSSource = true;
         return true;
     }
@@ -140,13 +153,16 @@ public:
     // This is currently in skrooge format
     bool writeToGHNSFile()
     {
-        KConfig config(ghnsWriteFilePath());
-        KConfigGroup group(&config, "<default>");
-        group.writeEntry("url", m_url);
-        group.writeEntry("price", m_price);
-        group.writeEntry("date", m_date);
-        group.writeEntry("dateformat", m_dateformat);
-        group.writeEntry("mode", "HTML");
+        QFile file(ghnsWriteFilePath());
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+            return false;
+
+        QTextStream out(&file);
+        out << "date=" << m_date << "\n";
+        out << "dateformat=" << m_dateformat << "\n";
+        out << "mode=HTML\n";
+        out << "price=" << m_price << "\n";
+        out << "url=" << m_url << "\n";
         return true;
     }
 
