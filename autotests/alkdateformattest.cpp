@@ -87,17 +87,17 @@ void AlkDateFormatTest::testDateFormatSkrooge()
     format2 = AlkDateFormat("MMM/dd/yy");
     format3 = AlkDateFormat("MMMM/dd/yy");
 
-    QVERIFY(format1.convertString("1/5/05") == QDate(1905, 1, 5));
-    QVERIFY(format2.convertString("jan/15/05") == QDate(1905, 1, 15));
-    QVERIFY(format3.convertString("august/25/05") == QDate(1905, 8, 25));
+    QVERIFY(format1.convertString("1/5/05") == QDate(2005, 1, 5));
+    QVERIFY(format2.convertString("jan/15/05") == QDate(2005, 1, 15));
+    QVERIFY(format3.convertString("august/25/05") == QDate(2005, 8, 25));
 
     format1 = AlkDateFormat("d.M.yy");
     format2 = AlkDateFormat("dd.MMM.yy");
     format3 = AlkDateFormat("dd.MMMM.yy");
 
-    QVERIFY(format1.convertString("1.5.05") == QDate(1905, 5, 1));
-    QVERIFY(format2.convertString("15.jan.05") == QDate(1905, 1, 15));
-    QVERIFY(format3.convertString("25.august.05") == QDate(1905, 8, 25));
+    QVERIFY(format1.convertString("1.5.05") == QDate(2005, 5, 1));
+    QVERIFY(format2.convertString("15.jan.05") == QDate(2005, 1, 15));
+    QVERIFY(format3.convertString("25.august.05") == QDate(2005, 8, 25));
 
     format1 = AlkDateFormat("yyyy\\dd\\MM");
     format2 = AlkDateFormat("yyyy\\dd\\MMM");

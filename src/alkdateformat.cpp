@@ -32,15 +32,22 @@ const QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
 
 const QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
 {
-    QLocale locale(QLocale::C);
-    QDate date = locale.toDate(_in, m_format);
-    if (!date.isValid()) {
-        locale = QLocale(QLocale::German);
-        date = locale.toDate(_in, m_format);
+    QDate date;
+    if (m_format == "UNIX") {
+        date = QDateTime::fromTime_t((_in.toUInt())).date();
+    } else {
+        date = QDate::fromString(_in, m_format);
+        // Try with an english locale
         if (!date.isValid()) {
-            throw ALKEXCEPTION(QString("Invalid date '%1'").arg(_in));
+            QLocale en("en_EN");
+            date = en.toDate(_in, m_format);
         }
     }
+    if (!date.isValid()) {
+        throw ALKEXCEPTION(QString("Invalid date '%1'").arg(_in));
+    }
+    if (!m_format.contains(QStringLiteral("yyyy")) && date.year() < 2000)
+        date = date.addYears(100);
     return date;
 }
 
