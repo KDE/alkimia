@@ -113,6 +113,10 @@ void AlkDateFormatTest::testDateFormatSkrooge()
 
     QVERIFY(format1.convertString("jan 15, 2005") == QDate(2005, 1, 15));
     QVERIFY(format2.convertString("august 25, 2005") == QDate(2005, 8, 25));
+
+    format1 = AlkDateFormat("UNIX");
+    QVERIFY(format1.convertString("1105743600") == QDate(2005, 1, 15));
+
     // not supported
 #if 0
     QVERIFY(format3.convertString("january 1st, 2005") == QDate(2005, 1, 1));
