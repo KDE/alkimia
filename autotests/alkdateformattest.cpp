@@ -69,6 +69,8 @@ void AlkDateFormatTest::testDateFormatKMyMoney()
 
 void AlkDateFormatTest::testDateFormatSkrooge()
 {
+  const QLocale defaultLocale = QLocale();
+  QLocale::setDefault(QLocale("de_DE"));
   try {
     AlkDateFormat format1("M-d-yyyy");
     AlkDateFormat format2("MMM-dd-yyyy");
@@ -126,4 +128,5 @@ void AlkDateFormatTest::testDateFormatSkrooge()
 } catch (const AlkException &e) {
     QFAIL(qPrintable(e.what()));
   }
+  QLocale::setDefault(defaultLocale);
 }
