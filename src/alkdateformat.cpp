@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2004  Ace Jones <acejones@users.sourceforge.net>            *
+ *   Copyright 2018  Thomas Baumgart <tbaumgart@kde.org>                   *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -19,7 +20,7 @@
 
 #include "alkdateformat.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 QDate AlkDateFormat::convertString(const QString &_in, bool _strict,
                                          unsigned _centurymidpoint) const
@@ -36,12 +37,26 @@ QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
     if (m_format == "UNIX") {
         date = QDateTime::fromTime_t((_in.toUInt())).date();
     } else {
-        date = QDate::fromString(_in, m_format);
-        // Try with an english locale
-        if (!date.isValid()) {
-            QLocale en("en_EN");
-            date = en.toDate(_in, m_format);
+        const QString skroogeFormat = m_format;
+
+        AlkDateFormat* that = const_cast<AlkDateFormat*>(this);
+        that->m_format = m_format.toLower();
+
+        QRegExp formatrex("([mdy]+)(\\W+)([mdy]+)(\\W+)([mdy]+)", Qt::CaseInsensitive);
+        if (formatrex.indexIn(m_format) == -1) {
+          throw ALKEXCEPTION("Invalid format string");
         }
+        that->m_format = QLatin1String("%");
+        that->m_format.append(formatrex.cap(1));
+        that->m_format.append(formatrex.cap(2));
+        that->m_format.append(QLatin1String("%"));
+        that->m_format.append(formatrex.cap(3));
+        that->m_format.append(formatrex.cap(4));
+        that->m_format.append(QLatin1String("%"));
+        that->m_format.append(formatrex.cap(5));
+
+        date = convertStringKMyMoney(_in, true, 2000);
+        that->m_format = skroogeFormat;
     }
     if (!date.isValid()) {
         throw ALKEXCEPTION(QString("Invalid date '%1'").arg(_in));
@@ -76,6 +91,15 @@ QDate AlkDateFormat::convertStringKMyMoney(const QString &_in, bool _strict,
     formatDelimiters += formatrex.cap(2);
     formatDelimiters += formatrex.cap(4);
 
+    // make sure to escape delimiters that are special chars in regex
+    QStringList::iterator it;
+    QRegExp specialChars("^[\\.\\\\\\?]$");
+    for(it = formatDelimiters.begin(); it != formatDelimiters.end(); ++it) {
+        if (specialChars.indexIn(*it) != -1)
+            (*it).prepend("\\");
+        }
+    }
+
     //
     // Break input string up into component parts,
     // using the delimiters found in the format string
@@ -87,8 +111,8 @@ QDate AlkDateFormat::convertStringKMyMoney(const QString &_in, bool _strict,
     // strict mode means we must enforce the delimiters as specified in the
     // format.  non-strict allows any delimiters
     if (_strict) {
-        inputrex.setPattern(QString("(\\w+)%1(\\w+)%2(\\w+)").arg(formatDelimiters[0],
-                                                                  formatDelimiters[1]));
+        inputrex.setPattern(QString("(\\w+)\\.?%1(\\w+)\\.?%2(\\w+)\\.?").arg(formatDelimiters[0],
+                                                                              formatDelimiters[1]));
     } else {
         inputrex.setPattern("(\\w+)\\W+(\\w+)\\W+(\\w+)");
     }
@@ -204,8 +228,8 @@ QDate AlkDateFormat::convertStringKMyMoney(const QString& _in, bool _strict, uns
   //
 
   QRegularExpression formatrex("%([mdy]+)(\\W+)%([mdy]+)(\\W+)%([mdy]+)", QRegularExpression::CaseInsensitiveOption);
-  QRegularExpressionMatch match;
-  if (m_format.indexOf(formatrex, 0, &match) == -1) {
+  QRegularExpressionMatch match = formatrex.match(m_format);
+  if (!match.hasMatch()) {
     throw ALKEXCEPTION("Invalid format string");
   }
 
@@ -217,24 +241,33 @@ QDate AlkDateFormat::convertStringKMyMoney(const QString& _in, bool _strict, uns
   QStringList formatDelimiters;
   formatDelimiters += match.captured(2);
   formatDelimiters += match.captured(4);
-  match = QRegularExpressionMatch();
+
+  // make sure to escape delimiters that are special chars in regex
+  QStringList::iterator it;
+  QRegularExpression specialChars("^[\\.\\\\\\?]$");
+  for(it = formatDelimiters.begin(); it != formatDelimiters.end(); ++it) {
+    QRegularExpressionMatch special = specialChars.match(*it);
+    if (special.hasMatch()) {
+      (*it).prepend("\\");
+    }
+  }
 
   //
   // Break input string up into component parts,
   // using the delimiters found in the format string
   //
-
   QRegularExpression inputrex;
   inputrex.setPatternOptions(QRegularExpression::CaseInsensitiveOption);
 
   // strict mode means we must enforce the delimiters as specified in the
   // format.  non-strict allows any delimiters
   if (_strict)
-    inputrex.setPattern(QString("(\\w+)%1(\\w+)%2(\\w+)").arg(formatDelimiters[0], formatDelimiters[1]));
+    inputrex.setPattern(QString("(\\w+)\\.?%1(\\w+)\\.?%2(\\w+)\\.?").arg(formatDelimiters[0], formatDelimiters[1]));
   else
     inputrex.setPattern("(\\w+)\\W+(\\w+)\\W+(\\w+)");
 
-  if (_in.indexOf(inputrex, 0, &match) == -1) {
+  match = inputrex.match(_in);
+  if (!match.hasMatch()) {
     throw ALKEXCEPTION("Invalid input string");
   }
 
@@ -242,7 +275,6 @@ QDate AlkDateFormat::convertStringKMyMoney(const QString& _in, bool _strict, uns
   scannedParts += match.captured(1).toLower();
   scannedParts += match.captured(2).toLower();
   scannedParts += match.captured(3).toLower();
-  match = QRegularExpressionMatch();
 
   //
   // Convert the scanned parts into actual date components
@@ -258,7 +290,8 @@ QDate AlkDateFormat::convertStringKMyMoney(const QString& _in, bool _strict, uns
       case 'd':
         // remove any extraneous non-digits (e.g. read "3rd" as 3)
         ok = false;
-        if ((*it_scanned).indexOf(digitrex, 0, &match) != -1)
+        match = digitrex.match(*it_scanned);
+        if (match.hasMatch())
           day = match.captured(1).toUInt(&ok);
         if (!ok || day > 31)
           throw ALKEXCEPTION(QString("Invalid day entry: %1").arg(*it_scanned));
