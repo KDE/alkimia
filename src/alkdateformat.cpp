@@ -35,7 +35,11 @@ QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
 {
     QDate date;
     if (m_format == "UNIX") {
-        date = QDateTime::fromTime_t((_in.toUInt())).date();
+#if QT_VERSION >= 0x050800
+        date = QDateTime::fromSecsSinceEpoch(_in.toUInt(), Qt::UTC).date();
+#else
+        date = QDateTime::fromTime_t(_in.toUInt(), Qt::UTC).date();
+#endif
     } else {
         const QString skroogeFormat = m_format;
 

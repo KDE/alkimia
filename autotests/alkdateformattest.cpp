@@ -114,7 +114,7 @@ void AlkDateFormatTest::testDateFormatSkrooge()
     QCOMPARE(format2.convertString("august 25, 2005"), QDate(2005, 8, 25));
 
     format1 = AlkDateFormat("UNIX");
-    QCOMPARE(format1.convertString("1105743600"), QDate(2005, 1, 15));
+    QCOMPARE(format1.convertString("1105747200"), QDate(2005, 1, 15));
 
     // not supported
 #if 0
