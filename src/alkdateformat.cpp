@@ -38,7 +38,7 @@ QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
 #if QT_VERSION >= 0x050800
         date = QDateTime::fromSecsSinceEpoch(_in.toUInt(), Qt::UTC).date();
 #else
-        date = QDateTime::fromTime_t(_in.toUInt(), Qt::UTC).date();
+        date = QDateTime::fromTime_t(_in.toUInt()).date();
 #endif
     } else {
         const QString skroogeFormat = m_format;
@@ -101,7 +101,6 @@ QDate AlkDateFormat::convertStringKMyMoney(const QString &_in, bool _strict,
     for(it = formatDelimiters.begin(); it != formatDelimiters.end(); ++it) {
         if (specialChars.indexIn(*it) != -1)
             (*it).prepend("\\");
-        }
     }
 
     //
