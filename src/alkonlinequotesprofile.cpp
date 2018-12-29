@@ -211,6 +211,39 @@ public Q_SLOTS:
         }
         return result;
     }
+
+    QString configPath()
+    {
+        // TODO: add windows support
+        if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
+            return QString("%1/.config").arg(QDir::homePath());
+        else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
+            return QString("%1/.kde4/share/config").arg(QDir::homePath());
+        return
+            QString();
+    }
+
+    QString dataReadPath()
+    {
+        // TODO: add windows support
+        if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
+            return QString("/usr/share/kf5");
+        else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
+            return QString("/usr/share/kde4/apps");
+        return
+            QString();
+    }
+
+    QString dataWritePath()
+    {
+        // TODO: add windows support
+        if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
+            return QString("%1/.local/share").arg(QDir::homePath());
+        else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
+            return QString("%1/.kde4/share/apps").arg(QDir::homePath());
+        return
+            QString();
+    }
 };
 
 // define static members
@@ -226,13 +259,11 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
     d->m_GHNSFile = ghnsConfigFile;
     d->m_type = type;
     if (type == Type::KMyMoney5)
-        d->m_kconfigFile = QString("%1/.config/kmymoney/kmymoneyrc").arg(QDir::homePath());
+        d->m_kconfigFile = QString("%1/kmymoney/kmymoneyrc").arg(d->configPath());
     else if (type == Type::KMyMoney4)
-        d->m_kconfigFile = QString("%1/.kde4/share/config/kmymoneyrc").arg(QDir::homePath());
-    else if (type == Type::Alkimia5)
-        d->m_kconfigFile = QString("%1/.config/alkimiarc").arg(QDir::homePath());
-    else if (type == Type::Alkimia4)
-        d->m_kconfigFile = QString("%1/.kde4/share/config/alkimiarc").arg(QDir::homePath());
+        d->m_kconfigFile = QString("%1/kmymoneyrc").arg(d->configPath());
+    else if (type == Type::Alkimia5 || type == Type::Alkimia4)
+        d->m_kconfigFile = QString("%1/alkimiarc").arg(d->configPath());
     else
         d->m_kconfigFile = "";
     if (!d->m_kconfigFile.isEmpty())
@@ -277,17 +308,19 @@ QString AlkOnlineQuotesProfile::hotNewStuffReadFilePath(const QString &fileName)
 
 QString AlkOnlineQuotesProfile::hotNewStuffWriteFilePath(const QString &fileName) const
 {
-    return KStandardDirs::locateLocal("data", d->m_GHNSFilePath + "/" + fileName);
+    return QString("%1%2").arg(hotNewStuffWriteDir(), fileName);
 }
 
 QStringList AlkOnlineQuotesProfile::hotNewStuffReadPath() const
 {
-    return KStandardDirs().findDirs("data", d->m_GHNSFilePath + "/");
+    return QStringList()
+        << QString("%1/%2/").arg(d->dataReadPath(), d->m_GHNSFilePath)
+        << hotNewStuffWriteDir();
 }
 
 QString AlkOnlineQuotesProfile::hotNewStuffWriteDir() const
 {
-    return KStandardDirs().saveLocation("data", d->m_GHNSFilePath + "/");
+    return QString("%1/%2/").arg(d->dataWritePath(), d->m_GHNSFilePath);
 }
 
 QString AlkOnlineQuotesProfile::hotNewStuffRelPath() const
@@ -333,7 +366,8 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::Script:
         result << d->quoteSourcesFinanceQuote();
         break;
-    case AlkOnlineQuotesProfile::Type::Skrooge:
+    case AlkOnlineQuotesProfile::Type::Skrooge4:
+    case AlkOnlineQuotesProfile::Type::Skrooge5:
         result << d->quoteSourcesSkrooge();
         break;
     case AlkOnlineQuotesProfile::Type::None:
