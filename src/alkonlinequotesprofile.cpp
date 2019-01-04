@@ -366,12 +366,9 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::Script:
         result << d->quoteSourcesFinanceQuote();
         break;
-    case AlkOnlineQuotesProfile::Type::Skrooge4:
-    case AlkOnlineQuotesProfile::Type::Skrooge5:
-        result << d->quoteSourcesSkrooge();
-        break;
     case AlkOnlineQuotesProfile::Type::None:
         result << d->defaultQuoteSources().keys();
+        break;
     default:
         break;
     }
