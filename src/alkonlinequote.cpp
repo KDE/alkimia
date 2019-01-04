@@ -45,7 +45,6 @@
 #include <KLocale>
 #include <KProcess>
 #include <KShell>
-#include <KStandardDirs>
 #include <KUrl>
 
 AlkOnlineQuote::Errors::Errors()

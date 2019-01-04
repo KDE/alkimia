@@ -37,7 +37,6 @@
 #include <KIconLoader>
 #include <KGuiItem>
 #include <KMessageBox>
-#include <KStandardDirs>
 #include <knewstuff3/downloaddialog.h>
 #include <knewstuff3/uploaddialog.h>
 
