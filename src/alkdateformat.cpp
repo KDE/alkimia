@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright 2004  Ace Jones <acejones@users.sourceforge.net>            *
- *   Copyright 2018  Thomas Baumgart <tbaumgart@kde.org>                   *
+ *   Copyright 2004       Ace Jones <acejones@users.sourceforge.net>       *
+ *   Copyright 2018-2019  Thomas Baumgart <tbaumgart@kde.org>              *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -35,7 +35,7 @@ QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
 {
     QDate date;
     if (m_format == "UNIX") {
-#if QT_VERSION >= 0x050800
+#if QT_VERSION >= QT_VERSION_CHECK(5,8,0)
         date = QDateTime::fromSecsSinceEpoch(_in.toUInt(), Qt::UTC).date();
 #else
         date = QDateTime::fromTime_t(_in.toUInt()).date();
@@ -70,7 +70,7 @@ QDate AlkDateFormat::convertStringSkrooge(const QString &_in) const
     return date;
 }
 
-#if QT_VERSION < 0x050000
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 #include <KGlobal>
 #include <KCalendarSystem>
 
@@ -220,7 +220,7 @@ QDate AlkDateFormat::convertStringKMyMoney(const QString &_in, bool _strict,
     return result;
 }
 
-#else
+#else // Qt5
 #include <QLocale>
 #include <QRegularExpression>
 
