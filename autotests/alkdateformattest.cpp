@@ -1,5 +1,6 @@
 /***************************************************************************
- *   Copyright 2004  Ace Jones <acejones@users.sourceforge.net>            *
+ *   Copyright 2004       Ace Jones <acejones@users.sourceforge.net>       *
+ *   Copyright 2018-2019  Thomas Baumgart <tbaumgart@kde.org>              *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -111,7 +112,7 @@ void AlkDateFormatTest::testDateFormatSkrooge()
     format3 = AlkDateFormat("MMMM ddd, yyyy");
 
     QCOMPARE(format1.convertString("jan 15, 2005"), QDate(2005, 1, 15));
-    QCOMPARE(format1.convertString("jan 15 2005 21:02 GMT"), QDate(2005, 1, 15));
+    QCOMPARE(format1.convertString("jan 15, 2005 21:02 GMT"), QDate(2005, 1, 15));
     QCOMPARE(format2.convertString("august 25, 2005"), QDate(2005, 8, 25));
     QCOMPARE(format2.convertString("august 25, 2005 21:02 GMT"), QDate(2005, 8, 25));
 
