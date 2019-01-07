@@ -78,8 +78,11 @@ void AlkDateFormatTest::testDateFormatSkrooge()
     AlkDateFormat format3("MMMM-dd-yyyy");
 
     QCOMPARE(format1.convertString("1-5-2005"), QDate(2005, 1, 5));
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     QCOMPARE(format2.convertString("Dez.-15-2005"), QDate(2005, 12, 15));
     QCOMPARE(format2.convertString("Dez-15-2005"), QDate(2005, 12, 15));
+#endif
     QCOMPARE(format2.convertString("Dec-15-2005"), QDate(2005, 12, 15));
     QCOMPARE(format3.convertString("august-25-2005"), QDate(2005, 8, 25));
 
