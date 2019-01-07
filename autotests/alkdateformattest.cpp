@@ -116,6 +116,10 @@ void AlkDateFormatTest::testDateFormatSkrooge()
     QCOMPARE(format2.convertString("august 25, 2005"), QDate(2005, 8, 25));
     QCOMPARE(format2.convertString("august 25, 2005 21:02 GMT"), QDate(2005, 8, 25));
 
+    // FinancialTimesFund
+    format1 = AlkDateFormat("MMM dd yyyy");
+    QCOMPARE(format1.convertString("jan 15 2005 21:02 GMT"), QDate(2005, 1, 15));
+    QCOMPARE(format1.convertString("dec 15 2005 21:02 GMT"), QDate(2005, 12, 15));
 
     format1 = AlkDateFormat("UNIX");
     QCOMPARE(format1.convertString("1105747200"), QDate(2005, 1, 15));
