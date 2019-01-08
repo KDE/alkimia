@@ -39,25 +39,33 @@
 class ALK_NO_EXPORT AlkDateFormat
 {
 public:
-    explicit AlkDateFormat(const QString &_format) : m_format(_format)
-    {
-    }
+    explicit AlkDateFormat(const QString &format);
+    ~AlkDateFormat();
 
-    QString convertDate(const QDate &_in) const;
-    QDate convertString(const QString &_in, bool _strict = true,
-                              unsigned _centurymidpoint = QDate::currentDate().year()) const;
-    const QString &format() const
-    {
-        return m_format;
-    }
+    AlkDateFormat& operator=(const AlkDateFormat&);
 
-protected:
-    QDate convertStringKMyMoney(const QString &_in, bool _strict = true,
-                                      unsigned _centurymidpoint = QDate::currentDate().year()) const;
-    QDate convertStringSkrooge(const QString &_in) const;
+    typedef enum {
+      NoError = 0,
+      InvalidFormatString,
+      InvalidFormatCharacter,
+      InvalidDate,
+      InvalidDay,
+      InvalidMonth,
+      InvalidYear,
+      InvalidYearLength,
+    } ErrorCode;
+
+    QString convertDate(const QDate &date);
+    QDate convertString(const QString &date, bool strict = true,
+                              unsigned centuryMidPoint = QDate::currentDate().year());
+    const QString &format() const;
+
+    QString lastErrorMessage() const;
+    ErrorCode lastError() const;
 
 private:
-    QString m_format;
+    class Private;
+    Private* const d;
 };
 
 #endif // ALKDATEFORMAT_H

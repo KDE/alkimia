@@ -27,7 +27,6 @@ QTEST_MAIN(AlkDateFormatTest)
 
 void AlkDateFormatTest::testDateFormatKMyMoney()
 {
-  try {
     AlkDateFormat format("%mm-%dd-%yyyy");
 
     QCOMPARE(format.convertString("1-5-2005"), QDate(2005, 1, 5));
@@ -63,16 +62,13 @@ void AlkDateFormatTest::testDateFormatKMyMoney()
     QCOMPARE(format.convertString("12/31/50", false, 2000), QDate(1950, 12, 31));
     QCOMPARE(format.convertString("1/1/90", false, 2000), QDate(1990, 1, 1));
     QCOMPARE(format.convertString("december 31st, 5", false), QDate(2005, 12, 31));
-  } catch (const AlkException &e) {
-    QFAIL(qPrintable(e.what()));
-  }
 }
 
 void AlkDateFormatTest::testDateFormatSkrooge()
 {
-  const QLocale defaultLocale = QLocale();
-  QLocale::setDefault(QLocale("de_DE"));
-  try {
+    const QLocale defaultLocale = QLocale();
+    QLocale::setDefault(QLocale("de_DE"));
+
     AlkDateFormat format1("M-d-yyyy");
     AlkDateFormat format2("MMM-dd-yyyy");
     AlkDateFormat format3("MMMM-dd-yyyy");
@@ -136,8 +132,22 @@ void AlkDateFormatTest::testDateFormatSkrooge()
     QCOMPARE(format.convertString("1/1/90", false, 2000), QDate(1990, 1, 1));
     QCOMPARE(format.convertString("december 31st, 5", false), QDate(2005, 12, 31));
 #endif
-} catch (const AlkException &e) {
-    QFAIL(qPrintable(e.what()));
-  }
-  QLocale::setDefault(defaultLocale);
+
+    QLocale::setDefault(defaultLocale);
+}
+
+void AlkDateFormatTest::testValidFormatDetection()
+{
+    AlkDateFormat format1("M-d-yyyy");
+    QCOMPARE(format1.lastError(), AlkDateFormat::NoError);
+    QCOMPARE(format1.lastErrorMessage(), QString());
+
+    format1 = AlkDateFormat("bla");
+    QCOMPARE(format1.lastError(), AlkDateFormat::NoError);
+    QCOMPARE(format1.lastErrorMessage(), QString());
+
+    QDate date;
+    date = format1.convertString("1105747200");
+    QCOMPARE(date.isValid(), false);
+    QCOMPARE(format1.lastError(), AlkDateFormat::InvalidFormatString);
 }
