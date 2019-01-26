@@ -31,8 +31,7 @@
 #include <QtDebug>
 #include <QWebInspector>
 
-#include <KConfig>
-#include <KGlobal>
+#include <KComponentData>
 #include <KIcon>
 #include <KIconLoader>
 #include <KGuiItem>
@@ -668,5 +667,17 @@ void AlkOnlineQuotesWidget::setAcceptLanguage(const QString &text)
 {
     d->m_acceptLanguage = text;
 }
+
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+class InitCatalog {
+public:
+    InitCatalog()
+    {
+        KComponentData a("alkimia", "alkimia");
+    }
+};
+
+static InitCatalog init;
+#endif
 
 #include "alkonlinequoteswidget.moc"

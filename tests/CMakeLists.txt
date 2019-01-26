@@ -21,3 +21,8 @@ add_executable(qmlalkonlinequotetest
     qmlalkonlinequotetest.cpp
 )
 target_link_libraries(qmlalkonlinequotetest ${TEST_LIB})
+
+add_executable(alkonlinequoteswidgettest
+    alkonlinequoteswidgettest.cpp
+)
+target_link_libraries(alkonlinequoteswidgettest ${TEST_LIB})
