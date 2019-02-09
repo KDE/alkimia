@@ -190,6 +190,8 @@ AlkOnlineQuotesWidget::Private::~Private()
 void AlkOnlineQuotesWidget::Private::loadProfiles()
 {
     AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
+    if (list.size() == 0)
+        return;
     foreach (AlkOnlineQuotesProfile *profile, list) {
         QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget *>(m_profileList));
         item->setText(profile->name());
@@ -266,6 +268,8 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
     AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
     if (!m_showProfiles) {
         AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
+        if (list.size() == 0)
+            return;
         m_profile = list.first();
         loadQuotesList();
         return;
