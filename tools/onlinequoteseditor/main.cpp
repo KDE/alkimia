@@ -19,7 +19,7 @@
 
 #include "mainwindow.h"
 
-#if QT_VERSION >= 0x050000
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #define KABOUTDATA_H
 #include <K4AboutData>
 #define KAboutData K4AboutData
