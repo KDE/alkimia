@@ -35,7 +35,7 @@ Item {
 
     Dialog {
         id: addCurrencyDialog
-        title: i18n('Add Currency Pair')
+        title: i18n("Add Currency Pair")
 
         width: 300
 
@@ -52,7 +52,7 @@ Item {
 
         TextField {
             id: symbolField
-            placeholderText: i18n('Paste currency pair symbol here')
+            placeholderText: i18n("Paste currency pair symbol here")
             width: parent.width
             }
 
@@ -64,7 +64,7 @@ Item {
         anchors.right: parent.right
 
         Label {
-            text: i18n('Currency Pairs')
+            text: i18n("Currency Pairs")
             font.bold: true
             Layout.alignment: Qt.AlignLeft
             }
@@ -78,7 +78,7 @@ Item {
             TableViewColumn {
                 id: symbolIdCol
                 role: 'symbolId'
-                title: i18n('Symbol')
+                title: i18n("Symbol")
                 // width: parent.width * 0.6
 
                 delegate: Label {
@@ -93,7 +93,7 @@ Item {
 
 
             TableViewColumn {
-                title: i18n('Action')
+                title: i18n("Action")
                 // width: parent.width * 0.2
 
                 delegate: Item {
