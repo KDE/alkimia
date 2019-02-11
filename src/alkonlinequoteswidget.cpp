@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2004  Thomas Baumgart  tbaumgart@kde.org                    *
+ *   Copyright 2004-2019  Thomas Baumgart  tbaumgart@kde.org               *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -189,7 +189,7 @@ AlkOnlineQuotesWidget::Private::~Private()
 void AlkOnlineQuotesWidget::Private::loadProfiles()
 {
     AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
-    if (list.size() == 0)
+    if (list.isEmpty())
         return;
     foreach (AlkOnlineQuotesProfile *profile, list) {
         QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget *>(m_profileList));
@@ -267,7 +267,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
     AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
     if (!m_showProfiles) {
         AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
-        if (list.size() == 0)
+        if (list.isEmpty())
             return;
         m_profile = list.first();
         loadQuotesList();
@@ -356,7 +356,7 @@ void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
 {
     QList<QListWidgetItem *> items = m_quoteSourceList->findItems(
         m_currentItem.name(), Qt::MatchExactly);
-    if (items.size() == 0) {
+    if (items.isEmpty()) {
         return;
     }
     QListWidgetItem *item = items.at(0);
@@ -384,7 +384,7 @@ void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
 {
     QList<QListWidgetItem *> items = m_quoteSourceList->findItems(
         m_currentItem.name(), Qt::MatchExactly);
-    if (items.size() == 0) {
+    if (items.isEmpty()) {
         return;
     }
     QListWidgetItem *item = items.at(0);
