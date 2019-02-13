@@ -42,11 +42,6 @@ int main(int argc, char **argv)
     KCmdLineArgs::init(argc, argv, &about);
 
     KApplication app(true);
-    KCmdLineOptions options;
-    KCmdLineArgs::addCmdLineOptions(options);   // Add my own options.
-
-    // Get application specific arguments
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
     MainWindow w;
     w.show();
