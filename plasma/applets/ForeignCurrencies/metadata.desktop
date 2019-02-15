@@ -1,7 +1,17 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Foreign Currencies
+Name[fr]=Devises étrangères
+Name[gl]=Divisas estranxeiras
+Name[pt]=Moedas Estrangeiras
+Name[sv]=Utländska valutor
+Name[x-test]=xxForeign Currenciesxx
 Comment=Plasmoid showing current foreign currencies prices. Fork of Foreign Currencies plasmoid by bravenec2nd.
+Comment[fr]=Composant graphique affichant les taux de change en vigueur de devises étrangères. Fork du composant graphique Foreign Currencies de bravenec2nd.
+Comment[gl]=Plasmoide que mostra os prezos actuais de divisas estranxeiras. Nacido do plasmoide de divisas estranxeiras de bravenec2nd.
+Comment[pt]=Plasmóide que mostra os preços das moedas estrangeiras actuais. Nova versão do plasmóide de Moedas Estrangeiras do 'bravenec2nd'.
+Comment[sv]=Plasmoid som visar aktuella utländska valutakurser. Avknoppning av plasmoiden Foreign Currencies av bravenec2nd.
+Comment[x-test]=xxPlasmoid showing current foreign currencies prices. Fork of Foreign Currencies plasmoid by bravenec2nd.xx
 Type=Service
 Icon=applications-internet
 X-Plasma-MainScript=ui/main.qml
