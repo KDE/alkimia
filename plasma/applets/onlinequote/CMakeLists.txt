@@ -22,6 +22,7 @@ else()
         KF5::Package
         KF5::Plasma
     )
+    add_definitions(-DTRANSLATION_DOMAIN=\"alkimia-plasma-onlinequote\")
 endif()
 
 install(TARGETS plasma_applet_onlinequote

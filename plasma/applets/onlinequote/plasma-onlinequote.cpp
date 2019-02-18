@@ -37,7 +37,7 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
 {
     setHasConfigurationInterface(true);
     m_svg.setImagePath("widgets/background");
-#if QT_VERSION < 0x050000
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     // this will get us the standard applet background, for free!
     setBackgroundHints(DefaultBackground);
     resize(200, 200);
@@ -54,7 +54,7 @@ PlasmaOnlineQuote::PlasmaOnlineQuote(QObject *parent, const QVariantList &args)
 
 PlasmaOnlineQuote::~PlasmaOnlineQuote()
 {
-#if QT_VERSION < 0x050000
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     if (hasFailedToLaunch()) {
         // Do some cleanup here
     } else
@@ -67,7 +67,7 @@ PlasmaOnlineQuote::~PlasmaOnlineQuote()
 
 void PlasmaOnlineQuote::init()
 {
-#if QT_VERSION < 0x050000
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     // A small demonstration of the setFailedToLaunch function
     if (m_icon.isNull()) {
         setFailedToLaunch(true, "No world to say hello");
@@ -175,7 +175,7 @@ void PlasmaOnlineQuote::slotReceivedQuote(const QString &id, const QString &symb
     qDebug() << "got quote" << date << price;
     m_date = date;
     m_price = price;
-#if QT_VERSION < 0x050000
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     update();
 #else
 #warning how to update ui ?

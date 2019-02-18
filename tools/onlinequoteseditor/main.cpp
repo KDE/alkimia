@@ -19,7 +19,7 @@
 
 #include "mainwindow.h"
 
-#if QT_VERSION >= 0x050000
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #define KABOUTDATA_H
 #include <K4AboutData>
 #define KAboutData K4AboutData
@@ -32,7 +32,8 @@
 
 int main(int argc, char **argv)
 {
-    KAboutData about("onlinequoteseditor", 0,
+    KAboutData about("onlinequoteseditor",
+                     "onlinequoteeditor",
                      ki18n("onlinequoteseditor"),
                      "1.0",
                      ki18n("Editor for online price quotes used by finance applications"),
@@ -41,13 +42,6 @@ int main(int argc, char **argv)
     KCmdLineArgs::init(argc, argv, &about);
 
     KApplication app(true);
-    KCmdLineOptions options;
-    KCmdLineArgs::addCmdLineOptions(options);   // Add my own options.
-
-    KComponentData a(&about);
-
-    // Get application specific arguments
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
     MainWindow w;
     w.show();
