@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2018 Ralf Habacker <ralf.habacker@freenet.de>               *
+ *   Copyright 2019 Thomas Baumgart <tbaumgart@kde.org>                    *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -19,29 +20,41 @@
 
 #include "mainwindow.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-#define KABOUTDATA_H
-#include <K4AboutData>
-#define KAboutData K4AboutData
-#else
 #include <KAboutData>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    #include <QApplication>
+    #include <KLocalizedString>
+
+    #define LICENCE_GPL KAboutLicense::GPL
+    #define CATALOG
+#else
+    #include <KApplication>
+    #include <KCmdLineArgs>
+
+    #undef QStringLiteral
+    #define QStringLiteral QByteArray
+    #define i18n ki18n
+    #define LICENCE_GPL KAboutData::License_GPL
+    #define CATALOG QByteArray("onlinequoteeditor"),
 #endif
 
-#include <KApplication>
-#include <KCmdLineArgs>
 
 int main(int argc, char **argv)
 {
-    KAboutData about("onlinequoteseditor",
-                     "onlinequoteeditor",
-                     ki18n("onlinequoteseditor"),
-                     "1.0",
-                     ki18n("Editor for online price quotes used by finance applications"),
-                     KAboutData::License_GPL,
-                     ki18n("(C) 2018 Ralf Habacker"));
-    KCmdLineArgs::init(argc, argv, &about);
+  KAboutData about(QStringLiteral("onlinequoteseditor"),
+                   CATALOG
+                   i18n("onlinequoteseditor"),
+                   QStringLiteral("1.0"),
+                   i18n("Editor for online price quotes used by finance applications"),
+                   LICENCE_GPL,
+                   i18n("(C) 2018 Ralf Habacker"));
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    QApplication app(argc,argv);
+#else
+    KCmdLineArgs::init(argc, argv, &about);
     KApplication app(true);
+#endif
 
     MainWindow w;
     w.show();

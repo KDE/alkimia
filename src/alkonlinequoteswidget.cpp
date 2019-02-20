@@ -31,15 +31,28 @@
 #include <QtDebug>
 #include <QWebInspector>
 
-#include <KComponentData>
-#include <KIcon>
-#include <KIconLoader>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    #include <QIcon>
+    #include <KIconLoader>
+    #include <kns3/downloaddialog.h>
+    #include <kns3/uploaddialog.h>
+    #define KIcon QIcon
+#else
+    #include <KComponentData>
+    #include <KIcon>
+    #include <KIconLoader>
+    #include <knewstuff3/downloaddialog.h>
+    #include <knewstuff3/uploaddialog.h>
+#endif
+
 #include <KGuiItem>
 #include <KMessageBox>
-#include <knewstuff3/downloaddialog.h>
-#include <knewstuff3/uploaddialog.h>
 
-#include <ui_alkonlinequoteswidget.h>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    #include <ui_alkonlinequoteswidget5.h>
+#else
+    #include <ui_alkonlinequoteswidget.h>
+#endif
 
 class AlkOnlineQuotesWidget::Private : public QWidget, public Ui::AlkOnlineQuotesWidget
 {
@@ -122,31 +135,40 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
                               KIcon("dialog-ok"),
                               i18n("Accepts the entered data and stores it"),
                               i18n("Use this to accept the modified data."));
-    m_updateButton->setGuiItem(updateButtenItem);
 
     KGuiItem deleteButtenItem(i18n("&Delete"),
                               KIcon("edit-delete"),
                               i18n("Delete the selected source entry"),
                               i18n("Use this to delete the selected online source entry"));
-    m_deleteButton->setGuiItem(deleteButtenItem);
 
     KGuiItem checkButtonItem(i18nc("Check the selected source entry", "&Check Source"),
                              KIcon("document-edit-verify"),
                              i18n("Check the selected source entry"),
                              i18n("Use this to check the selected online source entry"));
-    m_checkButton->setGuiItem(checkButtonItem);
 
     KGuiItem showButtonItem(i18nc("Show the selected source entry in a web browser", "&Show page"),
                             KIcon("applications-internet"),
                             i18n("Show the selected source entry in a web browser"),
                             i18n("Use this to show the selected online source entry"));
-    m_showButton->setGuiItem(showButtonItem);
 
     KGuiItem newButtenItem(i18nc("Create a new source entry for online quotes", "&New..."),
                            KIcon("document-new"),
                            i18n("Create a new source entry for online quotes"),
                            i18n("Use this to create a new entry for online quotes"));
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    KGuiItem::assign(m_updateButton, updateButtenItem);
+    KGuiItem::assign(m_deleteButton, deleteButtenItem);
+    KGuiItem::assign(m_checkButton, checkButtonItem);
+    KGuiItem::assign(m_showButton, showButtonItem);
+    KGuiItem::assign(m_newButton, newButtenItem);
+#else
+    m_updateButton->setGuiItem(updateButtenItem);
+    m_deleteButton->setGuiItem(deleteButtenItem);
+    m_checkButton->setGuiItem(checkButtonItem);
+    m_showButton->setGuiItem(showButtonItem);
     m_newButton->setGuiItem(newButtenItem);
+#endif
 
     connect(m_newProfile, SIGNAL(clicked()), this, SLOT(slotNewProfile()));
     connect(m_deleteProfile, SIGNAL(clicked()), this, SLOT(slotDeleteProfile()));

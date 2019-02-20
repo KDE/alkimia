@@ -81,7 +81,9 @@ MainWindow::MainWindow(QWidget *parent)
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney4", AlkOnlineQuotesProfile::Type::KMyMoney4, "kmymoney-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney5", AlkOnlineQuotesProfile::Type::KMyMoney5, "kmymoney-quotes.knsrc"));
     d->ui.setupUi(this);
-
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    d->ui.mainToolBar->deleteLater();
+#endif
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
 
     QDockWidget *profilesWidget = new QDockWidget(tr("Profiles"), this);

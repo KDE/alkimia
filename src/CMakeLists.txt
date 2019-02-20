@@ -38,7 +38,6 @@ if(NOT BUILD_QT4)
         PRIVATE
         ${QT_USE_LIBSPREFIX}WebKitWidgets
         KF5::CoreAddons
-        KF5::KDELibs4Support
         KF5::NewStuff
     )
 endif()
@@ -71,9 +70,7 @@ set(alkimia_LIB_HEADERS
     alkonlinequoteswidget.h
 )
 
-set(alkimia_UI
-    alkonlinequoteswidget.ui
-)
+set(alkimia_UI alkonlinequoteswidget${ALKIMIA_LIB_SUFFIX}.ui)
 
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/alkvalue.h.in
@@ -105,11 +102,17 @@ else()
     set(ALKIMIA_LIBS
         PRIVATE
         ${QT_USE_LIBSPREFIX}WebKitWidgets
-        KF5::KDELibs4Support
+        KF5::Completion
+        KF5::I18n
         KF5::NewStuff
+        KF5::IconThemes
+        KF5::TextWidgets
+        KF5::KIOCore
+        KF5::KIOWidgets
     )
     add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
 endif()
+
 target_link_libraries(alkimia
     PRIVATE
     alkimia-internal

@@ -15,7 +15,6 @@ else()
     list(APPEND TEST_LIB
         ${QT_USE_LIBSPREFIX}Qml
         ${QT_USE_LIBSPREFIX}WebKitWidgets
-        KF5::KDELibs4Support
      )
 endif()
 add_executable(qmlalkonlinequotetest

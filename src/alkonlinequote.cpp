@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2004  Ace Jones <acejones@users.sourceforge.net>            *
+ *   Copyright 2019  Thomas Baumgart <tbaumgart@kde.org>                   *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -31,21 +32,33 @@
 #include <QApplication>
 #include <QByteArray>
 #include <QFile>
-//#include <QFileInfo>
 #include <QRegExp>
 #include <QTextStream>
 #include <QTextCodec>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    #include <KLocalizedString>
+    #include <KIO/Scheduler>
+    #include <KIO/Job>
+    #include <QDebug>
+    #include <QTemporaryFile>
+    #define kDebug(a) qDebug()
+    #define KIcon QIcon
+    #define KUrl QUrl
+    #define prettyUrl() toDisplayString()
+#else
+    #include <KDebug>
+    #include <KGlobal>
+    #include <KLocale>
+    #include <KUrl>
+    #include <kio/netaccess.h>
+    #include <kio/scheduler.h>
+#endif
+
 #include <KConfigGroup>
-#include <KDebug>
 #include <KEncodingProber>
-#include <KGlobal>
-#include <kio/netaccess.h>
-#include <kio/scheduler.h>
-#include <KLocale>
 #include <KProcess>
 #include <KShell>
-#include <KUrl>
 
 AlkOnlineQuote::Errors::Errors()
 {
@@ -94,11 +107,13 @@ public:
     AlkOnlineQuotesProfile *m_profile;
     bool m_ownProfile;
 
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     static int dbgArea()
     {
         static int s_area = KDebug::registerArea("Alkimia (AlkOnlineQuote)");
         return s_area;
     }
+#endif
 
     Private(AlkOnlineQuote *parent)
         : m_p(parent)
@@ -123,12 +138,17 @@ public:
     void enter_loop();
     bool parsePrice(const QString &pricestr);
     bool parseDate(const QString &datestr);
+    bool downloadUrl(const KUrl& url);
+    bool processDownloadedFile(const KUrl& url, const QString& tmpFile);
 
 public slots:
     void slotLoadStarted();
     void slotLoadFinishedHtmlParser(bool ok);
     void slotLoadFinishedCssSelector(bool ok);
     bool slotParseQuote(const QString &_quotedata);
+
+private slots:
+    void downloadUrlDone(KJob* job);
 };
 
 bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &_id, const QString &_source)
@@ -245,6 +265,7 @@ bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, co
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
     delete m_eventLoop;
+    m_eventLoop = nullptr;
     disconnect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     disconnect(webPage, SIGNAL(loadFinished(bool)), this,
                SLOT(slotLoadFinishedCssSelector(bool)));
@@ -266,6 +287,7 @@ bool AlkOnlineQuote::Private::launchWebKitHtmlParser(const QString &_symbol, con
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
     delete m_eventLoop;
+    m_eventLoop = nullptr;
     disconnect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     disconnect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
 
@@ -301,41 +323,102 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
         }
     } else {
         slotLoadStarted();
-
-        QString tmpFile;
-        if (KIO::NetAccess::download(url, tmpFile, 0)) {
-            // kDebug(Private::dbgArea()) << "Downloaded " << tmpFile;
-            kDebug(Private::dbgArea()) << "Downloaded" << tmpFile << "from" << url;
-            QFile f(tmpFile);
-            if (f.open(QIODevice::ReadOnly)) {
-                // Find out the page encoding and convert it to unicode
-                QByteArray page = f.readAll();
-                KEncodingProber prober(KEncodingProber::Universal);
-                prober.feed(page);
-                QTextCodec *codec = QTextCodec::codecForName(prober.encoding());
-                if (!codec) {
-                    codec = QTextCodec::codecForLocale();
-                }
-                QString quote = codec->toUnicode(page);
-                f.close();
-                emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
-                if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
-                    AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
-                result = slotParseQuote(quote);
-            } else {
-                emit m_p->error(i18n("Failed to open downloaded file"));
-                m_errors |= Errors::URL;
-                result = slotParseQuote(QString());
-            }
-            KIO::NetAccess::removeTempFile(tmpFile);
-        } else {
-            emit m_p->error(KIO::NetAccess::lastErrorString());
-            m_errors |= Errors::URL;
-            result = slotParseQuote(QString());
-        }
+        result = downloadUrl(url);
     }
     return result;
 }
+
+bool AlkOnlineQuote::Private::processDownloadedFile(const KUrl& url, const QString& tmpFile)
+{
+  bool result = false;
+
+  QFile f(tmpFile);
+  if (f.open(QIODevice::ReadOnly)) {
+    // Find out the page encoding and convert it to unicode
+    QByteArray page = f.readAll();
+    KEncodingProber prober(KEncodingProber::Universal);
+    prober.feed(page);
+    QTextCodec *codec = QTextCodec::codecForName(prober.encoding());
+    if (!codec) {
+      codec = QTextCodec::codecForLocale();
+    }
+    QString quote = codec->toUnicode(page);
+    f.close();
+    emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
+    if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
+      AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
+    result = slotParseQuote(quote);
+  } else {
+    emit m_p->error(i18n("Failed to open downloaded file"));
+    m_errors |= Errors::URL;
+    result = slotParseQuote(QString());
+  }
+  return result;
+}
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+bool AlkOnlineQuote::Private::downloadUrl(const QUrl& url)
+{
+    QTemporaryFile tmpFile;
+    tmpFile.open();
+    auto tmpFileName = QUrl::fromLocalFile(tmpFile.fileName());
+
+    m_eventLoop = new QEventLoop;
+
+    KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo | KIO::Overwrite);
+    connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDone(KJob*)));
+
+    auto result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
+    delete m_eventLoop;
+    m_eventLoop = nullptr;
+
+    return result;
+}
+
+void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
+{
+  QString tmpFileName = dynamic_cast<KIO::FileCopyJob*>(job)->destUrl().toLocalFile();
+  QUrl url = dynamic_cast<KIO::FileCopyJob*>(job)->srcUrl();
+
+  bool result;
+  if (!job->error()) {
+    qDebug() << "Downloaded" << tmpFileName << "from" << url;
+    result = processDownloadedFile(url, tmpFileName);
+  } else {
+    emit m_p->error(job->errorString());
+    m_errors |= Errors::URL;
+    result = slotParseQuote(QString());
+  }
+  m_eventLoop->exit(result);
+}
+
+#else
+
+// This is simply a placeholder. It is unused but needs to be present
+// to make the linker happy (since the declaration of the slot cannot
+// be made dependendant on QT_VERSION with the Qt4 moc compiler.
+void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
+{
+}
+
+bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
+{
+    bool result = false;
+
+    QString tmpFile;
+    if (KIO::NetAccess::download(url, tmpFile, 0)) {
+        // kDebug(Private::dbgArea()) << "Downloaded " << tmpFile;
+        kDebug(Private::dbgArea()) << "Downloaded" << tmpFile << "from" << url;
+        result = processDownloadedFile(url, tmpFile);
+        KIO::NetAccess::removeTempFile(tmpFile);
+    } else {
+        emit m_p->error(KIO::NetAccess::lastErrorString());
+        m_errors |= Errors::URL;
+        result = slotParseQuote(QString());
+    }
+    return result;
+}
+#endif
 
 bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const QString &_id,
                                         const QString &_sourcename)

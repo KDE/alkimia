@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2018  Ralf Habacker <ralf.habacker@freenet.de>              *
+ *   Copyright 2019  Thomas Baumgart <tbaumgart@kde.org>                   *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -31,8 +32,13 @@
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KGlobal>
-#include <KStandardDirs>
+
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    #include <QStandardPaths>
+#else
+    #include <KGlobal>
+    #include <KStandardDirs>
+#endif
 #include <knewstuff3/downloadmanager.h>
 
 class AlkOnlineQuotesProfile::Private : public QObject
@@ -51,6 +57,19 @@ public:
     static QString m_financeQuoteScriptPath;
     static QStringList m_financeQuoteSources;
 
+    bool setupFinanceQuoteScriptPath()
+    {
+        if (m_financeQuoteScriptPath.isEmpty()) {
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+            m_financeQuoteScriptPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("misc/financequote.pl"));
+#else
+            m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
+                                                                     QString("misc/financequote.pl"));
+#endif
+        }
+        return !m_financeQuoteScriptPath.isEmpty();
+    }
+
     Private(AlkOnlineQuotesProfile *p)
         : m_p(p)
         , m_profileManager(0)
@@ -58,11 +77,7 @@ public:
         , m_config(0)
         , m_type(Type::Undefined)
     {
-
-        if (m_financeQuoteScriptPath.isEmpty()) {
-            m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
-                                                                     QString("misc/financequote.pl"));
-        }
+        setupFinanceQuoteScriptPath();
     }
 
     ~Private()
@@ -139,16 +154,14 @@ public Q_SLOTS:
         if (m_financeQuoteSources.empty()) { // run the process one time only
             // since this is a static function it can be called without constructing an object
             // so we need to make sure that m_financeQuoteScriptPath is properly initialized
-            if (m_financeQuoteScriptPath.isEmpty()) {
-                m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
-                                                                         QString("financequote.pl"));
+            if (setupFinanceQuoteScriptPath()) {
+                AlkFinanceQuoteProcess getList;
+                getList.launch(m_financeQuoteScriptPath);
+                while (!getList.isFinished()) {
+                    qApp->processEvents();
+                }
+                m_financeQuoteSources = getList.getSourceList();
             }
-            AlkFinanceQuoteProcess getList;
-            getList.launch(m_financeQuoteScriptPath);
-            while (!getList.isFinished()) {
-                qApp->processEvents();
-            }
-            m_financeQuoteSources = getList.getSourceList();
         }
         return m_financeQuoteSources;
     }
@@ -161,10 +174,14 @@ public Q_SLOTS:
     const QStringList quoteSourcesGHNS()
     {
         QStringList sources;
-        QString relPath = m_GHNSFilePath;
+        const QString filename = QString("%1/*.txt").arg(m_GHNSFilePath);
 
-        foreach (const QString &file,
-                 KStandardDirs().findAllResources("data", relPath + QString::fromLatin1("/*.txt"))) {
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+        const auto resources = QStandardPaths::locateAll(QStandardPaths::DataLocation, filename);
+#else
+        const QStringList resources = KStandardDirs().findAllResources("data", filename);
+#endif
+        foreach (const QString &file, resources) {
             QFileInfo f(file);
             QString file2 = f.completeBaseName();
             AlkOnlineQuoteSource source(file2, m_p);
@@ -288,7 +305,11 @@ QString AlkOnlineQuotesProfile::name() const
 
 QString AlkOnlineQuotesProfile::hotNewStuffConfigFile() const
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    QString configFile = QStandardPaths::locate(QStandardPaths::AppConfigLocation, d->m_GHNSFile);
+#else
     QString configFile = KStandardDirs::locate("config", d->m_GHNSFile);
+#endif
     if (configFile.isEmpty()) {
         configFile = QString("%1/%2").arg(KNSRC_DIR, d->m_GHNSFile);
     }

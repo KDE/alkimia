@@ -10,7 +10,7 @@ option(BUILD_QT4 "Build for Qt4" OFF)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -63,12 +63,15 @@ else()
     find_package(KF5 REQUIRED COMPONENTS
         Config
         CoreAddons
-        KDELibs4Support
-        #I18n
-        #WebKit
+        Completion
+        I18n
         Package
         Plasma
         NewStuff
+        KIO
+        IconThemes
+        TextWidgets
+        OPTIONAL_COMPONENTS ${OPT_KF5_COMPONENTS}
     )
 
     set(QT_USE_LIBSPREFIX Qt5::)
@@ -83,14 +86,6 @@ else()
     if(CMAKE_COMPILER_IS_GNUCC)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
     endif()
-    add_definitions(
-        -DKDELIBS4SUPPORT_EXPORT_WRAPPER_H
-        -DKDELIBS4SUPPORT_DEPRECATED_NOISE=
-        -DKDELIBS4SUPPORT_DEPRECATED_EXPORT_NOISE=Q_DECL_IMPORT
-        -DKDELIBS4SUPPORT_DEPRECATED=
-        -DKDELIBS4SUPPORT_DEPRECATED_EXPORT=Q_DECL_IMPORT
-        -DKDELIBS4SUPPORT_EXPORT=Q_DECL_IMPORT
-    )
 endif()
 
 # figure out which multi-precision library to use

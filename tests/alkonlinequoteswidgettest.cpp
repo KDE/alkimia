@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2019  Ralf Habacker ralf.habacker@freenet.de                *
+ *   Copyright 2019  Thomas Baumgart <tbaumgart@kde.org>                   *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -21,40 +22,21 @@
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 
-#include <KComponentData>
-
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-#include <QGuiApplication>
-#else
 #include <QApplication>
-class QGuiApplication : public QApplication
-{
-public:
-    QGuiApplication(int &argc, char **argv) : QApplication(argc, argv) {}
-};
-#endif
-
 #include <QDialog>
 #include <QGridLayout>
 
-class Dialog : public QDialog {
-public:
-    Dialog()
-    {
-
-        QGridLayout *layout = new QGridLayout;
-        layout->addWidget(new AlkOnlineQuotesWidget);
-        setLayout(layout);
-    }
-};
-
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     AlkOnlineQuotesProfile profile("no-config-file", AlkOnlineQuotesProfile::Type::None);
     AlkOnlineQuotesProfileManager::instance().addProfile(&profile);
 
-    Dialog dialog;
+    QDialog dialog;
+    QGridLayout *layout = new QGridLayout;
+    layout->addWidget(new AlkOnlineQuotesWidget);
+    dialog.setLayout(layout);
+
     dialog.exec();
 }
