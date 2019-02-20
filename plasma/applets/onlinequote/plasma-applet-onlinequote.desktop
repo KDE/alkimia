@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Online Quote
+Name[ca]=Cotització en línia
 Name[es]=Cotización en línea
 Name[fr]=Cotation en ligne
 Name[gl]=Cotización por internet
@@ -8,6 +9,7 @@ Name[pt]=Cotação 'Online'
 Name[sv]=Direktkurs
 Name[x-test]=xxOnline Quotexx
 Comment=Plasma applet for an online quote
+Comment[ca]=Miniaplicació del Plasma per a una cotització en línia
 Comment[es]=Miniaplicación de Plasma para cotizaciones en línea
 Comment[fr]=Composant graphique plasma pour les cotations en ligne
 Comment[gl]=Miniaplicativo de Plasma para cotizacións por internet
