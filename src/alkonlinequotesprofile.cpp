@@ -35,11 +35,12 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <QStandardPaths>
+    #include <kns3/downloadmanager.h>
 #else
     #include <KGlobal>
     #include <KStandardDirs>
+    #include <knewstuff3/downloadmanager.h>
 #endif
-#include <knewstuff3/downloadmanager.h>
 
 class AlkOnlineQuotesProfile::Private : public QObject
 {
