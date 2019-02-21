@@ -146,7 +146,7 @@ Item {
 
             Button {
                 iconName: 'list-add'
-                text: 'Add Currency Pair'
+                text: i18n('Add Currency Pair')
                 onClicked: {
                     addCurrencyDialog.open();
                     symbolField.text = ''

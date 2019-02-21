@@ -31,7 +31,7 @@ Item {
 
     Text  {
         id: priceLabel;
-        text: "unknown";
+        text: i18n("unknown");
         font.pixelSize: 18;
         color: theme.textColor;
         height: font.pixelsize*1.1;
