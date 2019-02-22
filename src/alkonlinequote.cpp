@@ -399,6 +399,7 @@ void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
 // be made dependendant on QT_VERSION with the Qt4 moc compiler.
 void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
 {
+    Q_UNUSED(job);
 }
 
 bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
@@ -406,7 +407,7 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
     bool result = false;
 
     QString tmpFile;
-    if (KIO::NetAccess::download(url, tmpFile, 0)) {
+    if (KIO::NetAccess::download(url, tmpFile, nullptr)) {
         // kDebug(Private::dbgArea()) << "Downloaded " << tmpFile;
         kDebug(Private::dbgArea()) << "Downloaded" << tmpFile << "from" << url;
         result = processDownloadedFile(url, tmpFile);
