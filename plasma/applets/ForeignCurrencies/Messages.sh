@@ -5,7 +5,7 @@ $EXTRACTRC `find . -name \*.rc -o -name \*.ui -o -name \*.kcfg` >> rc.cpp
 
 # call xgettext on all source files. If your sources have other filename
 # extensions besides .cpp, and .h, just add them in the find call.
-$XGETTEXT  `find . -name \*.cpp -o -name \*.h -o -name \*.qml` -o $podir/alkimia-plasma-foreign-currencies.pot
+$XGETTEXT  `find . -name \*.cpp -o -name \*.h -o -name \*.qml` -o $podir/plasma_applet_org.wincak.foreigncurrencies2.pot
 
 # Remove these two generated files again
 rm rc.cpp
