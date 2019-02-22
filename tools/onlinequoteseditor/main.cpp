@@ -34,11 +34,11 @@ int main(int argc, char **argv)
 {
     KAboutData about("onlinequoteseditor",
                      "onlinequoteeditor",
-                     ki18n("onlinequoteseditor"),
+                     ki18n("Online Quotes Editor"),
                      "1.0",
                      ki18n("Editor for online price quotes used by finance applications"),
                      KAboutData::License_GPL,
-                     ki18n("(C) 2018 Ralf Habacker"));
+                     ki18n("(C) 2018-2019 Ralf Habacker"));
     KCmdLineArgs::init(argc, argv, &about);
 
     KApplication app(true);
