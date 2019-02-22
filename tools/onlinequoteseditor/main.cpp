@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 {
   KAboutData about(QStringLiteral("onlinequoteseditor"),
                    CATALOG
-                   i18n("onlinequoteseditor"),
+                   i18n("Online Quotes Editor"),
                    QStringLiteral("1.0"),
                    i18n("Editor for online price quotes used by finance applications"),
                    LICENCE_GPL,
