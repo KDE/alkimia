@@ -13,6 +13,7 @@ find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 
 include(ECMAddAppIcon)
+include(ECMInstallIcons)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
@@ -52,6 +53,11 @@ if(BUILD_QT4)
                                  )
         endforeach()
     endmacro(ecm_mark_nongui_executable)
+
+    macro(ecm_install_icons)
+        kde4_install_icons(${ICON_INSTALL_DIR})
+    endmacro()
+
     add_definitions(-DQStringLiteral=QLatin1String)
 else()
     find_package(Qt5 REQUIRED COMPONENTS
