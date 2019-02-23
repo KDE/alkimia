@@ -359,13 +359,16 @@ bool AlkOnlineQuote::Private::processDownloadedFile(const KUrl& url, const QStri
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 bool AlkOnlineQuote::Private::downloadUrl(const QUrl& url)
 {
-    QTemporaryFile tmpFile;
-    tmpFile.open();
-    auto tmpFileName = QUrl::fromLocalFile(tmpFile.fileName());
+    // Create a temporary filename (w/o leaving the file on the filesystem)
+    // In case the file is still present, the KIO::file_copy operation cannot
+    // be performed on some operating systems (Windows).
+    auto tmpFile = new QTemporaryFile;
+    tmpFile->open();
+    auto tmpFileName = QUrl::fromLocalFile(tmpFile->fileName());
+    delete tmpFile;
 
     m_eventLoop = new QEventLoop;
-
-    KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo | KIO::Overwrite);
+    KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo);
     connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDone(KJob*)));
 
     auto result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
