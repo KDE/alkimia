@@ -33,7 +33,7 @@
 int main(int argc, char **argv)
 {
     KAboutData about("onlinequoteseditor",
-                     "onlinequoteeditor",
+                     "onlinequoteseditor",
                      ki18n("Online Quotes Editor"),
                      "1.0",
                      ki18n("Editor for online price quotes used by finance applications"),

@@ -5,7 +5,7 @@ $EXTRACTRC `find . -name \*.rc -o -name \*.ui -o -name \*.kcfg` >> rc.cpp
 
 # call xgettext on all source files. If your sources have other filename
 # extensions besides .cpp, and .h, just add them in the find call.
-$XGETTEXT `find . -name \*.cpp -o -name \*.h -o -name \*.qml` -o $podir/onlinequoteeditor.pot
+$XGETTEXT `find . -name \*.cpp -o -name \*.h -o -name \*.qml` -o $podir/onlinequoteseditor.pot
 
 # Remove these two generated files again
 rm rc.cpp

@@ -35,7 +35,7 @@ if(BUILD_QT4)
     set(LIBS ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_USE_LIBSPREFIX}Core ${QT_USE_LIBSPREFIX}Network ${QT_USE_LIBSPREFIX}WebKit)
 else()
     set(LIBS Qt5::Widgets Qt5::WebKitWidgets KF5::KDELibs4Support)
-    add_definitions(-DTRANSLATION_DOMAIN=\"onlinequoteeditor\")
+    add_definitions(-DTRANSLATION_DOMAIN=\"onlinequoteseditor\")
 endif()
 
 target_link_libraries(onlinequoteseditor
