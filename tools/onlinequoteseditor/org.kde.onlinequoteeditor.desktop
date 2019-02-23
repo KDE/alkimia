@@ -1,0 +1,11 @@
+# KDE Config File
+[Desktop Entry]
+Type=Application
+Exec=onlinequoteseditor
+Icon=onlinequoteseditor
+X-DocPath=onlinequoteseditor/index.html
+Terminal=false
+Name=Online Quotes Editor
+GenericName=Editor for online price quotes
+Comment=Editor for online price quotes used by finance applications
+Categories=Qt;KDE;Office;Finance;

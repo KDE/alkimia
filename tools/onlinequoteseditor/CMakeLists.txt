@@ -1,3 +1,5 @@
+add_subdirectory(icons)
+
 include_directories(
   ${CMAKE_SOURCE_DIR}/src
   ${CMAKE_BINARY_DIR}/src
@@ -18,7 +20,15 @@ set(UI
 
 ki18n_wrap_ui(SOURCES ${UI} )
 
-#kde4_add_app_icon(SOURCES "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/actions/application-exit.png")
+ecm_add_app_icon(SOURCES
+    ICONS
+    icons/16-apps-onlinequoteseditor.png
+    icons/22-apps-onlinequoteseditor.png
+    icons/32-apps-onlinequoteseditor.png
+    icons/48-apps-onlinequoteseditor.png
+    icons/64-apps-onlinequoteseditor.png
+    icons/128-apps-onlinequoteseditor.png
+)
 
 ecm_add_executable(onlinequoteseditor ${SOURCES} ${HEADERS})
 if(BUILD_QT4)
@@ -35,3 +45,4 @@ target_link_libraries(onlinequoteseditor
 )
 
 install(TARGETS onlinequoteseditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES org.kde.onlinequoteeditor.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
