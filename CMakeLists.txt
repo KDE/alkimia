@@ -53,6 +53,11 @@ if(BUILD_QT4)
                                  )
         endforeach()
     endmacro(ecm_mark_nongui_executable)
+
+    macro(ecm_install_icons)
+        kde4_install_icons(${ICON_INSTALL_DIR})
+    endmacro()
+
     add_definitions(-DQStringLiteral=QLatin1String)
 else()
     find_package(Qt5 REQUIRED COMPONENTS
