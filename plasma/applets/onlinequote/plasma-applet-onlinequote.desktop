@@ -1,21 +1,25 @@
 [Desktop Entry]
 Name=Online Quote
 Name[ca]=Cotització en línia
+Name[ca@valencia]=Cotització en línia
 Name[es]=Cotización en línea
 Name[fr]=Cotation en ligne
 Name[gl]=Cotización por internet
 Name[nl]=Online koersen
 Name[pt]=Cotação 'Online'
 Name[sv]=Direktkurs
+Name[uk]=Інтернет-курс
 Name[x-test]=xxOnline Quotexx
 Comment=Plasma applet for an online quote
 Comment[ca]=Miniaplicació del Plasma per a una cotització en línia
+Comment[ca@valencia]=Miniaplicació del Plasma per a una cotització en línia
 Comment[es]=Miniaplicación de Plasma para cotizaciones en línea
 Comment[fr]=Composant graphique plasma pour les cotations en ligne
 Comment[gl]=Miniaplicativo de Plasma para cotizacións por internet
 Comment[nl]=Plasma-applet voor een online valutakoers
 Comment[pt]=Elemento do Plasma para obter uma cotação 'online'
 Comment[sv]=Plasma-miniprogram för direktkurser
+Comment[uk]=Аплет Плазми для інтернет-курсів
 Comment[x-test]=xxPlasma applet for an online quotexx
 Type=Service
 ServiceTypes=Plasma/Applet
