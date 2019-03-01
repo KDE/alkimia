@@ -137,11 +137,13 @@ public:
             QString value = line.mid(index+1);
             if (key == "url")
                 m_url = value;
-            else if (key == "price")
+            else if (key == "price") {
                 m_price = value;
-            else if (key == "date")
+                m_price.replace("\\\\", "\\");
+            } else if (key == "date") {
                 m_date = value;
-            else if (key == "dateformat")
+                m_date.replace("\\\\", "\\");
+            } else if (key == "dateformat")
                 m_dateformat = value;
         }
 
