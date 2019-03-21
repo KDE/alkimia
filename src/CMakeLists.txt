@@ -163,7 +163,7 @@ install(FILES
     DESTINATION ${KNSRC_INSTALL_DIR}
 )
 
-install(FILES financequote.pl
+install(PROGRAMS financequote.pl
   DESTINATION ${DATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
 )
 
