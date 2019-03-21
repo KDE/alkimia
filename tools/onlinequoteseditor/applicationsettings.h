@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2018 Ralf Habacker <ralf.habacker@freenet.de>               *
+ *   Copyright 2019 Ralf Habacker <ralf.habacker@freenet.de>               *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -17,33 +17,18 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef APPLICATIONSETTINGS_H
+#define APPLICATIONSETTINGS_H
 
-#include <QMainWindow>
-#include "applicationsettings.h"
+class QMainWindow;
 
-class QUrl;
-
-class MainWindow : public QMainWindow, public ApplicationSettings
+class ApplicationSettings
 {
-    Q_OBJECT
-
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-
-protected slots:
-    void slotUrlChanged(const QUrl &url);
-    void slotEditingFinished();
-    void slotLanguageChanged(const QString &);
-
 protected:
-    void closeEvent(QCloseEvent *event) override;
-
-private:
-    class Private;
-    Private *const d;
+    ApplicationSettings(QMainWindow *parent, bool loadSettings = true);
+    void writePositionSettings();
+    void readPositionSettings();
+    QMainWindow *m_parent;
 };
 
-#endif // MAINWINDOW_H
+#endif // APPLICATIONSETTINGS_H
