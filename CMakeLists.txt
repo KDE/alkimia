@@ -59,6 +59,9 @@ if(BUILD_QT4)
     endmacro()
 
     add_definitions(-DQStringLiteral=QLatin1String)
+    if(NOT SHARE_INSTALL_DIR)
+        set(SHARE_INSTALL_DIR ${DATA_INSTALL_DIR})
+    endif()
 else()
     find_package(Qt5 REQUIRED COMPONENTS
         Core
