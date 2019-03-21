@@ -7,6 +7,7 @@ endif()
 project(alkimia VERSION 8.0.0)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
+option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 
@@ -122,7 +123,9 @@ else()
 endif()
 
 # check for Doxygen (for API documentation)
-find_package(Doxygen)
+if(BUILD_DOXYGEN_DOCS)
+    find_package(Doxygen)
+endif()
 
 feature_summary(WHAT ALL)
 
