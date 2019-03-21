@@ -151,7 +151,7 @@ install(TARGETS alkimia
 )
 
 if(BUILD_QT4)
-    set(KNSRC_INSTALL_DIR ${DATA_INSTALL_DIR}/kde4/config)
+    set(KNSRC_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/config)
 else()
     set(KNSRC_INSTALL_DIR ${CONFIG_INSTALL_DIR})
 endif()

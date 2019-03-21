@@ -16,7 +16,7 @@ if(BUILD_QT4)
         ${KDE4_KDEUI_LIBS}
     )
     set(PLUGIN_INSTALL_DIR "${LIB_INSTALL_DIR}/kde4")
-    set(SERVICES_INSTALL_DIR "${DATA_INSTALL_DIR}/kde4/services")
+    set(SERVICES_INSTALL_DIR "${SHARE_INSTALL_DIR}/kde4/services")
 else()
     target_link_libraries(plasma_applet_onlinequote
         KF5::Package
