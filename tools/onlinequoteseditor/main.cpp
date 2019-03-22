@@ -25,6 +25,8 @@
 #define KAboutData K4AboutData
 #else
 #include <KAboutData>
+#include <KHelpMenu>
+#include <QMenuBar>
 #endif
 
 #include <KApplication>
@@ -44,6 +46,17 @@ int main(int argc, char **argv)
     KApplication app(true);
 
     MainWindow w;
+
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+    KHelpMenu helpMenu(&w, &about, false);
+    helpMenu.menu();
+    helpMenu.action(KHelpMenu::menuHelpContents)->setVisible(false);
+    helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(false);
+    helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
+    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", about.programName()));
+    w.menuBar()->addMenu((QMenu*)helpMenu.menu());
+#endif
+
     w.show();
     return app.exec();
 }
