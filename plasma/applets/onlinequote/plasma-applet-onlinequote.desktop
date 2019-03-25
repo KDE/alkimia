@@ -2,6 +2,7 @@
 Name=Online Quote
 Name[ca]=Cotització en línia
 Name[ca@valencia]=Cotització en línia
+Name[en_GB]=Online Quote
 Name[es]=Cotización en línea
 Name[fr]=Cotation en ligne
 Name[gl]=Cotización por internet
@@ -17,6 +18,7 @@ Name[x-test]=xxOnline Quotexx
 Comment=Plasma applet for an online quote
 Comment[ca]=Miniaplicació del Plasma per a una cotització en línia
 Comment[ca@valencia]=Miniaplicació del Plasma per a una cotització en línia
+Comment[en_GB]=Plasma applet for an online quote
 Comment[es]=Miniaplicación de Plasma para cotizaciones en línea
 Comment[fr]=Composant graphique plasma pour les cotations en ligne
 Comment[gl]=Miniaplicativo de Plasma para cotizacións por internet
