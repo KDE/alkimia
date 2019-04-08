@@ -68,6 +68,7 @@ void MainWindow::slotLanguageChanged(const QString &text)
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
+    , ApplicationSettings(this, false)
     , d(new Private)
 {
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
@@ -87,26 +88,32 @@ MainWindow::MainWindow(QWidget *parent)
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
 
     QDockWidget *profilesWidget = new QDockWidget(tr("Profiles"), this);
+    profilesWidget->setObjectName("profilesDockWidget");
     profilesWidget->setWidget(d->quotesWidget->profilesWidget());
     addDockWidget(Qt::LeftDockWidgetArea, profilesWidget);
 
     QDockWidget *profileDetailsWidget = new QDockWidget(tr("Profile details"), this);
+    profileDetailsWidget->setObjectName("profileDetailsDockWidget");
     profileDetailsWidget->setWidget(d->quotesWidget->profileDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, profileDetailsWidget);
 
     QDockWidget *onlineQuotesWidget = new QDockWidget(tr("Online quotes"), this);
+    onlineQuotesWidget->setObjectName("onlineQuotesDockWidget");
     onlineQuotesWidget->setWidget(d->quotesWidget->onlineQuotesWidget());
     addDockWidget(Qt::LeftDockWidgetArea, onlineQuotesWidget);
 
     QDockWidget *debugWidget = new QDockWidget(tr("Debug"), this);
+    debugWidget->setObjectName("debugDockWidget");
     debugWidget->setWidget(d->quotesWidget->debugWidget());
     addDockWidget(Qt::LeftDockWidgetArea, debugWidget);
 
     QDockWidget *quoteDetailsWidget = new QDockWidget(tr("Quote details"), this);
+    quoteDetailsWidget->setObjectName("quoteDetailsDockWidget");
     quoteDetailsWidget->setWidget(d->quotesWidget->quoteDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, quoteDetailsWidget);
 
     QDockWidget *browserWidget = new QDockWidget(tr("Browser"), this);
+    browserWidget->setObjectName("browserDockWidget");
     AlkWebPage *webPage = manager.webPage();
     connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
     d->urlLine = new QLineEdit;
@@ -144,9 +151,16 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(nullptr);
 
     webPage->setWebInspectorEnabled(true);
+    readPositionSettings();
 }
 
 MainWindow::~MainWindow()
 {
     delete d;
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    writePositionSettings();
+    QMainWindow::closeEvent(event);
 }

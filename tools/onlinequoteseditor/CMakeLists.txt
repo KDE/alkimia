@@ -6,11 +6,13 @@ include_directories(
 )
 
 set(SOURCES
+  applicationsettings.cpp
   main.cpp
   mainwindow.cpp
 )
 
 set(HEADERS
+  applicationsettings.h
   mainwindow.h
 )
 
