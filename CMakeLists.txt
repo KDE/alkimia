@@ -72,7 +72,7 @@ else()
         Qml
     )
     if(BUILD_APPLETS)
-        set(PLASMA_COMPONENT Plasma)
+        set(PLASMA_COMPONENT Package Plasma)
     endif()
     # search packages used by KDE
     find_package(KF5 REQUIRED COMPONENTS
@@ -81,7 +81,6 @@ else()
         KDELibs4Support
         #I18n
         #WebKit
-        Package
         ${PLASMA_COMPONENT}
         NewStuff
     )
