@@ -34,7 +34,7 @@
 
 int main(int argc, char **argv)
 {
-    KAboutData about("onlinequoteseditor",
+    KAboutData about("onlinequoteseditor" TARGET_SUFFIX,
                      "onlinequoteseditor",
                      ki18n("Online Quotes Editor"),
                      "1.0",

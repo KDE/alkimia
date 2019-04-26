@@ -1,9 +1,9 @@
 # KDE Config File
 [Desktop Entry]
 Type=Application
-Exec=onlinequoteseditor
-Icon=onlinequoteseditor
-X-DocPath=onlinequoteseditor/index.html
+Exec=onlinequoteseditor@TARGET_SUFFIX@
+Icon=onlinequoteseditor@TARGET_SUFFIX@
+X-DocPath=onlinequoteseditor@TARGET_SUFFIX@/index.html
 Terminal=false
 Name=Online Quotes Editor
 Name[ca]=Editor de cotitzacions en línia

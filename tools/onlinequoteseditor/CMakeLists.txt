@@ -24,12 +24,12 @@ ki18n_wrap_ui(SOURCES ${UI} )
 
 ecm_add_app_icon(SOURCES
     ICONS
-    icons/16-apps-onlinequoteseditor.png
-    icons/22-apps-onlinequoteseditor.png
-    icons/32-apps-onlinequoteseditor.png
-    icons/48-apps-onlinequoteseditor.png
-    icons/64-apps-onlinequoteseditor.png
-    icons/128-apps-onlinequoteseditor.png
+    icons/16-apps-onlinequoteseditor5.png
+    icons/22-apps-onlinequoteseditor5.png
+    icons/32-apps-onlinequoteseditor5.png
+    icons/48-apps-onlinequoteseditor5.png
+    icons/64-apps-onlinequoteseditor5.png
+    icons/128-apps-onlinequoteseditor5.png
 )
 
 ecm_add_executable(onlinequoteseditor ${SOURCES} ${HEADERS})
@@ -45,6 +45,9 @@ target_link_libraries(onlinequoteseditor
     alkimia-internal
     ${LIBS}
 )
+set_target_properties(onlinequoteseditor PROPERTIES OUTPUT_NAME onlinequoteeditor${TARGET_SUFFIX})
 
 install(TARGETS onlinequoteseditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES org.kde.onlinequoteeditor.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+
+configure_file(org.kde.onlinequoteeditor.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteeditor${TARGET_SUFFIX}.desktop)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteeditor${TARGET_SUFFIX}.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

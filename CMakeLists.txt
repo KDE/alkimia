@@ -107,6 +107,9 @@ else()
     )
 endif()
 
+set(TARGET_SUFFIX ${PC_TARGET_SUFFIX})
+add_definitions(-DTARGET_SUFFIX=\"${TARGET_SUFFIX}\")
+
 # figure out which multi-precision library to use
 # MPIR is preferred over GMP
 find_package(MPIR)
