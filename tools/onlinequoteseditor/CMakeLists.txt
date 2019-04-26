@@ -45,9 +45,9 @@ target_link_libraries(onlinequoteseditor
     alkimia-internal
     ${LIBS}
 )
-set_target_properties(onlinequoteseditor PROPERTIES OUTPUT_NAME onlinequoteeditor${TARGET_SUFFIX})
+set_target_properties(onlinequoteseditor PROPERTIES OUTPUT_NAME onlinequoteseditor${TARGET_SUFFIX})
 
 install(TARGETS onlinequoteseditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
-configure_file(org.kde.onlinequoteeditor.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteeditor${TARGET_SUFFIX}.desktop)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteeditor${TARGET_SUFFIX}.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+configure_file(org.kde.onlinequoteseditor.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.desktop)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
