@@ -88,32 +88,32 @@ MainWindow::MainWindow(QWidget *parent)
 
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
 
-    QDockWidget *profilesWidget = new QDockWidget(tr("Profiles"), this);
+    QDockWidget *profilesWidget = new QDockWidget(i18n("Profiles"), this);
     profilesWidget->setObjectName("profilesDockWidget");
     profilesWidget->setWidget(d->quotesWidget->profilesWidget());
     addDockWidget(Qt::LeftDockWidgetArea, profilesWidget);
 
-    QDockWidget *profileDetailsWidget = new QDockWidget(tr("Profile details"), this);
+    QDockWidget *profileDetailsWidget = new QDockWidget(i18n("Profile details"), this);
     profileDetailsWidget->setObjectName("profileDetailsDockWidget");
     profileDetailsWidget->setWidget(d->quotesWidget->profileDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, profileDetailsWidget);
 
-    QDockWidget *onlineQuotesWidget = new QDockWidget(tr("Online quotes"), this);
+    QDockWidget *onlineQuotesWidget = new QDockWidget(i18n("Online quotes"), this);
     onlineQuotesWidget->setObjectName("onlineQuotesDockWidget");
     onlineQuotesWidget->setWidget(d->quotesWidget->onlineQuotesWidget());
     addDockWidget(Qt::LeftDockWidgetArea, onlineQuotesWidget);
 
-    QDockWidget *debugWidget = new QDockWidget(tr("Debug"), this);
+    QDockWidget *debugWidget = new QDockWidget(i18n("Debug"), this);
     debugWidget->setObjectName("debugDockWidget");
     debugWidget->setWidget(d->quotesWidget->debugWidget());
     addDockWidget(Qt::LeftDockWidgetArea, debugWidget);
 
-    QDockWidget *quoteDetailsWidget = new QDockWidget(tr("Quote details"), this);
+    QDockWidget *quoteDetailsWidget = new QDockWidget(i18n("Quote details"), this);
     quoteDetailsWidget->setObjectName("quoteDetailsDockWidget");
     quoteDetailsWidget->setWidget(d->quotesWidget->quoteDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, quoteDetailsWidget);
 
-    QDockWidget *browserWidget = new QDockWidget(tr("Browser"), this);
+    QDockWidget *browserWidget = new QDockWidget(i18n("Browser"), this);
     browserWidget->setObjectName("browserDockWidget");
     AlkWebPage *webPage = manager.webPage();
     connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
