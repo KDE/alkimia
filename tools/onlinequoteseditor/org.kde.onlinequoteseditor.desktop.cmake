@@ -8,6 +8,7 @@ Terminal=false
 Name=Online Quotes Editor
 Name[ca]=Editor de cotitzacions en línia
 Name[ca@valencia]=Editor de cotitzacions en línia
+Name[de]=Editor für Online-Kursnotizen
 Name[en_GB]=Online Quotes Editor
 Name[es]=Editor de cotizaciones en línea
 Name[fr]=Éditeur de cotations en ligne
