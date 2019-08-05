@@ -26,6 +26,7 @@ Name[x-test]=xxOnline Quotes Editorxx
 GenericName=Editor for online price quotes
 GenericName[ca]=Editor per a cotitzacions de preus en línia
 GenericName[ca@valencia]=Editor per a cotitzacions de preus en línia
+GenericName[de]=Editor für Online-Kursnotizen
 GenericName[en_GB]=Editor for online price quotes
 GenericName[es]=Editor de cotizaciones de precios en línea
 GenericName[fr]=Éditeur de cotations en ligne
