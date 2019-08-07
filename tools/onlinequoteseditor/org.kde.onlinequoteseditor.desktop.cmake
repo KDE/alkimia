@@ -43,6 +43,7 @@ GenericName[x-test]=xxEditor for online price quotesxx
 Comment=Editor for online price quotes used by finance applications
 Comment[ca]=Editor per a cotitzacions de preus en línia usat per les aplicacions financeres
 Comment[ca@valencia]=Editor per a cotitzacions de preus en línia usat per les aplicacions financeres
+Comment[de]=Editor für Online-Kursnotizen für Finanz-Anwendungen
 Comment[en_GB]=Editor for online price quotes used by finance applications
 Comment[es]=Editor de cotizaciones de precios en línea usado por aplicaciones de finanzas
 Comment[fr]=Éditeur de cotations en ligne utilisé par les applications financières
