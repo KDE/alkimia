@@ -444,6 +444,14 @@ AlkValue AlkValue::operator/(const AlkValue &right) const
     return result;
 }
 
+AlkValue AlkValue::operator%(int operand) const
+{
+    mpz_class num(mpq_numref(d->m_val.get_mpq_t()));
+    AlkValue result;
+    result.d->m_val = num % operand;
+    return result;
+}
+
 AlkValue AlkValue::operator*(int factor) const
 {
     AlkValue result;
