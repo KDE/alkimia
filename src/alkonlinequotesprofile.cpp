@@ -26,6 +26,7 @@
 
 #include <QApplication>
 #include <QDir>
+#include <QLibraryInfo>
 #include <QString>
 #include <QtDebug>
 #include <QFileInfo>
@@ -230,35 +231,60 @@ public Q_SLOTS:
         return result;
     }
 
+    /**
+     * @brief return data root path
+     * @return path
+     */
+    QString dataRootPath()
+    {
+        return QLibraryInfo::location(QLibraryInfo::PrefixPath) + "/share";
+    }
+
+    /**
+     * @brief return home root path
+     * @return path
+     */
+    QString homeRootPath()
+    {
+        if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
+            return QDir::homePath();
+        else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4) {
+#ifdef Q_OS_WIN
+            return qgetenv("APPDATA");
+#else
+            return QDir::homePath();
+#endif
+        } else {
+            return QString();
+        }
+    }
+
     QString configPath()
     {
-        // TODO: add windows support
         if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
-            return QString("%1/.config").arg(QDir::homePath());
+            return QString("%1/.config").arg(homeRootPath());
         else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
-            return QString("%1/.kde4/share/config").arg(QDir::homePath());
+            return QString("%1/.kde4/share/config").arg(homeRootPath());
         return
             QString();
     }
 
     QString dataReadPath()
     {
-        // TODO: add windows support
         if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
-            return QString("/usr/share/kf5");
+            return dataRootPath();
         else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
-            return QString("/usr/share/kde4/apps");
+            return QString("%1/kde4/apps").arg(dataRootPath());
         return
             QString();
     }
 
     QString dataWritePath()
     {
-        // TODO: add windows support
         if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
-            return QString("%1/.local/share").arg(QDir::homePath());
+            return QString("%1/.local/share").arg(homeRootPath());
         else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
-            return QString("%1/.kde4/share/apps").arg(QDir::homePath());
+            return QString("%1/.kde4/share/apps").arg(homeRootPath());
         return
             QString();
     }

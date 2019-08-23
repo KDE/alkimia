@@ -404,6 +404,17 @@ void AlkValueTest::division()
     QCOMPARE(m0, AlkValue(-5));
 }
 
+void AlkValueTest::modulo()
+{
+    AlkValue m0(1025000), m1;
+    m1 = m0 % 97;
+    QCOMPARE(m1.abs(), AlkValue(1));
+
+    m0 = 1024999;
+    m1 = m0 % 97;
+    QCOMPARE(m1.abs(), AlkValue(0));
+}
+
 void AlkValueTest::unaryMinus()
 {
     // AlkValue operator-() const;

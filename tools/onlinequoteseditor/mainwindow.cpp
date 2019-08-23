@@ -75,44 +75,47 @@ MainWindow::MainWindow(QWidget *parent)
     manager.setWebPageEnabled(true);
 
     manager.addProfile(new AlkOnlineQuotesProfile("no-config-file", AlkOnlineQuotesProfile::Type::None));
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     manager.addProfile(new AlkOnlineQuotesProfile("alkimia4", AlkOnlineQuotesProfile::Type::Alkimia4, "alkimia-quotes.knsrc"));
-    manager.addProfile(new AlkOnlineQuotesProfile("alkimia5", AlkOnlineQuotesProfile::Type::Alkimia5, "alkimia-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("skrooge4", AlkOnlineQuotesProfile::Type::Skrooge4, "skrooge-quotes.knsrc"));
-    manager.addProfile(new AlkOnlineQuotesProfile("skrooge5", AlkOnlineQuotesProfile::Type::Skrooge5, "skrooge-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney4", AlkOnlineQuotesProfile::Type::KMyMoney4, "kmymoney-quotes.knsrc"));
+#else
+    manager.addProfile(new AlkOnlineQuotesProfile("alkimia5", AlkOnlineQuotesProfile::Type::Alkimia5, "alkimia-quotes.knsrc"));
+    manager.addProfile(new AlkOnlineQuotesProfile("skrooge5", AlkOnlineQuotesProfile::Type::Skrooge5, "skrooge-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney5", AlkOnlineQuotesProfile::Type::KMyMoney5, "kmymoney-quotes.knsrc"));
+#endif
     d->ui.setupUi(this);
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     d->ui.mainToolBar->deleteLater();
 #endif
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
 
-    QDockWidget *profilesWidget = new QDockWidget(tr("Profiles"), this);
+    QDockWidget *profilesWidget = new QDockWidget(i18n("Profiles"), this);
     profilesWidget->setObjectName("profilesDockWidget");
     profilesWidget->setWidget(d->quotesWidget->profilesWidget());
     addDockWidget(Qt::LeftDockWidgetArea, profilesWidget);
 
-    QDockWidget *profileDetailsWidget = new QDockWidget(tr("Profile details"), this);
+    QDockWidget *profileDetailsWidget = new QDockWidget(i18n("Profile details"), this);
     profileDetailsWidget->setObjectName("profileDetailsDockWidget");
     profileDetailsWidget->setWidget(d->quotesWidget->profileDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, profileDetailsWidget);
 
-    QDockWidget *onlineQuotesWidget = new QDockWidget(tr("Online quotes"), this);
+    QDockWidget *onlineQuotesWidget = new QDockWidget(i18n("Online quotes"), this);
     onlineQuotesWidget->setObjectName("onlineQuotesDockWidget");
     onlineQuotesWidget->setWidget(d->quotesWidget->onlineQuotesWidget());
     addDockWidget(Qt::LeftDockWidgetArea, onlineQuotesWidget);
 
-    QDockWidget *debugWidget = new QDockWidget(tr("Debug"), this);
+    QDockWidget *debugWidget = new QDockWidget(i18n("Debug"), this);
     debugWidget->setObjectName("debugDockWidget");
     debugWidget->setWidget(d->quotesWidget->debugWidget());
     addDockWidget(Qt::LeftDockWidgetArea, debugWidget);
 
-    QDockWidget *quoteDetailsWidget = new QDockWidget(tr("Quote details"), this);
+    QDockWidget *quoteDetailsWidget = new QDockWidget(i18n("Quote details"), this);
     quoteDetailsWidget->setObjectName("quoteDetailsDockWidget");
     quoteDetailsWidget->setWidget(d->quotesWidget->quoteDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, quoteDetailsWidget);
 
-    QDockWidget *browserWidget = new QDockWidget(tr("Browser"), this);
+    QDockWidget *browserWidget = new QDockWidget(i18n("Browser"), this);
     browserWidget->setObjectName("browserDockWidget");
     AlkWebPage *webPage = manager.webPage();
     connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));

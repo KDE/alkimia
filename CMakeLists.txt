@@ -4,10 +4,11 @@ if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
-project(alkimia VERSION 8.0.0)
+project(alkimia VERSION 8.0.70)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
+option(BUILD_APPLETS "Build plasma applets" ON)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 
@@ -70,6 +71,9 @@ else()
         WebKitWidgets
         Qml
     )
+    if(BUILD_APPLETS)
+        set(PLASMA_COMPONENT Package Plasma)
+    endif()
     # search packages used by KDE
     find_package(KF5 REQUIRED COMPONENTS
         Config
@@ -98,6 +102,9 @@ else()
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
     endif()
 endif()
+
+set(TARGET_SUFFIX ${PC_TARGET_SUFFIX})
+add_definitions(-DTARGET_SUFFIX=\"${TARGET_SUFFIX}\")
 
 # figure out which multi-precision library to use
 # MPIR is preferred over GMP
@@ -130,7 +137,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 include_directories(
-    ${MP_INCLUDE_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
 )
@@ -138,10 +144,12 @@ include_directories(
 add_subdirectory(src)
 add_subdirectory(autotests)
 add_subdirectory(qml)
-if(BUILD_QT4)
-    add_subdirectory(plasma/applets/onlinequote)
-else()
-    add_subdirectory(plasma/applets/ForeignCurrencies)
+if(BUILD_APPLETS)
+    if(BUILD_QT4)
+        add_subdirectory(plasma/applets/onlinequote)
+    else()
+        add_subdirectory(plasma/applets/ForeignCurrencies)
+    endif()
 endif()
 add_subdirectory(tests)
 add_subdirectory(tools)

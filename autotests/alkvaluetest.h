@@ -47,6 +47,7 @@ private slots:
     void subtraction();
     void multiplication();
     void division();
+    void modulo();
     void unaryMinus();
     void abs();
     void precision();

@@ -54,6 +54,14 @@
     #include <ui_alkonlinequoteswidget.h>
 #endif
 
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#include <klocale.h>
+static KLocale _locale("alkimia");
+#define i18nc(context, text) ki18nc(context, text).toString(&_locale)
+#define i18n(text) ki18n(text).toString(&_locale)
+#define tr2i18n(text, context) ki18nc(context, text).toString(&_locale)
+#endif
+
 class AlkOnlineQuotesWidget::Private : public QWidget, public Ui::AlkOnlineQuotesWidget
 {
     Q_OBJECT
@@ -689,17 +697,5 @@ void AlkOnlineQuotesWidget::setAcceptLanguage(const QString &text)
 {
     d->m_acceptLanguage = text;
 }
-
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-class InitCatalog {
-public:
-    InitCatalog()
-    {
-        KComponentData a("alkimia", "alkimia");
-    }
-};
-
-static InitCatalog init;
-#endif
 
 #include "alkonlinequoteswidget.moc"

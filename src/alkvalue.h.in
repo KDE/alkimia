@@ -197,6 +197,7 @@ public:
   AlkValue operator-(const AlkValue &minuend) const;
   AlkValue operator*(const AlkValue &factor) const;
   AlkValue operator/(const AlkValue &divisor) const;
+  AlkValue operator%(int operand) const;
 
   AlkValue operator*(int factor) const;
 
