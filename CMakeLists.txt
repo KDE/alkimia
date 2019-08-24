@@ -139,6 +139,7 @@ add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
+    ${MP_INCLUDE_DIR}
 )
 
 add_subdirectory(src)
