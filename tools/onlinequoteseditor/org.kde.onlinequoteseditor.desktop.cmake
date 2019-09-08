@@ -37,6 +37,7 @@ GenericName[nl]=Bewerker voor online koersen
 GenericName[pl]=Edytor do wycen z sieci
 GenericName[pt]=Editor para cotações de preços 'online'
 GenericName[pt_BR]=Editor de cotações de preço online
+GenericName[sk]=Editor pre online cenové ponuky
 GenericName[sv]=Editor för direktkurser
 GenericName[uk]=Редактор інтернет-курсів
 GenericName[x-test]=xxEditor for online price quotesxx
