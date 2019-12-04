@@ -141,8 +141,8 @@ public Q_SLOTS:
             // since this is a static function it can be called without constructing an object
             // so we need to make sure that m_financeQuoteScriptPath is properly initialized
             if (m_financeQuoteScriptPath.isEmpty()) {
-                m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
-                                                                         QString("financequote.pl"));
+                m_financeQuoteScriptPath = KGlobal::dirs()->findResource("data",
+                                                                         QString("alkimia/misc/financequote.pl"));
             }
             AlkFinanceQuoteProcess getList;
             getList.launch(m_financeQuoteScriptPath);
@@ -411,6 +411,11 @@ void AlkOnlineQuotesProfile::setManager(AlkOnlineQuotesProfileManager *manager)
 AlkOnlineQuotesProfileManager *AlkOnlineQuotesProfile::manager()
 {
     return d->m_profileManager;
+}
+
+QString AlkOnlineQuotesProfile::scriptPath()
+{
+    return d->m_financeQuoteScriptPath;
 }
 
 #include "alkonlinequotesprofile.moc"

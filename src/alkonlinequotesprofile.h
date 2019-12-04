@@ -66,6 +66,8 @@ public:
      */
     const QStringList quoteSources();
 
+    QString scriptPath();
+
 private:
     class Private;
     Private *const d;

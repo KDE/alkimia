@@ -156,8 +156,10 @@ if(BUILD_QT4)
     else()
         set(KNSRC_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/config)
     endif()
+    set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/apps)
 else()
     set(KNSRC_INSTALL_DIR ${CONFIG_INSTALL_DIR})
+    set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR})
 endif()
 
 install(FILES
@@ -168,7 +170,7 @@ install(FILES
 )
 
 install(PROGRAMS financequote.pl
-  DESTINATION ${DATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
+  DESTINATION ${APPDATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
 )
 
 if (NOT WIN32)
