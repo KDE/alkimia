@@ -16,7 +16,6 @@ set(alkimia_INTERNAL_SRCS
     alkonlinequoteprocess.cpp
     alkquoteitem.cpp
     alkquotereceiver.cpp
-    alkwebpage.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
@@ -25,7 +24,6 @@ set(alkimia_INTERNAL_HEADERS
     alkonlinequoteprocess.h
     alkquoteitem.h
     alkquotereceiver.h
-    alkwebpage.h
 )
 
 set(alkimia_INTERNAL_UI
@@ -59,6 +57,7 @@ set(alkimia_LIB_SRCS
     alkonlinequotesprofilemanager.cpp
     alkonlinequoteswidget.cpp
     alkvalue.cpp
+    alkwebpage.cpp
 )
 
 set(alkimia_LIB_HEADERS
@@ -69,6 +68,7 @@ set(alkimia_LIB_HEADERS
     alkonlinequotesprofile.h
     alkonlinequotesprofilemanager.h
     alkonlinequoteswidget.h
+    alkwebpage.h
 )
 
 set(alkimia_UI
@@ -115,9 +115,9 @@ target_link_libraries(alkimia
     alkimia-internal
     ${QT_USE_LIBSPREFIX}Core
     ${ALKIMIA_LIBS}
-    ${QT_USE_LIBSPREFIX}WebKit
     ${QT_USE_LIBSPREFIX}DBus
     PUBLIC
+    ${QT_USE_LIBSPREFIX}WebKit
     ${MP_LIBRARIES}
 )
 

@@ -34,7 +34,7 @@ class QUrl;
  *
  * @author Ralf Habacker <ralf.habacker@freenet.de>
  */
-class ALK_NO_EXPORT AlkWebPage : public QWebView
+class ALK_EXPORT AlkWebPage : public QWebView
 {
 public:
     AlkWebPage(QWidget *parent = nullptr);
