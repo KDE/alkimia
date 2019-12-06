@@ -157,9 +157,11 @@ if(BUILD_QT4)
         set(KNSRC_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/config)
     endif()
     set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/apps)
+    set(FQ_LOCAL_INSTALL_PATH ${CMAKE_BINARY_DIR}/share/apps/alkimia${ALKIMIA_PATH_SUFFIX}/misc)
 else()
     set(KNSRC_INSTALL_DIR ${CONFIG_INSTALL_DIR})
     set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR})
+    set(FQ_LOCAL_INSTALL_PATH ${CMAKE_BINARY_DIR}/share/alkimia${ALKIMIA_PATH_SUFFIX}/misc)
 endif()
 
 install(FILES
@@ -168,6 +170,12 @@ install(FILES
     skrooge-quotes.knsrc
     DESTINATION ${KNSRC_INSTALL_DIR}
 )
+
+# install perl script in expected location of build dir
+# KDE4: set KDEHOME to build dir
+# KF5: ???
+make_directory(${FQ_LOCAL_INSTALL_PATH})
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/financequote.pl ${FQ_LOCAL_INSTALL_PATH}/financequote.pl IMMEDIATE COPYONLY)
 
 install(PROGRAMS financequote.pl
   DESTINATION ${APPDATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
