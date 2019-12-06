@@ -309,13 +309,16 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
 {
     m_quoteInEditing = false;
     QListWidgetItem *item = m_quoteSourceList->currentItem();
+    bool isScriptProfile = m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
+    bool enabled = item && !isScriptProfile;
 
-    m_editURL->setEnabled(item != nullptr);
-    m_editSymbol->setEnabled(item != nullptr);
-    m_editPrice->setEnabled(item != nullptr);
-    m_editDate->setEnabled(item != nullptr);
-    m_editDateFormat->setEnabled(item != nullptr);
-    m_skipStripping->setEnabled(item != nullptr);
+    m_editURL->setEnabled(enabled);
+    m_editSymbol->setEnabled(enabled);
+    m_editPrice->setEnabled(enabled);
+    m_editDate->setEnabled(enabled);
+    m_editDateFormat->setEnabled(enabled);
+    m_ghnsSource->setEnabled(!isScriptProfile);
+    m_skipStripping->setEnabled(enabled);
 
     m_editURL->clear();
     m_editSymbol->clear();
@@ -348,8 +351,9 @@ void AlkOnlineQuotesWidget::Private::slotEntryChanged()
                     || m_skipStripping->isChecked() != m_currentItem.skipStripping()
                     || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
 
-    bool hasWriteSupport = m_profile->type() != AlkOnlineQuotesProfile::Type::None || m_profile->hasGHNSSupport();
-    bool noNewEntry = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0;
+    bool isScript = m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
+    bool hasWriteSupport = (m_profile->type() != AlkOnlineQuotesProfile::Type::None && !isScript) || m_profile->hasGHNSSupport();
+    bool noNewEntry = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0 || isScript;
     m_newButton->setEnabled(hasWriteSupport && noNewEntry);
     m_duplicateButton->setEnabled(hasWriteSupport);
     m_deleteButton->setEnabled(!m_currentItem.isReadOnly() && !m_currentItem.isGHNS());
