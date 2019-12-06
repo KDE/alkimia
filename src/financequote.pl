@@ -28,8 +28,8 @@ use strict;
 use Data::Dumper;
 use POSIX qw(strftime);
 
-my $prgnam = "kmymoneyfq.pl";
-my $version = "1.00";
+my $prgnam = "financequote.pl";
+my $version = "1.1";
 # perl modules required by this routine and Finance::Quote
 my @modules = qw(Date::Manip Finance::Quote LWP XML::Parser XML::Writer);
 
