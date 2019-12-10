@@ -309,15 +309,16 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
 {
     m_quoteInEditing = false;
     QListWidgetItem *item = m_quoteSourceList->currentItem();
-    bool isScriptProfile = m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
-    bool enabled = item && !isScriptProfile;
+    bool isFinanceQuoteSource = AlkOnlineQuoteSource::isFinanceQuote(item->text()) ||
+            m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
+    bool enabled = item && !isFinanceQuoteSource;
 
     m_editURL->setEnabled(enabled);
     m_editSymbol->setEnabled(enabled);
     m_editPrice->setEnabled(enabled);
     m_editDate->setEnabled(enabled);
     m_editDateFormat->setEnabled(enabled);
-    m_ghnsSource->setEnabled(!isScriptProfile);
+    m_ghnsSource->setEnabled(!isFinanceQuoteSource);
     m_skipStripping->setEnabled(enabled);
 
     m_editURL->clear();

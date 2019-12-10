@@ -28,6 +28,11 @@
 #include <KConfig>
 #include <KConfigGroup>
 
+/**
+ * Key to identifying "Finance::Quote" sources
+ */
+static const char *fqName = "Finance::Quote";
+
 class AlkOnlineQuoteSource::Private
 {
 public:
@@ -276,6 +281,18 @@ QString AlkOnlineQuoteSource::dateformat() const
     return d->m_dateformat;
 }
 
+/**
+ * Returns the name of the "Finance::Quote" source.
+ * This function only makes sense if the current source
+ * is of the specified type.
+ *
+ * @return "Finance::Quote" source name
+ */
+QString AlkOnlineQuoteSource::financeQuoteName() const
+{
+    return d->m_name.section(' ', 1);
+}
+
 bool AlkOnlineQuoteSource::skipStripping() const
 {
     return d->m_skipStripping;
@@ -330,6 +347,26 @@ bool AlkOnlineQuoteSource::isGHNS()
 bool AlkOnlineQuoteSource::isReadOnly()
 {
     return d->m_readOnly;
+}
+
+/**
+ * Checks whether the current source is of type "Finance::Quote"
+ *
+ * @return state
+ */
+bool AlkOnlineQuoteSource::isFinanceQuote() const
+{
+    return d->m_name.contains(fqName);
+}
+
+/**
+ * Checks whether the specified source name is of type "Finance::Quote"
+ *
+ * @return state
+ */
+bool AlkOnlineQuoteSource::isFinanceQuote(const QString &name)
+{
+    return name.contains(fqName);
 }
 
 QString AlkOnlineQuoteSource::ghnsWriteFileName()

@@ -62,9 +62,13 @@ public:
     QString price() const;
     QString date() const;
     QString dateformat() const;
+    QString financeQuoteName() const;
+
     bool skipStripping() const;
     bool isGHNS();
     bool isReadOnly();
+    bool isFinanceQuote() const;
+    static bool isFinanceQuote(const QString &name);
 
     void setName(const QString &name);
     void setUrl(const QString &url);
