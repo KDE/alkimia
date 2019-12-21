@@ -200,7 +200,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
 void AlkOnlineQuote::Private::slotLoadFinishedHtmlParser(bool ok)
 {
     if (!ok) {
-        emit m_p->error(i18n("Unable to fetch url for %1").arg(m_symbol));
+        emit m_p->error(i18n("Unable to fetch url for %1", m_symbol));
         m_errors |= Errors::URL;
         emit m_p->failed(m_id, m_symbol);
     } else {
@@ -214,7 +214,7 @@ void AlkOnlineQuote::Private::slotLoadFinishedHtmlParser(bool ok)
 void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
 {
     if (!ok) {
-        emit m_p->error(i18n("Unable to fetch url for %1").arg(m_symbol));
+        emit m_p->error(i18n("Unable to fetch url for %1", m_symbol));
         m_errors |= Errors::URL;
         emit m_p->failed(m_id, m_symbol);
     } else {
@@ -512,17 +512,17 @@ bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
             emit m_p->status(i18n("Date format found: '%1' -> '%2'", datestr, m_date.toString()));
         } catch (const AlkException &e) {
             m_errors |= Errors::DateFormat;
-            emit m_p->error(i18n("Unable to parse date '%1' using format '%2': %3").arg(datestr,
+            emit m_p->error(i18n("Unable to parse date '%1' using format '%2': %3", datestr,
                                                                                dateparse.format(),
                                                                                e.what()));
             m_date = QDate::currentDate();
-            emit m_p->status(i18n("Using current date for '%1'").arg(m_symbol));
+            emit m_p->status(i18n("Using current date for '%1'", m_symbol));
         }
     } else {
         m_errors |= Errors::Date;
-        emit m_p->error(i18n("Unable to parse date for '%1'").arg(m_symbol));
+        emit m_p->error(i18n("Unable to parse date for '%1'", m_symbol));
         m_date = QDate::currentDate();
-        emit m_p->status(i18n("Using current date for '%1'").arg(m_symbol));
+        emit m_p->status(i18n("Using current date for '%1'", m_symbol));
     }
     return true;
 }
@@ -654,9 +654,9 @@ bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QS
 {
     if (_source.contains("Finance::Quote")) {
         return d->launchFinanceQuote(_symbol, _id, _source);
-    } else if (_source.endsWith(".css")) {
+    } else if (_source.endsWith(QLatin1String(".css"))) {
         return d->launchWebKitCssSelector(_symbol, _id, _source);
-    } else if (_source.endsWith(".webkit")) {
+    } else if (_source.endsWith(QLatin1String(".webkit"))) {
         return d->launchWebKitHtmlParser(_symbol, _id, _source);
     } else {
         return d->launchNative(_symbol, _id, _source);
