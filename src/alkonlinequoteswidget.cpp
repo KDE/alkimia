@@ -309,7 +309,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
 {
     m_quoteInEditing = false;
     QListWidgetItem *item = m_quoteSourceList->currentItem();
-    bool isFinanceQuoteSource = AlkOnlineQuoteSource::isFinanceQuote(item->text()) ||
+    bool isFinanceQuoteSource = (item && AlkOnlineQuoteSource::isFinanceQuote(item->text())) ||
             m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
     bool enabled = item && !isFinanceQuoteSource;
 
