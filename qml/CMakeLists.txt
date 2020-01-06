@@ -3,7 +3,6 @@ if(BUILD_QT4)
     set(QML_INSTALL_DIR ${LIB_INSTALL_DIR}/qt4/plugins/imports)
 else()
     set(LIBS ${QT_USE_LIBSPREFIX}Qml)
-    set(QML_INSTALL_DIR ${LIB_INSTALL_DIR}/qt5/qml)
     set_package_properties(Qt5Qml PROPERTIES  URL "git://gitorious.org/qt/qtdeclarative.git"
         DESCRIPTION "QML support for Alkimia"
         TYPE OPTIONAL
