@@ -278,6 +278,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
         if (list.isEmpty())
             return;
         m_profile = list.first();
+        m_installButton->setVisible(m_profile->hasGHNSSupport());
         loadQuotesList();
         return;
     }
