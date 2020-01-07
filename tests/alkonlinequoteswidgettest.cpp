@@ -23,17 +23,7 @@
 
 #include <KComponentData>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-#include <QGuiApplication>
-#else
 #include <QApplication>
-class QGuiApplication : public QApplication
-{
-public:
-    QGuiApplication(int &argc, char **argv) : QApplication(argc, argv) {}
-};
-#endif
-
 #include <QDialog>
 #include <QGridLayout>
 
@@ -41,7 +31,6 @@ class Dialog : public QDialog {
 public:
     Dialog()
     {
-
         QGridLayout *layout = new QGridLayout;
         layout->addWidget(new AlkOnlineQuotesWidget);
         setLayout(layout);
@@ -50,11 +39,12 @@ public:
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     AlkOnlineQuotesProfile profile("no-config-file", AlkOnlineQuotesProfile::Type::None);
     AlkOnlineQuotesProfileManager::instance().addProfile(&profile);
 
     Dialog dialog;
-    dialog.exec();
+    dialog.show();
+    app.exec();
 }
