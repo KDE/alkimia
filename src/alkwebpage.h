@@ -32,6 +32,7 @@ class QUrl;
 
 class ALK_EXPORT AlkWebPage : public QWebEnginePage
 {
+    Q_OBJECT
 public:
     QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);

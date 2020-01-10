@@ -20,6 +20,7 @@
 #include "alkwebpage.h"
 
 #if defined(BUILD_WITH_WEBENGINE)
+#include <QEventLoop>
 #include <QWebEnginePage>
 #include <QWebEngineView>
 #include <QUrl>
@@ -40,7 +41,16 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 
 QString AlkWebPage::toHtml()
 {
-    return QString();
+    QString html;
+    QEventLoop loop;
+    QWebEnginePage::toHtml([&html, &loop](const QString &result)
+        {
+            html = result;
+            loop.quit();
+        }
+    );
+    loop.exec();
+    return html;
 }
 
 QString AlkWebPage::getFirstElement(const QString &symbol)
@@ -59,6 +69,8 @@ bool AlkWebPage::webInspectorEnabled()
 {
     return false;
 }
+
+#include "alkwebpage.moc"
 
 #elif defined(BUILD_WITH_WEBKIT)
 #include <QWebFrame>
