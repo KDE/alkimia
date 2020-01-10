@@ -25,6 +25,36 @@
 #include <QWebEngineView>
 #include <QUrl>
 
+class AlkWebPage::Private : public QObject
+{
+    Q_OBJECT
+public:
+    AlkWebPage *q;
+
+    Private(AlkWebPage *_q) : q(_q) {}
+    void slotUrlChanged(const QUrl &url)
+    {
+        // This workaround is necessary because QWebEnginePage::urlChanged()
+        // returns the html content set with setContent() as url.
+        if (url.scheme().startsWith("http"))
+            emit q->urlChanged(url);
+        else
+            emit q->urlChanged(QUrl());
+    }
+};
+
+AlkWebPage::AlkWebPage(QWidget *parent)
+  : QWebEnginePage(parent)
+  , d(new Private(this))
+{
+    connect(this, &QWebEnginePage::urlChanged, d, &Private::slotUrlChanged);
+}
+
+AlkWebPage::~AlkWebPage()
+{
+    delete d;
+}
+
 QWidget *AlkWebPage::widget()
 {
     if (!view())

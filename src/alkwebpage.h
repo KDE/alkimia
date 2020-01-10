@@ -34,12 +34,22 @@ class ALK_EXPORT AlkWebPage : public QWebEnginePage
 {
     Q_OBJECT
 public:
+    AlkWebPage(QWidget *parent = nullptr);
+    virtual ~AlkWebPage();
+
     QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
     QString getFirstElement(const QString &symbol);
     void setWebInspectorEnabled(bool state);
     bool webInspectorEnabled();
+
+Q_SIGNALS:
+    void urlChanged(const QUrl &url);
+
+private:
+    class Private;
+    Private *d;
 };
 
 #elif defined(BUILD_WITH_WEBKIT)
