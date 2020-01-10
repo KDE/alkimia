@@ -203,8 +203,10 @@ public Q_SLOTS:
                                         );
             source.setProfile(m_p);
             result[source.name()] = source;
+#if defined(BUILD_WITH_WEBKIT)
             source.setName(source.name() + ".webkit");
             result[source.name()] = source;
+#endif
             break;
         }
         default:
