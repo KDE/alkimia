@@ -19,7 +19,48 @@
 
 #include "alkwebpage.h"
 
-#if defined(BUILD_WITH_WEBKIT)
+#if defined(BUILD_WITH_WEBENGINE)
+#include <QWebEnginePage>
+#include <QWebEngineView>
+#include <QUrl>
+
+QWidget *AlkWebPage::widget()
+{
+    if (!view())
+        setView(new QWebEngineView);
+    return view();
+}
+
+void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
+{
+    Q_UNUSED(acceptLanguage)
+
+    setUrl(url);
+}
+
+QString AlkWebPage::toHtml()
+{
+    return QString();
+}
+
+QString AlkWebPage::getFirstElement(const QString &symbol)
+{
+    Q_UNUSED(symbol)
+
+    return QString();
+}
+
+void AlkWebPage::setWebInspectorEnabled(bool state)
+{
+    Q_UNUSED(state)
+}
+
+bool AlkWebPage::webInspectorEnabled()
+{
+    return false;
+}
+
+#elif defined(BUILD_WITH_WEBKIT)
 #include <QWebFrame>
 #include <QWebElement>
 #include <QWebInspector>

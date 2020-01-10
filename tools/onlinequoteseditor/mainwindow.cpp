@@ -112,7 +112,7 @@ MainWindow::MainWindow(QWidget *parent)
     quoteDetailsWidget->setWidget(d->quotesWidget->quoteDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, quoteDetailsWidget);
 
-#if defined(BUILD_WITH_WEBKIT)
+#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     manager.setWebPageEnabled(true);
     QDockWidget *browserWidget = new QDockWidget(i18n("Browser"), this);
     browserWidget->setObjectName("browserDockWidget");

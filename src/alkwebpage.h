@@ -26,7 +26,22 @@
 
 class QUrl;
 
-#if defined(BUILD_WITH_WEBKIT)
+#if defined(BUILD_WITH_WEBENGINE)
+
+#include <QWebEnginePage>
+
+class ALK_EXPORT AlkWebPage : public QWebEnginePage
+{
+public:
+    QWidget *widget();
+    void load(const QUrl &url, const QString &acceptLanguage);
+    QString toHtml();
+    QString getFirstElement(const QString &symbol);
+    void setWebInspectorEnabled(bool state);
+    bool webInspectorEnabled();
+};
+
+#elif defined(BUILD_WITH_WEBKIT)
 
 #include <QWebView>
 

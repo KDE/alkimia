@@ -320,7 +320,7 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
                 f.close();
                 emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
                 if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
-                    AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
+                    AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit(), "text/html");
                 result = slotParseQuote(quote);
             } else {
                 emit m_p->error(i18n("Failed to open downloaded file"));
