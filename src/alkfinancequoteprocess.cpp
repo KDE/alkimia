@@ -22,6 +22,7 @@
 
 #include <QString>
 #include <QMap>
+#include <QtDebug>
 
 class AlkFinanceQuoteProcess::Private
 {
@@ -115,6 +116,8 @@ void AlkFinanceQuoteProcess::slotProcessExited()
 void AlkFinanceQuoteProcess::launch(const QString &scriptPath)
 {
     clearProgram();
+
+    qDebug() << "running" << "perl" << scriptPath << "-l";
 
     *this << "perl" << scriptPath << "-l";
     setOutputChannelMode(KProcess::OnlyStdoutChannel);
