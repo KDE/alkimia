@@ -54,8 +54,8 @@ int main(int argc, char **argv)
 #endif
     helpMenu.menu();
     helpMenu.action(KHelpMenu::menuHelpContents)->setVisible(false);
-    helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(false);
     helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
+    helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(true);
     helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", about.programName()));
     w.menuBar()->addMenu((QMenu*)helpMenu.menu());
 
