@@ -97,6 +97,7 @@ else()
         #WebKit
         ${PLASMA_COMPONENT}
         NewStuff
+        XmlGui
     )
 
     set(QT_USE_LIBSPREFIX Qt5::)
