@@ -59,11 +59,12 @@ public:
         , m_config(0)
         , m_type(Type::Undefined)
     {
-
+#ifdef ENABLE_FINANCEQUOTE
         if (m_financeQuoteScriptPath.isEmpty()) {
             m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
                                                                      QString("misc/financequote.pl"));
         }
+#endif
     }
 
     ~Private()
@@ -135,6 +136,7 @@ public Q_SLOTS:
         return groups;
     }
 
+#ifdef ENABLE_FINANCEQUOTE
     const QStringList quoteSourcesFinanceQuote()
     {
         if (m_financeQuoteSources.empty()) { // run the process one time only
@@ -153,6 +155,7 @@ public Q_SLOTS:
         }
         return m_financeQuoteSources;
     }
+#endif
 
     const QStringList quoteSourcesSkrooge()
     {
@@ -391,9 +394,11 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::KMyMoney5:
         result << d->quoteSourcesNative();
         break;
+#ifdef ENABLE_FINANCEQUOTE
     case AlkOnlineQuotesProfile::Type::Script:
         result << d->quoteSourcesFinanceQuote();
         break;
+#endif
     case AlkOnlineQuotesProfile::Type::None:
         result << d->defaultQuoteSources().keys();
         break;

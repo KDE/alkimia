@@ -82,7 +82,9 @@ MainWindow::MainWindow(QWidget *parent)
     manager.addProfile(new AlkOnlineQuotesProfile("skrooge5", AlkOnlineQuotesProfile::Type::Skrooge5, "skrooge-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney5", AlkOnlineQuotesProfile::Type::KMyMoney5, "kmymoney-quotes.knsrc"));
 #endif
+#ifdef ENABLE_FINANCEQUOTE
     manager.addProfile(new AlkOnlineQuotesProfile("Finance::Quote", AlkOnlineQuotesProfile::Type::Script));
+#endif
     d->ui.setupUi(this);
 
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);

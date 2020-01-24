@@ -49,7 +49,6 @@ set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
     alkcompany.cpp
-    alkfinancequoteprocess.cpp
     alkonlinequote.cpp
     alkonlinequotesource.cpp
     alkonlinequotesprofile.cpp
@@ -61,7 +60,6 @@ set(alkimia_LIB_SRCS
 
 set(alkimia_LIB_HEADERS
     alkcompany.h
-    alkfinancequoteprocess.h
     alkonlinequote.h
     alkonlinequotesource.h
     alkonlinequotesprofile.h
@@ -69,6 +67,11 @@ set(alkimia_LIB_HEADERS
     alkonlinequoteswidget.h
     alkwebpage.h
 )
+
+if(ENABLE_FINANCEQUOTE)
+    list(APPEND alkimia_LIB_SRCS alkfinancequoteprocess.cpp)
+    list(APPEND alkimia_LIB_HEADERS alkfinancequoteprocess.h)
+endif()
 
 set(alkimia_UI
     alkonlinequoteswidget.ui
@@ -177,9 +180,11 @@ install(FILES
 make_directory(${FQ_LOCAL_INSTALL_PATH})
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/financequote.pl ${FQ_LOCAL_INSTALL_PATH}/financequote.pl IMMEDIATE COPYONLY)
 
-install(PROGRAMS financequote.pl
-  DESTINATION ${APPDATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
-)
+if(ENABLE_FINANCEQUOTE)
+    install(PROGRAMS financequote.pl
+      DESTINATION ${APPDATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
+    )
+endif()
 
 if (NOT WIN32)
    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc IMMEDIATE @ONLY)

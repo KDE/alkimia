@@ -10,6 +10,16 @@ option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
 option(BUILD_APPLETS "Build plasma applets" ON)
 
+if(WIN32)
+    set(ENABLE_FINANCEQUOTE_DEFAULT 0)
+else()
+    set(ENABLE_FINANCEQUOTE_DEFAULT 1)
+endif()
+option(ENABLE_FINANCEQUOTE "Enable finance quote support (requires perl)" ENABLE_FINANCEQUOTE_DEFAULT)
+if(ENABLE_FINANCEQUOTE)
+    add_definitions(-DENABLE_FINANCEQUOTE)
+endif()
+
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)

@@ -337,6 +337,7 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
     return result;
 }
 
+#ifdef ENABLE_FINANCEQUOTE
 bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const QString &_id,
                                         const QString &_sourcename)
 {
@@ -374,6 +375,7 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
     }
     return result;
 }
+#endif
 
 bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
 {
@@ -560,10 +562,13 @@ void AlkOnlineQuote::setAcceptLanguage(const QString &language)
 
 bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QString &_source)
 {
+#ifdef ENABLE_FINANCEQUOTE
     if (AlkOnlineQuoteSource::isFinanceQuote(_source) ||
             d->m_profile->type() == AlkOnlineQuotesProfile::Type::Script) {
         return d->launchFinanceQuote(_symbol, _id, _source);
-    } else if (_source.endsWith(".css")) {
+    } else
+#endif
+        if (_source.endsWith(".css")) {
         return d->launchWebKitCssSelector(_symbol, _id, _source);
     } else if (_source.endsWith(".webkit")) {
         return d->launchWebKitHtmlParser(_symbol, _id, _source);
