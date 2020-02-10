@@ -113,35 +113,38 @@ class AlkWebPage::Private
 {
 public:
     QWebInspector *inspector;
-    Private()
-      : inspector(nullptr)
+    AlkWebPage *p;
+    Private(AlkWebPage *parent)
+      : inspector(nullptr),
+        p(parent)
     {
     }
+
     ~Private()
     {
+        p->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
+        inspector->setPage(nullptr);
         delete inspector;
     }
 
-    void setWebInspectorEnabled(bool enable, QWebPage* page)
+    void setWebInspectorEnabled(bool enable)
     {
-      page->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, enable);
-      delete inspector;
-      inspector = nullptr;
-      if (enable) {
-          inspector = new QWebInspector();
-          inspector->setPage(page);
-      }
+        p->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, enable);
+        if (enable && !inspector) {
+            inspector = new QWebInspector();
+            inspector->setPage(p->page());
+        }
     }
 
-    bool webInspectorEnabled(QWebPage *page)
+    bool webInspectorEnabled()
     {
-        return page->settings()->testAttribute(QWebSettings::DeveloperExtrasEnabled);
+        return p->page()->settings()->testAttribute(QWebSettings::DeveloperExtrasEnabled);
     }
 };
 
 AlkWebPage::AlkWebPage(QWidget *parent)
   : QWebView(parent)
-  , d(new Private)
+  , d(new Private(this))
 {
     page()->settings()->setAttribute(QWebSettings::JavaEnabled, false);
     page()->settings()->setAttribute(QWebSettings::AutoLoadImages, false);
@@ -182,12 +185,12 @@ QString AlkWebPage::getFirstElement(const QString &symbol)
 
 void AlkWebPage::setWebInspectorEnabled(bool enable)
 {
-    d->setWebInspectorEnabled(enable, page());
+    d->setWebInspectorEnabled(enable);
 }
 
 bool AlkWebPage::webInspectorEnabled()
 {
-    return d->webInspectorEnabled(page());
+    return d->webInspectorEnabled();
 }
 
 #else
