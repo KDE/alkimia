@@ -4,7 +4,7 @@ if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
-project(alkimia VERSION 8.0.3)
+project(alkimia VERSION 8.0.4)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
@@ -18,6 +18,7 @@ endif()
 option(ENABLE_FINANCEQUOTE "Enable finance quote support (requires perl)" ENABLE_FINANCEQUOTE_DEFAULT)
 if(ENABLE_FINANCEQUOTE)
     add_definitions(-DENABLE_FINANCEQUOTE)
+    set(PACKAGE_COMPILE_OPTIONS "-DHAVE_ALK_FINANCEQUOTE")
 endif()
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
