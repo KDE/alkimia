@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Foreign Currencies
 Name[ca]=Divises estrangeres
-Name[ca@valencia]=Monedes estrangeres
+Name[ca@valencia]=Divises estrangeres
 Name[cs]=Cizí měny
 Name[de]=Ausländische Währungen
 Name[en_GB]=Foreign Currencies
@@ -23,7 +23,7 @@ Name[uk]=Іноземні валюти
 Name[x-test]=xxForeign Currenciesxx
 Comment=Plasmoid showing current foreign currencies prices. Fork of Foreign Currencies plasmoid by bravenec2nd.
 Comment[ca]=Plasmoide que mostra els preus actuals de les divises estrangeres. Bifurcació del plasmoide divises estrangeres per en «bravenec2nd».
-Comment[ca@valencia]=Plasmoide que mostra els preus actuals de les monedes estrangeres. Bifurcació del plasmoide monedes estrangeres per en «bravenec2nd».
+Comment[ca@valencia]=Plasmoide que mostra els preus actuals de les divises estrangeres. Bifurcació del plasmoide divises estrangeres per en «bravenec2nd».
 Comment[de]=Plasmoid zur Anzeige aktueller Kurse ausländischer Währungen. Fork des Währungs-Plasmoid von bravenec2nd.
 Comment[en_GB]=Plasmoid showing current foreign currencies prices. Fork of Foreign Currencies plasmoid by bravenec2nd.
 Comment[es]=Plasmoide para mostrar los precios actuales de monedas extranjeras. Bifurcación del plasmoide «Monedas extranjeras» de bravenec2nd.
