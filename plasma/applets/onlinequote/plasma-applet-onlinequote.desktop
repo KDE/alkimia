@@ -17,7 +17,6 @@ Name[pt_BR]=Cotações online
 Name[sk]=Online ponuka
 Name[sv]=Direktkurs
 Name[uk]=Інтернет-курс
-Name[x-test]=xxOnline Quotexx
 Comment=Plasma applet for an online quote
 Comment[ca]=Miniaplicació del Plasma per a una cotització en línia
 Comment[ca@valencia]=Miniaplicació del Plasma per a una cotització en línia
@@ -36,7 +35,6 @@ Comment[pt_BR]=Miniaplicativo Plasma para cotações online
 Comment[sk]=Plasma applet pre online cenové ponuky
 Comment[sv]=Plasma-miniprogram för direktkurser
 Comment[uk]=Аплет Плазми для інтернет-курсів
-Comment[x-test]=xxPlasma applet for an online quotexx
 Type=Service
 ServiceTypes=Plasma/Applet
 
