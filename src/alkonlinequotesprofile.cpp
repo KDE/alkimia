@@ -199,7 +199,7 @@ public Q_SLOTS:
             AlkOnlineQuoteSource source("Alkimia Currency",
                                         "https://fx-rate.net/%1/%2",
                                         QString(), // symbolregexp
-                                        "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
+                                        "1[ a-zA-Z]+=</span><br */?> *(\\d+[\\.\\d]*)",
                                         "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
                                         "%d/%m/%y",
                                         true // skip HTML stripping
