@@ -23,7 +23,13 @@
 
 #include <QPointer>
 
+#if QT_VERSION > QT_VERSION_CHECK(5,0,0)
+#include <QLocale>
+#define initLocale() QLocale()
+#else
 #include <KGlobal>
+#define initLocale() KGlobal::locale()
+#endif
 
 class AlkOnlineQuotesProfileManager::Private
 {
@@ -98,11 +104,7 @@ AlkWebPage *AlkOnlineQuotesProfileManager::webPage()
 {
     if (!d->m_page) {
     // make sure that translations are installed on windows
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-        KGlobal::locale();
-#else
-        KLocale::global();
-#endif
+        initLocale();
         d->m_page = new AlkWebPage;
     }
     return d->m_page;
