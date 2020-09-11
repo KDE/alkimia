@@ -196,7 +196,11 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     m_quoteSourceList->setRootIsDecorated(false);
     m_quoteSourceList->header()->resizeSection(1, 5);
     m_quoteSourceList->header()->setStretchLastSection(false);
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    m_quoteSourceList->header()->setSectionResizeMode(0,QHeaderView::Stretch);
+#else
     m_quoteSourceList->header()->setResizeMode(0,QHeaderView::Stretch);
+#endif
     m_quoteSourceList->setSortingEnabled(true);
 
     connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadWidgets()));
