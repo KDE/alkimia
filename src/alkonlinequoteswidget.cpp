@@ -40,8 +40,9 @@
 #include <knewstuff3/uploaddialog.h>
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+static KComponentData alk(TRANSLATION_DOMAIN);
 #include <klocale.h>
-static KLocale _locale("alkimia");
+static KLocale _locale(TRANSLATION_DOMAIN);
 #define i18nc(context, text) ki18nc(context, text).toString(&_locale)
 #define i18n(text) ki18n(text).toString(&_locale)
 #define tr2i18n(text, context) ki18nc(context, text).toString(&_locale)

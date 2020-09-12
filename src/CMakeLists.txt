@@ -110,8 +110,9 @@ else()
         KF5::KDELibs4Support
         KF5::NewStuff
     )
-    add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
 endif()
+
+add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
 
 target_link_libraries(alkimia
     PRIVATE
