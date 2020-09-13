@@ -64,15 +64,17 @@ int main(int argc, char **argv)
     MainWindow w;
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    KHelpMenu helpMenu(&w, about.shortDescription);
+    KHelpMenu helpMenu(&w, about.shortDescription());
+    QString appName = about.displayName();
 #else
     KHelpMenu helpMenu(&w, &about, false);
+    QString appName = about.programName();
 #endif
     helpMenu.menu();
     helpMenu.action(KHelpMenu::menuHelpContents)->setVisible(false);
     helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
     helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(true);
-    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", aboutName()));
+    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", appName));
     w.menuBar()->addMenu((QMenu*)helpMenu.menu());
 
     w.show();

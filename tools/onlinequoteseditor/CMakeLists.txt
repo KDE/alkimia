@@ -47,6 +47,7 @@ else()
         Qt5::WebKitWidgets
         KF5::CoreAddons
         KF5::I18n
+        KF5::XmlGui
     )
     add_definitions(-DTRANSLATION_DOMAIN=\"onlinequoteseditor\")
 endif()
