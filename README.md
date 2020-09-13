@@ -21,18 +21,20 @@ Required development components to build Alkimia5 with Qt5 and KF5
     Qt5::Core
     Qt5::Test
     Qt5::WebKitWidgets
+    Qt5::WebEngineWidgets (optional, experimental)
     Qt5::Qml
 
     KF5::Config
     KF5::CoreAddons
     KF5::Completion
     KF5::I18n
-    KF5::Package
-    KF5::Plasma
+    KF5::Package (optional)
+    KF5::Plasma  (optional)
     KF5::NewStuff
     KF5::KIO
     KF5::IconThemes
     KF5::TextWidgets
+    KF5::XmlGui
 
 Packages
 
@@ -59,6 +61,7 @@ Packages
             libQt5Core-devel
             libQt5Test-devel
             libQt5DBus-devel
+            libQt5WebKit-devel
             kconfig-devel
             kcoreaddons-devel
             kcompletion-devel
@@ -66,11 +69,13 @@ Packages
             kiconthemes-devel
             kio-devel
             knewstuff-devel
-            kpackage-devel
+            kpackage-devel         (optional)
             ktextwidgets-devel
-            plasma-framework-devel
+            kxmlgui-devel
+            plasma-framework-devel (optional)
         - msvc (craft):
             libs/qt5/qtbase
+            libs/qt5/qtwebkit
             kde/frameworks/extra-cmake-modules
             kde/frameworks/extra-cmake-modules
             kde/frameworks/tier3/knewstuff
@@ -81,9 +86,10 @@ Packages
             kde/frameworks/.../kiconthemes
             kde/frameworks/.../kio
             kde/frameworks/.../knewstuff
-            kde/frameworks/.../kpackage
+            kde/frameworks/.../kpackage           (optional)
             kde/frameworks/.../ktextwidgets
-            kde/frameworks/tier3/plasma-framework
+            kde/frameworks/.../kxmlgui
+            kde/frameworks/tier3/plasma-framework (optional)
             libs/mpir
 
 
