@@ -345,6 +345,7 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
         // kDebug(Private::dbgArea()) << "Downloaded " << tmpFile;
         kDebug(Private::dbgArea()) << "Downloaded" << tmpFile << "from" << url;
         result = processDownloadedFile(url, tmpFile);
+        KIO::NetAccess::removeTempFile(tmpFile);
     } else {
         emit m_p->error(KIO::NetAccess::lastErrorString());
         m_errors |= Errors::URL;
