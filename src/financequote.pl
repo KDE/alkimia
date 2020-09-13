@@ -4,17 +4,17 @@
 ###
 ### derived from GnuCash finance-quote-helper script which is
 ### Copyright 2001 Rob Browning <rlb@cs.utexas.edu>
-### 
-### This program is free software; you can redistribute it and/or    
-### modify it under the terms of the GNU General Public License as   
-### published by the Free Software Foundation; either version 2 of   
-### the License, or (at your option) any later version.              
-###                                                                  
-### This program is distributed in the hope that it will be useful,  
-### but WITHOUT ANY WARRANTY; without even the implied warranty of   
-### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the    
-### GNU General Public License for more details.                     
-###                                                                  
+###
+### This program is free software; you can redistribute it and/or
+### modify it under the terms of the GNU General Public License as
+### published by the Free Software Foundation; either version 2 of
+### the License, or (at your option) any later version.
+###
+### This program is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+### GNU General Public License for more details.
+###
 ### You should have received a copy of the GNU General Public License
 ### along with this program# if not, contact:
 ###
@@ -26,9 +26,10 @@
 #use diagnostics; # while testing
 use strict;
 use Data::Dumper;
+use POSIX qw(strftime);
 
-my $prgnam = "kmymoneyfq.pl";
-my $version = "1.00";
+my $prgnam = "financequote.pl";
+my $version = "1.1";
 # perl modules required by this routine and Finance::Quote
 my @modules = qw(Date::Manip Finance::Quote LWP XML::Parser XML::Writer);
 
@@ -84,7 +85,7 @@ if ($listonly) {
 }
 
 my $source = $ARGV[0];
-my $symbol = $ARGV[1]; 
+my $symbol = $ARGV[1];
 
 #print "\tfinding price for <$symbol> from <$source>\n";
 my  %qhash = $q->fetch($source, $symbol); # get price data from F::Q
@@ -103,17 +104,21 @@ if ($errcode != 0) {
     # extract the date and convert from m/d/yyyy to yyyy-mm-dd
     my ($usdate, $month, $day, $year, $yyyymmdd);
     $usdate = $qhash{$symbol, "date"};
-    ($month,$day,$year) = ($usdate =~ /([0-9]+)\/([0-9]+)\/([0-9]+)/);
-    # i'm sure I can do the following with a regex but I'm just too idle...
-    $month = "0$month" if ($month < 9);
-    $day = "0$day" if ($day < 9);
-    $yyyymmdd = "$year-$month-$day";
+    if ($usdate != "") {
+        ($month,$day,$year) = ($usdate =~ /([0-9]+)\/([0-9]+)\/([0-9]+)/);
+        # i'm sure I can do the following with a regex but I'm just too idle...
+        $month = "0$month" if ($month < 9);
+        $day = "0$day" if ($day < 9);
+        $yyyymmdd = "$year-$month-$day";
+    } else {
+        $yyyymmdd = strftime "%Y-%m-%d", localtime
+    }
     # and the price
     # (tried having bid and ask here, but could be undef for some stocks (IBM)
     # and looked pretty unrealistic for others (e.g. RHAT on 15/5/04 was 12.09-38.32!))
     my $price = $qhash {$symbol, "last"};
     # if no price was found, try to extract it from the price symbol
-    # see https://bugs.kde.org/show_bug.cgi?id=234268 for details
+    # see http://bugs.kde.org/show_bug.cgi?id=234268 for details
     $price = $qhash {$symbol, "price"} if (!$price);
 
     print "\"$symbol\",\"$yyyymmdd\",\"$price\"";

@@ -79,7 +79,9 @@ public:
         , m_config(0)
         , m_type(Type::Undefined)
     {
+#ifdef ENABLE_FINANCEQUOTE
         setupFinanceQuoteScriptPath();
+#endif
     }
 
     ~Private()
@@ -151,6 +153,7 @@ public Q_SLOTS:
         return groups;
     }
 
+#ifdef ENABLE_FINANCEQUOTE
     const QStringList quoteSourcesFinanceQuote()
     {
         if (m_financeQuoteSources.empty()) { // run the process one time only
@@ -167,6 +170,7 @@ public Q_SLOTS:
         }
         return m_financeQuoteSources;
     }
+#endif
 
     const QStringList quoteSourcesSkrooge()
     {
@@ -214,15 +218,17 @@ public Q_SLOTS:
             AlkOnlineQuoteSource source("Alkimia Currency",
                                         "https://fx-rate.net/%1/%2",
                                         QString(), // symbolregexp
-                                        "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
+                                        "1[ a-zA-Z]+=</span><br */?> *(\\d+[\\.\\d]*)",
                                         "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
                                         "%d/%m/%y",
                                         true // skip HTML stripping
                                         );
             source.setProfile(m_p);
             result[source.name()] = source;
+#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
             source.setName(source.name() + ".webkit");
             result[source.name()] = source;
+#endif
             break;
         }
         default:
@@ -411,9 +417,11 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::KMyMoney5:
         result << d->quoteSourcesNative();
         break;
+#ifdef ENABLE_FINANCEQUOTE
     case AlkOnlineQuotesProfile::Type::Script:
         result << d->quoteSourcesFinanceQuote();
         break;
+#endif
     case AlkOnlineQuotesProfile::Type::None:
         result << d->defaultQuoteSources().keys();
         break;
@@ -433,6 +441,11 @@ void AlkOnlineQuotesProfile::setManager(AlkOnlineQuotesProfileManager *manager)
 AlkOnlineQuotesProfileManager *AlkOnlineQuotesProfile::manager()
 {
     return d->m_profileManager;
+}
+
+QString AlkOnlineQuotesProfile::scriptPath()
+{
+    return d->m_financeQuoteScriptPath;
 }
 
 #include "alkonlinequotesprofile.moc"

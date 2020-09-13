@@ -16,7 +16,6 @@ set(alkimia_INTERNAL_SRCS
     alkonlinequoteprocess.cpp
     alkquoteitem.cpp
     alkquotereceiver.cpp
-    alkwebpage.cpp
 )
 
 set(alkimia_INTERNAL_HEADERS
@@ -25,7 +24,6 @@ set(alkimia_INTERNAL_HEADERS
     alkonlinequoteprocess.h
     alkquoteitem.h
     alkquotereceiver.h
-    alkwebpage.h
 )
 
 set(alkimia_INTERNAL_UI
@@ -36,7 +34,6 @@ add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_
 if(NOT BUILD_QT4)
     set (ALKIMIA_INTERNAL_LIBS
         PRIVATE
-        ${QT_USE_LIBSPREFIX}WebKitWidgets
         KF5::CoreAddons
         KF5::NewStuff
     )
@@ -51,26 +48,33 @@ set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
     alkcompany.cpp
-    alkfinancequoteprocess.cpp
     alkonlinequote.cpp
     alkonlinequotesource.cpp
     alkonlinequotesprofile.cpp
     alkonlinequotesprofilemanager.cpp
     alkonlinequoteswidget.cpp
     alkvalue.cpp
+    alkwebpage.cpp
 )
 
 set(alkimia_LIB_HEADERS
     alkcompany.h
-    alkfinancequoteprocess.h
     alkonlinequote.h
     alkonlinequotesource.h
     alkonlinequotesprofile.h
     alkonlinequotesprofilemanager.h
     alkonlinequoteswidget.h
+    alkwebpage.h
 )
 
-set(alkimia_UI alkonlinequoteswidget${ALKIMIA_LIB_SUFFIX}.ui)
+if(ENABLE_FINANCEQUOTE)
+    list(APPEND alkimia_LIB_SRCS alkfinancequoteprocess.cpp)
+    list(APPEND alkimia_LIB_HEADERS alkfinancequoteprocess.h)
+endif()
+
+set(alkimia_UI
+	alkonlinequoteswidget${ALKIMIA_LIB_SUFFIX}.ui
+)
 
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/alkvalue.h.in
@@ -97,7 +101,8 @@ if(BUILD_QT4)
         PRIVATE
         ${KDE_LIBRARIES}
         ${KDE4_KDEUI_LIBS}
-        ${KDE4_KNEWSTUFF3_LIBS})
+        ${KDE4_KNEWSTUFF3_LIBS}
+    )
 else()
     set(ALKIMIA_LIBS
         PRIVATE
@@ -110,21 +115,22 @@ else()
         KF5::KIOCore
         KF5::KIOWidgets
     )
-    add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
 endif()
+
+add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
 
 target_link_libraries(alkimia
     PRIVATE
     alkimia-internal
     ${QT_USE_LIBSPREFIX}Core
     ${ALKIMIA_LIBS}
-    ${QT_USE_LIBSPREFIX}WebKit
     ${QT_USE_LIBSPREFIX}DBus
     PUBLIC
     ${MP_LIBRARIES}
+    ${QT_BROWSER_LIB}
 )
 
-if(NOT BUILD_QT4 AND MSVC)
+if(NOT BUILD_QT4 AND MSVC AND NOT BUILD_WITH_QWEBENGINE)
     message(WARNING "Applying fix for broken Qt WebKit package (see https://phabricator.kde.org/T10146 for details)")
     target_link_libraries(alkimia
         PRIVATE
@@ -159,8 +165,12 @@ if(BUILD_QT4)
     else()
         set(KNSRC_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/config)
     endif()
+    set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/apps)
+    set(FQ_LOCAL_INSTALL_PATH ${CMAKE_BINARY_DIR}/share/apps/alkimia${ALKIMIA_PATH_SUFFIX}/misc)
 else()
     set(KNSRC_INSTALL_DIR ${CONFIG_INSTALL_DIR})
+    set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR})
+    set(FQ_LOCAL_INSTALL_PATH ${CMAKE_BINARY_DIR}/share/alkimia${ALKIMIA_PATH_SUFFIX}/misc)
 endif()
 
 install(FILES
@@ -170,9 +180,17 @@ install(FILES
     DESTINATION ${KNSRC_INSTALL_DIR}
 )
 
-install(PROGRAMS financequote.pl
-  DESTINATION ${DATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
-)
+# install perl script in expected location of build dir
+# KDE4: set KDEHOME to build dir
+# KF5: ???
+make_directory(${FQ_LOCAL_INSTALL_PATH})
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/financequote.pl ${FQ_LOCAL_INSTALL_PATH}/financequote.pl IMMEDIATE COPYONLY)
+
+if(ENABLE_FINANCEQUOTE)
+    install(PROGRAMS financequote.pl
+      DESTINATION ${APPDATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
+    )
+endif()
 
 if (NOT WIN32)
    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc IMMEDIATE @ONLY)

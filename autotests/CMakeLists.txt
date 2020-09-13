@@ -5,14 +5,11 @@ set(TEST_LIB
     ${QT_USE_LIBSPREFIX}Test
     ${QT_USE_LIBSPREFIX}Core
     ${QT_USE_LIBSPREFIX}DBus
-    ${QT_USE_LIBSPREFIX}WebKit
     ${MP_LIBRARIES}
 )
 
 if(BUILD_QT4)
     list(APPEND TEST_LIB ${KDE_LIBRARIES})
-else()
-    list(APPEND TEST_LIB ${QT_USE_LIBSPREFIX}WebKitWidgets)
 endif()
 
 ecm_add_tests(

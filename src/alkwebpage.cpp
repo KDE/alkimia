@@ -19,6 +19,90 @@
 
 #include "alkwebpage.h"
 
+#if defined(BUILD_WITH_WEBENGINE)
+#include <QEventLoop>
+#include <QWebEnginePage>
+#include <QWebEngineView>
+#include <QUrl>
+
+class AlkWebPage::Private : public QObject
+{
+    Q_OBJECT
+public:
+    AlkWebPage *q;
+
+    Private(AlkWebPage *_q) : q(_q) {}
+    void slotUrlChanged(const QUrl &url)
+    {
+        // This workaround is necessary because QWebEnginePage::urlChanged()
+        // returns the html content set with setContent() as url.
+        if (url.scheme().startsWith("http"))
+            emit q->urlChanged(url);
+        else
+            emit q->urlChanged(QUrl());
+    }
+};
+
+AlkWebPage::AlkWebPage(QWidget *parent)
+  : QWebEnginePage(parent)
+  , d(new Private(this))
+{
+    connect(this, &QWebEnginePage::urlChanged, d, &Private::slotUrlChanged);
+}
+
+AlkWebPage::~AlkWebPage()
+{
+    delete d;
+}
+
+QWidget *AlkWebPage::widget()
+{
+    if (!view())
+        setView(new QWebEngineView);
+    return view();
+}
+
+void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
+{
+    Q_UNUSED(acceptLanguage)
+
+    setUrl(url);
+}
+
+QString AlkWebPage::toHtml()
+{
+    QString html;
+    QEventLoop loop;
+    QWebEnginePage::toHtml([&html, &loop](const QString &result)
+        {
+            html = result;
+            loop.quit();
+        }
+    );
+    loop.exec();
+    return html;
+}
+
+QString AlkWebPage::getFirstElement(const QString &symbol)
+{
+    Q_UNUSED(symbol)
+
+    return QString();
+}
+
+void AlkWebPage::setWebInspectorEnabled(bool state)
+{
+    Q_UNUSED(state)
+}
+
+bool AlkWebPage::webInspectorEnabled()
+{
+    return false;
+}
+
+#include "alkwebpage.moc"
+
+#elif defined(BUILD_WITH_WEBKIT)
 #include <QWebFrame>
 #include <QWebElement>
 #include <QWebInspector>
@@ -29,35 +113,38 @@ class AlkWebPage::Private
 {
 public:
     QWebInspector *inspector;
-    Private()
-      : inspector(nullptr)
+    AlkWebPage *p;
+    Private(AlkWebPage *parent)
+      : inspector(nullptr),
+        p(parent)
     {
     }
+
     ~Private()
     {
+        p->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
+        inspector->setPage(nullptr);
         delete inspector;
     }
 
-    void setWebInspectorEnabled(bool enable, QWebPage* page)
+    void setWebInspectorEnabled(bool enable)
     {
-      page->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, enable);
-      delete inspector;
-      inspector = nullptr;
-      if (enable) {
-          inspector = new QWebInspector();
-          inspector->setPage(page);
-      }
+        p->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, enable);
+        if (enable && !inspector) {
+            inspector = new QWebInspector();
+            inspector->setPage(p->page());
+        }
     }
 
-    bool webInspectorEnabled(QWebPage *page)
+    bool webInspectorEnabled()
     {
-        return page->settings()->testAttribute(QWebSettings::DeveloperExtrasEnabled);
+        return p->page()->settings()->testAttribute(QWebSettings::DeveloperExtrasEnabled);
     }
 };
 
 AlkWebPage::AlkWebPage(QWidget *parent)
   : QWebView(parent)
-  , d(new Private)
+  , d(new Private(this))
 {
     page()->settings()->setAttribute(QWebSettings::JavaEnabled, false);
     page()->settings()->setAttribute(QWebSettings::AutoLoadImages, false);
@@ -67,6 +154,11 @@ AlkWebPage::AlkWebPage(QWidget *parent)
 AlkWebPage::~AlkWebPage()
 {
     delete d;
+}
+
+QWidget *AlkWebPage::widget()
+{
+    return this;
 }
 
 void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
@@ -93,10 +185,73 @@ QString AlkWebPage::getFirstElement(const QString &symbol)
 
 void AlkWebPage::setWebInspectorEnabled(bool enable)
 {
-    d->setWebInspectorEnabled(enable, page());
+    d->setWebInspectorEnabled(enable);
 }
 
 bool AlkWebPage::webInspectorEnabled()
 {
-    return d->webInspectorEnabled(page());
+    return d->webInspectorEnabled();
 }
+
+#else
+
+class AlkWebPage::Private
+{
+public:
+};
+
+AlkWebPage::AlkWebPage(QWidget *parent)
+  : QWidget(parent)
+  , d(new Private)
+{
+}
+
+AlkWebPage::~AlkWebPage()
+{
+    delete d;
+}
+
+QWidget *AlkWebPage::widget()
+{
+    return this;
+}
+
+void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
+{
+    Q_UNUSED(url)
+    Q_UNUSED(acceptLanguage)
+}
+
+void AlkWebPage::setUrl(const QUrl &url)
+{
+    Q_UNUSED(url)
+}
+
+void AlkWebPage::setContent(const QString &s)
+{
+    Q_UNUSED(s)
+}
+
+QString AlkWebPage::toHtml()
+{
+    return QString();
+}
+
+QString AlkWebPage::getFirstElement(const QString &symbol)
+{
+    Q_UNUSED(symbol)
+
+    return QString();
+}
+
+void AlkWebPage::setWebInspectorEnabled(bool enable)
+{
+    Q_UNUSED(enable)
+}
+
+bool AlkWebPage::webInspectorEnabled()
+{
+    return false;
+}
+
+#endif

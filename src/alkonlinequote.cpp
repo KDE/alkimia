@@ -424,6 +424,7 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
 }
 #endif
 
+#ifdef ENABLE_FINANCEQUOTE
 bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const QString &_id,
                                         const QString &_sourcename)
 {
@@ -431,21 +432,23 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
     m_symbol = _symbol;
     m_id = _id;
     m_errors = Errors::None;
-#if 0
-    QString FQSource = _sourcename.section(' ', 1);
-    m_source = AlkOnlineQuoteSource(_sourcename, m_financeQuoteScriptPath,
+    m_source = AlkOnlineQuoteSource(_sourcename, m_profile->scriptPath(),
                                        "\"([^,\"]*)\",.*", // symbol regexp
                                        "[^,]*,[^,]*,\"([^\"]*)\"", // price regexp
                                        "[^,]*,([^,]*),.*", // date regexp
                                        "%y-%m-%d"); // date format
 
     //emit status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol,_id));
+    AlkFinanceQuoteProcess tmp;
+    QString fQSource = m_profile->type() == AlkOnlineQuotesProfile::Type::Script ?
+                tmp.crypticName(_sourcename) : _sourcename.section(' ', 1);
 
+    QStringList args;
+    args << "perl" << m_profile->scriptPath() << fQSource << m_symbol;
     m_filter.clearProgram();
-    m_filter << "perl" << m_financeQuoteScriptPath << FQSource << KShell::quoteArg(_symbol);
-    m_filter.setSymbol(m_symbol);
+    m_filter << args;
     emit m_p->status(i18nc("Executing 'script' 'online source' 'investment symbol' ",
-                      "Executing %1 %2 %3...", m_financeQuoteScriptPath, FQSource, _symbol));
+                      "Executing %1 %2 %3...", args.join(" "), QString(), QString()));
 
     m_filter.setOutputChannelMode(KProcess::MergedChannels);
     m_filter.start();
@@ -453,19 +456,13 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
     // This seems to work best if we just block until done.
     if (m_filter.waitForFinished()) {
     } else {
-        emit m_p->error(i18n("Unable to launch: %1", m_financeQuoteScriptPath));
+        emit m_p->error(i18n("Unable to launch: %1", m_profile->scriptPath()));
         m_errors |= Errors::Script;
         result = slotParseQuote(QString());
     }
-#else
-    Q_UNUSED(_sourcename);
-#if !defined(Q_CC_MSVC)
-    #warning to be implemented
-#endif
-#endif
-
     return result;
 }
+#endif
 
 bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
 {
@@ -652,9 +649,13 @@ void AlkOnlineQuote::setAcceptLanguage(const QString &language)
 
 bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QString &_source)
 {
-    if (_source.contains("Finance::Quote")) {
+#ifdef ENABLE_FINANCEQUOTE
+    if (AlkOnlineQuoteSource::isFinanceQuote(_source) ||
+            d->m_profile->type() == AlkOnlineQuotesProfile::Type::Script) {
         return d->launchFinanceQuote(_symbol, _id, _source);
-    } else if (_source.endsWith(QLatin1String(".css"))) {
+    } else
+#endif
+        if (_source.endsWith(".css")) {
         return d->launchWebKitCssSelector(_symbol, _id, _source);
     } else if (_source.endsWith(QLatin1String(".webkit"))) {
         return d->launchWebKitHtmlParser(_symbol, _id, _source);

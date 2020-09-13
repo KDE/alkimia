@@ -128,3 +128,17 @@ In source code include header file for example with
     #include <alkimia/alkvalue.h>
 
     ...
+
+The alkimia library can be created with support for the external perl package "Finance:Quote".
+
+On Linux hosts this is automatically enabled, on Windows hosts the parameter -DENABLE_FINANCEQUOTE=1 has to be added to the CMake call.
+
+Packages using alkimia can check and use this support with a CPP condition.
+
+    #ifdef HAVE_ALK_FINANCEQUOTE
+    #include <alkimia/alkfinancequoteprocess.h>
+    #endif
+
+    #ifdef HAVE_ALK_FINANCEQUOTE
+    ...
+    #endif

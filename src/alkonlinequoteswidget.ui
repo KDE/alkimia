@@ -186,7 +186,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="KListWidget" name="m_quoteSourceList"/>
+         <widget class="QTreeWidget" name="m_quoteSourceList"/>
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">

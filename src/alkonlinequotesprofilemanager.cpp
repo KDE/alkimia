@@ -23,6 +23,8 @@
 
 #include <QPointer>
 
+#include <KGlobal>
+
 class AlkOnlineQuotesProfileManager::Private
 {
 public:
@@ -94,8 +96,15 @@ QStringList AlkOnlineQuotesProfileManager::profileNames()
 
 AlkWebPage *AlkOnlineQuotesProfileManager::webPage()
 {
-    if (!d->m_page)
+    if (!d->m_page) {
+    // make sure that translations are installed on windows
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+        KGlobal::locale();
+#else
+        KLocale::global();
+#endif
         d->m_page = new AlkWebPage;
+    }
     return d->m_page;
 }
 

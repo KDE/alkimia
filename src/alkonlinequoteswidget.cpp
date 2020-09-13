@@ -29,7 +29,7 @@
 #include <QCheckBox>
 #include <QDesktopServices>
 #include <QtDebug>
-#include <QWebInspector>
+#include <QTreeWidget>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <QIcon>
@@ -55,8 +55,9 @@
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+static KComponentData alk(TRANSLATION_DOMAIN);
 #include <klocale.h>
-static KLocale _locale("alkimia");
+static KLocale _locale(TRANSLATION_DOMAIN);
 #define i18nc(context, text) ki18nc(context, text).toString(&_locale)
 #define i18n(text) ki18n(text).toString(&_locale)
 #define tr2i18n(text, context) ki18nc(context, text).toString(&_locale)
@@ -99,8 +100,8 @@ public slots:
     void slotLogError(const QString &s);
     void slotLogFailed(const QString &id, const QString &symbol);
     void slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price);
-    void slotEntryRenamed(QListWidgetItem *item);
-    void slotStartRename(QListWidgetItem *item);
+    void slotEntryRenamed(QTreeWidgetItem *item, int column);
+    void slotStartRename(QTreeWidgetItem *item, int column);
     void slotInstallEntries();
     void slotUploadEntry();
     void slotShowButton();
@@ -190,11 +191,19 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_installButton, SIGNAL(clicked()), this, SLOT(slotInstallEntries()));
     connect(m_uploadButton, SIGNAL(clicked()), this, SLOT(slotUploadEntry()));
 
+    m_quoteSourceList->setColumnCount(2);
+    m_quoteSourceList->setHeaderLabels(QStringList() << i18n("Name") << i18n("Source"));
+    m_quoteSourceList->setRootIsDecorated(false);
+    m_quoteSourceList->header()->resizeSection(1, 5);
+    m_quoteSourceList->header()->setStretchLastSection(false);
+    m_quoteSourceList->header()->setResizeMode(0,QHeaderView::Stretch);
+    m_quoteSourceList->setSortingEnabled(true);
+
     connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadWidgets()));
-    connect(m_quoteSourceList, SIGNAL(itemChanged(QListWidgetItem *)), this,
-            SLOT(slotEntryRenamed(QListWidgetItem *)));
-    connect(m_quoteSourceList, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this,
-            SLOT(slotStartRename(QListWidgetItem *)));
+    connect(m_quoteSourceList, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this,
+            SLOT(slotEntryRenamed(QTreeWidgetItem *, int)));
+    connect(m_quoteSourceList, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this,
+            SLOT(slotStartRename(QTreeWidgetItem *, int)));
 
     connect(m_editURL, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editSymbol, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
@@ -231,6 +240,15 @@ void AlkOnlineQuotesWidget::Private::loadProfiles()
     loadQuotesList();
 }
 
+QString sourceTypeString(AlkOnlineQuoteSource &source)
+{
+    if (source.isGHNS())
+        return i18n("GHNS Source");
+    else if (source.isFinanceQuote())
+        return i18n("Finance::Quote");
+    return i18n("local");
+}
+
 void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
 {
     m_quoteInEditing = false;
@@ -248,25 +266,25 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
             continue;
         }
 
-        QListWidgetItem *item = new QListWidgetItem(*it);
+        QTreeWidgetItem *item = new QTreeWidgetItem(QStringList() << *it << sourceTypeString(source));
         item->setFlags(Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
-        m_quoteSourceList->addItem(item);
+        m_quoteSourceList->addTopLevelItem(item);
         if (updateResetList) {
             m_resetList += source;
         }
     }
-    m_quoteSourceList->sortItems();
+    m_quoteSourceList->sortItems(0, Qt::AscendingOrder);
 
-    QListWidgetItem *item = nullptr;
+    QTreeWidgetItem *item = nullptr;
     if (!m_currentItem.name().isEmpty()) {
-        QList<QListWidgetItem*> items = m_quoteSourceList->findItems(m_currentItem.name(), Qt::MatchExactly);
+        QList<QTreeWidgetItem*> items = m_quoteSourceList->findItems(m_currentItem.name(), Qt::MatchExactly);
         if (items.size() > 0)
             item = items.at(0);
         if (item)
             m_quoteSourceList->setCurrentItem(item);
     }
     if (!item) {
-        item = m_quoteSourceList->item(0);
+        item = m_quoteSourceList->topLevelItem(0);
         if (item)
             m_quoteSourceList->setCurrentItem(item);
     }
@@ -277,8 +295,8 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
 
 void AlkOnlineQuotesWidget::Private::slotNewProfile()
 {
-    QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget *>(m_profileList));
-    item->setText(QLatin1String("new profile"));
+    QTreeWidgetItem *item = new QTreeWidgetItem(dynamic_cast<QTreeWidget *>(m_profileList));
+    item->setText(0, QLatin1String("new profile"));
     item->setFlags(item->flags() | Qt::ItemIsEditable);
 }
 
@@ -300,12 +318,13 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
         if (list.isEmpty())
             return;
         m_profile = list.first();
+        m_installButton->setVisible(m_profile->hasGHNSSupport());
         loadQuotesList();
         return;
     }
 
     foreach (AlkOnlineQuotesProfile *profile, list) {
-        if (m_profileList->currentItem()->text() == profile->name()) {
+        if (m_profileList->currentItem() && m_profileList->currentItem()->text() == profile->name()) {
             m_profile = profile;
             loadQuotesList();
             m_installButton->setVisible(profile->hasGHNSSupport());
@@ -330,14 +349,18 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
 void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
 {
     m_quoteInEditing = false;
-    QListWidgetItem *item = m_quoteSourceList->currentItem();
+    QTreeWidgetItem *item = m_quoteSourceList->currentItem();
+    bool isFinanceQuoteSource = (item && AlkOnlineQuoteSource::isFinanceQuote(item->text(0))) ||
+            m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
+    bool enabled = item && !isFinanceQuoteSource;
 
-    m_editURL->setEnabled(item != nullptr);
-    m_editSymbol->setEnabled(item != nullptr);
-    m_editPrice->setEnabled(item != nullptr);
-    m_editDate->setEnabled(item != nullptr);
-    m_editDateFormat->setEnabled(item != nullptr);
-    m_skipStripping->setEnabled(item != nullptr);
+    m_editURL->setEnabled(enabled);
+    m_editSymbol->setEnabled(enabled);
+    m_editPrice->setEnabled(enabled);
+    m_editDate->setEnabled(enabled);
+    m_editDateFormat->setEnabled(enabled);
+    m_ghnsSource->setEnabled(!isFinanceQuoteSource);
+    m_skipStripping->setEnabled(enabled);
 
     m_editURL->clear();
     m_editSymbol->clear();
@@ -346,7 +369,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
     m_editDateFormat->clear();
 
     if (item) {
-        m_currentItem = AlkOnlineQuoteSource(item->text(), m_profile);
+        m_currentItem = AlkOnlineQuoteSource(item->text(0), m_profile);
         m_editURL->setText(m_currentItem.url());
         m_editSymbol->setText(m_currentItem.sym());
         m_editPrice->setText(m_currentItem.price());
@@ -370,26 +393,27 @@ void AlkOnlineQuotesWidget::Private::slotEntryChanged()
                     || m_skipStripping->isChecked() != m_currentItem.skipStripping()
                     || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
 
-    bool hasWriteSupport = m_profile->type() != AlkOnlineQuotesProfile::Type::None || m_profile->hasGHNSSupport();
-    bool noNewEntry = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0;
+    bool isFinanceQuote = m_currentItem.isFinanceQuote() || m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
+    bool hasWriteSupport = (m_profile->type() != AlkOnlineQuotesProfile::Type::None && !isFinanceQuote) || m_profile->hasGHNSSupport();
+    bool noNewEntry = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0 || isFinanceQuote;
     m_newButton->setEnabled(hasWriteSupport && noNewEntry);
     m_duplicateButton->setEnabled(hasWriteSupport);
     m_deleteButton->setEnabled(!m_currentItem.isReadOnly() && !m_currentItem.isGHNS());
     m_uploadButton->setEnabled(m_profile->hasGHNSSupport() && m_currentItem.isGHNS());
     m_updateButton->setEnabled(modified);
-    m_checkButton->setEnabled(!modified);
+    m_checkButton->setEnabled(isFinanceQuote || !modified);
     m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
     m_checkSymbol2->setEnabled(m_currentItem.url().contains("%2"));
 }
 
 void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
 {
-    QList<QListWidgetItem *> items = m_quoteSourceList->findItems(
+    QList<QTreeWidgetItem *> items = m_quoteSourceList->findItems(
         m_currentItem.name(), Qt::MatchExactly);
     if (items.isEmpty()) {
         return;
     }
-    QListWidgetItem *item = items.at(0);
+    QTreeWidgetItem *item = items.at(0);
     if (!item) {
         return;
     }
@@ -412,12 +436,12 @@ void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
 
 void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
 {
-    QList<QListWidgetItem *> items = m_quoteSourceList->findItems(
+    QList<QTreeWidgetItem *> items = m_quoteSourceList->findItems(
         m_currentItem.name(), Qt::MatchExactly);
     if (items.isEmpty()) {
         return;
     }
-    QListWidgetItem *item = items.at(0);
+    QTreeWidgetItem *item = items.at(0);
     if (!item) {
         return;
     }
@@ -534,14 +558,17 @@ void AlkOnlineQuotesWidget::Private::slotLogQuote(const QString &id, const QStri
                       price));
 }
 
-void AlkOnlineQuotesWidget::Private::slotStartRename(QListWidgetItem *item)
+void AlkOnlineQuotesWidget::Private::slotStartRename(QTreeWidgetItem *item, int column)
 {
+    Q_UNUSED(column);
+
     m_quoteInEditing = true;
     m_quoteSourceList->editItem(item);
 }
 
-void AlkOnlineQuotesWidget::Private::slotEntryRenamed(QListWidgetItem *item)
+void AlkOnlineQuotesWidget::Private::slotEntryRenamed(QTreeWidgetItem *item, int column)
 {
+    Q_UNUSED(column);
     //if there is no current item selected, exit
     if (m_quoteInEditing == false || !m_quoteSourceList->currentItem()
         || item != m_quoteSourceList->currentItem()) {
@@ -549,10 +576,10 @@ void AlkOnlineQuotesWidget::Private::slotEntryRenamed(QListWidgetItem *item)
     }
 
     m_quoteInEditing = false;
-    QString text = item->text();
+    QString text = item->text(0);
     int nameCount = 0;
-    for (int i = 0; i < m_quoteSourceList->count(); ++i) {
-        if (m_quoteSourceList->item(i)->text() == text) {
+    for (int i = 0; i < m_quoteSourceList->topLevelItemCount(); ++i) {
+        if (m_quoteSourceList->topLevelItem(i)->text(i) == text) {
             ++nameCount;
         }
     }
@@ -561,9 +588,9 @@ void AlkOnlineQuotesWidget::Private::slotEntryRenamed(QListWidgetItem *item)
     if (text.length() > 0 && nameCount == 1) {
         m_currentItem.rename(text);
     } else {
-        item->setText(m_currentItem.name());
+        item->setText(0, m_currentItem.name());
     }
-    m_quoteSourceList->sortItems();
+    m_quoteSourceList->sortItems(0, Qt::AscendingOrder);
     m_newButton->setEnabled(m_quoteSourceList->findItems(i18n(
                                                              "New Quote Source"),
                                                          Qt::MatchExactly).count() == 0);
@@ -600,7 +627,7 @@ void AlkOnlineQuotesWidget::Private::slotShowButton()
         QVBoxLayout *layout = new QVBoxLayout;
         AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
         webPage->setWebInspectorEnabled(true);
-        layout->addWidget(webPage);
+        layout->addWidget(webPage->widget());
         m_webPageDialog->setLayout(layout);
     }
     m_webPageDialog->show();

@@ -10,6 +10,17 @@ option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
 option(BUILD_APPLETS "Build plasma applets" ON)
 
+if(WIN32)
+    set(ENABLE_FINANCEQUOTE_DEFAULT 0)
+else()
+    set(ENABLE_FINANCEQUOTE_DEFAULT 1)
+endif()
+option(ENABLE_FINANCEQUOTE "Enable finance quote support (requires perl)" ENABLE_FINANCEQUOTE_DEFAULT)
+if(ENABLE_FINANCEQUOTE)
+    add_definitions(-DENABLE_FINANCEQUOTE)
+    set(PACKAGE_COMPILE_OPTIONS "-DHAVE_ALK_FINANCEQUOTE")
+endif()
+
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
@@ -31,6 +42,8 @@ if(BUILD_QT4)
     set(ALKIMIA_PATH_SUFFIX)
     set(PC_TARGET_QTPREFIX Qt)
     set(PC_TARGET_SUFFIX)
+    set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}WebKit)
+    add_definitions(-DBUILD_WITH_WEBKIT)
     set(_kde4_uninstall_rule_created 1)
     find_package(KDE4 REQUIRED)
     include(KDE4Defaults)
@@ -65,10 +78,22 @@ if(BUILD_QT4)
         set(SHARE_INSTALL_DIR ${DATA_INSTALL_DIR})
     endif()
 else()
+    option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" ON)
+    option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine instead of WebKit (experimental)" OFF)
+    if (BUILD_WITH_WEBENGINE)
+        add_definitions(-DBUILD_WITH_WEBENGINE)
+        set(QT5_OPTIONAL_COMPONENTS WebEngineWidgets)
+        message(WARNING "Qt Web Engine support is currently incomplete")
+    elseif(BUILD_WITH_WEBKIT)
+        add_definitions(-DBUILD_WITH_WEBKIT)
+        set(QT5_OPTIONAL_COMPONENTS WebKitWidgets)
+    else()
+        set(QT5_OPTIONAL_COMPONENTS Widgets)
+    endif()
     find_package(Qt5 REQUIRED COMPONENTS
         Core
         Test
-        WebKitWidgets
+        ${QT5_OPTIONAL_COMPONENTS}
         Qml
     )
     if(BUILD_APPLETS)
@@ -80,12 +105,12 @@ else()
         CoreAddons
         Completion
         I18n
-        Package
-        Plasma
+		${PLASMA_COMPONENT}
         NewStuff
         KIO
         IconThemes
         TextWidgets
+        XmlGui
         OPTIONAL_COMPONENTS ${OPT_KF5_COMPONENTS}
     )
 
@@ -95,6 +120,15 @@ else()
     set(ALKIMIA_PATH_SUFFIX 5)
     set(PC_TARGET_QTPREFIX Qt5)
     set(PC_TARGET_SUFFIX 5)
+
+    if(BUILD_WITH_WEBENGINE)
+        set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}WebEngineWidgets)
+    elseif(BUILD_WITH_WEBKIT)
+        set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}WebKitWidgets)
+    else()
+        set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}Widgets)
+    endif()
+
     macro(ecm_add_executable)
         add_executable(${ARGN})
     endmacro(ecm_add_executable)

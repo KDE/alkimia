@@ -28,19 +28,21 @@
     #define _i18n i18n
     #define LICENCE_GPL KAboutLicense::GPL
     #define CATALOG
+	#define aboutName() about.displayName()
 #else
     #include <KApplication>
     #include <KCmdLineArgs>
-    #include <KHelpMenu>
-    #include <QMenuBar>
 
     #undef QStringLiteral
     #define QStringLiteral QByteArray
     #define _i18n ki18n
     #define LICENCE_GPL KAboutData::License_GPL
     #define CATALOG QByteArray("onlinequoteseditor"),
+	#define aboutName() about.programName()
 #endif
 
+#include <KHelpMenu>
+#include <QMenuBar>
 
 int main(int argc, char **argv)
 {
@@ -61,15 +63,17 @@ int main(int argc, char **argv)
 
     MainWindow w;
 
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    KHelpMenu helpMenu(&w, about.shortDescription);
+#else
     KHelpMenu helpMenu(&w, &about, false);
+#endif
     helpMenu.menu();
     helpMenu.action(KHelpMenu::menuHelpContents)->setVisible(false);
-    helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(false);
     helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
-    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", about.programName()));
+    helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(true);
+    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", aboutName()));
     w.menuBar()->addMenu((QMenu*)helpMenu.menu());
-#endif
 
     w.show();
     return app.exec();

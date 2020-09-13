@@ -37,6 +37,6 @@ int main(int argc, char *argv[])
     QGridLayout *layout = new QGridLayout;
     layout->addWidget(new AlkOnlineQuotesWidget);
     dialog.setLayout(layout);
-
-    dialog.exec();
+    dialog.show();
+	app.exec();
 }
