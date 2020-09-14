@@ -86,9 +86,6 @@ MainWindow::MainWindow(QWidget *parent)
     manager.addProfile(new AlkOnlineQuotesProfile("Finance::Quote", AlkOnlineQuotesProfile::Type::Script));
 #endif
     d->ui.setupUi(this);
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    d->ui.mainToolBar->deleteLater();
-#endif
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
 
     QDockWidget *profilesWidget = new QDockWidget(i18n("Profiles"), this);
