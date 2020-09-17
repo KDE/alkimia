@@ -106,7 +106,7 @@ if(BUILD_QT4)
 else()
     set(ALKIMIA_LIBS
         PRIVATE
-        ${QT_USE_LIBSPREFIX}WebKitWidgets
+        ${QT5_OPTIONAL_COMPONENTS}
         KF5::Completion
         KF5::I18n
         KF5::NewStuff
