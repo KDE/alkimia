@@ -90,7 +90,8 @@ public Q_SLOTS:
     void slotUpdatesFound(const KNS3::Entry::List &updates)
     {
         foreach (const KNS3::Entry &entry, updates) {
-            qDebug() << entry.name();
+            qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.id() << entry.category() << entry.providerId();
+            emit m_p->updateAvailable(m_p->name(), entry.name());
         }
     }
 
