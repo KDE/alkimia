@@ -97,7 +97,7 @@ public Q_SLOTS:
     // to know about finished installations
     void entryStatusChanged(const KNS3::Entry &entry)
     {
-        qDebug() << entry.summary();
+        qDebug() << __FUNCTION__ << entry.name() << entry.status() << entry.summary();
     }
 
     const QStringList quoteSourcesNative()
