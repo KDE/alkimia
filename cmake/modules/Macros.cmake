@@ -1,0 +1,12 @@
+macro(feature_note text state)
+    if(${state})
+        message(STATUS "${text} is supported")
+    else()
+        message(WARNING "${text} is not supported")
+    endif()
+endmacro()
+
+macro(feature_notes a b)
+    feature_note("Fetching pages with javascript" ${a})
+    feature_note("Preview of fetched pages" ${b})
+endmacro()
