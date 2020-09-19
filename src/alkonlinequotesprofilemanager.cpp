@@ -73,6 +73,7 @@ void AlkOnlineQuotesProfileManager::addProfile(AlkOnlineQuotesProfile *profile)
     if (!d->m_profiles.contains(profile)) {
         d->m_profiles.append(profile);
         profile->setManager(this);
+        connect(profile, SIGNAL(updateAvailable(const QString &, const QString &)), this, SIGNAL(updateAvailable(const QString &, const QString &)));
     }
 }
 

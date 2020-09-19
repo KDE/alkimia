@@ -18,11 +18,13 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
+#ifdef ENABLE_FINANCEQUOTE
+#include "alkfinancequoteprocess.h"
+#endif
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 
 #include "alkonlinequotesource.h"
-#include "alkfinancequoteprocess.h"
 
 #include <QApplication>
 #include <QDir>
@@ -107,14 +109,15 @@ public Q_SLOTS:
     void slotUpdatesFound(const KNS3::Entry::List &updates)
     {
         foreach (const KNS3::Entry &entry, updates) {
-            qDebug() << entry.name();
+            qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.id() << entry.category() << entry.providerId();
+            emit m_p->updateAvailable(m_p->name(), entry.name());
         }
     }
 
     // to know about finished installations
     void entryStatusChanged(const KNS3::Entry &entry)
     {
-        qDebug() << entry.summary();
+        qDebug() << __FUNCTION__ << entry.name() << entry.status() << entry.summary();
     }
 
     const QStringList quoteSourcesNative()

@@ -113,6 +113,9 @@ MainWindow::MainWindow(QWidget *parent)
     quoteDetailsWidget->setWidget(d->quotesWidget->quoteDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, quoteDetailsWidget);
 
+    connect(&AlkOnlineQuotesProfileManager::instance(), SIGNAL(updateAvailable(const QString &, const QString &)),
+            this, SLOT(slotUpdateAvailable(const QString &, const QString &)));
+
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     manager.setWebPageEnabled(true);
     QDockWidget *browserWidget = new QDockWidget(i18n("Browser"), this);
@@ -162,6 +165,15 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete d;
+}
+
+void MainWindow::slotUpdateAvailable(const QString &profile, const QString &name)
+{
+    QString s = statusBar()->currentMessage();
+    if (!s.isEmpty())
+        s += " - ";
+    s += i18n("Update for '%1' available in profile '%2'", name, profile);
+    statusBar()->showMessage(s);
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

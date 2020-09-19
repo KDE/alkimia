@@ -22,7 +22,9 @@
 
 #include "alkdateformat.h"
 #include "alkexception.h"
+#ifdef ENABLE_FINANCEQUOTE
 #include "alkfinancequoteprocess.h"
+#endif
 #include "alkonlinequoteprocess.h"
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"

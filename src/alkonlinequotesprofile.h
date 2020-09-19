@@ -23,6 +23,7 @@
 #include <alkimia/alk_export.h>
 #include <alkimia/alkonlinequotesource.h>
 
+#include <QObject>
 #include <QString>
 #include <QMap>
 
@@ -31,8 +32,9 @@ class KConfig;
 class AlkOnlineQuoteSource;
 class AlkOnlineQuotesProfileManager;
 
-class ALK_EXPORT AlkOnlineQuotesProfile
+class ALK_EXPORT AlkOnlineQuotesProfile : public QObject
 {
+    Q_OBJECT
 public:
     typedef QMap<QString, AlkOnlineQuoteSource> Map;
     enum class Type {
@@ -67,6 +69,12 @@ public:
     const QStringList quoteSources();
 
     QString scriptPath();
+
+Q_SIGNALS:
+    /**
+     * emit quote source for which an update is available
+     */
+   void updateAvailable(const QString &profile, const QString &name);
 
 private:
     class Private;

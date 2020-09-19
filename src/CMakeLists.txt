@@ -130,7 +130,7 @@ target_link_libraries(alkimia
     ${QT_BROWSER_LIB}
 )
 
-if(NOT BUILD_QT4 AND MSVC AND NOT BUILD_WITH_QWEBENGINE)
+if(NOT BUILD_QT4 AND MSVC AND BUILD_WITH_WEBKIT)
     message(WARNING "Applying fix for broken Qt WebKit package (see https://phabricator.kde.org/T10146 for details)")
     target_link_libraries(alkimia
         PRIVATE

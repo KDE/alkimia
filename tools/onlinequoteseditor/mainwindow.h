@@ -34,6 +34,7 @@ public:
     ~MainWindow();
 
 protected slots:
+    void slotUpdateAvailable(const QString &profile, const QString &name);
     void slotUrlChanged(const QUrl &url);
     void slotEditingFinished();
     void slotLanguageChanged(const QString &);

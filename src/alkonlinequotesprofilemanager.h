@@ -29,8 +29,9 @@ class AlkWebPage;
 
 typedef QList<AlkOnlineQuotesProfile *> AlkOnlineQuotesProfileList;
 
-class ALK_EXPORT AlkOnlineQuotesProfileManager
+class ALK_EXPORT AlkOnlineQuotesProfileManager : public QObject
 {
+    Q_OBJECT
 public:
     AlkOnlineQuotesProfileManager();
     ~AlkOnlineQuotesProfileManager();
@@ -44,6 +45,13 @@ public:
     bool webPageEnabled();
 
     static AlkOnlineQuotesProfileManager &instance();
+
+Q_SIGNALS:
+    /**
+     * emit quote source for which an update is available
+     */
+    void updateAvailable(const QString &profile, const QString &name);
+
 private:
     class Private;
     Private *const d;
