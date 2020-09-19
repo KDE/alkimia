@@ -81,29 +81,41 @@ if(BUILD_QT4)
     endif()
     feature_notes(TRUE TRUE TRUE TRUE)
 else()
+    set(QT_USE_LIBSPREFIX Qt5::)
+    set(ALKIMIA_LIB_SUFFIX "5")
+    set(ALKIMIA_INCLUDE_SUFFIX "Qt5")
+    set(ALKIMIA_PATH_SUFFIX 5)
+    set(PC_TARGET_QTPREFIX Qt5)
+    set(PC_TARGET_SUFFIX 5)
+
     option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" ON)
     option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine instead of WebKit (experimental)" OFF)
     if (BUILD_WITH_WEBENGINE)
         add_definitions(-DBUILD_WITH_WEBENGINE)
-        set(QT5_OPTIONAL_COMPONENTS WebEngineWidgets)
+        set(QT_BROWSER_COMPONENT WebEngineWidgets)
         feature_notes(FALSE TRUE FALSE FALSE)
     elseif(BUILD_WITH_WEBKIT)
         add_definitions(-DBUILD_WITH_WEBKIT)
-        set(QT5_OPTIONAL_COMPONENTS WebKitWidgets)
+        set(QT_BROWSER_COMPONENT WebKitWidgets)
         feature_notes(TRUE TRUE TRUE TRUE)
     else()
-        set(QT5_OPTIONAL_COMPONENTS Widgets)
+        set(QT_BROWSER_COMPONENT Widgets)
         feature_notes(FALSE FALSE FALSE FALSE)
     endif()
+
+    set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}${QT_BROWSER_COMPONENT})
+
     find_package(Qt5 REQUIRED COMPONENTS
         Core
         Test
-        ${QT5_OPTIONAL_COMPONENTS}
+        ${QT_BROWSER_COMPONENT}
         Qml
     )
+
     if(BUILD_APPLETS)
         set(PLASMA_COMPONENT Package Plasma)
     endif()
+
     # search packages used by KDE
     find_package(KF5 REQUIRED COMPONENTS
         Config
@@ -115,21 +127,6 @@ else()
         NewStuff
         XmlGui
     )
-
-    set(QT_USE_LIBSPREFIX Qt5::)
-    set(ALKIMIA_LIB_SUFFIX "5")
-    set(ALKIMIA_INCLUDE_SUFFIX "Qt5")
-    set(ALKIMIA_PATH_SUFFIX 5)
-    set(PC_TARGET_QTPREFIX Qt5)
-    set(PC_TARGET_SUFFIX 5)
-
-    if(BUILD_WITH_WEBENGINE)
-        set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}WebEngineWidgets)
-    elseif(BUILD_WITH_WEBKIT)
-        set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}WebKitWidgets)
-    else()
-        set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}Widgets)
-    endif()
 
     macro(ecm_add_executable)
         add_executable(${ARGN})
