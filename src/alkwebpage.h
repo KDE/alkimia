@@ -94,6 +94,7 @@ private:
  */
 class ALK_EXPORT AlkWebPage : public QWidget
 {
+    Q_OBJECT
 public:
     AlkWebPage(QWidget *parent = nullptr);
     virtual ~AlkWebPage();
