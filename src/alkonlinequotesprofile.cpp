@@ -17,11 +17,13 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
 
+#ifdef ENABLE_FINANCEQUOTE
+#include "alkfinancequoteprocess.h"
+#endif
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 
 #include "alkonlinequotesource.h"
-#include "alkfinancequoteprocess.h"
 
 #include <QApplication>
 #include <QDir>
