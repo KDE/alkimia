@@ -40,7 +40,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
-           <widget class="QPushButton" name="m_newProfile">
+           <widget class="AlkPushButton" name="m_newProfile">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -50,7 +50,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="m_deleteProfile">
+           <widget class="AlkPushButton" name="m_deleteProfile">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -191,21 +191,21 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="KPushButton" name="m_newButton">
+           <widget class="AlkPushButton" name="m_newButton">
             <property name="text">
              <string comment="@action create new quote source">New</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="KPushButton" name="m_deleteButton">
+           <widget class="AlkPushButton" name="m_deleteButton">
             <property name="text">
              <string>Delete</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="KPushButton" name="m_duplicateButton">
+           <widget class="AlkPushButton" name="m_duplicateButton">
             <property name="toolTip">
              <string>Create a duplicate of the currently selected source entry under a different name.</string>
             </property>
@@ -222,14 +222,14 @@
            </widget>
           </item>
           <item>
-           <widget class="KPushButton" name="m_installButton">
+           <widget class="AlkPushButton" name="m_installButton">
             <property name="text">
              <string>Install</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="m_uploadButton">
+           <widget class="AlkPushButton" name="m_uploadButton">
             <property name="text">
              <string>Upload</string>
             </property>
@@ -438,7 +438,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="KPushButton" name="m_updateButton">
+           <widget class="AlkPushButton" name="m_updateButton">
             <property name="text">
              <string comment="@action update quotes from online quote source">Accept</string>
             </property>
@@ -582,6 +582,11 @@
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>AlkPushButton</class>
+   <extends>QPushButton</extends>
+   <header>alkpushbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
