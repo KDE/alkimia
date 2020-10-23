@@ -160,6 +160,8 @@ else()
   set(PC_LIB gmp)
 endif()
 
+include_directories(${MP_INCLUDE_DIR})
+
 # check for Doxygen (for API documentation)
 if(BUILD_DOXYGEN_DOCS)
     find_package(Doxygen)
