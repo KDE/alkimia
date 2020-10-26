@@ -182,10 +182,9 @@ install(FILES
 # install perl script in expected location of build dir
 # KDE4: set KDEHOME to build dir
 # KF5: ???
-make_directory(${FQ_LOCAL_INSTALL_PATH})
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/financequote.pl ${FQ_LOCAL_INSTALL_PATH}/financequote.pl IMMEDIATE COPYONLY)
-
 if(ENABLE_FINANCEQUOTE)
+    make_directory(${FQ_LOCAL_INSTALL_PATH})
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/financequote.pl ${FQ_LOCAL_INSTALL_PATH}/financequote.pl IMMEDIATE COPYONLY)
     install(PROGRAMS financequote.pl
       DESTINATION ${APPDATA_INSTALL_DIR}/alkimia${ALKIMIA_PATH_SUFFIX}/misc
     )
