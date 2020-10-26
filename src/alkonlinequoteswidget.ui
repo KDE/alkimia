@@ -35,7 +35,7 @@
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
-         <widget class="KListWidget" name="m_profileList"/>
+         <widget class="QListWidget" name="m_profileList"/>
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -528,14 +528,14 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="KPushButton" name="m_checkButton">
+         <widget class="AlkPushButton" name="m_checkButton">
           <property name="text">
            <string>Check Source</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="KPushButton" name="m_showButton">
+         <widget class="AlkPushButton" name="m_showButton">
           <property name="text">
            <string>Show Page</string>
           </property>
@@ -563,16 +563,6 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
-  <customwidget>
-   <class>KListWidget</class>
-   <extends>QListWidget</extends>
-   <header>klistwidget.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
   <customwidget>
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>

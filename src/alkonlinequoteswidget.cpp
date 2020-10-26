@@ -48,11 +48,7 @@
 #include <KGuiItem>
 #include <KMessageBox>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    #include <ui_alkonlinequoteswidget5.h>
-#else
-    #include <ui_alkonlinequoteswidget.h>
-#endif
+#include <ui_alkonlinequoteswidget.h>
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 static KComponentData alk(TRANSLATION_DOMAIN);

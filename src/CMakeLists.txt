@@ -77,7 +77,7 @@ if(ENABLE_FINANCEQUOTE)
 endif()
 
 set(alkimia_UI
-	alkonlinequoteswidget${ALKIMIA_LIB_SUFFIX}.ui
+    alkonlinequoteswidget.ui
 )
 
 configure_file(
