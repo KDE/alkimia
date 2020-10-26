@@ -557,7 +557,7 @@ void AlkOnlineQuotesWidget::Private::slotEntryRenamed(QTreeWidgetItem *item, int
     QString text = item->text(0);
     int nameCount = 0;
     for (int i = 0; i < m_quoteSourceList->topLevelItemCount(); ++i) {
-        if (m_quoteSourceList->topLevelItem(i)->text(i) == text) {
+        if (m_quoteSourceList->topLevelItem(i)->text(0) == text) {
             ++nameCount;
         }
     }
