@@ -342,7 +342,7 @@ QString AlkOnlineQuotesProfile::name() const
 QString AlkOnlineQuotesProfile::hotNewStuffConfigFile() const
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    QString configFile = QStandardPaths::locate(QStandardPaths::AppConfigLocation, d->m_GHNSFile);
+    QString configFile = QStandardPaths::locate(QStandardPaths::ConfigLocation, d->m_GHNSFile);
 #else
     QString configFile = KStandardDirs::locate("config", d->m_GHNSFile);
 #endif
