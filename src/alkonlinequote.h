@@ -103,8 +103,8 @@ public slots:
     bool launch(const QString &_symbol, const QString &_id, const QString &_source = QString());
 
     /**
-      * If @ref launch(), @ref launchNative() or @ref launchFinanceQuote() returns false,
-      * this method can be used to get details about the errors that occurred.
+      * If @ref launch() returns false, this method can be used to get details
+      * about the errors that occurred.
       *
       * @return bit map of errors, see class @ref Errors for details
      */
