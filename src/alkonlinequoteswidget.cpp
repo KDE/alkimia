@@ -51,7 +51,6 @@
 #include <ui_alkonlinequoteswidget.h>
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-static KComponentData alk(TRANSLATION_DOMAIN);
 #include <klocale.h>
 static KLocale _locale(TRANSLATION_DOMAIN);
 #define i18nc(context, text) ki18nc(context, text).toString(&_locale)
@@ -124,6 +123,9 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_failIcon(BarIcon("dialog-cancel"))
     , m_webPageDialog(nullptr)
 {
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+    static KComponentData alk(TRANSLATION_DOMAIN);
+#endif
     setupUi(parent);
 
     profilesGroupBox->setVisible(showProfiles);
