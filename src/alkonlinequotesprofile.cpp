@@ -324,6 +324,9 @@ QString AlkOnlineQuotesProfile::hotNewStuffConfigFile() const
 {
     QString configFile = KStandardDirs::locate("config", d->m_GHNSFile);
     if (configFile.isEmpty()) {
+         configFile = KStandardDirs::locate("data", "knsrcfiles/" + d->m_GHNSFile);
+    }
+    if (configFile.isEmpty()) {
         configFile = QString("%1/%2").arg(KNSRC_DIR, d->m_GHNSFile);
     }
 
