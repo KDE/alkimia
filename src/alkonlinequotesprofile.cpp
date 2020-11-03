@@ -343,12 +343,15 @@ QString AlkOnlineQuotesProfile::hotNewStuffConfigFile() const
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     QString configFile = QStandardPaths::locate(QStandardPaths::ConfigLocation, d->m_GHNSFile);
+    if (configFile.isEmpty()) {
+        configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "knsrcfiles/" + d->m_GHNSFile);
+    }
 #else
     QString configFile = KStandardDirs::locate("config", d->m_GHNSFile);
-#endif
     if (configFile.isEmpty()) {
          configFile = KStandardDirs::locate("data", "knsrcfiles/" + d->m_GHNSFile);
     }
+#endif
     if (configFile.isEmpty()) {
         configFile = QString("%1/%2").arg(KNSRC_DIR, d->m_GHNSFile);
     }
