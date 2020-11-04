@@ -183,11 +183,18 @@ public Q_SLOTS:
     const QStringList quoteSourcesGHNS()
     {
         QStringList sources;
-        const QString filename = QString("%1/*.txt").arg(m_GHNSFilePath);
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-        const auto resources = QStandardPaths::locateAll(QStandardPaths::DataLocation, filename);
+        QStringList resources;
+        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, m_GHNSFilePath, QStandardPaths::LocateDirectory);
+        Q_FOREACH (const QString& dir, dirs) {
+            const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.txt"));
+            Q_FOREACH (const QString& file, fileNames) {
+                resources.append(dir + '/' + file);
+            }
+        }
 #else
+        const QString filename = QString("%1/*.txt").arg(m_GHNSFilePath);
         const QStringList resources = KStandardDirs().findAllResources("data", filename);
 #endif
         foreach (const QString &file, resources) {
