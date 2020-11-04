@@ -210,8 +210,16 @@ public Q_SLOTS:
             source.setProfile(m_p);
             result[source.name()] = source;
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-            source.setName(source.name() + ".webkit");
-            result[source.name()] = source;
+            AlkOnlineQuoteSource source2("Alkimia Currency.webkit",
+                                        "https://fx-rate.net/%1/%2",
+                                        QString(), // symbolregexp
+                                        "1[ a-zA-Z]+=</span><br */?> *(\\d+[\\.\\d]*)",
+                                        "", // no date available
+                                        "",
+                                        true // skip HTML stripping
+                                        );
+            source2.setProfile(m_p);
+            result[source2.name()] = source2;
 #endif
             break;
         }

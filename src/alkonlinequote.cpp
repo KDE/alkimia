@@ -448,8 +448,12 @@ bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
             emit m_p->status(i18n("Using current date for '%1'").arg(m_symbol));
         }
     } else {
-        m_errors |= Errors::Date;
-        emit m_p->error(i18n("Unable to parse date for '%1'").arg(m_symbol));
+        if (m_source.date().isEmpty()) {
+            emit m_p->status(i18n("Parsing date is disabled for '%1'", m_symbol));
+        } else {
+            m_errors |= Errors::Date;
+            emit m_p->error(i18n("Unable to parse date for '%1'", m_symbol));
+        }
         m_date = QDate::currentDate();
         emit m_p->status(i18n("Using current date for '%1'").arg(m_symbol));
     }

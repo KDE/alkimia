@@ -486,9 +486,14 @@ void AlkOnlineQuotesWidget::Private::setupIcons(const AlkOnlineQuote::Errors &er
         if (errors & AlkOnlineQuote::Errors::Date) {
             m_dateCheckLabel->setPixmap(m_failIcon);
         } else {
-            m_dateCheckLabel->setPixmap(m_okIcon);
-            m_dateFormatCheckLabel->setPixmap(
-                errors & AlkOnlineQuote::Errors::DateFormat ? m_failIcon : m_okIcon);
+            if (m_currentItem.date().isEmpty()) {
+                m_dateCheckLabel->setPixmap(m_emptyIcon);
+                m_dateFormatCheckLabel->setPixmap(m_emptyIcon);
+            } else {
+                m_dateCheckLabel->setPixmap(m_okIcon);
+                m_dateFormatCheckLabel->setPixmap(
+                    errors & AlkOnlineQuote::Errors::DateFormat ? m_failIcon : m_okIcon);
+            }
         }
     }
 }
