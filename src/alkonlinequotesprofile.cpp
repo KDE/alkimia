@@ -195,10 +195,11 @@ public Q_SLOTS:
             QString file2 = f.completeBaseName();
             AlkOnlineQuoteSource source(file2, m_p);
             if (source.isEmpty()) {
-                qDebug() << "skipping" << file2;
+                qDebug() << "skipping" << file;
                 continue;
             }
             if (!sources.contains(file2)) {
+                qDebug() << "adding quote source" << file;
                 sources.push_back(file2);
             }
         }
