@@ -89,6 +89,9 @@ public:
       * When the quote is received back from the web source, it will be
       * emitted on the 'quote' signal.
       *
+      * If services do not provide a date, parsing of the date can be disabled
+      * by specifying an empty date attribute of the given online source.
+      *
       * @param _symbol the trading symbol of the stock to fetch a price for
       * @param _id an arbitrary identifier, which will be emitted in the quote
       *                signal when a price is sent back.
