@@ -44,7 +44,7 @@ if(BUILD_QT4)
 else()
     set(LIBS
         Qt5::Widgets
-        Qt5::WebKitWidgets
+        ${QT_BROWSER_LIB}
         KF5::CoreAddons
         KF5::I18n
         KF5::XmlGui

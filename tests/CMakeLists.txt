@@ -3,7 +3,7 @@ set(TEST_LIB
     alkimia
     alkimia-internal
     ${QT_USE_LIBSPREFIX}Core
-    ${QT_USE_LIBSPREFIX}WebKit
+    ${QT_BROWSER_LIB}
 )
 
 if(BUILD_QT4)
@@ -14,7 +14,6 @@ if(BUILD_QT4)
 else()
     list(APPEND TEST_LIB
         ${QT_USE_LIBSPREFIX}Qml
-        ${QT_USE_LIBSPREFIX}WebKitWidgets
      )
 endif()
 add_executable(qmlalkonlinequotetest
