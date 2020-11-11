@@ -19,11 +19,11 @@
  ***************************************************************************/
 
 #include "alkdateformattest.h"
+
 #include "alkdateformat.h"
+#include "test.h"
 
-#include <QtTest/QtTest>
-
-QTEST_MAIN(AlkDateFormatTest)
+QTEST_GUILESS_MAIN(AlkDateFormatTest)
 
 void AlkDateFormatTest::testDateFormatKMyMoney()
 {

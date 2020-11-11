@@ -18,11 +18,11 @@
  ***************************************************************************/
 
 #include "alkquoteitemtest.h"
+
 #include "alkquoteitem.h"
+#include "test.h"
 
-#include <QtTest/QtTest>
-
-QTEST_MAIN(AlkQuoteItemTest)
+QTEST_GUILESS_MAIN(AlkQuoteItemTest)
 
 void AlkQuoteItemTest::init()
 {

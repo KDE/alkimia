@@ -20,10 +20,9 @@
 #include "alkonlinequotesourcetest.h"
 
 #include "alkonlinequotesource.h"
+#include "test.h"
 
-#include <QtTest/QtTest>
-
-QTEST_MAIN(AlkOnlineQuoteSourceTest)
+QTEST_GUILESS_MAIN(AlkOnlineQuoteSourceTest)
 
 void AlkOnlineQuoteSourceTest::init()
 {
