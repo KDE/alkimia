@@ -58,6 +58,7 @@ void AlkOnlineQuoteTest::testLaunch()
 
 void AlkOnlineQuoteTest::testLaunchWebKit()
 {
+#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     AlkOnlineQuote quote(m_profile);
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);
@@ -65,4 +66,7 @@ void AlkOnlineQuoteTest::testLaunchWebKit()
     foreach(const QString &source, m_profile->quoteSources())
         if (source.endsWith(".webkit"))
             QVERIFY(quote.launch("EUR USD", "EUR USD", source));
+#else
+    QSKIP("Brower based tests skipped because requirements are not met", SkipAll);
+#endif
 }
