@@ -20,10 +20,9 @@
 #include "alkvaluetest.h"
 
 #include "alkimia/alkvalue.h"
+#include "test.h"
 
-#include <QtTest/QtTest>
-
-QTEST_MAIN(AlkValueTest)
+QTEST_GUILESS_MAIN(AlkValueTest)
 
 namespace QTest {
 template<>

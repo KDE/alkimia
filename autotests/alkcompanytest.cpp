@@ -18,11 +18,11 @@
  ***************************************************************************/
 
 #include "alkcompanytest.h"
+
 #include "alkcompany.h"
+#include "test.h"
 
-#include <QtTest/QtTest>
-
-QTEST_MAIN(AlkCompanyTest)
+QTEST_GUILESS_MAIN(AlkCompanyTest)
 
 void AlkCompanyTest::init()
 {

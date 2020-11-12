@@ -592,7 +592,7 @@ void AlkOnlineQuotesWidget::Private::slotEntryRenamed(QTreeWidgetItem *item, int
     }
 
     // Make sure we get a non-empty and unique name
-    if (text.length() > 0 && nameCount == 1) {
+    if (text.length() > 0 && nameCount == 0) {
         m_currentItem.rename(text);
     } else {
         item->setText(0, m_currentItem.name());

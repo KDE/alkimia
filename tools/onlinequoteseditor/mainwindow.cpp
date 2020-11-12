@@ -28,7 +28,6 @@
 #include <QComboBox>
 #include <QDockWidget>
 #include <QLineEdit>
-#include <QNetworkRequest>
 
 class MainWindow::Private
 {

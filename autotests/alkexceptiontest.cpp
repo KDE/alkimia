@@ -19,9 +19,9 @@
 
 #include "alkexceptiontest.h"
 
-#include <QtTest/QtTest>
+#include "test.h"
 
-QTEST_MAIN(AlkExceptionTest)
+QTEST_GUILESS_MAIN(AlkExceptionTest)
 
 void AlkExceptionTest::init()
 {
