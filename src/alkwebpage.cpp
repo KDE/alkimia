@@ -167,7 +167,11 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
     request.setUrl(url);
     if (!acceptLanguage.isEmpty())
         request.setRawHeader("Accept-Language", acceptLanguage.toLocal8Bit());
-    QWebView::load(request);
+    if (url.query().toLower().contains(QLatin1String("method=post"))) {
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+        QWebView::load(request, QNetworkAccessManager::PostOperation, url.query().toUtf8());
+    } else
+        QWebView::load(request);
 }
 
 QString AlkWebPage::toHtml()
