@@ -318,6 +318,15 @@ void AlkOnlineQuoteSource::setPrice(const QString &price)
     d->m_price = price;
 }
 
+/**
+ * Set regular expression for parsing dates
+ *
+ * An empty string as expression disables the extraction
+ * of the date, which is sometimes necessary, for example
+ * if the service does not provide a complete date.
+ *
+ * @param date regular expression
+ */
 void AlkOnlineQuoteSource::setDate(const QString &date)
 {
     d->m_date = date;
