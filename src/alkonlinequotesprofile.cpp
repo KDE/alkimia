@@ -286,11 +286,14 @@ public Q_SLOTS:
 
     QString configPath()
     {
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
         if (m_type == Type::KMyMoney5)
             return QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
         else if(m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
             return QString("%1/.config").arg(homeRootPath());
-        else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
+        else
+#endif
+        if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
             return QString("%1/.kde4/share/config").arg(homeRootPath());
         return
             QString();
