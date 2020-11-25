@@ -1,0 +1,29 @@
+image: opensuse/leap
+
+build_kf5:
+  stage: build
+  #when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5"
+    ci_distro: "opensuse"
+  before_script:
+    - tools/ci-install.sh
+  script:
+    - tools/ci-build.sh
+
+build_kde4:
+  stage: build
+  #when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kde4"
+    ci_distro: "opensuse"
+  before_script:
+    - tools/ci-install.sh
+  script:
+    - tools/ci-build.sh
