@@ -34,7 +34,12 @@
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <QIcon>
     #include <KIconLoader>
+#include <knewstuff_version.h>
+#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
     #include <kns3/downloaddialog.h>
+#else
+    #include <kns3/qtquickdialogwrapper.h>
+#endif
     #include <kns3/uploaddialog.h>
     #define KIcon QIcon
 #else
@@ -43,6 +48,7 @@
     #include <KIconLoader>
     #include <knewstuff3/downloaddialog.h>
     #include <knewstuff3/uploaddialog.h>
+#define KNEWSTUFF_VERSION 0
 #endif
 
 #include <KGuiItem>
@@ -607,10 +613,17 @@ void AlkOnlineQuotesWidget::Private::slotInstallEntries()
 {
     QString configFile = m_profile->hotNewStuffConfigFile();
 
+#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
     QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(configFile, this);
     dialog->exec();
     delete dialog;
     loadQuotesList();
+#else
+    if (!KNS3::QtQuickDialogWrapper(configFile).exec().isEmpty()) {
+        // Only load the list if entries are changed
+        loadQuotesList();
+    }
+#endif
 }
 
 void AlkOnlineQuotesWidget::Private::slotUploadEntry()
