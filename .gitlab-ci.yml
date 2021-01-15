@@ -1,6 +1,20 @@
 image: opensuse/leap
 
-build_kf5:
+build_kf5_tumbleweed:
+  stage: build
+  #when: manual
+  image: opensuse/tumbleweed
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5"
+    ci_distro: "opensuse"
+  before_script:
+    - tools/ci-install.sh
+  script:
+    - tools/ci-build.sh
+
+build_kf5_leap:
   stage: build
   #when: manual
   image: opensuse/leap
