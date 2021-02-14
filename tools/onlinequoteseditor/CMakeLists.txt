@@ -1,23 +1,23 @@
 add_subdirectory(icons)
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/src
-  ${CMAKE_BINARY_DIR}/src
+    ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_BINARY_DIR}/src
 )
 
 set(SOURCES
-  applicationsettings.cpp
-  main.cpp
-  mainwindow.cpp
+    applicationsettings.cpp
+    main.cpp
+    mainwindow.cpp
 )
 
 set(HEADERS
-  applicationsettings.h
-  mainwindow.h
+    applicationsettings.h
+    mainwindow.h
 )
 
 set(UI
- mainwindow.ui
+    mainwindow.ui
 )
 
 ki18n_wrap_ui(SOURCES ${UI} )

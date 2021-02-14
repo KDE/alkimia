@@ -18,7 +18,7 @@ ecm_add_tests(
     alkquoteitemtest.cpp
     alkcompanytest.cpp
     alkexceptiontest.cpp
-  LINK_LIBRARIES
+    LINK_LIBRARIES
     alkimia ${TEST_LIB}
 )
 
