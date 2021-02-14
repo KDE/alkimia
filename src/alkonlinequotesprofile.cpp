@@ -45,9 +45,6 @@
     #include <knewstuff3/downloadmanager.h>
 #endif
 
-#define TEST_HOST "http://kmymoney-dev.kde.org"
-//#define TEST_HOST TEST_HOST ""
-
 class AlkOnlineQuotesProfile::Private : public QObject
 {
     Q_OBJECT
@@ -239,36 +236,6 @@ public Q_SLOTS:
                                         );
             source.setProfile(m_p);
             result[source.name()] = source;
-            AlkOnlineQuoteSource sourceTestOne("Alkimia test one symbol",
-                                        TEST_HOST "/onlinequotestest.php?a=%1",
-                                        QString(), // symbolregexp
-                                        "class=\"value\">(\\d+.\\d+)",
-                                        "class=\"date\">\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                                        "%d/%m/%y",
-                                        true // skip HTML stripping
-                                        );
-            sourceTestOne.setProfile(m_p);
-            result[sourceTestOne.name()] = sourceTestOne;
-            AlkOnlineQuoteSource sourceTestOnePost("Alkimia test one symbol (post).webkit",
-                                        TEST_HOST "/onlinequotestest.php?a=%1&method=post",
-                                        QString(), // symbolregexp
-                                        "class=\"value\">(\\d+.\\d+)",
-                                        "class=\"date\">\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                                        "%d/%m/%y",
-                                        true // skip HTML stripping
-                                        );
-            sourceTestOnePost.setProfile(m_p);
-            result[sourceTestOnePost.name()] = sourceTestOnePost;
-            AlkOnlineQuoteSource sourceTestTwo("Alkimia test two symbols",
-                                        TEST_HOST "/onlinequotestest.php?a=%1&b=%2",
-                                        QString(), // symbolregexp
-                                        "</span><br\\s*/>\\s+(\\d+.\\d+)",
-                                        "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                                        "%d/%m/%y",
-                                        true // skip HTML stripping
-                                        );
-            sourceTestTwo.setProfile(m_p);
-            result[sourceTestTwo.name()] = sourceTestTwo;
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
             AlkOnlineQuoteSource source2("Alkimia Currency.webkit",
                                         "https://fx-rate.net/%1/%2",
@@ -280,26 +247,6 @@ public Q_SLOTS:
                                         );
             source2.setProfile(m_p);
             result[source2.name()] = source2;
-            AlkOnlineQuoteSource sourceTestOneBrowser("Alkimia test one symbol.webkit",
-                                        TEST_HOST "/onlinequotestest.php?a=%1",
-                                        QString(), // symbolregexp
-                                        "class=\"value\">(\\d+.\\d+)",
-                                        "class=\"date\">\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                                        "%d/%m/%y",
-                                        true // skip HTML stripping
-                                        );
-            sourceTestOneBrowser.setProfile(m_p);
-            result[sourceTestOneBrowser.name()] = sourceTestOneBrowser;
-            AlkOnlineQuoteSource sourceTestTwoBrowser("Alkimia test two symbols.webkit",
-                                        TEST_HOST "/onlinequotestest.php?a=%1&b=%2",
-                                        QString(), // symbolregexp
-                                        "</span><br\\s*/?>\\s+(\\d+.\\d+)",
-                                        "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                                        "%d/%m/%y",
-                                        true // skip HTML stripping
-                                        );
-            sourceTestTwoBrowser.setProfile(m_p);
-            result[sourceTestTwoBrowser.name()] = sourceTestTwoBrowser;
 #endif
             break;
         }
