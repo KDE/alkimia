@@ -159,8 +159,8 @@ set_target_properties(alkimia PROPERTIES OUTPUT_NAME alkimia${ALKIMIA_LIB_SUFFIX
 set(INCLUDE_INSTALL_DIR include/alkimia/${ALKIMIA_INCLUDE_SUFFIX})
 
 install(TARGETS alkimia
-  EXPORT  alkimiaTargets
-  ${INSTALL_TARGETS_DEFAULT_ARGS}
+    EXPORT  alkimiaTargets
+    ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 if(BUILD_QT4)
@@ -209,51 +209,52 @@ endif(NOT WIN32)
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
 
 ecm_setup_version(${alkimia_VERSION} VARIABLE_PREFIX ALKIMIA
-  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
-  COMPATIBILITY SameMajorVersion
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
+    COMPATIBILITY SameMajorVersion
 )
 
 configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
-  INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
-  PATH_VARS INCLUDE_INSTALL_DIR
+    "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
+    INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+    PATH_VARS INCLUDE_INSTALL_DIR
 )
 
 ########### install files ###############
 
 export(TARGETS alkimia
-       FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Targets.cmake"
-       NAMESPACE Alkimia::
-      )
+    FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Targets.cmake"
+    NAMESPACE Alkimia::
+)
 
 install(EXPORT alkimiaTargets
-        FILE LibAlkimia${ALKIMIA_PATH_SUFFIX}Targets.cmake
-        NAMESPACE Alkimia::
-        DESTINATION ${CMAKECONFIG_INSTALL_DIR}
-       )
+    FILE LibAlkimia${ALKIMIA_PATH_SUFFIX}Targets.cmake
+    NAMESPACE Alkimia::
+    DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+)
 
 install(FILES
-          "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
-          "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
-          "../cmake/modules/Find${MP_CMAKE_MODULE}.cmake"
-        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        COMPONENT Devel)
+    "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
+    "../cmake/modules/Find${MP_CMAKE_MODULE}.cmake"
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+    COMPONENT Devel
+)
 
 if (NOT WIN32)
-  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc
-          DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc
+        DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 endif(NOT WIN32)
 
 ########### documentation ###################
 
 if(DOXYGEN_FOUND)
-  set(APIDOC_DIR ${CMAKE_CURRENT_BINARY_DIR}/apidocs)
+    set(APIDOC_DIR ${CMAKE_CURRENT_BINARY_DIR}/apidocs)
 
-  make_directory(${APIDOC_DIR})
+    make_directory(${APIDOC_DIR})
 
-  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.doxygen.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen IMMEDIATE)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libalkimia.doxygen.in ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen IMMEDIATE)
 
-  add_custom_target(libalkimia_apidoc ${DOXYGEN} ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen)
+    add_custom_target(libalkimia_apidoc ${DOXYGEN} ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen)
 endif(DOXYGEN_FOUND)
 

@@ -11,8 +11,8 @@
 
 
 if (MPIR_INCLUDE_DIR AND MPIR_LIBRARIES)
-  # Already in cache, be silent
-  set(MPIR_FIND_QUIETLY TRUE)
+    # Already in cache, be silent
+    set(MPIR_FIND_QUIETLY TRUE)
 endif (MPIR_INCLUDE_DIR AND MPIR_LIBRARIES)
 
 find_path(MPIR_INCLUDE_DIR NAMES mpir.h )
