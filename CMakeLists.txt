@@ -122,7 +122,7 @@ else()
         CoreAddons
         Completion
         I18n
-		${PLASMA_COMPONENT}
+        ${PLASMA_COMPONENT}
         NewStuff
         KIO
         IconThemes

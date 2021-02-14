@@ -38,5 +38,5 @@ int main(int argc, char *argv[])
     layout->addWidget(new AlkOnlineQuotesWidget);
     dialog.setLayout(layout);
     dialog.show();
-	app.exec();
+    app.exec();
 }

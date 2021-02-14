@@ -28,7 +28,7 @@
     #define _i18n i18n
     #define LICENCE_GPL KAboutLicense::GPL
     #define CATALOG
-	#define aboutName() about.displayName()
+    #define aboutName() about.displayName()
 #else
     #include <KApplication>
     #include <KCmdLineArgs>
@@ -38,7 +38,7 @@
     #define _i18n ki18n
     #define LICENCE_GPL KAboutData::License_GPL
     #define CATALOG QByteArray("onlinequoteseditor"),
-	#define aboutName() about.programName()
+    #define aboutName() about.programName()
 #endif
 
 #include <KHelpMenu>
