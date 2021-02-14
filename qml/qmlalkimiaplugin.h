@@ -16,6 +16,8 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
  ***************************************************************************/
+#ifndef QMLALKIMIAPLUGIN_H
+#define QMLALKIMIAPLUGIN_H
 
 #include <QtGlobal>
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
@@ -38,3 +40,5 @@ class QmlAlkimiaPlugin : public QQmlExtensionPlugin
 public:
     void registerTypes(const char *uri) Q_DECL_OVERRIDE;
 };
+
+#endif // QMLALKIMIAPLUGIN_H
