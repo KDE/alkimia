@@ -332,30 +332,30 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
 
 bool AlkOnlineQuote::Private::processDownloadedFile(const KUrl& url, const QString& tmpFile)
 {
-  bool result = false;
+    bool result = false;
 
-  QFile f(tmpFile);
-  if (f.open(QIODevice::ReadOnly)) {
-    // Find out the page encoding and convert it to unicode
-    QByteArray page = f.readAll();
-    KEncodingProber prober(KEncodingProber::Universal);
-    prober.feed(page);
-    QTextCodec *codec = QTextCodec::codecForName(prober.encoding());
-    if (!codec) {
-      codec = QTextCodec::codecForLocale();
+    QFile f(tmpFile);
+    if (f.open(QIODevice::ReadOnly)) {
+        // Find out the page encoding and convert it to unicode
+        QByteArray page = f.readAll();
+        KEncodingProber prober(KEncodingProber::Universal);
+        prober.feed(page);
+        QTextCodec *codec = QTextCodec::codecForName(prober.encoding());
+        if (!codec) {
+            codec = QTextCodec::codecForLocale();
+        }
+        QString quote = codec->toUnicode(page);
+        f.close();
+        emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
+        if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
+            AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
+        result = slotParseQuote(quote);
+    } else {
+        emit m_p->error(i18n("Failed to open downloaded file"));
+        m_errors |= Errors::URL;
+        result = slotParseQuote(QString());
     }
-    QString quote = codec->toUnicode(page);
-    f.close();
-    emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
-    if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
-      AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
-    result = slotParseQuote(quote);
-  } else {
-    emit m_p->error(i18n("Failed to open downloaded file"));
-    m_errors |= Errors::URL;
-    result = slotParseQuote(QString());
-  }
-  return result;
+    return result;
 }
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
@@ -382,19 +382,19 @@ bool AlkOnlineQuote::Private::downloadUrl(const QUrl& url)
 
 void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
 {
-  QString tmpFileName = dynamic_cast<KIO::FileCopyJob*>(job)->destUrl().toLocalFile();
-  QUrl url = dynamic_cast<KIO::FileCopyJob*>(job)->srcUrl();
+    QString tmpFileName = dynamic_cast<KIO::FileCopyJob*>(job)->destUrl().toLocalFile();
+    QUrl url = dynamic_cast<KIO::FileCopyJob*>(job)->srcUrl();
 
-  bool result;
-  if (!job->error()) {
-    qDebug() << "Downloaded" << tmpFileName << "from" << url;
-    result = processDownloadedFile(url, tmpFileName);
-  } else {
-    emit m_p->error(job->errorString());
-    m_errors |= Errors::URL;
-    result = slotParseQuote(QString());
-  }
-  m_eventLoop->exit(result);
+    bool result;
+    if (!job->error()) {
+        qDebug() << "Downloaded" << tmpFileName << "from" << url;
+        result = processDownloadedFile(url, tmpFileName);
+    } else {
+        emit m_p->error(job->errorString());
+        m_errors |= Errors::URL;
+        result = slotParseQuote(QString());
+    }
+    m_eventLoop->exit(result);
 }
 
 #else
