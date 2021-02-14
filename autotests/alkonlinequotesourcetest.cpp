@@ -66,14 +66,14 @@ void AlkOnlineQuoteSourceTest::copyCtor()
 
 void AlkOnlineQuoteSourceTest::assignOperator()
 {
-  AlkOnlineQuoteSource m1;
-  AlkOnlineQuoteSource m2;
+    AlkOnlineQuoteSource m1;
+    AlkOnlineQuoteSource m2;
 
-  m1.setName(QLatin1String("MyName"));
-  m2 = m1;
-  m1.setName(QLatin1String("MyOtherName"));
-  QCOMPARE(m1.name(), QLatin1String("MyOtherName"));
-  QCOMPARE(m2.name(), QLatin1String("MyName"));
+    m1.setName(QLatin1String("MyName"));
+    m2 = m1;
+    m1.setName(QLatin1String("MyOtherName"));
+    QCOMPARE(m1.name(), QLatin1String("MyOtherName"));
+    QCOMPARE(m2.name(), QLatin1String("MyName"));
 }
 
 void AlkOnlineQuoteSourceTest::testReadWriteRemove()
