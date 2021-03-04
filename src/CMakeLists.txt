@@ -81,6 +81,12 @@ set(alkimia_UI
 )
 
 configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/alkversion.h.in
+    ${CMAKE_CURRENT_BINARY_DIR}/alkimia/alkversion.h
+    IMMEDIATE
+)
+
+configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/alkvalue.h.in
     ${CMAKE_CURRENT_BINARY_DIR}/alkimia/alkvalue.h
     IMMEDIATE
