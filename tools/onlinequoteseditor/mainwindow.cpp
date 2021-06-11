@@ -28,6 +28,7 @@
 #include <QComboBox>
 #include <QDockWidget>
 #include <QLineEdit>
+#include <QUrl>
 
 class MainWindow::Private
 {

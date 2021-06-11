@@ -114,10 +114,17 @@ class AlkWebPage::Private
 public:
     QWebInspector *inspector;
     AlkWebPage *p;
+    QNetworkAccessManager *networkAccessManager;
     Private(AlkWebPage *parent)
       : inspector(nullptr),
-        p(parent)
+        p(parent),
+        networkAccessManager(new QNetworkAccessManager)
     {
+#if QT_VERSION >= QT_VERSION_CHECK(5,9,0)
+        // see https://community.kde.org/Policies/API_to_Avoid#QNetworkAccessManager
+        networkAccessManager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
+#endif
+        p->page()->setNetworkAccessManager(networkAccessManager);
     }
 
     ~Private()
@@ -125,6 +132,7 @@ public:
         p->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
         inspector->setPage(nullptr);
         delete inspector;
+        delete networkAccessManager;
     }
 
     void setWebInspectorEnabled(bool enable)
