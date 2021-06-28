@@ -163,9 +163,15 @@ endif()
 include_directories(${MP_INCLUDE_DIR})
 
 # check for Doxygen (for API documentation)
-if(BUILD_DOXYGEN_DOCS)
-    find_package(Doxygen)
-endif()
+find_package(Doxygen)
+if(DOXYGEN_FOUND)
+  set(APIDOC_DIR ${CMAKE_CURRENT_BINARY_DIR}/apidocs)
+
+  make_directory("${APIDOC_DIR}")
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/alkimia.doxygen.in ${CMAKE_CURRENT_BINARY_DIR}/alkimia.doxygen IMMEDIATE)
+
+  add_custom_target(apidoc "${DOXYGEN}" "${CMAKE_CURRENT_BINARY_DIR}/alkimia.doxygen")
+endif(DOXYGEN_FOUND)
 
 feature_summary(WHAT ALL)
 
