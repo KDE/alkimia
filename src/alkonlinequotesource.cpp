@@ -228,7 +228,7 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, const QString &u
 AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile)
     : d(new Private)
 {
-    if (profile->type() == AlkOnlineQuotesProfile::Type::None && profile->defaultQuoteSources().contains(name)) {
+    if ((profile != nullptr) && (profile->type() == AlkOnlineQuotesProfile::Type::None) && (profile->defaultQuoteSources().contains(name))) {
         *this = profile->defaultQuoteSources()[name];
     } else {
         d->m_profile = profile;
