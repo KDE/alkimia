@@ -229,13 +229,6 @@
            </widget>
           </item>
           <item>
-           <widget class="AlkPushButton" name="m_uploadButton">
-            <property name="text">
-             <string>Upload</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
