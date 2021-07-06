@@ -179,6 +179,11 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
     if (url.query().toLower().contains(QLatin1String("method=post"))) {
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
         QWebView::load(request, QNetworkAccessManager::PostOperation, url.query().toUtf8());
+#else
+    if (url.hasQueryItem(QLatin1String("method")) && url.queryItemValue(QLatin1String("method")).toLower()== QLatin1String("post")) {
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+        QWebView::load(request, QNetworkAccessManager::PostOperation, request.url());
+#endif
     } else
 #endif
         QWebView::load(request);
