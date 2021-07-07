@@ -31,7 +31,7 @@ build_kf5_leap:
 build_kde4:
   stage: build
   #when: manual
-  image: opensuse/leap:15.1
+  image: opensuse/leap:15.2
   #only:
   #  - merge_requests
   variables:
