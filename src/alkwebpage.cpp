@@ -184,7 +184,8 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
         QWebView::load(request, QNetworkAccessManager::PostOperation);
 #endif
-    } 
+    } else
+        QWebView::load(request);
 }
 
 QString AlkWebPage::toHtml()
