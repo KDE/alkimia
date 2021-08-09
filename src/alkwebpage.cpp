@@ -209,9 +209,11 @@ public:
 };
 
 AlkWebPage::AlkWebPage(QWidget *parent)
-  : QWidget(parent)
+  : QTextBrowser(parent)
   , d(new Private)
 {
+    setOpenExternalLinks(false);
+    setOpenLinks(false);
 }
 
 AlkWebPage::~AlkWebPage()
@@ -237,12 +239,7 @@ void AlkWebPage::setUrl(const QUrl &url)
 
 void AlkWebPage::setContent(const QString &s)
 {
-    Q_UNUSED(s)
-}
-
-QString AlkWebPage::toHtml()
-{
-    return QString();
+    setHtml(s);
 }
 
 QString AlkWebPage::getFirstElement(const QString &symbol)
