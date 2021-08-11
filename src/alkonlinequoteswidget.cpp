@@ -30,6 +30,7 @@
 #include <QDesktopServices>
 #include <QtDebug>
 #include <QTreeWidget>
+#include <QKeyEvent>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <QIcon>
@@ -117,6 +118,7 @@ public:
     QStringList doubleSymbol() const;
     QString expandedUrl() const;
     void updateButtonState();
+    bool eventFilter(QObject* o, QEvent* e);
 };
 
 AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWidget *parent)
@@ -207,6 +209,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     m_quoteSourceList->header()->setResizeMode(0,QHeaderView::Stretch);
 #endif
     m_quoteSourceList->setSortingEnabled(true);
+    m_quoteSourceList->installEventFilter(this);
 
     connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadQuoteSource()));
     connect(m_quoteSourceList, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this,
@@ -667,6 +670,21 @@ QString AlkOnlineQuotesWidget::Private::expandedUrl() const
     } else {
         return m_currentItem.url().arg(m_checkSymbol->text());
     }
+}
+
+bool AlkOnlineQuotesWidget::Private::eventFilter(QObject* o, QEvent* e)
+{
+    if (o == m_quoteSourceList && e->type() == QEvent::KeyRelease) {
+        QKeyEvent *k = dynamic_cast<QKeyEvent*>(e);
+#ifdef Q_OS_DARWIN
+        if (k->key() == Qt::Key_Enter) {
+#else
+        if (k->key() == Qt::Key_F2) {
+#endif
+            slotQuoteSourceStartRename(m_quoteSourceList->currentItem(), 0);
+        }
+    }
+    return false;
 }
 
 AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(bool showProfiles, bool showUpload, QWidget *parent)
