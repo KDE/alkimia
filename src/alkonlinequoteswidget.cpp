@@ -91,7 +91,7 @@ public slots:
     void slotDeleteEntry();
     void slotDuplicateEntry();
     void slotUpdateEntry();
-    void slotLoadWidgets();
+    void slotLoadQuoteSource();
     void slotEntryChanged();
     void slotNewEntry();
     void slotCheckEntry();
@@ -99,8 +99,8 @@ public slots:
     void slotLogError(const QString &s);
     void slotLogFailed(const QString &id, const QString &symbol);
     void slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price);
-    void slotEntryRenamed(QTreeWidgetItem *item, int column);
-    void slotStartRename(QTreeWidgetItem *item, int column);
+    void slotQuoteSourceRenamed(QTreeWidgetItem *item, int column);
+    void slotQuoteSourceStartRename(QTreeWidgetItem *item, int column);
     void slotInstallEntries();
     void slotShowButton();
 
@@ -202,11 +202,11 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 #endif
     m_quoteSourceList->setSortingEnabled(true);
 
-    connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadWidgets()));
+    connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadQuoteSource()));
     connect(m_quoteSourceList, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this,
-            SLOT(slotEntryRenamed(QTreeWidgetItem *, int)));
+            SLOT(slotQuoteSourceRenamed(QTreeWidgetItem *, int)));
     connect(m_quoteSourceList, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this,
-            SLOT(slotStartRename(QTreeWidgetItem *, int)));
+            SLOT(slotQuoteSourceStartRename(QTreeWidgetItem *, int)));
 
     connect(m_editURL, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editSymbol, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
@@ -292,7 +292,7 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
             m_quoteSourceList->setCurrentItem(item);
     }
     m_quoteSourceList->blockSignals(false);
-    slotLoadWidgets();
+    slotLoadQuoteSource();
     slotEntryChanged();
 }
 
@@ -349,7 +349,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
     m_GHNSDataLabel->setEnabled(visible);
 }
 
-void AlkOnlineQuotesWidget::Private::slotLoadWidgets()
+void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
 {
     m_quoteInEditing = false;
     QTreeWidgetItem *item = m_quoteSourceList->currentItem();
@@ -565,7 +565,7 @@ void AlkOnlineQuotesWidget::Private::slotLogQuote(const QString &id, const QStri
                       price));
 }
 
-void AlkOnlineQuotesWidget::Private::slotStartRename(QTreeWidgetItem *item, int column)
+void AlkOnlineQuotesWidget::Private::slotQuoteSourceStartRename(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
 
@@ -573,7 +573,7 @@ void AlkOnlineQuotesWidget::Private::slotStartRename(QTreeWidgetItem *item, int 
     m_quoteSourceList->editItem(item);
 }
 
-void AlkOnlineQuotesWidget::Private::slotEntryRenamed(QTreeWidgetItem *item, int column)
+void AlkOnlineQuotesWidget::Private::slotQuoteSourceRenamed(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
     //if there is no current item selected, exit
