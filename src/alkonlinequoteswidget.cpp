@@ -116,6 +116,7 @@ public:
     QString singleSymbol() const;
     QStringList doubleSymbol() const;
     QString expandedUrl() const;
+    void updateButtonState();
 };
 
 AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWidget *parent)
@@ -298,7 +299,7 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
     }
     m_quoteSourceList->blockSignals(false);
     slotLoadQuoteSource();
-    slotEntryChanged();
+    updateButtonState();
 }
 
 void AlkOnlineQuotesWidget::Private::slotNewProfile()
@@ -387,10 +388,15 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
     }
 
-    m_updateButton->setEnabled(false);
+    updateButtonState();
 }
 
 void AlkOnlineQuotesWidget::Private::slotEntryChanged()
+{
+    updateButtonState();
+}
+
+void AlkOnlineQuotesWidget::Private::updateButtonState()
 {
     clearIcons();
     bool modified = m_editURL->text() != m_currentItem.url()
@@ -439,7 +445,7 @@ void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
     // keep this order to avoid deleting the wrong current item
     m_currentItem.remove();
     delete item;
-    slotEntryChanged();
+    updateButtonState();
 }
 
 void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
@@ -473,7 +479,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
     m_currentItem.setGHNS(m_ghnsSource->isChecked());
     m_currentItem.write();
     m_checkButton->setEnabled(true);
-    slotEntryChanged();
+    updateButtonState();
 }
 
 void AlkOnlineQuotesWidget::Private::slotNewEntry()
@@ -605,9 +611,7 @@ void AlkOnlineQuotesWidget::Private::slotQuoteSourceRenamed(QTreeWidgetItem *ite
         item->setText(0, m_currentItem.name());
     }
     m_quoteSourceList->sortItems(0, Qt::AscendingOrder);
-    m_newButton->setEnabled(m_quoteSourceList->findItems(i18n(
-                                                             "New Quote Source"),
-                                                         Qt::MatchExactly).count() == 0);
+    updateButtonState();
 }
 
 void AlkOnlineQuotesWidget::Private::slotInstallEntries()
