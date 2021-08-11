@@ -37,7 +37,8 @@ class AlkOnlineQuoteSource::Private
 {
 public:
     Private()
-        : m_skipStripping(false)
+        : m_idSelector(Symbol)
+        , m_skipStripping(false)
         , m_profile(nullptr)
         , m_isGHNSSource(false)
         , m_storageChanged(false)
@@ -49,6 +50,7 @@ public:
         : m_name(other->m_name)
         , m_url(other->m_url)
         , m_sym(other->m_sym)
+        , m_idNumber(other->m_idNumber)
         , m_price(other->m_price)
         , m_date(other->m_date)
         , m_dateformat(other->m_dateformat)
@@ -74,6 +76,8 @@ public:
         m_date = grp.readEntry("DateRegex");
         m_dateformat = grp.readEntry("DateFormatRegex", "%m %d %y");
         m_price = grp.readEntry("PriceRegex");
+        m_idNumber = grp.readEntry("IDRegex");
+        m_idSelector = static_cast<idSelector>(grp.readEntry("IDBy", "0").toInt());
         m_url = grp.readEntry("URL");
         m_skipStripping = grp.readEntry("SkipStripping", false);
         m_isGHNSSource = false;
@@ -91,6 +95,8 @@ public:
         grp.writeEntry("PriceRegex", m_price);
         grp.writeEntry("DateRegex", m_date);
         grp.writeEntry("DateFormatRegex", m_dateformat);
+        grp.writeEntry("IDRegex", m_idNumber);
+        grp.writeEntry("IDBy", static_cast<int>(m_idSelector));
         grp.writeEntry("SymbolRegex", m_sym);
         if (m_skipStripping) {
             grp.writeEntry("SkipStripping", m_skipStripping);
@@ -180,12 +186,20 @@ public:
         return true;
     }
 
+    enum idSelector{
+        Symbol,
+        IdentificationNumber,
+        Name
+    };
+
     QString m_name;
     QString m_url;
     QString m_sym;
     QString m_price;
     QString m_date;
     QString m_dateformat;
+    QString m_idNumber;
+    idSelector m_idSelector;
     bool m_skipStripping;
     AlkOnlineQuotesProfile *m_profile;
     bool m_isGHNSSource;
@@ -267,6 +281,11 @@ QString AlkOnlineQuoteSource::sym() const
     return d->m_sym;
 }
 
+QString AlkOnlineQuoteSource::idNumber() const
+{
+    return d->m_idNumber;
+}
+
 QString AlkOnlineQuoteSource::price() const
 {
     return d->m_price;
@@ -317,6 +336,11 @@ void AlkOnlineQuoteSource::setSym(const QString &symbol)
 void AlkOnlineQuoteSource::setPrice(const QString &price)
 {
     d->m_price = price;
+}
+
+void AlkOnlineQuoteSource::setIdNumber(const QString &idNumber)
+{
+    d->m_idNumber = idNumber;
 }
 
 /**

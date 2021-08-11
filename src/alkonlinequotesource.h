@@ -60,6 +60,7 @@ public:
     QString url() const;
     QString sym() const;
     QString price() const;
+    QString idNumber() const;
     QString date() const;
     QString dateformat() const;
     QString financeQuoteName() const;
@@ -74,6 +75,7 @@ public:
     void setUrl(const QString &url);
     void setSym(const QString &symbol);
     void setPrice(const QString &price);
+    void setIdNumber(const QString &idNumber);
     void setDate(const QString &date);
     void setDateformat(const QString &dateformat);
     void setSkipStripping(bool state);
