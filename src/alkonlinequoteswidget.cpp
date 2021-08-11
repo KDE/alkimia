@@ -585,6 +585,8 @@ void AlkOnlineQuotesWidget::Private::slotQuoteSourceRenamed(QTreeWidgetItem *ite
     //if there is no current item selected, exit
     if (m_quoteInEditing == false || !m_quoteSourceList->currentItem()
         || item != m_quoteSourceList->currentItem()) {
+        // revert name change
+        item->setText(0, m_currentItem.name());
         return;
     }
 
