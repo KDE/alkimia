@@ -50,7 +50,11 @@ public:
 
 void MainWindow::slotUrlChanged(const QUrl &url)
 {
+#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     d->urlLine->setText(url.toString());
+#else
+    Q_UNUSED(url)
+#endif
 }
 
 void MainWindow::slotEditingFinished()
@@ -116,15 +120,14 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&AlkOnlineQuotesProfileManager::instance(), SIGNAL(updateAvailable(const QString &, const QString &)),
             this, SLOT(slotUpdateAvailable(const QString &, const QString &)));
 
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     manager.setWebPageEnabled(true);
     QDockWidget *browserWidget = new QDockWidget(i18n("Browser"), this);
     browserWidget->setObjectName("browserDockWidget");
     AlkWebPage *webPage = manager.webPage();
-    connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
 
-    // setup url line
     QHBoxLayout *hLayout = new QHBoxLayout;
+#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
+    // setup url line
     d->urlLine = new QLineEdit;
     connect(d->urlLine, SIGNAL(editingFinished()), this, SLOT(slotEditingFinished()));
     hLayout->addWidget(d->urlLine);
@@ -146,6 +149,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(box, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotLanguageChanged(QString)));
     hLayout->addWidget(box);
 
+    webPage->setWebInspectorEnabled(true);
+    connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
+#endif
     // setup browser window
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addLayout(hLayout);
@@ -154,8 +160,6 @@ MainWindow::MainWindow(QWidget *parent)
     group->setLayout(layout);
     browserWidget->setWidget(group);
     addDockWidget(Qt::RightDockWidgetArea, browserWidget);
-    webPage->setWebInspectorEnabled(true);
-#endif
 
     setCentralWidget(nullptr);
 
