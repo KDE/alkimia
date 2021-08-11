@@ -106,3 +106,39 @@ void AlkOnlineQuoteSourceTest::testReadWriteRemove()
     AlkOnlineQuoteSource m3("test-currency", &profile);
     QVERIFY(m3.url().isEmpty());
 }
+
+void AlkOnlineQuoteSourceTest::testRename()
+{
+    AlkOnlineQuotesProfile profile("test", AlkOnlineQuotesProfile::Type::Alkimia4);
+    AlkOnlineQuoteSource m1(
+        "test-currency",
+        "https://fx-rate.net/%1/%2",
+        QString(), // symbolregexp
+        "1[ a-zA-Z]+=</span><br */?> *(\\d+\\.\\d+)",
+        "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
+        "%d/%m/%y",
+        true // skip HTML stripping
+    );
+    m1.setProfile(&profile);
+    m1.write();
+    m1.rename("test-currency.new");
+
+    // should be the same
+    AlkOnlineQuoteSource m2("test-currency.new", &profile);
+    QCOMPARE(m1.name(),          m2.name());
+    QCOMPARE(m1.isValid(),       m2.isValid());
+    QCOMPARE(m1.url(),           m2.url());
+    QCOMPARE(m1.sym(),           m2.sym());
+    QCOMPARE(m1.price(),         m2.price());
+    QCOMPARE(m1.date(),          m2.date());
+    QCOMPARE(m1.dateformat(),    m2.dateformat());
+    QCOMPARE(m1.skipStripping(), m2.skipStripping());
+    QCOMPARE(m1.isGHNS(),        m2.isGHNS());
+
+    // should be empty
+    AlkOnlineQuoteSource m3("test-currency", &profile);
+    QVERIFY(m3.url().isEmpty());
+
+    // cleanup
+    m1.remove();
+}

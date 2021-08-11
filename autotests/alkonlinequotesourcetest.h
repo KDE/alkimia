@@ -35,6 +35,7 @@ private slots:
     void copyCtor();
     void assignOperator();
     void testReadWriteRemove();
+    void testRename();
 };
 
 #endif // ALKONLINEQUOTESOURCETEST_H
