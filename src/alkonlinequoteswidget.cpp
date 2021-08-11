@@ -592,9 +592,10 @@ void AlkOnlineQuotesWidget::Private::slotEntryRenamed(QTreeWidgetItem *item, int
     }
 
     // Make sure we get a non-empty and unique name
-    if (text.length() > 0 && nameCount == 0) {
+    if (text.length() > 0 && nameCount == 1) {
         m_currentItem.rename(text);
     } else {
+        // revert name change
         item->setText(0, m_currentItem.name());
     }
     m_quoteSourceList->sortItems(0, Qt::AscendingOrder);
