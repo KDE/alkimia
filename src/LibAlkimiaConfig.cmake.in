@@ -15,6 +15,15 @@ else()
 endif()
 find_dependency(@MP_CMAKE_MODULE@)
 
+if (NOT @BUILD_SHARED_LIBS@)
+    find_dependency(KF5Completion)
+    find_dependency(KF5I18n)
+    find_dependency(KF5NewStuff)
+    find_dependency(KF5IconThemes)
+    find_dependency(KF5TextWidgets)
+    find_dependency(KF5KIO)
+endif()
+
 include("${CMAKE_CURRENT_LIST_DIR}/LibAlkimia@ALKIMIA_PATH_SUFFIX@Targets.cmake")
 
 set_and_check(LIBALKIMIA_INCLUDE_DIR "@PACKAGE_INCLUDE_INSTALL_DIR@")
