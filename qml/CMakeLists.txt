@@ -22,7 +22,7 @@ else()
 endif()
 
 configure_file(qmldir ${IMPORTS_DIR}/qmldir)
-add_library(qmlalkimia SHARED qmlalkimiaplugin.cpp)
+add_library(qmlalkimia qmlalkimiaplugin.cpp)
 target_link_libraries(qmlalkimia ${LIBS} alkimia)
 
 install(TARGETS qmlalkimia

@@ -103,7 +103,7 @@ endforeach()
 add_definitions(-DKNSRC_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 
 ki18n_wrap_ui(alkimia_LIB_SRCS ${alkimia_UI} )
-add_library(alkimia SHARED ${alkimia_LIB_SRCS} ${alkimia_INTERNAL_SRCS} ${alkimia_LIB_HEADERS} ${alkimia_LIB_PRIVATE_HEADERS})
+add_library(alkimia ${alkimia_LIB_SRCS} ${alkimia_INTERNAL_SRCS} ${alkimia_LIB_HEADERS} ${alkimia_LIB_PRIVATE_HEADERS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
 if(BUILD_QT4)
@@ -166,7 +166,13 @@ endif()
 set_target_properties(alkimia PROPERTIES OUTPUT_NAME alkimia${ALKIMIA_LIB_SUFFIX})
 set(INCLUDE_INSTALL_DIR include/alkimia/${ALKIMIA_INCLUDE_SUFFIX})
 
-install(TARGETS alkimia
+if(BUILD_SHARED_LIBS)
+    set(alkimia_export_targets alkimia)
+else()
+    set(alkimia_export_targets alkimia alkimia-internal)
+endif()
+
+install(TARGETS ${alkimia_export_targets}
     EXPORT  alkimiaTargets
     ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
@@ -230,7 +236,7 @@ configure_package_config_file(
 
 ########### install files ###############
 
-export(TARGETS alkimia
+export(TARGETS ${alkimia_export_targets}
     FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Targets.cmake"
     NAMESPACE Alkimia::
 )
