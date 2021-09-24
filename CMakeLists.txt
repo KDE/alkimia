@@ -11,6 +11,7 @@ option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
 option(BUILD_APPLETS "Build plasma applets" ON)
 option(BUILD_TOOLS "Build tools" ON)
 option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" ON)
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 
 if(WIN32)
     set(ENABLE_FINANCEQUOTE_DEFAULT 0)
