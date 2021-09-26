@@ -11,6 +11,7 @@ Dependencies:
     'frameworks/knewstuff': '@stable'
     'frameworks/ktextwidgets': '@stable'
     'frameworks/kxmlgui': '@stable'
+    'frameworks/plasma-framework': '@stable'
 
 Options:
   cmake-options: '-DBUILD_WITH_WEBENGINE=ON'
