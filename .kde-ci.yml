@@ -1,5 +1,5 @@
 Dependencies:
-- 'on': ['Linux', 'FreeBSD', 'Windows', 'Android']
+- 'on': ['@all']
   'require':
     'frameworks/extra-cmake-modules': '@stable'
     'frameworks/kcompletion': '@stable'
