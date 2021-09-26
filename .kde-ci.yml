@@ -1,0 +1,16 @@
+Dependencies:
+- 'on': ['Linux', 'FreeBSD', 'Windows', 'Android']
+  'require':
+    'frameworks/extra-cmake-modules': '@stable'
+    'frameworks/kcompletion': '@stable'
+    'frameworks/kconfig': '@stable'
+    'frameworks/kcoreaddons': '@stable'
+    'frameworks/ki18n': '@stable'
+    'frameworks/kiconthemes': '@stable'
+    'frameworks/kio': '@stable'
+    'frameworks/knewstuff': '@stable'
+    'frameworks/ktextwidgets': '@stable'
+    'frameworks/kxmlgui': '@stable'
+
+Options:
+  cmake-options: '-DBUILD_WITH_WEBENGINE=ON'
