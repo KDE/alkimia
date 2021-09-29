@@ -55,6 +55,7 @@ public:
         , m_skipStripping(other->m_skipStripping)
         , m_profile(other->m_profile)
         , m_isGHNSSource(other->m_isGHNSSource)
+        , m_storageChanged(other->m_storageChanged)
         , m_readOnly(other->m_readOnly)
     {
     }
