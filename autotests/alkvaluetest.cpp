@@ -469,7 +469,8 @@ void AlkValueTest::convertDenominator()
     mpz_class denominator(1000000); // 10^6
     denominator *= denominator; // 10^12
     denominator *= denominator; // 10^24
-    QCOMPARE(denominator.get_str().c_str(), QLatin1String("1000000000000000000000000"));
+    const auto s = denominator.get_str();
+    QCOMPARE(QString::fromUtf8(s.data(), int(s.size())), QLatin1String("1000000000000000000000000"));
     a = AlkValue(QLatin1String("1.123456789212345678931234567"), QLatin1Char('.'));
     b = AlkValue(QLatin1String("1.123456789212345678931234"), QLatin1Char('.'));
     QCOMPARE(a.toString(), QLatin1String("1123456789212345678931234567/1000000000000000000000000000"));
