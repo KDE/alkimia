@@ -8,9 +8,12 @@ project(alkimia VERSION 8.1.0)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
-option(BUILD_APPLETS "Build plasma applets" ON)
 option(BUILD_TOOLS "Build tools" ON)
 option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" ON)
+
+# No Plasma on Windows, so no applets
+include(CMakeDependentOption)
+cmake_dependent_option(BUILD_APPLETS "Build plasma applets" ON "NOT WIN32" OFF)
 
 if(WIN32)
     set(ENABLE_FINANCEQUOTE_DEFAULT 0)
