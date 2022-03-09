@@ -9,7 +9,7 @@ project(alkimia VERSION 8.1.71)
 option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
 option(BUILD_TOOLS "Build tools" ON)
-option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" ON)
+option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" OFF)
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 
 # No Plasma on Windows, so no applets
