@@ -9,6 +9,7 @@ build_kf5_tumbleweed:
   variables:
     ci_variant: "kf5"
     ci_distro: "opensuse"
+    ci_distro_variant: "tumbleweed"
   before_script:
     - tools/ci-install.sh
   script:
@@ -23,6 +24,7 @@ build_kf5_leap:
   variables:
     ci_variant: "kf5"
     ci_distro: "opensuse"
+    ci_distro_variant: "leap"
   before_script:
     - tools/ci-install.sh
   script:
@@ -37,6 +39,7 @@ build_kde4:
   variables:
     ci_variant: "kde4"
     ci_distro: "opensuse"
+    ci_distro_variant: "leap"
   before_script:
     - tools/ci-install.sh
   script:
