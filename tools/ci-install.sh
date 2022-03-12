@@ -31,6 +31,10 @@ set -x
 # Typical values: opensuse ubuntu
 : "${ci_distro:=opensuse}"
 
+# ci_distro_variant:
+# Typical values: leap tumbleweed
+: "${ci_distro_variant:=leap}"
+
 # ci_variant:
 # One of kf5, kde4
 : "${ci_variant:=kf5}"
@@ -72,11 +76,22 @@ case "$ci_distro" in
                     "${source_packages[@]}"
                     alkimia
                 )
-                packages=(
-                    "${packages[@]}"
-                    kinit
-                    libQt5WebKitWidgets-devel
-                )
+                case "$ci_distro_variant" in
+                    (leap)
+                        packages=(
+                            "${packages[@]}"
+                            kinit
+                            libQt5WebKitWidgets-devel
+                        )
+                        ;;
+                    (tumbleweed)
+                        packages=(
+                            "${packages[@]}"
+                            kinit
+                            libqt5-qtwebengine-devel
+                        )
+                        ;;
+                esac
                 ;;
 
             (kde4)
