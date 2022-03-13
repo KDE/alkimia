@@ -38,7 +38,7 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <QStandardPaths>
-    #include <kns3/downloadmanager.h>
+    #include <knscore/downloadmanager.h>
 #else
     #include <KGlobal>
     #include <KStandardDirs>
@@ -55,7 +55,7 @@ public:
     QString m_GHNSFilePath;
     QString m_kconfigFile;
     AlkOnlineQuotesProfileManager *m_profileManager;
-    KNS3::DownloadManager *m_manager;
+    KNSCore::DownloadManager *m_manager;
     KConfig *m_config;
     Type m_type;
     static QString m_financeQuoteScriptPath;
@@ -94,7 +94,7 @@ public:
 
     void checkUpdates()
     {
-        m_manager = new KNS3::DownloadManager(m_p->hotNewStuffConfigFile(), this);
+        m_manager = new KNSCore::DownloadManager(m_p->hotNewStuffConfigFile(), this);
         // to know when checking for updates is done
         connect(m_manager, SIGNAL(searchResult(KNS3::Entry::List)), this,
                 SLOT(slotUpdatesFound(KNS3::Entry::List)));
