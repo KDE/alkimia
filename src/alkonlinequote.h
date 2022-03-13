@@ -1,6 +1,7 @@
 /*
     SPDX-FileCopyrightText: 2004 Ace Jones acejones @users.sourceforge.net
     SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker @freenet.de
+    SPDX-FileCopyrightText: 2020 Thomas Baumgart <tbaumgart@kde.org>
 
     This file is part of libalkimia.
 
@@ -55,8 +56,8 @@ public:
 
         Errors();
         Errors(Type type);
-        Errors(const Errors &e);
-        Errors &operator |=(Type t);
+        Errors(const Errors& e) = default;
+        Errors& operator|=(Type t);
         bool operator &(Type t) const;
 
     protected:

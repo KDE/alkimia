@@ -20,6 +20,10 @@ class AlkOnlineQuoteTest : public QObject
 private slots:
     void init();
     void cleanup();
+    void testAlkOnlineQuoteErrorCtor();
+    void testAlkOnlineQuoteErrorCtorWithArg();
+    void testAlkOnlineQuoteErrorSetter();
+    void testAlkOnlineQuoteErrorCopy();
     void testQuoteSources();
     void testLaunch();
     void testLaunchWithBrowser();

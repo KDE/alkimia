@@ -69,15 +69,13 @@ AlkOnlineQuote::Errors::Errors()
 
 AlkOnlineQuote::Errors::Errors(Type type)
 {
-    m_type.append(type);
+    if (type != None)
+        m_type.append(type);
+    else
+        m_type.clear();
 }
 
-AlkOnlineQuote::Errors::Errors(const Errors &e)
-{
-    m_type = e.m_type;
-}
-
-AlkOnlineQuote::Errors &AlkOnlineQuote::Errors::operator |=(Type t)
+AlkOnlineQuote::Errors& AlkOnlineQuote::Errors::operator|=(Type t)
 {
     if (!m_type.contains(t)) {
         m_type.append(t);
