@@ -6,6 +6,8 @@ endif()
 
 project(alkimia VERSION 8.1.71)
 
+find_package(Qt5WebEngineWidgets 5.9.3)
+
 option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
 option(BUILD_TOOLS "Build tools" ON)
@@ -99,7 +101,7 @@ else()
     set(PC_TARGET_QTPREFIX Qt5)
     set(PC_TARGET_SUFFIX 5)
 
-    option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine instead of WebKit (experimental)" OFF)
+    option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine (experimental)" ${Qt5WebEngineWidgets_FOUND})
     if (BUILD_WITH_WEBENGINE)
         add_definitions(-DBUILD_WITH_WEBENGINE)
         set(QT_BROWSER_COMPONENT WebEngineWidgets)
