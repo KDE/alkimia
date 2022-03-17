@@ -33,7 +33,7 @@ private slots:
     void cleanup();
     void testQuoteSources();
     void testLaunch();
-    void testLaunchWebKit();
+    void testLaunchWithBrowser();
 private:
     AlkOnlineQuotesProfile *m_profile;
 };

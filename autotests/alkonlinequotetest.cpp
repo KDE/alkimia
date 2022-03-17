@@ -56,7 +56,7 @@ void AlkOnlineQuoteTest::testLaunch()
             QVERIFY(quote.launch("EUR USD", "EUR USD", source));
 }
 
-void AlkOnlineQuoteTest::testLaunchWebKit()
+void AlkOnlineQuoteTest::testLaunchWithBrowser()
 {
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     AlkOnlineQuote quote(m_profile);
