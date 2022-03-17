@@ -118,7 +118,7 @@ public:
     QStringList doubleSymbol() const;
     QString expandedUrl() const;
     void updateButtonState();
-    bool eventFilter(QObject* o, QEvent* e);
+    bool eventFilter(QObject* o, QEvent* e) override;
 };
 
 AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWidget *parent)
