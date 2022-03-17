@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright 2010  Thomas Baumgart  tbaumgart@kde.org                    *
- *   Copyright 2018  Thomas Baumgart  tbaumgart@kde.org                    *
+ *   Copyright 2010-2021  Thomas Baumgart  tbaumgart@kde.org               *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -256,7 +255,13 @@ double AlkValue::toDouble() const
     return d->m_val.get_d();
 }
 
-AlkValue AlkValue::convertDenominator(int _denom, const RoundingMethod how) const
+AlkValue AlkValue::convertDenominator(int _denom, const AlkValue::RoundingMethod how) const
+{
+    mpz_class denom(_denom);
+    return convertDenominator(denom, how);
+}
+
+AlkValue AlkValue::convertDenominator(const mpz_class _denom, const AlkValue::RoundingMethod how) const
 {
     AlkValue in(*this);
     mpz_class in_num(mpq_numref(in.d->m_val.get_mpq_t()));
@@ -268,7 +273,7 @@ AlkValue AlkValue::convertDenominator(int _denom, const RoundingMethod how) cons
         // sign is either -1 for negative numbers or +1 in all other cases
 
         AlkValue temp;
-        mpz_class denom = _denom;
+        mpz_class denom(_denom);
         // only process in case the denominators are different
         if (mpz_cmpabs(denom.get_mpz_t(), mpq_denref(d->m_val.get_mpq_t())) != 0) {
             mpz_class in_denom(mpq_denref(in.d->m_val.get_mpq_t()));
@@ -367,8 +372,8 @@ AlkValue AlkValue::convertDenominator(int _denom, const RoundingMethod how) cons
                     break;
 
                 case RoundNever:
-                    qWarning("AlkValue: have remainder \"%s\"->convert(%d, %d)",
-                             qPrintable(toString()), _denom, how);
+                    qWarning("AlkValue: have remainder \"%s\"->convert(%s, %d)",
+                             qPrintable(toString()), denom.get_str().c_str(), how);
                     break;
                 }
             }

@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright 2010  Thomas Baumgart  tbaumgart@kde.org                    *
- *   Copyright 2018  Thomas Baumgart  tbaumgart@kde.org                    *
+ *   Copyright 2010-2021  Thomas Baumgart  tbaumgart@kde.org               *
  *                                                                         *
  *   This file is part of libalkimia.                                      *
  *                                                                         *
@@ -169,6 +168,16 @@ public:
     * the @a how argument and defaults to @p RoundRound.
     */
   AlkValue convertDenominator(const int denom = 100, const RoundingMethod how = RoundRound) const;
+
+  /**
+   * Returns the current value converted to the given @a denom.
+   * The rounding method used is controlled by the @a how argument
+   * and defaults to @p RoundRound.
+   *
+   * @param denom The wanted denominator (defaults to 100 representing 2 digits)
+   * @param how The rounding method. See AlkValue::RoundingMethod for details
+   */
+  AlkValue convertDenominator(const mpz_class denom, const AlkValue::RoundingMethod how = AlkValue::RoundRound) const;
 
   /**
     * This is a convenience function for convertDenom but instead of providing
