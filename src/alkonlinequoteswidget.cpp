@@ -144,27 +144,27 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 
     // TODO move to ui file
     KGuiItem updateButtenItem(i18nc("Accepts the entered data and stores it", "&Accept"),
-                              KIcon("dialog-ok"),
+                              "dialog-ok",
                               i18n("Accepts the entered data and stores it"),
                               i18n("Use this to accept the modified data."));
 
     KGuiItem deleteButtenItem(i18n("&Delete"),
-                              KIcon("edit-delete"),
+                              "edit-delete",
                               i18n("Delete the selected source entry"),
                               i18n("Use this to delete the selected online source entry"));
 
     KGuiItem checkButtonItem(i18nc("Check the selected source entry", "&Check Source"),
-                             KIcon("document-edit-verify"),
+                             "document-edit-verify",
                              i18n("Check the selected source entry"),
                              i18n("Use this to check the selected online source entry"));
 
     KGuiItem showButtonItem(i18nc("Show the selected source entry in a web browser", "&Show page"),
-                            KIcon("applications-internet"),
+                            "applications-internet",
                             i18n("Show the selected source entry in a web browser"),
                             i18n("Use this to show the selected online source entry"));
 
     KGuiItem newButtenItem(i18nc("Create a new source entry for online quotes", "&New..."),
-                           KIcon("document-new"),
+                           "document-new",
                            i18n("Create a new source entry for online quotes"),
                            i18n("Use this to create a new entry for online quotes"));
 
