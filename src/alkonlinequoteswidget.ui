@@ -47,6 +47,10 @@
             <property name="text">
              <string>New</string>
             </property>
+            <property name="icon">
+             <iconset theme="document-new">
+              <normaloff>.</normaloff>.</iconset>
+            </property>
            </widget>
           </item>
           <item>
@@ -56,6 +60,10 @@
             </property>
             <property name="text">
              <string>Delete</string>
+            </property>
+            <property name="icon">
+             <iconset theme="edit-delete">
+              <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
           </item>
@@ -225,6 +233,9 @@
            <widget class="AlkPushButton" name="m_installButton">
             <property name="text">
              <string>Install</string>
+            </property>
+            <property name="icon">
+             <iconset theme="run-install"/>
             </property>
            </widget>
           </item>
@@ -524,6 +535,9 @@
          <widget class="AlkPushButton" name="m_checkButton">
           <property name="text">
            <string>Check Source</string>
+          </property>
+          <property name="icon">
+           <iconset theme="check-constraint"/>
           </property>
          </widget>
         </item>
