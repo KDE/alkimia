@@ -19,6 +19,7 @@ Required development components to build Alkimia with Qt4 and KDELibs4
 Required development components to build Alkimia5 with Qt5 and KF5
 
     Qt5::Core
+    Qt5::Network (optional -DBUILD_WITH_QTNETWORK=1)
     Qt5::Test
     Qt5::WebKitWidgets
     Qt5::WebEngineWidgets (optional, experimental)
@@ -31,7 +32,7 @@ Required development components to build Alkimia5 with Qt5 and KF5
     KF5::Package (optional)
     KF5::Plasma  (optional)
     KF5::NewStuff
-    KF5::KIO
+    KF5::KIO (optional -DBUILD_WITH_QTNETWORK=0)
     KF5::IconThemes
     KF5::TextWidgets
     KF5::XmlGui
@@ -67,7 +68,7 @@ Packages
             kcompletion-devel
             ki18n-devel
             kiconthemes-devel
-            kio-devel
+            kio-devel              (optional)
             knewstuff-devel
             kpackage-devel         (optional)
             ktextwidgets-devel
@@ -84,7 +85,7 @@ Packages
             kde/frameworks/.../kcompletion
             kde/frameworks/.../ki18n
             kde/frameworks/.../kiconthemes
-            kde/frameworks/.../kio
+            kde/frameworks/.../kio                (optional)
             kde/frameworks/.../knewstuff
             kde/frameworks/.../kpackage           (optional)
             kde/frameworks/.../ktextwidgets

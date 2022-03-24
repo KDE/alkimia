@@ -9,6 +9,7 @@ project(alkimia VERSION 8.1.0)
 option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
 option(BUILD_TOOLS "Build tools" ON)
+option(BUILD_WITH_QTNETWORK "Build with Qt Network library for downloading" WIN32)
 option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" OFF)
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 
@@ -57,11 +58,22 @@ if(BUILD_QT4)
     else()
         feature_notes(FALSE TRUE FALSE FALSE)
     endif()
-    find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui QtDBus QtTest ${QT_BROWSER_COMPONENT} QtDeclarative)
+
+    if(BUILD_WITH_QTNETWORK)
+        add_definitions(-DBUILD_WITH_QTNETWORK)
+        set(QT_NETWORK_COMPONENT QtNetwork)
+        set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}Network)
+    else()
+        set(QT_NETWORK_COMPONENT)
+    endif()
+
+    find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui QtDBus ${QT_NETWORK_COMPONENT} QtTest ${QT_BROWSER_COMPONENT} QtDeclarative)
     set(_kde4_uninstall_rule_created 1)
     find_package(KDE4 REQUIRED)
+    if(NOT BUILD_WITH_QTNETWORK)
+        set(KDE_NETWORK_LIBS ${KDE4_KIO_LIBS})
+    endif()
     include(KDE4Defaults)
-    set(KDE_LIBRARIES ${KDE4_KDECORE_LIBS} ${KDE4_KIO_LIBS})
     include_directories(${KDE4_INCLUDES})
     macro(ki18n_wrap_ui)
         kde4_add_ui_files(${ARGN})
@@ -114,11 +126,22 @@ else()
         set(QT_BROWSER_COMPONENT Widgets)
         feature_notes(FALSE TRUE FALSE FALSE)
     endif()
-
     set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}${QT_BROWSER_COMPONENT})
+    if(BUILD_WITH_QTNETWORK)
+        add_definitions(-DBUILD_WITH_QTNETWORK)
+        set(QT_NETWORK_COMPONENT Network)
+        set(KDE_NETWORK_COMPONENT)
+        set(KDE_NETWORK_LIBS)
+    else()
+        set(QT_NETWORK_COMPONENT)
+        set(KDE_NETWORK_COMPONENT KIO)
+        set(KDE_NETWORK_LIBS KF5::KIOCore KF5::KIOWidgets)
+    endif()
+    set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}${QT_NETWORK_COMPONENT})
 
     find_package(Qt5 REQUIRED COMPONENTS
         Core
+        ${QT_NETWORK_COMPONENT}
         Test
         ${QT_BROWSER_COMPONENT}
         Qml
@@ -136,7 +159,7 @@ else()
         I18n
         ${PLASMA_COMPONENT}
         NewStuff
-        KIO
+        ${KDE_NETWORK_COMPONENT}
         IconThemes
         TextWidgets
         XmlGui

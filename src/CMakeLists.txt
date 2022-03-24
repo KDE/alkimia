@@ -109,9 +109,11 @@ kde_target_enable_exceptions(alkimia PUBLIC)
 if(BUILD_QT4)
     set(ALKIMIA_LIBS
         PRIVATE
-        ${KDE_LIBRARIES}
+        ${QT_NETWORK_LIB}
+        ${KDE4_KDECORE_LIBS}
         ${KDE4_KDEUI_LIBS}
         ${KDE4_KNEWSTUFF3_LIBS}
+        ${KDE_NETWORK_LIBS}
     )
 else()
     set(ALKIMIA_LIBS
@@ -119,11 +121,10 @@ else()
         ${QT5_OPTIONAL_COMPONENTS}
         KF5::Completion
         KF5::I18n
+        ${KDE_NETWORK_LIBS}
         KF5::NewStuff
         KF5::IconThemes
         KF5::TextWidgets
-        KF5::KIOCore
-        KF5::KIOWidgets
     )
 endif()
 

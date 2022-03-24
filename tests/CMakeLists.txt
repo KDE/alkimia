@@ -9,7 +9,7 @@ set(TEST_LIB
 if(BUILD_QT4)
     list(APPEND TEST_LIB
         ${QT_USE_LIBSPREFIX}Declarative
-        ${KDE_LIBRARIES}
+        ${KDE4_KDECORE_LIBS}
     )
 else()
     list(APPEND TEST_LIB
