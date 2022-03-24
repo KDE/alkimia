@@ -40,6 +40,7 @@ public:
     QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
+    void setContent(const QString &s);
     QString getFirstElement(const QString &symbol);
     void setWebInspectorEnabled(bool state);
     bool webInspectorEnabled();

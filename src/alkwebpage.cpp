@@ -83,6 +83,11 @@ QString AlkWebPage::toHtml()
     return html;
 }
 
+void AlkWebPage::setContent(const QString &s)
+{
+    setHtml(s);
+}
+
 QString AlkWebPage::getFirstElement(const QString &symbol)
 {
     Q_UNUSED(symbol)
