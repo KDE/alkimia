@@ -456,14 +456,23 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
 
 void AlkOnlineQuote::Private::downloadUrlDone(QNetworkReply *reply)
 {
-    bool result = true;
+    int result = 0;
     if (reply->error() == QNetworkReply::NoError) {
-        kDebug(Private::dbgArea()) << "Downloaded data from" << reply->url();
-        result = processDownloadedPage(KUrl(reply->url()), reply->readAll());
+        QUrl newUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
+        if (!newUrl.isEmpty() && newUrl != reply->url()) {
+            m_url = reply->url().resolved(newUrl);
+            // TODO migrate to i18n()
+            emit m_p->status(QString("<font color=\"orange\">%1</font>")
+                            .arg(I18N_NOOP("The URL has been redirected; check an update of the online quote URL")));
+            result = 2;
+        } else {
+            kDebug(Private::dbgArea()) << "Downloaded data from" << reply->url();
+            result = processDownloadedPage(KUrl(reply->url()), reply->readAll()) ? 0 : 1;
+        }
     } else {
         emit m_p->error(reply->errorString());
         m_errors |= Errors::URL;
-        result = slotParseQuote(QString());
+        result = slotParseQuote(QString()) ? 0 : 1;
     }
     m_eventLoop->exit(result);
 }
@@ -478,10 +487,20 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl &url)
     request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
     manager.get(request);
     m_eventLoop = new QEventLoop;
-    bool result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
+    int result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
     delete m_eventLoop;
     m_eventLoop = nullptr;
-    return result;
+    if (result == 2) {
+        QNetworkRequest request;
+        request.setUrl(m_url);
+        request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
+        manager.get(request);
+        m_eventLoop = new QEventLoop;
+        result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
+        delete m_eventLoop;
+        m_eventLoop = nullptr;
+    }
+    return result == 0;
 }
 #endif // BUILD_WITH_QTNETWORK
 
