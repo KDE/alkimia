@@ -28,8 +28,8 @@ set -x
 
 # ci_distro:
 # OS distribution in which we are testing
-# Typical values: opensuse ubuntu
-: "${ci_distro:=opensuse}"
+# Typical values: auto opensuse ubuntu
+: "${ci_distro:=auto}"
 
 # ci_distro_variant:
 # Typical values: leap tumbleweed
@@ -44,8 +44,12 @@ zypper="/usr/bin/zypper --non-interactive"
 install=
 source_install=
 
+if [ "$ci_distro" = "auto" ]; then
+    ci_distro=$(. /etc/os-release; echo ${ID})
+fi
+
 case "$ci_distro" in
-    (opensuse)
+    (opensuse*)
         $zypper modifyrepo --enable repo-source
         # save time
         #$zypper update
@@ -76,15 +80,15 @@ case "$ci_distro" in
                     "${source_packages[@]}"
                     alkimia
                 )
-                case "$ci_distro_variant" in
-                    (leap)
+                case "$ci_distro" in
+                    (opensuse-leap)
                         packages=(
                             "${packages[@]}"
                             kinit
                             libQt5WebKitWidgets-devel
                         )
                         ;;
-                    (tumbleweed)
+                    (opensuse-tumbleweed)
                         packages=(
                             "${packages[@]}"
                             kinit
