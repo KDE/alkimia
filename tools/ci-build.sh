@@ -41,13 +41,13 @@ fi
 
 case "$ci_variant" in
     (kf5)
-        cmake_options="-DBUILD_APPLETS=0 -DBUILD_TESTING=1"
+        cmake_options="-DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DBUILD_WITH_QTNETWORK=1"
         export QT_LOGGING_RULES="*=true"
         start_kde_session=kdeinit5
         ;;
 
     (kde4)
-        cmake_options="-DBUILD_QT4=1 -DKDE4_BUILD_TESTS=1"
+        cmake_options="-DBUILD_QT4=1 -DKDE4_BUILD_TESTS=1 -DBUILD_WITH_QTNETWORK=1"
         start_kde_session=kdeinit4
         ;;
 esac
