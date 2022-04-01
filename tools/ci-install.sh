@@ -58,7 +58,9 @@ case "$ci_distro" in
            "${packages[@]}"
             openbox
             psmisc # killall
+            shadow # useradd
             sharutils # uuencode
+            sudo # sudoers
             xvfb-run
             which
             xauth
@@ -120,3 +122,12 @@ case "$ci_distro" in
         $zypper install "${packages[@]}"
         ;;
 esac
+
+# Add the user that we will use to do the build inside the
+# Docker container, and let them use sudo
+if [ -f /.dockerenv ] && [ -z `getent passwd | grep user` ]; then
+    useradd -m user
+    passwd -ud user
+    echo "user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nopasswd
+    chmod 0440 /etc/sudoers.d/nopasswd
+fi

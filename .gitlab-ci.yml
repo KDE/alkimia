@@ -24,7 +24,7 @@ build_kf5_leap:
   before_script:
     - tools/ci-install.sh
   script:
-    - tools/ci-build.sh
+    - runuser -u user tools/ci-build.sh
 
 build_kde4:
   stage: build
