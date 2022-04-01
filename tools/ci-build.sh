@@ -34,6 +34,10 @@ set -x
 # One of kf5, kde4
 : "${ci_variant:=kf5}"
 
+# ci_test:
+# One of yes,no
+: "${ci_test:=yes}"
+
 # start dbus session, which is required by kio
 if ! test -v DBUS_SESSION_BUS_PID || test -z "$DBUS_SESSION_BUS_PID"; then
     eval `dbus-launch --sh-syntax`
@@ -86,26 +90,28 @@ cd $builddir
 cmake $cmake_options ..
 make -j5
 
-# start xvfb session - will restart in case of crashes
-(while ! test -f ./finished; do xvfb-run -s "+extension GLX +render" -a -n 99 openbox; done) &
-export DISPLAY=:99
+if [ ${ci_test} = yes ]; then
+    # start xvfb session - will restart in case of crashes
+    (while ! test -f ./finished; do xvfb-run -s "+extension GLX +render" -a -n 99 openbox; done) &
+    export DISPLAY=:99
 
-# start kde session
-$start_kde_session
+    # start kde session
+    $start_kde_session
 
-# run tests
-ctest --output-on-failure --timeout 60
-#ctest -VV --timeout 60
+    # run tests
+    ctest --output-on-failure --timeout 60
+    #ctest -VV --timeout 60
 
-# show screenshot in case of errors
-if test $? -ne 0; then
-    xwd -root -silent | convert xwd:- png:/tmp/screenshot.png
-    cat /tmp/screenshot.png | uuencode screenshot
+    # show screenshot in case of errors
+    if test $? -ne 0; then
+        xwd -root -silent | convert xwd:- png:/tmp/screenshot.png
+        cat /tmp/screenshot.png | uuencode screenshot
+    fi
+
+    # kill x session
+    touch finished
+    killall -s 9 $start_kde_session openbox dbus-daemon || true
 fi
 
 # run install
 make install DESTDIR=$PWD/tmp
-
-# kill x session
-touch finished
-killall -s 9 $start_kde_session openbox dbus-daemon || true
