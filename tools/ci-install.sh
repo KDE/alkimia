@@ -31,6 +31,10 @@ set -x
 # Typical values: auto opensuse ubuntu
 : "${ci_distro:=auto}"
 
+# ci_host:
+# the host to build for
+: "${ci_host:=native}"
+
 # ci_variant:
 # One of kf5, kde4
 : "${ci_variant:=kf5}"
@@ -74,28 +78,56 @@ case "$ci_distro" in
         )
         case "$ci_variant" in
             (kf5*)
-                source_packages=(
-                    "${source_packages[@]}"
-                    alkimia
-                )
-                packages=(
-                    "${packages[@]}"
-                    kinit
-                )
+                case "$ci_host" in
+                    (native)
+                        source_packages=(
+                            "${source_packages[@]}"
+                            alkimia
+                        )
+                        packages=(
+                            "${packages[@]}"
+                            kinit
+                        )
+                        ;;
+                esac
                 ;;
             (kde4)
-                # for libQtWebKit-devel
                 $zypper ar --refresh --no-gpgcheck \
                     https://download.opensuse.org/repositories/windows:/mingw/$repo/windows:mingw.repo || true
-                packages=(
-                    "${packages[@]}"
-                    gcc-c++
-                    extra-cmake-modules
-                    libkde4-devel
-                    libQtWebKit-devel
-                    kdebase4-runtime
-                    gmp-devel
-                )
+
+                case "$ci_host" in
+                    (native)
+                        # for libQtWebKit-devel
+                        packages=(
+                            "${packages[@]}"
+                            gcc-c++
+                            extra-cmake-modules
+                            libkde4-devel
+                            libQtWebKit-devel
+                            kdebase4-runtime
+                            gmp-devel
+                        )
+                        ;;
+                    (mingw32|mingw64)
+                         # add required repos
+                        bits=$(echo $ci_host | sed 's,mingw,,g')
+                        prefix=${ci_host}
+                        # for mingw packages
+                        $zypper ar --refresh --no-gpgcheck \
+                           https://download.opensuse.org/repositories/windows:/mingw:/win${bits}/$repo/windows:mingw:win${bits}.repo || true
+                        packages=(
+                            "${packages[@]}"
+                            ${prefix}-cross-gcc-c++
+                            ${prefix}-extra-cmake-modules
+                            ${prefix}-libkde4-devel
+                            ${prefix}-gmp-devel
+                        )
+                        ;;
+                    (*)
+                        echo "unsupported value 'ci_host=${ci_host}'"
+                        exit 1
+                        ;;
+                esac
                 ;;
         esac
 

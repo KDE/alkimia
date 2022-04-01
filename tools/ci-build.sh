@@ -75,6 +75,17 @@ case "$ci_variant" in
         ;;
 esac
 
+case "$ci_host" in
+    (native)
+        cmake=cmake
+        ;;
+    (mingw*)
+        cmake="${ci_host}-cmake-kde4 --"
+        # not supported yet
+        ci_test=no
+        ;;
+esac
+
 # setup vars
 srcdir="$(pwd)"
 builddir=ci-build-${ci_variant}-${ci_host}
@@ -87,7 +98,7 @@ $sudo chmod a+wrx $builddir
 cd $builddir
 
 # configure project
-cmake $cmake_options ..
+$cmake $cmake_options ..
 make -j5
 
 if [ ${ci_test} = yes ]; then

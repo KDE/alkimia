@@ -51,3 +51,23 @@ kde4 leap:
   #  - merge_requests
   variables:
     ci_variant: "kde4"
+
+kde4 leap mingw32:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kde4"
+    ci_host: "mingw32"
+
+kde4 leap mingw64:
+  extends: .unix-host-build
+  #when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kde4"
+    ci_host: "mingw64"
