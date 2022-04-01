@@ -21,6 +21,6 @@ ci_variant=kde4 tools/ci-install.sh
 ci_variant=kde4 tools/ci-build.sh
 EOF
 
-sudo docker pull opensuse/leap:15.2
-sudo docker run -v $PWD:/mnt -it opensuse/leap:15.2 /bin/bash
+sudo docker pull opensuse/leap
+sudo docker run -v $PWD:/mnt -it opensuse/leap /bin/bash
 
