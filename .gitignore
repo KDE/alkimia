@@ -3,4 +3,5 @@ build*/
 *.rej
 *~
 *.kdev4
+ci-build*/
 
