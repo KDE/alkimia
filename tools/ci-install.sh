@@ -31,10 +31,6 @@ set -x
 # Typical values: auto opensuse ubuntu
 : "${ci_distro:=auto}"
 
-# ci_distro_variant:
-# Typical values: leap tumbleweed
-: "${ci_distro_variant:=leap}"
-
 # ci_variant:
 # One of kf5, kde4
 : "${ci_variant:=kf5}"
