@@ -7,7 +7,7 @@ image: opensuse/leap
   script:
     - runuser -u user ./tools/ci-build.sh
 
-build_kf5_tumbleweed:
+kf5 tumbleweed:
   extends: .unix-host-build
   #when: manual
   image: opensuse/tumbleweed
@@ -16,7 +16,7 @@ build_kf5_tumbleweed:
   variables:
     ci_variant: "kf5"
 
-build_kf5_leap:
+kf5 leap:
   extends: .unix-host-build
   #when: manual
   image: opensuse/leap
@@ -25,7 +25,7 @@ build_kf5_leap:
   variables:
     ci_variant: "kf5"
 
-build_kde4:
+kde4 leap:
   extends: .unix-host-build
   #when: manual
   image: opensuse/leap
