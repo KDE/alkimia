@@ -39,6 +39,11 @@ if ! test -v DBUS_SESSION_BUS_PID || test -z "$DBUS_SESSION_BUS_PID"; then
     eval `dbus-launch --sh-syntax`
 fi
 
+# enable sudo if running in docker
+if [ -f /.dockerenv ] && [ -n `getent passwd | grep user` ]; then
+    sudo=sudo
+fi
+
 case "$ci_variant" in
     (kf5)
         cmake_options="-DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DBUILD_WITH_QTNETWORK=1"
@@ -53,10 +58,16 @@ case "$ci_variant" in
 esac
 
 # create subdirs
+# setup vars
 srcdir="$(pwd)"
-rm -rf ci-build-${ci_variant}-${ci_host}
-mkdir -p ci-build-${ci_variant}-${ci_host}
-cd ci-build-${ci_variant}-${ci_host}
+builddir=ci-build-${ci_variant}-${ci_host}
+
+
+# create subdirs
+rm -rf $builddir
+$sudo mkdir -p $builddir
+$sudo chmod a+wrx $builddir
+cd $builddir
 
 # configure project
 cmake $cmake_options ..

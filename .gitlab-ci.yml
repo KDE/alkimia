@@ -1,40 +1,35 @@
 image: opensuse/leap
 
-build_kf5_tumbleweed:
+.unix-host-build:
   stage: build
+  before_script:
+    - ./tools/ci-install.sh
+  script:
+    - runuser -u user ./tools/ci-build.sh
+
+build_kf5_tumbleweed:
+  extends: .unix-host-build
   #when: manual
   image: opensuse/tumbleweed
   #only:
   #  - merge_requests
   variables:
     ci_variant: "kf5"
-  before_script:
-    - tools/ci-install.sh
-  script:
-    - tools/ci-build.sh
 
 build_kf5_leap:
-  stage: build
+  extends: .unix-host-build
   #when: manual
   image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
     ci_variant: "kf5"
-  before_script:
-    - tools/ci-install.sh
-  script:
-    - runuser -u user tools/ci-build.sh
 
 build_kde4:
-  stage: build
+  extends: .unix-host-build
   #when: manual
   image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
     ci_variant: "kde4"
-  before_script:
-    - tools/ci-install.sh
-  script:
-    - tools/ci-build.sh
