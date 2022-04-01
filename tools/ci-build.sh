@@ -44,8 +44,9 @@ if [ -f /.dockerenv ] && [ -n `getent passwd | grep user` ]; then
     sudo=sudo
 fi
 
+# basic settings
 case "$ci_variant" in
-    (kf5)
+    (kf5*)
         cmake_options="-DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DBUILD_WITH_QTNETWORK=1"
         export QT_LOGGING_RULES="*=true"
         start_kde_session=kdeinit5
@@ -57,7 +58,19 @@ case "$ci_variant" in
         ;;
 esac
 
-# create subdirs
+# custom settings
+case "$ci_variant" in
+    (kf5)
+        cmake_options+=" -DBUILD_WITH_WEBKIT=0 -DBUILD_WITH_WEBENGINE=0"
+        ;;
+    (kf5-webkit)
+        cmake_options+=" -DBUILD_WITH_WEBKIT=1"
+        ;;
+    (kf5-webengine)
+        cmake_options+=" -DBUILD_WITH_WEBENGINE=1"
+        ;;
+esac
+
 # setup vars
 srcdir="$(pwd)"
 builddir=ci-build-${ci_variant}-${ci_host}

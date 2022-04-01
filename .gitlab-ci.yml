@@ -25,6 +25,24 @@ kf5 leap:
   variables:
     ci_variant: "kf5"
 
+kf5 leap webengine:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5-webengine"
+
+kf5 leap webkit:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5-webkit"
+
 kde4 leap:
   extends: .unix-host-build
   #when: manual

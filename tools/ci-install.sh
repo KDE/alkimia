@@ -73,29 +73,16 @@ case "$ci_distro" in
             xwd ImageMagick
         )
         case "$ci_variant" in
-            (kf5)
+            (kf5*)
                 source_packages=(
                     "${source_packages[@]}"
                     alkimia
                 )
-                case "$ci_distro" in
-                    (opensuse-leap)
-                        packages=(
-                            "${packages[@]}"
-                            kinit
-                            libQt5WebKitWidgets-devel
-                        )
-                        ;;
-                    (opensuse-tumbleweed)
-                        packages=(
-                            "${packages[@]}"
-                            kinit
-                            libqt5-qtwebengine-devel
-                        )
-                        ;;
-                esac
+                packages=(
+                    "${packages[@]}"
+                    kinit
+                )
                 ;;
-
             (kde4)
                 # for libQtWebKit-devel
                 $zypper ar --refresh --no-gpgcheck \
@@ -108,6 +95,21 @@ case "$ci_distro" in
                     libQtWebKit-devel
                     kdebase4-runtime
                     gmp-devel
+                )
+                ;;
+        esac
+
+        case "$ci_variant" in
+            (kf5-webkit)
+                packages=(
+                    "${packages[@]}"
+                    libQt5WebKitWidgets-devel
+                )
+                ;;
+            (kf5-webengine)
+                packages=(
+                    "${packages[@]}"
+                    libqt5-qtwebengine-devel
                 )
                 ;;
         esac
