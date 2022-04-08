@@ -9,7 +9,7 @@ set(TEST_LIB
 )
 
 if(BUILD_QT4)
-    list(APPEND TEST_LIB ${KDE_LIBRARIES})
+    list(APPEND TEST_LIB ${KDE4_KDECORE_LIBS})
 endif()
 
 ecm_add_tests(

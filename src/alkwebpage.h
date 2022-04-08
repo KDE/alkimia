@@ -1,21 +1,10 @@
-/***************************************************************************
- *   Copyright 2018 Ralf Habacker <ralf.habacker@freenet.de>               *
- *                                                                         *
- *   This file is part of libalkimia.                                      *
- *                                                                         *
- *   libalkimia is free software; you can redistribute it and/or           *
- *   modify it under the terms of the GNU Lesser General Public License    *
- *   as published by the Free Software Foundation; either version 2.1 of   *
- *   the License or (at your option) version 3 or any later version.       *
- *                                                                         *
- *   libalkimia is distributed in the hope that it will be useful,         *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
- ***************************************************************************/
+/*
+    SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker @freenet.de
+
+    This file is part of libalkimia.
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+*/
 
 #ifndef ALKWEBPAGE_H
 #define ALKWEBPAGE_H
@@ -40,6 +29,7 @@ public:
     QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
+    void setContent(const QString &s);
     QString getFirstElement(const QString &symbol);
     void setWebInspectorEnabled(bool state);
     bool webInspectorEnabled();
@@ -61,7 +51,7 @@ private:
  * to a browser component
  * It is used for fetching and showing web pages.
  *
- * @author Ralf Habacker <ralf.habacker@freenet.de>
+ * @author Ralf Habacker ralf.habacker @freenet.de
  */
 class ALK_EXPORT AlkWebPage : public QWebView
 {
@@ -90,7 +80,7 @@ private:
  * to a browser component with javascript support
  * It is used for fetching and showing web pages.
  *
- * @author Ralf Habacker <ralf.habacker@freenet.de>
+ * @author Ralf Habacker ralf.habacker @freenet.de
  */
 class ALK_EXPORT AlkWebPage : public QTextBrowser
 {

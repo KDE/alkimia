@@ -1,46 +1,73 @@
 image: opensuse/leap
 
-build_kf5_tumbleweed:
+.unix-host-build:
   stage: build
+  before_script:
+    - ./tools/ci-install.sh
+  script:
+    - runuser -u user ./tools/ci-build.sh
+
+kf5 tumbleweed:
+  extends: .unix-host-build
   #when: manual
   image: opensuse/tumbleweed
   #only:
   #  - merge_requests
   variables:
     ci_variant: "kf5"
-    ci_distro: "opensuse"
-    ci_distro_variant: "tumbleweed"
-  before_script:
-    - tools/ci-install.sh
-  script:
-    - tools/ci-build.sh
 
-build_kf5_leap:
-  stage: build
+kf5 leap:
+  extends: .unix-host-build
   #when: manual
   image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
     ci_variant: "kf5"
-    ci_distro: "opensuse"
-    ci_distro_variant: "leap"
-  before_script:
-    - tools/ci-install.sh
-  script:
-    - tools/ci-build.sh
 
-build_kde4:
-  stage: build
+kf5 leap webengine:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5-webengine"
+
+kf5 leap webkit:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5-webkit"
+
+kde4 leap:
+  extends: .unix-host-build
   #when: manual
-  image: opensuse/leap:15.2
+  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
     ci_variant: "kde4"
-    ci_distro: "opensuse"
-    ci_distro_variant: "leap"
-  before_script:
-    - tools/ci-install.sh
-  script:
-    - tools/ci-build.sh
+
+kde4 leap mingw32:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kde4"
+    ci_host: "mingw32"
+
+kde4 leap mingw64:
+  extends: .unix-host-build
+  #when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kde4"
+    ci_host: "mingw64"

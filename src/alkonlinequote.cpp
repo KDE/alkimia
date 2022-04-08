@@ -1,22 +1,11 @@
-/***************************************************************************
- *   Copyright 2004  Ace Jones <acejones@users.sourceforge.net>            *
- *   Copyright 2019  Thomas Baumgart <tbaumgart@kde.org>                   *
- *                                                                         *
- *   This file is part of libalkimia.                                      *
- *                                                                         *
- *   libalkimia is free software; you can redistribute it and/or           *
- *   modify it under the terms of the GNU General Public License           *
- *   as published by the Free Software Foundation; either version 2.1 of   *
- *   the License or (at your option) version 3 or any later version.       *
- *                                                                         *
- *   libalkimia is distributed in the hope that it will be useful,         *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>  *
- ***************************************************************************/
+/*
+    SPDX-FileCopyrightText: 2004 Ace Jones acejones @users.sourceforge.net
+    SPDX-FileCopyrightText: 2019 Thomas Baumgart tbaumgart @kde.org
+
+    This file is part of libalkimia.
+
+    SPDX-License-Identifier: GPL-2.0-or-later
+*/
 
 #include "alkonlinequote.h"
 
@@ -29,6 +18,7 @@
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesource.h"
+#include "alkimia/alkversion.h"
 #include "alkwebpage.h"
 
 #include <QApplication>
@@ -38,10 +28,20 @@
 #include <QTextStream>
 #include <QTextCodec>
 
+#ifdef BUILD_WITH_QTNETWORK
+    #include <QNetworkAccessManager>
+    #include <QNetworkRequest>
+    #include <QNetworkReply>
+    #include <QNetworkProxyFactory>
+#else
+    #include <KIO/Scheduler>
+#endif
+
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KLocalizedString>
-    #include <KIO/Scheduler>
+#ifndef BUILD_WITH_QTNETWORK
     #include <KIO/Job>
+#endif
     #include <QDebug>
     #include <QTemporaryFile>
     #define kDebug(a) qDebug()
@@ -53,8 +53,9 @@
     #include <KGlobal>
     #include <KLocale>
     #include <KUrl>
+#ifndef BUILD_WITH_QTNETWORK
     #include <kio/netaccess.h>
-    #include <kio/scheduler.h>
+#endif
 #endif
 
 #include <KConfigGroup>
@@ -142,6 +143,7 @@ public:
     bool parseDate(const QString &datestr);
     bool downloadUrl(const KUrl& url);
     bool processDownloadedFile(const KUrl& url, const QString& tmpFile);
+    bool processDownloadedPage(const KUrl &url, const QByteArray &page);
 
 public slots:
     void slotLoadStarted();
@@ -150,7 +152,11 @@ public slots:
     bool slotParseQuote(const QString &_quotedata);
 
 private slots:
+#ifndef BUILD_WITH_QTNETWORK
     void downloadUrlDone(KJob* job);
+#else
+    void downloadUrlDone(QNetworkReply *reply);
+#endif
 };
 
 bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &_id, const QString &_source)
@@ -338,18 +344,8 @@ bool AlkOnlineQuote::Private::processDownloadedFile(const KUrl& url, const QStri
   if (f.open(QIODevice::ReadOnly)) {
     // Find out the page encoding and convert it to unicode
     QByteArray page = f.readAll();
-    KEncodingProber prober(KEncodingProber::Universal);
-    prober.feed(page);
-    QTextCodec *codec = QTextCodec::codecForName(prober.encoding());
-    if (!codec) {
-      codec = QTextCodec::codecForLocale();
-    }
-    QString quote = codec->toUnicode(page);
+    result = processDownloadedPage(url, page);
     f.close();
-    emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
-    if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
-      AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
-    result = slotParseQuote(quote);
   } else {
     emit m_p->error(i18n("Failed to open downloaded file"));
     m_errors |= Errors::URL;
@@ -358,7 +354,26 @@ bool AlkOnlineQuote::Private::processDownloadedFile(const KUrl& url, const QStri
   return result;
 }
 
+bool AlkOnlineQuote::Private::processDownloadedPage(const KUrl& url, const QByteArray& page)
+{
+    bool result = false;
+    KEncodingProber prober(KEncodingProber::Universal);
+    prober.feed(page);
+    QTextCodec *codec = QTextCodec::codecForName(prober.encoding());
+    if (!codec) {
+      codec = QTextCodec::codecForLocale();
+    }
+    QString quote = codec->toUnicode(page);
+    emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
+    if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
+      AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
+    result = slotParseQuote(quote);
+    return result;
+}
+
+#ifndef BUILD_WITH_QTNETWORK
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+
 bool AlkOnlineQuote::Private::downloadUrl(const QUrl& url)
 {
     // Create a temporary filename (w/o leaving the file on the filesystem)
@@ -397,7 +412,7 @@ void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
   m_eventLoop->exit(result);
 }
 
-#else
+#else // QT_VERSION
 
 // This is simply a placeholder. It is unused but needs to be present
 // to make the linker happy (since the declaration of the slot cannot
@@ -424,7 +439,59 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
     }
     return result;
 }
-#endif
+
+#endif // QT_VERSION
+#else // BUILD_WITH_QTNETWORK
+
+void AlkOnlineQuote::Private::downloadUrlDone(QNetworkReply *reply)
+{
+    int result = 0;
+    if (reply->error() == QNetworkReply::NoError) {
+        QUrl newUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
+        if (!newUrl.isEmpty() && newUrl != reply->url()) {
+            m_url = reply->url().resolved(newUrl);
+            // TODO migrate to i18n()
+            emit m_p->status(QString("<font color=\"orange\">%1</font>")
+                            .arg(I18N_NOOP("The URL has been redirected; check an update of the online quote URL")));
+            result = 2;
+        } else {
+            kDebug(Private::dbgArea()) << "Downloaded data from" << reply->url();
+            result = processDownloadedPage(KUrl(reply->url()), reply->readAll()) ? 0 : 1;
+        }
+    } else {
+        emit m_p->error(reply->errorString());
+        m_errors |= Errors::URL;
+        result = slotParseQuote(QString()) ? 0 : 1;
+    }
+    m_eventLoop->exit(result);
+}
+
+bool AlkOnlineQuote::Private::downloadUrl(const KUrl &url)
+{
+    QNetworkAccessManager manager(this);
+    connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(downloadUrlDone(QNetworkReply*)));
+
+    QNetworkRequest request;
+    request.setUrl(url);
+    request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
+    manager.get(request);
+    m_eventLoop = new QEventLoop;
+    int result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
+    delete m_eventLoop;
+    m_eventLoop = nullptr;
+    if (result == 2) {
+        QNetworkRequest request;
+        request.setUrl(m_url);
+        request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
+        manager.get(request);
+        m_eventLoop = new QEventLoop;
+        result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
+        delete m_eventLoop;
+        m_eventLoop = nullptr;
+    }
+    return result == 0;
+}
+#endif // BUILD_WITH_QTNETWORK
 
 #ifdef ENABLE_FINANCEQUOTE
 bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const QString &_id,

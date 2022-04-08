@@ -1,35 +1,21 @@
 #!/bin/bash
 
-# Copyright © 2015-2016 Collabora Ltd.
-# Copyright © 2020 Ralf Habacker <ralf.habacker@freenet.de>
+# SPDX-FileCopyrightText: 2015-2016 Collabora Ltd.
+# SPDX-FileCopyrightText: 2020 Ralf Habacker ralf.habacker @freenet.de
 #
-# Permission is hereby granted, free of charge, to any person
-# obtaining a copy of this software and associated documentation files
-# (the "Software"), to deal in the Software without restriction,
-# including without limitation the rights to use, copy, modify, merge,
-# publish, distribute, sublicense, and/or sell copies of the Software,
-# and to permit persons to whom the Software is furnished to do so,
-# subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be
-# included in all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
-# BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
-# ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX-License-Identifier: MIT
 
 set -euo pipefail
 set -x
 
 # ci_distro:
 # OS distribution in which we are testing
-# Typical values: opensuse ubuntu
-: "${ci_distro:=opensuse}"
+# Typical values: auto opensuse ubuntu
+: "${ci_distro:=auto}"
+
+# ci_host:
+# the host to build for
+: "${ci_host:=native}"
 
 # ci_distro_variant:
 # Typical values: leap tumbleweed
@@ -44,8 +30,12 @@ zypper="/usr/bin/zypper --non-interactive"
 install=
 source_install=
 
+if [ "$ci_distro" = "auto" ]; then
+    ci_distro=$(. /etc/os-release; echo ${ID})
+fi
+
 case "$ci_distro" in
-    (opensuse)
+    (opensuse*)
         $zypper modifyrepo --enable repo-source
         # save time
         #$zypper update
@@ -58,7 +48,9 @@ case "$ci_distro" in
            "${packages[@]}"
             openbox
             psmisc # killall
+            shadow # useradd
             sharutils # uuencode
+            sudo # sudoers
             xvfb-run
             which
             xauth
@@ -71,41 +63,71 @@ case "$ci_distro" in
             xwd ImageMagick
         )
         case "$ci_variant" in
-            (kf5)
-                source_packages=(
-                    "${source_packages[@]}"
-                    alkimia
-                )
-                case "$ci_distro_variant" in
-                    (leap)
-                        packages=(
-                            "${packages[@]}"
-                            kinit
-                            libQt5WebKitWidgets-devel
+            (kf5*)
+                case "$ci_host" in
+                    (native)
+                        source_packages=(
+                            "${source_packages[@]}"
+                            alkimia
                         )
-                        ;;
-                    (tumbleweed)
                         packages=(
                             "${packages[@]}"
                             kinit
-                            libqt5-qtwebengine-devel
                         )
                         ;;
                 esac
                 ;;
-
             (kde4)
-                # for libQtWebKit-devel
                 $zypper ar --refresh --no-gpgcheck \
                     https://download.opensuse.org/repositories/windows:/mingw/$repo/windows:mingw.repo || true
+
+                case "$ci_host" in
+                    (native)
+                        # for libQtWebKit-devel
+                        packages=(
+                            "${packages[@]}"
+                            gcc-c++
+                            extra-cmake-modules
+                            libkde4-devel
+                            libQtWebKit-devel
+                            kdebase4-runtime
+                            gmp-devel
+                        )
+                        ;;
+                    (mingw32|mingw64)
+                         # add required repos
+                        bits=$(echo $ci_host | sed 's,mingw,,g')
+                        prefix=${ci_host}
+                        # for mingw packages
+                        $zypper ar --refresh --no-gpgcheck \
+                           https://download.opensuse.org/repositories/windows:/mingw:/win${bits}/$repo/windows:mingw:win${bits}.repo || true
+                        packages=(
+                            "${packages[@]}"
+                            ${prefix}-cross-gcc-c++
+                            ${prefix}-extra-cmake-modules
+                            ${prefix}-libkde4-devel
+                            ${prefix}-gmp-devel
+                        )
+                        ;;
+                    (*)
+                        echo "unsupported value 'ci_host=${ci_host}'"
+                        exit 1
+                        ;;
+                esac
+                ;;
+        esac
+
+        case "$ci_variant" in
+            (kf5-webkit)
                 packages=(
                     "${packages[@]}"
-                    gcc-c++
-                    extra-cmake-modules
-                    libkde4-devel
-                    libQtWebKit-devel
-                    kdebase4-runtime
-                    gmp-devel
+                    libQt5WebKitWidgets-devel
+                )
+                ;;
+            (kf5-webengine)
+                packages=(
+                    "${packages[@]}"
+                    libqt5-qtwebengine-devel
                 )
                 ;;
         esac
@@ -120,3 +142,12 @@ case "$ci_distro" in
         $zypper install "${packages[@]}"
         ;;
 esac
+
+# Add the user that we will use to do the build inside the
+# Docker container, and let them use sudo
+if [ -f /.dockerenv ] && [ -z `getent passwd | grep user` ]; then
+    useradd -m user
+    passwd -ud user
+    echo "user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nopasswd
+    chmod 0440 /etc/sudoers.d/nopasswd
+fi

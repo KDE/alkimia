@@ -3,12 +3,10 @@
 #  MPIR_INCLUDE_DIR - the MPIR include directory
 #  MPIR_LIBRARIES - Libraries needed to use MPIR
 
-# Copyright (c) 2006, Laurent Montel, <montel@kde.org>
-# Copyright (c) 2018, Thomas Baumgart <tbaumgart@kde.org>
+# SPDX-FileCopyrightText: 2006 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2018 Thomas Baumgart tbaumgart @kde.org
 #
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
-
+# SPDX-License-Identifier: BSD-3-Clause
 
 if (MPIR_INCLUDE_DIR AND MPIR_LIBRARIES)
     # Already in cache, be silent

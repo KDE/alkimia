@@ -38,8 +38,6 @@ if(BUILD_QT4)
         ${KDE4_KDECORE_LIBS}
         ${KDE4_KDEUI_LIBS}
         ${QT_USE_LIBSPREFIX}Core
-        ${QT_USE_LIBSPREFIX}Network
-        ${QT_USE_LIBSPREFIX}WebKit
     )
 else()
     set(LIBS
