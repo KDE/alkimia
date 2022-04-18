@@ -64,3 +64,12 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUF
 
 configure_file(org.kde.onlinequoteseditor.appdata.xml.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.appdata.xml)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+
+if(APPSTREAMCLI)
+    add_test(
+        NAME appstreamtest
+        COMMAND ${APPSTREAMCLI} validate ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.appdata.xml
+    )
+else()
+    message(STATUS "Could not set up the appstream test. appstreamcli is missing.")
+endif()
