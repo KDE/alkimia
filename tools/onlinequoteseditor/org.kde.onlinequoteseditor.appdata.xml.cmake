@@ -55,7 +55,7 @@
   <summary xml:lang="x-test">xxEditor for online price quotes used by finance applicationsxx</summary>
   <summary xml:lang="zh_CN">金融应用程序使用的在线报价编辑器</summary>
   <description>
-    <p>Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online qoute sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>.
+    <p>Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>.
     <p xml:lang="de">Online Kurs Editor ist eine Anwendung mit grafischer Benutzeroberfläche zur Bearbeitung und Überprüfung von Online-Kursen. Verfügbare Online-Kursquellen können aus dem KDE Warenhaus hinzugefügt, lokal erstellt, bearbeitet und auf korrekte Ausführung geprüft werden.</p>.
     <p>The interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
     <p xml:lang="de">Die Oberfläche ist in anpassbare Unterfenster für Profile, Profildetails, zugewiesene Online-Kursangebote, Angebotsattribute, sund Browser unterteilt, was eine flexible Oberflächengestaltung ermöglicht.</p>
