@@ -6,6 +6,7 @@
   <name>Online Quotes Editor</name>
   <name xml:lang="ca">Editor de cotitzacions en línia</name>
   <name xml:lang="ca-valencia">Editor de cotitzacions en línia</name>
+  <name xml:lang="en-GB">Online Quotes Editor</name>
   <name xml:lang="es">Editor de cotizaciones en línea</name>
   <name xml:lang="fr">Éditeur de cotations en ligne</name>
   <name xml:lang="ia">Editor de citationes in linea</name>
@@ -19,6 +20,7 @@
   <summary>Editor for online price quotes used by finance applications</summary>
   <summary xml:lang="ca">Editor per a la cotització en línia dels preus usat per les aplicacions financeres</summary>
   <summary xml:lang="ca-valencia">Editor per a la cotització en línia dels preus usat per les aplicacions financeres</summary>
+  <summary xml:lang="en-GB">Editor for online price quotes used by finance applications</summary>
   <summary xml:lang="es">Editor de cotizaciones de precios en línea usado por aplicaciones de finanzas</summary>
   <summary xml:lang="fr">Éditeur pour les cotations en ligne utilisées par les applications financières</summary>
   <summary xml:lang="ia">Editor per citationes de prcio in linea usate per applicationes de financia</summary>
@@ -32,6 +34,12 @@
   <description>.
     .
     </description>
+  <description xml:lang="ca">. .</description>
+  <description xml:lang="en-GB">. .</description>
+  <description xml:lang="es">. .</description>
+  <description xml:lang="nl">. .</description>
+  <description xml:lang="uk">. .</description>
+  <description xml:lang="x-test">xx. .xx</description>
   <url type="homepage">https://community.kde.org/Alkimia</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided%26product=libalkimia%26component=Online+Quotes+Editor</url>
   <url type="donation">https://www.kde.org/community/donations/?app=onlinequoteseditor</url>
