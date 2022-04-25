@@ -31,18 +31,16 @@
   <summary xml:lang="sv">Editor för direktkurser använd av ekonomiprogram</summary>
   <summary xml:lang="uk">Редактор для джерел курсів цін у інтернеті, який використовується фінансовими програмами</summary>
   <summary xml:lang="x-test">xxEditor for online price quotes used by finance applicationsxx</summary>
-  <description>.
-    .
-    </description>
-  <description xml:lang="ca">. .</description>
-  <description xml:lang="ca-valencia">. .</description>
-  <description xml:lang="en-GB">. .</description>
-  <description xml:lang="es">. .</description>
-  <description xml:lang="fr">. .</description>
-  <description xml:lang="nl">. .</description>
-  <description xml:lang="sv">. .</description>
-  <description xml:lang="uk">. .</description>
-  <description xml:lang="x-test">xx. .xx</description>
+  <description>
+    <p>Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>.
+    <p xml:lang="de">Online Kurs Editor ist eine Anwendung mit grafischer Benutzeroberfläche zur Bearbeitung und Überprüfung von Online-Kursen. Verfügbare Online-Kursquellen können aus dem KDE Warenhaus hinzugefügt, lokal erstellt, bearbeitet und auf korrekte Ausführung geprüft werden.</p>.
+    <p>The interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
+    <p xml:lang="de">Die Oberfläche ist in anpassbare Unterfenster für Profile, Profildetails, zugewiesene Online-Kursangebote, Angebotsattribute, sund Browser unterteilt, was eine flexible Oberflächengestaltung ermöglicht.</p>
+    <p>Multiple applications can be supported via profiles.</p>
+    <p xml:lang="de">Mehrere Anwendungen können über Profile unterstützt werden.</p>
+    <p>Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p>
+    <p xml:lang="de">Finanzanwendungen, die keine eigene Benutzeroberfläche für die Bearbeitung von Online-Kursquellen enthalten, können den Online-Kurseditor zu diesem Zweck aufrufen.</p>
+   </description>
   <url type="homepage">https://community.kde.org/Alkimia</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided%26product=libalkimia%26component=Online+Quotes+Editor</url>
   <url type="donation">https://www.kde.org/community/donations/?app=onlinequoteseditor</url>
