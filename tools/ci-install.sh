@@ -37,10 +37,27 @@ fi
 
 case "$ci_distro" in
     (opensuse*)
-        $zypper modifyrepo --enable repo-source
-        # save time
-        #$zypper update
-        repo=$(. /etc/os-release; echo $PRETTY_NAME | sed 's, ,_,g')
+        # add required repos
+        repo_name=$(. /etc/os-release; echo $PRETTY_NAME | sed 's, ,_,g')
+        repos=()
+        case "$ci_variant-$ci_host" in
+            (*-mingw*)
+                bits=$(echo $ci_host | sed 's,mingw,,g')
+                repos=(
+                    "${repos[@]}"
+                    https://download.opensuse.org/repositories/windows:/mingw:/win${bits}/${repo_name}/windows:mingw:win${bits}.repo
+                    https://download.opensuse.org/repositories/windows:/mingw/${repo_name}/windows:mingw.repo
+                )
+                ;;
+            (kde4-native)
+                repos=(
+                    "${repos[@]}"
+                    https://download.opensuse.org/repositories/windows:/mingw/${repo_name}/windows:mingw.repo
+                )
+                ;;
+        esac
+
+        # setup packages
         packages=(
             cmake
             AppStream
@@ -66,58 +83,43 @@ case "$ci_distro" in
            "${packages[@]}"
             xwd ImageMagick
         )
-        case "$ci_variant" in
-            (kf5*)
-                case "$ci_host" in
-                    (native)
-                        source_packages=(
-                            "${source_packages[@]}"
-                            alkimia
-                        )
-                        packages=(
-                            "${packages[@]}"
-                            kinit
-                        )
-                        ;;
-                esac
+        case "$ci_variant-$ci_host" in
+            (kf5*-native)
+                source_packages=(
+                    "${source_packages[@]}"
+                    alkimia
+                )
+                packages=(
+                    "${packages[@]}"
+                    kinit
+                )
                 ;;
-            (kde4)
-                $zypper ar --refresh --no-gpgcheck \
-                    https://download.opensuse.org/repositories/windows:/mingw/$repo/windows:mingw.repo || true
-
-                case "$ci_host" in
-                    (native)
-                        # for libQtWebKit-devel
-                        packages=(
-                            "${packages[@]}"
-                            gcc-c++
-                            extra-cmake-modules
-                            libkde4-devel
-                            libQtWebKit-devel
-                            kdebase4-runtime
-                            gmp-devel
-                        )
-                        ;;
-                    (mingw32|mingw64)
-                         # add required repos
-                        bits=$(echo $ci_host | sed 's,mingw,,g')
-                        prefix=${ci_host}
-                        # for mingw packages
-                        $zypper ar --refresh --no-gpgcheck \
-                           https://download.opensuse.org/repositories/windows:/mingw:/win${bits}/$repo/windows:mingw:win${bits}.repo || true
-                        packages=(
-                            "${packages[@]}"
-                            ${prefix}-cross-gcc-c++
-                            ${prefix}-extra-cmake-modules
-                            ${prefix}-libkde4-devel
-                            ${prefix}-gmp-devel
-                        )
-                        ;;
-                    (*)
-                        echo "unsupported value 'ci_host=${ci_host}'"
-                        exit 1
-                        ;;
-                esac
+                ;;
+            (kde4-native)
+                # for libQtWebKit-devel
+                packages=(
+                    "${packages[@]}"
+                    gcc-c++
+                    extra-cmake-modules
+                    libkde4-devel
+                    libQtWebKit-devel
+                    kdebase4-runtime
+                    gmp-devel
+                )
+                ;;
+            (kde4-mingw*)
+                prefix=${ci_host}
+                packages=(
+                    "${packages[@]}"
+                    ${prefix}-cross-gcc-c++
+                    ${prefix}-extra-cmake-modules
+                    ${prefix}-libkde4-devel
+                    ${prefix}-gmp-devel
+                )
+                ;;
+            (*)
+                echo "unsupported combination '$ci_variant=${ci_variant} ci_host=${ci_host}'"
+                exit 1
                 ;;
         esac
 
@@ -136,12 +138,18 @@ case "$ci_distro" in
                 ;;
         esac
 
-        # update package repos
-        $zypper refresh
-        # install source packages
+        # add repos
+        for r in ${repos[@]}; do
+            $zypper ar --no-refresh --no-check --no-gpgcheck $r || true
+        done
+
         if test -v "source_packages"; then
-            $zypper source-install "${source_packages[@]}"
+            # enable source repo
+            $zypper modifyrepo --enable repo-source
+            # install source dependencies
+            $zypper source-install -d "${source_packages[@]}"
         fi
+
         # install remaining packages
         $zypper install "${packages[@]}"
         ;;
