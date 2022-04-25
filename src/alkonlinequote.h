@@ -38,7 +38,7 @@ public:
      * bit operations like '|=' for combining values and '&'
      * for checking value presence.
      */
-    class Errors
+    class ALK_EXPORT Errors
     {
     public:
         enum Type {
