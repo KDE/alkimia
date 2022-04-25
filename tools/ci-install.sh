@@ -36,7 +36,10 @@ case "$ci_distro" in
         # save time
         #$zypper update
         repo=$(. /etc/os-release; echo $PRETTY_NAME | sed 's, ,_,g')
-        packages=(cmake)
+        packages=(
+            cmake
+            AppStream
+        )
         source_packages=()
 
         # xvfb-run does not have added all required tools
