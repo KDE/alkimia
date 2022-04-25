@@ -35,9 +35,12 @@
     .
     </description>
   <description xml:lang="ca">. .</description>
+  <description xml:lang="ca-valencia">. .</description>
   <description xml:lang="en-GB">. .</description>
   <description xml:lang="es">. .</description>
+  <description xml:lang="fr">. .</description>
   <description xml:lang="nl">. .</description>
+  <description xml:lang="sv">. .</description>
   <description xml:lang="uk">. .</description>
   <description xml:lang="x-test">xx. .xx</description>
   <url type="homepage">https://community.kde.org/Alkimia</url>
