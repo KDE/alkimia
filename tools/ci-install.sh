@@ -21,7 +21,12 @@ set -x
 # One of kf5, kde4
 : "${ci_variant:=kf5}"
 
-zypper="/usr/bin/zypper --non-interactive"
+# setup install command; use sudo outside of docker
+sudo=
+if ! [ -f /.dockerenv ]; then
+    sudo=sudo
+fi
+zypper="$sudo /usr/bin/zypper --non-interactive"
 
 install=
 source_install=

@@ -26,6 +26,7 @@ if ! test -v DBUS_SESSION_BUS_PID || test -z "$DBUS_SESSION_BUS_PID"; then
 fi
 
 # enable sudo if running in docker
+sudo=
 if [ -f /.dockerenv ] && [ -n `getent passwd | grep user` ]; then
     sudo=sudo
 fi
