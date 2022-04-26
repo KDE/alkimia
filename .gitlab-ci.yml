@@ -16,6 +16,26 @@ kf5 tumbleweed:
   variables:
     ci_variant: "kf5"
 
+kf5 tumbleweed mingw32:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/tumbleweed
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5"
+    ci_host: "mingw32"
+
+kf5 tumbleweed mingw64:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/tumbleweed
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5"
+    ci_host: "mingw64"
+
 kf5 leap:
   extends: .unix-host-build
   #when: manual
@@ -24,6 +44,26 @@ kf5 leap:
   #  - merge_requests
   variables:
     ci_variant: "kf5"
+
+kf5 leap ming32:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5"
+    ci_host: "mingw32"
+
+kf5 leap ming64:
+  extends: .unix-host-build
+  #when: manual
+  image: opensuse/leap
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf5"
+    ci_host: "mingw64"
 
 kf5 leap webengine:
   extends: .unix-host-build
