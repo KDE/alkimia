@@ -63,9 +63,18 @@ case "$ci_host" in
         cmake=cmake
         ;;
     (mingw*)
-        cmake="${ci_host}-cmake-kde4 --"
-        # not supported yet
-        ci_test=no
+        case "$ci_variant" in
+            (kf5*)
+                cmake="${ci_host}-cmake-kf5 --"
+                # not supported yet
+                ci_test=no
+                ;;
+            (kde4)
+                cmake="${ci_host}-cmake-kde4 --"
+                # not supported yet
+                ci_test=no
+                ;;
+        esac
         ;;
 esac
 

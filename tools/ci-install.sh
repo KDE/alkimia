@@ -94,6 +94,16 @@ case "$ci_distro" in
                     kinit
                 )
                 ;;
+            (kf5*-mingw*)
+                prefix=${ci_host}
+                source_packages=(
+                    "${source_packages[@]}"
+                    ${prefix}-libalkimia5
+                )
+                # in case not all required packages are installed with source_package
+                packages=(
+                    "${packages[@]}"
+                )
                 ;;
             (kde4-native)
                 # for libQtWebKit-devel
