@@ -33,8 +33,7 @@
   <summary xml:lang="sv">Editor för direktkurser använd av ekonomiprogram</summary>
   <summary xml:lang="uk">Редактор для джерел курсів цін у інтернеті, який використовується фінансовими програмами</summary>
   <summary xml:lang="x-test">xxEditor for online price quotes used by finance applicationsxx</summary>
-  <description><p>Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>.
-    .
+  <description><p>Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>
     <p>The interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p><p>Multiple applications can be supported via profiles.</p><p>Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p></description>
   <url type="homepage">https://community.kde.org/Alkimia</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided%26product=libalkimia%26component=Online+Quotes+Editor</url>
