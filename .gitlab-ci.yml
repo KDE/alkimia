@@ -45,7 +45,7 @@ kf5 leap:
   variables:
     ci_variant: "kf5"
 
-kf5 leap ming32:
+kf5 leap mingw32:
   extends: .unix-host-build
   when: manual
   image: opensuse/leap
@@ -55,7 +55,7 @@ kf5 leap ming32:
     ci_variant: "kf5"
     ci_host: "mingw32"
 
-kf5 leap ming64:
+kf5 leap mingw64:
   extends: .unix-host-build
   #when: manual
   image: opensuse/leap
