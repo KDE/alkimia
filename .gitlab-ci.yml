@@ -28,7 +28,7 @@ kf5 tumbleweed mingw32:
 
 kf5 tumbleweed mingw64:
   extends: .unix-host-build
-  when: manual
+  #when: manual
   image: opensuse/tumbleweed
   #only:
   #  - merge_requests
@@ -57,7 +57,7 @@ kf5 leap mingw32:
 
 kf5 leap mingw64:
   extends: .unix-host-build
-  when: manual
+  #when: manual
   image: opensuse/leap
   #only:
   #  - merge_requests
