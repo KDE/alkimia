@@ -64,9 +64,12 @@ case "$ci_distro" in
         )
         source_packages=()
 
-        # xvfb-run does not have added all required tools
+        # misc packages
         packages=(
            "${packages[@]}"
+            # prevents crashing of mingwxx-windres (https://bugzilla.opensuse.org/show_bug.cgi?id=1198923)
+            glibc-locale-base
+            # xvfb-run does not have added all required tools
             openbox
             psmisc # killall
             shadow # useradd
