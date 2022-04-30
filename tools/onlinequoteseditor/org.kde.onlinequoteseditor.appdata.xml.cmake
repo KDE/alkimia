@@ -53,7 +53,6 @@
     <p xml:lang="ia">Le interfacie esdividite in sub-fenestras personalisabile per profilos, detalios de profilo, citationes assignate in linea, attributos de citationes, cribrar(debug), e navigar,permittente un configuration de interfacie flexibile.  </p>
     <p xml:lang="it">L'interfaccia è suddivisa in finestre secondarie personalizzabili per profili, dettagli del profilo, quotazioni in linea assegnate, attributi di quotazione, debug e browser, consentendo una configurazione flessibile dell'interfaccia.</p>
     <p xml:lang="nl">Het interface is opgedeeld in aanpasbare subvensters voor profielen, profieldetails, toegekende online koersen, attributen van koersen, debug en browser, waarmee een flexibele interfaceopzet wordt geboden.</p>
-    <p xml:lang="sl">Vmesnik je razdeljen na prilagodljiva podokna za profile, podrobnosti profila, dodeljene spletne kotacije, atribute kotacij, odpravljanje napak in brskalnik, kar omogoča prilagodljivo nastavitev vmesnika.</p>
     <p xml:lang="sv">Gränssnittet är uppdelat i anpassningsbara delfönster för profiler, profilinformation, tilldelade direktkurser, kursegenskaper, felsökning, och webbläsare, vilket tillåter flexibel gränssnittsinställning.</p>
     <p xml:lang="uk">Інтерфейс програми поділено на придатні до налаштовування підвікна для профілів, параметрів профілів, призначених інтернет-курсів, атрибутів курсів, діагностики та панель навігації. Усе це уможливлює гнучке налаштовування інтерфейсу.</p>
     <p xml:lang="x-test">xxThe interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.xx</p>
@@ -65,7 +64,6 @@
     <p xml:lang="ia">Applicationes multiple pote esser supportate via profilos. </p>
     <p xml:lang="it">È possibile supportare più applicazioni tramite profili.</p>
     <p xml:lang="nl">Meerdere toepassingen kunnen ondersteund worden via profielen.</p>
-    <p xml:lang="sl">Več aplikacij je mogoče podpreti prek profilov.</p>
     <p xml:lang="sv">Flera program kan stödjas via profiler.</p>
     <p xml:lang="uk">Передбачено можливість підтримки декількох програм із різними профілями.</p>
     <p xml:lang="x-test">xxMultiple applications can be supported via profiles.xx</p>
@@ -77,7 +75,6 @@
     <p xml:lang="ia">Applicationes finantiari que non contine lor proprie interfacie de usator per modificar fontes de citation in linea pote appellar le editor de citation in linea pro iste proposito.</p>
     <p xml:lang="it">Le applicazioni finanziarie che non contengono la propria interfaccia utente per la modifica delle fonti di quotazione in linea possono chiamare a questo scopo l'editor delle quotazioni in linea.</p>
     <p xml:lang="nl">Financiële toepassingen die geen eigen gebruikersinterface voor bewerken van online koersbronnen kunnen de online koersenbewerker voor dit doel aanroepen.</p>
-    <p xml:lang="sl">Finančne aplikacije, ki ne vsebujejo lastnega uporabniškega vmesnika za urejanje virov spletnih kotacij, lahko v ta namen pokličejo urejevalnik spletnih kotacij.</p>
     <p xml:lang="sv">Ekonomiprogram som inte har sitt egna användargränssnitt för att redigera kurskällor på nätet kan anropa direktkurseditorn i detta syfte.</p>
     <p xml:lang="uk">Фінансові програми, у яких немає власного інтерфейсу для редагування джерел інтернет-курсів, можуть викликати з цією метою «Редактор інтернет-курсів».</p>
     <p xml:lang="x-test">xxFinancial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.xx</p>
