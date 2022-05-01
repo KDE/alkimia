@@ -42,6 +42,7 @@
     <p xml:lang="ia">Editor de Citationes in Linea es un application de interfacie de usator pro modificar e verificar citationes in linea. Fontes de citation disponibile in linea pote esser addite ab le magazin de KDE, create  localmente, modificate e verificate per un correcte execution.</p>
     <p xml:lang="it">Editor delle quotazioni in linea è un'interfaccia utente grafica per la modifica e il controllo delle quotazioni in linea. È possibile aggiungere le fonti di quotazioni disponibili in rete dal negozio di KDE, crearle localmente, modificarle e verificarne la corretta esecuzione.</p>
     <p xml:lang="nl">Bewerker voor Online koersen is een grafische gebruikersinterfacetoepassing voor bewerken en controleren van online koersen. Beschikbare online koersbronnen kunnen toegevoegd worden uit de KDE-store, lokaal aangemaakt, bewerkt en gecontroleerd voor het juiste gebruik.</p>
+    <p xml:lang="pl">Edytor wycen z sieci jest nakładką graficzną do zmiany i sprawdzania wycen z sieci. Źródła wycen można dodać ze Sklepu KDE, utworzyć lokalnie, dostosować i sprawdzić poprawność ich działania.</p>
     <p xml:lang="sv">Direktkurseditor är ett grafiskt användargränssnitt för att redigera och kontrollera kurser på nätet. Tillgängliga källor för kurser kan läggas till från KDE:s butik, skapas lokalt, redigeras och kontrolleras så att de kör korrekt.</p>
     <p xml:lang="uk">«Редактор інтернет-курсів» — програма із графічним інтерфейсом для редагування та отримання даних інтернет-курсів. Доступні джерела інтернет-курсів можна додавати з крамниці KDE, створювати локально, редагувати та перевіряти на правильність функціонування.</p>
     <p xml:lang="x-test">xxOnline Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.xx</p>
@@ -53,6 +54,7 @@
     <p xml:lang="ia">Le interfacie esdividite in sub-fenestras personalisabile per profilos, detalios de profilo, citationes assignate in linea, attributos de citationes, cribrar(debug), e navigar,permittente un configuration de interfacie flexibile.  </p>
     <p xml:lang="it">L'interfaccia è suddivisa in finestre secondarie personalizzabili per profili, dettagli del profilo, quotazioni in linea assegnate, attributi di quotazione, debug e browser, consentendo una configurazione flessibile dell'interfaccia.</p>
     <p xml:lang="nl">Het interface is opgedeeld in aanpasbare subvensters voor profielen, profieldetails, toegekende online koersen, attributen van koersen, debug en browser, waarmee een flexibele interfaceopzet wordt geboden.</p>
+    <p xml:lang="pl">Interfejs jest podzielony na dostosowywalne podokna dla profili, szczegółów profili, przypisanych wycen z sieci, właściwości wycen, diagnostyki oraz przeglądarki, która umożliwia łatwe ustawienie.</p>
     <p xml:lang="sv">Gränssnittet är uppdelat i anpassningsbara delfönster för profiler, profilinformation, tilldelade direktkurser, kursegenskaper, felsökning, och webbläsare, vilket tillåter flexibel gränssnittsinställning.</p>
     <p xml:lang="uk">Інтерфейс програми поділено на придатні до налаштовування підвікна для профілів, параметрів профілів, призначених інтернет-курсів, атрибутів курсів, діагностики та панель навігації. Усе це уможливлює гнучке налаштовування інтерфейсу.</p>
     <p xml:lang="x-test">xxThe interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.xx</p>
@@ -64,6 +66,7 @@
     <p xml:lang="ia">Applicationes multiple pote esser supportate via profilos. </p>
     <p xml:lang="it">È possibile supportare più applicazioni tramite profili.</p>
     <p xml:lang="nl">Meerdere toepassingen kunnen ondersteund worden via profielen.</p>
+    <p xml:lang="pl">Możliwość obsługi wielu aplikacji poprzez profile.</p>
     <p xml:lang="sv">Flera program kan stödjas via profiler.</p>
     <p xml:lang="uk">Передбачено можливість підтримки декількох програм із різними профілями.</p>
     <p xml:lang="x-test">xxMultiple applications can be supported via profiles.xx</p>
@@ -75,6 +78,7 @@
     <p xml:lang="ia">Applicationes finantiari que non contine lor proprie interfacie de usator per modificar fontes de citation in linea pote appellar le editor de citation in linea pro iste proposito.</p>
     <p xml:lang="it">Le applicazioni finanziarie che non contengono la propria interfaccia utente per la modifica delle fonti di quotazione in linea possono chiamare a questo scopo l'editor delle quotazioni in linea.</p>
     <p xml:lang="nl">Financiële toepassingen die geen eigen gebruikersinterface voor bewerken van online koersbronnen kunnen de online koersenbewerker voor dit doel aanroepen.</p>
+    <p xml:lang="pl">Aplikacje finansowe, które nie posiadają swoich własnych interfejsów do zmiany źródeł wycen z sieci mogą w tym celu wywołać edytor wycen z sieci.</p>
     <p xml:lang="sv">Ekonomiprogram som inte har sitt egna användargränssnitt för att redigera kurskällor på nätet kan anropa direktkurseditorn i detta syfte.</p>
     <p xml:lang="uk">Фінансові програми, у яких немає власного інтерфейсу для редагування джерел інтернет-курсів, можуть викликати з цією метою «Редактор інтернет-курсів».</p>
     <p xml:lang="x-test">xxFinancial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.xx</p>
