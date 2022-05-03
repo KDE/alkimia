@@ -96,6 +96,6 @@
     <binary>onlinequoteseditor@TARGET_SUFFIX@</binary>
   </provides>
   <project_group>KDE</project_group>
-  <releases>
+  <releases><release version="8.1.1" date="2022-05-03"/>
   </releases>
 </component>
