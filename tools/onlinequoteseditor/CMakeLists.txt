@@ -61,3 +61,15 @@ install(TARGETS onlinequoteseditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 configure_file(org.kde.onlinequoteseditor.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.desktop)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+
+configure_file(org.kde.onlinequoteseditor.appdata.xml.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.appdata.xml)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+
+if(APPSTREAMCLI)
+    add_test(
+        NAME appstreamtest
+        COMMAND ${APPSTREAMCLI} validate ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.appdata.xml
+    )
+else()
+    message(STATUS "Could not set up the appstream test. appstreamcli is missing.")
+endif()
