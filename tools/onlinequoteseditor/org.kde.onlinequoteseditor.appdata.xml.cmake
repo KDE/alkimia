@@ -12,6 +12,7 @@
   <name xml:lang="ko">온라인 시세 편집기</name>
   <name xml:lang="nl">Bewerker voor Online koersen</name>
   <name xml:lang="pt">Editor de Cotações 'Online'</name>
+  <name xml:lang="ru">Редактор котировок в интернете</name>
   <name xml:lang="sk">Editor online ponúk</name>
   <name xml:lang="sl">Urejevalnik spletnih kotacij</name>
   <name xml:lang="sv">Direktkurseditor</name>
