@@ -21,7 +21,7 @@
   <name xml:lang="x-test">xxOnline Quotes Editorxx</name>
   <summary>Editor for online price quotes used by finance applications</summary>
   <summary xml:lang="ca">Editor per a la cotització en línia dels preus usat per les aplicacions financeres</summary>
-  <summary xml:lang="ca-valencia">Editor per a la cotització en línia dels preus usat per les aplicacions financeres</summary>
+  <summary xml:lang="ca-valencia">Editor per a la cotització en línia dels preus utilisat per les aplicacions financeres</summary>
   <summary xml:lang="es">Editor de cotizaciones de precios en línea usado por aplicaciones de finanzas</summary>
   <summary xml:lang="fr">Éditeur pour les cotations en ligne utilisées par les applications financières</summary>
   <summary xml:lang="it">Editor delle quotazioni in linea usato delle applicazioni finanziarie</summary>
@@ -51,7 +51,7 @@
     <p xml:lang="x-test">xxOnline Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.xx</p>
     <p>The interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
     <p xml:lang="ca">La interfície es divideix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, permetent la configuració flexible de la interfície.</p>
-    <p xml:lang="ca-valencia">La interfície es divideix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, permetent la configuració flexible de la interfície.</p>
+    <p xml:lang="ca-valencia">La interfície es dividix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, permetent la configuració flexible de la interfície.</p>
     <p xml:lang="es">La interfaz está dividida en subventanas personalizables para perfiles, detalles de los perfiles, cotizaciones en línea asignadas, atributos de las cotizaciones, depuración de datos y navegación, que permiten una configuración flexible de la interfaz.</p>
     <p xml:lang="fr">L'interface est divisée en sous-fenêtres personnalisables pour les profils, les détails du profil, les cotations attribuées en ligne, les attributs de cotations, le débogage et le navigateur, permettant une configuration flexible de l'interface.</p>
     <p xml:lang="it">L'interfaccia è suddivisa in finestre secondarie personalizzabili per profili, dettagli del profilo, quotazioni in linea assegnate, attributi di quotazione, debug e browser, consentendo una configurazione flessibile dell'interfaccia.</p>
