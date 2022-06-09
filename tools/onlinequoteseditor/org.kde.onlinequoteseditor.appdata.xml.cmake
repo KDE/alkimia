@@ -6,6 +6,7 @@
   <name>Online Quotes Editor</name>
   <name xml:lang="ca">Editor de cotitzacions en línia</name>
   <name xml:lang="ca-valencia">Editor de cotisacions en llínea</name>
+  <name xml:lang="de">Editor für Online-Kursnotizen</name>
   <name xml:lang="es">Editor de cotizaciones en línea</name>
   <name xml:lang="fr">Éditeur de cotations en ligne</name>
   <name xml:lang="it">Editor delle quotazioni in linea</name>
@@ -22,6 +23,7 @@
   <summary>Editor for online price quotes used by finance applications</summary>
   <summary xml:lang="ca">Editor per a la cotització en línia dels preus usat per les aplicacions financeres</summary>
   <summary xml:lang="ca-valencia">Editor per a la cotisació en llínea dels preus utilisat per les aplicacions financeres</summary>
+  <summary xml:lang="de">Editor für Online-Kursnotizen für Finanz-Anwendungen</summary>
   <summary xml:lang="es">Editor de cotizaciones de precios en línea usado por aplicaciones de finanzas</summary>
   <summary xml:lang="fr">Éditeur pour les cotations en ligne utilisées par les applications financières</summary>
   <summary xml:lang="it">Editor delle quotazioni in linea usato delle applicazioni finanziarie</summary>
