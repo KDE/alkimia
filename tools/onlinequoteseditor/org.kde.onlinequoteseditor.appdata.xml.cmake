@@ -15,6 +15,7 @@
   <name xml:lang="ko">온라인 시세 편집기</name>
   <name xml:lang="nl">Bewerker voor Online koersen</name>
   <name xml:lang="pl">Edytor wycen z sieci</name>
+  <name xml:lang="pt-BR">Editor de cotações online</name>
   <name xml:lang="sk">Editor online ponúk</name>
   <name xml:lang="sl">Urejevalnik spletnih kotacij</name>
   <name xml:lang="sv">Direktkurseditor</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="ko">재무 프로그램에서 사용하는 온라인 가격 시세 편집기</summary>
   <summary xml:lang="nl">Bewerker voor online koersen gebruikt door financiële toepassingen</summary>
   <summary xml:lang="pl">Edytor dla wycen z sieci używanych przez aplikacje finansowe</summary>
+  <summary xml:lang="pt-BR">Editor de cotações de preços online usado por aplicativos de finanças</summary>
   <summary xml:lang="sk">Editor pre online cenové ponuky používané finančnými aplikáciami</summary>
   <summary xml:lang="sl">Urednik spletnih kotacij, ki jih uporabljajo finančne aplikacije</summary>
   <summary xml:lang="sv">Editor för direktkurser använd av ekonomiprogram</summary>
