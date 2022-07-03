@@ -4,7 +4,8 @@ include:
   - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/windows.yml
 
 
-image: opensuse/leap
+# https://bugs.kde.org/show_bug.cgi?id=456002
+image: opensuse/leap:15.3
 
 .unix-host-build:
   stage: build
@@ -45,7 +46,6 @@ kf5 tumbleweed mingw64:
 kf5 leap:
   extends: .unix-host-build
   #when: manual
-  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
@@ -54,7 +54,6 @@ kf5 leap:
 kf5 leap mingw32:
   extends: .unix-host-build
   when: manual
-  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
@@ -64,7 +63,6 @@ kf5 leap mingw32:
 kf5 leap mingw64:
   extends: .unix-host-build
   #when: manual
-  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
@@ -74,7 +72,6 @@ kf5 leap mingw64:
 kf5 leap webengine:
   extends: .unix-host-build
   when: manual
-  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
@@ -83,7 +80,6 @@ kf5 leap webengine:
 kf5 leap webkit:
   extends: .unix-host-build
   when: manual
-  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
@@ -92,7 +88,6 @@ kf5 leap webkit:
 kde4 leap:
   extends: .unix-host-build
   #when: manual
-  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
@@ -101,7 +96,6 @@ kde4 leap:
 kde4 leap mingw32:
   extends: .unix-host-build
   when: manual
-  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
@@ -111,7 +105,6 @@ kde4 leap mingw32:
 kde4 leap mingw64:
   extends: .unix-host-build
   #when: manual
-  image: opensuse/leap
   #only:
   #  - merge_requests
   variables:
