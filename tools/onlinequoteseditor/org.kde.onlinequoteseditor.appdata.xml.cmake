@@ -14,6 +14,7 @@
   <name xml:lang="ko">온라인 시세 편집기</name>
   <name xml:lang="nl">Bewerker voor Online koersen</name>
   <name xml:lang="pt">Editor de Cotações 'Online'</name>
+  <name xml:lang="pt-BR">Editor de cotações online</name>
   <name xml:lang="ru">Редактор котировок в интернете</name>
   <name xml:lang="sk">Editor online ponúk</name>
   <name xml:lang="sl">Urejevalnik spletnih kotacij</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="ko">재무 프로그램에서 사용하는 온라인 가격 시세 편집기</summary>
   <summary xml:lang="nl">Bewerker voor online koersen gebruikt door financiële toepassingen</summary>
   <summary xml:lang="pt">Editor de cotações de preços 'online' usados pelas aplicações financeiras</summary>
+  <summary xml:lang="pt-BR">Editor de cotações de preços online usado por aplicativos de finanças</summary>
   <summary xml:lang="sk">Editor pre online cenové ponuky používané finančnými aplikáciami</summary>
   <summary xml:lang="sl">Urednik spletnih kotacij, ki jih uporabljajo finančne aplikacije</summary>
   <summary xml:lang="sv">Editor för direktkurser använd av ekonomiprogram</summary>
@@ -79,6 +81,7 @@
     <p xml:lang="ko">프로필을 사용하여 여러 프로그램을 지원합니다.</p>
     <p xml:lang="nl">Meerdere toepassingen kunnen ondersteund worden via profielen.</p>
     <p xml:lang="pt">Poderá ter suporte para várias aplicações através dos perfis.</p>
+    <p xml:lang="pt-BR">Múltiplos aplicativos podem ser suportados através de perfis.</p>
     <p xml:lang="sl">Več aplikacij je mogoče podpreti prek profilov.</p>
     <p xml:lang="sv">Flera program kan stödjas via profiler.</p>
     <p xml:lang="tr">Profiller yardımı ile birden çok uygulama desteklenebilir.</p>
