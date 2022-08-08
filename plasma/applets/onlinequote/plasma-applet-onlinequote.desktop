@@ -52,7 +52,7 @@ Comment[sv]=Plasma-miniprogram för direktkurser
 Comment[tr]=Bir çevrimiçi alıntı için Plasma uygulamacığı
 Comment[uk]=Аплет Плазми для інтернет-курсів
 Comment[x-test]=xxPlasma applet for an online quotexx
-Comment[zh_CN]=在线报价的 Plasma 小部件
+Comment[zh_CN]=在线报价的 Plasma 小程序
 Type=Service
 ServiceTypes=Plasma/Applet
 
