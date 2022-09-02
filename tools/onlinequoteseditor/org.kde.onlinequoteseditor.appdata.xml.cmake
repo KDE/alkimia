@@ -12,6 +12,7 @@
   <name xml:lang="fr">Éditeur de cotations en ligne</name>
   <name xml:lang="ia">Editor de citationes in linea</name>
   <name xml:lang="it">Editor delle quotazioni in linea</name>
+  <name xml:lang="ka">ონლაინ კოტების რედაქტორი</name>
   <name xml:lang="ko">온라인 시세 편집기</name>
   <name xml:lang="nl">Bewerker voor Online koersen</name>
   <name xml:lang="pt">Editor de Cotações 'Online'</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="fr">Éditeur pour les cotations en ligne utilisées par les applications financières</summary>
   <summary xml:lang="ia">Editor per citationes de prcio in linea usate per applicationes de financia</summary>
   <summary xml:lang="it">Editor delle quotazioni in linea usato delle applicazioni finanziarie</summary>
+  <summary xml:lang="ka">ფინანსური აპლიკაციების მიერ გამოყენებული ონლაინ ფასების კოტების რედაქტორი</summary>
   <summary xml:lang="ko">재무 프로그램에서 사용하는 온라인 가격 시세 편집기</summary>
   <summary xml:lang="nl">Bewerker voor online koersen gebruikt door financiële toepassingen</summary>
   <summary xml:lang="pt">Editor de cotações de preços 'online' usados pelas aplicações financeiras</summary>
@@ -83,6 +85,7 @@
     <p xml:lang="fr">Plusieurs applications peuvent être prises en charge grâce des profils.</p>
     <p xml:lang="ia">Applicationes multiple pote esser supportate via profilos. </p>
     <p xml:lang="it">È possibile supportare più applicazioni tramite profili.</p>
+    <p xml:lang="ka">მხარდაჭერილი აპლიკაციების დამატება პროფილებით შეგიძლიათ.</p>
     <p xml:lang="ko">프로필을 사용하여 여러 프로그램을 지원합니다.</p>
     <p xml:lang="nl">Meerdere toepassingen kunnen ondersteund worden via profielen.</p>
     <p xml:lang="pt">Poderá ter suporte para várias aplicações através dos perfis.</p>
