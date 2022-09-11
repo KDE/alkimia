@@ -314,7 +314,11 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
         emit m_p->status(i18nc("The process x is executing", "Executing %1...", url.toLocalFile()));
 
         m_filter.clearProgram();
+        #if QT_VERSION < QT_VERSION_CHECK(5,14,0)
         m_filter << url.toLocalFile().split(' ', QString::SkipEmptyParts);
+        #else
+        m_filter << url.toLocalFile().split(' ', Qt::SkipEmptyParts);
+        #endif
         m_filter.setSymbol(m_symbol);
 
         m_filter.setOutputChannelMode(KProcess::MergedChannels);

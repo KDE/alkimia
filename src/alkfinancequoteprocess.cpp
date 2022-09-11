@@ -123,7 +123,11 @@ bool AlkFinanceQuoteProcess::isFinished() const
 
 const QStringList AlkFinanceQuoteProcess::getSourceList() const
 {
+    #if QT_VERSION < QT_VERSION_CHECK(5,14,0)
     QStringList raw = d->m_string.split(0x0A, QString::SkipEmptyParts);
+    #else
+    QStringList raw = d->m_string.split(0x0A, Qt::SkipEmptyParts);
+    #endif
     QStringList sources;
     QStringList::iterator it;
     for (it = raw.begin(); it != raw.end(); ++it) {
