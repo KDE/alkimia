@@ -41,7 +41,7 @@ if(BUILD_QT4)
     )
 else()
     set(LIBS
-        Qt5::Widgets
+        ${QT_USE_LIBSPREFIX}Widgets
         ${QT_BROWSER_LIB}
         KF5::CoreAddons
         KF5::I18n
@@ -60,6 +60,9 @@ set_target_properties(onlinequoteseditor PROPERTIES OUTPUT_NAME onlinequotesedit
 install(TARGETS onlinequoteseditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 configure_file(org.kde.onlinequoteseditor.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.desktop)
+if (NOT XDG_APPS_INSTALL_DIR)
+    set(XDG_APPS_INSTALL_DIR ${KDE_INSTALL_APPDIR})
+endif()
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
 configure_file(org.kde.onlinequoteseditor.appdata.xml.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.appdata.xml)

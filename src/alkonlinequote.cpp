@@ -39,6 +39,7 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KLocalizedString>
+    #include <QRegularExpression>
 #ifndef BUILD_WITH_QTNETWORK
     #include <KIO/Job>
 #endif
@@ -62,6 +63,12 @@
 #include <KEncodingProber>
 #include <KProcess>
 #include <KShell>
+
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+    using Regex = QRegExp;
+#else
+    using Regex = QRegularExpression;
+#endif
 
 AlkOnlineQuote::Errors::Errors()
 {
@@ -547,14 +554,14 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
     // set the last one to a period.
     QString pricestr(_pricestr);
     if (!pricestr.isEmpty()) {
-        int pos = pricestr.lastIndexOf(QRegExp("\\D"));
+        int pos = pricestr.lastIndexOf(Regex("\\D"));
         if (pos > 0) {
             pricestr[pos] = '.';
-            pos = pricestr.lastIndexOf(QRegExp("\\D"), pos - 1);
+            pos = pricestr.lastIndexOf(Regex("\\D"), pos - 1);
         }
         while (pos > 0) {
             pricestr.remove(pos, 1);
-            pos = pricestr.lastIndexOf(QRegExp("\\D"), pos);
+            pos = pricestr.lastIndexOf(Regex("\\D"), pos);
         }
 
         m_price = pricestr.toDouble();
@@ -623,10 +630,10 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
             //
 
             // HTML tags
-            quotedata.remove(QRegExp("<[^>]*>"));
+            quotedata.remove(Regex("<[^>]*>"));
 
             // &...;'s
-            quotedata.replace(QRegExp("&\\w+;"), " ");
+            quotedata.replace(Regex("&\\w+;"), " ");
 
             // Extra white space
             quotedata = quotedata.simplified();

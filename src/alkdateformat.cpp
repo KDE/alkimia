@@ -389,7 +389,7 @@ public:
 
             break;
           default:
-            return setError(AlkDateFormat::InvalidFormatCharacter, QString((*it_format).at(0).cell()));
+            return setError(AlkDateFormat::InvalidFormatCharacter, QString(QChar((*it_format).at(0).cell())));
         }
 
         ++it_scanned;

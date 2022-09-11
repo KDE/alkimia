@@ -12,6 +12,10 @@
 #include <QRegExp>
 #include <QSharedData>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#include <QRegularExpression>
+#endif
+
 class AlkValue::Private : public QSharedData
 {
 public:
@@ -161,8 +165,13 @@ AlkValue::AlkValue(const QString &str, const QChar &decimalSymbol)
     // everything else gets down here
     const QString negChars = QString::fromLatin1("\\-\\(\\)");
     const QString validChars = QString::fromLatin1("\\d\\%1%2").arg(decimalSymbol, negChars);
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     QRegExp invCharSet(QString::fromLatin1("[^%1]").arg(validChars));
     QRegExp negCharSet(QString::fromLatin1("[%1]").arg(negChars));
+#else
+    QRegularExpression invCharSet(QString::fromLatin1("[^%1]").arg(validChars));
+    QRegularExpression negCharSet(QString::fromLatin1("[%1]").arg(negChars));
+#endif
 
     QString res(str);
     // get rid of any character that is not allowed.

@@ -6,7 +6,9 @@ endif()
 
 project(alkimia VERSION 8.1.71)
 
-find_package(Qt5WebEngineWidgets 5.9.3)
+find_package(ECM 0.0.11 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+include(QtVersionOption OPTIONAL)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
@@ -30,9 +32,6 @@ if(ENABLE_FINANCEQUOTE)
     set(PACKAGE_COMPILE_OPTIONS "-DHAVE_ALK_FINANCEQUOTE")
 endif()
 
-find_package(ECM 0.0.11 REQUIRED NO_MODULE)
-
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 include(Macros)
 
 include(ECMAddAppIcon)
@@ -53,6 +52,7 @@ include(FeatureSummary)
 # check for PkgConfig, Qt and MPIR/GMP
 find_package(PkgConfig)
 if(BUILD_QT4)
+    set(QT_MAJOR_VERSION 4)
     set(QT_USE_LIBSPREFIX Qt4::Qt)
     set(ALKIMIA_LIB_SUFFIX "")
     set(ALKIMIA_INCLUDE_SUFFIX "Qt4")
@@ -114,16 +114,19 @@ if(BUILD_QT4)
         set(SHARE_INSTALL_DIR ${DATA_INSTALL_DIR})
     endif()
 else()
-    set(QT_USE_LIBSPREFIX Qt5::)
-    set(ALKIMIA_LIB_SUFFIX "5")
-    set(ALKIMIA_INCLUDE_SUFFIX "Qt5")
-    set(ALKIMIA_PATH_SUFFIX 5)
-    set(PC_TARGET_QTPREFIX Qt5)
-    set(PC_TARGET_SUFFIX 5)
+    if (NOT QT_MAJOR_VERSION)
+        set(QT_MAJOR_VERSION 5)
+    endif()
+    set(QT_USE_LIBSPREFIX Qt${QT_MAJOR_VERSION}::)
+    set(ALKIMIA_LIB_SUFFIX "${QT_MAJOR_VERSION}")
+    set(ALKIMIA_INCLUDE_SUFFIX "Qt${QT_MAJOR_VERSION}")
+    set(ALKIMIA_PATH_SUFFIX ${QT_MAJOR_VERSION})
+    set(PC_TARGET_QTPREFIX Qt${QT_MAJOR_VERSION})
+    set(PC_TARGET_SUFFIX ${QT_MAJOR_VERSION})
 
-    find_package(Qt5WebEngineWidgets 5.9.3)
+    find_package(Qt${QT_MAJOR_VERSION}WebEngineWidgets 5.9.3)
 
-    option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine (experimental)" ${Qt5WebEngineWidgets_FOUND})
+    option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine (experimental)" ${Qt${QT_MAJOR_VERSION}WebEngineWidgets_FOUND})
     if (BUILD_WITH_WEBENGINE)
         add_definitions(-DBUILD_WITH_WEBENGINE)
         set(QT_BROWSER_COMPONENT WebEngineWidgets)
@@ -149,7 +152,7 @@ else()
     endif()
     set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}${QT_NETWORK_COMPONENT})
 
-    find_package(Qt5 REQUIRED COMPONENTS
+    find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS
         Core
         ${QT_NETWORK_COMPONENT}
         Test

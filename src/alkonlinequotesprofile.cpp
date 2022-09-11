@@ -35,6 +35,7 @@
     #include <knewstuff3/downloadmanager.h>
     namespace KNS = KNS3;
 #endif
+#include <QRegExp>
 
 class AlkOnlineQuotesProfile::Private : public QObject
 {

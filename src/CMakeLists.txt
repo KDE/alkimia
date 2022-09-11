@@ -149,6 +149,9 @@ if(NOT BUILD_QT4 AND MSVC AND BUILD_WITH_WEBKIT)
     )
 endif()
 
+if (NOT INCLUDE_INSTALL_DIR)
+    set(INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR})
+endif()
 install(
     DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/alkimia
     DESTINATION ${INCLUDE_INSTALL_DIR}/alkimia/${ALKIMIA_INCLUDE_SUFFIX}
@@ -221,7 +224,11 @@ endif(NOT WIN32)
 ########### create package configuration file ###########
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
+if (CMAKECONFIG_INSTALL_PREFIX)
+    set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
+else()
+    set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
+endif()
 
 ecm_setup_version(${alkimia_VERSION} VARIABLE_PREFIX ALKIMIA
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
@@ -257,8 +264,13 @@ install(FILES
 )
 
 if (NOT WIN32)
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc
-        DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
+    if (LIB_INSTALL_DIR)
+        install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc
+            DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
+    else()
+        install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libalkimia${ALKIMIA_PATH_SUFFIX}.pc
+            DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+    endif()
 endif(NOT WIN32)
 
 ########### documentation ###################

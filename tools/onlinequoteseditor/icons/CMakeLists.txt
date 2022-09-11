@@ -1,3 +1,6 @@
+if (NOT ICON_INSTALL_DIR)
+    set(ICON_INSTALL_DIR ${KDE_INSTALL_ICONDIR})
+endif()
 ecm_install_icons(
     ICONS 16-apps-onlinequoteseditor5.png
           22-apps-onlinequoteseditor5.png
