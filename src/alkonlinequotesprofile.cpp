@@ -27,7 +27,7 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <QStandardPaths>
-    #include <knscore/downloadmanager.h>
+    #include <KNSCore/Engine>
     namespace KNS = KNSCore;
 #else
     #include <KGlobal>
@@ -46,7 +46,11 @@ public:
     QString m_GHNSFilePath;
     QString m_kconfigFile;
     AlkOnlineQuotesProfileManager *m_profileManager;
-    KNS::DownloadManager *m_manager;
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+    KNS::DownloadManager *m_manager = 0;
+#else
+    KNSCore::Engine *m_engine = 0;
+#endif
     KConfig *m_config;
     Type m_type;
     static QString m_financeQuoteScriptPath;
@@ -68,7 +72,6 @@ public:
     Private(AlkOnlineQuotesProfile *p)
         : m_p(p)
         , m_profileManager(0)
-        , m_manager(0)
         , m_config(0)
         , m_type(Type::Undefined)
     {
@@ -79,12 +82,15 @@ public:
 
     ~Private()
     {
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
         delete m_manager;
+#endif
         delete m_config;
     }
 
     void checkUpdates()
     {
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
         m_manager = new KNS::DownloadManager(m_p->hotNewStuffConfigFile(), this);
         // to know when checking for updates is done
         connect(m_manager, SIGNAL(searchResult(KNS3::Entry::List)), this,
@@ -94,6 +100,20 @@ public:
                 SLOT(entryStatusChanged(KNS3::Entry)));
         // start checking for updates
         m_manager->checkForUpdates();
+#else
+        m_engine = new KNSCore::Engine(this);
+        if (m_engine->init(QStringLiteral("comic.knsrc"))) {
+            connect(m_engine, &KNSCore::Engine::signalUpdateableEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &updates) {
+                foreach (const KNSCore::EntryInternal &entry, updates) {
+                    qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.uniqueId() << entry.category() << entry.providerId();
+                    emit m_p->updateAvailable(m_p->name(), entry.name());
+                }
+            });
+            connect(m_engine, &KNSCore::Engine::signalProvidersLoaded, this, [this]() {
+                m_engine->checkForUpdates();
+            });
+        }
+#endif
     }
 
 public Q_SLOTS:
