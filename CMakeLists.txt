@@ -182,6 +182,14 @@ else()
     if(CMAKE_COMPILER_IS_GNUCC)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
     endif()
+
+    add_definitions(
+        -DKF_DEPRECATED_WARNINGS_SINCE=0x60000
+        -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x56200C
+        -DQT_DEPRECATED_WARNINGS_SINCE=0x60000
+        -DQT_DISABLE_DEPRECATED_BEFORE=0x50f02
+    )
+
 endif()
 
 set(TARGET_SUFFIX ${PC_TARGET_SUFFIX})
