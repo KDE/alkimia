@@ -113,9 +113,15 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_profile(nullptr)
     , m_showProfiles(showProfiles)
     , m_showUpload(showUpload)
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     , m_inWorkIcon(BarIcon("view-refresh"))
     , m_okIcon(BarIcon("dialog-ok-apply"))
     , m_failIcon(BarIcon("dialog-cancel"))
+#else
+    , m_inWorkIcon(QIcon::fromTheme("view-refresh").pixmap(16))
+    , m_okIcon(QIcon::fromTheme("dialog-ok-apply").pixmap(16))
+    , m_failIcon(QIcon::fromTheme("dialog-cancel").pixmap(16))
+#endif
     , m_webPageDialog(nullptr)
 {
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
