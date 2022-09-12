@@ -46,9 +46,13 @@ AlkWebPage::~AlkWebPage()
 
 QWidget *AlkWebPage::widget()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     if (!view())
         setView(new QWebEngineView);
     return view();
+#else
+    return QWebEngineView::forPage(this);
+#endif
 }
 
 void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
