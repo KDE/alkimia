@@ -39,10 +39,6 @@ function start_x_session() {
 # start dbus-daemon and kde background processes
 function start_kde_session() {
     if test "$ci_host" = native; then
-        # avoid D-Bus library appears to be incorrectly set up
-        if ! test -f /etc/machine-id; then
-            dbus-uuidgen > /etc/machine-id
-        fi
         # start new dbus session, which is required by kio
         # and identified by $DBUS_SESSION_BUS_PID
         eval `dbus-launch --sh-syntax`
