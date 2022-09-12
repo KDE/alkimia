@@ -110,7 +110,7 @@ case "$ci_distro" in
                 # in case not all required packages are installed with source_package
                 packages=(
                     "${packages[@]}"
-                    ${prefix}-cross-wine
+                    wine
                 )
                 ;;
             (kde4-native)
@@ -133,7 +133,7 @@ case "$ci_distro" in
                     ${prefix}-extra-cmake-modules
                     ${prefix}-libkde4-devel
                     ${prefix}-gmp-devel
-                    ${prefix}-cross-wine
+                    wine
                 )
                 ;;
             (*)
