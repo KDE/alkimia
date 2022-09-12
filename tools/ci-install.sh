@@ -14,7 +14,7 @@ set -x
 : "${ci_distro:=auto}"
 
 # ci_host:
-# the host to build for
+# the host to build for native, mingw32, mingw64
 : "${ci_host:=native}"
 
 # ci_distro_variant:
@@ -110,6 +110,7 @@ case "$ci_distro" in
                 # in case not all required packages are installed with source_package
                 packages=(
                     "${packages[@]}"
+                    ${prefix}-cross-wine
                 )
                 ;;
             (kde4-native)
@@ -132,6 +133,7 @@ case "$ci_distro" in
                     ${prefix}-extra-cmake-modules
                     ${prefix}-libkde4-devel
                     ${prefix}-gmp-devel
+                    ${prefix}-cross-wine
                 )
                 ;;
             (*)
