@@ -51,7 +51,7 @@ function start_kde_session() {
 }
 
 function start_session() {
-    if test "$ci_variant" = kf5; then
+    if test "$ci_variant" = kf5 && test -v dep_prefix; then
         # setup qt5.conf
         qtconf="$dep_prefix/bin/qt5.conf"
         sed "s,Prefix.*$,Prefix=$dep_prefix,g" "$dep_prefix/bin/qt5.conf" > "$builddir/bin/qt5.conf"
@@ -297,7 +297,7 @@ cd ${builddir}
 
 # configure and build
 if test "$ci_build" = yes; then
-    $cmake -- $cmake_options ..
+    $cmake $cmake_options ..
     make -j$ci_jobs
 fi
 
