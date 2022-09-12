@@ -70,6 +70,10 @@
     using Regex = QRegularExpression;
 #endif
 
+#ifndef I18N_NOOP
+#include <KLazyLocalizedString>
+#endif
+
 AlkOnlineQuote::Errors::Errors()
 {
 }
@@ -461,7 +465,11 @@ void AlkOnlineQuote::Private::downloadUrlDone(QNetworkReply *reply)
             m_url = reply->url().resolved(newUrl);
             // TODO migrate to i18n()
             emit m_p->status(QString("<font color=\"orange\">%1</font>")
+            #ifdef I18N_NOOP
                             .arg(I18N_NOOP("The URL has been redirected; check an update of the online quote URL")));
+            #else
+                            .arg(kli18n("The URL has been redirected; check an update of the online quote URL").untranslatedText()));
+            #endif
             result = 2;
         } else {
             kDebug(Private::dbgArea()) << "Downloaded data from" << reply->url();
