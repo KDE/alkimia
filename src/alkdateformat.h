@@ -12,7 +12,6 @@
 #include "alkexception.h"
 
 #include <QDate>
-#include <QRegExp>
 #include <QString>
 #include <QStringList>
 

@@ -20,6 +20,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #endif
+#include <QRegExp>
 
 
 class AlkDateFormat::Private

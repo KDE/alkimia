@@ -38,6 +38,7 @@ if(NOT BUILD_QT4)
         KF5::NewStuff
     )
 endif()
+
 target_link_libraries(alkimia-internal PUBLIC ${QT_USE_LIBSPREFIX}Core ${ALKIMIA_INTERNAL_LIBS})
 kde_target_enable_exceptions(alkimia-internal PUBLIC)
 
