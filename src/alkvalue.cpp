@@ -206,7 +206,7 @@ AlkValue::AlkValue(const QString &str, const QChar &decimalSymbol)
     // check if the resulting numerator contains any leading zeros ...
     int cnt = 0;
     len = res.length() - 1;
-    while (res[cnt] == QLatin1Char('0') && cnt < len) {
+    while (res.size() > cnt && res[cnt] == QLatin1Char('0') && cnt < len) {
         ++cnt;
     }
 
