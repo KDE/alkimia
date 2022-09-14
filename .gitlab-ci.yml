@@ -1,6 +1,7 @@
 include:
-  - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/linux.yml
-  - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/freebsd.yml
+  # disabled for now, see https://bugs.kde.org/show_bug.cgi?id=459128
+  #- https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/linux.yml
+  #- https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/freebsd.yml
   - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/windows.yml
 
 
