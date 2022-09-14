@@ -280,13 +280,14 @@ esac
 
 # setup vars
 srcdir="$(pwd)"
-builddir=ci-build-${ci_variant}-${ci_host}
+builddir=${srcdir}/ci-build-${ci_variant}-${ci_host}
 
 
 # create subdirs
 if test "$ci_clean" = yes; then
     rm -rf ${builddir}
-    mkdir -p ${builddir}
+    $sudo mkdir -p ${builddir}
+    $sudo chmod a+wrx ${builddir}
 fi
 
 cd ${builddir}
