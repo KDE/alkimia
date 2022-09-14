@@ -204,7 +204,7 @@ builddir=${srcdir}/ci-build-${ci_variant}-${ci_host}
 
 # enable sudo if running in docker
 sudo=
-if [ -f /.dockerenv ] && [ -n `getent passwd | grep user` ]; then
+if [ -f /.dockerenv ] && [ -n `getent passwd | grep ^user` ]; then
     sudo=sudo
 fi
 
