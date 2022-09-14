@@ -51,6 +51,7 @@ case "$ci_distro" in
                     "${repos[@]}"
                     https://download.opensuse.org/repositories/windows:/mingw:/win${bits}/${repo_name}/windows:mingw:win${bits}.repo
                     https://download.opensuse.org/repositories/windows:/mingw/${repo_name}/windows:mingw.repo
+                    https://download.opensuse.org/repositories/security:/tls/openSUSE_Tumbleweed/security:tls.repo
                 )
                 ;;
             (kde4-native)
