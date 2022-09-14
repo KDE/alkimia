@@ -177,7 +177,7 @@ esac
 
 # Add the user that we will use to do the build inside the
 # Docker container, and let them use sudo
-if [ -f /.dockerenv ] && [ -z `getent passwd | grep user` ]; then
+if [ -f /.dockerenv ] && [ -z `getent passwd | grep ^user` ]; then
     useradd -m user
     passwd -ud user
     echo "user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nopasswd
