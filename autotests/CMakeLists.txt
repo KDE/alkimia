@@ -28,6 +28,7 @@ ecm_add_test(
     LINK_LIBRARIES ${TEST_LIB}
     TEST_NAME alkonlinequotestest
 )
+set_property(TEST alkonlinequotestest PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
 
 ecm_add_test(
     alkdateformattest.cpp
