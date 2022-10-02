@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-09-29 02:41+0200\n"
+"PO-Revision-Date: 2022-09-20 01:55\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/alkimia/plasma_applet_org.wincak."
+"foreigncurrencies2.pot\n"
+"X-Crowdin-File-ID: 10138\n"
+
+#: contents/config/config.qml:6
+#, kde-format
+msgid "General"
+msgstr "常规"
+
+#: contents/ui/config/ConfigGeneral.qml:38
+#: contents/ui/config/ConfigGeneral.qml:149
+#, kde-format
+msgid "Add Currency Pair"
+msgstr "添加货币对"
+
+#: contents/ui/config/ConfigGeneral.qml:55
+#, kde-format
+msgid "Paste currency pair symbol here"
+msgstr "在此粘贴货币对代号"
+
+#: contents/ui/config/ConfigGeneral.qml:67
+#, kde-format
+msgid "Currency Pairs"
+msgstr "货币对"
+
+#: contents/ui/config/ConfigGeneral.qml:81
+#, kde-format
+msgid "Symbol"
+msgstr "代号"
+
+#: contents/ui/config/ConfigGeneral.qml:96
+#, kde-format
+msgid "Action"
+msgstr "操作"
+
+#: contents/ui/Currency.qml:34
+#, kde-format
+msgid "unknown"
+msgstr "未知"

@@ -1,0 +1,95 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-04-09 00:45+0000\n"
+"PO-Revision-Date: 2020-09-20 07:54+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@bredband.net"
+
+#: main.cpp:66
+#, kde-format
+msgid "&About %1"
+msgstr "&Om %1"
+
+#: mainwindow.cpp:84
+#, kde-format
+msgid "Profiles"
+msgstr "Profiler"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "Profile details"
+msgstr "Profilinformation"
+
+#: mainwindow.cpp:94
+#, kde-format
+msgid "Online quotes"
+msgstr "Direktkurseditor"
+
+#: mainwindow.cpp:99
+#, kde-format
+msgid "Debug"
+msgstr "Felsökning"
+
+#: mainwindow.cpp:104
+#, kde-format
+msgid "Quote details"
+msgstr "Kursinformation"
+
+#: mainwindow.cpp:113
+#, kde-format
+msgid "Browser"
+msgstr "Webbläsare"
+
+#: mainwindow.cpp:168
+#, kde-format
+msgid "Update for '%1' available in profile '%2'"
+msgstr "Uppdatering av '%1' tillgänglig i profilen '%2'"
+
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Direktkurseditor"
+
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Arkiv"
+
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Avsluta"
+
+#~ msgid "Editor for online price quotes used by finance applications"
+#~ msgstr "Editor för direktkurser använd av ekonomiprogram"
+
+#~ msgid "(C) 2018-2019 Ralf Habacker"
+#~ msgstr "© 2018-2019 Ralf Habacker"
+
+#~ msgid "onlinequoteseditor"
+#~ msgstr "direktkurseditor"

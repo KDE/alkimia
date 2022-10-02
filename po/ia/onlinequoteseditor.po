@@ -1,0 +1,86 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+#
+# Giovanni Sora <g.sora@tiscali.it>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-04-09 00:45+0000\n"
+"PO-Revision-Date: 2020-12-28 21:37+0100\n"
+"Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Giovanni Sora"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "g.sora@tiscali.it"
+
+#: main.cpp:66
+#, kde-format
+msgid "&About %1"
+msgstr "&A proposito de %1"
+
+#: mainwindow.cpp:84
+#, kde-format
+msgid "Profiles"
+msgstr "Profilos"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "Profile details"
+msgstr "Detalios de profilo"
+
+#: mainwindow.cpp:94
+#, kde-format
+msgid "Online quotes"
+msgstr "Citationes in linea"
+
+#: mainwindow.cpp:99
+#, kde-format
+msgid "Debug"
+msgstr "Cribra (debug)"
+
+#: mainwindow.cpp:104
+#, kde-format
+msgid "Quote details"
+msgstr "Cita detalios"
+
+#: mainwindow.cpp:113
+#, kde-format
+msgid "Browser"
+msgstr "Navigator"
+
+#: mainwindow.cpp:168
+#, kde-format
+msgid "Update for '%1' available in profile '%2'"
+msgstr "Actualisation per '%1' disponibile in profilo '%2'"
+
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Editor de citationes in linea"
+
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "File"
+
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Quita"

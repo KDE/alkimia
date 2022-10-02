@@ -1,0 +1,92 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+#
+# Steve Allewell <steve.allewell@gmail.com>, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-04-09 00:45+0000\n"
+"PO-Revision-Date: 2020-09-20 19:43+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Steve Allewell"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "steve.allewell@gmail.com"
+
+#: main.cpp:66
+#, kde-format
+msgid "&About %1"
+msgstr "&About %1"
+
+#: mainwindow.cpp:84
+#, kde-format
+msgid "Profiles"
+msgstr "Profiles"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "Profile details"
+msgstr "Profile details"
+
+#: mainwindow.cpp:94
+#, kde-format
+msgid "Online quotes"
+msgstr "Online quotes"
+
+#: mainwindow.cpp:99
+#, kde-format
+msgid "Debug"
+msgstr "Debug"
+
+#: mainwindow.cpp:104
+#, kde-format
+msgid "Quote details"
+msgstr "Quote details"
+
+#: mainwindow.cpp:113
+#, kde-format
+msgid "Browser"
+msgstr "Browser"
+
+#: mainwindow.cpp:168
+#, kde-format
+msgid "Update for '%1' available in profile '%2'"
+msgstr "Update for '%1' available in profile '%2'"
+
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Online Quotes Editor"
+
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "File"
+
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Quit"
+
+#~ msgid "Editor for online price quotes used by finance applications"
+#~ msgstr "Editor for online price quotes used by finance applications"
+
+#~ msgid "(C) 2018-2019 Ralf Habacker"
+#~ msgstr "(C) 2018-2019 Ralf Habacker"

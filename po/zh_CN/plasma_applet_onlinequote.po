@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:50+0200\n"
+"PO-Revision-Date: 2022-09-20 01:55\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/alkimia/plasma_applet_onlinequote.pot\n"
+"X-Crowdin-File-ID: 10148\n"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: configwidget.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "对话框"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configwidget.ui:25
+#, kde-format
+msgid "Symbol"
+msgstr "符号"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configwidget.ui:32
+#, kde-format
+msgid "Interval[min]"
+msgstr "间隔[分钟]"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: configwidget.ui:42
+#, kde-format
+msgid "Online Quote"
+msgstr "在线消息"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configwidget.ui:65
+#, kde-format
+msgid "Profile"
+msgstr "配置文件"

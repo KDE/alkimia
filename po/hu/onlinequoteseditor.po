@@ -1,0 +1,86 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+#
+# Kristof Kiszel <kiszel.kristof@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-04-09 00:45+0000\n"
+"PO-Revision-Date: 2021-11-04 12:51+0100\n"
+"Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.08.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kiszel.kristof@gmail.com"
+
+#: main.cpp:66
+#, kde-format
+msgid "&About %1"
+msgstr "Né&vjegy: %1"
+
+#: mainwindow.cpp:84
+#, kde-format
+msgid "Profiles"
+msgstr "Profilok"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "Profile details"
+msgstr "Profiladatok"
+
+#: mainwindow.cpp:94
+#, kde-format
+msgid "Online quotes"
+msgstr "Online árajánlatok"
+
+#: mainwindow.cpp:99
+#, kde-format
+msgid "Debug"
+msgstr "Hibakeresés"
+
+#: mainwindow.cpp:104
+#, kde-format
+msgid "Quote details"
+msgstr "Árajánlat részletei"
+
+#: mainwindow.cpp:113
+#, kde-format
+msgid "Browser"
+msgstr "Böngésző"
+
+#: mainwindow.cpp:168
+#, kde-format
+msgid "Update for '%1' available in profile '%2'"
+msgstr "A(z) „%2” profilban elérhető „%1” frissítése"
+
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Szerkesztő online árajánlatokhoz"
+
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Fájl"
+
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Kilépés"
