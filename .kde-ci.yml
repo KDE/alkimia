@@ -15,4 +15,3 @@ Dependencies:
 
 Options:
   cmake-options: '-DBUILD_WITH_WEBENGINE=ON'
-  require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
