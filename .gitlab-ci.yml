@@ -16,7 +16,7 @@ image: opensuse/leap:15.3
   script:
     - runuser -u user ./tools/ci-build.sh
 
-kf5 tumbleweed:
+distro kf5 tumbleweed:
   extends: .unix-host-build
   #when: manual
   image: opensuse/tumbleweed
@@ -25,7 +25,7 @@ kf5 tumbleweed:
   variables:
     ci_variant: "kf5"
 
-kf5 tumbleweed mingw32:
+distro kf5 tumbleweed mingw32:
   extends: .unix-host-build
   when: manual
   image: opensuse/tumbleweed
@@ -35,7 +35,7 @@ kf5 tumbleweed mingw32:
     ci_variant: "kf5"
     ci_host: "mingw32"
 
-kf5 tumbleweed mingw64:
+distro kf5 tumbleweed mingw64:
   extends: .unix-host-build
   #when: manual
   image: opensuse/tumbleweed
@@ -45,7 +45,7 @@ kf5 tumbleweed mingw64:
     ci_variant: "kf5"
     ci_host: "mingw64"
 
-kf5 leap:
+distro kf5 leap:
   extends: .unix-host-build
   #when: manual
   #only:
@@ -53,7 +53,7 @@ kf5 leap:
   variables:
     ci_variant: "kf5"
 
-kf5 leap mingw32:
+distro kf5 leap mingw32:
   extends: .unix-host-build
   when: manual
   #only:
@@ -62,7 +62,7 @@ kf5 leap mingw32:
     ci_variant: "kf5"
     ci_host: "mingw32"
 
-kf5 leap mingw64:
+distro kf5 leap mingw64:
   extends: .unix-host-build
   #when: manual
   #only:
@@ -71,7 +71,7 @@ kf5 leap mingw64:
     ci_variant: "kf5"
     ci_host: "mingw64"
 
-kf5 leap webengine:
+distro kf5 leap webengine:
   extends: .unix-host-build
   when: manual
   #only:
@@ -79,7 +79,7 @@ kf5 leap webengine:
   variables:
     ci_variant: "kf5-webengine"
 
-kf5 leap webkit:
+distro kf5 leap webkit:
   extends: .unix-host-build
   when: manual
   #only:
@@ -87,7 +87,7 @@ kf5 leap webkit:
   variables:
     ci_variant: "kf5-webkit"
 
-kde4 leap:
+distro kde4 leap:
   extends: .unix-host-build
   #when: manual
   #only:
@@ -95,7 +95,7 @@ kde4 leap:
   variables:
     ci_variant: "kde4"
 
-kde4 leap mingw32:
+distro kde4 leap mingw32:
   extends: .unix-host-build
   when: manual
   #only:
@@ -104,7 +104,7 @@ kde4 leap mingw32:
     ci_variant: "kde4"
     ci_host: "mingw32"
 
-kde4 leap mingw64:
+distro kde4 leap mingw64:
   extends: .unix-host-build
   #when: manual
   #only:
