@@ -13,6 +13,7 @@
   <name xml:lang="ia">Editor de citationes in linea</name>
   <name xml:lang="id">Editor Kutipan Online</name>
   <name xml:lang="it">Editor delle quotazioni in linea</name>
+  <name xml:lang="ka">ონლაინ კოტების რედაქტორი</name>
   <name xml:lang="ko">온라인 시세 편집기</name>
   <name xml:lang="nl">Bewerker voor Online koersen</name>
   <name xml:lang="pl">Edytor wycen z sieci</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="ia">Editor per citationes de prcio in linea usate per applicationes de financia</summary>
   <summary xml:lang="id">Editor untuk kutipan harga online yang digunakan oleh aplikasi keuangan</summary>
   <summary xml:lang="it">Editor delle quotazioni in linea usato delle applicazioni finanziarie</summary>
+  <summary xml:lang="ka">ფინანსური აპლიკაციების მიერ გამოყენებული ონლაინ ფასების კოტების რედაქტორი</summary>
   <summary xml:lang="ko">재무 프로그램에서 사용하는 온라인 가격 시세 편집기</summary>
   <summary xml:lang="nl">Bewerker voor online koersen gebruikt door financiële toepassingen</summary>
   <summary xml:lang="pl">Edytor dla wycen z sieci używanych przez aplikacje finansowe</summary>
@@ -83,6 +85,7 @@
     <p xml:lang="ia">Applicationes multiple pote esser supportate via profilos. </p>
     <p xml:lang="id">Beberapa aplikasi dapat didukung melalui profil.</p>
     <p xml:lang="it">È possibile supportare più applicazioni tramite profili.</p>
+    <p xml:lang="ka">მხარდაჭერილი აპლიკაციების დამატება პროფილებით შეგიძლიათ.</p>
     <p xml:lang="ko">프로필을 사용하여 여러 프로그램을 지원합니다.</p>
     <p xml:lang="nl">Meerdere toepassingen kunnen ondersteund worden via profielen.</p>
     <p xml:lang="pl">Możliwość obsługi wielu aplikacji poprzez profile.</p>
