@@ -492,7 +492,7 @@ msgstr "Símbol"
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "URL to be used to download the quote"
-msgstr "URL que cal utilitzar per a baixar la cotització"
+msgstr "URL que s'ha d'utilitzar per a baixar la cotització"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:433
