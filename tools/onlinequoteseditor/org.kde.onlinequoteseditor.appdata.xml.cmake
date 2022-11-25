@@ -21,7 +21,7 @@
   <name xml:lang="sk">Editor online ponúk</name>
   <name xml:lang="sl">Urejevalnik spletnih kotacij</name>
   <name xml:lang="sv">Direktkurseditor</name>
-  <name xml:lang="tr">Çevrimiçi Alıntı Düzenleyici</name>
+  <name xml:lang="tr">Çevrimiçi Fiyat Düzenleyici</name>
   <name xml:lang="uk">Редактор інтернет-курсів</name>
   <name xml:lang="x-test">xxOnline Quotes Editorxx</name>
   <summary>Editor for online price quotes used by finance applications</summary>
@@ -60,7 +60,7 @@
     <p xml:lang="pl">Edytor wycen z sieci jest nakładką graficzną do zmiany i sprawdzania wycen z sieci. Źródła wycen można dodać ze Sklepu KDE, utworzyć lokalnie, dostosować i sprawdzić poprawność ich działania.</p>
     <p xml:lang="sl">Urejevalnik spletnih kotacij je program z grafičnim uporabniškim vmesnikom za urejanje in preverjanje spletnih kotacij. Razpoložljive vire spletnih kotacij lahko dodate iz trgovine KDE, jih ustvarite krajevno ter urejate in preverjate pravilno izvajanje.</p>
     <p xml:lang="sv">Direktkurseditor är ett grafiskt användargränssnitt för att redigera och kontrollera kurser på nätet. Tillgängliga källor för kurser kan läggas till från KDE:s butik, skapas lokalt, redigeras och kontrolleras så att de kör korrekt.</p>
-    <p xml:lang="tr">Çevrimiçi Alıntı Düzenleyici, çevrimiçi alıntıları düzenlemek ve denetlemek için kullanılan bir uygulamadır. Çevrimiçi alıntı kaynakları KDE mağazasından indirilebilir, yerel olarak oluşturulabilir ve doğru yürütme için denetlenebilir.</p>
+    <p xml:lang="tr">Çevrimiçi Fiyat Düzenleyici, çevrimiçi fiyatları düzenlemek ve denetlemek için kullanılan bir uygulamadır. Çevrimiçi alıntı kaynakları KDE mağazasından indirilebilir, yerel olarak oluşturulabilir ve doğru yürütme için denetlenebilir.</p>
     <p xml:lang="uk">«Редактор інтернет-курсів» — програма із графічним інтерфейсом для редагування та отримання даних інтернет-курсів. Доступні джерела інтернет-курсів можна додавати з крамниці KDE, створювати локально, редагувати та перевіряти на правильність функціонування.</p>
     <p xml:lang="x-test">xxOnline Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.xx</p>
     <p>The interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
@@ -113,7 +113,7 @@
     <p xml:lang="pl">Aplikacje finansowe, które nie posiadają swoich własnych interfejsów do zmiany źródeł wycen z sieci mogą w tym celu wywołać edytor wycen z sieci.</p>
     <p xml:lang="sl">Finančne aplikacije, ki ne vsebujejo lastnega uporabniškega vmesnika za urejanje virov spletnih kotacij, lahko v ta namen pokličejo urejevalnik spletnih kotacij.</p>
     <p xml:lang="sv">Ekonomiprogram som inte har sitt egna användargränssnitt för att redigera kurskällor på nätet kan anropa direktkurseditorn i detta syfte.</p>
-    <p xml:lang="tr">Çevrimiçi fiyat alıntı kaynaklarını düzenlemek için bir arabirim sunmayan finansal uygulamalar bunun için bu uygulamayı kullanabilirler.</p>
+    <p xml:lang="tr">Çevrimiçi fiyat kaynaklarını düzenlemek için bir arabirim sunmayan finansal uygulamalar bunun için bu uygulamayı kullanabilirler.</p>
     <p xml:lang="uk">Фінансові програми, у яких немає власного інтерфейсу для редагування джерел інтернет-курсів, можуть викликати з цією метою «Редактор інтернет-курсів».</p>
     <p xml:lang="x-test">xxFinancial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.xx</p>
   </description>
