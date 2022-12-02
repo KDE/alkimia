@@ -245,3 +245,5 @@ endif()
 if (BUILD_TOOLS)
     add_subdirectory(tools)
 endif()
+
+ki18n_install(po)
