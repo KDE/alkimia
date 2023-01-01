@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-04-09 00:45+0000\n"
-"PO-Revision-Date: 2019-10-19 22:39+0200\n"
+"PO-Revision-Date: 2020-03-07 08:02+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -77,13 +77,13 @@ msgstr "Editor de cotizacións de Internet"
 #: mainwindow.ui:30
 #, kde-format
 msgid "File"
-msgstr ""
+msgstr "Ficheiro"
 
 #. i18n: ectx: property (text), widget (QStatusBar, statusBar)
 #: mainwindow.ui:42
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "Saír"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "Editor de cotizacións de internet usado por aplicativos financeiros"
