@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the alkimia package.
 #
-# Stelios <sstavra@gmail.com>, 2020, 2021.
+# Stelios <sstavra@gmail.com>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2021-01-11 10:38+0200\n"
+"PO-Revision-Date: 2023-01-03 16:00+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: alkonlinequote.cpp:186
 #, kde-format
@@ -67,6 +67,8 @@ msgstr "Βρέθηκε URL: %1..."
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
+"Έχει γίνει ανακατεύθυνση στο URL, δείτε αν υπάρχει ενημέρωση του URL της "
+"μετοχής"
 
 #: alkonlinequote.cpp:537
 #, kde-format
@@ -82,7 +84,7 @@ msgstr "Βρέθηκε τιμή: '%1' (%2)"
 #: alkonlinequote.cpp:580
 #, kde-format
 msgid "Unable to parse price for '%1'"
-msgstr "Αδυναμία ανάλυσης τιμής γισ το '%1'"
+msgstr "Αδυναμία ανάλυσης τιμής για το '%1'"
 
 #: alkonlinequote.cpp:589
 #, kde-format
