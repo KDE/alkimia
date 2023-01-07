@@ -1,19 +1,20 @@
 # Simon Depiets <sdepiets@gmail.com>, 2019.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2022.
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-04-01 20:42+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-01-06 07:21+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -219,7 +220,7 @@ msgstr "Source"
 #: alkonlinequoteswidget.cpp:248 alkonlinequoteswidget.ui:382
 #, kde-format
 msgid "GHNS Source"
-msgstr "Source GHNS"
+msgstr "Source « GHNS »"
 
 #: alkonlinequoteswidget.cpp:250
 #, kde-format
@@ -315,7 +316,7 @@ msgstr "Fichier de configuration"
 #: alkonlinequoteswidget.ui:159
 #, kde-format
 msgid "GHNS data path"
-msgstr "Emplacement des données GHNS"
+msgstr "Emplacement des données « GHNS »"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteswidget.ui:185
@@ -442,15 +443,15 @@ msgid ""
 "</p>"
 msgstr ""
 "<p>Pour faciliter le traitement des données retournées par la source en "
-"ligne, KMyMoney égrène en général les parties non utilisées avant qu'elles "
-"ne soient traitées par les expressions rationnelles. Si les champs "
-"correspondent à ces éléments égrenés, utilisez cette option pour désactiver "
+"ligne, KMyMoney égrène en général les parties non utilisées avant qu'elles "
+"ne soient traitées par les expressions rationnelles. Si les champs "
+"correspondent à ces éléments égrenés, utilisez cette option pour désactiver "
 "l'égrenage.</p>\n"
 "\n"
 "<p>Les éléments suivants sont en général supprimés par l'égrenage :\n"
 "\n"
 "<ul>\n"
-"<li>Les balises HTML comme <b>&lt;balise&gt;</b></li>\n"
+"<li>Les balises « HTML » comme <b>&lt;balise&gt;</b></li>\n"
 "<li>les caractères encodés avec & comme <b>&amp;&nbsp;</b></li>\n"
 "<li>les espaces multiples</li>\n"
 "</ul>\n"
