@@ -38,10 +38,12 @@ if(BUILD_QT4)
         ${KDE4_KDECORE_LIBS}
         ${KDE4_KDEUI_LIBS}
         ${QT_USE_LIBSPREFIX}Core
+        ${QT_USE_LIBSPREFIX}Network
     )
 else()
     set(LIBS
         Qt5::Widgets
+        Qt5::Network
         ${QT_BROWSER_LIB}
         KF5::CoreAddons
         KF5::I18n
