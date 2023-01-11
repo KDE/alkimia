@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onlinequoteseditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-04-09 00:45+0000\n"
+"POT-Creation-Date: 2023-01-11 00:57+0000\n"
 "PO-Revision-Date: 2020-09-20 10:11+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -23,7 +23,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zepires@gmail.com"
 
-#: main.cpp:66
+#: main.cpp:74
 #, kde-format
 msgid "&About %1"
 msgstr "&Acerca do %1"
