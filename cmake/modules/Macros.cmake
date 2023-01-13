@@ -40,6 +40,14 @@ function(KI18N_INSTALL podir)
         set(LOCALE_INSTALL_DIR share/locale)
     endif()
 
+    if(NOT KI18N_PYTHON_EXECUTABLE)
+        message(FATAL_ERROR "KI18N_PYTHON_EXECUTABLE was not found")
+    endif()
+
+    if(NOT GETTEXT_MSGFMT_EXECUTABLE)
+        message(FATAL_ERROR "GETTEXT_MSGFMT_EXECUTABLE was not found")
+    endif()
+
     # First try to find the po directory in the source directory, where the release scripts copy them before making the tarballs
     get_filename_component(absolute_podir ${podir} ABSOLUTE)
 
