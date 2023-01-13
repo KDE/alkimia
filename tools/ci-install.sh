@@ -72,6 +72,7 @@ case "$ci_distro" in
         # misc packages
         packages=(
            "${packages[@]}"
+            gettext-runtime
             # prevents crashing of mingwxx-windres (https://bugzilla.opensuse.org/show_bug.cgi?id=1198923)
             glibc-locale-base
             # xvfb-run does not have added all required tools
