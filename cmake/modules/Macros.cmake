@@ -24,6 +24,7 @@ if(BUILD_QT4)
 
 set(_ki18n_build_pofiles_script ${CMAKE_CURRENT_LIST_DIR}/build-pofiles.cmake)
 set(_ki18n_build_tsfiles_script ${CMAKE_CURRENT_LIST_DIR}/build-tsfiles.cmake)
+set(_ki18n_pmap_compile_script ${CMAKE_CURRENT_LIST_DIR}/ts-pmap-compile.py)
 find_program(KI18N_PYTHON_EXECUTABLE python3)
 find_program(GETTEXT_MSGFMT_EXECUTABLE msgfmt)
 
