@@ -105,13 +105,26 @@ case "$ci_distro" in
                 ;;
             (kf5*-mingw*)
                 prefix=${ci_host}
-                source_packages=(
-                    "${source_packages[@]}"
-                    ${prefix}-libalkimia5
-                )
-                # in case not all required packages are installed with source_package
                 packages=(
                     "${packages[@]}"
+                    doxygen
+                    "$prefix-extra-cmake-modules"
+                    "$prefix-gmp-devel"
+                    "$prefix(cmake:KF5Completion)"
+                    "$prefix(cmake:KF5Config)"
+                    "$prefix(cmake:KF5CoreAddons)"
+                    "$prefix(cmake:KF5I18n)"
+                    "$prefix(cmake:KF5IconThemes)"
+                    "$prefix(cmake:KF5KIO)"
+                    "$prefix(cmake:KF5NewStuff)"
+                    "$prefix(cmake:KF5Package)"
+                    "$prefix(cmake:KF5TextWidgets)"
+                    "$prefix(cmake:Qt5Core)"
+                    "$prefix(cmake:Qt5DBus)"
+                    "$prefix(cmake:Qt5Qml)"
+                    "$prefix(cmake:Qt5Test)"
+                    "$prefix(cmake:Qt5WebKit)"
+                    "$prefix(cmake:Qt5Widgets)"
                     wine
                 )
                 ;;
