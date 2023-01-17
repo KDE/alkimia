@@ -1,0 +1,48 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+#
+# Steve Allewell <steve.allewell@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-08-30 07:39+0200\n"
+"PO-Revision-Date: 2019-03-24 13:47+0000\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.07.70\n"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: configwidget.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialogue"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configwidget.ui:25
+#, kde-format
+msgid "Symbol"
+msgstr "Symbol"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configwidget.ui:32
+#, kde-format
+msgid "Interval[min]"
+msgstr "Interval[min]"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: configwidget.ui:42
+#, kde-format
+msgid "Online Quote"
+msgstr "Online Quote"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configwidget.ui:65
+#, kde-format
+msgid "Profile"
+msgstr "Profile"

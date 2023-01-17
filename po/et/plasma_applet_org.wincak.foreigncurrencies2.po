@@ -1,0 +1,54 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+#
+# Marek Laane <qiilaq69@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-02-15 09:30+0100\n"
+"PO-Revision-Date: 2019-12-11 14:39+0200\n"
+"Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
+"Language-Team: Estonian <kde-et@lists.linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.08.1\n"
+
+#: contents/config/config.qml:6
+#, kde-format
+msgid "General"
+msgstr "Üldine"
+
+#: contents/ui/config/ConfigGeneral.qml:38
+#: contents/ui/config/ConfigGeneral.qml:149
+#, kde-format
+msgid "Add Currency Pair"
+msgstr "Vääringutepaari lisamine"
+
+#: contents/ui/config/ConfigGeneral.qml:55
+#, kde-format
+msgid "Paste currency pair symbol here"
+msgstr "Aseta siia vääringutepaari sümbol"
+
+#: contents/ui/config/ConfigGeneral.qml:67
+#, kde-format
+msgid "Currency Pairs"
+msgstr "Vääringupaarid"
+
+#: contents/ui/config/ConfigGeneral.qml:81
+#, kde-format
+msgid "Symbol"
+msgstr "Sümbol"
+
+#: contents/ui/config/ConfigGeneral.qml:96
+#, kde-format
+msgid "Action"
+msgstr "Toiming"
+
+#: contents/ui/Currency.qml:34
+#, kde-format
+msgid "unknown"
+msgstr "teadmata"

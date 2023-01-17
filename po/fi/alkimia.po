@@ -1,0 +1,525 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+# Tommi Nieminen <translator@legisign.org>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-04-09 02:15+0000\n"
+"PO-Revision-Date: 2019-02-28 15:29+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: alkonlinequote.cpp:177
+#, kde-format
+msgid "Source <placeholder>%1</placeholder> does not exist."
+msgstr ""
+
+#: alkonlinequote.cpp:211 alkonlinequote.cpp:225
+#, kde-format
+msgid "Unable to fetch url for %1"
+msgstr ""
+
+#: alkonlinequote.cpp:233 alkonlinequote.cpp:640
+#, kde-format
+msgid "Symbol found: '%1'"
+msgstr ""
+
+#: alkonlinequote.cpp:236 alkonlinequote.cpp:643
+#, kde-format
+msgid "Unable to parse symbol for %1"
+msgstr ""
+
+#: alkonlinequote.cpp:259
+#, kde-format
+msgid "Fetching URL %1..."
+msgstr ""
+
+#: alkonlinequote.cpp:316
+#, kde-format
+msgctxt "The process x is executing"
+msgid "Executing %1..."
+msgstr "Suoritetaan: %1…"
+
+#: alkonlinequote.cpp:328 alkonlinequote.cpp:528
+#, kde-format
+msgid "Unable to launch: %1"
+msgstr "Ei voida käynnistää: %1"
+
+#: alkonlinequote.cpp:350
+#, kde-format
+msgid "Failed to open downloaded file"
+msgstr "Ladatun tiedoston avaaminen epäonnistui"
+
+#: alkonlinequote.cpp:367
+#, kde-format
+msgid "URL found: %1..."
+msgstr "Verkko-osoite löytyi: %1…"
+
+#: alkonlinequote.cpp:455
+#, kde-format
+msgid "The URL has been redirected; check an update of the online quote URL"
+msgstr ""
+
+#: alkonlinequote.cpp:520
+#, kde-format
+msgctxt "Executing 'script' 'online source' 'investment symbol' "
+msgid "Executing %1 %2 %3..."
+msgstr "Suoritetaan: %1 %2 %3…"
+
+#: alkonlinequote.cpp:560
+#, kde-format
+msgid "Price found: '%1' (%2)"
+msgstr "Hinta löytyi: ”%1” (%2)"
+
+#: alkonlinequote.cpp:563
+#, kde-format
+msgid "Unable to parse price for '%1'"
+msgstr ""
+
+#: alkonlinequote.cpp:572
+#, kde-format
+msgid "Date found: '%1'"
+msgstr "Päiväys löytyi: ”%1”"
+
+#: alkonlinequote.cpp:578
+#, kde-format
+msgid "Date format found: '%1' -> '%2'"
+msgstr "Päiväysmuoto löytyi: ”%1” → ”%2”"
+
+#: alkonlinequote.cpp:581
+#, kde-format
+msgid "Unable to parse date '%1' using format '%2': %3"
+msgstr "Päiväystä ”%1” ei voi jäsentää muodolla ”%2”: %3"
+
+#: alkonlinequote.cpp:585 alkonlinequote.cpp:595
+#, kde-format
+msgid "Using current date for '%1'"
+msgstr ""
+
+#: alkonlinequote.cpp:589
+#, kde-format
+msgid "Parsing date is disabled for '%1'"
+msgstr ""
+
+#: alkonlinequote.cpp:592
+#, kde-format
+msgid "Unable to parse date for '%1'"
+msgstr ""
+
+#: alkonlinequote.cpp:670
+#, kde-format
+msgid "Unable to update price for %1 (empty quote data)"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:135
+#, kde-format
+msgctxt "Accepts the entered data and stores it"
+msgid "&Accept"
+msgstr "&Hyväksy"
+
+#: alkonlinequoteswidget.cpp:137
+#, kde-format
+msgid "Accepts the entered data and stores it"
+msgstr "Hyväksy ja tallenna syötetyt tiedot"
+
+#: alkonlinequoteswidget.cpp:138
+#, kde-format
+msgid "Use this to accept the modified data."
+msgstr "Hyväksy tällä muokatut tiedot."
+
+#: alkonlinequoteswidget.cpp:140
+#, kde-format
+msgid "&Delete"
+msgstr "&Poista"
+
+#: alkonlinequoteswidget.cpp:142
+#, kde-format
+msgid "Delete the selected source entry"
+msgstr "Poista valittu lähdetietue"
+
+#: alkonlinequoteswidget.cpp:143
+#, kde-format
+msgid "Use this to delete the selected online source entry"
+msgstr "Poista tällä valittu verkkolähdetietue"
+
+#: alkonlinequoteswidget.cpp:145
+#, kde-format
+msgctxt "Check the selected source entry"
+msgid "&Check Source"
+msgstr "&Tarkista lähde"
+
+#: alkonlinequoteswidget.cpp:147
+#, kde-format
+msgid "Check the selected source entry"
+msgstr "Tarkista valittu lähdetietue"
+
+#: alkonlinequoteswidget.cpp:148
+#, kde-format
+msgid "Use this to check the selected online source entry"
+msgstr "Tarkista tällä valittu verkkolähdetietue"
+
+#: alkonlinequoteswidget.cpp:150
+#, kde-format
+msgctxt "Show the selected source entry in a web browser"
+msgid "&Show page"
+msgstr "Näytä &sivu"
+
+#: alkonlinequoteswidget.cpp:152
+#, kde-format
+msgid "Show the selected source entry in a web browser"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:153
+#, kde-format
+msgid "Use this to show the selected online source entry"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:155
+#, kde-format
+msgctxt "Create a new source entry for online quotes"
+msgid "&New..."
+msgstr "&Uusi…"
+
+#: alkonlinequoteswidget.cpp:157
+#, kde-format
+msgid "Create a new source entry for online quotes"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:158
+#, kde-format
+msgid "Use this to create a new entry for online quotes"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:186
+#, kde-format
+msgid "Name"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:186
+#, fuzzy, kde-format
+#| msgid "GHNS Source"
+msgid "Source"
+msgstr "GHNS-lähde"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequoteswidget.cpp:242 alkonlinequoteswidget.ui:382
+#, kde-format
+msgid "GHNS Source"
+msgstr "GHNS-lähde"
+
+#: alkonlinequoteswidget.cpp:244
+#, kde-format
+msgid "Finance::Quote"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:245
+#, kde-format
+msgid "local"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:473
+#, kde-format
+msgid "New Quote Source"
+msgstr "Uusi kurssilähde"
+
+#: alkonlinequoteswidget.cpp:422
+#, kde-format
+msgid "Are you sure to delete this online quote ?"
+msgstr "Haluatko varmasti poistaa tämän kurssin?"
+
+#: alkonlinequoteswidget.cpp:423
+#, kde-format
+msgid "Delete online quote"
+msgstr "Poista kurssi"
+
+#: alkonlinequoteswidget.cpp:450
+#, kde-format
+msgid ".copy"
+msgstr ".kopio"
+
+#: alkonlinequoteswidget.cpp:626
+#, kde-format
+msgid "Online Quote HTML Result Window"
+msgstr "Kurssin HTML-tulosikkuna"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
+#. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
+#: alkonlinequoteswidget.ui:20 alkonlinequoteswidget.ui:188
+#, kde-format
+msgid "Online Quotes"
+msgstr "Kurssit verkossa"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequoteswidget.ui:26
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select, add or delete an application profile, where to "
+"load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Valitse, lisää tai poista sovellusprofiili; mistä "
+"ladata profiileja ja tallentaa esim. KMyMoneyyn tai Skroogeen.</p></body></"
+"html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequoteswidget.ui:29
+#, kde-format
+msgid "Application Profiles"
+msgstr "Sovellusprofiilit"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newProfile)
+#: alkonlinequoteswidget.ui:48
+#, kde-format
+msgid "New"
+msgstr "Uusi"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteswidget.ui:62 alkonlinequoteswidget.ui:211
+#, kde-format
+msgid "Delete"
+msgstr "Poista"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
+#: alkonlinequoteswidget.ui:93
+#, kde-format
+msgid "Profile details"
+msgstr "Profiilin tiedot"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
+#: alkonlinequoteswidget.ui:102
+#, kde-format
+msgid "GHNS config file"
+msgstr "GHNS-asetustiedosto"
+
+#. i18n: ectx: property (text), widget (QLabel, m_configLabel)
+#: alkonlinequoteswidget.ui:122
+#, kde-format
+msgid "Config file"
+msgstr "Asetustiedosto"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
+#: alkonlinequoteswidget.ui:159
+#, kde-format
+msgid "GHNS data path"
+msgstr "GHNS-tiedon sijainti"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
+#: alkonlinequoteswidget.ui:185
+#, kde-format
+msgid "<html><head/><body><p>online price quotes</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteswidget.ui:204
+#, kde-format
+msgctxt "@action create new quote source"
+msgid "New"
+msgstr "Uusi"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:218
+#, kde-format
+msgid ""
+"Create a duplicate of the currently selected source entry under a different "
+"name."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:221
+#, kde-format
+msgid "Use this to create a duplicate of an entry for an online source"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:224
+#, kde-format
+msgid "Duplicate"
+msgstr "Monista"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteswidget.ui:235
+#, kde-format
+msgid "Install"
+msgstr "Asenna"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequoteswidget.ui:265
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
+"expressions which can be used to parse the data returned from the URL "
+"entered above. The symbol, price, and date must be found in the quote data "
+"to be usable. You may also try the KMyMoney forum at </span><a href="
+"\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
+"a>  or the <span style=\" font-style:italic;\">user's mailinglist at </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\"> to find what settings work for other "
+"users in your country.</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequoteswidget.ui:268
+#, kde-format
+msgid "Details"
+msgstr "Yksityiskohdat"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#: alkonlinequoteswidget.ui:281 alkonlinequoteswidget.ui:423
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequoteswidget.ui:288
+#, kde-format
+msgid "Date Format"
+msgstr ""
+"Päiväysmuoto\n"
+"päiväysmuoto"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editSymbol)
+#: alkonlinequoteswidget.ui:305
+#, kde-format
+msgid "Regular Expression to extract the symbol from the downloaded data"
+msgstr "Ladatusta tiedosta symbolin erottava säännöllinen lauseke "
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequoteswidget.ui:312
+#, kde-format
+msgid "Date"
+msgstr "Päiväys"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
+#: alkonlinequoteswidget.ui:331
+#, kde-format
+msgid ""
+"<p>For easier processing of the data returned by the online source, KMyMoney "
+"usually strips unused parts before it is parsed with the regular "
+"expressions. If matching of the fields relies on those items, then use this "
+"option to turn stripping off.</p>\n"
+"\n"
+"<p>The following items are usually removed by stripping:\n"
+"\n"
+"<ul>\n"
+"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
+"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
+"<li>duplicate whitespace</li>\n"
+"</ul>\n"
+"</p>"
+msgstr ""
+"<p>Jotta verkkolähteen palauttaman tiedon käsitteleminen helpottuisi, "
+"KMyMoney yleensä puhdistaa sen poistamalla siitä osia ennen säännöllisellä "
+"lausekkeella jäsentämistä. Jos tämä estää kentän tunnistamisen, poista vaihe "
+"käytöstä tällä asetuksella.</p>\n"
+"\n"
+"<p>Yleensä seuraavat osat irrotetaan:\n"
+"\n"
+"<ul>\n"
+"<li>HTML-tunnisteet kuten <b>&lt;tunniste&gt;</b></li>\n"
+"<li>&-koodatut merkit kuten <b>&amp;nbsp;</b></li>\n"
+"<li>toistuvat tyhjemerkit</li>\n"
+"</ul>\n"
+"</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
+#: alkonlinequoteswidget.ui:334
+#, kde-format
+msgid "Skip HTML stripping"
+msgstr "Älä puhdista HTML:stä"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequoteswidget.ui:355
+#, kde-format
+msgid "URL"
+msgstr "Verkko-osoite"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
+#: alkonlinequoteswidget.ui:365
+#, kde-format
+msgid "Regular Expression to extract the price from the downloaded data"
+msgstr "Ladatusta tiedosta hinnan erottava säännöllinen lauseke"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequoteswidget.ui:372
+#, kde-format
+msgid "Options"
+msgstr "Valinnat"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: alkonlinequoteswidget.ui:403
+#, kde-format
+msgid "Price"
+msgstr "Hinta"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequoteswidget.ui:413
+#, kde-format
+msgid "Symbol"
+msgstr "Symboli"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
+#: alkonlinequoteswidget.ui:430
+#, kde-format
+msgid "URL to be used to download the quote"
+msgstr "Kurssin lataukseen käytettävä verkko-osoite"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
+#: alkonlinequoteswidget.ui:433
+#, no-c-format, kde-format
+msgid ""
+"Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
+"replaced with the symbol for the security being quoted. For currency "
+"conversions, <b>%2</b> will be replaced with the currency to be quoted and "
+"<b>%1</b> with the currency the quote is based on."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
+#: alkonlinequoteswidget.ui:447
+#, kde-format
+msgctxt "@action update quotes from online quote source"
+msgid "Accept"
+msgstr "Hyväksy"
+
+#. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
+#: alkonlinequoteswidget.ui:487
+#, kde-format
+msgid "Debugging"
+msgstr "Virheenpaikannus"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequoteswidget.ui:502
+#, kde-format
+msgid "One Symbol"
+msgstr "Yksi symboli"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequoteswidget.ui:516
+#, kde-format
+msgid "Two Symbols"
+msgstr "Kaksi symbolia"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
+#: alkonlinequoteswidget.ui:537
+#, kde-format
+msgid "Check Source"
+msgstr "Tarkista lähde"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
+#: alkonlinequoteswidget.ui:547
+#, kde-format
+msgid "Show Page"
+msgstr "Näytä sivu"
+
+#~ msgid "Upload"
+#~ msgstr "Lähetä"

@@ -1,0 +1,56 @@
+# Translation of plasma_applet_org.wincak.foreigncurrencies2 to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-02-15 09:30+0100\n"
+"PO-Revision-Date: 2020-05-02 23:21+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.0\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: contents/config/config.qml:6
+#, kde-format
+msgid "General"
+msgstr "Generelt"
+
+#: contents/ui/config/ConfigGeneral.qml:38
+#: contents/ui/config/ConfigGeneral.qml:149
+#, kde-format
+msgid "Add Currency Pair"
+msgstr "Legg til valutapar"
+
+#: contents/ui/config/ConfigGeneral.qml:55
+#, kde-format
+msgid "Paste currency pair symbol here"
+msgstr "Lim inn ID for valutapar her"
+
+#: contents/ui/config/ConfigGeneral.qml:67
+#, kde-format
+msgid "Currency Pairs"
+msgstr "Valutapar"
+
+#: contents/ui/config/ConfigGeneral.qml:81
+#, kde-format
+msgid "Symbol"
+msgstr "ID"
+
+#: contents/ui/config/ConfigGeneral.qml:96
+#, kde-format
+msgid "Action"
+msgstr "Handling"
+
+#: contents/ui/Currency.qml:34
+#, kde-format
+msgid "unknown"
+msgstr "ukjend"

@@ -1,0 +1,579 @@
+# Translation of alkimia.po to Ukrainian
+# Copyright (C) 2018-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2018, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-04-09 02:15+0000\n"
+"PO-Revision-Date: 2022-04-01 20:31+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: alkonlinequote.cpp:177
+#, kde-format
+msgid "Source <placeholder>%1</placeholder> does not exist."
+msgstr "Джерела <placeholder>%1</placeholder> не існує."
+
+#: alkonlinequote.cpp:211 alkonlinequote.cpp:225
+#, kde-format
+msgid "Unable to fetch url for %1"
+msgstr "Не вдалося отримати адресу для %1"
+
+#: alkonlinequote.cpp:233 alkonlinequote.cpp:640
+#, kde-format
+msgid "Symbol found: '%1'"
+msgstr "Знайдено код: «%1»"
+
+#: alkonlinequote.cpp:236 alkonlinequote.cpp:643
+#, kde-format
+msgid "Unable to parse symbol for %1"
+msgstr "Не вдалося обробити код для %1"
+
+#: alkonlinequote.cpp:259
+#, kde-format
+msgid "Fetching URL %1..."
+msgstr "Отримання даних URL %1…"
+
+#: alkonlinequote.cpp:316
+#, kde-format
+msgctxt "The process x is executing"
+msgid "Executing %1..."
+msgstr "Виконання %1…"
+
+#: alkonlinequote.cpp:328 alkonlinequote.cpp:528
+#, kde-format
+msgid "Unable to launch: %1"
+msgstr "Не вдалося запустити: %1"
+
+#: alkonlinequote.cpp:350
+#, kde-format
+msgid "Failed to open downloaded file"
+msgstr "Спроба відкрити отриманий файл завершилася невдало"
+
+#: alkonlinequote.cpp:367
+#, kde-format
+msgid "URL found: %1..."
+msgstr "Знайдено адресу: %1…"
+
+#: alkonlinequote.cpp:455
+#, kde-format
+msgid "The URL has been redirected; check an update of the online quote URL"
+msgstr ""
+"Адресу було переспрямовано; перевірте оновлення адреси курсів в інтернеті"
+
+#: alkonlinequote.cpp:520
+#, kde-format
+msgctxt "Executing 'script' 'online source' 'investment symbol' "
+msgid "Executing %1 %2 %3..."
+msgstr "Виконання %1 %2 %3…"
+
+#: alkonlinequote.cpp:560
+#, kde-format
+msgid "Price found: '%1' (%2)"
+msgstr "Знайдено ціну: «%1» (%2)"
+
+#: alkonlinequote.cpp:563
+#, kde-format
+msgid "Unable to parse price for '%1'"
+msgstr "Не вдалося обробити дані ціни для «%1»"
+
+#: alkonlinequote.cpp:572
+#, kde-format
+msgid "Date found: '%1'"
+msgstr "Знайдено дату: «%1»"
+
+#: alkonlinequote.cpp:578
+#, kde-format
+msgid "Date format found: '%1' -> '%2'"
+msgstr "Знайдено формат дати: «%1» → «%2»"
+
+#: alkonlinequote.cpp:581
+#, kde-format
+msgid "Unable to parse date '%1' using format '%2': %3"
+msgstr "Не вдалося обробити дату «%1» з використанням формату «%2»: %3"
+
+#: alkonlinequote.cpp:585 alkonlinequote.cpp:595
+#, kde-format
+msgid "Using current date for '%1'"
+msgstr "Використовуємо поточну дату для «%1»"
+
+#: alkonlinequote.cpp:589
+#, kde-format
+msgid "Parsing date is disabled for '%1'"
+msgstr "Обробку дат для «%1» вимкнено"
+
+#: alkonlinequote.cpp:592
+#, kde-format
+msgid "Unable to parse date for '%1'"
+msgstr "Не вдалося обробити дату для «%1»"
+
+#: alkonlinequote.cpp:670
+#, kde-format
+msgid "Unable to update price for %1 (empty quote data)"
+msgstr "Не вдалося оновити ціну для %1 (порожні дані щодо курсу)"
+
+#: alkonlinequoteswidget.cpp:135
+#, kde-format
+msgctxt "Accepts the entered data and stores it"
+msgid "&Accept"
+msgstr "&Прийняти"
+
+#: alkonlinequoteswidget.cpp:137
+#, kde-format
+msgid "Accepts the entered data and stores it"
+msgstr "Підтвердити введені дані і зберегти їх"
+
+#: alkonlinequoteswidget.cpp:138
+#, kde-format
+msgid "Use this to accept the modified data."
+msgstr "Натисніть, щоб підтвердити змінені дані."
+
+#: alkonlinequoteswidget.cpp:140
+#, kde-format
+msgid "&Delete"
+msgstr "Ви&лучити"
+
+#: alkonlinequoteswidget.cpp:142
+#, kde-format
+msgid "Delete the selected source entry"
+msgstr "Вилучити позначений запис джерела"
+
+#: alkonlinequoteswidget.cpp:143
+#, kde-format
+msgid "Use this to delete the selected online source entry"
+msgstr "Натисніть, щоб вилучити позначений запис джерела даних"
+
+#: alkonlinequoteswidget.cpp:145
+#, kde-format
+msgctxt "Check the selected source entry"
+msgid "&Check Source"
+msgstr "П&еревірити джерело"
+
+#: alkonlinequoteswidget.cpp:147
+#, kde-format
+msgid "Check the selected source entry"
+msgstr "Перевірити вибраний запис джерела"
+
+#: alkonlinequoteswidget.cpp:148
+#, kde-format
+msgid "Use this to check the selected online source entry"
+msgstr ""
+"Скористайтеся цим пунктом для перевірки вибраного запису інтернет-джерела"
+
+#: alkonlinequoteswidget.cpp:150
+#, kde-format
+msgctxt "Show the selected source entry in a web browser"
+msgid "&Show page"
+msgstr "По&казати сторінку"
+
+#: alkonlinequoteswidget.cpp:152
+#, kde-format
+msgid "Show the selected source entry in a web browser"
+msgstr ""
+"Показати сторінку вибраного запису джерела у програмі для перегляду інтернету"
+
+#: alkonlinequoteswidget.cpp:153
+#, kde-format
+msgid "Use this to show the selected online source entry"
+msgstr ""
+"Скористайтеся цим пунктом для перегляду вибраного запису інтернет-джерела"
+
+#: alkonlinequoteswidget.cpp:155
+#, kde-format
+msgctxt "Create a new source entry for online quotes"
+msgid "&New..."
+msgstr "С&творити…"
+
+#: alkonlinequoteswidget.cpp:157
+#, kde-format
+msgid "Create a new source entry for online quotes"
+msgstr "Створити запис джерела курсів у інтернеті"
+
+#: alkonlinequoteswidget.cpp:158
+#, kde-format
+msgid "Use this to create a new entry for online quotes"
+msgstr "Натисніть, щоб створити запис джерела курсів у інтернеті"
+
+#: alkonlinequoteswidget.cpp:186
+#, kde-format
+msgid "Name"
+msgstr "Назва"
+
+#: alkonlinequoteswidget.cpp:186
+#, kde-format
+msgid "Source"
+msgstr "Джерело"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequoteswidget.cpp:242 alkonlinequoteswidget.ui:382
+#, kde-format
+msgid "GHNS Source"
+msgstr "Джерело GHNS"
+
+#: alkonlinequoteswidget.cpp:244
+#, kde-format
+msgid "Finance::Quote"
+msgstr "Finance::Quote"
+
+#: alkonlinequoteswidget.cpp:245
+#, kde-format
+msgid "local"
+msgstr "локальне"
+
+#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:473
+#, kde-format
+msgid "New Quote Source"
+msgstr "Створити джерело курсів"
+
+#: alkonlinequoteswidget.cpp:422
+#, kde-format
+msgid "Are you sure to delete this online quote ?"
+msgstr "Ви справді хочете вилучити цей інтернет-курс?"
+
+#: alkonlinequoteswidget.cpp:423
+#, kde-format
+msgid "Delete online quote"
+msgstr "Вилучити інтернет-курс"
+
+#: alkonlinequoteswidget.cpp:450
+#, kde-format
+msgid ".copy"
+msgstr ".копія"
+
+#: alkonlinequoteswidget.cpp:626
+#, kde-format
+msgid "Online Quote HTML Result Window"
+msgstr "Вікно результатів пошуку курсів у форматі HTML"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
+#. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
+#: alkonlinequoteswidget.ui:20 alkonlinequoteswidget.ui:188
+#, kde-format
+msgid "Online Quotes"
+msgstr "Інтерактивні курси"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequoteswidget.ui:26
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select, add or delete an application profile, where to "
+"load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Вибір, додавання або вилучення профілів програм, де "
+"зберігаються дані щодо того, які профілі слід завантажувати і зберігати у, "
+"наприклад, kmymoney або skrooge.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequoteswidget.ui:29
+#, kde-format
+msgid "Application Profiles"
+msgstr "Профілі програм"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newProfile)
+#: alkonlinequoteswidget.ui:48
+#, kde-format
+msgid "New"
+msgstr "Створити"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteswidget.ui:62 alkonlinequoteswidget.ui:211
+#, kde-format
+msgid "Delete"
+msgstr "Вилучити"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
+#: alkonlinequoteswidget.ui:93
+#, kde-format
+msgid "Profile details"
+msgstr "Параметри профілю"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
+#: alkonlinequoteswidget.ui:102
+#, kde-format
+msgid "GHNS config file"
+msgstr "Файл налаштувань GHNS"
+
+#. i18n: ectx: property (text), widget (QLabel, m_configLabel)
+#: alkonlinequoteswidget.ui:122
+#, kde-format
+msgid "Config file"
+msgstr "Файл налаштувань"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
+#: alkonlinequoteswidget.ui:159
+#, kde-format
+msgid "GHNS data path"
+msgstr "Шлях до даних GHNS"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
+#: alkonlinequoteswidget.ui:185
+#, kde-format
+msgid "<html><head/><body><p>online price quotes</p></body></html>"
+msgstr "<html><head/><body><p>Інтернет-курси</p></body></html>"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteswidget.ui:204
+#, kde-format
+msgctxt "@action create new quote source"
+msgid "New"
+msgstr "Створити"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:218
+#, kde-format
+msgid ""
+"Create a duplicate of the currently selected source entry under a different "
+"name."
+msgstr ""
+"Створити дублікат із іншою назвою поточного позначеного запису джерела "
+"курсів."
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:221
+#, kde-format
+msgid "Use this to create a duplicate of an entry for an online source"
+msgstr ""
+"Скористайтеся цим пунктом, щоб створити дублікат запису джерела курсів у "
+"інтернеті"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:224
+#, kde-format
+msgid "Duplicate"
+msgstr "Дублювати"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteswidget.ui:235
+#, kde-format
+msgid "Install"
+msgstr "Встановити"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequoteswidget.ui:265
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
+"expressions which can be used to parse the data returned from the URL "
+"entered above. The symbol, price, and date must be found in the quote data "
+"to be usable. You may also try the KMyMoney forum at </span><a href="
+"\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
+"a>  or the <span style=\" font-style:italic;\">user's mailinglist at </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\"> to find what settings work for other "
+"users in your country.</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Введіть формальний "
+"вираз, який буде використано для обробки даних, отриманих з адреси URL, "
+"введеної вище. Для того, щоб програма могла скористатися даними, вона має "
+"знайти у них код, ціну і дату. Запитати про перелік параметрів, які "
+"визначили інші користувачі з вашої країни, можна на </span><a href=\"https://"
+"forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">форумі KMyMoney</span></a> або у <span style=\" "
+"font-style:italic;\">списку листування </span><a href=\"mailto:kmymoney@kde."
+"org\"><span style=\" font-style:italic; text-decoration: underline; color:"
+"#2980b9;\">kmymoney@kde.org</span></a><span style=\" font-style:italic;\">.</"
+"span></p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequoteswidget.ui:268
+#, kde-format
+msgid "Details"
+msgstr "Подробиці"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#: alkonlinequoteswidget.ui:281 alkonlinequoteswidget.ui:423
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr "Формальний вираз для видобування дати зі отриманих даних"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequoteswidget.ui:288
+#, kde-format
+msgid "Date Format"
+msgstr "Формат дати"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editSymbol)
+#: alkonlinequoteswidget.ui:305
+#, kde-format
+msgid "Regular Expression to extract the symbol from the downloaded data"
+msgstr "Формальний вираз, призначений для видобування коду зі отриманих даних."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequoteswidget.ui:312
+#, kde-format
+msgid "Date"
+msgstr "Дата"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
+#: alkonlinequoteswidget.ui:331
+#, kde-format
+msgid ""
+"<p>For easier processing of the data returned by the online source, KMyMoney "
+"usually strips unused parts before it is parsed with the regular "
+"expressions. If matching of the fields relies on those items, then use this "
+"option to turn stripping off.</p>\n"
+"\n"
+"<p>The following items are usually removed by stripping:\n"
+"\n"
+"<ul>\n"
+"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
+"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
+"<li>duplicate whitespace</li>\n"
+"</ul>\n"
+"</p>"
+msgstr ""
+"<p>Для полегшення обробки даних, які отримуються з мережевого джерела "
+"KMyMoney, зазвичай, вилучає непотрібні частини перед обробкою за формальними "
+"виразами. Якщо ці частини потрібні для визначення інших, вам слід вимкнути "
+"вилучення.</p>\n"
+"\n"
+"<p>Під час вилучення буде усунуто такі елементи:\n"
+"\n"
+"<ul>\n"
+"<li>теґи HTML, зокрема <b>&lt;tag&gt;</b></li>\n"
+"<li>&-закодовані символи, зокрема <b>&amp;nbsp;</b></li>\n"
+"<li>кратні пробіли</li>\n"
+"</ul>\n"
+"</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
+#: alkonlinequoteswidget.ui:334
+#, kde-format
+msgid "Skip HTML stripping"
+msgstr "Пропустити обробку HTML"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequoteswidget.ui:355
+#, kde-format
+msgid "URL"
+msgstr "Адреса"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
+#: alkonlinequoteswidget.ui:365
+#, kde-format
+msgid "Regular Expression to extract the price from the downloaded data"
+msgstr "Формальний вираз для видобування ціни зі отриманих даних"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequoteswidget.ui:372
+#, kde-format
+msgid "Options"
+msgstr "Параметри"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: alkonlinequoteswidget.ui:403
+#, kde-format
+msgid "Price"
+msgstr "Ціна"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequoteswidget.ui:413
+#, kde-format
+msgid "Symbol"
+msgstr "Код"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
+#: alkonlinequoteswidget.ui:430
+#, kde-format
+msgid "URL to be used to download the quote"
+msgstr "URL, який буде використано для отримання курсів"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
+#: alkonlinequoteswidget.ui:433
+#, no-c-format, kde-format
+msgid ""
+"Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
+"replaced with the symbol for the security being quoted. For currency "
+"conversions, <b>%2</b> will be replaced with the currency to be quoted and "
+"<b>%1</b> with the currency the quote is based on."
+msgstr ""
+"Введіть адресу URL, з якої буде отримано дані про курси. <b>%1</b> буде "
+"замінено кодом цінного паперу, курс якого ви бажаєте отримати. У "
+"перетвореннях валют <b>%2</b> буде замінено на код валюти, курс якої слід "
+"отримати, а <b>%1</b> — на валюту, за якою розраховуватиметься курс."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
+#: alkonlinequoteswidget.ui:447
+#, kde-format
+msgctxt "@action update quotes from online quote source"
+msgid "Accept"
+msgstr "Прийняти"
+
+#. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
+#: alkonlinequoteswidget.ui:487
+#, kde-format
+msgid "Debugging"
+msgstr "Діагностика"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequoteswidget.ui:502
+#, kde-format
+msgid "One Symbol"
+msgstr "Один код"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequoteswidget.ui:516
+#, kde-format
+msgid "Two Symbols"
+msgstr "Два коди"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
+#: alkonlinequoteswidget.ui:537
+#, kde-format
+msgid "Check Source"
+msgstr "Перевірити джерело"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
+#: alkonlinequoteswidget.ui:547
+#, kde-format
+msgid "Show Page"
+msgstr "Показати сторінку"
+
+#~ msgid "Upload"
+#~ msgstr "Вивантажити"
+
+#~ msgid "Unable to parse date '%1' using format '%2'"
+#~ msgstr "Не вдалося обробити дату «%1» з використанням формату «%2»"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Юрій Чорноіван"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "yurchor@ukr.net"
+
+#~ msgid "Dialog"
+#~ msgstr "Діалогове вікно"
+
+#~ msgid "Interval[min]"
+#~ msgstr "Інтервал[хв.]"
+
+#~ msgid "onlinequoteseditor"
+#~ msgstr "Редактор інтернет-курсів"
+
+#~ msgid "Editor for online price quotes used by finance applications"
+#~ msgstr ""
+#~ "Редактор для джерел курсів цін у інтернеті, який використовується "
+#~ "фінансовими програмами"
+
+#~ msgid "(C) 2018 Ralf Habacker"
+#~ msgstr "© Ralf Habacker, 2018"
+
+#~ msgid "OnlineQuotesEditor"
+#~ msgstr "Редактор інтернет-курсів"

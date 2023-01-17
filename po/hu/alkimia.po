@@ -1,0 +1,537 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+#
+# Kristof Kiszel <kiszel.kristof@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-04-09 02:15+0000\n"
+"PO-Revision-Date: 2021-11-05 11:17+0100\n"
+"Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.08.3\n"
+
+#: alkonlinequote.cpp:177
+#, kde-format
+msgid "Source <placeholder>%1</placeholder> does not exist."
+msgstr "A(z) <placeholder>%1</placeholder> forrás nem létezik."
+
+#: alkonlinequote.cpp:211 alkonlinequote.cpp:225
+#, kde-format
+msgid "Unable to fetch url for %1"
+msgstr "Nem lehet lekérni a(z) %1 URL-jét"
+
+#: alkonlinequote.cpp:233 alkonlinequote.cpp:640
+#, kde-format
+msgid "Symbol found: '%1'"
+msgstr "Szimbólum találat: „%1”"
+
+#: alkonlinequote.cpp:236 alkonlinequote.cpp:643
+#, kde-format
+msgid "Unable to parse symbol for %1"
+msgstr "Nem lehet feldolgozni a(z) %1 szimbólumát"
+
+#: alkonlinequote.cpp:259
+#, kde-format
+msgid "Fetching URL %1..."
+msgstr "%1 URL lekérése…"
+
+#: alkonlinequote.cpp:316
+#, kde-format
+msgctxt "The process x is executing"
+msgid "Executing %1..."
+msgstr "%1 végrehajtása…"
+
+#: alkonlinequote.cpp:328 alkonlinequote.cpp:528
+#, kde-format
+msgid "Unable to launch: %1"
+msgstr "Nem lehet elindítani: %1"
+
+#: alkonlinequote.cpp:350
+#, kde-format
+msgid "Failed to open downloaded file"
+msgstr "Nem sikerült megnyitni a letöltött fájlt"
+
+#: alkonlinequote.cpp:367
+#, kde-format
+msgid "URL found: %1..."
+msgstr "URL találat: %1…"
+
+#: alkonlinequote.cpp:455
+#, kde-format
+msgid "The URL has been redirected; check an update of the online quote URL"
+msgstr ""
+
+#: alkonlinequote.cpp:520
+#, kde-format
+msgctxt "Executing 'script' 'online source' 'investment symbol' "
+msgid "Executing %1 %2 %3..."
+msgstr "%1 %2 %3 végrehajtása…"
+
+#: alkonlinequote.cpp:560
+#, kde-format
+msgid "Price found: '%1' (%2)"
+msgstr "Ár találat: „%1” (%2)"
+
+#: alkonlinequote.cpp:563
+#, kde-format
+msgid "Unable to parse price for '%1'"
+msgstr "Nem lehet feldolgozni a(z) „%1” árát"
+
+#: alkonlinequote.cpp:572
+#, kde-format
+msgid "Date found: '%1'"
+msgstr "Dátum találat: „%1”"
+
+#: alkonlinequote.cpp:578
+#, kde-format
+msgid "Date format found: '%1' -> '%2'"
+msgstr "Dátumformátum találat: „%1” -> „%2”"
+
+#: alkonlinequote.cpp:581
+#, kde-format
+msgid "Unable to parse date '%1' using format '%2': %3"
+msgstr "Nem lehet feldolgozni a(z) „%1” dátumot a(z) „%2” dátumformátummal: %3"
+
+#: alkonlinequote.cpp:585 alkonlinequote.cpp:595
+#, kde-format
+msgid "Using current date for '%1'"
+msgstr "Aktuális dátum használata ehhez: „%1”"
+
+#: alkonlinequote.cpp:589
+#, kde-format
+msgid "Parsing date is disabled for '%1'"
+msgstr "Dátum feldolgozása kikapcsolva ehhez: „%1”"
+
+#: alkonlinequote.cpp:592
+#, kde-format
+msgid "Unable to parse date for '%1'"
+msgstr "Nem lehet feldolgozni a(z) „%1” dátumát"
+
+#: alkonlinequote.cpp:670
+#, kde-format
+msgid "Unable to update price for %1 (empty quote data)"
+msgstr "Nem lehet frissíteni a(z) %1 árát (üres árajánlat adat)"
+
+#: alkonlinequoteswidget.cpp:135
+#, kde-format
+msgctxt "Accepts the entered data and stores it"
+msgid "&Accept"
+msgstr "&Elfogadás"
+
+#: alkonlinequoteswidget.cpp:137
+#, kde-format
+msgid "Accepts the entered data and stores it"
+msgstr "Megadott adatok elfogadása és tárolása"
+
+#: alkonlinequoteswidget.cpp:138
+#, kde-format
+msgid "Use this to accept the modified data."
+msgstr "Használja ezt, hogy a módosított adatokat elfogadja."
+
+#: alkonlinequoteswidget.cpp:140
+#, kde-format
+msgid "&Delete"
+msgstr "&Törlés"
+
+#: alkonlinequoteswidget.cpp:142
+#, kde-format
+msgid "Delete the selected source entry"
+msgstr "Kijelölt forrásbejegyzés törlése"
+
+#: alkonlinequoteswidget.cpp:143
+#, kde-format
+msgid "Use this to delete the selected online source entry"
+msgstr "Használja ezt, hogy törölhesse a kiválasztott online forrásbejegyzést"
+
+#: alkonlinequoteswidget.cpp:145
+#, kde-format
+msgctxt "Check the selected source entry"
+msgid "&Check Source"
+msgstr "&Forrás ellenőrzése"
+
+#: alkonlinequoteswidget.cpp:147
+#, kde-format
+msgid "Check the selected source entry"
+msgstr "Kijelölt forrásbejegyzés ellenőrzése"
+
+#: alkonlinequoteswidget.cpp:148
+#, kde-format
+msgid "Use this to check the selected online source entry"
+msgstr "Használja ezt a kiválasztott online forrásbejegyzés ellenőrzéséhez"
+
+#: alkonlinequoteswidget.cpp:150
+#, kde-format
+msgctxt "Show the selected source entry in a web browser"
+msgid "&Show page"
+msgstr "&Oldal megjelenítése"
+
+#: alkonlinequoteswidget.cpp:152
+#, kde-format
+msgid "Show the selected source entry in a web browser"
+msgstr "Kijelölt forrásbejegyzés megjelenítése webböngészőben"
+
+#: alkonlinequoteswidget.cpp:153
+#, kde-format
+msgid "Use this to show the selected online source entry"
+msgstr "Használja ezt a kiválasztott online forrásbejegyzés megjelenítéséhez"
+
+#: alkonlinequoteswidget.cpp:155
+#, kde-format
+msgctxt "Create a new source entry for online quotes"
+msgid "&New..."
+msgstr "Ú&j…"
+
+#: alkonlinequoteswidget.cpp:157
+#, kde-format
+msgid "Create a new source entry for online quotes"
+msgstr "Új forrásbejegyzés létrehozása online árajánlatokhoz"
+
+#: alkonlinequoteswidget.cpp:158
+#, kde-format
+msgid "Use this to create a new entry for online quotes"
+msgstr "Használja ezt új bejegyzés létrehozásához online árajánlatokhoz"
+
+#: alkonlinequoteswidget.cpp:186
+#, kde-format
+msgid "Name"
+msgstr "Név"
+
+#: alkonlinequoteswidget.cpp:186
+#, kde-format
+msgid "Source"
+msgstr "Forrás"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequoteswidget.cpp:242 alkonlinequoteswidget.ui:382
+#, kde-format
+msgid "GHNS Source"
+msgstr "GHNS forrás"
+
+#: alkonlinequoteswidget.cpp:244
+#, kde-format
+msgid "Finance::Quote"
+msgstr "Finance::Quote"
+
+#: alkonlinequoteswidget.cpp:245
+#, kde-format
+msgid "local"
+msgstr "helyi"
+
+#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:473
+#, kde-format
+msgid "New Quote Source"
+msgstr "Új árajánlatforrás"
+
+#: alkonlinequoteswidget.cpp:422
+#, kde-format
+msgid "Are you sure to delete this online quote ?"
+msgstr "Biztosan törli ezt az online árajánlatot?"
+
+#: alkonlinequoteswidget.cpp:423
+#, kde-format
+msgid "Delete online quote"
+msgstr "Online árajánlat törlése"
+
+#: alkonlinequoteswidget.cpp:450
+#, kde-format
+msgid ".copy"
+msgstr ".copy"
+
+#: alkonlinequoteswidget.cpp:626
+#, kde-format
+msgid "Online Quote HTML Result Window"
+msgstr "Online árajánlat HTML eredményablak"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
+#. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
+#: alkonlinequoteswidget.ui:20 alkonlinequoteswidget.ui:188
+#, kde-format
+msgid "Online Quotes"
+msgstr "Online árajánlatok"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequoteswidget.ui:26
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select, add or delete an application profile, where to "
+"load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Válasszon ki, adjon hozzá vagy töröljön egy "
+"alkalmazásprofilt, ahonnan betölt profilokat és menthet például Kmymoneyba "
+"vagy Skrooge-ba.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequoteswidget.ui:29
+#, kde-format
+msgid "Application Profiles"
+msgstr "Alkalmazásprofilok"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newProfile)
+#: alkonlinequoteswidget.ui:48
+#, kde-format
+msgid "New"
+msgstr "Új"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteswidget.ui:62 alkonlinequoteswidget.ui:211
+#, kde-format
+msgid "Delete"
+msgstr "Törlés"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
+#: alkonlinequoteswidget.ui:93
+#, kde-format
+msgid "Profile details"
+msgstr "Profiladatok"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
+#: alkonlinequoteswidget.ui:102
+#, kde-format
+msgid "GHNS config file"
+msgstr "GHNS beállítófájl"
+
+#. i18n: ectx: property (text), widget (QLabel, m_configLabel)
+#: alkonlinequoteswidget.ui:122
+#, kde-format
+msgid "Config file"
+msgstr "Beállítófájl"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
+#: alkonlinequoteswidget.ui:159
+#, kde-format
+msgid "GHNS data path"
+msgstr "GHNS adat elérési út"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
+#: alkonlinequoteswidget.ui:185
+#, kde-format
+msgid "<html><head/><body><p>online price quotes</p></body></html>"
+msgstr "<html><head/><body><p>online árajánlatok</p></body></html>"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteswidget.ui:204
+#, kde-format
+msgctxt "@action create new quote source"
+msgid "New"
+msgstr "Új"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:218
+#, kde-format
+msgid ""
+"Create a duplicate of the currently selected source entry under a different "
+"name."
+msgstr "A kijelölt forrásbejegyzés duplikálása egy új névvel."
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:221
+#, kde-format
+msgid "Use this to create a duplicate of an entry for an online source"
+msgstr "Használja ezt egy online forrás bejegyzésének duplikálásához"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteswidget.ui:224
+#, kde-format
+msgid "Duplicate"
+msgstr "Duplikálás"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteswidget.ui:235
+#, kde-format
+msgid "Install"
+msgstr "Telepítés"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequoteswidget.ui:265
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
+"expressions which can be used to parse the data returned from the URL "
+"entered above. The symbol, price, and date must be found in the quote data "
+"to be usable. You may also try the KMyMoney forum at </span><a href="
+"\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
+"a>  or the <span style=\" font-style:italic;\">user's mailinglist at </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\"> to find what settings work for other "
+"users in your country.</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Adjon meg olyan "
+"reguláris kifejezéseket, amikkel feldolgozható az alább megadott URL-ről "
+"érkező adat. Az ajánlat adatainak tartalmazniuk kell a szimbólumot, az árat "
+"és a dátumot, hogy használhatók legyenek. Ha segítségre van szüksége más "
+"felhasználóktól, keresse fel a </span><a href=\"https://forum.kde.org/"
+"viewforum.php?f=69\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">KMyMoney fórumát</span></a> vagy <span style=\" font-style:italic;"
+"\">felhasználói levelezőlistáját</span> a <a href=\"mailto:kmymoney@kde.org"
+"\"><span style=\" font-style:italic; text-decoration: underline; color:"
+"#2980b9;\">kmymoney@kde.org</span></a><span style=\" font-style:italic;\"> "
+"címen.</span></p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequoteswidget.ui:268
+#, kde-format
+msgid "Details"
+msgstr "Részletek"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#: alkonlinequoteswidget.ui:281 alkonlinequoteswidget.ui:423
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr "Reguláris kifejezés a dátum kinyerésére a letöltött adatokból"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequoteswidget.ui:288
+#, kde-format
+msgid "Date Format"
+msgstr "Dátumformátum"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editSymbol)
+#: alkonlinequoteswidget.ui:305
+#, kde-format
+msgid "Regular Expression to extract the symbol from the downloaded data"
+msgstr "Reguláris kifejezés a szimbólum kinyerésére a letöltött adatokból"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequoteswidget.ui:312
+#, kde-format
+msgid "Date"
+msgstr "Dátum"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
+#: alkonlinequoteswidget.ui:331
+#, kde-format
+msgid ""
+"<p>For easier processing of the data returned by the online source, KMyMoney "
+"usually strips unused parts before it is parsed with the regular "
+"expressions. If matching of the fields relies on those items, then use this "
+"option to turn stripping off.</p>\n"
+"\n"
+"<p>The following items are usually removed by stripping:\n"
+"\n"
+"<ul>\n"
+"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
+"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
+"<li>duplicate whitespace</li>\n"
+"</ul>\n"
+"</p>"
+msgstr ""
+"<p>Az online forrásból letöltött adat egyszerűbb feldolgozásához a KMyMoney "
+"általában eltávolítja a nem használt részeket, mielőtt reguláris "
+"kifejezéssel feldolgozná az adatokat. Ha a mezők illesztése függ ezektől az "
+"elemektől, használja ezt a kiszedés kikapcsolásához.</p>\n"
+"\n"
+"<p>A kiszedés általában a következő elemeket törli:\n"
+"\n"
+"<ul>\n"
+"<li>HTML tagek, mint például <b>&lt;tag&gt;</b></li>\n"
+"<li>& kódolt karakterek, például <b>&amp;nbsp</b></li>\n"
+"<li>duplikált üres karakterek</li>\n"
+"</ul>\n"
+"</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
+#: alkonlinequoteswidget.ui:334
+#, kde-format
+msgid "Skip HTML stripping"
+msgstr "HTML kiszedés kihagyása"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequoteswidget.ui:355
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
+#: alkonlinequoteswidget.ui:365
+#, kde-format
+msgid "Regular Expression to extract the price from the downloaded data"
+msgstr "Reguláris kifejezés az ár kinyerésére a letöltött adatokból"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequoteswidget.ui:372
+#, kde-format
+msgid "Options"
+msgstr "Opciók"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: alkonlinequoteswidget.ui:403
+#, kde-format
+msgid "Price"
+msgstr "Ár"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequoteswidget.ui:413
+#, kde-format
+msgid "Symbol"
+msgstr "Szimbólum"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
+#: alkonlinequoteswidget.ui:430
+#, kde-format
+msgid "URL to be used to download the quote"
+msgstr "Az árajánlat letöltéséhez használandó URL"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
+#: alkonlinequoteswidget.ui:433
+#, no-c-format, kde-format
+msgid ""
+"Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
+"replaced with the symbol for the security being quoted. For currency "
+"conversions, <b>%2</b> will be replaced with the currency to be quoted and "
+"<b>%1</b> with the currency the quote is based on."
+msgstr ""
+"Adja meg az URL-t, ahonnan az árajánlatok le lesznek kérve. A(z) <b>%1</b> a "
+"szimbólummal lesz helyettesítve, a biztonság kedvéért idézőjelekkel. Az "
+"árfolyamkonverziókhoz a(z) <b>%2</b> a lekérendő valutával lesz "
+"helyettesítve, a(z) <b>%1</b> pedig az ajánlat alapjául szolgáló pénznemmel."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
+#: alkonlinequoteswidget.ui:447
+#, kde-format
+msgctxt "@action update quotes from online quote source"
+msgid "Accept"
+msgstr "Elfogadás"
+
+#. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
+#: alkonlinequoteswidget.ui:487
+#, kde-format
+msgid "Debugging"
+msgstr "Hibakeresés"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequoteswidget.ui:502
+#, kde-format
+msgid "One Symbol"
+msgstr "Egy szimbólum"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequoteswidget.ui:516
+#, kde-format
+msgid "Two Symbols"
+msgstr "Két szimbólum"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
+#: alkonlinequoteswidget.ui:537
+#, kde-format
+msgid "Check Source"
+msgstr "Forrás ellenőrzése"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
+#: alkonlinequoteswidget.ui:547
+#, kde-format
+msgid "Show Page"
+msgstr "Oldal megjelenítése"
+
+#~ msgid "Upload"
+#~ msgstr "Feltöltés"

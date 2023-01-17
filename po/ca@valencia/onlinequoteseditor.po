@@ -1,0 +1,88 @@
+# Translation of onlinequoteseditor.po to Catalan (Valencian)
+# Copyright (C) 2019-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-01-11 02:47+0000\n"
+"PO-Revision-Date: 2020-09-19 20:10+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Josep M. Ferrer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "txemaq@gmail.com"
+
+#: main.cpp:74
+#, kde-format
+msgid "&About %1"
+msgstr "&Quant a %1"
+
+#: mainwindow.cpp:84
+#, kde-format
+msgid "Profiles"
+msgstr "Perfils"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "Profile details"
+msgstr "Detalls del perfil"
+
+#: mainwindow.cpp:94
+#, kde-format
+msgid "Online quotes"
+msgstr "Cotitzacions en línia"
+
+#: mainwindow.cpp:99
+#, kde-format
+msgid "Debug"
+msgstr "Depuració"
+
+#: mainwindow.cpp:104
+#, kde-format
+msgid "Quote details"
+msgstr "Detalls de les cotitzacions"
+
+#: mainwindow.cpp:113
+#, kde-format
+msgid "Browser"
+msgstr "Navegador"
+
+#: mainwindow.cpp:168
+#, kde-format
+msgid "Update for '%1' available in profile '%2'"
+msgstr "Hi ha una actualització disponible per a «%1» al perfil «%2»"
+
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Editor de cotitzacions en línia"
+
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Fitxer"
+
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Ix"
