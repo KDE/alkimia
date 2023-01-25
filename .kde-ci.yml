@@ -11,6 +11,8 @@ Dependencies:
     'frameworks/knewstuff': '@stable'
     'frameworks/ktextwidgets': '@stable'
     'frameworks/kxmlgui': '@stable'
+- 'on': ['Linux', 'FreeBSD']
+  'require':
     'frameworks/plasma-framework': '@stable'
 
 Options:
