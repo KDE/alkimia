@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2023-01-23 20:06+0300\n"
+"PO-Revision-Date: 2023-01-26 21:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -51,7 +51,7 @@ msgstr "%1 yürütülüyor..."
 #: alkonlinequote.cpp:341 alkonlinequote.cpp:545
 #, kde-format
 msgid "Unable to launch: %1"
-msgstr "Çalıştırılamadı: %1"
+msgstr "Başlatılamadı: %1"
 
 #: alkonlinequote.cpp:363
 #, kde-format
@@ -67,8 +67,7 @@ msgstr "URL bulundu: %1..."
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
-"URL yeniden yönlendirildi; çevrimiçi alıntı URL'si güncellemelerini "
-"denetleyin"
+"URL yeniden yönlendirildi; çevrimiçi kur URL'si güncellemelerini denetleyin"
 
 #: alkonlinequote.cpp:537
 #, kde-format
@@ -193,12 +192,12 @@ msgstr "&Yeni..."
 #: alkonlinequoteswidget.cpp:163
 #, kde-format
 msgid "Create a new source entry for online quotes"
-msgstr "Çevrimiçi alıntılar için yeni bir kaynak girdisi oluştur"
+msgstr "Çevrimiçi kurlar için yeni bir kaynak girdisi oluştur"
 
 #: alkonlinequoteswidget.cpp:164
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
-msgstr "Çevrimiçi alıntılar için yeni bir girdi oluşturmak için bunu kullanın"
+msgstr "Çevrimiçi kurlar için yeni bir girdi oluşturmak için bunu kullanın"
 
 #: alkonlinequoteswidget.cpp:192
 #, kde-format
@@ -229,17 +228,17 @@ msgstr "yerel"
 #: alkonlinequoteswidget.cpp:405 alkonlinequoteswidget.cpp:479
 #, kde-format
 msgid "New Quote Source"
-msgstr "Yeni Alıntı Kaynağı"
+msgstr "Yeni Kur Kaynağı"
 
 #: alkonlinequoteswidget.cpp:428
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
-msgstr "Bu çevrimiçi alıntıyı silmek istediğinize emin misiniz?"
+msgstr "Bu çevrimiçi kuru silmek istediğinize emin misiniz?"
 
 #: alkonlinequoteswidget.cpp:429
 #, kde-format
 msgid "Delete online quote"
-msgstr "Çevrimiçi alıntıyı sil"
+msgstr "Çevrimiçi kuru sil"
 
 #: alkonlinequoteswidget.cpp:456
 #, kde-format
@@ -249,14 +248,14 @@ msgstr ".kopya"
 #: alkonlinequoteswidget.cpp:644
 #, kde-format
 msgid "Online Quote HTML Result Window"
-msgstr "Çevrimiçi Alıntı HTML Sonuç Penceresi"
+msgstr "Çevrimiçi Kur HTML Sonuç Penceresi"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteswidget.ui:20 alkonlinequoteswidget.ui:188
 #, kde-format
 msgid "Online Quotes"
-msgstr "Çevrimiçi Alıntılar"
+msgstr "Çevrimiçi Kurlar"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequoteswidget.ui:26
@@ -316,7 +315,7 @@ msgstr "GHNS veri yolu"
 #: alkonlinequoteswidget.ui:185
 #, kde-format
 msgid "<html><head/><body><p>online price quotes</p></body></html>"
-msgstr "<html><head/><body><p>çevrimiçi fiyat alıntıları</p></body></html>"
+msgstr "<html><head/><body><p>çevrimiçi kurlar</p></body></html>"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteswidget.ui:204
@@ -331,14 +330,14 @@ msgstr "Yeni"
 msgid ""
 "Create a duplicate of the currently selected source entry under a different "
 "name."
-msgstr "Şu anda seçili kaynak girdisinin başka bir adla bir kopyasını oluştur."
+msgstr ""
+"Geçerli seçili kaynak girdisinin başka bir adla bir kopyasını oluşturun."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:221
 #, kde-format
 msgid "Use this to create a duplicate of an entry for an online source"
-msgstr ""
-"Bir çevrimiçi kaynak girdisinin kopyasını oluşturmak için bunu kullanın"
+msgstr "Bir çevrimiçi kaynak girdisinin kopyasını oluşturmak için bunu kullan"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:224
@@ -370,7 +369,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Yukarıda girilen "
 "URL'den veriyi ayrıştırmak için kullanılabilecek bir düzenli ifade girin. "
-"Verinin kullanılabilir olması için, sembol, fiyat ve tarih alıntıda mevcut "
+"Verinin kullanılabilir olması için, sembol, fiyat ve tarih kurda var "
 "olmalıdır. Ayrıca, ülkenizdeki kullanıcılar için hangi ayarların çalıştığını "
 "bulmak için </span><a href=\"https://forum.kde.org/viewforum.php?"
 "f=69\"><span style=\" text-decoration: underline; color:#2980b9;\">https://"
@@ -484,7 +483,7 @@ msgstr "Sembol"
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "URL to be used to download the quote"
-msgstr "Alıntıyı indirmek için kullanılacak URL"
+msgstr "Kuru indirmek için kullanılacak URL"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:433
@@ -497,8 +496,8 @@ msgid ""
 msgstr ""
 "Hisse alıntılarının indirileceği URL'yi girin. Alıntısı alınan kıymetli "
 "kağıt için <b>%1</b> sembol ile değiştirilecektir. Para birimi dönüşümleri "
-"için, <b>%2</b> alıntılanacak para birimiyle ve <b>%1</b> ise alıntının "
-"taban alındığı para birimiyle değiştirilir."
+"için, <b>%2</b> alıntılanacak para birimiyle ve <b>%1</b> ise kurun taban "
+"alındığı para birimiyle değiştirilir."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequoteswidget.ui:447
