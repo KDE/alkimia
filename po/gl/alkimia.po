@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019, 2023.
 #
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-04-09 02:15+0000\n"
-"PO-Revision-Date: 2019-10-19 22:40+0200\n"
+"PO-Revision-Date: 2023-04-30 10:34+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: alkonlinequote.cpp:177
 #, kde-format
@@ -67,6 +67,8 @@ msgstr "Atopouse o URL: %1…"
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
+"O URL redirixiuse; comprobe se hai unha actualización do URL de cotizacións "
+"de Internet"
 
 #: alkonlinequote.cpp:520
 #, kde-format
@@ -105,10 +107,9 @@ msgid "Using current date for '%1'"
 msgstr "Usando a data actual para «%1»"
 
 #: alkonlinequote.cpp:589
-#, fuzzy, kde-format
-#| msgid "Using current date for '%1'"
+#, kde-format
 msgid "Parsing date is disabled for '%1'"
-msgstr "Usando a data actual para «%1»"
+msgstr "Desactivouse analizar a data para «%1»"
 
 #: alkonlinequote.cpp:592
 #, kde-format
@@ -202,13 +203,12 @@ msgstr "Use isto para crear unha entrada nova de cotizacións de Internet"
 #: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: alkonlinequoteswidget.cpp:186
-#, fuzzy, kde-format
-#| msgid "GHNS Source"
+#, kde-format
 msgid "Source"
-msgstr "Fonte de GHNS"
+msgstr "Fonte"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequoteswidget.cpp:242 alkonlinequoteswidget.ui:382
@@ -219,12 +219,12 @@ msgstr "Fonte de GHNS"
 #: alkonlinequoteswidget.cpp:244
 #, kde-format
 msgid "Finance::Quote"
-msgstr ""
+msgstr "Finance::Quote"
 
 #: alkonlinequoteswidget.cpp:245
 #, kde-format
 msgid "local"
-msgstr ""
+msgstr "local"
 
 #: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:473
 #, kde-format
