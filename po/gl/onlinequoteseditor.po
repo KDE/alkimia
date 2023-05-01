@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-11 00:57+0000\n"
-"PO-Revision-Date: 2020-03-07 08:02+0100\n"
+"PO-Revision-Date: 2023-04-30 10:33+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -65,7 +65,7 @@ msgstr "Navegador"
 #: mainwindow.cpp:168
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
-msgstr ""
+msgstr "Hai unha actualización para «%1» dispoñíbel no perfil «%2»"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
 #: mainwindow.ui:14
