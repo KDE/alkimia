@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-04-09 02:15+0000\n"
-"PO-Revision-Date: 2023-04-30 10:34+0200\n"
+"PO-Revision-Date: 2023-06-05 12:46+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: alkonlinequote.cpp:177
 #, kde-format
@@ -332,9 +332,7 @@ msgstr "Novo"
 msgid ""
 "Create a duplicate of the currently selected source entry under a different "
 "name."
-msgstr ""
-"Crear un duplicado da entrada de de fonte seleccionada actualmente cun nome "
-"distinto."
+msgstr "Crear un duplicado da entrada de fonte seleccionada cun nome distinto."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:221
