@@ -25,7 +25,7 @@
   <name xml:lang="sk">Editor online ponúk</name>
   <name xml:lang="sl">Urejevalnik spletnih kotacij</name>
   <name xml:lang="sv">Direktkurseditor</name>
-  <name xml:lang="tr">Çevrimiçi Kurlar Düzenleyici</name>
+  <name xml:lang="tr">Çevrimiçi Kurlar Düzenleyicisi</name>
   <name xml:lang="uk">Редактор інтернет-курсів</name>
   <name xml:lang="x-test">xxOnline Quotes Editorxx</name>
   <name xml:lang="zh-CN">在线报价编辑器</name>
