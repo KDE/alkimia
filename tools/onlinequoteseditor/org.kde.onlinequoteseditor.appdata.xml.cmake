@@ -37,7 +37,7 @@
   <summary xml:lang="en-GB">Editor for online price quotes used by finance applications</summary>
   <summary xml:lang="es">Editor de cotizaciones de precios en línea usado por aplicaciones de finanzas</summary>
   <summary xml:lang="fr">Éditeur pour les cotations en ligne utilisées par les applications financières</summary>
-  <summary xml:lang="gl">Editor de cotizacións de Internet usado por aplicacións financeiras</summary>
+  <summary xml:lang="gl">Editor de cotizacións de Internet usado por aplicacións financeiras.</summary>
   <summary xml:lang="ia">Editor per citationes de prcio in linea usate per applicationes de financia</summary>
   <summary xml:lang="id">Editor untuk kutipan harga online yang digunakan oleh aplikasi keuangan</summary>
   <summary xml:lang="it">Editor delle quotazioni in linea usato delle applicazioni finanziarie</summary>
