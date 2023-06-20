@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-04-09 02:15+0000\n"
-"PO-Revision-Date: 2023-06-05 12:46+0200\n"
+"PO-Revision-Date: 2023-06-19 11:48+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: alkonlinequote.cpp:177
 #, kde-format
@@ -135,7 +135,7 @@ msgstr "Acepta os datos inseridos e almacénaos"
 #: alkonlinequoteswidget.cpp:138
 #, kde-format
 msgid "Use this to accept the modified data."
-msgstr "Empregue isto para aceptar os datos modificados."
+msgstr "Use isto para aceptar os datos modificados."
 
 #: alkonlinequoteswidget.cpp:140
 #, kde-format
@@ -150,7 +150,7 @@ msgstr "Eliminar a fonte escollida"
 #: alkonlinequoteswidget.cpp:143
 #, kde-format
 msgid "Use this to delete the selected online source entry"
-msgstr "Empregue isto para eliminar a fonte en Internet seleccionada"
+msgstr "Use isto para eliminar a fonte en Internet seleccionada"
 
 #: alkonlinequoteswidget.cpp:145
 #, kde-format
@@ -166,23 +166,23 @@ msgstr "Comprobar a fonte escollida"
 #: alkonlinequoteswidget.cpp:148
 #, kde-format
 msgid "Use this to check the selected online source entry"
-msgstr "Empregue isto para comprobar a fonte en Internet seleccionada"
+msgstr "Use isto para comprobar a fonte en Internet seleccionada"
 
 #: alkonlinequoteswidget.cpp:150
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
-msgstr "Mo&strar a páxina"
+msgstr "Amo&sar a páxina"
 
 #: alkonlinequoteswidget.cpp:152
 #, kde-format
 msgid "Show the selected source entry in a web browser"
-msgstr "Mostrar a fonte seleccionada nun navegador web"
+msgstr "Amosar a fonte seleccionada nun navegador web"
 
 #: alkonlinequoteswidget.cpp:153
 #, kde-format
 msgid "Use this to show the selected online source entry"
-msgstr "Empregue isto para mostrar a fonte en Internet seleccionada"
+msgstr "Use isto para amosar a fonte en Internet seleccionada"
 
 #: alkonlinequoteswidget.cpp:155
 #, kde-format
@@ -433,7 +433,7 @@ msgstr ""
 "<p>Para procesar dun xeito máis sinxelo os datos descargados da fonte en "
 "Internet, KMyMoney xeralmente suprime as partes non utilizadas antes de que "
 "procesalos con expresións regulares. Se depende destes campos para atopar os "
-"campos, empregue esta opción para non retirar as etiquetas.</p>\n"
+"campos, use esta opción para non retirar as etiquetas.</p>\n"
 "\n"
 "<p>Xeralmente retíranse estes elementos:\n"
 "\n"
@@ -535,7 +535,7 @@ msgstr "Comprobar o código"
 #: alkonlinequoteswidget.ui:547
 #, kde-format
 msgid "Show Page"
-msgstr "Mostrar a páxina"
+msgstr "Amosar a páxina"
 
 #~ msgid "Upload"
 #~ msgstr "Enviar"
