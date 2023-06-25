@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-04-09 02:15+0000\n"
-"PO-Revision-Date: 2023-06-19 11:48+0200\n"
+"PO-Revision-Date: 2023-06-24 10:35+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -392,7 +392,7 @@ msgstr "Detalles"
 #: alkonlinequoteswidget.ui:281 alkonlinequoteswidget.ui:423
 #, kde-format
 msgid "Regular Expression to extract the date from the downloaded data"
-msgstr "Expresión regular para extraer a data dos datos descargados"
+msgstr "Expresión regular para extraer a data dos datos descargados."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:288
@@ -404,7 +404,7 @@ msgstr "Formato da data"
 #: alkonlinequoteswidget.ui:305
 #, kde-format
 msgid "Regular Expression to extract the symbol from the downloaded data"
-msgstr "Expresión regular para extraer o símbolo dos datos descargados"
+msgstr "Expresión regular para extraer o símbolo dos datos descargados."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequoteswidget.ui:312
@@ -460,7 +460,7 @@ msgstr "URL"
 #: alkonlinequoteswidget.ui:365
 #, kde-format
 msgid "Regular Expression to extract the price from the downloaded data"
-msgstr "Expresión regular para extraer o prezo dos datos descargados"
+msgstr "Expresión regular para extraer o prezo dos datos descargados."
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequoteswidget.ui:372
@@ -484,7 +484,7 @@ msgstr "Símbolo"
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "URL to be used to download the quote"
-msgstr "URL do que descargar a cotización"
+msgstr "URL do que descargar a cotización."
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:433
