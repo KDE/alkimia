@@ -67,6 +67,7 @@
     <p xml:lang="ko">온라인 시세 편집기는 온라인 시세를 편집하고 확인하는 그래픽 사용자 인터페이스 앱입니다. 사용 가능한 온라인 시세 정보는 KDE 스토어에서 추가, 로컬에서 생성, 정확한 실행을 위해서 편집 및 확인할 수 있습니다.</p>
     <p xml:lang="nl">Bewerker voor Online koersen is een grafische gebruikersinterfacetoepassing voor bewerken en controleren van online koersen. Beschikbare online koersbronnen kunnen toegevoegd worden uit de KDE-store, lokaal aangemaakt, bewerkt en gecontroleerd voor het juiste gebruik.</p>
     <p xml:lang="pl">Edytor wycen z sieci jest nakładką graficzną do zmiany i sprawdzania wycen z sieci. Źródła wycen można dodać ze Sklepu KDE, utworzyć lokalnie, dostosować i sprawdzić poprawność ich działania.</p>
+    <p xml:lang="pt-BR">Online Quotes Editor é um aplicativo de interface gráfica para edição e verificação de cotações online. Fontes de cotações online disponíveis podem ser adicionadas na loja do KDE, criadas localmente, editadas e verificadas quanto à execução correta.</p>
     <p xml:lang="sl">Urejevalnik spletnih kotacij je program z grafičnim uporabniškim vmesnikom za urejanje in preverjanje spletnih kotacij. Razpoložljive vire spletnih kotacij lahko dodate iz trgovine KDE, jih ustvarite krajevno ter urejate in preverjate pravilno izvajanje.</p>
     <p xml:lang="sv">Direktkurseditor är ett grafiskt användargränssnitt för att redigera och kontrollera kurser på nätet. Tillgängliga källor för kurser kan läggas till från KDE:s butik, skapas lokalt, redigeras och kontrolleras så att de kör korrekt.</p>
     <p xml:lang="tr">Çevrimiçi Kur Düzenleyicisi, çevrimiçi kurları düzenlemek ve denetlemek için kullanılan bir uygulamadır. Çevrimiçi kur kaynakları KDE mağazasından indirilebilir, yerel olarak oluşturulabilir ve doğru yürütme için denetlenebilir.</p>
@@ -88,6 +89,7 @@
     <p xml:lang="ko">인터페이스는 프로필, 프로필 정보, 할당된 온라인 시세, 종목 속성, 디버그, 브라우저 등 사용자 정의 가능한 하위 창으로 나뉘어 있으며 인터페이스를 유연하게 설정할 수 있습니다.</p>
     <p xml:lang="nl">Het interface is opgedeeld in aanpasbare subvensters voor profielen, profieldetails, toegekende online koersen, attributen van koersen, debug en browser, waarmee een flexibele interfaceopzet wordt geboden.</p>
     <p xml:lang="pl">Interfejs jest podzielony na dostosowywalne podokna dla profili, szczegółów profili, przypisanych wycen z sieci, właściwości wycen, diagnostyki oraz przeglądarki, która umożliwia łatwe ustawienie.</p>
+    <p xml:lang="pt-BR">A interface é dividida em subjanelas personalizáveis para perfis, detalhes de perfil, cotações online atribuídas, atributos de cotações, depuração e navegador, permitindo uma configuração de interface flexível.</p>
     <p xml:lang="sl">Vmesnik je razdeljen na prilagodljiva podokna za profile, podrobnosti profila, dodeljene spletne kotacije, atribute kotacij, odpravljanje napak in brskalnik, kar omogoča prilagodljivo nastavitev vmesnika.</p>
     <p xml:lang="sv">Gränssnittet är uppdelat i anpassningsbara delfönster för profiler, profilinformation, tilldelade direktkurser, kursegenskaper, felsökning, och webbläsare, vilket tillåter flexibel gränssnittsinställning.</p>
     <p xml:lang="tr">Arabirim; esnek bir arabirim kurulumu için profiller, profil ayrıntıları, atanmış çevrimiçi kurlar, alıntı öznitelikleri, hata ayıklama ve tarayıcı için özelleştirilebilir alt pencerelere ayrılmıştır.</p>
@@ -131,6 +133,7 @@
     <p xml:lang="ko">자체 온라인 종목 원본 편집 인터페이스가 없는 재무 앱에서 온라인 시세 편집기를 이 목적으로 호출할 수 있습니다.</p>
     <p xml:lang="nl">Financiële toepassingen die geen eigen gebruikersinterface voor bewerken van online koersbronnen kunnen de online koersenbewerker voor dit doel aanroepen.</p>
     <p xml:lang="pl">Aplikacje finansowe, które nie posiadają swoich własnych interfejsów do zmiany źródeł wycen z sieci mogą w tym celu wywołać edytor wycen z sieci.</p>
+    <p xml:lang="pt-BR">Os aplicativos financeiros que não contêm sua própria interface de usuário para edição de fontes de cotação online podem chamar o editor de cotação online para essa finalidade.</p>
     <p xml:lang="sl">Finančne aplikacije, ki ne vsebujejo lastnega uporabniškega vmesnika za urejanje virov spletnih kotacij, lahko v ta namen pokličejo urejevalnik spletnih kotacij.</p>
     <p xml:lang="sv">Ekonomiprogram som inte har sitt egna användargränssnitt för att redigera kurskällor på nätet kan anropa direktkurseditorn i detta syfte.</p>
     <p xml:lang="tr">Çevrimiçi kurları düzenlemek için bir arabirim sunmayan finansal uygulamalar bunun için bu uygulamayı kullanabilirler.</p>
