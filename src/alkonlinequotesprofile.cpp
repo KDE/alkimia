@@ -241,9 +241,9 @@ public Q_SLOTS:
             AlkOnlineQuoteSource source("Alkimia Currency",
                                         "https://fx-rate.net/%1/%2",
                                         QString(), // symbolregexp
-                                        "1[ a-zA-Z]+=</span><br */?> *(\\d+[\\.\\d]*)",
-                                        "updated\\s\\d+:\\d+:\\d+\\(\\w+\\)\\s+(\\d{1,2}/\\d{2}/\\d{4})",
-                                        "%d/%m/%y",
+                                        "Today\\s+=\\s+([^<]+)",
+                                        "name=\"date_input\" class=\"ip_ondate\" value=\"(\\d{4}-\\d{2}-\\d{2})",
+                                        "%y/%m/%d",
                                         true // skip HTML stripping
                                         );
             source.setProfile(m_p);
