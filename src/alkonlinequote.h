@@ -56,7 +56,6 @@ public:
 
         Errors();
         Errors(Type type);
-        Errors(const Errors& e) = default;
         Errors& operator|=(Type t);
         bool operator &(Type t) const;
 

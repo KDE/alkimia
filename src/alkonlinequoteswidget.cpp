@@ -618,13 +618,13 @@ void AlkOnlineQuotesWidget::Private::slotInstallEntries()
     delete dialog;
     loadQuotesList();
 #else
-    auto knsWrapper = new KNS3::QtQuickDialogWrapper(configFile, this);
 #if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 94, 0)
     if (!KNS3::QtQuickDialogWrapper(configFile).exec().isEmpty()) {
         // Only load the list if entries are changed
         loadQuotesList();
     }
 #else
+    auto knsWrapper = new KNS3::QtQuickDialogWrapper(configFile, this);
     connect(knsWrapper, &KNS3::QtQuickDialogWrapper::closed, this, [knsWrapper, this](){
         if (!knsWrapper->changedEntries().isEmpty()) {
             // Only load the list if entries are changed
