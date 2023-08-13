@@ -238,25 +238,11 @@ public Q_SLOTS:
         case AlkOnlineQuotesProfile::Type::None:
         case AlkOnlineQuotesProfile::Type::Alkimia4:
         case AlkOnlineQuotesProfile::Type::Alkimia5: {
-            AlkOnlineQuoteSource source("Alkimia Currency",
-                                        "https://fx-rate.net/%1/%2",
-                                        QString(), // symbolregexp
-                                        "Today\\s+=\\s+([^<]+)",
-                                        "name=\"date_input\" class=\"ip_ondate\" value=\"(\\d{4}-\\d{2}-\\d{2})",
-                                        "%y/%m/%d",
-                                        true // skip HTML stripping
-                                        );
+            AlkOnlineQuoteSource source(AlkOnlineQuoteSource::defaultCurrencyQuoteSource("Alkimia Currency"));
             source.setProfile(m_p);
             result[source.name()] = source;
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-            AlkOnlineQuoteSource source2("Alkimia Currency.webkit",
-                                        "https://fx-rate.net/%1/%2",
-                                        QString(), // symbolregexp
-                                        "1[ a-zA-Z]+=</span><br */?> *(\\d+[\\.\\d]*)",
-                                        "", // no date available
-                                        "",
-                                        true // skip HTML stripping
-                                        );
+            AlkOnlineQuoteSource source2(AlkOnlineQuoteSource::defaultCurrencyQuoteSource("Alkimia Currency.webkit"));
             source2.setProfile(m_p);
             result[source2.name()] = source2;
 #endif
