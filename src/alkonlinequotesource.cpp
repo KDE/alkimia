@@ -1,10 +1,10 @@
 /*
-    SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker @freenet.de
-
-    This file is part of libalkimia.
-
-    SPDX-License-Identifier: LGPL-2.1-or-later
-*/
+ * SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker@freenet.de
+ * SPDX-FileCopyrightText: 2023 Thomas Baumgart <tbaumgart@kde.org>
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ *
+ * This file is part of libalkimia.
+ */
 
 #include "alkonlinequotesource.h"
 
@@ -35,7 +35,7 @@ public:
     {
     }
 
-    Private(const Private *other)
+    Private(const Private* other)
         : m_name(other->m_name)
         , m_url(other->m_url)
         , m_sym(other->m_sym)
@@ -43,6 +43,7 @@ public:
         , m_date(other->m_date)
         , m_dateformat(other->m_dateformat)
         , m_idNumber(other->m_idNumber)
+        , m_idSelector(other->m_idSelector)
         , m_skipStripping(other->m_skipStripping)
         , m_profile(other->m_profile)
         , m_isGHNSSource(other->m_isGHNSSource)
@@ -66,7 +67,7 @@ public:
         m_dateformat = grp.readEntry("DateFormatRegex", "%m %d %y");
         m_price = grp.readEntry("PriceRegex");
         m_idNumber = grp.readEntry("IDRegex");
-        m_idSelector = static_cast<idSelector>(grp.readEntry("IDBy", "0").toInt());
+        m_idSelector = static_cast<IdSelector>(grp.readEntry("IDBy", "0").toInt());
         m_url = grp.readEntry("URL");
         m_skipStripping = grp.readEntry("SkipStripping", false);
         m_isGHNSSource = false;
@@ -175,12 +176,6 @@ public:
         return true;
     }
 
-    enum idSelector{
-        Symbol,
-        IdentificationNumber,
-        Name
-    };
-
     QString m_name;
     QString m_url;
     QString m_sym;
@@ -188,7 +183,7 @@ public:
     QString m_date;
     QString m_dateformat;
     QString m_idNumber;
-    idSelector m_idSelector;
+    IdSelector m_idSelector;
     bool m_skipStripping;
     AlkOnlineQuotesProfile *m_profile;
     bool m_isGHNSSource;
@@ -212,15 +207,22 @@ AlkOnlineQuoteSource &AlkOnlineQuoteSource::operator=(AlkOnlineQuoteSource other
     return *this;
 }
 
-AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, const QString &url,
-                                           const QString &sym, const QString &price,
-                                           const QString &date, const QString &dateformat,
+AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
+                                           const QString& url,
+                                           const QString& sym,
+                                           const QString& idNumber,
+                                           const IdSelector idBy,
+                                           const QString& price,
+                                           const QString& date,
+                                           const QString& dateformat,
                                            bool skipStripping)
     : d(new Private)
 {
     d->m_name = name;
     d->m_url = url;
     d->m_sym = sym;
+    d->m_idNumber = idNumber;
+    d->m_idSelector = idBy;
     d->m_price = price;
     d->m_date = date;
     d->m_dateformat = dateformat;
@@ -238,6 +240,20 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesP
         d->m_name = name;
         read();
     }
+}
+
+AlkOnlineQuoteSource AlkOnlineQuoteSource::defaultCurrencyQuoteSource(const QString& name)
+{
+    return AlkOnlineQuoteSource(name,
+                                "https://fx-rate.net/%1/%2",
+                                QString(), // symbolregexp
+                                QString(), // idregexp
+                                AlkOnlineQuoteSource::Symbol,
+                                "Today\\s+=\\s+([^<]+)",
+                                "name=\"date_input\" class=\"ip_ondate\" value=\"(\\d{4}-\\d{2}-\\d{2})",
+                                "%y/%m/%d",
+                                true // skip HTML stripping
+    );
 }
 
 AlkOnlineQuoteSource::~AlkOnlineQuoteSource()
@@ -273,6 +289,11 @@ QString AlkOnlineQuoteSource::sym() const
 QString AlkOnlineQuoteSource::idNumber() const
 {
     return d->m_idNumber;
+}
+
+AlkOnlineQuoteSource::IdSelector AlkOnlineQuoteSource::idSelector() const
+{
+    return d->m_idSelector;
 }
 
 QString AlkOnlineQuoteSource::price() const
@@ -330,6 +351,11 @@ void AlkOnlineQuoteSource::setPrice(const QString &price)
 void AlkOnlineQuoteSource::setIdNumber(const QString &idNumber)
 {
     d->m_idNumber = idNumber;
+}
+
+void AlkOnlineQuoteSource::setIdSelector(AlkOnlineQuoteSource::IdSelector idSelector)
+{
+    d->m_idSelector = idSelector;
 }
 
 /**

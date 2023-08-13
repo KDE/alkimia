@@ -1,10 +1,10 @@
 /*
-    SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker @freenet.de
-
-    This file is part of libalkimia.
-
-    SPDX-License-Identifier: LGPL-2.1-or-later
-*/
+ * SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker@freenet.de
+ * SPDX-FileCopyrightText: 2023 Thomas Baumgart <tbaumgart@kde.org>
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ *
+ * This file is part of libalkimia.
+ */
 
 #ifndef ALKONLINEQUOTESOURCE_H
 #define ALKONLINEQUOTESOURCE_H
@@ -24,16 +24,29 @@ class AlkOnlineQuotesProfile;
 class ALK_EXPORT AlkOnlineQuoteSource
 {
 public:
+    enum IdSelector {
+        Symbol,
+        IdentificationNumber,
+        Name,
+    };
 
     AlkOnlineQuoteSource();
     explicit AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile);
-    explicit AlkOnlineQuoteSource(const QString &name, const QString &url, const QString &sym,
-                         const QString &price, const QString &date, const QString &dateformat,
-                         bool skipStripping = false);
+    explicit AlkOnlineQuoteSource(const QString& name,
+                                  const QString& url,
+                                  const QString& sym,
+                                  const QString& idNumber,
+                                  const IdSelector idBy,
+                                  const QString& price,
+                                  const QString& date,
+                                  const QString& dateformat,
+                                  bool skipStripping = false);
     ~AlkOnlineQuoteSource();
 
     AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other);
     AlkOnlineQuoteSource &operator=(AlkOnlineQuoteSource other);
+
+    static AlkOnlineQuoteSource defaultCurrencyQuoteSource(const QString& name);
 
     friend void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second);
 
@@ -53,6 +66,7 @@ public:
     QString date() const;
     QString dateformat() const;
     QString financeQuoteName() const;
+    IdSelector idSelector() const;
 
     bool skipStripping() const;
     bool isGHNS();
@@ -69,6 +83,7 @@ public:
     void setDateformat(const QString &dateformat);
     void setSkipStripping(bool state);
     void setGHNS(bool state);
+    void setIdSelector(IdSelector idSelector);
 
     QString ghnsWriteFileName();
     void setProfile(AlkOnlineQuotesProfile *profile);
