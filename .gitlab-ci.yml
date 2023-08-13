@@ -36,7 +36,7 @@ distro kf5 tumbleweed mingw32:
 
 distro kf5 tumbleweed mingw64:
   extends: .unix-host-build
-  #when: manual
+  when: manual
   image: opensuse/tumbleweed
   #only:
   #  - merge_requests
