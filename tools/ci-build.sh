@@ -270,7 +270,7 @@ case "$ci_host" in
                 ci_test=no
                 ;;
             (kde4)
-                cmake="${ci_host}-cmake-kde4"
+                cmake="${ci_host}-cmake-kde4 --"
                 # not supported yet
                 ci_test=no
                 ;;
