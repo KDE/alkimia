@@ -63,7 +63,7 @@ distro kf5 leap mingw32:
 
 distro kf5 leap mingw64:
   extends: .unix-host-build
-  #when: manual
+  when: manual
   #only:
   #  - merge_requests
   variables:
@@ -105,7 +105,7 @@ distro kde4 leap mingw32:
 
 distro kde4 leap mingw64:
   extends: .unix-host-build
-  #when: manual
+  when: manual
   #only:
   #  - merge_requests
   variables:
