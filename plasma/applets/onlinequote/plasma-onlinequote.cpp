@@ -131,7 +131,7 @@ void PlasmaOnlineQuote::slotConfigAccepted()
     config().writeEntry("symbol", m_widget->m_symbol->text());
     config().writeEntry("interval", m_widget->m_interval->value());
     config().sync();
-    emit configNeedsSaving();
+    Q_EMIT configNeedsSaving();
     slotFetchQuote();
     qDebug() << "configAccepted()";
 }
@@ -188,11 +188,11 @@ void PlasmaOnlineQuote::paintInterface(QPainter *p,
     Q_UNUSED(option)
     p->setRenderHint(QPainter::SmoothPixmapTransform);
     p->setRenderHint(QPainter::Antialiasing);
- 
+
     // Now we draw the applet, starting with our svg
     m_svg.resize((int)contentsRect.width(), (int)contentsRect.height());
     m_svg.paint(p, (int)contentsRect.left(), (int)contentsRect.top());
- 
+
     // We place the icon and text
     p->drawPixmap(7, 0, m_icon.pixmap((int)contentsRect.width(),(int)contentsRect.width()-14));
     p->save();

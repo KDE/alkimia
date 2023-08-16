@@ -107,7 +107,7 @@ public:
             connect(m_engine, &KNSCore::Engine::signalUpdateableEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &updates) {
                 foreach (const KNSCore::EntryInternal &entry, updates) {
                     qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.uniqueId() << entry.category() << entry.providerId();
-                    emit m_p->updateAvailable(m_p->name(), entry.name());
+                    Q_EMIT m_p->updateAvailable(m_p->name(), entry.name());
                 }
             });
             connect(m_engine, &KNSCore::Engine::signalProvidersLoaded, this, [this]() {
@@ -122,7 +122,7 @@ public Q_SLOTS:
     {
         foreach (const KNS3::Entry &entry, updates) {
             qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.id() << entry.category() << entry.providerId();
-            emit m_p->updateAvailable(m_p->name(), entry.name());
+            Q_EMIT m_p->updateAvailable(m_p->name(), entry.name());
         }
     }
 

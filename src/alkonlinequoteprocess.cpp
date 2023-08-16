@@ -28,6 +28,6 @@ void AlkOnlineQuoteProcess::slotReceivedDataFromFilter()
 void AlkOnlineQuoteProcess::slotProcessExited(int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/)
 {
 //   kDebug(2) << "WebPriceQuoteProcess::slotProcessExited()";
-    emit processExited(m_string);
+    Q_EMIT processExited(m_string);
     m_string.truncate(0);
 }

@@ -174,7 +174,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     m_id = _id;
     m_errors = Errors::None;
 
-    emit m_p->status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol, _id));
+    Q_EMIT m_p->status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol, _id));
 
     // Get sources from the config file
     QString source = _source;
@@ -183,7 +183,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     }
 
     if (!m_profile->quoteSources().contains(source)) {
-        emit m_p->error(i18n("Source <placeholder>%1</placeholder> does not exist.", source));
+        Q_EMIT m_p->error(i18n("Source <placeholder>%1</placeholder> does not exist.", source));
         m_errors |= Errors::Source;
         return false;
     }
@@ -217,9 +217,9 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
 void AlkOnlineQuote::Private::slotLoadFinishedHtmlParser(bool ok)
 {
     if (!ok) {
-        emit m_p->error(i18n("Unable to fetch url for %1", m_symbol));
+        Q_EMIT m_p->error(i18n("Unable to fetch url for %1", m_symbol));
         m_errors |= Errors::URL;
-        emit m_p->failed(m_id, m_symbol);
+        Q_EMIT m_p->failed(m_id, m_symbol);
     } else {
         // parse symbol
         slotParseQuote(AlkOnlineQuotesProfileManager::instance().webPage()->toHtml());
@@ -231,18 +231,18 @@ void AlkOnlineQuote::Private::slotLoadFinishedHtmlParser(bool ok)
 void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
 {
     if (!ok) {
-        emit m_p->error(i18n("Unable to fetch url for %1", m_symbol));
+        Q_EMIT m_p->error(i18n("Unable to fetch url for %1", m_symbol));
         m_errors |= Errors::URL;
-        emit m_p->failed(m_id, m_symbol);
+        Q_EMIT m_p->failed(m_id, m_symbol);
     } else {
         AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
         // parse symbol
         QString symbol = webPage->getFirstElement(m_source.sym());
         if (!symbol.isEmpty()) {
-            emit m_p->status(i18n("Symbol found: '%1'", symbol));
+            Q_EMIT m_p->status(i18n("Symbol found: '%1'", symbol));
         } else {
             m_errors |= Errors::Symbol;
-            emit m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
+            Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
         }
 
         // parse price
@@ -254,9 +254,9 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
         bool gotdate = parseDate(date);
 
         if (gotprice && gotdate) {
-            emit m_p->quote(m_id, m_symbol, m_date, m_price);
+            Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
         } else {
-            emit m_p->failed(m_id, m_symbol);
+            Q_EMIT m_p->failed(m_id, m_symbol);
         }
     }
     if (m_eventLoop)
@@ -265,7 +265,7 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
 
 void AlkOnlineQuote::Private::slotLoadStarted()
 {
-    emit m_p->status(i18n("Fetching URL %1...", m_url.prettyUrl()));
+    Q_EMIT m_p->status(i18n("Fetching URL %1...", m_url.prettyUrl()));
 }
 
 bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, const QString &_id,
@@ -322,7 +322,7 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
 
     KUrl url = m_url;
     if (url.isLocalFile()) {
-        emit m_p->status(i18nc("The process x is executing", "Executing %1...", url.toLocalFile()));
+        Q_EMIT m_p->status(i18nc("The process x is executing", "Executing %1...", url.toLocalFile()));
 
         m_filter.clearProgram();
         #if QT_VERSION < QT_VERSION_CHECK(5,14,0)
@@ -338,7 +338,7 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
         if (m_filter.waitForStarted()) {
             result = true;
         } else {
-            emit m_p->error(i18n("Unable to launch: %1", url.toLocalFile()));
+            Q_EMIT m_p->error(i18n("Unable to launch: %1", url.toLocalFile()));
             m_errors |= Errors::Script;
             result = slotParseQuote(QString());
         }
@@ -360,7 +360,7 @@ bool AlkOnlineQuote::Private::processDownloadedFile(const KUrl& url, const QStri
     result = processDownloadedPage(url, page);
     f.close();
   } else {
-    emit m_p->error(i18n("Failed to open downloaded file"));
+    Q_EMIT m_p->error(i18n("Failed to open downloaded file"));
     m_errors |= Errors::URL;
     result = slotParseQuote(QString());
   }
@@ -377,7 +377,7 @@ bool AlkOnlineQuote::Private::processDownloadedPage(const KUrl& url, const QByte
       codec = QTextCodec::codecForLocale();
     }
     QString quote = codec->toUnicode(page);
-    emit m_p->status(i18n("URL found: %1...", url.prettyUrl()));
+    Q_EMIT m_p->status(i18n("URL found: %1...", url.prettyUrl()));
     if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
       AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
     result = slotParseQuote(quote);
@@ -418,7 +418,7 @@ void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
     qDebug() << "Downloaded" << tmpFileName << "from" << url;
     result = processDownloadedFile(url, tmpFileName);
   } else {
-    emit m_p->error(job->errorString());
+    Q_EMIT m_p->error(job->errorString());
     m_errors |= Errors::URL;
     result = slotParseQuote(QString());
   }
@@ -446,7 +446,7 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
         result = processDownloadedFile(url, tmpFile);
         KIO::NetAccess::removeTempFile(tmpFile);
     } else {
-        emit m_p->error(KIO::NetAccess::lastErrorString());
+        Q_EMIT m_p->error(KIO::NetAccess::lastErrorString());
         m_errors |= Errors::URL;
         result = slotParseQuote(QString());
     }
@@ -464,7 +464,7 @@ void AlkOnlineQuote::Private::downloadUrlDone(QNetworkReply *reply)
         if (!newUrl.isEmpty() && newUrl != reply->url()) {
             m_url = reply->url().resolved(newUrl);
             // TODO migrate to i18n()
-            emit m_p->status(QString("<font color=\"orange\">%1</font>")
+            Q_EMIT m_p->status(QString("<font color=\"orange\">%1</font>")
             #ifdef I18N_NOOP
                             .arg(I18N_NOOP("The URL has been redirected; check an update of the online quote URL")));
             #else
@@ -476,7 +476,7 @@ void AlkOnlineQuote::Private::downloadUrlDone(QNetworkReply *reply)
             result = processDownloadedPage(KUrl(reply->url()), reply->readAll()) ? 0 : 1;
         }
     } else {
-        emit m_p->error(reply->errorString());
+        Q_EMIT m_p->error(reply->errorString());
         m_errors |= Errors::URL;
         result = slotParseQuote(QString()) ? 0 : 1;
     }
@@ -524,7 +524,7 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
                                        "[^,]*,([^,]*),.*", // date regexp
                                        "%y-%m-%d"); // date format
 
-    //emit status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol,_id));
+    //Q_EMIT status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol,_id));
     AlkFinanceQuoteProcess tmp;
     QString fQSource = m_profile->type() == AlkOnlineQuotesProfile::Type::Script ?
                 tmp.crypticName(_sourcename) : _sourcename.section(' ', 1);
@@ -533,7 +533,7 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
     args << "perl" << m_profile->scriptPath() << fQSource << m_symbol;
     m_filter.clearProgram();
     m_filter << args;
-    emit m_p->status(i18nc("Executing 'script' 'online source' 'investment symbol' ",
+    Q_EMIT m_p->status(i18nc("Executing 'script' 'online source' 'investment symbol' ",
                       "Executing %1 %2 %3...", args.join(" "), QString(), QString()));
 
     m_filter.setOutputChannelMode(KProcess::MergedChannels);
@@ -542,7 +542,7 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
     // This seems to work best if we just block until done.
     if (m_filter.waitForFinished()) {
     } else {
-        emit m_p->error(i18n("Unable to launch: %1", m_profile->scriptPath()));
+        Q_EMIT m_p->error(i18n("Unable to launch: %1", m_profile->scriptPath()));
         m_errors |= Errors::Script;
         result = slotParseQuote(QString());
     }
@@ -574,10 +574,10 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
 
         m_price = pricestr.toDouble();
         kDebug(Private::dbgArea()) << "Price" << pricestr;
-        emit m_p->status(i18n("Price found: '%1' (%2)", pricestr, m_price));
+        Q_EMIT m_p->status(i18n("Price found: '%1' (%2)", pricestr, m_price));
     } else {
         m_errors |= Errors::Price;
-        emit m_p->error(i18n("Unable to parse price for '%1'", m_symbol));
+        Q_EMIT m_p->error(i18n("Unable to parse price for '%1'", m_symbol));
         result = false;
     }
     return result;
@@ -586,30 +586,30 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
 bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
 {
     if (!datestr.isEmpty()) {
-        emit m_p->status(i18n("Date found: '%1'", datestr));
+        Q_EMIT m_p->status(i18n("Date found: '%1'", datestr));
 
         AlkDateFormat dateparse(m_source.dateformat());
         try {
             m_date = dateparse.convertString(datestr, false /*strict*/);
             kDebug(Private::dbgArea()) << "Date" << datestr;
-            emit m_p->status(i18n("Date format found: '%1' -> '%2'", datestr, m_date.toString()));
+            Q_EMIT m_p->status(i18n("Date format found: '%1' -> '%2'", datestr, m_date.toString()));
         } catch (const AlkException &e) {
             m_errors |= Errors::DateFormat;
-            emit m_p->error(i18n("Unable to parse date '%1' using format '%2': %3", datestr,
+            Q_EMIT m_p->error(i18n("Unable to parse date '%1' using format '%2': %3", datestr,
                                                                                dateparse.format(),
                                                                                e.what()));
             m_date = QDate::currentDate();
-            emit m_p->status(i18n("Using current date for '%1'", m_symbol));
+            Q_EMIT m_p->status(i18n("Using current date for '%1'", m_symbol));
         }
     } else {
         if (m_source.date().isEmpty()) {
-            emit m_p->status(i18n("Parsing date is disabled for '%1'", m_symbol));
+            Q_EMIT m_p->status(i18n("Parsing date is disabled for '%1'", m_symbol));
         } else {
             m_errors |= Errors::Date;
-            emit m_p->error(i18n("Unable to parse date for '%1'", m_symbol));
+            Q_EMIT m_p->error(i18n("Unable to parse date for '%1'", m_symbol));
         }
         m_date = QDate::currentDate();
-        emit m_p->status(i18n("Using current date for '%1'", m_symbol));
+        Q_EMIT m_p->status(i18n("Using current date for '%1'", m_symbol));
     }
     return true;
 }
@@ -654,10 +654,10 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
 
         if (symbolRegExp.indexIn(quotedata) > -1) {
             kDebug(Private::dbgArea()) << "Symbol" << symbolRegExp.cap(1);
-            emit m_p->status(i18n("Symbol found: '%1'", symbolRegExp.cap(1)));
+            Q_EMIT m_p->status(i18n("Symbol found: '%1'", symbolRegExp.cap(1)));
         } else {
             m_errors |= Errors::Symbol;
-            emit m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
+            Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
         }
 
         if (priceRegExp.indexIn(quotedata) > -1) {
@@ -677,15 +677,15 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
         }
 
         if (gotprice && gotdate) {
-            emit m_p->quote(m_id, m_symbol, m_date, m_price);
+            Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
         } else {
-            emit m_p->failed(m_id, m_symbol);
+            Q_EMIT m_p->failed(m_id, m_symbol);
             result = false;
         }
     } else {
         m_errors |= Errors::Data;
-        emit m_p->error(i18n("Unable to update price for %1 (empty quote data)", m_symbol));
-        emit m_p->failed(m_id, m_symbol);
+        Q_EMIT m_p->error(i18n("Unable to update price for %1 (empty quote data)", m_symbol));
+        Q_EMIT m_p->failed(m_id, m_symbol);
         result = false;
     }
     return result;

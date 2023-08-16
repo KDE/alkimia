@@ -26,9 +26,9 @@ public:
         // This workaround is necessary because QWebEnginePage::urlChanged()
         // returns the html content set with setContent() as url.
         if (url.scheme().startsWith("http"))
-            emit q->urlChanged(url);
+            Q_EMIT q->urlChanged(url);
         else
-            emit q->urlChanged(QUrl());
+            Q_EMIT q->urlChanged(QUrl());
     }
 };
 
