@@ -12,6 +12,7 @@ option(BUILD_TOOLS "Build tools" ON)
 option(BUILD_WITH_QTNETWORK "Build with Qt Network library for downloading" WIN32)
 option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" OFF)
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+option(ENABLE_CLIENT_PACKAGE_TEST "enable test for building a client package" OFF)
 
 # No Plasma on Windows, so no applets
 include(CMakeDependentOption)
@@ -215,6 +216,8 @@ if(DOXYGEN_FOUND)
 
   add_custom_target(apidoc "${DOXYGEN}" "${CMAKE_CURRENT_BINARY_DIR}/alkimia.doxygen")
 endif(DOXYGEN_FOUND)
+
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
 
 feature_summary(WHAT ALL)
 

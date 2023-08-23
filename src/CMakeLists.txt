@@ -221,8 +221,6 @@ endif(NOT WIN32)
 ########### create package configuration file ###########
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
-
 ecm_setup_version(${alkimia_VERSION} VARIABLE_PREFIX ALKIMIA
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
     COMPATIBILITY SameMajorVersion
