@@ -24,7 +24,7 @@ public:
     PlasmaOnlineQuote(QObject *parent, const QVariantList &args);
     ~PlasmaOnlineQuote();
 
-protected slots:
+protected Q_SLOTS:
     void slotConfigAccepted();
     void slotFetchQuote();
     void slotReceivedQuote(const QString &id, const QString &symbol, const QDate &data, const double &price);

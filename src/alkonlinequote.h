@@ -91,7 +91,7 @@ public:
       *              In case of failures it returns false and @ref errors()
       *              could be used to get error details.
       */
-public slots:
+public Q_SLOTS:
     bool launch(const QString &_symbol, const QString &_id, const QString &_source = QString());
 
     /**
@@ -102,7 +102,7 @@ public slots:
      */
     const Errors &errors();
 
-signals:
+Q_SIGNALS:
     void quote(QString id, QString symbol, QDate date, double price);
     void failed(QString id, QString symbol);
     void status(QString s);

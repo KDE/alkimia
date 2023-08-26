@@ -144,7 +144,7 @@ void AlkOnlineQuoteTest::testLaunch()
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);
 
-    foreach(const QString &source, m_profile->quoteSources())
+    for (const QString &source : m_profile->quoteSources())
         if (!source.endsWith(QLatin1String(".webkit")))
             QVERIFY(quote.launch("EUR USD", "EUR USD", source));
 }
@@ -156,7 +156,7 @@ void AlkOnlineQuoteTest::testLaunchWithBrowser()
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);
 
-    foreach(const QString &source, m_profile->quoteSources())
+    for (const QString &source : m_profile->quoteSources())
         if (source.endsWith(QLatin1String(".webkit")))
             QVERIFY(quote.launch("EUR USD", "EUR USD", source));
 #else

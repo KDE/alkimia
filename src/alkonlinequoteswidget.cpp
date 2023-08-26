@@ -72,7 +72,7 @@ public:
 
     Private(bool showProfiles, bool showUpload, QWidget *parent);
     ~Private();
-public slots:
+public Q_SLOTS:
     void slotNewProfile();
     void slotDeleteProfile();
     void slotSelectProfile();
@@ -232,7 +232,7 @@ void AlkOnlineQuotesWidget::Private::loadProfiles()
     AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
     if (list.isEmpty())
         return;
-    foreach (AlkOnlineQuotesProfile *profile, list) {
+    for (AlkOnlineQuotesProfile *profile : list) {
         QListWidgetItem *item = new QListWidgetItem(dynamic_cast<QListWidget *>(m_profileList));
         item->setText(profile->name());
         item->setFlags(item->flags() | Qt::ItemIsEditable);
@@ -325,7 +325,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
         return;
     }
 
-    foreach (AlkOnlineQuotesProfile *profile, list) {
+    for (AlkOnlineQuotesProfile *profile : list) {
         if (m_profileList->currentItem() && m_profileList->currentItem()->text() == profile->name()) {
             m_profile = profile;
             loadQuotesList();

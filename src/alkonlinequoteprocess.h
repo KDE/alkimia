@@ -31,11 +31,11 @@ public:
         m_string.truncate(0);
     }
 
-public slots:
+public Q_SLOTS:
     void slotReceivedDataFromFilter();
     void slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus);
 
-signals:
+Q_SIGNALS:
     void processExited(const QString &);
 
 private:

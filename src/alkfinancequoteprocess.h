@@ -33,7 +33,7 @@ public:
     const QString crypticName(const QString &niceName) const;
     const QString niceName(const QString &crypticName) const;
 
-public slots:
+public Q_SLOTS:
     void slotReceivedDataFromFilter();
     void slotProcessExited();
 

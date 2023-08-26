@@ -35,7 +35,7 @@ void ApplicationSettings::writePositionSettings()
     settings.endGroup();
 
     QList<QDockWidget*> dockWidgets = m_parent->findChildren<QDockWidget*>();
-    foreach(QDockWidget *widget, dockWidgets)
+    for (QDockWidget *widget : dockWidgets)
     {
         settings.beginGroup(widget->objectName());
         settings.setValue("geometry", widget->saveGeometry());
@@ -64,7 +64,7 @@ void ApplicationSettings::readPositionSettings()
     settings.endGroup();
 
     QList<QDockWidget*> dockWidgets = m_parent->findChildren<QDockWidget*>();
-    foreach(QDockWidget *widget, dockWidgets)
+    for (QDockWidget *widget : dockWidgets)
     {
         settings.beginGroup(widget->objectName());
         widget->restoreGeometry(settings.value("geometry", widget->saveGeometry()).toByteArray());

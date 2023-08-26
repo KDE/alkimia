@@ -154,13 +154,13 @@ public:
     bool processDownloadedFile(const KUrl& url, const QString& tmpFile);
     bool processDownloadedPage(const KUrl &url, const QByteArray &page);
 
-public slots:
+public Q_SLOTS:
     void slotLoadStarted();
     void slotLoadFinishedHtmlParser(bool ok);
     void slotLoadFinishedCssSelector(bool ok);
     bool slotParseQuote(const QString &_quotedata);
 
-private slots:
+private Q_SLOTS:
 #ifndef BUILD_WITH_QTNETWORK
     void downloadUrlDone(KJob* job);
 #else

@@ -129,7 +129,7 @@ MainWindow::MainWindow(QWidget *parent)
             QLocale::AnyCountry);
 
     QStringList languages;
-    foreach(const QLocale &locale, allLocales) {
+    for (const QLocale &locale : allLocales) {
         languages.append(locale.uiLanguages());
     }
     languages.sort();

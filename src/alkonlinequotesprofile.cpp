@@ -105,7 +105,7 @@ public:
         m_engine = new KNSCore::Engine(this);
         if (m_engine->init(QStringLiteral("comic.knsrc"))) {
             connect(m_engine, &KNSCore::Engine::signalUpdateableEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &updates) {
-                foreach (const KNSCore::EntryInternal &entry, updates) {
+                for (const KNSCore::EntryInternal &entry : updates) {
                     qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.uniqueId() << entry.category() << entry.providerId();
                     Q_EMIT m_p->updateAvailable(m_p->name(), entry.name());
                 }
@@ -120,7 +120,7 @@ public:
 public Q_SLOTS:
     void slotUpdatesFound(const KNS3::Entry::List &updates)
     {
-        foreach (const KNS3::Entry &entry, updates) {
+        for (const KNS3::Entry &entry : updates) {
             qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.id() << entry.category() << entry.providerId();
             Q_EMIT m_p->updateAvailable(m_p->name(), entry.name());
         }
@@ -209,7 +209,7 @@ public Q_SLOTS:
         const QString filename = QString("%1/*.txt").arg(m_GHNSFilePath);
         const QStringList resources = KStandardDirs().findAllResources("data", filename);
 #endif
-        foreach (const QString &file, resources) {
+        for (const QString &file : resources) {
             QFileInfo f(file);
             QString file2 = f.completeBaseName();
             AlkOnlineQuoteSource source(file2, m_p);
@@ -380,7 +380,7 @@ QString AlkOnlineQuotesProfile::hotNewStuffConfigFile() const
 
 QString AlkOnlineQuotesProfile::hotNewStuffReadFilePath(const QString &fileName) const
 {
-    foreach(const QString &path, hotNewStuffReadPath()) {
+    for (const QString &path : hotNewStuffReadPath()) {
         QFileInfo f(path + fileName);
         if (f.exists())
             return f.absoluteFilePath();

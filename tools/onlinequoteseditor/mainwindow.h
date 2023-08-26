@@ -22,7 +22,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-protected slots:
+protected Q_SLOTS:
     void slotUpdateAvailable(const QString &profile, const QString &name);
     void slotUrlChanged(const QUrl &url);
     void slotEditingFinished();
