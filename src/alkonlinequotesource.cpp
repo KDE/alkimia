@@ -250,7 +250,7 @@ AlkOnlineQuoteSource AlkOnlineQuoteSource::defaultCurrencyQuoteSource(const QStr
                                 QString(), // idregexp
                                 AlkOnlineQuoteSource::Symbol,
                                 "Today\\s+=\\s+([^<]+)",
-                                "name=\"date_input\" class=\"ip_ondate\" value=\"(\\d{4}-\\d{2}-\\d{2})",
+                                "date_value\\s+=\\s+'(\\d{4}-\\d{2}-\\d{2})'",
                                 "%y/%m/%d",
                                 true // skip HTML stripping
     );
