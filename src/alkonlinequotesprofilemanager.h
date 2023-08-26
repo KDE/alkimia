@@ -22,7 +22,6 @@ class ALK_EXPORT AlkOnlineQuotesProfileManager : public QObject
 {
     Q_OBJECT
 public:
-    AlkOnlineQuotesProfileManager();
     ~AlkOnlineQuotesProfileManager();
 
     void addProfile(AlkOnlineQuotesProfile *profile);
@@ -42,6 +41,7 @@ Q_SIGNALS:
     void updateAvailable(const QString &profile, const QString &name);
 
 private:
+    AlkOnlineQuotesProfileManager();
     class Private;
     Private *const d;
 };
