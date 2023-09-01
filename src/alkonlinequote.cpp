@@ -27,6 +27,7 @@
 #include <QRegExp>
 #include <QTextStream>
 #include <QTextCodec>
+#include <QTimer>
 
 #ifdef BUILD_WITH_QTNETWORK
     #include <QNetworkAccessManager>
@@ -147,7 +148,7 @@ public:
 
 public slots:
     void slotLoadStarted();
-    void slotLoadFinishedHtmlParser(bool ok);
+    void slotLoadFinishedHtmlParser(bool ok = false);
     void slotLoadFinishedCssSelector(bool ok);
     bool slotParseQuote(const QString &_quotedata);
 
@@ -269,6 +270,7 @@ bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, co
     connect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(webPage, SIGNAL(loadFinished(bool)), this,
             SLOT(slotLoadFinishedCssSelector(bool)));
+    QTimer::singleShot(20000, this, SLOT(slotLoadFinishedHtmlParser()));
     webPage->setUrl(m_url);
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
@@ -291,6 +293,7 @@ bool AlkOnlineQuote::Private::launchWebKitHtmlParser(const QString &_symbol, con
     AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
     connect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
+    QTimer::singleShot(20000, this, SLOT(slotLoadFinishedHtmlParser()));
     webPage->load(m_url, m_acceptLanguage);
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
