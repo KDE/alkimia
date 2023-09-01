@@ -247,7 +247,7 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
         }
 
         // parse price
-        QString price = webPage->getFirstElement(m_source.price());
+        QString price = webPage->getFirstElement(m_source.priceRegex());
         bool gotprice = parsePrice(price);
 
         // parse date
@@ -653,7 +653,7 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
 
         QRegExp symbolRegExp(m_source.idNumber());
         QRegExp dateRegExp(m_source.date());
-        QRegExp priceRegExp(m_source.price());
+        QRegExp priceRegExp(m_source.priceRegex());
 
         if (symbolRegExp.indexIn(quotedata) > -1) {
             kDebug(Private::dbgArea()) << "Symbol" << symbolRegExp.cap(1);

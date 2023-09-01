@@ -59,7 +59,7 @@ public:
 
     QString name() const;
     QString url() const;
-    QString price() const;
+    QString priceRegex() const;
     QString idNumber() const;
     QString date() const;
     QString dateformat() const;
@@ -74,7 +74,7 @@ public:
 
     void setName(const QString &name);
     void setUrl(const QString &url);
-    void setPrice(const QString &price);
+    void setPriceRegex(const QString &priceRegex);
     void setIdNumber(const QString &idNumber);
     void setDate(const QString &date);
     void setDateformat(const QString &dateformat);

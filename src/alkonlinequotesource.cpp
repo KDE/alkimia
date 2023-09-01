@@ -38,7 +38,7 @@ public:
     Private(const Private* other)
         : m_name(other->m_name)
         , m_url(other->m_url)
-        , m_price(other->m_price)
+        , m_priceRegex(other->m_priceRegex)
         , m_date(other->m_date)
         , m_dateformat(other->m_dateformat)
         , m_idNumber(other->m_idNumber)
@@ -63,7 +63,7 @@ public:
         KConfigGroup grp = kconfig->group(group);
         m_date = grp.readEntry("DateRegex");
         m_dateformat = grp.readEntry("DateFormatRegex", "%m %d %y");
-        m_price = grp.readEntry("PriceRegex");
+        m_priceRegex = grp.readEntry("PriceRegex");
         if (grp.hasKey("SymbolRegex"))
             m_idNumber = grp.readEntry("SymbolRegex");
         else
@@ -83,7 +83,7 @@ public:
             return false;
         KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
         grp.writeEntry("URL", m_url);
-        grp.writeEntry("PriceRegex", m_price);
+        grp.writeEntry("PriceRegex", m_priceRegex);
         grp.writeEntry("DateRegex", m_date);
         grp.writeEntry("DateFormatRegex", m_dateformat);
         grp.writeEntry("IDRegex", m_idNumber);
@@ -141,8 +141,8 @@ public:
             if (key == "url")
                 m_url = value;
             else if (key == "price") {
-                m_price = value;
-                m_price.replace("\\\\", "\\");
+                m_priceRegex = value;
+                m_priceRegex.replace("\\\\", "\\");
             } else if (key == "date") {
                 m_date = value;
                 m_date.replace("\\\\", "\\");
@@ -166,7 +166,7 @@ public:
         out << "date=" << m_date << "\n";
         out << "dateformat=" << m_dateformat << "\n";
         out << "mode=HTML\n";
-        out << "price=" << m_price << "\n";
+        out << "price=" << m_priceRegex << "\n";
         out << "url=" << m_url << "\n";
         return true;
     }
@@ -179,7 +179,7 @@ public:
 
     QString m_name;
     QString m_url;
-    QString m_price;
+    QString m_priceRegex;
     QString m_date;
     QString m_dateformat;
     QString m_idNumber;
@@ -211,7 +211,7 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
                                            const QString& url,
                                            const QString& idNumber,
                                            const IdSelector idBy,
-                                           const QString& price,
+                                           const QString& priceRegex,
                                            const QString& date,
                                            const QString& dateformat,
                                            bool skipStripping)
@@ -221,7 +221,7 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
     d->m_url = url;
     d->m_idNumber = idNumber;
     d->m_idSelector = idBy;
-    d->m_price = price;
+    d->m_priceRegex = priceRegex;
     d->m_date = date;
     d->m_dateformat = dateformat;
     d->m_skipStripping = skipStripping;
@@ -288,9 +288,9 @@ AlkOnlineQuoteSource::IdSelector AlkOnlineQuoteSource::idSelector() const
     return d->m_idSelector;
 }
 
-QString AlkOnlineQuoteSource::price() const
+QString AlkOnlineQuoteSource::priceRegex() const
 {
-    return d->m_price;
+    return d->m_priceRegex;
 }
 
 QString AlkOnlineQuoteSource::date() const
@@ -330,9 +330,9 @@ void AlkOnlineQuoteSource::setUrl(const QString &url)
     d->m_url = url;
 }
 
-void AlkOnlineQuoteSource::setPrice(const QString &price)
+void AlkOnlineQuoteSource::setPriceRegex(const QString &priceRegex)
 {
-    d->m_price = price;
+    d->m_priceRegex = priceRegex;
 }
 
 void AlkOnlineQuoteSource::setIdNumber(const QString &idNumber)

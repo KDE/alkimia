@@ -374,7 +374,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_currentItem = AlkOnlineQuoteSource(item->text(0), m_profile);
         m_editURL->setText(m_currentItem.url());
         m_editSymbol->setText(m_currentItem.idNumber());
-        m_editPrice->setText(m_currentItem.price());
+        m_editPrice->setText(m_currentItem.priceRegex());
         m_editDate->setText(m_currentItem.date());
         m_editDateFormat->setText(m_currentItem.dateformat());
         m_skipStripping->setChecked(m_currentItem.skipStripping());
@@ -396,7 +396,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
                     || m_editSymbol->text() != m_currentItem.idNumber()
                     || m_editDate->text() != m_currentItem.date()
                     || m_editDateFormat->text() != m_currentItem.dateformat()
-                    || m_editPrice->text() != m_currentItem.price()
+                    || m_editPrice->text() != m_currentItem.priceRegex()
                     || m_skipStripping->isChecked() != m_currentItem.skipStripping()
                     || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
 
@@ -466,7 +466,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
     m_currentItem.setIdNumber(m_editSymbol->text());
     m_currentItem.setDate(m_editDate->text());
     m_currentItem.setDateformat(m_editDateFormat->text());
-    m_currentItem.setPrice(m_editPrice->text());
+    m_currentItem.setPriceRegex(m_editPrice->text());
     m_currentItem.setSkipStripping(m_skipStripping->isChecked());
     m_currentItem.setGHNS(m_ghnsSource->isChecked());
     m_currentItem.write();
