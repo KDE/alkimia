@@ -238,9 +238,9 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
     } else {
         AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
         // parse symbol
-        QString symbol = webPage->getFirstElement(m_source.idNumber());
-        if (!symbol.isEmpty()) {
-            Q_EMIT m_p->status(i18n("Symbol found: '%1'", symbol));
+        QString identifier = webPage->getFirstElement(m_source.idRegex());
+        if (!identifier.isEmpty()) {
+            Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifier));
         } else {
             m_errors |= Errors::Symbol;
             Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
@@ -651,13 +651,13 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
             kDebug(Private::dbgArea()) << "stripped text" << quotedata;
         }
 
-        QRegExp symbolRegExp(m_source.idNumber());
+        QRegExp identifierRegExp(m_source.idRegex());
         QRegExp dateRegExp(m_source.dateRegex());
         QRegExp priceRegExp(m_source.priceRegex());
 
-        if (symbolRegExp.indexIn(quotedata) > -1) {
-            kDebug(Private::dbgArea()) << "Symbol" << symbolRegExp.cap(1);
-            Q_EMIT m_p->status(i18n("Symbol found: '%1'", symbolRegExp.cap(1)));
+        if (identifierRegExp.indexIn(quotedata) > -1) {
+            kDebug(Private::dbgArea()) << "Symbol" << identifierRegExp.cap(1);
+            Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifierRegExp.cap(1)));
         } else {
             m_errors |= Errors::Symbol;
             Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));

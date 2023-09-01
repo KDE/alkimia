@@ -41,7 +41,7 @@ public:
         , m_priceRegex(other->m_priceRegex)
         , m_dateRegex(other->m_dateRegex)
         , m_dateformat(other->m_dateformat)
-        , m_idNumber(other->m_idNumber)
+        , m_idRegex(other->m_idRegex)
         , m_idSelector(other->m_idSelector)
         , m_skipStripping(other->m_skipStripping)
         , m_profile(other->m_profile)
@@ -65,9 +65,9 @@ public:
         m_dateformat = grp.readEntry("DateFormatRegex", "%m %d %y");
         m_priceRegex = grp.readEntry("PriceRegex");
         if (grp.hasKey("SymbolRegex"))
-            m_idNumber = grp.readEntry("SymbolRegex");
+            m_idRegex = grp.readEntry("SymbolRegex");
         else
-            m_idNumber = grp.readEntry("IDRegex");
+            m_idRegex = grp.readEntry("IDRegex");
         m_idSelector = static_cast<IdSelector>(grp.readEntry("IDBy", "0").toInt());
         m_url = grp.readEntry("URL");
         m_skipStripping = grp.readEntry("SkipStripping", false);
@@ -86,7 +86,7 @@ public:
         grp.writeEntry("PriceRegex", m_priceRegex);
         grp.writeEntry("DateRegex", m_dateRegex);
         grp.writeEntry("DateFormatRegex", m_dateformat);
-        grp.writeEntry("IDRegex", m_idNumber);
+        grp.writeEntry("IDRegex", m_idRegex);
         grp.writeEntry("IDBy", static_cast<int>(m_idSelector));
         grp.deleteEntry("SymbolRegex");
         if (m_skipStripping) {
@@ -182,7 +182,7 @@ public:
     QString m_priceRegex;
     QString m_dateRegex;
     QString m_dateformat;
-    QString m_idNumber;
+    QString m_idRegex;
     IdSelector m_idSelector;
     bool m_skipStripping;
     AlkOnlineQuotesProfile *m_profile;
@@ -209,7 +209,7 @@ AlkOnlineQuoteSource &AlkOnlineQuoteSource::operator=(AlkOnlineQuoteSource other
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
                                            const QString& url,
-                                           const QString& idNumber,
+                                           const QString& idRegex,
                                            const IdSelector idBy,
                                            const QString& priceRegex,
                                            const QString& dateRegex,
@@ -219,7 +219,7 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
 {
     d->m_name = name;
     d->m_url = url;
-    d->m_idNumber = idNumber;
+    d->m_idRegex = idRegex;
     d->m_idSelector = idBy;
     d->m_priceRegex = priceRegex;
     d->m_dateRegex = dateRegex;
@@ -278,9 +278,9 @@ QString AlkOnlineQuoteSource::url() const
     return d->m_url;
 }
 
-QString AlkOnlineQuoteSource::idNumber() const
+QString AlkOnlineQuoteSource::idRegex() const
 {
-    return d->m_idNumber;
+    return d->m_idRegex;
 }
 
 AlkOnlineQuoteSource::IdSelector AlkOnlineQuoteSource::idSelector() const
@@ -335,9 +335,9 @@ void AlkOnlineQuoteSource::setPriceRegex(const QString &priceRegex)
     d->m_priceRegex = priceRegex;
 }
 
-void AlkOnlineQuoteSource::setIdNumber(const QString &idNumber)
+void AlkOnlineQuoteSource::setIdRegex(const QString &idRegex)
 {
-    d->m_idNumber = idNumber;
+    d->m_idRegex = idRegex;
 }
 
 void AlkOnlineQuoteSource::setIdSelector(AlkOnlineQuoteSource::IdSelector idSelector)

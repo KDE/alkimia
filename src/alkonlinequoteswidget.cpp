@@ -208,7 +208,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
             SLOT(slotQuoteSourceStartRename(QTreeWidgetItem *, int)));
 
     connect(m_editURL, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
-    connect(m_editSymbol, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
+    connect(m_editIdentifier, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editDate, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
@@ -357,7 +357,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     bool enabled = item && !isFinanceQuoteSource;
 
     m_editURL->setEnabled(enabled);
-    m_editSymbol->setEnabled(enabled);
+    m_editIdentifier->setEnabled(enabled);
     m_editPrice->setEnabled(enabled);
     m_editDate->setEnabled(enabled);
     m_editDateFormat->setEnabled(enabled);
@@ -365,7 +365,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_skipStripping->setEnabled(enabled);
 
     m_editURL->clear();
-    m_editSymbol->clear();
+    m_editIdentifier->clear();
     m_editPrice->clear();
     m_editDate->clear();
     m_editDateFormat->clear();
@@ -373,7 +373,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     if (item) {
         m_currentItem = AlkOnlineQuoteSource(item->text(0), m_profile);
         m_editURL->setText(m_currentItem.url());
-        m_editSymbol->setText(m_currentItem.idNumber());
+        m_editIdentifier->setText(m_currentItem.idRegex());
         m_editPrice->setText(m_currentItem.priceRegex());
         m_editDate->setText(m_currentItem.dateRegex());
         m_editDateFormat->setText(m_currentItem.dateformat());
@@ -393,7 +393,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
 {
     clearIcons();
     bool modified = m_editURL->text() != m_currentItem.url()
-                    || m_editSymbol->text() != m_currentItem.idNumber()
+                    || m_editIdentifier->text() != m_currentItem.idRegex()
                     || m_editDate->text() != m_currentItem.dateRegex()
                     || m_editDateFormat->text() != m_currentItem.dateformat()
                     || m_editPrice->text() != m_currentItem.priceRegex()
@@ -463,7 +463,7 @@ void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
 void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
 {
     m_currentItem.setUrl(m_editURL->text());
-    m_currentItem.setIdNumber(m_editSymbol->text());
+    m_currentItem.setIdRegex(m_editIdentifier->text());
     m_currentItem.setDateRegex(m_editDate->text());
     m_currentItem.setDateformat(m_editDateFormat->text());
     m_currentItem.setPriceRegex(m_editPrice->text());
