@@ -238,7 +238,7 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
     } else {
         AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
         // parse symbol
-        QString symbol = webPage->getFirstElement(m_source.sym());
+        QString symbol = webPage->getFirstElement(m_source.idNumber());
         if (!symbol.isEmpty()) {
             Q_EMIT m_p->status(i18n("Symbol found: '%1'", symbol));
         } else {
@@ -651,7 +651,7 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
             kDebug(Private::dbgArea()) << "stripped text" << quotedata;
         }
 
-        QRegExp symbolRegExp(m_source.sym());
+        QRegExp symbolRegExp(m_source.idNumber());
         QRegExp dateRegExp(m_source.date());
         QRegExp priceRegExp(m_source.price());
 

@@ -34,7 +34,6 @@ public:
     explicit AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile);
     explicit AlkOnlineQuoteSource(const QString& name,
                                   const QString& url,
-                                  const QString& sym,
                                   const QString& idNumber,
                                   const IdSelector idBy,
                                   const QString& price,
@@ -60,7 +59,6 @@ public:
 
     QString name() const;
     QString url() const;
-    QString sym() const;
     QString price() const;
     QString idNumber() const;
     QString date() const;
@@ -76,7 +74,6 @@ public:
 
     void setName(const QString &name);
     void setUrl(const QString &url);
-    void setSym(const QString &symbol);
     void setPrice(const QString &price);
     void setIdNumber(const QString &idNumber);
     void setDate(const QString &date);

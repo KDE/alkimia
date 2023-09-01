@@ -373,7 +373,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     if (item) {
         m_currentItem = AlkOnlineQuoteSource(item->text(0), m_profile);
         m_editURL->setText(m_currentItem.url());
-        m_editSymbol->setText(m_currentItem.sym());
+        m_editSymbol->setText(m_currentItem.idNumber());
         m_editPrice->setText(m_currentItem.price());
         m_editDate->setText(m_currentItem.date());
         m_editDateFormat->setText(m_currentItem.dateformat());
@@ -393,7 +393,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
 {
     clearIcons();
     bool modified = m_editURL->text() != m_currentItem.url()
-                    || m_editSymbol->text() != m_currentItem.sym()
+                    || m_editSymbol->text() != m_currentItem.idNumber()
                     || m_editDate->text() != m_currentItem.date()
                     || m_editDateFormat->text() != m_currentItem.dateformat()
                     || m_editPrice->text() != m_currentItem.price()
@@ -463,7 +463,7 @@ void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
 void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
 {
     m_currentItem.setUrl(m_editURL->text());
-    m_currentItem.setSym(m_editSymbol->text());
+    m_currentItem.setIdNumber(m_editSymbol->text());
     m_currentItem.setDate(m_editDate->text());
     m_currentItem.setDateformat(m_editDateFormat->text());
     m_currentItem.setPrice(m_editPrice->text());

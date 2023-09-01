@@ -38,7 +38,6 @@ public:
     Private(const Private* other)
         : m_name(other->m_name)
         , m_url(other->m_url)
-        , m_sym(other->m_sym)
         , m_price(other->m_price)
         , m_date(other->m_date)
         , m_dateformat(other->m_dateformat)
@@ -62,11 +61,13 @@ public:
             return false;
         }
         KConfigGroup grp = kconfig->group(group);
-        m_sym = grp.readEntry("SymbolRegex");
         m_date = grp.readEntry("DateRegex");
         m_dateformat = grp.readEntry("DateFormatRegex", "%m %d %y");
         m_price = grp.readEntry("PriceRegex");
-        m_idNumber = grp.readEntry("IDRegex");
+        if (grp.hasKey("SymbolRegex"))
+            m_idNumber = grp.readEntry("SymbolRegex");
+        else
+            m_idNumber = grp.readEntry("IDRegex");
         m_idSelector = static_cast<IdSelector>(grp.readEntry("IDBy", "0").toInt());
         m_url = grp.readEntry("URL");
         m_skipStripping = grp.readEntry("SkipStripping", false);
@@ -87,7 +88,7 @@ public:
         grp.writeEntry("DateFormatRegex", m_dateformat);
         grp.writeEntry("IDRegex", m_idNumber);
         grp.writeEntry("IDBy", static_cast<int>(m_idSelector));
-        grp.writeEntry("SymbolRegex", m_sym);
+        grp.deleteEntry("SymbolRegex");
         if (m_skipStripping) {
             grp.writeEntry("SkipStripping", m_skipStripping);
         } else {
@@ -178,7 +179,6 @@ public:
 
     QString m_name;
     QString m_url;
-    QString m_sym;
     QString m_price;
     QString m_date;
     QString m_dateformat;
@@ -209,7 +209,6 @@ AlkOnlineQuoteSource &AlkOnlineQuoteSource::operator=(AlkOnlineQuoteSource other
 
 AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
                                            const QString& url,
-                                           const QString& sym,
                                            const QString& idNumber,
                                            const IdSelector idBy,
                                            const QString& price,
@@ -220,7 +219,6 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
 {
     d->m_name = name;
     d->m_url = url;
-    d->m_sym = sym;
     d->m_idNumber = idNumber;
     d->m_idSelector = idBy;
     d->m_price = price;
@@ -246,7 +244,6 @@ AlkOnlineQuoteSource AlkOnlineQuoteSource::defaultCurrencyQuoteSource(const QStr
 {
     return AlkOnlineQuoteSource(name,
                                 "https://fx-rate.net/%1/%2",
-                                QString(), // symbolregexp
                                 QString(), // idregexp
                                 AlkOnlineQuoteSource::Symbol,
                                 "Today\\s+=\\s+([^<]+)",
@@ -279,11 +276,6 @@ QString AlkOnlineQuoteSource::name() const
 QString AlkOnlineQuoteSource::url() const
 {
     return d->m_url;
-}
-
-QString AlkOnlineQuoteSource::sym() const
-{
-    return d->m_sym;
 }
 
 QString AlkOnlineQuoteSource::idNumber() const
@@ -336,11 +328,6 @@ void AlkOnlineQuoteSource::setName(const QString &name)
 void AlkOnlineQuoteSource::setUrl(const QString &url)
 {
     d->m_url = url;
-}
-
-void AlkOnlineQuoteSource::setSym(const QString &symbol)
-{
-    d->m_sym = symbol;
 }
 
 void AlkOnlineQuoteSource::setPrice(const QString &price)

@@ -27,7 +27,6 @@ void AlkOnlineQuoteSourceTest::emptyCtor()
     QCOMPARE(m->name(), emptyString);
     QCOMPARE(m->isValid(), false);
     QCOMPARE(m->url(), emptyString);
-    QCOMPARE(m->sym(), emptyString);
     QCOMPARE(m->idNumber(), emptyString);
     QCOMPARE(m->idSelector(), AlkOnlineQuoteSource::Symbol);
     QCOMPARE(m->price(), emptyString);
@@ -84,7 +83,6 @@ void AlkOnlineQuoteSourceTest::testReadWriteRemove()
     QCOMPARE(m1.name(), m2.name());
     QCOMPARE(m1.isValid(), m2.isValid());
     QCOMPARE(m1.url(), m2.url());
-    QCOMPARE(m1.sym(), m2.sym());
     QCOMPARE(m1.idNumber(), m2.idNumber());
     QCOMPARE(m1.idSelector(), m2.idSelector());
     QCOMPARE(m1.price(), m2.price());
@@ -111,7 +109,6 @@ void AlkOnlineQuoteSourceTest::testRename()
     QCOMPARE(m1.name(), m2.name());
     QCOMPARE(m1.isValid(), m2.isValid());
     QCOMPARE(m1.url(), m2.url());
-    QCOMPARE(m1.sym(), m2.sym());
     QCOMPARE(m1.idNumber(), m2.idNumber());
     QCOMPARE(m1.idSelector(), m2.idSelector());
     QCOMPARE(m1.price(), m2.price());
