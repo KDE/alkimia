@@ -1,4 +1,7 @@
-cmake_minimum_required(VERSION 3.0)
+#SPDX-License-Identifier: BSD-2-Clause
+#SPDX-FileCopyrightText: 2023 Ralf Habacker ralf.habacker @freenet.de
+
+cmake_minimum_required(VERSION 3.16.0)
 
 if(COMMAND cmake_policy)
     cmake_policy(SET CMP0074 NEW)
@@ -11,6 +14,6 @@ if(NOT LibAlkimia${ALKIMIA_PATH_SUFFIX}_VERSION OR NOT CHECK_VERSION OR NOT LibA
     message(FATAL_ERROR "version mismatch actual '${LibAlkimia${ALKIMIA_PATH_SUFFIX}_VERSION}' expected '${CHECK_VERSION}'")
 endif()
 
-add_executable(mytest test.c)
+add_executable(mytest test.cpp)
 target_link_libraries(mytest Alkimia::alkimia)
 install(TARGETS mytest DESTINATION bin)
