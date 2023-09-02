@@ -14,8 +14,12 @@ set -x
 : "${ci_distro:=auto}"
 
 # ci_host:
-# the host to build for
+# the host to build for native, mingw32, mingw64
 : "${ci_host:=native}"
+
+# ci_distro_variant:
+# Typical values: leap tumbleweed
+: "${ci_distro_variant:=leap}"
 
 # ci_variant:
 # One of kf5, kde4
@@ -47,6 +51,7 @@ case "$ci_distro" in
                     "${repos[@]}"
                     https://download.opensuse.org/repositories/windows:/mingw:/win${bits}/${repo_name}/windows:mingw:win${bits}.repo
                     https://download.opensuse.org/repositories/windows:/mingw/${repo_name}/windows:mingw.repo
+                    https://download.opensuse.org/repositories/security:/tls/openSUSE_Tumbleweed/security:tls.repo
                 )
                 ;;
             (kde4-native)
@@ -100,13 +105,27 @@ case "$ci_distro" in
                 ;;
             (kf5*-mingw*)
                 prefix=${ci_host}
-                source_packages=(
-                    "${source_packages[@]}"
-                    ${prefix}-libalkimia5
-                )
-                # in case not all required packages are installed with source_package
                 packages=(
                     "${packages[@]}"
+                    doxygen
+                    "$prefix-extra-cmake-modules"
+                    "$prefix-gmp-devel"
+                    "$prefix(cmake:KF5Completion)"
+                    "$prefix(cmake:KF5Config)"
+                    "$prefix(cmake:KF5CoreAddons)"
+                    "$prefix(cmake:KF5I18n)"
+                    "$prefix(cmake:KF5IconThemes)"
+                    "$prefix(cmake:KF5KIO)"
+                    "$prefix(cmake:KF5NewStuff)"
+                    "$prefix(cmake:KF5Package)"
+                    "$prefix(cmake:KF5TextWidgets)"
+                    "$prefix(cmake:Qt5Core)"
+                    "$prefix(cmake:Qt5DBus)"
+                    "$prefix(cmake:Qt5Qml)"
+                    "$prefix(cmake:Qt5Test)"
+                    "$prefix(cmake:Qt5WebKit)"
+                    "$prefix(cmake:Qt5Widgets)"
+                    wine
                 )
                 ;;
             (kde4-native)
@@ -129,6 +148,7 @@ case "$ci_distro" in
                     ${prefix}-extra-cmake-modules
                     ${prefix}-libkde4-devel
                     ${prefix}-gmp-devel
+                    wine
                 )
                 ;;
             (*)
@@ -171,7 +191,7 @@ esac
 
 # Add the user that we will use to do the build inside the
 # Docker container, and let them use sudo
-if [ -f /.dockerenv ] && [ -z `getent passwd | grep user` ]; then
+if [ -f /.dockerenv ] && [ -z `getent passwd | grep ^user` ]; then
     useradd -m user
     passwd -ud user
     echo "user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nopasswd
