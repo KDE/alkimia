@@ -209,6 +209,12 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 
     connect(m_editURL, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editIdentifier, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
+
+    m_editIdSelector->addItem(i18nc("@item:inlistbox Stock", "Symbol"), AlkOnlineQuoteSource::IdSelector::Symbol);
+    m_editIdSelector->addItem(i18nc("@item:inlistbox Stock", "Identification number"), AlkOnlineQuoteSource::IdSelector::IdentificationNumber);
+    m_editIdSelector->addItem(i18nc("@item:inlistbox Stock", "Name"), AlkOnlineQuoteSource::IdSelector::Name);
+    connect(m_editIdSelector, SIGNAL(currentIndexChanged()), this,  SLOT(slotEntryChanged()));
+
     connect(m_editDate, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
@@ -358,6 +364,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
 
     m_editURL->setEnabled(enabled);
     m_editIdentifier->setEnabled(enabled);
+    m_editIdSelector->setEnabled(enabled);
     m_editPrice->setEnabled(enabled);
     m_editDate->setEnabled(enabled);
     m_editDateFormat->setEnabled(enabled);
@@ -366,6 +373,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
 
     m_editURL->clear();
     m_editIdentifier->clear();
+    m_editIdSelector->setCurrentIndex(AlkOnlineQuoteSource::IdSelector::Symbol);
     m_editPrice->clear();
     m_editDate->clear();
     m_editDateFormat->clear();
@@ -374,6 +382,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_currentItem = AlkOnlineQuoteSource(item->text(0), m_profile);
         m_editURL->setText(m_currentItem.url());
         m_editIdentifier->setText(m_currentItem.idRegex());
+        m_editIdSelector->setCurrentIndex(m_currentItem.idSelector());
         m_editPrice->setText(m_currentItem.priceRegex());
         m_editDate->setText(m_currentItem.dateRegex());
         m_editDateFormat->setText(m_currentItem.dateformat());
@@ -394,6 +403,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     clearIcons();
     bool modified = m_editURL->text() != m_currentItem.url()
                     || m_editIdentifier->text() != m_currentItem.idRegex()
+                    || m_editIdSelector->currentData().toInt() != static_cast<int>(m_currentItem.idSelector())
                     || m_editDate->text() != m_currentItem.dateRegex()
                     || m_editDateFormat->text() != m_currentItem.dateformat()
                     || m_editPrice->text() != m_currentItem.priceRegex()
@@ -410,6 +420,8 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     m_checkButton->setEnabled(isFinanceQuote || !modified);
     m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
     m_checkSymbol2->setEnabled(m_currentItem.url().contains("%2"));
+    m_editIdSelector->setVisible(m_profile->type() == AlkOnlineQuotesProfile::Type::KMyMoney5);
+    m_editIdSelectorLabel->setVisible(m_profile->type() == AlkOnlineQuotesProfile::Type::KMyMoney5);
 }
 
 void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
@@ -464,6 +476,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
 {
     m_currentItem.setUrl(m_editURL->text());
     m_currentItem.setIdRegex(m_editIdentifier->text());
+    m_currentItem.setIdSelector(static_cast<AlkOnlineQuoteSource::IdSelector>(m_editIdSelector->currentData().toInt()));
     m_currentItem.setDateRegex(m_editDate->text());
     m_currentItem.setDateformat(m_editDateFormat->text());
     m_currentItem.setPriceRegex(m_editPrice->text());
