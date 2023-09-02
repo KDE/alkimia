@@ -211,35 +211,40 @@ fi
 # settings for build variants
 case "$ci_variant" in
     (kf5*)
+        ci_test=no
         cmake_options="-DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DBUILD_WITH_QTNETWORK=1"
+        cmake_suffix="kf5"
         export QT_LOGGING_RULES="*=true"
         export QT_FORCE_STDERR_LOGGING=1
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
         start_kde_session=kdeinit5
-        cmake_suffix="kf5"
         ;;
 
     (kde4)
+        ci_test=no
         cmake_options="-DBUILD_QT4=1 -DKDE4_BUILD_TESTS=1 -DBUILD_WITH_QTNETWORK=1"
-        start_kde_session=kdeinit4
         cmake_suffix="kde4"
+        start_kde_session=kdeinit4
         ;;
 esac
+
+# for building
+cmake=cmake
 
 # settings for platforms
 case "$ci_host" in
     (mingw32)
-        cmake="$ci_host-cmake-$cmake_suffix"
+        cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime i686-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
         ;;
     (mingw64)
-        cmake="$ci_host-cmake-$cmake_suffix"
+        cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime x86_64-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
         ;;
     (*)
-        cmake="cmake-$cmake_suffix"
+        cmake_configure="cmake-$cmake_suffix"
         export LD_LIBRARY_PATH=${builddir}/bin
         wrapper=
         ;;
@@ -258,26 +263,6 @@ case "$ci_variant" in
         ;;
 esac
 
-case "$ci_host" in
-    (native)
-        cmake=cmake
-        ;;
-    (mingw*)
-        case "$ci_variant" in
-            (kf5*)
-                cmake="${ci_host}-cmake-kf5 --"
-                # not supported yet
-                ci_test=no
-                ;;
-            (kde4)
-                cmake="${ci_host}-cmake-kde4 --"
-                # not supported yet
-                ci_test=no
-                ;;
-        esac
-        ;;
-esac
-
 # setup vars
 srcdir="$(pwd)"
 builddir=${srcdir}/ci-build-${ci_variant}-${ci_host}
@@ -292,8 +277,8 @@ fi
 
 # configure and build
 if test "$ci_build" = yes; then
-    $cmake -S ${srcdir} -B ${builddir} $cmake_options ..
-    make -C ${builddir} -j$ci_jobs
+    $cmake_configure -- -S ${srcdir} -B ${builddir} $cmake_options
+    $cmake --build ${builddir} -j$ci_jobs
 fi
 
 # run tests
@@ -313,4 +298,4 @@ if test "$ci_test" = yes; then
 fi
 
 # run install
-make -C ${builddir} install DESTDIR=$PWD/tmp
+$cmake --build ${builddir} -t install DESTDIR=$PWD/tmp
