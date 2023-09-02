@@ -118,6 +118,10 @@ else()
     if (NOT QT_MAJOR_VERSION)
         set(QT_MAJOR_VERSION 5)
     endif()
+    if (${QT_MAJOR_VERSION} EQUAL 5)
+        set(QT_MIN_VERSION 5.15.2)
+        set(KF5_MIN_VERSION 5.90)
+    endif()
     set(QT_USE_LIBSPREFIX Qt${QT_MAJOR_VERSION}::)
     set(ALKIMIA_LIB_SUFFIX "${QT_MAJOR_VERSION}")
     set(ALKIMIA_INCLUDE_SUFFIX "Qt${QT_MAJOR_VERSION}")
@@ -125,7 +129,7 @@ else()
     set(PC_TARGET_QTPREFIX Qt${QT_MAJOR_VERSION})
     set(PC_TARGET_SUFFIX ${QT_MAJOR_VERSION})
 
-    find_package(Qt${QT_MAJOR_VERSION}WebEngineWidgets 5.9.3)
+    find_package(Qt${QT_MAJOR_VERSION}WebEngineWidgets ${QT_MIN_VERSION})
 
     option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine (experimental)" ${Qt${QT_MAJOR_VERSION}WebEngineWidgets_FOUND})
     if (BUILD_WITH_WEBENGINE)
@@ -153,7 +157,7 @@ else()
     endif()
     set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}${QT_NETWORK_COMPONENT})
 
-    find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
         Core
         ${QT_NETWORK_COMPONENT}
         Test
@@ -166,7 +170,7 @@ else()
     endif()
 
     # search packages used by KDE
-    find_package(KF5 REQUIRED COMPONENTS
+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
         Config
         CoreAddons
         Completion
