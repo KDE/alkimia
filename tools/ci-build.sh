@@ -236,14 +236,14 @@ cmake=cmake
 case "$ci_host" in
     (mingw32)
         # not yet supported
-        ci_test = no
+        ci_test=no
         cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime i686-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
         ;;
     (mingw64)
         # not yet supported
-        ci_test = no
+        ci_test=no
         cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime x86_64-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
