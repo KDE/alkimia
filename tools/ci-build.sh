@@ -211,7 +211,6 @@ fi
 # settings for build variants
 case "$ci_variant" in
     (kf5*)
-        ci_test=no
         cmake_options="-DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DBUILD_WITH_QTNETWORK=1"
         cmake_suffix="kf5"
         export QT_LOGGING_RULES="*=true"
@@ -221,7 +220,6 @@ case "$ci_variant" in
         ;;
 
     (kde4)
-        ci_test=no
         cmake_options="-DBUILD_QT4=1 -DKDE4_BUILD_TESTS=1 -DBUILD_WITH_QTNETWORK=1"
         cmake_suffix="kde4"
         start_kde_session=kdeinit4
@@ -234,11 +232,15 @@ cmake=cmake
 # settings for platforms
 case "$ci_host" in
     (mingw32)
+        # not yet supported
+        ci_test = no
         cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime i686-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
         ;;
     (mingw64)
+        # not yet supported
+        ci_test = no
         cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime x86_64-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
@@ -282,6 +284,7 @@ if test "$ci_build" = yes; then
 fi
 
 # run tests
+echo "checking for running tests = $ci_test"
 if test "$ci_test" = yes; then
     trap cleanup EXIT
 
