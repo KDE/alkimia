@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-04-09 02:15+0000\n"
+"POT-Creation-Date: 2023-09-02 02:33+0000\n"
 "PO-Revision-Date: 2019-11-08 02:55+0300\n"
 "Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -27,111 +27,111 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: alkonlinequote.cpp:177
+#: alkonlinequote.cpp:178
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Источник <placeholder>%1</placeholder> не найден."
 
-#: alkonlinequote.cpp:211 alkonlinequote.cpp:225
+#: alkonlinequote.cpp:212 alkonlinequote.cpp:226
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to fetch url for %1"
 msgstr "Невозможно обновить курс «%1» (пустая дата)"
 
-#: alkonlinequote.cpp:233 alkonlinequote.cpp:640
+#: alkonlinequote.cpp:234 alkonlinequote.cpp:643
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Найден код: «%1»"
 
-#: alkonlinequote.cpp:236 alkonlinequote.cpp:643
+#: alkonlinequote.cpp:237 alkonlinequote.cpp:646
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to parse symbol for %1"
 msgstr "Невозможно обновить курс «%1» (пустая дата)"
 
-#: alkonlinequote.cpp:259
+#: alkonlinequote.cpp:260
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Открытие адреса %1..."
 
-#: alkonlinequote.cpp:316
+#: alkonlinequote.cpp:319
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Запуск «%1»..."
 
-#: alkonlinequote.cpp:328 alkonlinequote.cpp:528
+#: alkonlinequote.cpp:331 alkonlinequote.cpp:531
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Не удалось запустить: %1"
 
-#: alkonlinequote.cpp:350
+#: alkonlinequote.cpp:353
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Не удалось открыть загруженный файл"
 
-#: alkonlinequote.cpp:367
+#: alkonlinequote.cpp:370
 #, fuzzy, kde-format
 #| msgid "Symbol found: %1"
 msgid "URL found: %1..."
 msgstr "Найден код: %1"
 
-#: alkonlinequote.cpp:455
+#: alkonlinequote.cpp:458
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 
-#: alkonlinequote.cpp:520
+#: alkonlinequote.cpp:523
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Запуск %1 %2 %3..."
 
-#: alkonlinequote.cpp:560
+#: alkonlinequote.cpp:563
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Найден курс: «%1» (%2)"
 
-#: alkonlinequote.cpp:563
+#: alkonlinequote.cpp:566
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to parse price for '%1'"
 msgstr "Невозможно обновить курс «%1» (пустая дата)"
 
-#: alkonlinequote.cpp:572
+#: alkonlinequote.cpp:575
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Найдена дата: «%1»"
 
-#: alkonlinequote.cpp:578
+#: alkonlinequote.cpp:581
 #, fuzzy, kde-format
 #| msgid "Date found: %1"
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Найдена дата: %1"
 
-#: alkonlinequote.cpp:581
+#: alkonlinequote.cpp:584
 #, fuzzy, kde-format
 #| msgid "Unable to store user information: %1"
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Невозможно сохранить данные владельца: %1"
 
-#: alkonlinequote.cpp:585 alkonlinequote.cpp:595
+#: alkonlinequote.cpp:588 alkonlinequote.cpp:598
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr ""
 
-#: alkonlinequote.cpp:589
+#: alkonlinequote.cpp:592
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr ""
 
-#: alkonlinequote.cpp:592
+#: alkonlinequote.cpp:595
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to parse date for '%1'"
 msgstr "Невозможно обновить курс «%1» (пустая дата)"
 
-#: alkonlinequote.cpp:670
+#: alkonlinequote.cpp:673
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
