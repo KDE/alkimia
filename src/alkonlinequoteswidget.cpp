@@ -403,7 +403,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     clearIcons();
     bool modified = m_editURL->text() != m_currentItem.url()
                     || m_editIdentifier->text() != m_currentItem.idRegex()
-                    || m_editIdSelector->currentData().toInt() != static_cast<int>(m_currentItem.idSelector())
+                    || m_editIdSelector->currentIndex() != static_cast<int>(m_currentItem.idSelector())
                     || m_editDate->text() != m_currentItem.dateRegex()
                     || m_editDateFormat->text() != m_currentItem.dateformat()
                     || m_editPrice->text() != m_currentItem.priceRegex()
@@ -476,7 +476,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
 {
     m_currentItem.setUrl(m_editURL->text());
     m_currentItem.setIdRegex(m_editIdentifier->text());
-    m_currentItem.setIdSelector(static_cast<AlkOnlineQuoteSource::IdSelector>(m_editIdSelector->currentData().toInt()));
+    m_currentItem.setIdSelector(static_cast<AlkOnlineQuoteSource::IdSelector>(m_editIdSelector->currentIndex()));
     m_currentItem.setDateRegex(m_editDate->text());
     m_currentItem.setDateformat(m_editDateFormat->text());
     m_currentItem.setPriceRegex(m_editPrice->text());
