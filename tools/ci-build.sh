@@ -208,10 +208,13 @@ if [ -f /.dockerenv ] && [ -n `getent passwd | grep ^user` ]; then
     sudo=sudo
 fi
 
+# common cmake options
+cmake_options="-DBUILD_WITH_QTNETWORK=1"
+
 # settings for build variants
 case "$ci_variant" in
     (kf5*)
-        cmake_options="-DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DBUILD_WITH_QTNETWORK=1"
+        cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1"
         cmake_suffix="kf5"
         export QT_LOGGING_RULES="*=true"
         export QT_FORCE_STDERR_LOGGING=1
@@ -220,7 +223,7 @@ case "$ci_variant" in
         ;;
 
     (kde4)
-        cmake_options="-DBUILD_QT4=1 -DKDE4_BUILD_TESTS=1 -DBUILD_WITH_QTNETWORK=1"
+        cmake_options+=" -DBUILD_QT4=1 -DKDE4_BUILD_TESTS=1"
         cmake_suffix="kde4"
         start_kde_session=kdeinit4
         ;;
