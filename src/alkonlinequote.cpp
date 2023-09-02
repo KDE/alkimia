@@ -251,7 +251,7 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
         bool gotprice = parsePrice(price);
 
         // parse date
-        QString date = webPage->getFirstElement(m_source.date());
+        QString date = webPage->getFirstElement(m_source.dateRegex());
         bool gotdate = parseDate(date);
 
         if (gotprice && gotdate) {
@@ -605,7 +605,7 @@ bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
             Q_EMIT m_p->status(i18n("Using current date for '%1'", m_symbol));
         }
     } else {
-        if (m_source.date().isEmpty()) {
+        if (m_source.dateRegex().isEmpty()) {
             Q_EMIT m_p->status(i18n("Parsing date is disabled for '%1'", m_symbol));
         } else {
             m_errors |= Errors::Date;
@@ -652,7 +652,7 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
         }
 
         QRegExp symbolRegExp(m_source.idNumber());
-        QRegExp dateRegExp(m_source.date());
+        QRegExp dateRegExp(m_source.dateRegex());
         QRegExp priceRegExp(m_source.priceRegex());
 
         if (symbolRegExp.indexIn(quotedata) > -1) {

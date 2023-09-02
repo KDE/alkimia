@@ -375,7 +375,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_editURL->setText(m_currentItem.url());
         m_editSymbol->setText(m_currentItem.idNumber());
         m_editPrice->setText(m_currentItem.priceRegex());
-        m_editDate->setText(m_currentItem.date());
+        m_editDate->setText(m_currentItem.dateRegex());
         m_editDateFormat->setText(m_currentItem.dateformat());
         m_skipStripping->setChecked(m_currentItem.skipStripping());
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
@@ -394,7 +394,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     clearIcons();
     bool modified = m_editURL->text() != m_currentItem.url()
                     || m_editSymbol->text() != m_currentItem.idNumber()
-                    || m_editDate->text() != m_currentItem.date()
+                    || m_editDate->text() != m_currentItem.dateRegex()
                     || m_editDateFormat->text() != m_currentItem.dateformat()
                     || m_editPrice->text() != m_currentItem.priceRegex()
                     || m_skipStripping->isChecked() != m_currentItem.skipStripping()
@@ -464,7 +464,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
 {
     m_currentItem.setUrl(m_editURL->text());
     m_currentItem.setIdNumber(m_editSymbol->text());
-    m_currentItem.setDate(m_editDate->text());
+    m_currentItem.setDateRegex(m_editDate->text());
     m_currentItem.setDateformat(m_editDateFormat->text());
     m_currentItem.setPriceRegex(m_editPrice->text());
     m_currentItem.setSkipStripping(m_skipStripping->isChecked());
@@ -512,7 +512,7 @@ void AlkOnlineQuotesWidget::Private::setupIcons(const AlkOnlineQuote::Errors &er
         if (errors & AlkOnlineQuote::Errors::Date) {
             m_dateCheckLabel->setPixmap(m_failIcon);
         } else {
-            if (m_currentItem.date().isEmpty()) {
+            if (m_currentItem.dateRegex().isEmpty()) {
                 m_dateCheckLabel->setPixmap(m_emptyIcon);
                 m_dateFormatCheckLabel->setPixmap(m_emptyIcon);
             } else {

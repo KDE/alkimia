@@ -30,7 +30,7 @@ void AlkOnlineQuoteSourceTest::emptyCtor()
     QCOMPARE(m->idNumber(), emptyString);
     QCOMPARE(m->idSelector(), AlkOnlineQuoteSource::Symbol);
     QCOMPARE(m->priceRegex(), emptyString);
-    QCOMPARE(m->date(), emptyString);
+    QCOMPARE(m->dateRegex(), emptyString);
     QCOMPARE(m->dateformat(), emptyString);
     QCOMPARE(m->skipStripping(), false);
     QCOMPARE(m->isGHNS(), false);
@@ -86,7 +86,7 @@ void AlkOnlineQuoteSourceTest::testReadWriteRemove()
     QCOMPARE(m1.idNumber(), m2.idNumber());
     QCOMPARE(m1.idSelector(), m2.idSelector());
     QCOMPARE(m1.priceRegex(), m2.priceRegex());
-    QCOMPARE(m1.date(), m2.date());
+    QCOMPARE(m1.dateRegex(), m2.dateRegex());
     QCOMPARE(m1.dateformat(), m2.dateformat());
     QCOMPARE(m1.skipStripping(), m2.skipStripping());
     QCOMPARE(m1.isGHNS(), m2.isGHNS());
@@ -112,7 +112,7 @@ void AlkOnlineQuoteSourceTest::testRename()
     QCOMPARE(m1.idNumber(), m2.idNumber());
     QCOMPARE(m1.idSelector(), m2.idSelector());
     QCOMPARE(m1.priceRegex(), m2.priceRegex());
-    QCOMPARE(m1.date(), m2.date());
+    QCOMPARE(m1.dateRegex(), m2.dateRegex());
     QCOMPARE(m1.dateformat(), m2.dateformat());
     QCOMPARE(m1.skipStripping(), m2.skipStripping());
     QCOMPARE(m1.isGHNS(), m2.isGHNS());

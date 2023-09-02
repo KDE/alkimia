@@ -61,7 +61,7 @@ public:
     QString url() const;
     QString priceRegex() const;
     QString idNumber() const;
-    QString date() const;
+    QString dateRegex() const;
     QString dateformat() const;
     QString financeQuoteName() const;
     IdSelector idSelector() const;
@@ -76,7 +76,7 @@ public:
     void setUrl(const QString &url);
     void setPriceRegex(const QString &priceRegex);
     void setIdNumber(const QString &idNumber);
-    void setDate(const QString &date);
+    void setDateRegex(const QString &dateRegex);
     void setDateformat(const QString &dateformat);
     void setSkipStripping(bool state);
     void setGHNS(bool state);
