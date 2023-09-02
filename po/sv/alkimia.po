@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:46+0000\n"
+"POT-Creation-Date: 2023-09-02 00:47+0000\n"
 "PO-Revision-Date: 2022-04-09 11:36+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -17,106 +17,106 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.08.1\n"
 
-#: alkonlinequote.cpp:186
+#: alkonlinequote.cpp:187
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Källan <placeholder>%1</placeholder> finns inte."
 
-#: alkonlinequote.cpp:220 alkonlinequote.cpp:234
+#: alkonlinequote.cpp:221 alkonlinequote.cpp:235
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "Kan inte hämta webbadress för %1"
 
-#: alkonlinequote.cpp:242 alkonlinequote.cpp:657
+#: alkonlinequote.cpp:243 alkonlinequote.cpp:660
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Symbol hittades: '%1'"
 
-#: alkonlinequote.cpp:245 alkonlinequote.cpp:660
+#: alkonlinequote.cpp:246 alkonlinequote.cpp:663
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Kan inte tolka symbol för %1"
 
-#: alkonlinequote.cpp:268
+#: alkonlinequote.cpp:269
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Hämtar webbadressen %1..."
 
-#: alkonlinequote.cpp:325
+#: alkonlinequote.cpp:328
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Kör %1..."
 
-#: alkonlinequote.cpp:341 alkonlinequote.cpp:545
+#: alkonlinequote.cpp:344 alkonlinequote.cpp:548
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Kan inte starta: %1"
 
-#: alkonlinequote.cpp:363
+#: alkonlinequote.cpp:366
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Misslyckades öppna nerladdningsfil"
 
-#: alkonlinequote.cpp:380
+#: alkonlinequote.cpp:383
 #, kde-format
 msgid "URL found: %1..."
 msgstr "Webbadress hittades: %1..."
 
-#: alkonlinequote.cpp:469 alkonlinequote.cpp:471
+#: alkonlinequote.cpp:472 alkonlinequote.cpp:474
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "Webbadressen har dirigerats om, kontrollera en uppdatering av nätoffertens "
 "webbadress"
 
-#: alkonlinequote.cpp:537
+#: alkonlinequote.cpp:540
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Kör %1 %2 %3..."
 
-#: alkonlinequote.cpp:577
+#: alkonlinequote.cpp:580
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Kurs hittades: '%1' (%2)"
 
-#: alkonlinequote.cpp:580
+#: alkonlinequote.cpp:583
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Kan inte tolka kurs för '%1'"
 
-#: alkonlinequote.cpp:589
+#: alkonlinequote.cpp:592
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Datum hittades: '%1'"
 
-#: alkonlinequote.cpp:595
+#: alkonlinequote.cpp:598
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Datumformat hittades: '%1' -> '%2'"
 
-#: alkonlinequote.cpp:598
+#: alkonlinequote.cpp:601
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Kan inte tolka datumet '%1' med användning av formatet '%2': %3"
 
-#: alkonlinequote.cpp:602 alkonlinequote.cpp:612
+#: alkonlinequote.cpp:605 alkonlinequote.cpp:615
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Använder dagens datum för '%1'"
 
-#: alkonlinequote.cpp:606
+#: alkonlinequote.cpp:609
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Tolkning av datum är inaktiverad för '%1'"
 
-#: alkonlinequote.cpp:609
+#: alkonlinequote.cpp:612
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Kan inte tolka datum för '%1'"
 
-#: alkonlinequote.cpp:687
+#: alkonlinequote.cpp:690
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
@@ -401,11 +401,12 @@ msgstr "Reguljärt uttryck för att extrahera datum från nerladdad data"
 msgid "Date Format"
 msgstr "Datumformat"
 
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editSymbol)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequoteswidget.ui:305
-#, kde-format
-msgid "Regular Expression to extract the symbol from the downloaded data"
-msgstr "Reguljärt uttryck för att extrahera symbolen från nerladdad data"
+#, fuzzy, kde-format
+#| msgid "Regular Expression to extract the date from the downloaded data"
+msgid "Regular Expression to extract the identifier from the downloaded data"
+msgstr "Reguljärt uttryck för att extrahera datum från nerladdad data"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequoteswidget.ui:312
@@ -478,8 +479,8 @@ msgstr "Kurs"
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: alkonlinequoteswidget.ui:413
 #, kde-format
-msgid "Symbol"
-msgstr "Symbol"
+msgid "Identifier"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:430
@@ -537,6 +538,12 @@ msgstr "Kontrollera källa"
 #, kde-format
 msgid "Show Page"
 msgstr "Visa sida"
+
+#~ msgid "Regular Expression to extract the symbol from the downloaded data"
+#~ msgstr "Reguljärt uttryck för att extrahera symbolen från nerladdad data"
+
+#~ msgid "Symbol"
+#~ msgstr "Symbol"
 
 #~ msgid "Upload"
 #~ msgstr "Ladda upp"
