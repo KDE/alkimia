@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2018, 2020, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2018, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 00:47+0000\n"
-"PO-Revision-Date: 2022-04-09 16:12+0200\n"
+"POT-Creation-Date: 2023-09-03 00:46+0000\n"
+"PO-Revision-Date: 2023-09-02 12:11+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: alkonlinequote.cpp:187
 #, kde-format
@@ -208,43 +208,64 @@ msgstr "Naam"
 msgid "Source"
 msgstr "Bron"
 
+#: alkonlinequoteswidget.cpp:213
+#, fuzzy, kde-format
+#| msgid "Symbol"
+msgctxt "@item:inlistbox Stock"
+msgid "Symbol"
+msgstr "Symbool"
+
+#: alkonlinequoteswidget.cpp:214
+#, fuzzy, kde-format
+#| msgid "Identifier"
+msgctxt "@item:inlistbox Stock"
+msgid "Identification number"
+msgstr "Identifier"
+
+#: alkonlinequoteswidget.cpp:215
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "@item:inlistbox Stock"
+msgid "Name"
+msgstr "Naam"
+
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequoteswidget.cpp:248 alkonlinequoteswidget.ui:382
+#: alkonlinequoteswidget.cpp:254 alkonlinequoteswidget.ui:351
 #, kde-format
 msgid "GHNS Source"
 msgstr "GHNS-bron"
 
-#: alkonlinequoteswidget.cpp:250
+#: alkonlinequoteswidget.cpp:256
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Financiën::Koers"
 
-#: alkonlinequoteswidget.cpp:251
+#: alkonlinequoteswidget.cpp:257
 #, kde-format
 msgid "local"
 msgstr "lokaal"
 
-#: alkonlinequoteswidget.cpp:405 alkonlinequoteswidget.cpp:479
+#: alkonlinequoteswidget.cpp:415 alkonlinequoteswidget.cpp:492
 #, kde-format
 msgid "New Quote Source"
 msgstr "Nieuwe koersenbron"
 
-#: alkonlinequoteswidget.cpp:428
+#: alkonlinequoteswidget.cpp:440
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Wilt u deze online koers echt verwijderen ?"
 
-#: alkonlinequoteswidget.cpp:429
+#: alkonlinequoteswidget.cpp:441
 #, kde-format
 msgid "Delete online quote"
 msgstr "Online koers verwijderen"
 
-#: alkonlinequoteswidget.cpp:456
+#: alkonlinequoteswidget.cpp:468
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:644
+#: alkonlinequoteswidget.cpp:657
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Venster met resultaat online Quote HTML"
@@ -281,7 +302,7 @@ msgstr "Nieuw"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
 #. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
-#: alkonlinequoteswidget.ui:62 alkonlinequoteswidget.ui:211
+#: alkonlinequoteswidget.ui:62 alkonlinequoteswidget.ui:217
 #, kde-format
 msgid "Delete"
 msgstr "Verwijderen"
@@ -299,13 +320,13 @@ msgid "GHNS config file"
 msgstr "GHNS-config-bestand"
 
 #. i18n: ectx: property (text), widget (QLabel, m_configLabel)
-#: alkonlinequoteswidget.ui:122
+#: alkonlinequoteswidget.ui:109
 #, kde-format
 msgid "Config file"
 msgstr "Configuratiebestand"
 
 #. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
-#: alkonlinequoteswidget.ui:159
+#: alkonlinequoteswidget.ui:116
 #, kde-format
 msgid "GHNS data path"
 msgstr "GHNS gegevenspad"
@@ -317,14 +338,14 @@ msgid "<html><head/><body><p>online price quotes</p></body></html>"
 msgstr "<html><head/><body><p>online valutakoersen</p></body></html>"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
-#: alkonlinequoteswidget.ui:204
+#: alkonlinequoteswidget.ui:210
 #, kde-format
 msgctxt "@action create new quote source"
 msgid "New"
 msgstr "Nieuw"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequoteswidget.ui:218
+#: alkonlinequoteswidget.ui:224
 #, kde-format
 msgid ""
 "Create a duplicate of the currently selected source entry under a different "
@@ -332,26 +353,26 @@ msgid ""
 msgstr "Een duplicaat van het nu geselecteerde bronitem onder een andere naam."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequoteswidget.ui:221
+#: alkonlinequoteswidget.ui:227
 #, kde-format
 msgid "Use this to create a duplicate of an entry for an online source"
 msgstr ""
 "Dit gebruiken om een duplicaat van een item voor online bron aan te maken"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequoteswidget.ui:224
+#: alkonlinequoteswidget.ui:230
 #, kde-format
 msgid "Duplicate"
 msgstr "Dupliceren"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
-#: alkonlinequoteswidget.ui:235
+#: alkonlinequoteswidget.ui:241
 #, kde-format
 msgid "Install"
 msgstr "Installeren"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
-#: alkonlinequoteswidget.ui:265
+#: alkonlinequoteswidget.ui:272
 #, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
@@ -380,43 +401,27 @@ msgstr ""
 "andere gebruikers in uw land werken.</span></p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: alkonlinequoteswidget.ui:268
+#: alkonlinequoteswidget.ui:275
 #, kde-format
 msgid "Details"
 msgstr "Details"
 
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
-#: alkonlinequoteswidget.ui:281 alkonlinequoteswidget.ui:423
-#, kde-format
-msgid "Regular Expression to extract the date from the downloaded data"
-msgstr ""
-"Normale expressie voor het extraheren van de datum uit de gedownloade "
-"gegevens"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequoteswidget.ui:288
 #, kde-format
-msgid "Date Format"
-msgstr "Datumformaat"
+msgid "Options"
+msgstr "Opties"
 
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
-#: alkonlinequoteswidget.ui:305
-#, fuzzy, kde-format
-#| msgid "Regular Expression to extract the date from the downloaded data"
-msgid "Regular Expression to extract the identifier from the downloaded data"
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
+#: alkonlinequoteswidget.ui:295
+#, kde-format
+msgid "Regular Expression to extract the price from the downloaded data"
 msgstr ""
-"Normale expressie voor het extraheren van de datum uit de gedownloade "
+"Normale expressie voor het extraheren van de koers uit de gedownloade "
 "gegevens"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: alkonlinequoteswidget.ui:312
-#, kde-format
-msgid "Date"
-msgstr "Datum"
-
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
-#: alkonlinequoteswidget.ui:331
+#: alkonlinequoteswidget.ui:311
 #, kde-format
 msgid ""
 "<p>For easier processing of the data returned by the online source, KMyMoney "
@@ -448,51 +453,57 @@ msgstr ""
 "</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
-#: alkonlinequoteswidget.ui:334
+#: alkonlinequoteswidget.ui:314
 #, kde-format
 msgid "Skip HTML stripping"
 msgstr "HTML strippen overslaan"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: alkonlinequoteswidget.ui:355
-#, kde-format
-msgid "URL"
-msgstr "URL-adres"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
-#: alkonlinequoteswidget.ui:365
-#, kde-format
-msgid "Regular Expression to extract the price from the downloaded data"
-msgstr ""
-"Normale expressie voor het extraheren van de koers uit de gedownloade "
-"gegevens"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequoteswidget.ui:372
-#, kde-format
-msgid "Options"
-msgstr "Opties"
-
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: alkonlinequoteswidget.ui:403
+#: alkonlinequoteswidget.ui:321
 #, kde-format
 msgid "Price"
 msgstr "Koers"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: alkonlinequoteswidget.ui:413
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequoteswidget.ui:331
 #, kde-format
-msgid "Identifier"
+msgid "URL"
+msgstr "URL-adres"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
+#: alkonlinequoteswidget.ui:365
+#, kde-format
+msgid "How to select the identifier"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequoteswidget.ui:372
+#, kde-format
+msgid "Identifier"
+msgstr "Identifier"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequoteswidget.ui:389
+#, kde-format
+msgid "Date"
+msgstr "Datum"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
+#: alkonlinequoteswidget.ui:399
+#, kde-format
+msgid "Regular Expression to extract the identifier from the downloaded data"
+msgstr ""
+"Reguliere expressie voor het extraheren van de identifier uit de gedownloade "
+"gegevens"
+
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
-#: alkonlinequoteswidget.ui:430
+#: alkonlinequoteswidget.ui:420
 #, kde-format
 msgid "URL to be used to download the quote"
 msgstr "URL voor het downloaden van de koersen"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
-#: alkonlinequoteswidget.ui:433
+#: alkonlinequoteswidget.ui:423
 #, no-c-format, kde-format
 msgid ""
 "Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
@@ -506,39 +517,60 @@ msgstr ""
 "conversie koers die is opgevraagd en wordt  <b>%1</b> vervangen door de "
 "valuta waarop de koers is gebaseerd."
 
+#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
+#: alkonlinequoteswidget.ui:430
+#, kde-format
+msgid "Selected by"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequoteswidget.ui:437
+#, kde-format
+msgid "Date Format"
+msgstr "Datumformaat"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#: alkonlinequoteswidget.ui:447 alkonlinequoteswidget.ui:454
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr ""
+"Normale expressie voor het extraheren van de datum uit de gedownloade "
+"gegevens"
+
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
-#: alkonlinequoteswidget.ui:447
+#: alkonlinequoteswidget.ui:468
 #, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
 msgstr "Accepteren"
 
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
-#: alkonlinequoteswidget.ui:487
+#: alkonlinequoteswidget.ui:508
 #, kde-format
 msgid "Debugging"
 msgstr "Debuggen"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequoteswidget.ui:502
+#: alkonlinequoteswidget.ui:523
 #, kde-format
 msgid "One Symbol"
 msgstr "Eén symbool"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: alkonlinequoteswidget.ui:516
+#: alkonlinequoteswidget.ui:537
 #, kde-format
 msgid "Two Symbols"
 msgstr "Twee symbolen"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
-#: alkonlinequoteswidget.ui:537
+#: alkonlinequoteswidget.ui:558
 #, kde-format
 msgid "Check Source"
 msgstr "Bron controleren"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
-#: alkonlinequoteswidget.ui:547
+#: alkonlinequoteswidget.ui:569
 #, kde-format
 msgid "Show Page"
 msgstr "Pagina tonen"
@@ -547,9 +579,6 @@ msgstr "Pagina tonen"
 #~ msgstr ""
 #~ "Normale expressie voor het extraheren van symbolen uit de gedownloade "
 #~ "gegevens"
-
-#~ msgid "Symbol"
-#~ msgstr "Symbool"
 
 #~ msgid "Upload"
 #~ msgstr "Uploaden"
