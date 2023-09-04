@@ -21,6 +21,7 @@
 #else
     #include <KApplication>
     #include <KCmdLineArgs>
+    #include <kmenu.h>
 
     #undef QStringLiteral
     #define QStringLiteral QByteArray
