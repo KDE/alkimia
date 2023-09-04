@@ -26,7 +26,7 @@ class ALK_NO_EXPORT AlkQuoteItem : public QObject
     Q_OBJECT
 
 public:
-    AlkQuoteItem(QObject *parent = 0);
+    explicit AlkQuoteItem(QObject *parent = 0);
     ~AlkQuoteItem();
 
     AlkQuoteItem(const AlkQuoteItem &item, QObject *parent = 0);

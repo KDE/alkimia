@@ -35,7 +35,7 @@ public:
     {
     }
 
-    Private(const Private* other)
+    explicit Private(const Private* other)
         : m_name(other->m_name)
         , m_url(other->m_url)
         , m_priceRegex(other->m_priceRegex)
@@ -423,11 +423,10 @@ AlkOnlineQuotesProfile *AlkOnlineQuoteSource::profile()
 
 bool AlkOnlineQuoteSource::read()
 {
-    bool result = false;
     if (d->m_profile->hasGHNSSupport()) {
-        result = d->readFromGHNSFile();
-        if (result)
+        if (d->readFromGHNSFile()) {
             return true;
+        }
     }
     return d->read();
 }

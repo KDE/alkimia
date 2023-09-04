@@ -413,6 +413,13 @@ AlkDateFormat::AlkDateFormat(const QString &format)
     d->m_errorCode = NoError;
 }
 
+AlkDateFormat::AlkDateFormat(const AlkDateFormat& right)
+    : d(new Private)
+{
+    d->m_format = right.d->m_format;
+    d->m_errorCode = NoError;
+}
+
 AlkDateFormat::~AlkDateFormat()
 {
     delete d;

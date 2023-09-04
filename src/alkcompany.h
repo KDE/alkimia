@@ -20,7 +20,7 @@ class ALK_EXPORT AlkCompany : public QObject
 {
     Q_OBJECT
 public:
-    AlkCompany(QObject *parent = 0);
+    explicit AlkCompany(QObject *parent = 0);
     AlkCompany(const AlkCompany &company, QObject *parent = 0);
     ~AlkCompany();
 

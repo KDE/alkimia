@@ -320,9 +320,8 @@ void AlkOnlineQuotesWidget::Private::slotSelectProfile()
 
 void AlkOnlineQuotesWidget::Private::slotLoadProfile()
 {
-    AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
+    const AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
     if (!m_showProfiles) {
-        AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
         if (list.isEmpty())
             return;
         m_profile = list.first();
@@ -521,8 +520,8 @@ void AlkOnlineQuotesWidget::Private::setupIcons(const AlkOnlineQuote::Errors &er
         m_urlCheckLabel->setPixmap(m_failIcon);
     } else {
         m_urlCheckLabel->setPixmap(m_okIcon);
-        m_symbolCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Symbol ? m_failIcon : m_okIcon);
-        m_priceCheckLabel->setPixmap(errors & AlkOnlineQuote::Errors::Price ? m_failIcon : m_okIcon);
+        m_symbolCheckLabel->setPixmap((errors & AlkOnlineQuote::Errors::Symbol) ? m_failIcon : m_okIcon);
+        m_priceCheckLabel->setPixmap((errors & AlkOnlineQuote::Errors::Price) ? m_failIcon : m_okIcon);
         if (errors & AlkOnlineQuote::Errors::Date) {
             m_dateCheckLabel->setPixmap(m_failIcon);
         } else {
@@ -532,7 +531,7 @@ void AlkOnlineQuotesWidget::Private::setupIcons(const AlkOnlineQuote::Errors &er
             } else {
                 m_dateCheckLabel->setPixmap(m_okIcon);
                 m_dateFormatCheckLabel->setPixmap(
-                    errors & AlkOnlineQuote::Errors::DateFormat ? m_failIcon : m_okIcon);
+                    (errors & AlkOnlineQuote::Errors::DateFormat) ? m_failIcon : m_okIcon);
             }
         }
     }

@@ -20,7 +20,7 @@ class ALK_EXPORT AlkOnlineQuotesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    AlkOnlineQuotesWidget(bool showProfiles = false, bool showUpload = false, QWidget *parent = 0);
+    explicit AlkOnlineQuotesWidget(bool showProfiles = false, bool showUpload = false, QWidget *parent = 0);
     virtual ~AlkOnlineQuotesWidget();
 
     void writeConfig();

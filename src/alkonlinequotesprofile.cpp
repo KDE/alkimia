@@ -70,7 +70,7 @@ public:
         return !m_financeQuoteScriptPath.isEmpty();
     }
 
-    Private(AlkOnlineQuotesProfile *p)
+    explicit Private(AlkOnlineQuotesProfile *p)
         : m_p(p)
         , m_profileManager(0)
         , m_config(0)

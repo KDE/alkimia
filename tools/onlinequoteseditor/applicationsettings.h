@@ -14,7 +14,7 @@ class QMainWindow;
 class ApplicationSettings
 {
 protected:
-    ApplicationSettings(QMainWindow *parent, bool loadSettings = true);
+    explicit ApplicationSettings(QMainWindow *parent, bool loadSettings = true);
     void writePositionSettings();
     void readPositionSettings();
     QMainWindow *m_parent;

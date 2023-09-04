@@ -72,7 +72,7 @@ int main(int argc, char **argv)
     helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
     helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(true);
     helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", appName));
-    w.menuBar()->addMenu((QMenu*)helpMenu.menu());
+    w.menuBar()->addMenu(static_cast<QMenu*>(helpMenu.menu()));
 
     w.show();
     return app.exec();

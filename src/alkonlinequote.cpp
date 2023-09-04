@@ -128,7 +128,7 @@ public:
     }
 #endif
 
-    Private(AlkOnlineQuote *parent)
+    explicit Private(AlkOnlineQuote *parent)
         : m_p(parent)
         , m_eventLoop(nullptr)
         , m_ownProfile(false)
@@ -500,10 +500,10 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl &url)
     delete m_eventLoop;
     m_eventLoop = nullptr;
     if (result == 2) {
-        QNetworkRequest request;
-        request.setUrl(m_url);
-        request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
-        manager.get(request);
+        QNetworkRequest req;
+        req.setUrl(m_url);
+        req.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
+        manager.get(req);
         m_eventLoop = new QEventLoop;
         result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
         delete m_eventLoop;
@@ -628,13 +628,13 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
 {
     QString quotedata = _quotedata;
     m_quoteData = quotedata;
-    bool gotprice = false;
-    bool gotdate = false;
     bool result = true;
 
     kDebug(Private::dbgArea()) << "quotedata" << _quotedata;
 
     if (!quotedata.isEmpty()) {
+        bool gotprice = false;
+        bool gotdate = false;
         if (!m_source.skipStripping()) {
             //
             // First, remove extraneous non-data elements

@@ -28,6 +28,7 @@ class ALK_NO_EXPORT AlkDateFormat
 {
 public:
     explicit AlkDateFormat(const QString &format);
+    AlkDateFormat(const AlkDateFormat& right);
     ~AlkDateFormat();
 
     AlkDateFormat& operator=(const AlkDateFormat&);

@@ -23,7 +23,7 @@ class ALK_EXPORT AlkWebPage : public QWebEnginePage
 {
     Q_OBJECT
 public:
-    AlkWebPage(QWidget *parent = nullptr);
+    explicit AlkWebPage(QWidget *parent = nullptr);
     virtual ~AlkWebPage();
 
     QWidget *widget();
@@ -56,7 +56,7 @@ private:
 class ALK_EXPORT AlkWebPage : public QWebView
 {
 public:
-    AlkWebPage(QWidget *parent = nullptr);
+    explicit AlkWebPage(QWidget *parent = nullptr);
     virtual ~AlkWebPage();
 
     QWidget *widget();
@@ -86,7 +86,7 @@ class ALK_EXPORT AlkWebPage : public QTextBrowser
 {
     Q_OBJECT
 public:
-    AlkWebPage(QWidget *parent = nullptr);
+    explicit AlkWebPage(QWidget *parent = nullptr);
     virtual ~AlkWebPage();
 
     QWidget *widget();

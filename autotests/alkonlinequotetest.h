@@ -17,6 +17,12 @@ class AlkOnlineQuoteTest : public QObject
 {
     Q_OBJECT
 
+public:
+    AlkOnlineQuoteTest()
+        : m_profile(nullptr)
+    {
+    }
+
 private Q_SLOTS:
     void init();
     void cleanup();

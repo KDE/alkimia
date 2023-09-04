@@ -20,7 +20,13 @@ class AlkWebPage::Private : public QObject
 public:
     AlkWebPage *q;
 
-    Private(AlkWebPage *_q) : q(_q) {}
+    explicit Private(AlkWebPage *_q)
+        : q(_q)
+    {
+    }
+    Private(const Private& right) = delete;
+    Private& operator=(const Private& right) = delete;
+
     void slotUrlChanged(const QUrl &url)
     {
         // This workaround is necessary because QWebEnginePage::urlChanged()
@@ -113,7 +119,7 @@ public:
     QWebInspector *inspector;
     AlkWebPage *p;
     QNetworkAccessManager *networkAccessManager;
-    Private(AlkWebPage *parent)
+    explicit Private(AlkWebPage *parent)
       : inspector(nullptr),
         p(parent),
         networkAccessManager(new QNetworkAccessManager)
