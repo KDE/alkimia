@@ -103,7 +103,7 @@ public:
         m_manager->checkForUpdates();
 #else
         m_engine = new KNSCore::Engine(this);
-        if (m_engine->init(QStringLiteral("comic.knsrc"))) {
+        if (m_engine->init(m_p->hotNewStuffConfigFile())) {
             connect(m_engine, &KNSCore::Engine::signalUpdateableEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &updates) {
                 for (const KNSCore::EntryInternal &entry : updates) {
                     qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.uniqueId() << entry.category() << entry.providerId();
