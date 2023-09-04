@@ -672,11 +672,10 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
         }
 
         if (dateRegExp.indexIn(quotedata) > -1) {
-            gotdate = true;
             QString datestr = dateRegExp.cap(1);
-            parseDate(datestr);
+            gotdate = parseDate(datestr);
         } else {
-            parseDate(QString());
+            gotdate = parseDate(QString());
         }
 
         if (gotprice && gotdate) {
