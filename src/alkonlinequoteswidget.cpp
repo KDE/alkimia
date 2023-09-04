@@ -213,7 +213,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     m_editIdSelector->addItem(i18nc("@item:inlistbox Stock", "Symbol"), AlkOnlineQuoteSource::IdSelector::Symbol);
     m_editIdSelector->addItem(i18nc("@item:inlistbox Stock", "Identification number"), AlkOnlineQuoteSource::IdSelector::IdentificationNumber);
     m_editIdSelector->addItem(i18nc("@item:inlistbox Stock", "Name"), AlkOnlineQuoteSource::IdSelector::Name);
-    connect(m_editIdSelector, SIGNAL(currentIndexChanged()), this,  SLOT(slotEntryChanged()));
+    connect(m_editIdSelector, SIGNAL(currentIndexChanged(int)), this,  SLOT(slotEntryChanged()));
 
     connect(m_editDate, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
