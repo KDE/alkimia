@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Automatically generated, 2018.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2018, 2019, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-09-02 20:12+0200\n"
+"PO-Revision-Date: 2023-09-03 20:18+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #: alkonlinequote.cpp:187
 #, kde-format
@@ -214,22 +214,19 @@ msgid "Source"
 msgstr "Fuente"
 
 #: alkonlinequoteswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Símbolo"
 
 #: alkonlinequoteswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr "Identificador"
+msgstr "Número de identificación"
 
 #: alkonlinequoteswidget.cpp:215
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nombre"
@@ -479,7 +476,7 @@ msgstr "URL"
 #: alkonlinequoteswidget.ui:365
 #, kde-format
 msgid "How to select the identifier"
-msgstr ""
+msgstr "Cómo seleccionar el identificador"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: alkonlinequoteswidget.ui:372
@@ -524,7 +521,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "Selected by"
-msgstr ""
+msgstr "Seleccionar por"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:437

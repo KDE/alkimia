@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-08 06:49+0100\n"
+"PO-Revision-Date: 2023-09-03 06:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: alkonlinequote.cpp:187
 #, kde-format
@@ -211,8 +211,7 @@ msgid "Source"
 msgstr "წყარო"
 
 #: alkonlinequoteswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "სიმბოლო"
@@ -221,11 +220,10 @@ msgstr "სიმბოლო"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr ""
+msgstr "საიდენტიფიკაციო ნომერი"
 
 #: alkonlinequoteswidget.cpp:215
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "სახელი"
@@ -472,13 +470,13 @@ msgstr "ბმული"
 #: alkonlinequoteswidget.ui:365
 #, kde-format
 msgid "How to select the identifier"
-msgstr ""
+msgstr "როგორ ავირჩიოთ იდენტიფიკატორი"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: alkonlinequoteswidget.ui:372
 #, kde-format
 msgid "Identifier"
-msgstr ""
+msgstr "იდენტიფიკატორი"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequoteswidget.ui:389
@@ -488,10 +486,10 @@ msgstr "თარიღი"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequoteswidget.ui:399
-#, fuzzy, kde-format
-#| msgid "Regular Expression to extract the date from the downloaded data"
+#, kde-format
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "გადმოწერილი მონაცემებიდან თარიღის გამოსაღები რეგულარული გამოსახულება"
+msgstr ""
+"გადმოწერილი მონაცემებიდან იდენტიფიკატორის გამოსაღები რეგულარული გამოსახულება"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:420
@@ -517,7 +515,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "Selected by"
-msgstr ""
+msgstr "არჩეულია"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:437

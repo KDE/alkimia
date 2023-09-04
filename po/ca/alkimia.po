@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-09-02 11:22+0200\n"
+"PO-Revision-Date: 2023-09-03 10:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -214,22 +214,19 @@ msgid "Source"
 msgstr "Font"
 
 #: alkonlinequoteswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "One Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
-msgstr "Un símbol"
+msgstr "Símbol"
 
 #: alkonlinequoteswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr "Identificador"
+msgstr "Número d'identificació"
 
 #: alkonlinequoteswidget.cpp:215
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nom"
@@ -478,7 +475,7 @@ msgstr "URL"
 #: alkonlinequoteswidget.ui:365
 #, kde-format
 msgid "How to select the identifier"
-msgstr ""
+msgstr "Com seleccionar l'identificador"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: alkonlinequoteswidget.ui:372
@@ -522,7 +519,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "Selected by"
-msgstr ""
+msgstr "Seleccionat per"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:437

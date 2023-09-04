@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-06-24 10:35+0200\n"
+"PO-Revision-Date: 2023-09-03 11:16+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: alkonlinequote.cpp:187
 #, kde-format
@@ -40,13 +40,13 @@ msgstr "Non se pode analizar o símbolo de %1"
 #: alkonlinequote.cpp:269
 #, kde-format
 msgid "Fetching URL %1..."
-msgstr "Estase a obter o URL %1…"
+msgstr "Obtendo o URL %1…"
 
 #: alkonlinequote.cpp:328
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
-msgstr "Estase a executar %1…"
+msgstr "Executando %1…"
 
 #: alkonlinequote.cpp:344 alkonlinequote.cpp:548
 #, kde-format
@@ -74,7 +74,7 @@ msgstr ""
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
-msgstr "Estase a executar %1 %2 %3…"
+msgstr "Executando %1 %2 %3…"
 
 #: alkonlinequote.cpp:580
 #, kde-format
@@ -234,7 +234,7 @@ msgstr "Nome"
 #: alkonlinequoteswidget.cpp:254 alkonlinequoteswidget.ui:351
 #, kde-format
 msgid "GHNS Source"
-msgstr "Fonte de GHNS"
+msgstr "Fonte de GHNS."
 
 #: alkonlinequoteswidget.cpp:256
 #, kde-format
@@ -395,11 +395,11 @@ msgstr ""
 "usalos. Tamén pode probar no foro de KMyMoney en </span><a href=\"https://"
 "forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
-"a> ou na <span style=\" font-style:italic;\">lista de usuarios en </span><a "
-"href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; text-"
-"decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></a><span "
-"style=\" font-style:italic;\"> para ver que configuracións funcionan con "
-"outros usuarios do seu país.</span></p></body></html>"
+"a> ou na <span style=\" font-style:italic;\">lista de persoas usuarias en </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\"> para ver que configuracións funcionan "
+"para outras persoas usuarias do seu país.</span></p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequoteswidget.ui:275
@@ -419,6 +419,7 @@ msgstr "Opcións"
 msgid "Regular Expression to extract the price from the downloaded data"
 msgstr "Expresión regular para extraer o prezo dos datos descargados."
 
+# skip-rule: gl-punto-final
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
 #: alkonlinequoteswidget.ui:311
 #, kde-format
@@ -455,7 +456,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:314
 #, kde-format
 msgid "Skip HTML stripping"
-msgstr "Non retirar as etiquetas HTML"
+msgstr "Non retirar as etiquetas HTML."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequoteswidget.ui:321
@@ -479,7 +480,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:372
 #, kde-format
 msgid "Identifier"
-msgstr ""
+msgstr "Identificador"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequoteswidget.ui:389
@@ -489,10 +490,9 @@ msgstr "Data"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequoteswidget.ui:399
-#, fuzzy, kde-format
-#| msgid "Regular Expression to extract the date from the downloaded data"
+#, kde-format
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "Expresión regular para extraer a data dos datos descargados."
+msgstr "Expresión regular para extraer o identificador dos datos descargados."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:420

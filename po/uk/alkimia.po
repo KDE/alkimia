@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2018, 2020, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2018, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2022-04-09 08:33+0300\n"
+"PO-Revision-Date: 2023-09-03 09:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -216,8 +216,7 @@ msgid "Source"
 msgstr "Джерело"
 
 #: alkonlinequoteswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Код"
@@ -226,11 +225,10 @@ msgstr "Код"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr ""
+msgstr "Ідентифікаційний номер"
 
 #: alkonlinequoteswidget.cpp:215
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Назва"
@@ -480,13 +478,13 @@ msgstr "Адреса"
 #: alkonlinequoteswidget.ui:365
 #, kde-format
 msgid "How to select the identifier"
-msgstr ""
+msgstr "Як вибрати ідентифікатор"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: alkonlinequoteswidget.ui:372
 #, kde-format
 msgid "Identifier"
-msgstr ""
+msgstr "Ідентифікатор"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequoteswidget.ui:389
@@ -496,10 +494,9 @@ msgstr "Дата"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequoteswidget.ui:399
-#, fuzzy, kde-format
-#| msgid "Regular Expression to extract the date from the downloaded data"
+#, kde-format
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "Формальний вираз для видобування дати зі отриманих даних"
+msgstr "Формальний вираз для видобування ідентифікатора з отриманих даних"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:420
@@ -525,7 +522,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "Selected by"
-msgstr ""
+msgstr "Вибрано"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:437

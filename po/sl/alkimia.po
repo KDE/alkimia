@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-09-02 09:30+0200\n"
+"PO-Revision-Date: 2023-09-03 08:55+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -211,22 +211,19 @@ msgid "Source"
 msgstr "Vir"
 
 #: alkonlinequoteswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Simbol"
 
 #: alkonlinequoteswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr "Določilnik"
+msgstr "Identifikacijska številka"
 
 #: alkonlinequoteswidget.cpp:215
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Ime"
@@ -473,7 +470,7 @@ msgstr "Spletni naslov"
 #: alkonlinequoteswidget.ui:365
 #, kde-format
 msgid "How to select the identifier"
-msgstr ""
+msgstr "Kako izbrati določilnik"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: alkonlinequoteswidget.ui:372
@@ -517,7 +514,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "Selected by"
-msgstr ""
+msgstr "Izbrano z"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:437

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-09-02 12:56+0300\n"
+"PO-Revision-Date: 2023-09-03 20:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -210,22 +210,19 @@ msgid "Source"
 msgstr "Kaynak"
 
 #: alkonlinequoteswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Sembol"
 
 #: alkonlinequoteswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr "Tanımlayıcı"
+msgstr "Tanımlayıcı numarası"
 
 #: alkonlinequoteswidget.cpp:215
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Ad"
@@ -473,7 +470,7 @@ msgstr "URL"
 #: alkonlinequoteswidget.ui:365
 #, kde-format
 msgid "How to select the identifier"
-msgstr ""
+msgstr "Tanımlayıcının nasıl seçileceği"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: alkonlinequoteswidget.ui:372
@@ -517,7 +514,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "Selected by"
-msgstr ""
+msgstr "Şunlarla seçilir"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:437
