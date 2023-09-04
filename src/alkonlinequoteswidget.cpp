@@ -245,7 +245,7 @@ void AlkOnlineQuotesWidget::Private::loadProfiles()
     }
     m_profileList->setCurrentRow(0);
     m_profile = AlkOnlineQuotesProfileManager::instance().profiles().first();
-    loadQuotesList();
+    loadQuotesList(true);
 }
 
 QString sourceTypeString(AlkOnlineQuoteSource &source)
@@ -327,15 +327,16 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
             return;
         m_profile = list.first();
         m_installButton->setVisible(m_profile->hasGHNSSupport());
-        loadQuotesList();
+        loadQuotesList(true);
         return;
     }
 
     for (AlkOnlineQuotesProfile *profile : list) {
         if (m_profileList->currentItem() && m_profileList->currentItem()->text() == profile->name()) {
             m_profile = profile;
-            loadQuotesList();
+            loadQuotesList(true);
             m_installButton->setVisible(profile->hasGHNSSupport());
+            break;
         }
     }
 
