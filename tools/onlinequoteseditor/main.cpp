@@ -31,6 +31,7 @@
 #endif
 
 #include <KHelpMenu>
+#include <QMenu>
 #include <QMenuBar>
 
 #if defined(Q_OS_WIN) && !defined(BUILD_WITH_KIO)
