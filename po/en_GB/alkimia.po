@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:33+0000\n"
+"POT-Creation-Date: 2023-09-04 02:28+0000\n"
 "PO-Revision-Date: 2022-04-02 17:54+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -114,7 +114,7 @@ msgstr "Parsing date is disabled for '%1'"
 msgid "Unable to parse date for '%1'"
 msgstr "Unable to parse date for '%1'"
 
-#: alkonlinequote.cpp:673
+#: alkonlinequote.cpp:672
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Unable to update price for %1 (empty quote data)"

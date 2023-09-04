@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:33+0000\n"
+"POT-Creation-Date: 2023-09-04 02:28+0000\n"
 "PO-Revision-Date: 2022-04-07 10:13-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -115,7 +115,7 @@ msgstr "A análise de data está desabilitada para '%1'"
 msgid "Unable to parse date for '%1'"
 msgstr "Não foi possível analisar a data para '%1'"
 
-#: alkonlinequote.cpp:673
+#: alkonlinequote.cpp:672
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Não foi possível atualizar o preço de %1 (dados da cotação em branco)"

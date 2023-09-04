@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:33+0000\n"
+"POT-Creation-Date: 2023-09-04 02:28+0000\n"
 "PO-Revision-Date: 2021-11-18 17:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Unable to parse date for '%1'"
 msgstr ""
 
-#: alkonlinequote.cpp:673
+#: alkonlinequote.cpp:672
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Nemožno aktualizovať cenu pre %1 (prázdne dáta cenovej ponuky)"

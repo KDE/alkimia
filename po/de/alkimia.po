@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:33+0000\n"
+"POT-Creation-Date: 2023-09-04 02:28+0000\n"
 "PO-Revision-Date: 2022-04-14 18:10+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -117,7 +117,7 @@ msgstr "Verarbeitung des Datums ist für %1 deaktiviert"
 msgid "Unable to parse date for '%1'"
 msgstr "Datum für %1 kann nicht verarbeitet werden'"
 
-#: alkonlinequote.cpp:673
+#: alkonlinequote.cpp:672
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"

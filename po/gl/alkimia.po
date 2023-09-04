@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 02:33+0000\n"
-"PO-Revision-Date: 2023-06-24 10:35+0200\n"
+"POT-Creation-Date: 2023-09-04 02:28+0000\n"
+"PO-Revision-Date: 2023-09-03 11:16+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: alkonlinequote.cpp:178
 #, kde-format
@@ -40,13 +40,13 @@ msgstr "Non se pode analizar o símbolo de %1"
 #: alkonlinequote.cpp:260
 #, kde-format
 msgid "Fetching URL %1..."
-msgstr "Estase a obter o URL %1…"
+msgstr "Obtendo o URL %1…"
 
 #: alkonlinequote.cpp:319
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
-msgstr "Estase a executar %1…"
+msgstr "Executando %1…"
 
 #: alkonlinequote.cpp:331 alkonlinequote.cpp:531
 #, kde-format
@@ -74,7 +74,7 @@ msgstr ""
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
-msgstr "Estase a executar %1 %2 %3…"
+msgstr "Executando %1 %2 %3…"
 
 #: alkonlinequote.cpp:563
 #, kde-format
@@ -116,7 +116,7 @@ msgstr "Desactivouse analizar a data para «%1»"
 msgid "Unable to parse date for '%1'"
 msgstr "Non se pode analizar a data de «%1»"
 
-#: alkonlinequote.cpp:673
+#: alkonlinequote.cpp:672
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Non se pode actualizar o prezo de %1 (datos de cotización baleiros)"
@@ -214,7 +214,7 @@ msgstr "Fonte"
 #: alkonlinequoteswidget.cpp:242 alkonlinequoteswidget.ui:382
 #, kde-format
 msgid "GHNS Source"
-msgstr "Fonte de GHNS"
+msgstr "Fonte de GHNS."
 
 #: alkonlinequoteswidget.cpp:244
 #, kde-format
@@ -375,11 +375,11 @@ msgstr ""
 "usalos. Tamén pode probar no foro de KMyMoney en </span><a href=\"https://"
 "forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
-"a> ou na <span style=\" font-style:italic;\">lista de usuarios en </span><a "
-"href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; text-"
-"decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></a><span "
-"style=\" font-style:italic;\"> para ver que configuracións funcionan con "
-"outros usuarios do seu país.</span></p></body></html>"
+"a> ou na <span style=\" font-style:italic;\">lista de persoas usuarias en </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\"> para ver que configuracións funcionan "
+"para outras persoas usuarias do seu país.</span></p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequoteswidget.ui:268
@@ -412,6 +412,7 @@ msgstr "Expresión regular para extraer o símbolo dos datos descargados."
 msgid "Date"
 msgstr "Data"
 
+# skip-rule: gl-punto-final
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
 #: alkonlinequoteswidget.ui:331
 #, kde-format
@@ -448,7 +449,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:334
 #, kde-format
 msgid "Skip HTML stripping"
-msgstr "Non retirar as etiquetas HTML"
+msgstr "Non retirar as etiquetas HTML."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: alkonlinequoteswidget.ui:355
