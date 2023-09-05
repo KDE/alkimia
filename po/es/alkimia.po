@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 00:46+0000\n"
+"POT-Creation-Date: 2023-09-05 00:45+0000\n"
 "PO-Revision-Date: 2023-09-03 20:18+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -118,7 +118,7 @@ msgstr "Análisis de fecha desactivado para «%1»"
 msgid "Unable to parse date for '%1'"
 msgstr "No se ha podido analizar la fecha para «%1»"
 
-#: alkonlinequote.cpp:690
+#: alkonlinequote.cpp:689
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr ""
