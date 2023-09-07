@@ -11,7 +11,6 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SO
 include(QtVersionOption OPTIONAL)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
-option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
 option(BUILD_TOOLS "Build tools" ON)
 option(BUILD_WITH_QTNETWORK "Build with Qt Network library for downloading" WIN32)
 option(BUILD_WITH_WEBKIT "Build with Qt Web Kit library" OFF)
