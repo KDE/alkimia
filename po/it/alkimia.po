@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
-# Valter Mura <valtermura@gmail.com>, 2019, 2020, 2022.
+# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023 Valter Mura <valtermura@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-05 00:45+0000\n"
-"PO-Revision-Date: 2022-04-05 13:02+0200\n"
+"PO-Revision-Date: 2023-09-03 20:16+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.03.80\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #: alkonlinequote.cpp:187
 #, kde-format
@@ -211,8 +211,7 @@ msgid "Source"
 msgstr "Fonte"
 
 #: alkonlinequoteswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Simbolo"
@@ -221,11 +220,10 @@ msgstr "Simbolo"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr ""
+msgstr "Numero identificativo"
 
 #: alkonlinequoteswidget.cpp:215
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nome"
@@ -474,13 +472,13 @@ msgstr "URL"
 #: alkonlinequoteswidget.ui:365
 #, kde-format
 msgid "How to select the identifier"
-msgstr ""
+msgstr "Come selezionare l'identificatore"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: alkonlinequoteswidget.ui:372
 #, kde-format
 msgid "Identifier"
-msgstr ""
+msgstr "Identificatore"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequoteswidget.ui:389
@@ -490,10 +488,9 @@ msgstr "Data"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequoteswidget.ui:399
-#, fuzzy, kde-format
-#| msgid "Regular Expression to extract the date from the downloaded data"
+#, kde-format
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "Espressione regolare per estrarre la data dai dati scaricati"
+msgstr "Espressione regolare per estrarre l'identificatore dai dati scaricati"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:420
@@ -519,7 +516,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:430
 #, kde-format
 msgid "Selected by"
-msgstr ""
+msgstr "Selezionato da"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:437
