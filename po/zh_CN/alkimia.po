@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-05 00:45+0000\n"
-"PO-Revision-Date: 2023-09-02 02:56\n"
+"PO-Revision-Date: 2023-09-16 10:08\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -209,8 +209,7 @@ msgid "Source"
 msgstr "来源"
 
 #: alkonlinequoteswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "代号"
@@ -222,8 +221,7 @@ msgid "Identification number"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:215
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "姓名"
@@ -480,10 +478,9 @@ msgstr "日期"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequoteswidget.ui:399
-#, fuzzy, kde-format
-#| msgid "Regular Expression to extract the date from the downloaded data"
+#, kde-format
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "用于从下载数据中提取日期的正则表达式"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:420
@@ -559,6 +556,3 @@ msgstr "检查来源"
 #, kde-format
 msgid "Show Page"
 msgstr "显示页面"
-
-#~ msgid "Regular Expression to extract the symbol from the downloaded data"
-#~ msgstr "从下载数据中提取代号用的正则表达式"
