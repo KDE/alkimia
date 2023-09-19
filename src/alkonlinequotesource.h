@@ -38,7 +38,7 @@ public:
                                   const IdSelector idBy,
                                   const QString& price,
                                   const QString& date,
-                                  const QString& dateformat,
+                                  const QString& dateFormat,
                                   bool skipStripping = false);
     ~AlkOnlineQuoteSource();
 
@@ -62,7 +62,7 @@ public:
     QString priceRegex() const;
     QString idRegex() const;
     QString dateRegex() const;
-    QString dateformat() const;
+    QString dateFormat() const;
     QString financeQuoteName() const;
     IdSelector idSelector() const;
 
@@ -77,7 +77,7 @@ public:
     void setPriceRegex(const QString &priceRegex);
     void setIdRegex(const QString &idRegex);
     void setDateRegex(const QString &dateRegex);
-    void setDateformat(const QString &dateformat);
+    void setDateFormat(const QString &dateFormat);
     void setSkipStripping(bool state);
     void setGHNS(bool state);
     void setIdSelector(IdSelector idSelector);

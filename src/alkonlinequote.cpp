@@ -613,7 +613,7 @@ bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
     if (!datestr.isEmpty()) {
         Q_EMIT m_p->status(i18n("Date found: '%1'", datestr));
 
-        AlkDateFormat dateparse(m_source.dateformat());
+        AlkDateFormat dateparse(m_source.dateFormat());
         try {
             m_date = dateparse.convertString(datestr, false /*strict*/);
             kDebug(Private::dbgArea()) << "Date" << datestr;

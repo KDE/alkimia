@@ -44,7 +44,7 @@ public:
         , m_url(other->m_url)
         , m_priceRegex(other->m_priceRegex)
         , m_dateRegex(other->m_dateRegex)
-        , m_dateformat(other->m_dateformat)
+        , m_dateFormat(other->m_dateFormat)
         , m_idRegex(other->m_idRegex)
         , m_idSelector(other->m_idSelector)
         , m_skipStripping(other->m_skipStripping)
@@ -66,7 +66,7 @@ public:
         }
         KConfigGroup grp = kconfig->group(group);
         m_dateRegex = grp.readEntry("DateRegex");
-        m_dateformat = grp.readEntry("DateFormatRegex", "%m %d %y");
+        m_dateFormat = grp.readEntry("DateFormatRegex", "%m %d %y");
         m_priceRegex = grp.readEntry("PriceRegex");
         if (grp.hasKey("SymbolRegex"))
             m_idRegex = grp.readEntry("SymbolRegex");
@@ -89,7 +89,7 @@ public:
         grp.writeEntry("URL", m_url);
         grp.writeEntry("PriceRegex", m_priceRegex);
         grp.writeEntry("DateRegex", m_dateRegex);
-        grp.writeEntry("DateFormatRegex", m_dateformat);
+        grp.writeEntry("DateFormatRegex", m_dateFormat);
         grp.writeEntry("IDRegex", m_idRegex);
         grp.writeEntry("IDBy", static_cast<int>(m_idSelector));
         grp.deleteEntry("SymbolRegex");
@@ -151,7 +151,7 @@ public:
                 m_dateRegex = value;
                 m_dateRegex.replace("\\\\", "\\");
             } else if (key == "dateformat")
-                m_dateformat = value;
+                m_dateFormat = value;
         }
 
         m_skipStripping = true;
@@ -168,7 +168,7 @@ public:
 
         QTextStream out(&file);
         out << "date=" << m_dateRegex << "\n";
-        out << "dateformat=" << m_dateformat << "\n";
+        out << "dateformat=" << m_dateFormat << "\n";
         out << "mode=HTML\n";
         out << "price=" << m_priceRegex << "\n";
         out << "url=" << m_url << "\n";
@@ -185,7 +185,7 @@ public:
     QString m_url;
     QString m_priceRegex;
     QString m_dateRegex;
-    QString m_dateformat;
+    QString m_dateFormat;
     QString m_idRegex;
     IdSelector m_idSelector;
     bool m_skipStripping;
@@ -217,7 +217,7 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
                                            const IdSelector idBy,
                                            const QString& priceRegex,
                                            const QString& dateRegex,
-                                           const QString& dateformat,
+                                           const QString& dateFormat,
                                            bool skipStripping)
     : d(new Private)
 {
@@ -227,7 +227,7 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
     d->m_idSelector = idBy;
     d->m_priceRegex = priceRegex;
     d->m_dateRegex = dateRegex;
-    d->m_dateformat = dateformat;
+    d->m_dateFormat = dateFormat;
     d->m_skipStripping = skipStripping;
     d->m_isGHNSSource = false;
 }
@@ -302,9 +302,9 @@ QString AlkOnlineQuoteSource::dateRegex() const
     return d->m_dateRegex;
 }
 
-QString AlkOnlineQuoteSource::dateformat() const
+QString AlkOnlineQuoteSource::dateFormat() const
 {
-    return d->m_dateformat;
+    return d->m_dateFormat;
 }
 
 /**
@@ -363,9 +363,9 @@ void AlkOnlineQuoteSource::setDateRegex(const QString &dateRegex)
     d->m_dateRegex = dateRegex;
 }
 
-void AlkOnlineQuoteSource::setDateformat(const QString &dateformat)
+void AlkOnlineQuoteSource::setDateFormat(const QString &dateFormat)
 {
-    d->m_dateformat = dateformat;
+    d->m_dateFormat = dateFormat;
 }
 
 void AlkOnlineQuoteSource::setSkipStripping(bool state)

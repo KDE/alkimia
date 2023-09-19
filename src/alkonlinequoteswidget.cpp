@@ -385,7 +385,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_editIdSelector->setCurrentIndex(m_currentItem.idSelector());
         m_editPrice->setText(m_currentItem.priceRegex());
         m_editDate->setText(m_currentItem.dateRegex());
-        m_editDateFormat->setText(m_currentItem.dateformat());
+        m_editDateFormat->setText(m_currentItem.dateFormat());
         m_skipStripping->setChecked(m_currentItem.skipStripping());
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
     }
@@ -405,7 +405,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
                     || m_editIdentifier->text() != m_currentItem.idRegex()
                     || m_editIdSelector->currentIndex() != static_cast<int>(m_currentItem.idSelector())
                     || m_editDate->text() != m_currentItem.dateRegex()
-                    || m_editDateFormat->text() != m_currentItem.dateformat()
+                    || m_editDateFormat->text() != m_currentItem.dateFormat()
                     || m_editPrice->text() != m_currentItem.priceRegex()
                     || m_skipStripping->isChecked() != m_currentItem.skipStripping()
                     || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
@@ -478,7 +478,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
     m_currentItem.setIdRegex(m_editIdentifier->text());
     m_currentItem.setIdSelector(static_cast<AlkOnlineQuoteSource::IdSelector>(m_editIdSelector->currentIndex()));
     m_currentItem.setDateRegex(m_editDate->text());
-    m_currentItem.setDateformat(m_editDateFormat->text());
+    m_currentItem.setDateFormat(m_editDateFormat->text());
     m_currentItem.setPriceRegex(m_editPrice->text());
     m_currentItem.setSkipStripping(m_skipStripping->isChecked());
     m_currentItem.setGHNS(m_ghnsSource->isChecked());
