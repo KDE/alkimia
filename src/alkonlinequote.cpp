@@ -203,7 +203,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
         if (splitrx.indexIn(m_symbol) != -1) {
             url = KUrl(m_source.url().arg(splitrx.cap(1), splitrx.cap(2)));
         } else {
-            kDebug(Private::dbgArea()) << QStringLiteral("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
+            kDebug(Private::dbgArea()) << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
         }
     } else {
         // a regular one-symbol quote
@@ -333,7 +333,7 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
     return result;
 }
 
-bool AlkOnlineQuote::Private::processLocalScript(const QUrl& url)
+bool AlkOnlineQuote::Private::processLocalScript(const KUrl& url)
 {
     Q_EMIT m_p->status(i18nc("The process x is executing", "Executing %1...", url.toLocalFile()));
 
