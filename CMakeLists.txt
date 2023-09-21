@@ -4,7 +4,7 @@ if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
-project(alkimia VERSION 8.1.71)
+project(alkimia VERSION 8.1.72)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
@@ -110,9 +110,6 @@ if(BUILD_QT4)
     endmacro()
 
     add_definitions(-DQStringLiteral=QLatin1String)
-    if(NOT SHARE_INSTALL_DIR)
-        set(SHARE_INSTALL_DIR ${DATA_INSTALL_DIR})
-    endif()
 else()
     if (NOT QT_MAJOR_VERSION)
         set(QT_MAJOR_VERSION 5)
@@ -198,6 +195,9 @@ else()
         -DQT_NO_KEYWORDS
     )
 
+endif()
+if(NOT SHARE_INSTALL_DIR)
+    set(SHARE_INSTALL_DIR ${DATA_INSTALL_DIR})
 endif()
 
 set(TARGET_SUFFIX ${PC_TARGET_SUFFIX})

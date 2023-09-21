@@ -49,6 +49,7 @@ set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
     alkcompany.cpp
+    alkenvironment.cpp
     alkonlinequote.cpp
     alkonlinequotesource.cpp
     alkonlinequotesprofile.cpp
@@ -60,6 +61,7 @@ set(alkimia_LIB_SRCS
 
 set(alkimia_LIB_HEADERS
     alkcompany.h
+    alkenvironment.h
     alkonlinequote.h
     alkonlinequotesource.h
     alkonlinequotesprofile.h

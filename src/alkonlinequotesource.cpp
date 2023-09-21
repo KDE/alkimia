@@ -14,7 +14,11 @@
 #include <QFileInfo>
 #include <QtDebug>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <KSharedConfig>
+#else
 #include <KConfig>
+#endif
 #include <KConfigGroup>
 
 /**
@@ -53,7 +57,7 @@ public:
 
     bool read()
     {
-        KConfig *kconfig = m_profile->kConfig();
+        auto kconfig = m_profile->kConfig();
         if (!kconfig)
             return false;
         const QString &group = QString("Online-Quote-Source-%1").arg(m_name);
@@ -78,7 +82,7 @@ public:
 
     bool write()
     {
-        KConfig *kconfig = m_profile->kConfig();
+        auto kconfig = m_profile->kConfig();
         if (!kconfig)
             return false;
         KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
@@ -100,7 +104,7 @@ public:
 
     bool remove()
     {
-        KConfig *kconfig = m_profile->kConfig();
+        auto kconfig = m_profile->kConfig();
         if (!kconfig)
             return false;
         kconfig->deleteGroup(QString("Online-Quote-Source-%1").arg(m_name));

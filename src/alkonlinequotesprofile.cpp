@@ -26,9 +26,10 @@
 #include <KConfigGroup>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    #include <QStandardPaths>
-    #include <KNSCore/Engine>
-    namespace KNS = KNSCore;
+#include <KNSCore/Engine>
+#include <KSharedConfig>
+#include <QStandardPaths>
+namespace KNS = KNSCore;
 #else
     #include <KGlobal>
     #include <KStandardDirs>
@@ -49,10 +50,11 @@ public:
     AlkOnlineQuotesProfileManager *m_profileManager;
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     KNS::DownloadManager *m_manager = 0;
+    KConfig* m_config;
 #else
     KNSCore::Engine *m_engine = 0;
+    KSharedConfigPtr m_config;
 #endif
-    KConfig *m_config;
     Type m_type;
     static QString m_financeQuoteScriptPath;
     static QStringList m_financeQuoteSources;
@@ -61,7 +63,8 @@ public:
     {
         if (m_financeQuoteScriptPath.isEmpty()) {
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-            m_financeQuoteScriptPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("misc/financequote.pl"));
+            m_financeQuoteScriptPath =
+                QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("alkimia%1/misc/financequote.pl").arg(TARGET_SUFFIX));
 #else
             m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
                                                                      QString("misc/financequote.pl"));
@@ -85,8 +88,8 @@ public:
     {
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
         delete m_manager;
-#endif
         delete m_config;
+#endif
     }
 
     void checkUpdates()
@@ -135,8 +138,7 @@ public Q_SLOTS:
     const QStringList quoteSourcesNative()
     {
         //KSharedConfigPtr kconfig = KGlobal::config();
-        KConfig config(m_kconfigFile);
-        KConfig *kconfig = &config;
+        auto kconfig = KSharedConfig::openConfig(m_kconfigFile, KConfig::SimpleConfig);
         QStringList groups = kconfig->groupList();
 
         QStringList::Iterator it;
@@ -175,12 +177,20 @@ public Q_SLOTS:
             // since this is a static function it can be called without constructing an object
             // so we need to make sure that m_financeQuoteScriptPath is properly initialized
             if (setupFinanceQuoteScriptPath()) {
-                AlkFinanceQuoteProcess getList;
-                getList.launch(m_financeQuoteScriptPath);
-                while (!getList.isFinished()) {
+                AlkFinanceQuoteProcess testList;
+                testList.testLaunch(m_financeQuoteScriptPath);
+                while (!testList.isFinished()) {
                     qApp->processEvents();
                 }
-                m_financeQuoteSources = getList.getSourceList();
+
+                if (testList.exitCode() == 0) {
+                    AlkFinanceQuoteProcess getList;
+                    getList.launch(m_financeQuoteScriptPath);
+                    while (!getList.isFinished()) {
+                        qApp->processEvents();
+                    }
+                    m_financeQuoteSources = getList.getSourceList();
+                }
             }
         }
         return m_financeQuoteSources;
@@ -337,9 +347,17 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
     else if (type == Type::Alkimia5 || type == Type::Alkimia4)
         d->m_kconfigFile = QString("%1/alkimiarc").arg(d->configPath());
     else
-        d->m_kconfigFile = "";
-    if (!d->m_kconfigFile.isEmpty())
+        d->m_kconfigFile.clear();
+
+    if (!d->m_kconfigFile.isEmpty()) {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        d->m_config = KSharedConfig::openConfig(d->m_kconfigFile, KConfig::SimpleConfig);
+        qDebug() << (void*)d->m_config.constData();
+#else
         d->m_config = new KConfig(d->m_kconfigFile);
+#endif
+    }
+
     if (!d->m_GHNSFile.isEmpty()) {
         KConfig ghnsFile(hotNewStuffConfigFile());
         KConfigGroup group = ghnsFile.group("KNewStuff3");
@@ -415,14 +433,49 @@ QString AlkOnlineQuotesProfile::kConfigFile() const
     return d->m_kconfigFile;
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+KSharedConfigPtr AlkOnlineQuotesProfile::kConfig() const
+#else
 KConfig *AlkOnlineQuotesProfile::kConfig() const
+#endif
 {
     return d->m_config;
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+void AlkOnlineQuotesProfile::setKConfig(KSharedConfigPtr kconfig)
+{
+    d->m_config = kconfig;
+}
+#endif
+
 AlkOnlineQuotesProfile::Type AlkOnlineQuotesProfile::type()
 {
     return d->m_type;
+}
+
+bool AlkOnlineQuotesProfile::typeIsSupported() const
+{
+#ifndef ENABLE_FINANCEQUOTE
+    if (d->m_type == Type::Script) {
+        return false;
+    }
+#endif
+    return true;
+}
+
+bool AlkOnlineQuotesProfile::typeIsOperational() const
+{
+    if (d->m_type == Type::Script) {
+#ifdef ENABLE_FINANCEQUOTE
+        if (d->quoteSourcesFinanceQuote().isEmpty()) {
+            return false;
+        }
+#else
+        return false;
+#endif
+    }
+    return true;
 }
 
 bool AlkOnlineQuotesProfile::hasGHNSSupport()

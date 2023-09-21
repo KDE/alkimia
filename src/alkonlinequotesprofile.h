@@ -16,7 +16,12 @@
 #include <QString>
 #include <QMap>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <QSharedData>
+class KSharedConfig;
+#else
 class KConfig;
+#endif
 
 class AlkOnlineQuoteSource;
 class AlkOnlineQuotesProfileManager;
@@ -43,7 +48,27 @@ public:
     QString kConfigFile() const;
     void setManager(AlkOnlineQuotesProfileManager *manager);
     AlkOnlineQuotesProfileManager *manager();
-    KConfig *kConfig() const;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    QExplicitlySharedDataPointer<KSharedConfig> kConfig() const;
+    void setKConfig(QExplicitlySharedDataPointer<KSharedConfig> kconfig);
+#else
+    KConfig* kConfig() const;
+#endif
+    /**
+     * Check if the profile is supported (build) by Alkimia
+     *
+     * @returns @c true if support is compiled, @c false otherwise.
+     */
+    bool typeIsSupported() const;
+
+    /**
+     * Check if the profile is functional
+     *
+     * @returns @c true if support is available, @c false otherwise.
+     */
+    bool typeIsOperational() const;
+
     Type type();
     bool hasGHNSSupport();
 

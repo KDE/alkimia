@@ -102,6 +102,20 @@ void AlkFinanceQuoteProcess::slotProcessExited()
     d->m_isDone = true;
 }
 
+void AlkFinanceQuoteProcess::testLaunch(const QString& scriptPath)
+{
+    clearProgram();
+
+    qDebug() << "running perl" << scriptPath << "-t";
+
+    *this << "perl" << scriptPath << "-t";
+    setOutputChannelMode(KProcess::OnlyStdoutChannel);
+    start();
+    if (!waitForStarted()) {
+        qWarning("Unable to start FQ script");
+    }
+}
+
 void AlkFinanceQuoteProcess::launch(const QString &scriptPath)
 {
     clearProgram();

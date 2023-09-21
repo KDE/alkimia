@@ -147,13 +147,13 @@ public:
                                  const QString &_source);
     bool launchWebKitHtmlParser(const QString &_symbol, const QString &_id, const QString &_source);
     bool launchNative(const QString &_symbol, const QString &_id, const QString &_source);
-    bool launchFinanceQuote(const QString &_symbol, const QString &_id, const QString &_source);
-    void enter_loop();
+    bool launchFinanceQuote(const QString& _symbol, const QString& _id, const QString& _source);
     bool parsePrice(const QString &pricestr);
     bool parseDate(const QString &datestr);
     bool downloadUrl(const KUrl& url);
     bool processDownloadedFile(const KUrl& url, const QString& tmpFile);
     bool processDownloadedPage(const KUrl &url, const QByteArray &page);
+    bool processLocalScript(const KUrl& url);
 
 public Q_SLOTS:
     void slotLoadStarted();
@@ -203,7 +203,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
         if (splitrx.indexIn(m_symbol) != -1) {
             url = KUrl(m_source.url().arg(splitrx.cap(1), splitrx.cap(2)));
         } else {
-            kDebug(Private::dbgArea()) << "WebPriceQuote::launch() did not find 2 symbols";
+            kDebug(Private::dbgArea()) << QStringLiteral("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
         }
     } else {
         // a regular one-symbol quote
@@ -325,29 +325,36 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
 
     KUrl url = m_url;
     if (url.isLocalFile()) {
-        Q_EMIT m_p->status(i18nc("The process x is executing", "Executing %1...", url.toLocalFile()));
-
-        m_filter.clearProgram();
-        #if QT_VERSION < QT_VERSION_CHECK(5,14,0)
-        m_filter << url.toLocalFile().split(' ', QString::SkipEmptyParts);
-        #else
-        m_filter << url.toLocalFile().split(' ', Qt::SkipEmptyParts);
-        #endif
-        m_filter.setSymbol(m_symbol);
-
-        m_filter.setOutputChannelMode(KProcess::MergedChannels);
-        m_filter.start();
-
-        if (m_filter.waitForStarted()) {
-            result = true;
-        } else {
-            Q_EMIT m_p->error(i18n("Unable to launch: %1", url.toLocalFile()));
-            m_errors |= Errors::Script;
-            result = slotParseQuote(QString());
-        }
+        result = processLocalScript(url);
     } else {
         slotLoadStarted();
         result = downloadUrl(url);
+    }
+    return result;
+}
+
+bool AlkOnlineQuote::Private::processLocalScript(const QUrl& url)
+{
+    Q_EMIT m_p->status(i18nc("The process x is executing", "Executing %1...", url.toLocalFile()));
+
+    bool result = true;
+
+    m_filter.clearProgram();
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
+    m_filter << url.toLocalFile().split(' ', QString::SkipEmptyParts);
+#else
+    m_filter << url.toLocalFile().split(' ', Qt::SkipEmptyParts);
+#endif
+    m_filter.setSymbol(m_symbol);
+
+    m_filter.setOutputChannelMode(KProcess::MergedChannels);
+    m_filter.start();
+
+    // This seems to work best if we just block until done.
+    if (!m_filter.waitForFinished()) {
+        Q_EMIT m_p->error(i18n("Unable to launch: %1", url.toLocalFile()));
+        m_errors |= Errors::Script;
+        result = slotParseQuote(QString());
     }
     return result;
 }
@@ -521,11 +528,13 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
     m_symbol = _symbol;
     m_id = _id;
     m_errors = Errors::None;
-    m_source = AlkOnlineQuoteSource(_sourcename, m_profile->scriptPath(),
-                                       "\"([^,\"]*)\",.*", // symbol regexp
-                                       "[^,]*,[^,]*,\"([^\"]*)\"", // price regexp
-                                       "[^,]*,([^,]*),.*", // date regexp
-                                       "%y-%m-%d"); // date format
+    m_source = AlkOnlineQuoteSource(_sourcename,
+                                    m_profile->scriptPath(),
+                                    "\"([^,\"]*)\",.*", // symbol regexp
+                                    AlkOnlineQuoteSource::IdSelector::Symbol,
+                                    "[^,]*,[^,]*,\"([^\"]*)\"", // price regexp
+                                    "[^,]*,([^,]*),.*", // date regexp
+                                    "%y-%m-%d"); // date format
 
     //Q_EMIT status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol,_id));
     AlkFinanceQuoteProcess tmp;
