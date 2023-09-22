@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:45+0000\n"
+"POT-Creation-Date: 2023-09-22 00:44+0000\n"
 "PO-Revision-Date: 2023-09-03 08:55+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -28,12 +28,12 @@ msgstr "Vir <placeholder>%1</placeholder> ne obstaja."
 msgid "Unable to fetch url for %1"
 msgstr "Ni bilo mogoče pridobiti spletnega naslova za %1"
 
-#: alkonlinequote.cpp:243 alkonlinequote.cpp:660
+#: alkonlinequote.cpp:243 alkonlinequote.cpp:669
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Najden simbol: '%1'"
 
-#: alkonlinequote.cpp:246 alkonlinequote.cpp:663
+#: alkonlinequote.cpp:246 alkonlinequote.cpp:672
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Ni mogoče razčleniti simbola za %1"
@@ -43,80 +43,80 @@ msgstr "Ni mogoče razčleniti simbola za %1"
 msgid "Fetching URL %1..."
 msgstr "Pridobivanje spletnega naslova %1..."
 
-#: alkonlinequote.cpp:328
+#: alkonlinequote.cpp:338
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Izvajanje %1..."
 
-#: alkonlinequote.cpp:344 alkonlinequote.cpp:548
+#: alkonlinequote.cpp:355 alkonlinequote.cpp:557
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Ni bilo mogoče zagnati: %1"
 
-#: alkonlinequote.cpp:366
+#: alkonlinequote.cpp:373
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Naložene datoteke ni bilo mogoče odpreti"
 
-#: alkonlinequote.cpp:383
+#: alkonlinequote.cpp:390
 #, kde-format
 msgid "URL found: %1..."
 msgstr "Najden spletni naslov: %1..."
 
-#: alkonlinequote.cpp:472 alkonlinequote.cpp:474
+#: alkonlinequote.cpp:479 alkonlinequote.cpp:481
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "Spletni naslov je bil preusmerjen; preverite in osvežite sklic na spletu"
 
-#: alkonlinequote.cpp:540
+#: alkonlinequote.cpp:549
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Izvajam %1 %2 %3..."
 
-#: alkonlinequote.cpp:580
+#: alkonlinequote.cpp:589
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Najdena cena: '%1' (%2)"
 
-#: alkonlinequote.cpp:583
+#: alkonlinequote.cpp:592
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Ni mogoče razčleniti cene za '%1'"
 
-#: alkonlinequote.cpp:592
+#: alkonlinequote.cpp:601
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Najden datum: '%1'"
 
-#: alkonlinequote.cpp:598
+#: alkonlinequote.cpp:607
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Najden format datuma: '%1' -> '%2'"
 
-#: alkonlinequote.cpp:601
+#: alkonlinequote.cpp:610
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Ni mogoče razčleniti datuma '%1' z obliko '%2': %3"
 
-#: alkonlinequote.cpp:605 alkonlinequote.cpp:615
+#: alkonlinequote.cpp:614 alkonlinequote.cpp:624
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Uporabljam trenutni datum za '%1'"
 
-#: alkonlinequote.cpp:609
+#: alkonlinequote.cpp:618
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Razčlenjevanje datuma je onemogočeno za '%1'"
 
-#: alkonlinequote.cpp:612
+#: alkonlinequote.cpp:621
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Ni mogoče razčleniti datuma za '%1'"
 
-#: alkonlinequote.cpp:689
+#: alkonlinequote.cpp:698
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Ni mogoče posodobiti cene za %1 (prazni podatki navedbe)"

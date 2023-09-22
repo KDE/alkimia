@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:45+0000\n"
+"POT-Creation-Date: 2023-09-22 00:44+0000\n"
 "PO-Revision-Date: 2022-04-14 18:10+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -28,12 +28,12 @@ msgstr "Die Datenquelle <placeholder>%1</placeholder> existiert nicht."
 msgid "Unable to fetch url for %1"
 msgstr "URL für %1 kann nicht geholt werden"
 
-#: alkonlinequote.cpp:243 alkonlinequote.cpp:660
+#: alkonlinequote.cpp:243 alkonlinequote.cpp:669
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Symbol gefunden: „%1“"
 
-#: alkonlinequote.cpp:246 alkonlinequote.cpp:663
+#: alkonlinequote.cpp:246 alkonlinequote.cpp:672
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Symbol für %1 kann nicht verarbeitet werden"
@@ -43,81 +43,81 @@ msgstr "Symbol für %1 kann nicht verarbeitet werden"
 msgid "Fetching URL %1..."
 msgstr "Adresse %1 wird geholt ..."
 
-#: alkonlinequote.cpp:328
+#: alkonlinequote.cpp:338
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1 wird ausgeführt ..."
 
-#: alkonlinequote.cpp:344 alkonlinequote.cpp:548
+#: alkonlinequote.cpp:355 alkonlinequote.cpp:557
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "%1 kann nicht gestartet werden"
 
-#: alkonlinequote.cpp:366
+#: alkonlinequote.cpp:373
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Heruntergeladene Datei kann nicht geöffnet werden"
 
-#: alkonlinequote.cpp:383
+#: alkonlinequote.cpp:390
 #, kde-format
 msgid "URL found: %1..."
 msgstr "URL gefunden: %1..."
 
-#: alkonlinequote.cpp:472 alkonlinequote.cpp:474
+#: alkonlinequote.cpp:479 alkonlinequote.cpp:481
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "Die Adresse wurde weitergeleitet. Prüfen Sie online, ob die Adresse "
 "aktualisiert wurde."
 
-#: alkonlinequote.cpp:540
+#: alkonlinequote.cpp:549
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "%1 %2 %3 wird ausgeführt ..."
 
-#: alkonlinequote.cpp:580
+#: alkonlinequote.cpp:589
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Preis gefunden: „%1“ (%2)"
 
-#: alkonlinequote.cpp:583
+#: alkonlinequote.cpp:592
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Preis für '%1 kann nicht verarbeitet werden'"
 
-#: alkonlinequote.cpp:592
+#: alkonlinequote.cpp:601
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Datum gefunden: „%1“"
 
-#: alkonlinequote.cpp:598
+#: alkonlinequote.cpp:607
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Datumsformat gefunden: '%1' -> '%2'"
 
-#: alkonlinequote.cpp:601
+#: alkonlinequote.cpp:610
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Datum %1 kann nicht im Format %2 verarbeitet werden: %3"
 
-#: alkonlinequote.cpp:605 alkonlinequote.cpp:615
+#: alkonlinequote.cpp:614 alkonlinequote.cpp:624
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Aktuelles Datum %1 wird verwendet"
 
-#: alkonlinequote.cpp:609
+#: alkonlinequote.cpp:618
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Verarbeitung des Datums ist für %1 deaktiviert"
 
-#: alkonlinequote.cpp:612
+#: alkonlinequote.cpp:621
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Datum für %1 kann nicht verarbeitet werden'"
 
-#: alkonlinequote.cpp:689
+#: alkonlinequote.cpp:698
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"
