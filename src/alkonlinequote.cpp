@@ -717,9 +717,9 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
 
 void AlkOnlineQuote::Private::slotLoadTimeout()
 {
-    emit m_p->error(i18n("Timeout exceeded on fetching url for %1", m_symbol));
+    Q_EMIT m_p->error(i18n("Timeout exceeded on fetching url for %1", m_symbol));
     m_errors |= Errors::Timeout;
-    emit m_p->failed(m_id, m_symbol);
+    Q_EMIT m_p->failed(m_id, m_symbol);
     m_eventLoop->exit(Errors::Timeout);
 }
 
