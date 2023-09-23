@@ -565,6 +565,3 @@ msgstr "Kaynağı Denetle"
 #, kde-format
 msgid "Show Page"
 msgstr "Sayfayı Göster"
-
-#~ msgid "Regular Expression to extract the symbol from the downloaded data"
-#~ msgstr "İndirilen veriden sembolü çıkarmak için düzenli ifade"
