@@ -119,6 +119,7 @@ public:
     QString m_acceptLanguage;
     AlkOnlineQuotesProfile *m_profile;
     bool m_ownProfile;
+    int m_timeout;
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     static int dbgArea()
@@ -132,6 +133,7 @@ public:
         : m_p(parent)
         , m_eventLoop(nullptr)
         , m_ownProfile(false)
+        , m_timeout(-1)
     {
         connect(&m_filter, SIGNAL(processExited(QString)), this, SLOT(slotParseQuote(QString)));
     }
@@ -162,6 +164,7 @@ public Q_SLOTS:
     bool slotParseQuote(const QString &_quotedata);
 
 private Q_SLOTS:
+    void slotLoadTimeout();
 #ifndef BUILD_WITH_QTNETWORK
     void downloadUrlDone(KJob* job);
 #else
@@ -279,7 +282,8 @@ bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, co
     connect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(webPage, SIGNAL(loadFinished(bool)), this,
             SLOT(slotLoadFinishedCssSelector(bool)));
-    QTimer::singleShot(20000, this, SLOT(slotLoadFinishedHtmlParser()));
+    if (m_timeout != -1)
+        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
     webPage->setUrl(m_url);
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
@@ -302,7 +306,8 @@ bool AlkOnlineQuote::Private::launchWebKitHtmlParser(const QString &_symbol, con
     AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
     connect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
-    QTimer::singleShot(20000, this, SLOT(slotLoadFinishedHtmlParser()));
+    if (m_timeout != -1)
+        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
     webPage->load(m_url, m_acceptLanguage);
     m_eventLoop = new QEventLoop;
     m_eventLoop->exec();
@@ -411,6 +416,8 @@ bool AlkOnlineQuote::Private::downloadUrl(const QUrl& url)
     KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo);
     connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDone(KJob*)));
 
+    if (m_timeout != -1)
+        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
     auto result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
     delete m_eventLoop;
     m_eventLoop = nullptr;
@@ -502,6 +509,9 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl &url)
     request.setUrl(url);
     request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
     manager.get(request);
+
+    if (m_timeout != -1)
+        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
     m_eventLoop = new QEventLoop;
     int result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
     delete m_eventLoop;
@@ -511,6 +521,9 @@ bool AlkOnlineQuote::Private::downloadUrl(const KUrl &url)
         req.setUrl(m_url);
         req.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
         manager.get(req);
+
+        if (m_timeout != -1)
+            QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
         m_eventLoop = new QEventLoop;
         result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
         delete m_eventLoop;
@@ -702,6 +715,14 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
     return result;
 }
 
+void AlkOnlineQuote::Private::slotLoadTimeout()
+{
+    emit m_p->error(i18n("Timeout exceeded on fetching url for %1", m_symbol));
+    m_errors |= Errors::Timeout;
+    emit m_p->failed(m_id, m_symbol);
+    m_eventLoop->exit(Errors::Timeout);
+}
+
 AlkOnlineQuote::AlkOnlineQuote(AlkOnlineQuotesProfile *profile, QObject *_parent)
     : QObject(_parent)
     , d(new Private(this))
@@ -746,6 +767,16 @@ void AlkOnlineQuote::setProfile(AlkOnlineQuotesProfile *profile)
 void AlkOnlineQuote::setAcceptLanguage(const QString &language)
 {
     d->m_acceptLanguage = language;
+}
+
+int AlkOnlineQuote::timeout() const
+{
+    return d->m_timeout;
+}
+
+void AlkOnlineQuote::setTimeout(int newTimeout)
+{
+    d->m_timeout = newTimeout;
 }
 
 bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QString &_source)

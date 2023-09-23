@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SPDX-FileCopyrightText: 2015-2016 Collabora Ltd.
-# SPDX-FileCopyrightText: 2020 Ralf Habacker ralf.habacker @freenet.de
+# SPDX-FileCopyrightText: 2020,2022,2023 Ralf Habacker ralf.habacker @freenet.de
 #
 # SPDX-License-Identifier: MIT
 

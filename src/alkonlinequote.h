@@ -51,6 +51,7 @@ public:
             Source,
             Symbol,
             Success,
+            Timeout,
             URL,
         };
 
@@ -74,12 +75,31 @@ public:
     void setAcceptLanguage(const QString &language);
 
     /**
+     * Return actual used timeout for fetching online quotes
+     * If the returned value is -1, no timeout has been set.
+     * @return timeout
+     */
+    int timeout() const;
+
+    /**
+     * Set timeout for fetching online quotes
+     * If the timeout is != -1, a request to retrieve online quotes will be aborted
+     * if the time set with this function has been exceeded.
+     * @param newTimeout timeout in millseconds
+     */
+    void setTimeout(int newTimeout);
+
+public Q_SLOTS:
+    /**
       * This launches a web-based quote update for the given @p _symbol.
       * When the quote is received back from the web source, it will be
       * emitted on the 'quote' signal.
       *
       * If services do not provide a date, parsing of the date can be disabled
       * by specifying an empty date attribute of the given online source.
+      *
+      * If a timeout is set with @ref setTimeout() and the web source does not
+      * return the requested data, the update will be aborted after this time.
       *
       * @param _symbol the trading symbol of the stock to fetch a price for
       * @param _id an arbitrary identifier, which will be emitted in the quote
@@ -91,7 +111,6 @@ public:
       *              In case of failures it returns false and @ref errors()
       *              could be used to get error details.
       */
-public Q_SLOTS:
     bool launch(const QString &_symbol, const QString &_id, const QString &_source = QString());
 
     /**

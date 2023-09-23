@@ -202,10 +202,10 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     m_quoteSourceList->installEventFilter(this);
 
     connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadQuoteSource()));
-    connect(m_quoteSourceList, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this,
-            SLOT(slotQuoteSourceRenamed(QTreeWidgetItem *, int)));
-    connect(m_quoteSourceList, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this,
-            SLOT(slotQuoteSourceStartRename(QTreeWidgetItem *, int)));
+    connect(m_quoteSourceList, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this,
+            SLOT(slotQuoteSourceRenamed(QTreeWidgetItem*,int)));
+    connect(m_quoteSourceList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this,
+            SLOT(slotQuoteSourceStartRename(QTreeWidgetItem*,int)));
 
     connect(m_editURL, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editIdentifier, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
