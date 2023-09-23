@@ -181,6 +181,8 @@ public:
                     m_dataFormat = AlkOnlineQuoteSource::DataFormat::StrippedHTML;
                 else if (value == "HTML")
                     m_dataFormat = AlkOnlineQuoteSource::DataFormat::HTML;
+                else if (value == "CSV")
+                    m_dataFormat = AlkOnlineQuoteSource::DataFormat::CSV;
             }
         }
 
@@ -203,6 +205,8 @@ public:
             out << "mode=StrippedHTML\n";
         else if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::HTML)
             out << "mode=HTML\n";
+        else if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::CSV)
+            out << "mode=CSV\n";
         out << "price=" << m_priceRegex << "\n";
         out << "url=" << m_url << "\n";
         return true;

@@ -35,7 +35,8 @@ public:
      */
     enum DataFormat {
         StrippedHTML,
-        HTML
+        HTML,
+        CSV
     };
 
     AlkOnlineQuoteSource();

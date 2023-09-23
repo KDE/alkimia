@@ -99,6 +99,7 @@ public Q_SLOTS:
     void slotLogError(const QString &s);
     void slotLogFailed(const QString &id, const QString &symbol);
     void slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price);
+    void slotLogQuotes(const QString &id, const QString &symbol, const AlkDatePriceMap &prices);
     void slotQuoteSourceRenamed(QTreeWidgetItem *item, int column);
     void slotQuoteSourceStartRename(QTreeWidgetItem *item, int column);
     void slotInstallEntries();
@@ -237,6 +238,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 
     m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "Stripped HTML"), AlkOnlineQuoteSource::DataFormat::StrippedHTML);
     m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "HTML"), AlkOnlineQuoteSource::DataFormat::HTML);
+    m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "CSV"), AlkOnlineQuoteSource::DataFormat::CSV);
     connect(m_editDataFormat, SIGNAL(currentIndexChanged(int)), this, SLOT(slotEntryChanged()));
 
     connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
@@ -581,6 +583,8 @@ void AlkOnlineQuotesWidget::Private::slotCheckEntry()
     connect(&quote, SIGNAL(failed(QString,QString)), this, SLOT(slotLogFailed(QString,QString)));
     connect(&quote, SIGNAL(quote(QString,QString,QDate,double)), this,
             SLOT(slotLogQuote(QString,QString,QDate,double)));
+    connect(&quote, SIGNAL(quotes(QString,QString,AlkDatePriceMap)), this,
+            SLOT(slotLogQuotes(QString,QString,AlkDatePriceMap)));
     initIcons();
     if (m_currentItem.url().contains("%2")) {
         quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.name());
@@ -611,6 +615,18 @@ void AlkOnlineQuotesWidget::Private::slotLogQuote(const QString &id, const QStri
     slotLogStatus(QString("<font color=\"green\">%1 %2 %3 %4</font>").arg(id, symbol,
                                                                           date.toString()).arg(
                       price));
+}
+
+void AlkOnlineQuotesWidget::Private::slotLogQuotes(const QString &id, const QString &symbol,
+                                         const AlkDatePriceMap &prices)
+{
+    slotLogStatus(QString("<font color=\"green\">%1 %2</font>").arg(id, symbol));
+
+    slotLogStatus(QString("<font color=\"green\">date price</font>"));
+    for (auto i = prices.constBegin(), end = prices.constEnd(); i != end; ++i) {
+        slotLogStatus(QString("<font color=\"green\">%1 %2</font>")
+                      .arg(i.key().toString(Qt::ISODate)).arg(i.value().toDouble()));
+    }
 }
 
 void AlkOnlineQuotesWidget::Private::slotQuoteSourceStartRename(QTreeWidgetItem *item, int column)

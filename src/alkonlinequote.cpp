@@ -154,6 +154,7 @@ public:
     bool parseDate(const QString &datestr);
     bool parseQuoteStripHTML(const QString &quotedata);
     bool parseQuoteHTML(const QString &quotedata);
+    bool parseQuoteCSV(const QString &quotedata);
     bool downloadUrl(const KUrl& url);
     bool processDownloadedFile(const KUrl& url, const QString& tmpFile);
     bool processDownloadedPage(const KUrl &url, const QByteArray &page);
@@ -719,9 +720,96 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
 }
 
 /**
- * Parse quote data according to currently selected web price quote source
+ * Parse quote data in csv format
  *
  * @param quotedata quote data to parse
+ * @return true parsing successful
+ * @return false parsing unsuccessful
+ */
+bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
+{
+    QString dateColumn(m_source.dateRegex());
+    QString priceColumn(m_source.priceRegex());
+    QStringList lines = quotedata.split(QRegExp("\r?\n"));
+    QString header = lines.first();
+    QRegExp rx("([,;\t])");
+    QString columnSeparator;
+    if (rx.indexIn(header) != -1) {
+        columnSeparator = rx.cap(1);
+    }
+    if (columnSeparator.isEmpty()) {
+        m_errors |= Errors::Source;
+        Q_EMIT m_p->error(i18n("Unable to detect field delimiter in first line (header line) of quote data."));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+    const QChar decimalSeparator = (columnSeparator.at(0) == ';') ? QLatin1Char(',') : QLatin1Char('.');
+
+    // detect column index
+    int dateCol = -1;
+    int priceCol = -1;
+    // check if column numbers are given
+    if (dateColumn.startsWith(QLatin1Char('#')) && priceColumn.startsWith(QLatin1Char('#'))) {
+        dateColumn.remove(0,1);
+        priceColumn.remove(0,1);
+        dateCol = dateColumn.toInt() - 1;
+        priceCol = priceColumn.toInt() - 1;
+    } else { // find columns
+        QStringList headerColumns = header.split(columnSeparator);
+        for (int i = 0; i < headerColumns.size(); i++) {
+            if (headerColumns[i].contains(dateColumn))
+                dateCol = i;
+            else if (headerColumns[i].contains(priceColumn))
+                priceCol = i;
+        }
+        lines.takeFirst();
+    }
+    if (dateCol == -1) {
+        m_errors |= Errors::Date;
+        Q_EMIT m_p->error(i18n("Unable to find date column '%1' in quote data", dateColumn));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+    if (priceCol == -1) {
+        m_errors |= Errors::Price;
+        Q_EMIT m_p->error(i18n("Unable to find price column '%1' in quote data", priceColumn));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+    AlkDatePriceMap prices;
+    for (const auto &line : lines) {
+        if (line.trimmed().isEmpty())
+            continue;
+        QStringList cols = line.split(columnSeparator);
+        QString dateValue = cols[dateCol].trimmed();
+        QString priceValue = cols[priceCol].trimmed();
+        if (dateValue.isEmpty() || priceValue.isEmpty())
+            continue;
+        // @todo: auto detect format
+        AlkDateFormat dateFormat(m_source.dateFormat());
+        QDate date = dateFormat.convertString(dateValue, false);
+        if (!date.isValid()) {
+            m_errors |= Errors::DateFormat;
+            Q_EMIT m_p->error(i18n("Unable to convert date '%1' with '%2' in quote data", dateValue, m_source.dateFormat()));
+            Q_EMIT m_p->failed(m_id, m_symbol);
+            return false;
+        }
+        prices[date] = AlkValue(priceValue, decimalSeparator);
+    }
+    if (prices.isEmpty()) {
+        m_errors |= Errors::Price;
+        Q_EMIT m_p->error(i18n("Unable to find date/price pairs in quote data"));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+    Q_EMIT m_p->quotes(m_id, m_symbol, prices);
+    return true;
+}
+
+/**
+ * Parse quote data according to currently selected web price quote source
+ *
+ * @param _quotedata quote data to parse
  * @return true parsing successful
  * @return false parsing unsuccessful
  */
@@ -742,6 +830,8 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &quotedata)
         return parseQuoteStripHTML(quotedata);
     case AlkOnlineQuoteSource::HTML:
         return parseQuoteHTML(quotedata);
+    case AlkOnlineQuoteSource::CSV:
+        return parseQuoteCSV(quotedata);
     default:
         return false;
     }

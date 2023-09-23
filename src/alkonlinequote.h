@@ -11,13 +11,16 @@
 #ifndef ALKONLINEQUOTE_H
 #define ALKONLINEQUOTE_H
 
-#include <alkimia/alk_export.h>
+#include <alkimia/alkvalue.h>
 
 #include <QObject>
 #include <QDateTime>
 #include <QString>
+#include <QMap>
 
 class AlkOnlineQuotesProfile;
+
+typedef QMap<QDate, AlkValue> AlkDatePriceMap;
 
 /**
 Retrieves a price quote from a web-based quote source
@@ -123,6 +126,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void quote(QString id, QString symbol, QDate date, double price);
+    void quotes(const QString &id, const QString &symbol, const AlkDatePriceMap &prices);
     void failed(QString id, QString symbol);
     void status(QString s);
     void error(QString s);
