@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-22 00:44+0000\n"
+"POT-Creation-Date: 2023-09-24 00:44+0000\n"
 "PO-Revision-Date: 2021-11-05 11:17+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -17,107 +17,113 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.08.3\n"
 
-#: alkonlinequote.cpp:187
+#: alkonlinequote.cpp:190
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "A(z) <placeholder>%1</placeholder> forrás nem létezik."
 
-#: alkonlinequote.cpp:221 alkonlinequote.cpp:235
+#: alkonlinequote.cpp:224 alkonlinequote.cpp:238
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "Nem lehet lekérni a(z) %1 URL-jét"
 
-#: alkonlinequote.cpp:243 alkonlinequote.cpp:669
+#: alkonlinequote.cpp:246 alkonlinequote.cpp:682
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Szimbólum találat: „%1”"
 
-#: alkonlinequote.cpp:246 alkonlinequote.cpp:672
+#: alkonlinequote.cpp:249 alkonlinequote.cpp:685
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Nem lehet feldolgozni a(z) %1 szimbólumát"
 
-#: alkonlinequote.cpp:269
+#: alkonlinequote.cpp:272
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "%1 URL lekérése…"
 
-#: alkonlinequote.cpp:338
+#: alkonlinequote.cpp:343
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1 végrehajtása…"
 
-#: alkonlinequote.cpp:355 alkonlinequote.cpp:557
+#: alkonlinequote.cpp:360 alkonlinequote.cpp:570
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Nem lehet elindítani: %1"
 
-#: alkonlinequote.cpp:373
+#: alkonlinequote.cpp:378
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Nem sikerült megnyitni a letöltött fájlt"
 
-#: alkonlinequote.cpp:390
+#: alkonlinequote.cpp:395
 #, kde-format
 msgid "URL found: %1..."
 msgstr "URL találat: %1…"
 
-#: alkonlinequote.cpp:479 alkonlinequote.cpp:481
+#: alkonlinequote.cpp:486 alkonlinequote.cpp:488
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 
-#: alkonlinequote.cpp:549
+#: alkonlinequote.cpp:562
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "%1 %2 %3 végrehajtása…"
 
-#: alkonlinequote.cpp:589
+#: alkonlinequote.cpp:602
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Ár találat: „%1” (%2)"
 
-#: alkonlinequote.cpp:592
+#: alkonlinequote.cpp:605
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Nem lehet feldolgozni a(z) „%1” árát"
 
-#: alkonlinequote.cpp:601
+#: alkonlinequote.cpp:614
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Dátum találat: „%1”"
 
-#: alkonlinequote.cpp:607
+#: alkonlinequote.cpp:620
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Dátumformátum találat: „%1” -> „%2”"
 
-#: alkonlinequote.cpp:610
+#: alkonlinequote.cpp:623
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Nem lehet feldolgozni a(z) „%1” dátumot a(z) „%2” dátumformátummal: %3"
 
-#: alkonlinequote.cpp:614 alkonlinequote.cpp:624
+#: alkonlinequote.cpp:627 alkonlinequote.cpp:637
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Aktuális dátum használata ehhez: „%1”"
 
-#: alkonlinequote.cpp:618
+#: alkonlinequote.cpp:631
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Dátum feldolgozása kikapcsolva ehhez: „%1”"
 
-#: alkonlinequote.cpp:621
+#: alkonlinequote.cpp:634
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Nem lehet feldolgozni a(z) „%1” dátumát"
 
-#: alkonlinequote.cpp:698
+#: alkonlinequote.cpp:711
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Nem lehet frissíteni a(z) %1 árát (üres árajánlat adat)"
+
+#: alkonlinequote.cpp:720
+#, fuzzy, kde-format
+#| msgid "Unable to fetch url for %1"
+msgid "Timeout exceeded on fetching url for %1"
+msgstr "Nem lehet lekérni a(z) %1 URL-jét"
 
 #: alkonlinequoteswidget.cpp:141
 #, kde-format
@@ -229,7 +235,7 @@ msgid "Name"
 msgstr "Név"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequoteswidget.cpp:254 alkonlinequoteswidget.ui:351
+#: alkonlinequoteswidget.cpp:254 alkonlinequoteswidget.ui:400
 #, kde-format
 msgid "GHNS Source"
 msgstr "GHNS forrás"
@@ -312,17 +318,17 @@ msgstr "Törlés"
 msgid "Profile details"
 msgstr "Profiladatok"
 
-#. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
-#: alkonlinequoteswidget.ui:102
-#, kde-format
-msgid "GHNS config file"
-msgstr "GHNS beállítófájl"
-
 #. i18n: ectx: property (text), widget (QLabel, m_configLabel)
-#: alkonlinequoteswidget.ui:109
+#: alkonlinequoteswidget.ui:102
 #, kde-format
 msgid "Config file"
 msgstr "Beállítófájl"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
+#: alkonlinequoteswidget.ui:109
+#, kde-format
+msgid "GHNS config file"
+msgstr "GHNS beállítófájl"
 
 #. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
 #: alkonlinequoteswidget.ui:116
@@ -403,20 +409,96 @@ msgstr ""
 msgid "Details"
 msgstr "Részletek"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: alkonlinequoteswidget.ui:288
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequoteswidget.ui:298
+#, kde-format
+msgid "Identifier"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
+#: alkonlinequoteswidget.ui:308
+#, kde-format
+msgid "Selected by"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: alkonlinequoteswidget.ui:315
+#, kde-format
+msgid "Price"
+msgstr "Ár"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequoteswidget.ui:325
+#, kde-format
+msgid "Date"
+msgstr "Dátum"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequoteswidget.ui:335
+#, kde-format
+msgid "Date Format"
+msgstr "Dátumformátum"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequoteswidget.ui:345
 #, kde-format
 msgid "Options"
 msgstr "Opciók"
 
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
+#: alkonlinequoteswidget.ui:352
+#, kde-format
+msgid "URL to be used to download the quote"
+msgstr "Az árajánlat letöltéséhez használandó URL"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
+#: alkonlinequoteswidget.ui:355
+#, no-c-format, kde-format
+msgid ""
+"Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
+"replaced with the symbol for the security being quoted. For currency "
+"conversions, <b>%2</b> will be replaced with the currency to be quoted and "
+"<b>%1</b> with the currency the quote is based on."
+msgstr ""
+"Adja meg az URL-t, ahonnan az árajánlatok le lesznek kérve. A(z) <b>%1</b> a "
+"szimbólummal lesz helyettesítve, a biztonság kedvéért idézőjelekkel. Az "
+"árfolyamkonverziókhoz a(z) <b>%2</b> a lekérendő valutával lesz "
+"helyettesítve, a(z) <b>%1</b> pedig az ajánlat alapjául szolgáló pénznemmel."
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
+#: alkonlinequoteswidget.ui:362
+#, fuzzy, kde-format
+#| msgid "Regular Expression to extract the date from the downloaded data"
+msgid "Regular Expression to extract the identifier from the downloaded data"
+msgstr "Reguláris kifejezés a dátum kinyerésére a letöltött adatokból"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
+#: alkonlinequoteswidget.ui:369
+#, kde-format
+msgid "How to select the identifier"
+msgstr ""
+
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
-#: alkonlinequoteswidget.ui:295
+#: alkonlinequoteswidget.ui:376
 #, kde-format
 msgid "Regular Expression to extract the price from the downloaded data"
 msgstr "Reguláris kifejezés az ár kinyerésére a letöltött adatokból"
 
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#: alkonlinequoteswidget.ui:383 alkonlinequoteswidget.ui:390
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr "Reguláris kifejezés a dátum kinyerésére a letöltött adatokból"
+
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
-#: alkonlinequoteswidget.ui:311
+#: alkonlinequoteswidget.ui:416
 #, kde-format
 msgid ""
 "<p>For easier processing of the data returned by the online source, KMyMoney "
@@ -448,86 +530,10 @@ msgstr ""
 "</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
-#: alkonlinequoteswidget.ui:314
+#: alkonlinequoteswidget.ui:419
 #, kde-format
 msgid "Skip HTML stripping"
 msgstr "HTML kiszedés kihagyása"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: alkonlinequoteswidget.ui:321
-#, kde-format
-msgid "Price"
-msgstr "Ár"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: alkonlinequoteswidget.ui:331
-#, kde-format
-msgid "URL"
-msgstr "URL"
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
-#: alkonlinequoteswidget.ui:365
-#, kde-format
-msgid "How to select the identifier"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: alkonlinequoteswidget.ui:372
-#, kde-format
-msgid "Identifier"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: alkonlinequoteswidget.ui:389
-#, kde-format
-msgid "Date"
-msgstr "Dátum"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
-#: alkonlinequoteswidget.ui:399
-#, fuzzy, kde-format
-#| msgid "Regular Expression to extract the date from the downloaded data"
-msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "Reguláris kifejezés a dátum kinyerésére a letöltött adatokból"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
-#: alkonlinequoteswidget.ui:420
-#, kde-format
-msgid "URL to be used to download the quote"
-msgstr "Az árajánlat letöltéséhez használandó URL"
-
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
-#: alkonlinequoteswidget.ui:423
-#, no-c-format, kde-format
-msgid ""
-"Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
-"replaced with the symbol for the security being quoted. For currency "
-"conversions, <b>%2</b> will be replaced with the currency to be quoted and "
-"<b>%1</b> with the currency the quote is based on."
-msgstr ""
-"Adja meg az URL-t, ahonnan az árajánlatok le lesznek kérve. A(z) <b>%1</b> a "
-"szimbólummal lesz helyettesítve, a biztonság kedvéért idézőjelekkel. Az "
-"árfolyamkonverziókhoz a(z) <b>%2</b> a lekérendő valutával lesz "
-"helyettesítve, a(z) <b>%1</b> pedig az ajánlat alapjául szolgáló pénznemmel."
-
-#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
-#: alkonlinequoteswidget.ui:430
-#, kde-format
-msgid "Selected by"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: alkonlinequoteswidget.ui:437
-#, kde-format
-msgid "Date Format"
-msgstr "Dátumformátum"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
-#: alkonlinequoteswidget.ui:447 alkonlinequoteswidget.ui:454
-#, kde-format
-msgid "Regular Expression to extract the date from the downloaded data"
-msgstr "Reguláris kifejezés a dátum kinyerésére a letöltött adatokból"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequoteswidget.ui:468
