@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 00:44+0000\n"
-"PO-Revision-Date: 2023-09-03 08:55+0200\n"
+"PO-Revision-Date: 2023-09-24 08:19+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -122,10 +122,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Ni mogoče posodobiti cene za %1 (prazni podatki navedbe)"
 
 #: alkonlinequote.cpp:720
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "Ni bilo mogoče pridobiti spletnega naslova za %1"
+msgstr "Potekel je čas za pridobitev spletnega naslova %1"
 
 #: alkonlinequoteswidget.cpp:141
 #, kde-format

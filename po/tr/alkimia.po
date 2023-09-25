@@ -121,10 +121,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "%1 fiyatı güncellenemedi (boş alıntı verisi)"
 
 #: alkonlinequote.cpp:720
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "%1 URL'si getirilemedi"
+msgstr "%1 URL'si getirilirken zaman aşımı gerçekleşti"
 
 #: alkonlinequoteswidget.cpp:141
 #, kde-format

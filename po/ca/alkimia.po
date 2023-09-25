@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 00:44+0000\n"
-"PO-Revision-Date: 2023-09-03 10:32+0200\n"
+"PO-Revision-Date: 2023-09-24 10:16+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -125,10 +125,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "No s'ha pogut actualitzar el preu de %1 (dades de cotització buides)"
 
 #: alkonlinequote.cpp:720
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "No s'ha pogut recuperar l'URL per a %1"
+msgstr "S'ha excedit el temps d'espera en recuperar l'URL per a %1"
 
 #: alkonlinequoteswidget.cpp:141
 #, kde-format
