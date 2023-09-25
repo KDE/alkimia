@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2018, 2020, 2022.
+# SPDX-FileCopyrightText: 2018, 2020, 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 02:23+0000\n"
-"PO-Revision-Date: 2022-04-01 15:19+0200\n"
+"PO-Revision-Date: 2023-09-24 15:47+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: alkonlinequote.cpp:181
 #, kde-format
@@ -120,10 +120,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Kan de prijs niet bijwerken voor %1 (lege koersgegevens)"
 
 #: alkonlinequote.cpp:694
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "Kan url niet ophalen voor %1"
+msgstr "Tijdslimiet overschreden bij ophalen van url voor %1"
 
 #: alkonlinequoteswidget.cpp:135
 #, kde-format
