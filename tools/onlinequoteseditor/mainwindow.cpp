@@ -106,8 +106,8 @@ MainWindow::MainWindow(QWidget *parent)
     quoteDetailsWidget->setWidget(d->quotesWidget->quoteDetailsWidget());
     addDockWidget(Qt::RightDockWidgetArea, quoteDetailsWidget);
 
-    connect(&AlkOnlineQuotesProfileManager::instance(), SIGNAL(updateAvailable(const QString &, const QString &)),
-            this, SLOT(slotUpdateAvailable(const QString &, const QString &)));
+    connect(&AlkOnlineQuotesProfileManager::instance(), SIGNAL(updateAvailable(QString,QString)),
+            this, SLOT(slotUpdateAvailable(QString,QString)));
 
     manager.setWebPageEnabled(true);
     QDockWidget *browserWidget = new QDockWidget(i18n("Browser"), this);
