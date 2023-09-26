@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AlkOnlineQuotesWidget</class>
+ <widget class="QWidget" name="AlkOnlineQuotesWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>681</width>
+    <height>1462</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Online Quotes</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_6">
+   <item>
+    <widget class="QGroupBox" name="onlineQuotesGroupBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="whatsThis">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;online price quotes&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="title">
+      <string>Online Quotes</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QTreeWidget" name="m_quoteSourceList">
+          <column>
+           <property name="text">
+            <string notr="true">1</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="AlkPushButton" name="m_newButton">
+            <property name="text">
+             <string comment="@action create new quote source">New</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="AlkPushButton" name="m_deleteButton">
+            <property name="text">
+             <string>Delete</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="AlkPushButton" name="m_duplicateButton">
+            <property name="toolTip">
+             <string>Create a duplicate of the currently selected source entry under a different name.</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to create a duplicate of an entry for an online source</string>
+            </property>
+            <property name="text">
+             <string>Duplicate</string>
+            </property>
+            <property name="icon">
+             <iconset theme="edit-copy">
+              <normaloff>.</normaloff>.</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="AlkPushButton" name="m_installButton">
+            <property name="text">
+             <string>Install</string>
+            </property>
+            <property name="icon">
+             <iconset theme="run-install">
+              <normaloff>.</normaloff>.</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>14</width>
+              <height>13</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>AlkPushButton</class>
+   <extends>QPushButton</extends>
+   <header>alkpushbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

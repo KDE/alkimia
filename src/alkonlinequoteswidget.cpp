@@ -42,7 +42,11 @@
 #include <KGuiItem>
 #include <KMessageBox>
 
-#include <ui_alkonlinequoteswidget.h>
+#include <ui_alkonlinequotedetails.h>
+#include <ui_alkonlinequotes.h>
+#include <ui_alkonlinequotesdebug.h>
+#include <ui_alkonlinequotesprofiledetails.h>
+#include <ui_alkonlinequotesprofiles.h>
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 #include <klocale.h>
@@ -52,7 +56,13 @@ static KLocale _locale(TRANSLATION_DOMAIN);
 #define tr2i18n(text, context) ki18nc(context, text).toString(&_locale)
 #endif
 
-class AlkOnlineQuotesWidget::Private : public QWidget, public Ui::AlkOnlineQuotesWidget
+class AlkOnlineQuotesWidget::Private
+    : public QWidget
+    , public Ui::AlkOnlineQuoteDetailsWidget
+    , public Ui::AlkOnlineQuotesDebugWidget
+    , public Ui::AlkOnlineQuotesProfileDetailsWidget
+    , public Ui::AlkOnlineQuotesProfilesWidget
+    , public Ui::AlkOnlineQuotesWidget
 {
     Q_OBJECT
 public:
@@ -127,7 +137,11 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     static KComponentData alk(TRANSLATION_DOMAIN);
 #endif
-    setupUi(parent);
+    Ui::AlkOnlineQuoteDetailsWidget::setupUi(parent);
+    Ui::AlkOnlineQuotesDebugWidget::setupUi(parent);
+    Ui::AlkOnlineQuotesProfileDetailsWidget::setupUi(parent);
+    Ui::AlkOnlineQuotesProfilesWidget::setupUi(parent);
+    Ui::AlkOnlineQuotesWidget::setupUi(parent);
 
     profilesGroupBox->setVisible(showProfiles);
     profileDetailsBox->setVisible(showProfiles);

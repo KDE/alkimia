@@ -80,7 +80,11 @@ if(ENABLE_FINANCEQUOTE)
 endif()
 
 set(alkimia_UI
-    alkonlinequoteswidget.ui
+    alkonlinequotedetails.ui
+    alkonlinequotes.ui
+    alkonlinequotesdebug.ui
+    alkonlinequotesprofiledetails.ui
+    alkonlinequotesprofiles.ui
 )
 
 configure_file(
