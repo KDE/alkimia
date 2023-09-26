@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2018, 2020, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2018, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 02:23+0000\n"
-"PO-Revision-Date: 2022-04-01 20:31+0300\n"
+"PO-Revision-Date: 2023-09-25 20:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -124,10 +124,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Не вдалося оновити ціну для %1 (порожні дані щодо курсу)"
 
 #: alkonlinequote.cpp:694
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "Не вдалося отримати адресу для %1"
+msgstr "Перевищення часу очікування на отримання адреси для %1"
 
 #: alkonlinequoteswidget.cpp:135
 #, kde-format
