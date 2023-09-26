@@ -100,7 +100,7 @@ public:
      * @return true required two identifier
      */
     bool requiresTwoIdentifier() const;
-    QString ghnsWriteFileName();
+    QString ghnsWriteFileName() const;
     void setProfile(AlkOnlineQuotesProfile *profile);
     AlkOnlineQuotesProfile *profile();
 
