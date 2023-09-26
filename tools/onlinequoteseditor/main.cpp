@@ -47,7 +47,7 @@ int main(int argc, char **argv)
                      QStringLiteral("1.0"),
                      _i18n("Editor for online price quotes used by finance applications"),
                      LICENCE_GPL,
-                     _i18n("(C) 2018-2019 Ralf Habacker"));
+                     _i18n("(C) 2018-2023 Ralf Habacker"));
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     QApplication app(argc,argv);
