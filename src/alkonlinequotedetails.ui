@@ -245,6 +245,17 @@
            </widget>
           </item>
           <item>
+           <widget class="AlkPushButton" name="m_cancelButton">
+            <property name="text">
+             <string comment="@action cancel actual changes">Cancel</string>
+            </property>
+            <property name="icon">
+             <iconset theme="dialog-cancel">
+              <normaloff>.</normaloff>.</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="verticalSpacer_2">
             <property name="orientation">
              <enum>Qt::Vertical</enum>

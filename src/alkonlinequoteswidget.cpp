@@ -195,6 +195,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_deleteProfile, SIGNAL(clicked()), this, SLOT(slotDeleteProfile()));
     connect(m_profileList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadProfile()));
 
+    connect(m_cancelButton, SIGNAL(clicked()), this, SLOT(slotLoadQuoteSource()));
     connect(m_updateButton, SIGNAL(clicked()), this, SLOT(slotUpdateEntry()));
     connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
     connect(m_checkButton, SIGNAL(clicked()), this, SLOT(slotCheckEntry()));
@@ -431,6 +432,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     bool hasWriteSupport = (m_profile->type() != AlkOnlineQuotesProfile::Type::None && !isFinanceQuote) || m_profile->hasGHNSSupport();
     bool noNewEntry = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0 || isFinanceQuote;
     m_newButton->setEnabled(hasWriteSupport && noNewEntry);
+    m_cancelButton->setEnabled(modified);
     m_duplicateButton->setEnabled(hasWriteSupport);
     m_deleteButton->setEnabled(!m_currentItem.isReadOnly() && !m_currentItem.isGHNS());
     m_updateButton->setEnabled(modified);
