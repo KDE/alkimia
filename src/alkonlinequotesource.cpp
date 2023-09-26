@@ -30,8 +30,8 @@ class AlkOnlineQuoteSource::Private
 {
 public:
     Private()
-        : m_idSelector(Symbol)
-        , m_skipStripping(false)
+        : m_dataFormat(HTML)
+        , m_idSelector(Symbol)
         , m_profile(nullptr)
         , m_isGHNSSource(false)
         , m_storageChanged(false)
@@ -43,11 +43,11 @@ public:
         : m_name(other->m_name)
         , m_url(other->m_url)
         , m_priceRegex(other->m_priceRegex)
+        , m_dataFormat(other->m_dataFormat)
         , m_dateRegex(other->m_dateRegex)
         , m_dateFormat(other->m_dateFormat)
         , m_idRegex(other->m_idRegex)
         , m_idSelector(other->m_idSelector)
-        , m_skipStripping(other->m_skipStripping)
         , m_profile(other->m_profile)
         , m_isGHNSSource(other->m_isGHNSSource)
         , m_storageChanged(other->m_storageChanged)
@@ -65,6 +65,14 @@ public:
             return false;
         }
         KConfigGroup grp = kconfig->group(group);
+        // in newer profiles DataFormat takes precedence over SkipStripping
+        // if DataFormat is not present, search for SkipStripping
+        if (grp.hasKey(QLatin1String("DataFormat"))) {
+            m_dataFormat = static_cast<DataFormat>(grp.readEntry(QLatin1String("DataFormat"), 0));
+        } else {
+            m_dataFormat = grp.readEntry<bool>(QLatin1String("SkipStripping"), false) == true ? HTML : StrippedHTML;
+        }
+
         m_dateRegex = grp.readEntry("DateRegex");
         m_dateFormat = grp.readEntry("DateFormatRegex", "%m %d %y");
         if (grp.hasKey("DefaultId"))
@@ -78,7 +86,7 @@ public:
             m_idRegex = grp.readEntry("IDRegex");
         m_idSelector = static_cast<IdSelector>(grp.readEntry("IDBy", "0").toInt());
         m_url = grp.readEntry("URL");
-        m_skipStripping = grp.readEntry("SkipStripping", false);
+
         m_isGHNSSource = false;
         m_readOnly = false;
         return true;
@@ -92,18 +100,24 @@ public:
         KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
         grp.writeEntry("URL", m_url);
         grp.writeEntry("PriceRegex", m_priceRegex);
+        grp.writeEntry("DataFormat", static_cast<int>(m_dataFormat));
         grp.writeEntry("DateRegex", m_dateRegex);
         grp.writeEntry("DateFormatRegex", m_dateFormat);
         grp.deleteEntry("DebugId");
         grp.writeEntry("DefaultId", m_defaultId);
         grp.writeEntry("IDRegex", m_idRegex);
         grp.writeEntry("IDBy", static_cast<int>(m_idSelector));
-        grp.deleteEntry("SymbolRegex");
-        if (m_skipStripping) {
-            grp.writeEntry("SkipStripping", m_skipStripping);
+        /// @todo remove the following code block if backward
+        /// compatibility is not needed anymore. for some time,
+        /// we maintain it though
+        if (m_dataFormat == HTML) {
+            grp.writeEntry(QLatin1String("SkipStripping"), true);
         } else {
             grp.deleteEntry("SkipStripping");
         }
+        grp.deleteEntry("SymbolRegex");
+
+
         kconfig->sync();
         return true;
     }
@@ -162,9 +176,14 @@ public:
                 m_defaultId = value;
             else if (key == "debugid") // for compatibility with 8.1.72
                 m_defaultId = value;
+            else if (key == "mode") {
+                if (value == "StrippedHTML")
+                    m_dataFormat = AlkOnlineQuoteSource::DataFormat::StrippedHTML;
+                else if (value == "HTML")
+                    m_dataFormat = AlkOnlineQuoteSource::DataFormat::HTML;
+            }
         }
 
-        m_skipStripping = true;
         m_isGHNSSource = true;
         return true;
     }
@@ -179,8 +198,11 @@ public:
         QTextStream out(&file);
         out << "date=" << m_dateRegex << "\n";
         out << "dateformat=" << m_dateFormat << "\n";
-        out << "mode=HTML\n";
         out << "defaultid=" << m_defaultId << "\n";
+        if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::StrippedHTML)
+            out << "mode=StrippedHTML\n";
+        else if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::HTML)
+            out << "mode=HTML\n";
         out << "price=" << m_priceRegex << "\n";
         out << "url=" << m_url << "\n";
         return true;
@@ -195,12 +217,12 @@ public:
     QString m_name;
     QString m_url;
     QString m_priceRegex;
+    DataFormat m_dataFormat;
     QString m_dateRegex;
     QString m_dateFormat;
     QString m_defaultId;
     QString m_idRegex;
     IdSelector m_idSelector;
-    bool m_skipStripping;
     AlkOnlineQuotesProfile *m_profile;
     bool m_isGHNSSource;
     bool m_storageChanged;
@@ -230,7 +252,7 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
                                            const QString& priceRegex,
                                            const QString& dateRegex,
                                            const QString& dateFormat,
-                                           bool skipStripping)
+                                           DataFormat dataFormat)
     : d(new Private)
 {
     d->m_name = name;
@@ -238,9 +260,9 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
     d->m_idRegex = idRegex;
     d->m_idSelector = idBy;
     d->m_priceRegex = priceRegex;
+    d->m_dataFormat = dataFormat;
     d->m_dateRegex = dateRegex;
     d->m_dateFormat = dateFormat;
-    d->m_skipStripping = skipStripping;
     d->m_isGHNSSource = false;
 }
 
@@ -265,7 +287,7 @@ AlkOnlineQuoteSource AlkOnlineQuoteSource::defaultCurrencyQuoteSource(const QStr
                                 "Today\\s+=\\s+([^<]+)",
                                 "date_value\\s+=\\s+'(\\d{4}-\\d{2}-\\d{2})'",
                                 "%y/%m/%d",
-                                true // skip HTML stripping
+                                HTML
     );
 }
 
@@ -314,6 +336,11 @@ QString AlkOnlineQuoteSource::dateRegex() const
     return d->m_dateRegex;
 }
 
+AlkOnlineQuoteSource::DataFormat AlkOnlineQuoteSource::dataFormat() const
+{
+    return d->m_dataFormat;
+}
+
 QString AlkOnlineQuoteSource::dateFormat() const
 {
     return d->m_dateFormat;
@@ -329,11 +356,6 @@ QString AlkOnlineQuoteSource::dateFormat() const
 QString AlkOnlineQuoteSource::financeQuoteName() const
 {
     return d->m_name.section(' ', 1);
-}
-
-bool AlkOnlineQuoteSource::skipStripping() const
-{
-    return d->m_skipStripping;
 }
 
 void AlkOnlineQuoteSource::setName(const QString &name)
@@ -375,14 +397,14 @@ void AlkOnlineQuoteSource::setDateRegex(const QString &dateRegex)
     d->m_dateRegex = dateRegex;
 }
 
+void AlkOnlineQuoteSource::setDataFormat(DataFormat dataFormat)
+{
+    d->m_dataFormat = dataFormat;
+}
+
 void AlkOnlineQuoteSource::setDateFormat(const QString &dateFormat)
 {
     d->m_dateFormat = dateFormat;
-}
-
-void AlkOnlineQuoteSource::setSkipStripping(bool state)
-{
-    d->m_skipStripping = state;
 }
 
 void AlkOnlineQuoteSource::setGHNS(bool state)

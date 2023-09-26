@@ -30,6 +30,14 @@ public:
         Name,
     };
 
+    /**
+     * Supported formats of downloaded data
+     */
+    enum DataFormat {
+        StrippedHTML,
+        HTML
+    };
+
     AlkOnlineQuoteSource();
     explicit AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile);
     explicit AlkOnlineQuoteSource(const QString& name,
@@ -39,7 +47,7 @@ public:
                                   const QString& priceRegex,
                                   const QString& dateRegex,
                                   const QString& dateFormat,
-                                  bool skipStripping = false);
+                                  DataFormat dataFormat = HTML);
     ~AlkOnlineQuoteSource();
 
     AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other);
@@ -61,12 +69,17 @@ public:
     QString url() const;
     QString priceRegex() const;
     QString idRegex() const;
+    /**
+     * Return the format of the downloaded data
+     *
+     * @return Format identifier
+     */
+    DataFormat dataFormat() const;
     QString dateRegex() const;
     QString dateFormat() const;
     QString financeQuoteName() const;
     IdSelector idSelector() const;
 
-    bool skipStripping() const;
     bool isGHNS();
     bool isReadOnly();
     bool isFinanceQuote() const;
@@ -76,9 +89,15 @@ public:
     void setUrl(const QString &url);
     void setPriceRegex(const QString &priceRegex);
     void setIdRegex(const QString &idRegex);
+
+    /**
+     * Set the format of the downloaded data
+     *
+     * @param dataFormat Format identifier
+     */
+    void setDataFormat(DataFormat dataFormat);
     void setDateRegex(const QString &dateRegex);
     void setDateFormat(const QString &dateFormat);
-    void setSkipStripping(bool state);
     void setGHNS(bool state);
     void setIdSelector(IdSelector idSelector);
 

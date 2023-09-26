@@ -152,6 +152,8 @@ public:
     bool launchFinanceQuote(const QString& _symbol, const QString& _id, const QString& _source);
     bool parsePrice(const QString &pricestr);
     bool parseDate(const QString &datestr);
+    bool parseQuoteStripHTML(const QString &quotedata);
+    bool parseQuoteHTML(const QString &quotedata);
     bool downloadUrl(const KUrl& url);
     bool processDownloadedFile(const KUrl& url, const QString& tmpFile);
     bool processDownloadedPage(const KUrl &url, const QByteArray &page);
@@ -161,7 +163,7 @@ public Q_SLOTS:
     void slotLoadStarted();
     void slotLoadFinishedHtmlParser(bool ok = false);
     void slotLoadFinishedCssSelector(bool ok);
-    bool slotParseQuote(const QString &_quotedata);
+    bool slotParseQuote(const QString &quotedata);
 
 private Q_SLOTS:
     void slotLoadTimeout();
@@ -640,79 +642,109 @@ bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
 }
 
 /**
- * Parse quote data according to currently selected web price quote source
+ * Parse quote data expected as stripped html
  *
- * @param _quotedata quote data to parse
+ * @param quotedata quote data to parse
  * @return true parsing successful
  * @return false parsing unsuccessful
  */
-bool AlkOnlineQuote::Private::slotParseQuote(const QString &_quotedata)
+bool AlkOnlineQuote::Private::parseQuoteStripHTML(const QString &_quotedata)
 {
     QString quotedata = _quotedata;
-    m_quoteData = quotedata;
+
+    //
+    // First, remove extraneous non-data elements
+    //
+
+    // HTML tags
+    quotedata.remove(Regex("<[^>]*>"));
+
+    // &...;'s
+    quotedata.replace(Regex("&\\w+;"), " ");
+
+    // Extra white space
+    quotedata = quotedata.simplified();
+    kDebug(Private::dbgArea()) << "stripped text" << quotedata;
+
+    return parseQuoteHTML(quotedata);
+}
+
+/**
+ * Parse quote data in html format
+ *
+ * @param quotedata quote data to parse
+ * @return true parsing successful
+ * @return false parsing unsuccessful
+ */
+bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
+{
+    bool gotprice = false;
+    bool gotdate = false;
     bool result = true;
 
-    kDebug(Private::dbgArea()) << "quotedata" << _quotedata;
+    QRegExp identifierRegExp(m_source.idRegex());
+    QRegExp dateRegExp(m_source.dateRegex());
+    QRegExp priceRegExp(m_source.priceRegex());
 
-    if (!quotedata.isEmpty()) {
-        bool gotprice = false;
-        bool gotdate = false;
-        if (!m_source.skipStripping()) {
-            //
-            // First, remove extraneous non-data elements
-            //
-
-            // HTML tags
-            quotedata.remove(Regex("<[^>]*>"));
-
-            // &...;'s
-            quotedata.replace(Regex("&\\w+;"), " ");
-
-            // Extra white space
-            quotedata = quotedata.simplified();
-            kDebug(Private::dbgArea()) << "stripped text" << quotedata;
-        }
-
-        QRegExp identifierRegExp(m_source.idRegex());
-        QRegExp dateRegExp(m_source.dateRegex());
-        QRegExp priceRegExp(m_source.priceRegex());
-
-        if (identifierRegExp.indexIn(quotedata) > -1) {
-            kDebug(Private::dbgArea()) << "Symbol" << identifierRegExp.cap(1);
-            Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifierRegExp.cap(1)));
-        } else {
-            m_errors |= Errors::Symbol;
-            Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
-        }
-
-        if (priceRegExp.indexIn(quotedata) > -1) {
-            gotprice = true;
-            QString pricestr = priceRegExp.cap(1);
-            parsePrice(pricestr);
-        } else {
-            parsePrice(QString());
-        }
-
-        if (dateRegExp.indexIn(quotedata) > -1) {
-            QString datestr = dateRegExp.cap(1);
-            gotdate = parseDate(datestr);
-        } else {
-            gotdate = parseDate(QString());
-        }
-
-        if (gotprice && gotdate) {
-            Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
-        } else {
-            Q_EMIT m_p->failed(m_id, m_symbol);
-            result = false;
-        }
+    if (identifierRegExp.indexIn(quotedata) > -1) {
+        kDebug(Private::dbgArea()) << "Symbol" << identifierRegExp.cap(1);
+        Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifierRegExp.cap(1)));
     } else {
-        m_errors |= Errors::Data;
-        Q_EMIT m_p->error(i18n("Unable to update price for %1 (empty quote data)", m_symbol));
+        m_errors |= Errors::Symbol;
+        Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
+    }
+
+    if (priceRegExp.indexIn(quotedata) > -1) {
+        gotprice = true;
+        QString pricestr = priceRegExp.cap(1);
+        parsePrice(pricestr);
+    } else {
+        parsePrice(QString());
+    }
+
+    if (dateRegExp.indexIn(quotedata) > -1) {
+        QString datestr = dateRegExp.cap(1);
+        gotdate = parseDate(datestr);
+    } else {
+        gotdate = parseDate(QString());
+    }
+
+    if (gotprice && gotdate) {
+        Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
+    } else {
         Q_EMIT m_p->failed(m_id, m_symbol);
         result = false;
     }
     return result;
+}
+
+/**
+ * Parse quote data according to currently selected web price quote source
+ *
+ * @param quotedata quote data to parse
+ * @return true parsing successful
+ * @return false parsing unsuccessful
+ */
+bool AlkOnlineQuote::Private::slotParseQuote(const QString &quotedata)
+{
+    m_quoteData = quotedata;
+
+    kDebug(Private::dbgArea()) << "quotedata" << quotedata;
+
+    if (quotedata.isEmpty()) {
+        m_errors |= Errors::Data;
+        Q_EMIT m_p->error(i18n("Unable to update price for %1 (empty quote data)", m_symbol));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+    switch (m_source.dataFormat()) {
+    case AlkOnlineQuoteSource::StrippedHTML:
+        return parseQuoteStripHTML(quotedata);
+    case AlkOnlineQuoteSource::HTML:
+        return parseQuoteHTML(quotedata);
+    default:
+        return false;
+    }
 }
 
 void AlkOnlineQuote::Private::slotLoadTimeout()

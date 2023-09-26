@@ -234,7 +234,11 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editDefaultId, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
-    connect(m_skipStripping, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
+
+    m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "Stripped HTML"), AlkOnlineQuoteSource::DataFormat::StrippedHTML);
+    m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "HTML"), AlkOnlineQuoteSource::DataFormat::HTML);
+    connect(m_editDataFormat, SIGNAL(currentIndexChanged(int)), this, SLOT(slotEntryChanged()));
+
     connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
     connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowButton()));
 
@@ -384,7 +388,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_editDateFormat->setEnabled(enabled);
     m_editDefaultId->setEnabled(enabled);
     m_ghnsSource->setEnabled(!isFinanceQuoteSource);
-    m_skipStripping->setEnabled(enabled);
+    m_editDataFormat->setEnabled(enabled);
 
     m_editURL->clear();
     m_editIdentifier->clear();
@@ -400,10 +404,10 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_editIdentifier->setText(m_currentItem.idRegex());
         m_editIdSelector->setCurrentIndex(m_currentItem.idSelector());
         m_editPrice->setText(m_currentItem.priceRegex());
-        m_editDefaultId->setText(m_currentItem.defaultId());
+        m_editDataFormat->setCurrentIndex(m_currentItem.dataFormat());
         m_editDate->setText(m_currentItem.dateRegex());
         m_editDateFormat->setText(m_currentItem.dateFormat());
-        m_skipStripping->setChecked(m_currentItem.skipStripping());
+        m_editDefaultId->setText(m_currentItem.defaultId());
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
     }
 
@@ -421,11 +425,11 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     bool modified = m_editURL->text() != m_currentItem.url()
                     || m_editIdentifier->text() != m_currentItem.idRegex()
                     || m_editIdSelector->currentIndex() != static_cast<int>(m_currentItem.idSelector())
+                    || m_editDataFormat->currentIndex() != static_cast<int>(m_currentItem.dataFormat())
                     || m_editDate->text() != m_currentItem.dateRegex()
                     || m_editDateFormat->text() != m_currentItem.dateFormat()
                     || m_editDefaultId->text() != m_currentItem.defaultId()
                     || m_editPrice->text() != m_currentItem.priceRegex()
-                    || m_skipStripping->isChecked() != m_currentItem.skipStripping()
                     || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
 
     bool isFinanceQuote = m_currentItem.isFinanceQuote() || m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
@@ -503,11 +507,11 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
     m_currentItem.setUrl(m_editURL->text());
     m_currentItem.setIdRegex(m_editIdentifier->text());
     m_currentItem.setIdSelector(static_cast<AlkOnlineQuoteSource::IdSelector>(m_editIdSelector->currentIndex()));
+    m_currentItem.setDataFormat(static_cast<AlkOnlineQuoteSource::DataFormat>(m_editDataFormat->currentIndex()));
     m_currentItem.setDateRegex(m_editDate->text());
     m_currentItem.setDateFormat(m_editDateFormat->text());
     m_currentItem.setDefaultId(m_editDefaultId->text());
     m_currentItem.setPriceRegex(m_editPrice->text());
-    m_currentItem.setSkipStripping(m_skipStripping->isChecked());
     m_currentItem.setGHNS(m_ghnsSource->isChecked());
     m_currentItem.write();
     m_checkButton->setEnabled(true);

@@ -64,6 +64,13 @@
            </widget>
           </item>
           <item row="3" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Data Format</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
            <widget class="QLabel" name="textLabel3">
             <property name="text">
              <string>Price</string>
@@ -73,7 +80,7 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
+          <item row="5" column="0">
            <widget class="QLabel" name="textLabel4">
             <property name="text">
              <string>Date</string>
@@ -83,7 +90,7 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
+          <item row="6" column="0">
            <widget class="QLabel" name="textLabel4_2">
             <property name="text">
              <string>Date Format</string>
@@ -93,21 +100,21 @@
             </property>
            </widget>
           </item>
-          <item row="6" column="0">
+          <item row="7" column="0">
            <widget class="Line" name="line">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
-          <item row="7" column="0">
+          <item row="8" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
              <string>Default Identifier</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="0">
+          <item row="9" column="0">
            <widget class="QLabel" name="label_3">
             <property name="text">
              <string>Options</string>
@@ -139,34 +146,41 @@
            </widget>
           </item>
           <item row="3" column="1">
+           <widget class="KComboBox" name="m_editDataFormat">
+            <property name="toolTip">
+             <string>The type of data expected to downloaded and processed.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
            <widget class="KLineEdit" name="m_editPrice">
             <property name="toolTip">
              <string>Regular Expression to extract the price from the downloaded data</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
+          <item row="5" column="1">
            <widget class="KLineEdit" name="m_editDate">
             <property name="toolTip">
              <string>Regular Expression to extract the date from the downloaded data</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
+          <item row="6" column="1">
            <widget class="KLineEdit" name="m_editDateFormat">
             <property name="toolTip">
              <string>Regular Expression to extract the date from the downloaded data</string>
             </property>
            </widget>
           </item>
-          <item row="7" column="1">
+          <item row="8" column="1">
            <widget class="KLineEdit" name="m_editDefaultId">
             <property name="toolTip">
              <string>An identifier that is known to work for this online quote source</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="1">
+          <item row="9" column="1">
            <widget class="QCheckBox" name="m_ghnsSource">
             <property name="whatsThis">
              <string/>
@@ -176,34 +190,8 @@
             </property>
            </widget>
           </item>
-          <item row="9" column="1">
-           <widget class="QCheckBox" name="m_skipStripping">
-            <property name="whatsThis">
-             <string>&lt;p&gt;For easier processing of the data returned by the online source, KMyMoney usually strips unused parts before it is parsed with the regular expressions. If matching of the fields relies on those items, then use this option to turn stripping off.&lt;/p&gt;
-
-&lt;p&gt;The following items are usually removed by stripping:
-
-&lt;ul&gt;
-&lt;li&gt;HTML tags such as &lt;b&gt;&amp;lt;tag&amp;gt;&lt;/b&gt;&lt;/li&gt;
-&lt;li&gt;&amp; encoded characters such as &lt;b&gt;&amp;amp;nbsp;&lt;/b&gt;&lt;/li&gt;
-&lt;li&gt;duplicate whitespace&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;</string>
-            </property>
-            <property name="text">
-             <string>Skip HTML stripping</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="3">
            <widget class="QLabel" name="m_urlCheckLabel">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="3">
-           <widget class="QLabel" name="m_priceCheckLabel">
             <property name="text">
              <string/>
             </property>
@@ -217,13 +205,20 @@
            </widget>
           </item>
           <item row="4" column="3">
-           <widget class="QLabel" name="m_dateCheckLabel">
+           <widget class="QLabel" name="m_priceCheckLabel">
             <property name="text">
              <string/>
             </property>
            </widget>
           </item>
           <item row="5" column="3">
+           <widget class="QLabel" name="m_dateCheckLabel">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="3">
            <widget class="QLabel" name="m_dateFormatCheckLabel">
             <property name="text">
              <string/>
