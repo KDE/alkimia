@@ -82,6 +82,24 @@ public:
     void setGHNS(bool state);
     void setIdSelector(IdSelector idSelector);
 
+    /**
+     * Return the default identifier known to work
+     * @return default identifier
+     */
+    const QString &defaultId() const;
+
+    /**
+     * Set the default identifier, which is known to work
+     * @param defaultID default identifier
+     */
+    void setDefaultId(const QString &defaultId);
+
+    /**
+     * Return state if this source requires two identifier
+     * @return false required one identifier
+     * @return true required two identifier
+     */
+    bool requiresTwoIdentifier() const;
     QString ghnsWriteFileName();
     void setProfile(AlkOnlineQuotesProfile *profile);
     AlkOnlineQuotesProfile *profile();

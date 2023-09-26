@@ -231,13 +231,12 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 
     connect(m_editDate, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
+    connect(m_editDefaultId, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_skipStripping, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
     connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
     connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowButton()));
 
-    m_checkSymbol->setText("ORCL");
-    m_checkSymbol2->setText("BTC GBP");
     m_updateButton->setEnabled(false);
     slotLoadProfile();
 }
@@ -382,6 +381,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_editPrice->setEnabled(enabled);
     m_editDate->setEnabled(enabled);
     m_editDateFormat->setEnabled(enabled);
+    m_editDefaultId->setEnabled(enabled);
     m_ghnsSource->setEnabled(!isFinanceQuoteSource);
     m_skipStripping->setEnabled(enabled);
 
@@ -391,6 +391,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_editPrice->clear();
     m_editDate->clear();
     m_editDateFormat->clear();
+    m_editDefaultId->clear();
 
     if (item) {
         m_currentItem = AlkOnlineQuoteSource(item->text(0), m_profile);
@@ -398,6 +399,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_editIdentifier->setText(m_currentItem.idRegex());
         m_editIdSelector->setCurrentIndex(m_currentItem.idSelector());
         m_editPrice->setText(m_currentItem.priceRegex());
+        m_editDefaultId->setText(m_currentItem.defaultId());
         m_editDate->setText(m_currentItem.dateRegex());
         m_editDateFormat->setText(m_currentItem.dateFormat());
         m_skipStripping->setChecked(m_currentItem.skipStripping());
@@ -420,6 +422,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
                     || m_editIdSelector->currentIndex() != static_cast<int>(m_currentItem.idSelector())
                     || m_editDate->text() != m_currentItem.dateRegex()
                     || m_editDateFormat->text() != m_currentItem.dateFormat()
+                    || m_editDefaultId->text() != m_currentItem.defaultId()
                     || m_editPrice->text() != m_currentItem.priceRegex()
                     || m_skipStripping->isChecked() != m_currentItem.skipStripping()
                     || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
@@ -436,6 +439,13 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     m_checkSymbol2->setEnabled(m_currentItem.url().contains("%2"));
     m_editIdSelector->setVisible(m_profile->type() == AlkOnlineQuotesProfile::Type::KMyMoney5);
     m_editIdSelectorLabel->setVisible(m_profile->type() == AlkOnlineQuotesProfile::Type::KMyMoney5);
+    if (m_currentItem.requiresTwoIdentifier()) {
+        m_checkSymbol->setText("");
+        m_checkSymbol2->setText(!m_currentItem.defaultId().isEmpty() ? m_currentItem.defaultId() : "BTC GBP");
+    } else {
+        m_checkSymbol->setText(!m_currentItem.defaultId().isEmpty() ? m_currentItem.defaultId() : "ORCL");
+        m_checkSymbol2->setText("");
+    }
 }
 
 void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
@@ -493,6 +503,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
     m_currentItem.setIdSelector(static_cast<AlkOnlineQuoteSource::IdSelector>(m_editIdSelector->currentIndex()));
     m_currentItem.setDateRegex(m_editDate->text());
     m_currentItem.setDateFormat(m_editDateFormat->text());
+    m_currentItem.setDefaultId(m_editDefaultId->text());
     m_currentItem.setPriceRegex(m_editPrice->text());
     m_currentItem.setSkipStripping(m_skipStripping->isChecked());
     m_currentItem.setGHNS(m_ghnsSource->isChecked());

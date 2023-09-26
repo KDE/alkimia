@@ -67,6 +67,10 @@ public:
         KConfigGroup grp = kconfig->group(group);
         m_dateRegex = grp.readEntry("DateRegex");
         m_dateFormat = grp.readEntry("DateFormatRegex", "%m %d %y");
+        if (grp.hasKey("DefaultId"))
+            m_defaultId = grp.readEntry("DefaultId");
+        else if (grp.hasKey("DebugId")) // For compatibility with 8.1.72
+            m_defaultId = grp.readEntry("DebugId");
         m_priceRegex = grp.readEntry("PriceRegex");
         if (grp.hasKey("SymbolRegex"))
             m_idRegex = grp.readEntry("SymbolRegex");
@@ -90,6 +94,8 @@ public:
         grp.writeEntry("PriceRegex", m_priceRegex);
         grp.writeEntry("DateRegex", m_dateRegex);
         grp.writeEntry("DateFormatRegex", m_dateFormat);
+        grp.deleteEntry("DebugId");
+        grp.writeEntry("DefaultId", m_defaultId);
         grp.writeEntry("IDRegex", m_idRegex);
         grp.writeEntry("IDBy", static_cast<int>(m_idSelector));
         grp.deleteEntry("SymbolRegex");
@@ -152,6 +158,10 @@ public:
                 m_dateRegex.replace("\\\\", "\\");
             } else if (key == "dateformat")
                 m_dateFormat = value;
+            else if (key == "defaultid")
+                m_defaultId = value;
+            else if (key == "debugid") // for compatibility with 8.1.72
+                m_defaultId = value;
         }
 
         m_skipStripping = true;
@@ -170,6 +180,7 @@ public:
         out << "date=" << m_dateRegex << "\n";
         out << "dateformat=" << m_dateFormat << "\n";
         out << "mode=HTML\n";
+        out << "defaultid=" << m_defaultId << "\n";
         out << "price=" << m_priceRegex << "\n";
         out << "url=" << m_url << "\n";
         return true;
@@ -186,6 +197,7 @@ public:
     QString m_priceRegex;
     QString m_dateRegex;
     QString m_dateFormat;
+    QString m_defaultId;
     QString m_idRegex;
     IdSelector m_idSelector;
     bool m_skipStripping;
@@ -471,4 +483,19 @@ void AlkOnlineQuoteSource::remove()
     } else if (d->m_profile->type() != AlkOnlineQuotesProfile::Type::None) {
         d->remove();
     }
+}
+
+const QString &AlkOnlineQuoteSource::defaultId() const
+{
+    return d->m_defaultId;
+}
+
+void AlkOnlineQuoteSource::setDefaultId(const QString &defaultId)
+{
+    d->m_defaultId = defaultId;
+}
+
+bool AlkOnlineQuoteSource::requiresTwoIdentifier() const
+{
+    return url().contains("%2");
 }

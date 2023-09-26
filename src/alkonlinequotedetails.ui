@@ -93,7 +93,21 @@
             </property>
            </widget>
           </item>
+          <item row="6" column="0">
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
           <item row="7" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Default Identifier</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
            <widget class="QLabel" name="label_3">
             <property name="text">
              <string>Options</string>
@@ -146,6 +160,13 @@
            </widget>
           </item>
           <item row="7" column="1">
+           <widget class="KLineEdit" name="m_editDefaultId">
+            <property name="toolTip">
+             <string>An identifier that is known to work for this online quote source</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
            <widget class="QCheckBox" name="m_ghnsSource">
             <property name="whatsThis">
              <string/>
@@ -155,7 +176,7 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="1">
+          <item row="9" column="1">
            <widget class="QCheckBox" name="m_skipStripping">
             <property name="whatsThis">
              <string>&lt;p&gt;For easier processing of the data returned by the online source, KMyMoney usually strips unused parts before it is parsed with the regular expressions. If matching of the fields relies on those items, then use this option to turn stripping off.&lt;/p&gt;
