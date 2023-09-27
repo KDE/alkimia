@@ -32,7 +32,17 @@ public:
     void setWebPageEnabled(bool enable);
     bool webPageEnabled();
 
+    /**
+     * Return instance of this class
+     * @return instance
+     */
     static AlkOnlineQuotesProfileManager &instance();
+
+    /**
+     * Return pointer to the singleton instance of this class
+     * @return pointer to instance
+     */
+    static AlkOnlineQuotesProfileManager *instancePointer();
 
 Q_SIGNALS:
     /**

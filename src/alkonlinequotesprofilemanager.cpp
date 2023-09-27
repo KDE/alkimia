@@ -105,3 +105,8 @@ AlkOnlineQuotesProfileManager &AlkOnlineQuotesProfileManager::instance()
     static AlkOnlineQuotesProfileManager manager;
     return manager;
 }
+
+AlkOnlineQuotesProfileManager *AlkOnlineQuotesProfileManager::instancePointer()
+{
+    return &instance();
+}
