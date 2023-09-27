@@ -34,10 +34,10 @@ public:
     explicit AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile);
     explicit AlkOnlineQuoteSource(const QString& name,
                                   const QString& url,
-                                  const QString& idNumber,
+                                  const QString& idRegex,
                                   const IdSelector idBy,
-                                  const QString& price,
-                                  const QString& date,
+                                  const QString& priceRegex,
+                                  const QString& dateRegex,
                                   const QString& dateFormat,
                                   bool skipStripping = false);
     ~AlkOnlineQuoteSource();
