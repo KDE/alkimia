@@ -532,6 +532,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
     m_currentItem.setGHNS(m_ghnsSource->isChecked());
     m_currentItem.write();
     m_checkButton->setEnabled(true);
+    loadQuotesList();
     updateButtonState();
 }
 
