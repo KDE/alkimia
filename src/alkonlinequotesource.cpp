@@ -421,7 +421,7 @@ bool AlkOnlineQuoteSource::isFinanceQuote(const QString &name)
     return name.contains(fqName);
 }
 
-QString AlkOnlineQuoteSource::ghnsWriteFileName() const
+QString AlkOnlineQuoteSource::ghnsWriteFileName()
 {
     return d->ghnsWriteFilePath();
 }

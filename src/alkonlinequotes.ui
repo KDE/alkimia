@@ -91,17 +91,6 @@
            </widget>
           </item>
           <item>
-           <widget class="AlkPushButton" name="m_uploadButton">
-            <property name="text">
-             <string>Upload</string>
-            </property>
-            <property name="icon">
-             <iconset theme="cloud-upload">
-              <normaloff>.</normaloff>.</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
            <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>Qt::Vertical</enum>

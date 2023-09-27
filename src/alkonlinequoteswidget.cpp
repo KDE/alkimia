@@ -12,7 +12,6 @@
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesource.h"
-#include "alkonlinequoteuploaddialog.h"
 #include "alkwebpage.h"
 
 #include <QRegExp>
@@ -103,7 +102,6 @@ public Q_SLOTS:
     void slotQuoteSourceRenamed(QTreeWidgetItem *item, int column);
     void slotQuoteSourceStartRename(QTreeWidgetItem *item, int column);
     void slotInstallEntries();
-    void slotUploadEntry();
     void slotShowButton();
 
 public:
@@ -149,7 +147,6 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     profileDetailsBox->setVisible(showProfiles);
     m_showButton->setVisible(!showProfiles && AlkOnlineQuotesProfileManager::instance().webPageEnabled());
     m_ghnsSource->setEnabled(showProfiles);
-    m_uploadButton->setVisible(showUpload);
     m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
     loadProfiles();
@@ -205,7 +202,6 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
     connect(m_duplicateButton, SIGNAL(clicked()), this, SLOT(slotDuplicateEntry()));
     connect(m_installButton, SIGNAL(clicked()), this, SLOT(slotInstallEntries()));
-    connect(m_uploadButton, SIGNAL(clicked()), this, SLOT(slotUploadEntry()));
 
     m_quoteSourceList->setColumnCount(2);
     m_quoteSourceList->setHeaderLabels(QStringList() << i18n("Name") << i18n("Source"));
@@ -439,7 +435,6 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     m_cancelButton->setEnabled(modified);
     m_duplicateButton->setEnabled(hasWriteSupport);
     m_deleteButton->setEnabled(!m_currentItem.isReadOnly() && !m_currentItem.isGHNS());
-    m_uploadButton->setEnabled(m_profile->hasGHNSSupport() && m_currentItem.isGHNS() && AlkOnlineQuoteUploadDialog::isSupported());
     m_updateButton->setEnabled(modified);
     m_checkButton->setEnabled(isFinanceQuote || !modified);
     m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
@@ -680,19 +675,6 @@ void AlkOnlineQuotesWidget::Private::slotInstallEntries()
     knsWrapper->open();
 #endif
 #endif
-}
-
-void AlkOnlineQuotesWidget::Private::slotUploadEntry()
-{
-    QString configFile = m_profile->hotNewStuffConfigFile();
-
-//    qDebug() << "uploading file" << url;
-    QPointer<AlkOnlineQuoteUploadDialog> dialog = new AlkOnlineQuoteUploadDialog(m_currentItem, this);
-//    QUrl url = QUrl::fromLocalFile(m_currentItem.ghnsWriteFileName());
-//    dialog->setUploadName(m_currentItem.name());
-//    dialog->setUploadFile(url);
-    dialog->exec();
-    delete dialog;
 }
 
 void AlkOnlineQuotesWidget::Private::slotShowButton()
