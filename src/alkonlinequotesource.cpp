@@ -417,12 +417,12 @@ void AlkOnlineQuoteSource::setGHNS(bool state)
     d->m_isGHNSSource = state;
 }
 
-bool AlkOnlineQuoteSource::isGHNS()
+bool AlkOnlineQuoteSource::isGHNS() const
 {
     return d->m_isGHNSSource;
 }
 
-bool AlkOnlineQuoteSource::isReadOnly()
+bool AlkOnlineQuoteSource::isReadOnly() const
 {
     return d->m_readOnly;
 }

@@ -81,8 +81,8 @@ public:
     QString financeQuoteName() const;
     IdSelector idSelector() const;
 
-    bool isGHNS();
-    bool isReadOnly();
+    bool isGHNS() const;
+    bool isReadOnly() const;
     bool isFinanceQuote() const;
     static bool isFinanceQuote(const QString &name);
 
