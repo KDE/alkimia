@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 02:23+0000\n"
-"PO-Revision-Date: 2022-04-05 13:02+0200\n"
+"PO-Revision-Date: 2023-09-27 14:38+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: alkonlinequote.cpp:181
 #, kde-format
@@ -122,10 +122,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Impossibile aggiornare il prezzo per %1 (dati di quotazione vuoti)"
 
 #: alkonlinequote.cpp:694
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "Impossibile recuperare l'URL per %1"
+msgstr "Il tempo di recupero dell'URL per %1 è scaduto"
 
 #: alkonlinequoteswidget.cpp:135
 #, kde-format
