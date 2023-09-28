@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-27 00:43+0000\n"
-"PO-Revision-Date: 2023-09-24 08:19+0200\n"
+"PO-Revision-Date: 2023-09-27 10:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -213,10 +213,9 @@ msgstr "Format datuma"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:106
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "Določilnik"
+msgstr "Privzeti določilnik"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:113 alkonlinequotesprofile.ui:189
@@ -274,7 +273,7 @@ msgstr "Regularni izraz za pridobivanje datuma iz prenesenih podatkov"
 #: alkonlinequotedetails.ui:165
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr ""
+msgstr "Določilnik, za katerega je znano, da deluje za ta spletni vir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:175 alkonlinequotesprofile.ui:244
@@ -333,7 +332,7 @@ msgstr "Sprejmi"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr ""
+msgstr "Prekliči"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29

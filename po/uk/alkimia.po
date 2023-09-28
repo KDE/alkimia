@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-27 00:43+0000\n"
-"PO-Revision-Date: 2023-09-24 08:33+0300\n"
+"PO-Revision-Date: 2023-09-27 08:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -214,10 +214,9 @@ msgstr "Формат дати"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:106
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "Ідентифікатор"
+msgstr "Типовий ідентифікатор"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:113 alkonlinequotesprofile.ui:189
@@ -276,6 +275,7 @@ msgstr "Формальний вираз для видобування дати �
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
 msgstr ""
+"Ідентифікатор, який, як відомо, працює для цього інтернет-джерела курсів"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:175 alkonlinequotesprofile.ui:244
@@ -334,7 +334,7 @@ msgstr "Прийняти"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29

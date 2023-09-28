@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-27 00:43+0000\n"
-"PO-Revision-Date: 2023-09-14 20:06+0200\n"
+"PO-Revision-Date: 2023-09-26 10:03+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -125,10 +125,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Impossible de mettre à jour le cours de %1 (pas de données de cours)"
 
 #: alkonlinequote.cpp:720
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "Impossible de télécharger l'URL pour %1"
+msgstr "Temps d'attente dépassé lors de la recherche d'URL pour %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)

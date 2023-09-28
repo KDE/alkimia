@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-27 00:43+0000\n"
-"PO-Revision-Date: 2023-09-03 20:51+0300\n"
+"PO-Revision-Date: 2023-09-27 12:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: alkonlinequote.cpp:190
 #, kde-format
@@ -212,10 +212,9 @@ msgstr "Tarih Biçimi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:106
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "Tanımlayıcı"
+msgstr "Öntanımlı Tanımlayıcı"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:113 alkonlinequotesprofile.ui:189
@@ -273,7 +272,7 @@ msgstr "İndirilen veriden tarihi çıkarmak için düzenli ifade"
 #: alkonlinequotedetails.ui:165
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr ""
+msgstr "Bu çevrimiçi kur kaynağı ile çalıştığı bilinen bir tanımlayıcı"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:175 alkonlinequotesprofile.ui:244
@@ -332,7 +331,7 @@ msgstr "Kabul Et"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29

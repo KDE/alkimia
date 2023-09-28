@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-27 00:43+0000\n"
-"PO-Revision-Date: 2023-09-24 10:16+0200\n"
+"PO-Revision-Date: 2023-09-27 10:53+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -216,10 +216,9 @@ msgstr "Format de la data"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:106
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "Identificador"
+msgstr "Identificador predeterminat"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:113 alkonlinequotesprofile.ui:189
@@ -278,6 +277,8 @@ msgstr "Expressió regular per a extraure la data de les dades baixades"
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
 msgstr ""
+"Un identificador que se sap que funciona per a esta font de cotització en "
+"línia"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:175 alkonlinequotesprofile.ui:244
@@ -337,7 +338,7 @@ msgstr "Accepta"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel·la"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29
