@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 00:43+0000\n"
+"POT-Creation-Date: 2023-09-29 00:43+0000\n"
 "PO-Revision-Date: 2022-04-14 18:10+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -18,111 +18,141 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: alkonlinequote.cpp:190
+#: alkonlinequote.cpp:193
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Die Datenquelle <placeholder>%1</placeholder> existiert nicht."
 
-#: alkonlinequote.cpp:224 alkonlinequote.cpp:238
+#: alkonlinequote.cpp:227 alkonlinequote.cpp:241
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "URL für %1 kann nicht geholt werden"
 
-#: alkonlinequote.cpp:246 alkonlinequote.cpp:682
+#: alkonlinequote.cpp:249 alkonlinequote.cpp:692
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Symbol gefunden: „%1“"
 
-#: alkonlinequote.cpp:249 alkonlinequote.cpp:685
+#: alkonlinequote.cpp:252 alkonlinequote.cpp:695
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Symbol für %1 kann nicht verarbeitet werden"
 
-#: alkonlinequote.cpp:272
+#: alkonlinequote.cpp:275
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Adresse %1 wird geholt ..."
 
-#: alkonlinequote.cpp:343
+#: alkonlinequote.cpp:346
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1 wird ausgeführt ..."
 
-#: alkonlinequote.cpp:360 alkonlinequote.cpp:570
+#: alkonlinequote.cpp:363 alkonlinequote.cpp:573
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "%1 kann nicht gestartet werden"
 
-#: alkonlinequote.cpp:378
+#: alkonlinequote.cpp:381
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Heruntergeladene Datei kann nicht geöffnet werden"
 
-#: alkonlinequote.cpp:395
+#: alkonlinequote.cpp:398
 #, kde-format
 msgid "URL found: %1..."
 msgstr "URL gefunden: %1..."
 
-#: alkonlinequote.cpp:486 alkonlinequote.cpp:488
+#: alkonlinequote.cpp:489 alkonlinequote.cpp:491
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "Die Adresse wurde weitergeleitet. Prüfen Sie online, ob die Adresse "
 "aktualisiert wurde."
 
-#: alkonlinequote.cpp:562
+#: alkonlinequote.cpp:565
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "%1 %2 %3 wird ausgeführt ..."
 
-#: alkonlinequote.cpp:602
+#: alkonlinequote.cpp:605
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Preis gefunden: „%1“ (%2)"
 
-#: alkonlinequote.cpp:605
+#: alkonlinequote.cpp:608
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Preis für '%1 kann nicht verarbeitet werden'"
 
-#: alkonlinequote.cpp:614
+#: alkonlinequote.cpp:617
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Datum gefunden: „%1“"
 
-#: alkonlinequote.cpp:620
+#: alkonlinequote.cpp:623
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Datumsformat gefunden: '%1' -> '%2'"
 
-#: alkonlinequote.cpp:623
+#: alkonlinequote.cpp:626
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Datum %1 kann nicht im Format %2 verarbeitet werden: %3"
 
-#: alkonlinequote.cpp:627 alkonlinequote.cpp:637
+#: alkonlinequote.cpp:630 alkonlinequote.cpp:640
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Aktuelles Datum %1 wird verwendet"
 
-#: alkonlinequote.cpp:631
+#: alkonlinequote.cpp:634
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Verarbeitung des Datums ist für %1 deaktiviert"
 
-#: alkonlinequote.cpp:634
+#: alkonlinequote.cpp:637
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Datum für %1 kann nicht verarbeitet werden'"
 
-#: alkonlinequote.cpp:711
+#: alkonlinequote.cpp:742
+#, kde-format
+msgid ""
+"Unable to detect field delimiter in first line (header line) of quote data."
+msgstr ""
+
+#: alkonlinequote.cpp:769
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
+msgid "Unable to find date column '%1' in quote data"
+msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"
+
+#: alkonlinequote.cpp:775
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
+msgid "Unable to find price column '%1' in quote data"
+msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"
+
+#: alkonlinequote.cpp:793
+#, fuzzy, kde-format
+#| msgid "Unable to parse date '%1' using format '%2': %3"
+msgid "Unable to convert date '%1' with '%2' in quote data"
+msgstr "Datum %1 kann nicht im Format %2 verarbeitet werden: %3"
+
+#: alkonlinequote.cpp:801
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
+msgid "Unable to find date/price pairs in quote data"
+msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"
+
+#: alkonlinequote.cpp:824
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"
 
-#: alkonlinequote.cpp:720
+#: alkonlinequote.cpp:842
 #, fuzzy, kde-format
 #| msgid "Unable to fetch url for %1"
 msgid "Timeout exceeded on fetching url for %1"
@@ -195,44 +225,51 @@ msgstr ""
 msgid "Selected by"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotedetails.ui:69
+#, fuzzy, kde-format
+#| msgid "Date Format"
+msgid "Data Format"
+msgstr "Datumsformat"
+
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: alkonlinequotedetails.ui:69 alkonlinequotesprofile.ui:159
+#: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
 #, kde-format
 msgid "Price"
 msgstr "Kurs"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: alkonlinequotedetails.ui:79 alkonlinequotesprofile.ui:169
+#: alkonlinequotedetails.ui:86 alkonlinequotesprofile.ui:169
 #, kde-format
 msgid "Date"
 msgstr "Datum"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: alkonlinequotedetails.ui:89 alkonlinequotesprofile.ui:179
+#: alkonlinequotedetails.ui:96 alkonlinequotesprofile.ui:179
 #, kde-format
 msgid "Date Format"
 msgstr "Datumsformat"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: alkonlinequotedetails.ui:106
+#: alkonlinequotedetails.ui:113
 #, kde-format
 msgid "Default Identifier"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequotedetails.ui:113 alkonlinequotesprofile.ui:189
+#: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:189
 #, kde-format
 msgid "Options"
 msgstr "Einstellungen"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:196
+#: alkonlinequotedetails.ui:127 alkonlinequotesprofile.ui:196
 #, kde-format
 msgid "URL to be used to download the quote"
 msgstr "URL für das Herunterladen der Kursnotiz"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:123 alkonlinequotesprofile.ui:199
+#: alkonlinequotedetails.ui:130 alkonlinequotesprofile.ui:199
 #, no-c-format, kde-format
 msgid ""
 "Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
@@ -246,7 +283,7 @@ msgstr ""
 "und <b>%1</b> mit der Währung auf der die Kursnotiz beruht."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
-#: alkonlinequotedetails.ui:130 alkonlinequotesprofile.ui:206
+#: alkonlinequotedetails.ui:137 alkonlinequotesprofile.ui:206
 #, fuzzy, kde-format
 #| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
@@ -255,13 +292,19 @@ msgstr ""
 "extrahieren"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
-#: alkonlinequotedetails.ui:137 alkonlinequotesprofile.ui:213
+#: alkonlinequotedetails.ui:144 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
+#: alkonlinequotedetails.ui:151
+#, kde-format
+msgid "The type of data expected to downloaded and processed."
+msgstr ""
+
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
-#: alkonlinequotedetails.ui:144 alkonlinequotesprofile.ui:220
+#: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
 #, kde-format
 msgid "Regular Expression to extract the price from the downloaded data"
 msgstr ""
@@ -270,7 +313,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
-#: alkonlinequotedetails.ui:151 alkonlinequotedetails.ui:158
+#: alkonlinequotedetails.ui:165 alkonlinequotedetails.ui:172
 #: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
 #, kde-format
 msgid "Regular Expression to extract the date from the downloaded data"
@@ -279,65 +322,27 @@ msgstr ""
 "extrahieren"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
-#: alkonlinequotedetails.ui:165
+#: alkonlinequotedetails.ui:179
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:175 alkonlinequotesprofile.ui:244
-#: alkonlinequoteswidget.cpp:268
+#: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
+#: alkonlinequoteswidget.cpp:274
 #, kde-format
 msgid "GHNS Source"
 msgstr "GHNS-Quelle"
 
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
-#: alkonlinequotedetails.ui:191 alkonlinequotesprofile.ui:260
-#, kde-format
-msgid ""
-"<p>For easier processing of the data returned by the online source, KMyMoney "
-"usually strips unused parts before it is parsed with the regular "
-"expressions. If matching of the fields relies on those items, then use this "
-"option to turn stripping off.</p>\n"
-"\n"
-"<p>The following items are usually removed by stripping:\n"
-"\n"
-"<ul>\n"
-"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
-"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
-"<li>duplicate whitespace</li>\n"
-"</ul>\n"
-"</p>"
-msgstr ""
-"<p>KMyMoney entfernt normalerweise alle HTML-Tags aus dem Datenstrom von der "
-"Online-Quelle bevor es die Daten mittels der regulären Ausdrücke analysiert. "
-"Sollten diese regulären Ausdrücke jedoch das Vorhandensein der HTML-Tags "
-"benötigen, schalten Sie das Löschen mit dieser Option aus.</p>\n"
-"\n"
-"<p>Die folgenden Zeichen werden normalerweise entfernt:\n"
-"\n"
-"<ul>\n"
-"<li>HTML-Tags wie z. B. <b>&lt;tag&gt;</b></li>\n"
-"<li>& kodierte Zeichen wie z. B. <b>&amp;nbsp;</b></li>\n"
-"<li>doppelte Leerzeichen</li>\n"
-"</ul>\n"
-"</p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
-#: alkonlinequotedetails.ui:194 alkonlinequotesprofile.ui:263
-#, kde-format
-msgid "Skip HTML stripping"
-msgstr "HTML-Tags erhalten"
-
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
-#: alkonlinequotedetails.ui:243 alkonlinequotesprofile.ui:312
+#: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
 #, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
 msgstr "Annehmen"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
-#: alkonlinequotedetails.ui:250
+#: alkonlinequotedetails.ui:245
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
@@ -423,6 +428,44 @@ msgstr "Quelle überprüfen"
 msgid "Show Page"
 msgstr "Seite anzeigen"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
+#: alkonlinequotesprofile.ui:260
+#, kde-format
+msgid ""
+"<p>For easier processing of the data returned by the online source, KMyMoney "
+"usually strips unused parts before it is parsed with the regular "
+"expressions. If matching of the fields relies on those items, then use this "
+"option to turn stripping off.</p>\n"
+"\n"
+"<p>The following items are usually removed by stripping:\n"
+"\n"
+"<ul>\n"
+"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
+"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
+"<li>duplicate whitespace</li>\n"
+"</ul>\n"
+"</p>"
+msgstr ""
+"<p>KMyMoney entfernt normalerweise alle HTML-Tags aus dem Datenstrom von der "
+"Online-Quelle bevor es die Daten mittels der regulären Ausdrücke analysiert. "
+"Sollten diese regulären Ausdrücke jedoch das Vorhandensein der HTML-Tags "
+"benötigen, schalten Sie das Löschen mit dieser Option aus.</p>\n"
+"\n"
+"<p>Die folgenden Zeichen werden normalerweise entfernt:\n"
+"\n"
+"<ul>\n"
+"<li>HTML-Tags wie z. B. <b>&lt;tag&gt;</b></li>\n"
+"<li>& kodierte Zeichen wie z. B. <b>&amp;nbsp;</b></li>\n"
+"<li>doppelte Leerzeichen</li>\n"
+"</ul>\n"
+"</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
+#: alkonlinequotesprofile.ui:263
+#, kde-format
+msgid "Skip HTML stripping"
+msgstr "HTML-Tags erhalten"
+
 #. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
 #: alkonlinequotesprofiledetails.ui:26
 #, kde-format
@@ -470,149 +513,167 @@ msgstr "Anwendungsprofile"
 msgid "New"
 msgstr "Neu"
 
-#: alkonlinequoteswidget.cpp:155
+#: alkonlinequoteswidget.cpp:156
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Annehmen"
 
-#: alkonlinequoteswidget.cpp:157
+#: alkonlinequoteswidget.cpp:158
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Die eingegebenen Daten akzeptieren und speichern"
 
-#: alkonlinequoteswidget.cpp:158
+#: alkonlinequoteswidget.cpp:159
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Verwenden Sie dies, um die veränderten Daten zu akzeptieren."
 
-#: alkonlinequoteswidget.cpp:160
+#: alkonlinequoteswidget.cpp:161
 #, kde-format
 msgid "&Delete"
 msgstr "&Löschen"
 
-#: alkonlinequoteswidget.cpp:162
+#: alkonlinequoteswidget.cpp:163
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Den gewählten Quelleneintrag löschen"
 
-#: alkonlinequoteswidget.cpp:163
+#: alkonlinequoteswidget.cpp:164
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr ""
 "Verwenden Sie dies, um den ausgewählten Online-Quelleneintrag zu löschen"
 
-#: alkonlinequoteswidget.cpp:165
+#: alkonlinequoteswidget.cpp:166
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "&Quelle überprüfen"
 
-#: alkonlinequoteswidget.cpp:167
+#: alkonlinequoteswidget.cpp:168
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Den gewählten Quelleneintrag überprüfen"
 
-#: alkonlinequoteswidget.cpp:168
+#: alkonlinequoteswidget.cpp:169
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr ""
 "Verwenden Sie dies, um den ausgewählten Online-Quelleneintrag zu überprüfen"
 
-#: alkonlinequoteswidget.cpp:170
+#: alkonlinequoteswidget.cpp:171
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "&Seite anzeigen"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:173
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Gewählten Quelleintrag im Webbrowser anzeigen"
 
-#: alkonlinequoteswidget.cpp:173
+#: alkonlinequoteswidget.cpp:174
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr ""
 "Verwenden Sie dies, um den ausgewählten Online-Quelleneintrag anzuzeigen"
 
-#: alkonlinequoteswidget.cpp:175
+#: alkonlinequoteswidget.cpp:176
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Neu ..."
 
-#: alkonlinequoteswidget.cpp:177
+#: alkonlinequoteswidget.cpp:178
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Neue Quelle für Online-Kursnotizen anlegen"
 
-#: alkonlinequoteswidget.cpp:178
+#: alkonlinequoteswidget.cpp:179
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "Hiermit einen neuen Eintrag für Online-Kurse erstellen"
 
-#: alkonlinequoteswidget.cpp:207
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgid "Name"
 msgstr "Name"
 
-#: alkonlinequoteswidget.cpp:207
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgid "Source"
 msgstr "Quelle"
 
-#: alkonlinequoteswidget.cpp:228
+#: alkonlinequoteswidget.cpp:229
 #, fuzzy, kde-format
 #| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Symbol"
 
-#: alkonlinequoteswidget.cpp:229
+#: alkonlinequoteswidget.cpp:230
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:230
+#: alkonlinequoteswidget.cpp:231
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Name"
 
-#: alkonlinequoteswidget.cpp:270
+#: alkonlinequoteswidget.cpp:239
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Stripped HTML"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:240
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "HTML"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:241
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSV"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:276
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:271
+#: alkonlinequoteswidget.cpp:277
 #, kde-format
 msgid "local"
 msgstr "Lokal"
 
-#: alkonlinequoteswidget.cpp:433 alkonlinequoteswidget.cpp:519
+#: alkonlinequoteswidget.cpp:439 alkonlinequoteswidget.cpp:525
 #, kde-format
 msgid "New Quote Source"
 msgstr "Neue Kursnotiz-Quelle"
 
-#: alkonlinequoteswidget.cpp:466
+#: alkonlinequoteswidget.cpp:472
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Möchten Sie diese Online-Kursnotiz wirklich löschen ?"
 
-#: alkonlinequoteswidget.cpp:467
+#: alkonlinequoteswidget.cpp:473
 #, kde-format
 msgid "Delete online quote"
 msgstr "Online-Kursnotiz löschen"
 
-#: alkonlinequoteswidget.cpp:494
+#: alkonlinequoteswidget.cpp:500
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:684
+#: alkonlinequoteswidget.cpp:704
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Ergebnis-Fenster der Online-Kursnotizen"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 00:43+0000\n"
+"POT-Creation-Date: 2023-09-29 00:43+0000\n"
 "PO-Revision-Date: 2023-07-23 22:08+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -18,110 +18,140 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: alkonlinequote.cpp:190
+#: alkonlinequote.cpp:193
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "원본 <placeholder>%1</placeholder>이(가) 없습니다."
 
-#: alkonlinequote.cpp:224 alkonlinequote.cpp:238
+#: alkonlinequote.cpp:227 alkonlinequote.cpp:241
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "%1에 대한 URL을 가져올 수 없음"
 
-#: alkonlinequote.cpp:246 alkonlinequote.cpp:682
+#: alkonlinequote.cpp:249 alkonlinequote.cpp:692
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "기호 검색됨: '%1'"
 
-#: alkonlinequote.cpp:249 alkonlinequote.cpp:685
+#: alkonlinequote.cpp:252 alkonlinequote.cpp:695
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "%1에 대한 기호를 해석할 수 없음"
 
-#: alkonlinequote.cpp:272
+#: alkonlinequote.cpp:275
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "URL %1을(를) 가져오는 중..."
 
-#: alkonlinequote.cpp:343
+#: alkonlinequote.cpp:346
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1 실행 중..."
 
-#: alkonlinequote.cpp:360 alkonlinequote.cpp:570
+#: alkonlinequote.cpp:363 alkonlinequote.cpp:573
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "시작할 수 없음: %1"
 
-#: alkonlinequote.cpp:378
+#: alkonlinequote.cpp:381
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "다운로드한 파일을 열 수 없음"
 
-#: alkonlinequote.cpp:395
+#: alkonlinequote.cpp:398
 #, kde-format
 msgid "URL found: %1..."
 msgstr "검색된 URL: %1..."
 
-#: alkonlinequote.cpp:486 alkonlinequote.cpp:488
+#: alkonlinequote.cpp:489 alkonlinequote.cpp:491
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "URL이 다른 곳으로 넘어갔습니다. 온라인 시세 URL 업데이트를 확인하십시오"
 
-#: alkonlinequote.cpp:562
+#: alkonlinequote.cpp:565
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "%1 %2 %3 실행 중..."
 
-#: alkonlinequote.cpp:602
+#: alkonlinequote.cpp:605
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "검색된 가격: '%1' (%2)"
 
-#: alkonlinequote.cpp:605
+#: alkonlinequote.cpp:608
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "'%1'에 대한 가격을 해석할 수 없음"
 
-#: alkonlinequote.cpp:614
+#: alkonlinequote.cpp:617
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "검색된 날짜: '%1'"
 
-#: alkonlinequote.cpp:620
+#: alkonlinequote.cpp:623
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "검색된 날짜 형식: '%1' -> '%2'"
 
-#: alkonlinequote.cpp:623
+#: alkonlinequote.cpp:626
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "'%2' 형식을 사용하여 날짜 '%1'을(를) 해석할 수 없음: %3"
 
-#: alkonlinequote.cpp:627 alkonlinequote.cpp:637
+#: alkonlinequote.cpp:630 alkonlinequote.cpp:640
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "'%1'에 현재 날짜 사용"
 
-#: alkonlinequote.cpp:631
+#: alkonlinequote.cpp:634
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "'%1'의 날짜 처리가 비활성화됨"
 
-#: alkonlinequote.cpp:634
+#: alkonlinequote.cpp:637
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "'%1'에 대한 날짜를 해석할 수 없음"
 
-#: alkonlinequote.cpp:711
+#: alkonlinequote.cpp:742
+#, kde-format
+msgid ""
+"Unable to detect field delimiter in first line (header line) of quote data."
+msgstr ""
+
+#: alkonlinequote.cpp:769
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
+msgid "Unable to find date column '%1' in quote data"
+msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
+
+#: alkonlinequote.cpp:775
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
+msgid "Unable to find price column '%1' in quote data"
+msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
+
+#: alkonlinequote.cpp:793
+#, fuzzy, kde-format
+#| msgid "Unable to parse date '%1' using format '%2': %3"
+msgid "Unable to convert date '%1' with '%2' in quote data"
+msgstr "'%2' 형식을 사용하여 날짜 '%1'을(를) 해석할 수 없음: %3"
+
+#: alkonlinequote.cpp:801
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
+msgid "Unable to find date/price pairs in quote data"
+msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
+
+#: alkonlinequote.cpp:824
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
 
-#: alkonlinequote.cpp:720
+#: alkonlinequote.cpp:842
 #, fuzzy, kde-format
 #| msgid "Unable to fetch url for %1"
 msgid "Timeout exceeded on fetching url for %1"
@@ -193,44 +223,51 @@ msgstr ""
 msgid "Selected by"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotedetails.ui:69
+#, fuzzy, kde-format
+#| msgid "Date Format"
+msgid "Data Format"
+msgstr "날짜 형식"
+
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: alkonlinequotedetails.ui:69 alkonlinequotesprofile.ui:159
+#: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
 #, kde-format
 msgid "Price"
 msgstr "가격"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: alkonlinequotedetails.ui:79 alkonlinequotesprofile.ui:169
+#: alkonlinequotedetails.ui:86 alkonlinequotesprofile.ui:169
 #, kde-format
 msgid "Date"
 msgstr "날짜"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: alkonlinequotedetails.ui:89 alkonlinequotesprofile.ui:179
+#: alkonlinequotedetails.ui:96 alkonlinequotesprofile.ui:179
 #, kde-format
 msgid "Date Format"
 msgstr "날짜 형식"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: alkonlinequotedetails.ui:106
+#: alkonlinequotedetails.ui:113
 #, kde-format
 msgid "Default Identifier"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequotedetails.ui:113 alkonlinequotesprofile.ui:189
+#: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:189
 #, kde-format
 msgid "Options"
 msgstr "옵션"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:196
+#: alkonlinequotedetails.ui:127 alkonlinequotesprofile.ui:196
 #, kde-format
 msgid "URL to be used to download the quote"
 msgstr "시세 다운로드에 사용할 URL"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:123 alkonlinequotesprofile.ui:199
+#: alkonlinequotedetails.ui:130 alkonlinequotesprofile.ui:199
 #, no-c-format, kde-format
 msgid ""
 "Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
@@ -243,92 +280,60 @@ msgstr ""
 "세 기준 통화로 대체됩니다."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
-#: alkonlinequotedetails.ui:130 alkonlinequotesprofile.ui:206
+#: alkonlinequotedetails.ui:137 alkonlinequotesprofile.ui:206
 #, fuzzy, kde-format
 #| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
 msgstr "다운로드한 데이터에서 날짜를 추출하는 정규 표현식"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
-#: alkonlinequotedetails.ui:137 alkonlinequotesprofile.ui:213
+#: alkonlinequotedetails.ui:144 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
+#: alkonlinequotedetails.ui:151
+#, kde-format
+msgid "The type of data expected to downloaded and processed."
+msgstr ""
+
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
-#: alkonlinequotedetails.ui:144 alkonlinequotesprofile.ui:220
+#: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
 #, kde-format
 msgid "Regular Expression to extract the price from the downloaded data"
 msgstr "다운로드한 데이터에서 가격을 추출하는 정규 표현식"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
-#: alkonlinequotedetails.ui:151 alkonlinequotedetails.ui:158
+#: alkonlinequotedetails.ui:165 alkonlinequotedetails.ui:172
 #: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
 #, kde-format
 msgid "Regular Expression to extract the date from the downloaded data"
 msgstr "다운로드한 데이터에서 날짜를 추출하는 정규 표현식"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
-#: alkonlinequotedetails.ui:165
+#: alkonlinequotedetails.ui:179
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:175 alkonlinequotesprofile.ui:244
-#: alkonlinequoteswidget.cpp:268
+#: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
+#: alkonlinequoteswidget.cpp:274
 #, kde-format
 msgid "GHNS Source"
 msgstr "GHNS 소스"
 
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
-#: alkonlinequotedetails.ui:191 alkonlinequotesprofile.ui:260
-#, kde-format
-msgid ""
-"<p>For easier processing of the data returned by the online source, KMyMoney "
-"usually strips unused parts before it is parsed with the regular "
-"expressions. If matching of the fields relies on those items, then use this "
-"option to turn stripping off.</p>\n"
-"\n"
-"<p>The following items are usually removed by stripping:\n"
-"\n"
-"<ul>\n"
-"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
-"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
-"<li>duplicate whitespace</li>\n"
-"</ul>\n"
-"</p>"
-msgstr ""
-"<p>KMyMoney는 온라인 소스에서 반환된 데이터를 보다 쉽게 처리할 수 있도록 정"
-"규 표현식으로 해석하기 전에 사용되지 않는 부분을 잘라냅니다. 만약 필드 일치 "
-"시 해당 부분을 사용한다면 이 옵션을 사용하여 잘라내기 기능을 비활성화하십시"
-"오.</p>\n"
-"\n"
-"<p>잘라내기 기능에서는 대개 다음 항목을 삭제합니다:\n"
-"\n"
-"<ul>\n"
-"<li>HTML 태그(예:<b>&lt;tag&gt;</b></li>)\n"
-"<li>& 인코딩된 문자(예:<b>&amp;nbsp;</b></li>)\n"
-"<li>중복된 공백</li>\n"
-"</ul>\n"
-"</p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
-#: alkonlinequotedetails.ui:194 alkonlinequotesprofile.ui:263
-#, kde-format
-msgid "Skip HTML stripping"
-msgstr "HTML 태그 제거 건너뛰기"
-
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
-#: alkonlinequotedetails.ui:243 alkonlinequotesprofile.ui:312
+#: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
 #, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
 msgstr "수락"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
-#: alkonlinequotedetails.ui:250
+#: alkonlinequotedetails.ui:245
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
@@ -411,6 +416,44 @@ msgstr "원본 확인"
 msgid "Show Page"
 msgstr "페이지 표시"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
+#: alkonlinequotesprofile.ui:260
+#, kde-format
+msgid ""
+"<p>For easier processing of the data returned by the online source, KMyMoney "
+"usually strips unused parts before it is parsed with the regular "
+"expressions. If matching of the fields relies on those items, then use this "
+"option to turn stripping off.</p>\n"
+"\n"
+"<p>The following items are usually removed by stripping:\n"
+"\n"
+"<ul>\n"
+"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
+"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
+"<li>duplicate whitespace</li>\n"
+"</ul>\n"
+"</p>"
+msgstr ""
+"<p>KMyMoney는 온라인 소스에서 반환된 데이터를 보다 쉽게 처리할 수 있도록 정"
+"규 표현식으로 해석하기 전에 사용되지 않는 부분을 잘라냅니다. 만약 필드 일치 "
+"시 해당 부분을 사용한다면 이 옵션을 사용하여 잘라내기 기능을 비활성화하십시"
+"오.</p>\n"
+"\n"
+"<p>잘라내기 기능에서는 대개 다음 항목을 삭제합니다:\n"
+"\n"
+"<ul>\n"
+"<li>HTML 태그(예:<b>&lt;tag&gt;</b></li>)\n"
+"<li>& 인코딩된 문자(예:<b>&amp;nbsp;</b></li>)\n"
+"<li>중복된 공백</li>\n"
+"</ul>\n"
+"</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
+#: alkonlinequotesprofile.ui:263
+#, kde-format
+msgid "Skip HTML stripping"
+msgstr "HTML 태그 제거 건너뛰기"
+
 #. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
 #: alkonlinequotesprofiledetails.ui:26
 #, kde-format
@@ -457,146 +500,164 @@ msgstr "앱 프로필"
 msgid "New"
 msgstr "새로 만들기"
 
-#: alkonlinequoteswidget.cpp:155
+#: alkonlinequoteswidget.cpp:156
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "수락(&A)"
 
-#: alkonlinequoteswidget.cpp:157
+#: alkonlinequoteswidget.cpp:158
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "입력한 데이터를 수락하고 저장합니다"
 
-#: alkonlinequoteswidget.cpp:158
+#: alkonlinequoteswidget.cpp:159
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "이 옵션을 사용하여 수정된 데이터를 수락합니다."
 
-#: alkonlinequoteswidget.cpp:160
+#: alkonlinequoteswidget.cpp:161
 #, kde-format
 msgid "&Delete"
 msgstr "삭제(&D)"
 
-#: alkonlinequoteswidget.cpp:162
+#: alkonlinequoteswidget.cpp:163
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "선택한 원본 항목 삭제"
 
-#: alkonlinequoteswidget.cpp:163
+#: alkonlinequoteswidget.cpp:164
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 삭제합니다"
 
-#: alkonlinequoteswidget.cpp:165
+#: alkonlinequoteswidget.cpp:166
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "원본 확인(&C)"
 
-#: alkonlinequoteswidget.cpp:167
+#: alkonlinequoteswidget.cpp:168
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "선택한 원본 항목 확인"
 
-#: alkonlinequoteswidget.cpp:168
+#: alkonlinequoteswidget.cpp:169
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 확인합니다."
 
-#: alkonlinequoteswidget.cpp:170
+#: alkonlinequoteswidget.cpp:171
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "페이지 표시(&S)"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:173
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "웹 브라우저에서 선택한 원본 항목 표시"
 
-#: alkonlinequoteswidget.cpp:173
+#: alkonlinequoteswidget.cpp:174
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 표시합니다"
 
-#: alkonlinequoteswidget.cpp:175
+#: alkonlinequoteswidget.cpp:176
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "새로 만들기(&N)..."
 
-#: alkonlinequoteswidget.cpp:177
+#: alkonlinequoteswidget.cpp:178
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "새로운 온라인 시세 항목 만들기"
 
-#: alkonlinequoteswidget.cpp:178
+#: alkonlinequoteswidget.cpp:179
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "이 옵션을 사용하여 새로운 온라인 시세 항목을 만듭니다"
 
-#: alkonlinequoteswidget.cpp:207
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgid "Name"
 msgstr "이름"
 
-#: alkonlinequoteswidget.cpp:207
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgid "Source"
 msgstr "원본"
 
-#: alkonlinequoteswidget.cpp:228
+#: alkonlinequoteswidget.cpp:229
 #, fuzzy, kde-format
 #| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "기호"
 
-#: alkonlinequoteswidget.cpp:229
+#: alkonlinequoteswidget.cpp:230
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:230
+#: alkonlinequoteswidget.cpp:231
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "이름"
 
-#: alkonlinequoteswidget.cpp:270
+#: alkonlinequoteswidget.cpp:239
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Stripped HTML"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:240
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "HTML"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:241
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSV"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:276
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:271
+#: alkonlinequoteswidget.cpp:277
 #, kde-format
 msgid "local"
 msgstr "로컬"
 
-#: alkonlinequoteswidget.cpp:433 alkonlinequoteswidget.cpp:519
+#: alkonlinequoteswidget.cpp:439 alkonlinequoteswidget.cpp:525
 #, kde-format
 msgid "New Quote Source"
 msgstr "새로운 시세 원본"
 
-#: alkonlinequoteswidget.cpp:466
+#: alkonlinequoteswidget.cpp:472
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "이 온라인 시세를 삭제하시겠습니까?"
 
-#: alkonlinequoteswidget.cpp:467
+#: alkonlinequoteswidget.cpp:473
 #, kde-format
 msgid "Delete online quote"
 msgstr "온라인 시세 삭제"
 
-#: alkonlinequoteswidget.cpp:494
+#: alkonlinequoteswidget.cpp:500
 #, kde-format
 msgid ".copy"
 msgstr ".복사"
 
-#: alkonlinequoteswidget.cpp:684
+#: alkonlinequoteswidget.cpp:704
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "온라인 시세 HTML 결과 창"
