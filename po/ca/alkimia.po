@@ -3,22 +3,22 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2018, 2020.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2018, 2020, 2023.
 # Josep M. Ferrer <txemaq@gmail.com>, 2018, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 00:43+0000\n"
-"PO-Revision-Date: 2023-09-27 10:53+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2023-09-29 15:57+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: alkonlinequote.cpp:193
 #, kde-format
@@ -124,30 +124,32 @@ msgstr "No s'ha pogut interpretar la data per a «%1»"
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
+"No s'ha pogut detectar el delimitador de camp a la primera línia (línia de "
+"capçalera) de les dades de cotització."
 
 #: alkonlinequote.cpp:769
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "No s'ha pogut actualitzar el preu de %1 (dades de cotització buides)"
+msgstr ""
+"No s'ha pogut trobar la columna de data «%1» en les dades de cotització"
 
 #: alkonlinequote.cpp:775
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "No s'ha pogut actualitzar el preu de %1 (dades de cotització buides)"
+msgstr ""
+"No s'ha pogut trobar la columna de preu «%1» en les dades de cotització"
 
 #: alkonlinequote.cpp:793
-#, fuzzy, kde-format
-#| msgid "Unable to parse date '%1' using format '%2': %3"
+#, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "No s'ha pogut interpretar la data «%1» emprant el fitxer «%2»: %3"
+msgstr ""
+"No s'ha pogut convertir la data «%1» amb «%2» en les dades de cotització"
 
 #: alkonlinequote.cpp:801
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "No s'ha pogut actualitzar el preu de %1 (dades de cotització buides)"
+msgstr ""
+"No s'han pogut trobar les parelles data/preu en les dades de cotització"
 
 #: alkonlinequote.cpp:824
 #, kde-format
@@ -228,10 +230,9 @@ msgstr "Seleccionat per"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "Data Format"
-msgstr "Format de la data"
+msgstr "Format de les dades"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
@@ -299,7 +300,7 @@ msgstr "Com seleccionar l'identificador"
 #: alkonlinequotedetails.ui:151
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr ""
+msgstr "El tipus de dades esperat per baixar i processar."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
@@ -619,19 +620,19 @@ msgstr "Nom"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr ""
+msgstr "HTML netejat"
 
 #: alkonlinequoteswidget.cpp:240
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: alkonlinequoteswidget.cpp:241
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: alkonlinequoteswidget.cpp:276
 #, kde-format

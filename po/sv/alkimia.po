@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 00:43+0000\n"
-"PO-Revision-Date: 2023-09-03 09:39+0200\n"
+"PO-Revision-Date: 2023-09-29 20:16+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -121,30 +121,28 @@ msgstr "Kan inte tolka datum för '%1'"
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
+"Kan inte upptäcka fältavgränsare på första raden (rubrikraden) i "
+"kursinformation."
 
 #: alkonlinequote.cpp:769
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
+msgstr "Kan inte hitta datumkolumn '%1' i kursinformation"
 
 #: alkonlinequote.cpp:775
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
+msgstr "Kan inte hitta kurskolumn '%1' i kursinformation"
 
 #: alkonlinequote.cpp:793
-#, fuzzy, kde-format
-#| msgid "Unable to parse date '%1' using format '%2'"
+#, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "Kan inte tolka datumet '%1' med användning av formatet '%2'"
+msgstr "Kan inte konvertera datumet '%1' med användning av '%2' i kursdata"
 
 #: alkonlinequote.cpp:801
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
+msgstr "Kan inte hitta datum- och kurspar i kursinformation"
 
 #: alkonlinequote.cpp:824
 #, kde-format
@@ -152,10 +150,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
 
 #: alkonlinequote.cpp:842
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "Kan inte hämta webbadress för %1"
+msgstr "Tidsgräns överskreds vid hämtning av webbadress för %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
@@ -226,10 +223,9 @@ msgstr "Vald av"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "Data Format"
-msgstr "Datumformat"
+msgstr "Dataformat"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
@@ -251,10 +247,9 @@ msgstr "Datumformat"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:113
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "Identifierare"
+msgstr "Standardidentifierare"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:189
@@ -298,7 +293,7 @@ msgstr "Hur identifieraren väljs"
 #: alkonlinequotedetails.ui:151
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr ""
+msgstr "Typ av data som förväntas laddas ner och behandlas."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
@@ -318,7 +313,7 @@ msgstr "Reguljärt uttryck för att extrahera datum från nerladdad data"
 #: alkonlinequotedetails.ui:179
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr ""
+msgstr "En identifierare som är känd för att fungera för nätkurskällan"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
@@ -339,7 +334,7 @@ msgstr "Acceptera"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29
@@ -616,19 +611,19 @@ msgstr "Namn"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr ""
+msgstr "Avskalad HTML"
 
 #: alkonlinequoteswidget.cpp:240
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: alkonlinequoteswidget.cpp:241
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: alkonlinequoteswidget.cpp:276
 #, kde-format

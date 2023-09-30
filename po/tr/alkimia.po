@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 00:43+0000\n"
-"PO-Revision-Date: 2023-09-27 12:48+0300\n"
+"PO-Revision-Date: 2023-09-29 14:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -120,30 +120,28 @@ msgstr "'%1' için tarih ayrıştırılamadı"
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
+"Alıntı verisinin ilk satırında (üstbilgi satırı) alan sınırlayıcısı "
+"algılanamıyor."
 
 #: alkonlinequote.cpp:769
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "%1 fiyatı güncellenemedi (boş alıntı verisi)"
+msgstr "Alıntı verisinde '%1' tarih sütunu bulunamıyor"
 
 #: alkonlinequote.cpp:775
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "%1 fiyatı güncellenemedi (boş alıntı verisi)"
+msgstr "Alıntı verisinde '%1' fiyat sütunu bulunamıyor"
 
 #: alkonlinequote.cpp:793
-#, fuzzy, kde-format
-#| msgid "Unable to parse date '%1' using format '%2': %3"
+#, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "'%1' tarihi, '%2' biçimi kullanılarak ayrıştırılamadı: %3"
+msgstr "Alıntı verisinde '%1' tarihi '%2' ile dönüştürülemiyor"
 
 #: alkonlinequote.cpp:801
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "%1 fiyatı güncellenemedi (boş alıntı verisi)"
+msgstr "Alıntı verisinde tarih/fiyat eşleri bulunamıyor"
 
 #: alkonlinequote.cpp:824
 #, kde-format
@@ -224,8 +222,7 @@ msgstr "Şunlarla seçilir"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "Data Format"
 msgstr "Tarih Biçimi"
 
@@ -295,7 +292,7 @@ msgstr "Tanımlayıcının nasıl seçileceği"
 #: alkonlinequotedetails.ui:151
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr ""
+msgstr "İndirilmesi ve işlenmesi beklenen veri türü."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
@@ -612,19 +609,19 @@ msgstr "Ad"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr ""
+msgstr "Soyulmuş HTML"
 
 #: alkonlinequoteswidget.cpp:240
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: alkonlinequoteswidget.cpp:241
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: alkonlinequoteswidget.cpp:276
 #, kde-format

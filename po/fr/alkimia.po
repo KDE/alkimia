@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 00:43+0000\n"
-"PO-Revision-Date: 2023-09-26 10:03+0200\n"
+"PO-Revision-Date: 2023-09-28 08:03+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -256,10 +256,9 @@ msgstr "Format de date"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:113
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "Identifiant"
+msgstr "Identifiant par défaut"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:189
@@ -328,6 +327,7 @@ msgstr ""
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
 msgstr ""
+"Un identifiant connu pour fonctionner pour cette source de citations en ligne"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
@@ -348,7 +348,7 @@ msgstr "Accepter"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29

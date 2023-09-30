@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 00:43+0000\n"
-"PO-Revision-Date: 2023-09-26 05:23+0200\n"
+"PO-Revision-Date: 2023-09-29 04:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -120,33 +120,28 @@ msgstr "%1-ის თარიღის დამუშავების შე
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
+"ფასის მონაცემების პირველ ხაზზე(თავსართის ხაზი) ველის გამყოფის დადგენა "
+"შეუძლებელია."
 
 #: alkonlinequote.cpp:769
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr ""
-"%1-ის ფასის განახლების დამუშავების სშეცდომა (კოტის მონაცემები ცარიელია)"
+msgstr "ფასის მონაცემებში თარიღის სვეტი '%1' აღმოჩენილი არაა"
 
 #: alkonlinequote.cpp:775
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr ""
-"%1-ის ფასის განახლების დამუშავების სშეცდომა (კოტის მონაცემები ცარიელია)"
+msgstr "ფასის მონაცემებში ფასის სვეტი '%1' აღმოჩენილი არაა"
 
 #: alkonlinequote.cpp:793
-#, fuzzy, kde-format
-#| msgid "Unable to parse date '%1' using format '%2': %3"
+#, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "მონაცემების '%1' ფორმატით '%2' დამუშავების შეცდომა: %3"
+msgstr "კვოტის მონაცემებში თარიღის '%1' '%2'-ით გადაყვანა შეუძლებელია"
 
 #: alkonlinequote.cpp:801
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr ""
-"%1-ის ფასის განახლების დამუშავების სშეცდომა (კოტის მონაცემები ცარიელია)"
+msgstr "ფასის მონაცემებში თარიღი/ფასის წყვილები ვერ ვიპოვე"
 
 #: alkonlinequote.cpp:824
 #, kde-format
@@ -228,10 +223,9 @@ msgstr "არჩეულია"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "Data Format"
-msgstr "თარიღის ფორმატი"
+msgstr "მონაცემების ფორმატი"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
@@ -253,10 +247,9 @@ msgstr "თარიღის ფორმატი"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:113
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "იდენტიფიკატორი"
+msgstr "ნაგულისხმევი იდენტიფიკატორი"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:189
@@ -301,7 +294,7 @@ msgstr "როგორ ავირჩიოთ იდენტიფიკა�
 #: alkonlinequotedetails.ui:151
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr ""
+msgstr "გადმოსაწერად და დასამუშავებლად მოსალოდნელი მონაცემების ტიპი."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
@@ -321,7 +314,7 @@ msgstr "გადმოწერილი მონაცემებიდა�
 #: alkonlinequotedetails.ui:179
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr ""
+msgstr "იდენტიფიკატორი, რომელიც ვიცით, რომ ამ ონლაინ ფასების წყაროსთან მუშაობს"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
@@ -342,7 +335,7 @@ msgstr "თანხმობა"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29
@@ -617,19 +610,19 @@ msgstr "სახელი"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr ""
+msgstr "შეკვეცილი HTML"
 
 #: alkonlinequoteswidget.cpp:240
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: alkonlinequoteswidget.cpp:241
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: alkonlinequoteswidget.cpp:276
 #, kde-format
