@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 00:43+0000\n"
-"PO-Revision-Date: 2023-09-27 14:38+0200\n"
+"PO-Revision-Date: 2023-09-29 13:00+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -121,30 +121,28 @@ msgstr "Impossibile analizzare la data per «%1»"
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
+"Impossibile rilevare il delimitatore di campo nella prima riga (riga "
+"dell'intestazione) dei dati di quotazione."
 
 #: alkonlinequote.cpp:769
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "Impossibile aggiornare il prezzo per %1 (dati di quotazione vuoti)"
+msgstr "Impossibile trovare la colonna della data «%1» nei dati di quotazione"
 
 #: alkonlinequote.cpp:775
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "Impossibile aggiornare il prezzo per %1 (dati di quotazione vuoti)"
+msgstr "Impossibile trovare la colonna del prezzo «%1» nei dati di quotazione"
 
 #: alkonlinequote.cpp:793
-#, fuzzy, kde-format
-#| msgid "Unable to parse date '%1' using format '%2': %3"
+#, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "Impossibile analizzare la data «%1» utilizzando il formato «%2»: %3"
+msgstr "Impossibile convertire la data «%1» in «%2» nei dati di quotazione"
 
 #: alkonlinequote.cpp:801
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "Impossibile aggiornare il prezzo per %1 (dati di quotazione vuoti)"
+msgstr "Impossibile trovare le coppie data/prezzo nei dati di quotazione"
 
 #: alkonlinequote.cpp:824
 #, kde-format
@@ -225,10 +223,9 @@ msgstr "Selezionato da"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "Data Format"
-msgstr "Formato data"
+msgstr "Formato dati"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
@@ -292,11 +289,12 @@ msgstr "Espressione regolare per estrarre l'identificatore dai dati scaricati"
 msgid "How to select the identifier"
 msgstr "Come selezionare l'identificatore"
 
+# VM - typo: "to be downloaded and processed" or "to download and process"
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
 #: alkonlinequotedetails.ui:151
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr ""
+msgstr "Il tipo di dati atteso da scaricare ed elaborare."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
@@ -615,19 +613,19 @@ msgstr "Nome"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr ""
+msgstr "Stripped HTML"
 
 #: alkonlinequoteswidget.cpp:240
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: alkonlinequoteswidget.cpp:241
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: alkonlinequoteswidget.cpp:276
 #, kde-format
