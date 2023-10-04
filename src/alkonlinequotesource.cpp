@@ -247,6 +247,11 @@ AlkOnlineQuotesProfile *AlkOnlineQuoteSource::profile()
     return d->m_profile;
 }
 
+AlkOnlineQuotesProfile *AlkOnlineQuoteSource::profile() const
+{
+    return d->m_profile;
+}
+
 bool AlkOnlineQuoteSource::read()
 {
     if (d->m_profile->hasGHNSSupport()) {

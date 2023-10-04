@@ -123,6 +123,7 @@ public:
     QString ghnsWriteFileName();
     void setProfile(AlkOnlineQuotesProfile *profile);
     AlkOnlineQuotesProfile *profile();
+    AlkOnlineQuotesProfile *profile() const;
 
 protected:
     class Private;
