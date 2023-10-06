@@ -36,6 +36,19 @@ public:
     QString acceptLanguage() const;
     void setAcceptLanguage(const QString &text);
 
+    /**
+     * return state if GHNS source is editable
+     * @return state
+     */
+    bool GHNSSourceEditable();
+
+    /**
+     * Set state that  GHNS source is editable
+     * @param state state to set
+     * @note editing of a GHNS source is disabled by default
+     */
+    void setGHNSSourceEditable(bool state);
+
 private:
     class Private;
     Private *const d;

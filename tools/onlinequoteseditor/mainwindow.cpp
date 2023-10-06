@@ -80,6 +80,7 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
     d->ui.setupUi(this);
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
+    d->quotesWidget->setGHNSSourceEditable(true);
 
     QDockWidget *profilesWidget = new QDockWidget(i18n("Profiles"), this);
     profilesWidget->setObjectName("profilesDockWidget");

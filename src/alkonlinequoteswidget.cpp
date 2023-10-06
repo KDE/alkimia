@@ -73,6 +73,7 @@ public:
     AlkOnlineQuotesProfile *m_profile;
     bool m_showProfiles;
     bool m_showUpload;
+    bool m_ghnsEditable;
     bool m_disableUpdate;
     QPixmap m_emptyIcon;
     QPixmap m_inWorkIcon;
@@ -125,6 +126,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_profile(nullptr)
     , m_showProfiles(showProfiles)
     , m_showUpload(showUpload)
+    , m_ghnsEditable(false)
     , m_disableUpdate(false)
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     , m_inWorkIcon(BarIcon("view-refresh"))
@@ -379,22 +381,8 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
 void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
 {
     m_quoteInEditing = false;
-    QTreeWidgetItem *item = m_quoteSourceList->currentItem();
-    bool isFinanceQuoteSource = (item && AlkOnlineQuoteSource::isFinanceQuote(item->text(0))) ||
-            m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
-    bool enabled = item && !isFinanceQuoteSource;
 
     m_disableUpdate = true;
-    m_editURL->setEnabled(enabled);
-    m_editIdentifier->setEnabled(enabled);
-    m_editIdSelector->setEnabled(enabled);
-    m_editPrice->setEnabled(enabled);
-    m_editDate->setEnabled(enabled);
-    m_editDateFormat->setEnabled(enabled);
-    m_editDefaultId->setEnabled(enabled);
-    m_ghnsSource->setEnabled(!isFinanceQuoteSource);
-    m_editDataFormat->setEnabled(enabled);
-
     m_editURL->clear();
     m_editIdentifier->clear();
     m_editIdSelector->setCurrentIndex(AlkOnlineQuoteSource::IdSelector::Symbol);
@@ -403,6 +391,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_editDateFormat->clear();
     m_editDefaultId->clear();
 
+    QTreeWidgetItem *item = m_quoteSourceList->currentItem();
     if (item) {
         m_currentItem = AlkOnlineQuoteSource(item->text(0), m_profile);
         m_editURL->setText(m_currentItem.url());
@@ -415,6 +404,23 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_editDefaultId->setText(m_currentItem.defaultId());
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
     }
+
+    bool isFinanceQuoteSource = (item && AlkOnlineQuoteSource::isFinanceQuote(item->text(0))) ||
+            m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
+    bool enabled = item;
+    if (isFinanceQuoteSource || (m_currentItem.isGHNS() && !m_ghnsEditable))
+        enabled = false;
+
+    m_editURL->setEnabled(enabled);
+    m_editIdentifier->setEnabled(enabled);
+    m_editIdSelector->setEnabled(enabled);
+    m_editPrice->setEnabled(enabled);
+    m_editDate->setEnabled(enabled);
+    m_editDateFormat->setEnabled(enabled);
+    m_editDefaultId->setEnabled(enabled);
+    m_ghnsSource->setEnabled(enabled);
+    m_editDataFormat->setEnabled(enabled);
+
     m_disableUpdate = false;
 
     updateButtonState();
@@ -821,6 +827,17 @@ QString AlkOnlineQuotesWidget::acceptLanguage() const
 void AlkOnlineQuotesWidget::setAcceptLanguage(const QString &text)
 {
     d->m_acceptLanguage = text;
+}
+
+bool AlkOnlineQuotesWidget::GHNSSourceEditable()
+{
+    return d->m_ghnsEditable;
+
+}
+
+void AlkOnlineQuotesWidget::setGHNSSourceEditable(bool state)
+{
+    d->m_ghnsEditable = state;
 }
 
 #include "alkonlinequoteswidget.moc"
