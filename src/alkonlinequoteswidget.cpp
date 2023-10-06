@@ -73,6 +73,7 @@ public:
     AlkOnlineQuotesProfile *m_profile;
     bool m_showProfiles;
     bool m_showUpload;
+    bool m_disableUpdate;
     QPixmap m_emptyIcon;
     QPixmap m_inWorkIcon;
     QPixmap m_okIcon;
@@ -124,6 +125,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_profile(nullptr)
     , m_showProfiles(showProfiles)
     , m_showUpload(showUpload)
+    , m_disableUpdate(false)
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     , m_inWorkIcon(BarIcon("view-refresh"))
     , m_okIcon(BarIcon("dialog-ok-apply"))
@@ -382,6 +384,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
             m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
     bool enabled = item && !isFinanceQuoteSource;
 
+    m_disableUpdate = true;
     m_editURL->setEnabled(enabled);
     m_editIdentifier->setEnabled(enabled);
     m_editIdSelector->setEnabled(enabled);
@@ -412,13 +415,15 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_editDefaultId->setText(m_currentItem.defaultId());
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
     }
+    m_disableUpdate = false;
 
     updateButtonState();
 }
 
 void AlkOnlineQuotesWidget::Private::slotEntryChanged()
 {
-    updateButtonState();
+    if (!m_disableUpdate)
+        updateButtonState();
 }
 
 void AlkOnlineQuotesWidget::Private::updateButtonState()
