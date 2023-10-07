@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:45+0000\n"
+"POT-Creation-Date: 2023-10-07 00:42+0000\n"
 "PO-Revision-Date: 2020-10-04 20:22+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -33,37 +33,37 @@ msgstr "daemul72@gmail.com"
 msgid "&About %1"
 msgstr "%1 정보(&A)"
 
-#: mainwindow.cpp:84
+#: mainwindow.cpp:85
 #, kde-format
 msgid "Profiles"
 msgstr "프로필"
 
-#: mainwindow.cpp:89
+#: mainwindow.cpp:90
 #, kde-format
 msgid "Profile details"
 msgstr "프로필 정보"
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:95
 #, kde-format
 msgid "Online quotes"
 msgstr "온라인 시세"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:100
 #, kde-format
 msgid "Debug"
 msgstr "디버그"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:105
 #, kde-format
 msgid "Quote details"
 msgstr "시세 정보"
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:114
 #, kde-format
 msgid "Browser"
 msgstr "탐색기"
 
-#: mainwindow.cpp:168
+#: mainwindow.cpp:169
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "프로필 '%2'의 '%1' 업데이트 사용 가능"

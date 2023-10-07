@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:45+0000\n"
+"POT-Creation-Date: 2023-10-07 00:42+0000\n"
 "PO-Revision-Date: 2020-09-20 09:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -35,37 +35,37 @@ msgstr "txemaq@gmail.com"
 msgid "&About %1"
 msgstr "&Quant a l'%1"
 
-#: mainwindow.cpp:84
+#: mainwindow.cpp:85
 #, kde-format
 msgid "Profiles"
 msgstr "Perfils"
 
-#: mainwindow.cpp:89
+#: mainwindow.cpp:90
 #, kde-format
 msgid "Profile details"
 msgstr "Detalls del perfil"
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:95
 #, kde-format
 msgid "Online quotes"
 msgstr "Editor de cotitzacions en línia"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:100
 #, kde-format
 msgid "Debug"
 msgstr "Depuració"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:105
 #, kde-format
 msgid "Quote details"
 msgstr "Detalls de la cotització"
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:114
 #, kde-format
 msgid "Browser"
 msgstr "Navegador"
 
-#: mainwindow.cpp:168
+#: mainwindow.cpp:169
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Hi ha una actualització disponible per a «%1» al perfil «%2»"

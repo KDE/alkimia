@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:45+0000\n"
+"POT-Creation-Date: 2023-10-07 00:42+0000\n"
 "PO-Revision-Date: 2021-05-11 04:24+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -31,37 +31,37 @@ msgstr "kde-i18n-de@kde.org"
 msgid "&About %1"
 msgstr "Ü&ber %1"
 
-#: mainwindow.cpp:84
+#: mainwindow.cpp:85
 #, kde-format
 msgid "Profiles"
 msgstr "Profile"
 
-#: mainwindow.cpp:89
+#: mainwindow.cpp:90
 #, kde-format
 msgid "Profile details"
 msgstr "Profildetails"
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:95
 #, kde-format
 msgid "Online quotes"
 msgstr "Online-Kursnotizen"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:100
 #, kde-format
 msgid "Debug"
 msgstr "Fehlersuche"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:105
 #, kde-format
 msgid "Quote details"
 msgstr "Kursdetails"
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:114
 #, kde-format
 msgid "Browser"
 msgstr "Browser"
 
-#: mainwindow.cpp:168
+#: mainwindow.cpp:169
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Aktualisierung für „%1“ im Profil „%2“ verfügbar"

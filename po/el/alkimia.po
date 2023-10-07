@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 00:43+0000\n"
+"POT-Creation-Date: 2023-10-07 00:42+0000\n"
 "PO-Revision-Date: 2023-01-03 16:00+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -324,7 +324,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
-#: alkonlinequoteswidget.cpp:274
+#: alkonlinequoteswidget.cpp:278
 #, kde-format
 msgid "GHNS Source"
 msgstr "Πηγή GHNS"
@@ -509,164 +509,164 @@ msgstr "Προφίλ εφαρμογών"
 msgid "New"
 msgstr "Νέο"
 
-#: alkonlinequoteswidget.cpp:156
+#: alkonlinequoteswidget.cpp:160
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Αποδοχή"
 
-#: alkonlinequoteswidget.cpp:158
+#: alkonlinequoteswidget.cpp:162
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Αποδέχεται τα εισηγμένα δεδομένα και τα αποθηκεύει"
 
-#: alkonlinequoteswidget.cpp:159
+#: alkonlinequoteswidget.cpp:163
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Χρησιμοποιήστε το για να αποδεχθείτε την αλλαγή στα δεδομένα."
 
-#: alkonlinequoteswidget.cpp:161
+#: alkonlinequoteswidget.cpp:165
 #, kde-format
 msgid "&Delete"
 msgstr "&Διαγραφή"
 
-#: alkonlinequoteswidget.cpp:163
+#: alkonlinequoteswidget.cpp:167
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Διαγράφει την επιλεγμένη πηγαία εγγραφή"
 
-#: alkonlinequoteswidget.cpp:164
+#: alkonlinequoteswidget.cpp:168
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Χρησιμοποιήστε το για να διαγράψετε την επιλεγμένη πηγαία εγγραφή"
 
-#: alkonlinequoteswidget.cpp:166
+#: alkonlinequoteswidget.cpp:170
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "Έ&λεγχος πηγής"
 
-#: alkonlinequoteswidget.cpp:168
+#: alkonlinequoteswidget.cpp:172
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Ελέγχει την επιλεγμένη πηγαία εγγραφή"
 
-#: alkonlinequoteswidget.cpp:169
+#: alkonlinequoteswidget.cpp:173
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "Χρησιμοποιήστε το για να ελέγξετε την επιλεγμένη πηγαία εγγραφή"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:175
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "Εμφάνι&ση σελίδας"
 
-#: alkonlinequoteswidget.cpp:173
+#: alkonlinequoteswidget.cpp:177
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Εμφανίζει την επιλεγμένη πηγαία εγγραφή σε ένα περιηγητή ιστού"
 
-#: alkonlinequoteswidget.cpp:174
+#: alkonlinequoteswidget.cpp:178
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "Χρησιμοποιήστε το για να εμφανίσετε την επιλεγμένη πηγαία εγγραφή"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:180
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Νέα..."
 
-#: alkonlinequoteswidget.cpp:178
+#: alkonlinequoteswidget.cpp:182
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Δημιουργία νέας πηγαίας εγγραφής για τιμές μετοχών"
 
-#: alkonlinequoteswidget.cpp:179
+#: alkonlinequoteswidget.cpp:183
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "Χρησιμοποιήστε το για να δημιουργήσετε νέα εγγραφή για τιμές μετοχών"
 
-#: alkonlinequoteswidget.cpp:208
+#: alkonlinequoteswidget.cpp:212
 #, kde-format
 msgid "Name"
 msgstr "Όνομα"
 
-#: alkonlinequoteswidget.cpp:208
+#: alkonlinequoteswidget.cpp:212
 #, kde-format
 msgid "Source"
 msgstr "Πηγή"
 
-#: alkonlinequoteswidget.cpp:229
+#: alkonlinequoteswidget.cpp:233
 #, fuzzy, kde-format
 #| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Σύμβολο"
 
-#: alkonlinequoteswidget.cpp:230
+#: alkonlinequoteswidget.cpp:234
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:231
+#: alkonlinequoteswidget.cpp:235
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Όνομα"
 
-#: alkonlinequoteswidget.cpp:239
+#: alkonlinequoteswidget.cpp:243
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:240
+#: alkonlinequoteswidget.cpp:244
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:241
+#: alkonlinequoteswidget.cpp:245
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:276
+#: alkonlinequoteswidget.cpp:280
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Χρηματοοικονομικά:Μετοχή"
 
-#: alkonlinequoteswidget.cpp:277
+#: alkonlinequoteswidget.cpp:281
 #, kde-format
 msgid "local"
 msgstr "τοπικό"
 
-#: alkonlinequoteswidget.cpp:439 alkonlinequoteswidget.cpp:525
+#: alkonlinequoteswidget.cpp:450 alkonlinequoteswidget.cpp:536
 #, kde-format
 msgid "New Quote Source"
 msgstr "Νέα πηγή τιμών μετοχών"
 
-#: alkonlinequoteswidget.cpp:472
+#: alkonlinequoteswidget.cpp:483
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την προσφορά ;"
 
-#: alkonlinequoteswidget.cpp:473
+#: alkonlinequoteswidget.cpp:484
 #, kde-format
 msgid "Delete online quote"
 msgstr "Διαγραφή προσφοράς"
 
-#: alkonlinequoteswidget.cpp:500
+#: alkonlinequoteswidget.cpp:511
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:704
+#: alkonlinequoteswidget.cpp:715
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "HTML παράθυρο αποτελέσματος προσφοράς"
