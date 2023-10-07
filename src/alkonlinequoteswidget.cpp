@@ -275,10 +275,10 @@ void AlkOnlineQuotesWidget::Private::loadProfiles()
 QString sourceTypeString(AlkOnlineQuoteSource &source)
 {
     if (source.isGHNS())
-        return i18n("GHNS Source");
+        return i18n("Remote");
     else if (source.isFinanceQuote())
         return i18n("Finance::Quote");
-    return i18n("local");
+    return i18n("Local");
 }
 
 void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)

@@ -186,7 +186,7 @@
              <string/>
             </property>
             <property name="text">
-             <string>GHNS Source</string>
+             <string>Remote source</string>
             </property>
            </widget>
           </item>
