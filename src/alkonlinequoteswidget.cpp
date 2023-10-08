@@ -211,7 +211,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     m_quoteSourceList->setColumnCount(2);
     m_quoteSourceList->setHeaderLabels(QStringList() << i18n("Name") << i18n("Source"));
     m_quoteSourceList->setRootIsDecorated(false);
-    m_quoteSourceList->header()->resizeSection(1, 5);
+    m_quoteSourceList->header()->resizeSection(0, 5);
     m_quoteSourceList->header()->setStretchLastSection(false);
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     m_quoteSourceList->header()->setSectionResizeMode(0,QHeaderView::Stretch);
