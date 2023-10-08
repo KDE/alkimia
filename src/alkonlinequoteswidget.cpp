@@ -299,7 +299,12 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
         }
 
         QTreeWidgetItem *item = new QTreeWidgetItem(QStringList() << *it << sourceTypeString(source));
-        item->setFlags(Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+        Qt::ItemFlag editFlag = Qt::ItemIsEditable;
+        if (source.isGHNS()) {
+            if (!m_ghnsEditable)
+                editFlag = Qt::NoItemFlags;
+        }
+        item->setFlags(editFlag | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
         m_quoteSourceList->addTopLevelItem(item);
         if (updateResetList) {
             m_resetList += source;
