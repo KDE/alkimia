@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 02:23+0000\n"
-"PO-Revision-Date: 2023-07-23 22:08+0200\n"
+"PO-Revision-Date: 2023-10-08 22:26+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -26,17 +26,17 @@ msgstr "원본 <placeholder>%1</placeholder>이(가) 없습니다."
 #: alkonlinequote.cpp:215 alkonlinequote.cpp:229
 #, kde-format
 msgid "Unable to fetch url for %1"
-msgstr "%1에 대한 URL을 가져올 수 없음"
+msgstr "%1의 URL을 가져올 수 없음"
 
 #: alkonlinequote.cpp:237 alkonlinequote.cpp:656
 #, kde-format
 msgid "Symbol found: '%1'"
-msgstr "기호 검색됨: '%1'"
+msgstr "코드 검색됨: '%1'"
 
 #: alkonlinequote.cpp:240 alkonlinequote.cpp:659
 #, kde-format
 msgid "Unable to parse symbol for %1"
-msgstr "%1에 대한 기호를 해석할 수 없음"
+msgstr "%1의 코드를 해석할 수 없음"
 
 #: alkonlinequote.cpp:263
 #, kde-format
@@ -79,12 +79,12 @@ msgstr "%1 %2 %3 실행 중..."
 #: alkonlinequote.cpp:576
 #, kde-format
 msgid "Price found: '%1' (%2)"
-msgstr "검색된 가격: '%1' (%2)"
+msgstr "검색된 금액: '%1' (%2)"
 
 #: alkonlinequote.cpp:579
 #, kde-format
 msgid "Unable to parse price for '%1'"
-msgstr "'%1'에 대한 가격을 해석할 수 없음"
+msgstr "'%1'의 금액을 해석할 수 없음"
 
 #: alkonlinequote.cpp:588
 #, kde-format
@@ -114,18 +114,17 @@ msgstr "'%1'의 날짜 처리가 비활성화됨"
 #: alkonlinequote.cpp:608
 #, kde-format
 msgid "Unable to parse date for '%1'"
-msgstr "'%1'에 대한 날짜를 해석할 수 없음"
+msgstr "'%1'의 날짜를 해석할 수 없음"
 
 #: alkonlinequote.cpp:685
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
-msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
+msgstr "%1의 금액을 업데이트할 수 없습니다 (빈 시세 데이터)"
 
 #: alkonlinequote.cpp:694
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "%1에 대한 URL을 가져올 수 없음"
+msgstr "%1의 URL을 가져오는 중에 시간 제한 초과됨"
 
 #: alkonlinequoteswidget.cpp:135
 #, kde-format
@@ -321,7 +320,7 @@ msgstr "GHNS 데이터 경로"
 #: alkonlinequoteswidget.ui:185
 #, kde-format
 msgid "<html><head/><body><p>online price quotes</p></body></html>"
-msgstr "<html><head/><body><p>온라인 가격 시세</p></body></html>"
+msgstr "<html><head/><body><p>온라인 금액 시세</p></body></html>"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteswidget.ui:204
@@ -374,7 +373,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p><span style=\" font-style:italic;\">위에 입력한 URL에"
 "서 반환된 데이터를 해석하는 데 사용할 정규 표현식을 입력하십시오. 시세 데이터"
-"를 사용하려면 기호, 가격, 날짜가 포함되어 있어야 합니다. </span><a href="
+"를 사용하려면 코드, 금액, 날짜가 포함되어 있어야 합니다. </span><a href="
 "\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
 "a><span style=\" font-style:italic;\">에 있는 KMyMoney 포럼을 사용하거나</"
@@ -406,7 +405,7 @@ msgstr "기호"
 #: alkonlinequoteswidget.ui:301
 #, kde-format
 msgid "Price"
-msgstr "가격"
+msgstr "금액"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequoteswidget.ui:311
@@ -455,7 +454,7 @@ msgstr "다운로드한 데이터에서 기호를 추출하는 정규 표현식"
 #: alkonlinequoteswidget.ui:355
 #, kde-format
 msgid "Regular Expression to extract the price from the downloaded data"
-msgstr "다운로드한 데이터에서 가격을 추출하는 정규 표현식"
+msgstr "다운로드한 데이터에서 금액을 추출하는 정규 표현식"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
