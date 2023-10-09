@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-07 00:42+0000\n"
-"PO-Revision-Date: 2023-07-23 22:08+0200\n"
+"POT-Creation-Date: 2023-10-09 00:43+0000\n"
+"PO-Revision-Date: 2023-10-08 22:26+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -26,17 +26,17 @@ msgstr "원본 <placeholder>%1</placeholder>이(가) 없습니다."
 #: alkonlinequote.cpp:227 alkonlinequote.cpp:241
 #, kde-format
 msgid "Unable to fetch url for %1"
-msgstr "%1에 대한 URL을 가져올 수 없음"
+msgstr "%1의 URL을 가져올 수 없음"
 
 #: alkonlinequote.cpp:249 alkonlinequote.cpp:692
 #, kde-format
 msgid "Symbol found: '%1'"
-msgstr "기호 검색됨: '%1'"
+msgstr "코드 검색됨: '%1'"
 
 #: alkonlinequote.cpp:252 alkonlinequote.cpp:695
 #, kde-format
 msgid "Unable to parse symbol for %1"
-msgstr "%1에 대한 기호를 해석할 수 없음"
+msgstr "%1의 코드를 해석할 수 없음"
 
 #: alkonlinequote.cpp:275
 #, kde-format
@@ -79,12 +79,12 @@ msgstr "%1 %2 %3 실행 중..."
 #: alkonlinequote.cpp:605
 #, kde-format
 msgid "Price found: '%1' (%2)"
-msgstr "검색된 가격: '%1' (%2)"
+msgstr "검색된 금액: '%1' (%2)"
 
 #: alkonlinequote.cpp:608
 #, kde-format
 msgid "Unable to parse price for '%1'"
-msgstr "'%1'에 대한 가격을 해석할 수 없음"
+msgstr "'%1'의 금액을 해석할 수 없음"
 
 #: alkonlinequote.cpp:617
 #, kde-format
@@ -114,48 +114,43 @@ msgstr "'%1'의 날짜 처리가 비활성화됨"
 #: alkonlinequote.cpp:637
 #, kde-format
 msgid "Unable to parse date for '%1'"
-msgstr "'%1'에 대한 날짜를 해석할 수 없음"
+msgstr "'%1'의 날짜를 해석할 수 없음"
 
 #: alkonlinequote.cpp:742
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
-msgstr ""
+msgstr "시세 데이터의 첫 번째 줄(머릿글 줄)에서 구분자를 확인할 수 없습니다."
 
 #: alkonlinequote.cpp:769
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
+msgstr "시세 데이터에서 날짜 열 '%1'을(를) 찾을 수 없음"
 
 #: alkonlinequote.cpp:775
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
+msgstr "시세 데이터에서 금액 열 '%1'을(를) 찾을 수 없음"
 
 #: alkonlinequote.cpp:793
-#, fuzzy, kde-format
-#| msgid "Unable to parse date '%1' using format '%2': %3"
+#, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "'%2' 형식을 사용하여 날짜 '%1'을(를) 해석할 수 없음: %3"
+msgstr "시세 데이터에서 '%2'을(를) 사용하여 날짜 '%1'을(를) 변환할 수 없음"
 
 #: alkonlinequote.cpp:801
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
+msgstr "시세 데이터에서 날짜/금액 쌍을 찾을 수 없음"
 
 #: alkonlinequote.cpp:824
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
-msgstr "%1에 대한 가격을 업데이트할 수 없습니다 (빈 시세 데이터)"
+msgstr "%1의 금액을 업데이트할 수 없습니다 (빈 시세 데이터)"
 
 #: alkonlinequote.cpp:842
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "%1에 대한 URL을 가져올 수 없음"
+msgstr "%1의 URL을 가져오는 중에 시간 제한 초과됨"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
@@ -189,7 +184,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p><span style=\" font-style:italic;\">위에 입력한 URL에"
 "서 반환된 데이터를 해석하는 데 사용할 정규 표현식을 입력하십시오. 시세 데이터"
-"를 사용하려면 기호, 가격, 날짜가 포함되어 있어야 합니다. </span><a href="
+"를 사용하려면 코드, 금액, 날짜가 포함되어 있어야 합니다. </span><a href="
 "\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
 "a><span style=\" font-style:italic;\">에 있는 KMyMoney 포럼을 사용하거나</"
@@ -215,26 +210,25 @@ msgstr "URL"
 #: alkonlinequotedetails.ui:52 alkonlinequotesprofile.ui:142
 #, kde-format
 msgid "Identifier"
-msgstr ""
+msgstr "식별자"
 
 #. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
 #: alkonlinequotedetails.ui:62 alkonlinequotesprofile.ui:152
 #, kde-format
 msgid "Selected by"
-msgstr ""
+msgstr "선택 기준"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "Data Format"
-msgstr "날짜 형식"
+msgstr "데이터 형식"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
 #, kde-format
 msgid "Price"
-msgstr "가격"
+msgstr "금액"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequotedetails.ui:86 alkonlinequotesprofile.ui:169
@@ -252,7 +246,7 @@ msgstr "날짜 형식"
 #: alkonlinequotedetails.ui:113
 #, kde-format
 msgid "Default Identifier"
-msgstr ""
+msgstr "기본 식별자"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:189
@@ -281,28 +275,27 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequotedetails.ui:137 alkonlinequotesprofile.ui:206
-#, fuzzy, kde-format
-#| msgid "Regular Expression to extract the date from the downloaded data"
+#, kde-format
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "다운로드한 데이터에서 날짜를 추출하는 정규 표현식"
+msgstr "다운로드한 데이터에서 식별자를 추출하는 정규 표현식"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
 #: alkonlinequotedetails.ui:144 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
-msgstr ""
+msgstr "식별자를 선택하는 방법"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
 #: alkonlinequotedetails.ui:151
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr ""
+msgstr "다운로드하고 처리할 데이터의 예상되는 형식입니다."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
 #, kde-format
 msgid "Regular Expression to extract the price from the downloaded data"
-msgstr "다운로드한 데이터에서 가격을 추출하는 정규 표현식"
+msgstr "다운로드한 데이터에서 금액을 추출하는 정규 표현식"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
@@ -316,14 +309,14 @@ msgstr "다운로드한 데이터에서 날짜를 추출하는 정규 표현식"
 #: alkonlinequotedetails.ui:179
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr ""
+msgstr "이 온라인 시세 출처에서 사용할 수 있는 식별자"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
-#: alkonlinequoteswidget.cpp:278
-#, kde-format
-msgid "GHNS Source"
-msgstr "GHNS 소스"
+#: alkonlinequotedetails.ui:189
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
+msgid "Remote source"
+msgstr "새로운 시세 원본"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
@@ -337,13 +330,13 @@ msgstr "수락"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29
 #, kde-format
 msgid "<html><head/><body><p>online price quotes</p></body></html>"
-msgstr "<html><head/><body><p>온라인 가격 시세</p></body></html>"
+msgstr "<html><head/><body><p>온라인 금액 시세</p></body></html>"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequotes.ui:54 alkonlinequotesprofile.ui:54
@@ -415,6 +408,12 @@ msgstr "원본 확인"
 #, kde-format
 msgid "Show Page"
 msgstr "페이지 표시"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequotesprofile.ui:244
+#, kde-format
+msgid "GHNS Source"
+msgstr "GHNS 소스"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
 #: alkonlinequotesprofile.ui:260
@@ -590,21 +589,19 @@ msgid "Source"
 msgstr "원본"
 
 #: alkonlinequoteswidget.cpp:233
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
-msgstr "기호"
+msgstr "코드"
 
 #: alkonlinequoteswidget.cpp:234
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr ""
+msgstr "식별 번호"
 
 #: alkonlinequoteswidget.cpp:235
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "이름"
@@ -613,18 +610,23 @@ msgstr "이름"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr ""
+msgstr "태그가 제거된 HTML"
 
 #: alkonlinequoteswidget.cpp:244
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: alkonlinequoteswidget.cpp:245
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
+msgstr "CSV"
+
+#: alkonlinequoteswidget.cpp:278
+#, kde-format
+msgid "Remote"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:280
@@ -633,31 +635,32 @@ msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
 #: alkonlinequoteswidget.cpp:281
-#, kde-format
-msgid "local"
+#, fuzzy, kde-format
+#| msgid "local"
+msgid "Local"
 msgstr "로컬"
 
-#: alkonlinequoteswidget.cpp:450 alkonlinequoteswidget.cpp:536
+#: alkonlinequoteswidget.cpp:455 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "새로운 시세 원본"
 
-#: alkonlinequoteswidget.cpp:483
+#: alkonlinequoteswidget.cpp:488
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "이 온라인 시세를 삭제하시겠습니까?"
 
-#: alkonlinequoteswidget.cpp:484
+#: alkonlinequoteswidget.cpp:489
 #, kde-format
 msgid "Delete online quote"
 msgstr "온라인 시세 삭제"
 
-#: alkonlinequoteswidget.cpp:511
+#: alkonlinequoteswidget.cpp:516
 #, kde-format
 msgid ".copy"
 msgstr ".복사"
 
-#: alkonlinequoteswidget.cpp:715
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "온라인 시세 HTML 결과 창"

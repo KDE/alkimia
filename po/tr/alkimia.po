@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-07 00:42+0000\n"
+"POT-Creation-Date: 2023-10-09 00:43+0000\n"
 "PO-Revision-Date: 2023-09-29 14:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -315,11 +315,11 @@ msgid "An identifier that is known to work for this online quote source"
 msgstr "Bu çevrimiçi kur kaynağı ile çalıştığı bilinen bir tanımlayıcı"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
-#: alkonlinequoteswidget.cpp:278
-#, kde-format
-msgid "GHNS Source"
-msgstr "GHNS Kaynağı"
+#: alkonlinequotedetails.ui:189
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
+msgid "Remote source"
+msgstr "Yeni Kur Kaynağı"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
@@ -412,6 +412,12 @@ msgstr "Kaynağı Denetle"
 #, kde-format
 msgid "Show Page"
 msgstr "Sayfayı Göster"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequotesprofile.ui:244
+#, kde-format
+msgid "GHNS Source"
+msgstr "GHNS Kaynağı"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
 #: alkonlinequotesprofile.ui:260
@@ -623,37 +629,43 @@ msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
+#: alkonlinequoteswidget.cpp:278
+#, kde-format
+msgid "Remote"
+msgstr ""
+
 #: alkonlinequoteswidget.cpp:280
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finans::Kur"
 
 #: alkonlinequoteswidget.cpp:281
-#, kde-format
-msgid "local"
+#, fuzzy, kde-format
+#| msgid "local"
+msgid "Local"
 msgstr "yerel"
 
-#: alkonlinequoteswidget.cpp:450 alkonlinequoteswidget.cpp:536
+#: alkonlinequoteswidget.cpp:455 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "Yeni Kur Kaynağı"
 
-#: alkonlinequoteswidget.cpp:483
+#: alkonlinequoteswidget.cpp:488
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Bu çevrimiçi kuru silmek istediğinize emin misiniz?"
 
-#: alkonlinequoteswidget.cpp:484
+#: alkonlinequoteswidget.cpp:489
 #, kde-format
 msgid "Delete online quote"
 msgstr "Çevrimiçi kuru sil"
 
-#: alkonlinequoteswidget.cpp:511
+#: alkonlinequoteswidget.cpp:516
 #, kde-format
 msgid ".copy"
 msgstr ".kopya"
 
-#: alkonlinequoteswidget.cpp:715
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Çevrimiçi Kur HTML Sonuç Penceresi"

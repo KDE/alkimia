@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-07 00:42+0000\n"
+"POT-Creation-Date: 2023-10-09 00:43+0000\n"
 "PO-Revision-Date: 2019-11-08 02:55+0300\n"
 "Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -336,13 +336,11 @@ msgid "An identifier that is known to work for this online quote source"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:189 alkonlinequotesprofile.ui:244
-#: alkonlinequoteswidget.cpp:278
+#: alkonlinequotedetails.ui:189
 #, fuzzy, kde-format
-#| msgctxt "Online quote source"
-#| msgid "Source"
-msgid "GHNS Source"
-msgstr "Источник"
+#| msgid "New Quote Source"
+msgid "Remote source"
+msgstr "Новый источник котировок"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
@@ -447,6 +445,14 @@ msgstr "Источник"
 #| msgid "Show Columns"
 msgid "Show Page"
 msgstr "Показывать столбцы"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequotesprofile.ui:244
+#, fuzzy, kde-format
+#| msgctxt "Online quote source"
+#| msgid "Source"
+msgid "GHNS Source"
+msgstr "Источник"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
 #: alkonlinequotesprofile.ui:260
@@ -672,6 +678,11 @@ msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr ""
 
+#: alkonlinequoteswidget.cpp:278
+#, kde-format
+msgid "Remote"
+msgstr ""
+
 #: alkonlinequoteswidget.cpp:280
 #, kde-format
 msgid "Finance::Quote"
@@ -679,32 +690,32 @@ msgstr ""
 
 #: alkonlinequoteswidget.cpp:281
 #, kde-format
-msgid "local"
+msgid "Local"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:450 alkonlinequoteswidget.cpp:536
+#: alkonlinequoteswidget.cpp:455 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "Новый источник котировок"
 
-#: alkonlinequoteswidget.cpp:483
+#: alkonlinequoteswidget.cpp:488
 #, fuzzy, kde-format
 #| msgid "Use this to delete the selected online source entry"
 msgid "Are you sure to delete this online quote ?"
 msgstr "Нажмите эту кнопку, чтобы удалить выбранный источник"
 
-#: alkonlinequoteswidget.cpp:484
+#: alkonlinequoteswidget.cpp:489
 #, fuzzy, kde-format
 #| msgid "Online quote"
 msgid "Delete online quote"
 msgstr "Источники курсов"
 
-#: alkonlinequoteswidget.cpp:511
+#: alkonlinequoteswidget.cpp:516
 #, kde-format
 msgid ".copy"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:715
+#: alkonlinequoteswidget.cpp:720
 #, fuzzy, kde-format
 #| msgid "Online Quotes - Select price source"
 msgid "Online Quote HTML Result Window"
