@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-09 00:43+0000\n"
-"PO-Revision-Date: 2023-09-16 10:08\n"
+"PO-Revision-Date: 2023-10-10 14:27\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -121,28 +121,24 @@ msgid ""
 msgstr ""
 
 #: alkonlinequote.cpp:769
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "无法更新 %1 的价格信息 (报表数据为空)"
+msgstr ""
 
 #: alkonlinequote.cpp:775
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "无法更新 %1 的价格信息 (报表数据为空)"
+msgstr ""
 
 #: alkonlinequote.cpp:793
-#, fuzzy, kde-format
-#| msgid "Unable to parse date '%1' using format '%2': %3"
+#, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "无法使用格式 '%1' 解析日期 '%2': %3"
+msgstr ""
 
 #: alkonlinequote.cpp:801
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "无法更新 %1 的价格信息 (报表数据为空)"
+msgstr ""
 
 #: alkonlinequote.cpp:824
 #, kde-format
@@ -150,10 +146,9 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "无法更新 %1 的价格信息 (报表数据为空)"
 
 #: alkonlinequote.cpp:842
-#, fuzzy, kde-format
-#| msgid "Unable to fetch url for %1"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "无法获取 %1 的 URL"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
@@ -222,10 +217,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "Data Format"
-msgstr "日期格式"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
@@ -316,10 +310,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:189
-#, fuzzy, kde-format
-#| msgid "New Quote Source"
+#, kde-format
 msgid "Remote source"
-msgstr "新报价来源"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
@@ -635,10 +628,9 @@ msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
 #: alkonlinequoteswidget.cpp:281
-#, fuzzy, kde-format
-#| msgid "local"
+#, kde-format
 msgid "Local"
-msgstr "本地"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:455 alkonlinequoteswidget.cpp:541
 #, kde-format

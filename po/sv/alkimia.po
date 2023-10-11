@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-09 00:43+0000\n"
-"PO-Revision-Date: 2023-09-29 20:16+0200\n"
+"PO-Revision-Date: 2023-10-10 18:50+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -317,10 +317,9 @@ msgstr "En identifierare som är känd för att fungera för nätkurskällan"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:189
-#, fuzzy, kde-format
-#| msgid "New Quote Source"
+#, kde-format
 msgid "Remote source"
-msgstr "Ny kurskälla"
+msgstr "Fjärrkälla"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
@@ -634,7 +633,7 @@ msgstr "CSV"
 #: alkonlinequoteswidget.cpp:278
 #, kde-format
 msgid "Remote"
-msgstr ""
+msgstr "Fjärr"
 
 #: alkonlinequoteswidget.cpp:280
 #, kde-format
@@ -642,10 +641,9 @@ msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
 #: alkonlinequoteswidget.cpp:281
-#, fuzzy, kde-format
-#| msgid "local"
+#, kde-format
 msgid "Local"
-msgstr "lokal"
+msgstr "Lokal"
 
 #: alkonlinequoteswidget.cpp:455 alkonlinequoteswidget.cpp:541
 #, kde-format

@@ -121,28 +121,24 @@ msgid ""
 msgstr ""
 
 #: alkonlinequote.cpp:769
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
+msgstr ""
 
 #: alkonlinequote.cpp:775
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
+msgstr ""
 
 #: alkonlinequote.cpp:793
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
+msgstr ""
 
 #: alkonlinequote.cpp:801
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
+msgstr ""
 
 #: alkonlinequote.cpp:824
 #, kde-format
@@ -211,10 +207,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "Data Format"
-msgstr "Formát data"
+msgstr "Formát dat"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
@@ -236,10 +231,9 @@ msgstr "Formát data"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:113
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "Identifikátor"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:189
@@ -616,7 +610,7 @@ msgstr ""
 #: alkonlinequoteswidget.cpp:278
 #, kde-format
 msgid "Remote"
-msgstr ""
+msgstr "Vzdálené"
 
 #: alkonlinequoteswidget.cpp:280
 #, kde-format
@@ -624,10 +618,9 @@ msgid "Finance::Quote"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:281
-#, fuzzy, kde-format
-#| msgid "local"
+#, kde-format
 msgid "Local"
-msgstr "lokální"
+msgstr "Místní"
 
 #: alkonlinequoteswidget.cpp:455 alkonlinequoteswidget.cpp:541
 #, kde-format
