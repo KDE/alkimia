@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-09 00:43+0000\n"
-"PO-Revision-Date: 2023-09-29 04:52+0200\n"
+"PO-Revision-Date: 2023-10-16 06:07+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #: alkonlinequote.cpp:193
 #, kde-format
@@ -261,7 +261,7 @@ msgstr "მორგება"
 #: alkonlinequotedetails.ui:127 alkonlinequotesprofile.ui:196
 #, kde-format
 msgid "URL to be used to download the quote"
-msgstr "კოტის გადმოსაწერად გამოყენებული URL"
+msgstr "კვოტის გადმოსაწერად გამოყენებული URL"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
 #: alkonlinequotedetails.ui:130 alkonlinequotesprofile.ui:199
@@ -318,10 +318,9 @@ msgstr "იდენტიფიკატორი, რომელიც ვი
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:189
-#, fuzzy, kde-format
-#| msgid "New Quote Source"
+#, kde-format
 msgid "Remote source"
-msgstr "კოტის ახალი წყარო"
+msgstr "დაშორებული წყარო"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
@@ -633,7 +632,7 @@ msgstr "CSV"
 #: alkonlinequoteswidget.cpp:278
 #, kde-format
 msgid "Remote"
-msgstr ""
+msgstr "დაშორებული"
 
 #: alkonlinequoteswidget.cpp:280
 #, kde-format
@@ -641,15 +640,14 @@ msgid "Finance::Quote"
 msgstr "ფინანსები::კოტა"
 
 #: alkonlinequoteswidget.cpp:281
-#, fuzzy, kde-format
-#| msgid "local"
+#, kde-format
 msgid "Local"
 msgstr "ლოკალური"
 
 #: alkonlinequoteswidget.cpp:455 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
-msgstr "კოტის ახალი წყარო"
+msgstr "კვოტის ახალი წყარო"
 
 #: alkonlinequoteswidget.cpp:488
 #, kde-format
