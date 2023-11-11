@@ -13,7 +13,7 @@ Dependencies:
     'frameworks/kxmlgui': '@stable'
 - 'on': ['Linux', 'FreeBSD']
   'require':
-    'frameworks/plasma-framework': '@stable'
+    'plasma/plasma-framework': '@stable'
 
 Options:
   cmake-options: '-DBUILD_WITH_WEBENGINE=ON'
