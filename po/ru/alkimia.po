@@ -8,19 +8,20 @@
 # Yury G. Kudryashov <urkud.urkud@gmail.com>, 2011.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
 # Yuri Efremov <yur.arh@gmail.com>, 2014.
+# Мария Шикунова <translation-team@basealt.ru>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 02:23+0000\n"
-"PO-Revision-Date: 2019-11-08 02:55+0300\n"
-"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2023-11-10 14:32+0300\n"
+"Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.07.70\n"
+"X-Generator: Lokalize 23.04.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -33,10 +34,9 @@ msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Источник <placeholder>%1</placeholder> не найден."
 
 #: alkonlinequote.cpp:215 alkonlinequote.cpp:229
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to fetch url for %1"
-msgstr "Невозможно обновить курс «%1» (пустая дата)"
+msgstr "Невозможно получить адрес для %1"
 
 #: alkonlinequote.cpp:237 alkonlinequote.cpp:656
 #, kde-format
@@ -44,10 +44,9 @@ msgid "Symbol found: '%1'"
 msgstr "Найден код: «%1»"
 
 #: alkonlinequote.cpp:240 alkonlinequote.cpp:659
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to parse symbol for %1"
-msgstr "Невозможно обновить курс «%1» (пустая дата)"
+msgstr "Невозможно обработать символ для %1"
 
 #: alkonlinequote.cpp:263
 #, kde-format
@@ -71,15 +70,14 @@ msgid "Failed to open downloaded file"
 msgstr "Не удалось открыть загруженный файл"
 
 #: alkonlinequote.cpp:375
-#, fuzzy, kde-format
-#| msgid "Symbol found: %1"
+#, kde-format
 msgid "URL found: %1..."
-msgstr "Найден код: %1"
+msgstr "Найден адрес: %1…"
 
 #: alkonlinequote.cpp:465
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
-msgstr ""
+msgstr "Адрес был изменён; обновите адрес котировки в Интернете"
 
 #: alkonlinequote.cpp:536
 #, kde-format
@@ -93,10 +91,9 @@ msgid "Price found: '%1' (%2)"
 msgstr "Найден курс: «%1» (%2)"
 
 #: alkonlinequote.cpp:579
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to parse price for '%1'"
-msgstr "Невозможно обновить курс «%1» (пустая дата)"
+msgstr "Невозможно обработать курс для «%1»"
 
 #: alkonlinequote.cpp:588
 #, kde-format
@@ -104,32 +101,29 @@ msgid "Date found: '%1'"
 msgstr "Найдена дата: «%1»"
 
 #: alkonlinequote.cpp:594
-#, fuzzy, kde-format
-#| msgid "Date found: %1"
+#, kde-format
 msgid "Date format found: '%1' -> '%2'"
-msgstr "Найдена дата: %1"
+msgstr "Найден формат даты: «%1» -> «%2»"
 
 #: alkonlinequote.cpp:597
-#, fuzzy, kde-format
-#| msgid "Unable to store user information: %1"
+#, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
-msgstr "Невозможно сохранить данные владельца: %1"
+msgstr "Невозможно обработать дату «%1» с помощью формата «%2»: %3"
 
 #: alkonlinequote.cpp:601 alkonlinequote.cpp:611
 #, kde-format
 msgid "Using current date for '%1'"
-msgstr ""
+msgstr "Использование текущей даты для «%1»"
 
 #: alkonlinequote.cpp:605
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
-msgstr ""
+msgstr "Обработка даты отключена для «%1»"
 
 #: alkonlinequote.cpp:608
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to parse date for '%1'"
-msgstr "Невозможно обновить курс «%1» (пустая дата)"
+msgstr "Невозможно обработать дату для «'%1»"
 
 #: alkonlinequote.cpp:685
 #, kde-format
@@ -137,18 +131,15 @@ msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
 
 #: alkonlinequote.cpp:694
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "Невозможно обновить курс «%1» (пустая дата)"
+msgstr "Превышено время ожидания получения данных с адреса для %1"
 
 #: alkonlinequoteswidget.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "Accept 'imported' and 'matched' transaction"
-#| msgid "Accept"
+#, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
-msgstr "Принять"
+msgstr "&Принять"
 
 #: alkonlinequoteswidget.cpp:137
 #, kde-format
@@ -176,43 +167,36 @@ msgid "Use this to delete the selected online source entry"
 msgstr "Нажмите эту кнопку, чтобы удалить выбранный источник"
 
 #: alkonlinequoteswidget.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Online quote source"
-#| msgid "Source"
+#, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
-msgstr "Источник"
+msgstr "&Проверить источник"
 
 #: alkonlinequoteswidget.cpp:147
-#, fuzzy, kde-format
-#| msgid "Delete the selected source entry"
+#, kde-format
 msgid "Check the selected source entry"
-msgstr "Удалить источник курсов"
+msgstr "Проверить выбранный источник курсов"
 
 #: alkonlinequoteswidget.cpp:148
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid "Use this to check the selected online source entry"
-msgstr "Нажмите эту кнопку, чтобы удалить выбранный источник"
+msgstr "Нажмите эту кнопку, чтобы проверить выбранный онлайн-источник"
 
 #: alkonlinequoteswidget.cpp:150
-#, fuzzy, kde-format
-#| msgid "Show KMyMoney welcome page"
+#, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
-msgstr "Страница приветствия"
+msgstr "&Показать страницу"
 
 #: alkonlinequoteswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid "Delete the selected source entry"
+#, kde-format
 msgid "Show the selected source entry in a web browser"
-msgstr "Удалить источник курсов"
+msgstr "Показать выбранный источник курсов в браузере"
 
 #: alkonlinequoteswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid "Use this to show the selected online source entry"
-msgstr "Нажмите эту кнопку, чтобы удалить выбранный источник"
+msgstr "Нажмите эту кнопку, чтобы показать выбранный источник в Интернете"
 
 #: alkonlinequoteswidget.cpp:155
 #, kde-format
@@ -234,32 +218,28 @@ msgstr ""
 #: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: alkonlinequoteswidget.cpp:186
-#, fuzzy, kde-format
-#| msgctxt "Online quote source"
-#| msgid "Source"
+#, kde-format
 msgid "Source"
-msgstr "Источник"
+msgstr "Источник котировок"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequoteswidget.cpp:242 alkonlinequoteswidget.ui:379
-#, fuzzy, kde-format
-#| msgctxt "Online quote source"
-#| msgid "Source"
+#, kde-format
 msgid "GHNS Source"
-msgstr "Источник"
+msgstr "Источник GHNS"
 
 #: alkonlinequoteswidget.cpp:244
 #, kde-format
 msgid "Finance::Quote"
-msgstr ""
+msgstr "Finance::Quote"
 
 #: alkonlinequoteswidget.cpp:245
 #, kde-format
 msgid "local"
-msgstr ""
+msgstr "локальный"
 
 #: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:473
 #, kde-format
@@ -267,27 +247,24 @@ msgid "New Quote Source"
 msgstr "Новый источник котировок"
 
 #: alkonlinequoteswidget.cpp:422
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid "Are you sure to delete this online quote ?"
-msgstr "Нажмите эту кнопку, чтобы удалить выбранный источник"
+msgstr "Действительно удалить эту котировку, полученную из Интернета?"
 
 #: alkonlinequoteswidget.cpp:423
-#, fuzzy, kde-format
-#| msgid "Online quote"
+#, kde-format
 msgid "Delete online quote"
-msgstr "Источники курсов"
+msgstr "Удалить котировку в Интернете"
 
 #: alkonlinequoteswidget.cpp:450
 #, kde-format
 msgid ".copy"
-msgstr ""
+msgstr ".copy"
 
 #: alkonlinequoteswidget.cpp:626
-#, fuzzy, kde-format
-#| msgid "Online Quotes - Select price source"
+#, kde-format
 msgid "Online Quote HTML Result Window"
-msgstr "Веб-источники — выберите источник котировок"
+msgstr "Окно результатов котировки в Интернете в формате HTML"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
@@ -303,19 +280,19 @@ msgid ""
 "<html><head/><body><p>Select, add or delete an application profile, where to "
 "load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Выберите, добавьте или удалите профиль приложения, "
+"откуда будут загружаться и сохраняться профили, например, в kmymoney or "
+"skrooge.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequoteswidget.ui:29
-#, fuzzy, kde-format
-#| msgid "Application"
+#, kde-format
 msgid "Application Profiles"
-msgstr "Внешнее приложение"
+msgstr "Профили приложения"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newProfile)
 #: alkonlinequoteswidget.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@action add new price"
-#| msgid "New"
+#, kde-format
 msgid "New"
 msgstr "Создать"
 
@@ -328,36 +305,34 @@ msgstr "Удалить"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
 #: alkonlinequoteswidget.ui:93
-#, fuzzy, kde-format
-#| msgid "VAT details"
+#, kde-format
 msgid "Profile details"
-msgstr "Налог на добавленную стоимость"
+msgstr "Подробности профиля"
 
 #. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
 #: alkonlinequoteswidget.ui:102
 #, kde-format
 msgid "GHNS config file"
-msgstr ""
+msgstr "Файл конфигурации GHNS"
 
 #. i18n: ectx: property (text), widget (QLabel, m_configLabel)
 #: alkonlinequoteswidget.ui:122
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgid "Config file"
-msgstr "Настроить"
+msgstr "Файл конфигурации"
 
 #. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
 #: alkonlinequoteswidget.ui:159
 #, kde-format
 msgid "GHNS data path"
-msgstr ""
+msgstr "Путь к данным GHNS"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteswidget.ui:185
-#, fuzzy, kde-format
-#| msgid "Use this to clear all splits of this transaction"
+#, kde-format
 msgid "<html><head/><body><p>online price quotes</p></body></html>"
-msgstr "Удалить все разделы операции"
+msgstr ""
+"<html><head/><body><p>источники котировок в Интернете</p></body></html>"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteswidget.ui:204
@@ -372,21 +347,17 @@ msgstr "Создать"
 msgid ""
 "Create a duplicate of the currently selected source entry under a different "
 "name."
-msgstr ""
+msgstr "Создать дубль выбранного источника под другим именем."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:221
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a duplicate of an entry for an online source"
-msgstr ""
-"Нажмите эту кнопку, чтобы добавить новый источник котировок в Интернете"
+msgstr "Нажмите эту кнопку, чтобы дублировать источник котировок в Интернете"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:224
-#, fuzzy, kde-format
-#| msgctxt "To duplicate a split"
-#| msgid "Duplicate"
+#, kde-format
 msgid "Duplicate"
 msgstr "Дублировать"
 
@@ -394,18 +365,11 @@ msgstr "Дублировать"
 #: alkonlinequoteswidget.ui:235
 #, kde-format
 msgid "Install"
-msgstr ""
+msgstr "Установить"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequoteswidget.ui:265
-#, fuzzy, kde-format
-#| msgid ""
-#| "<i>Enter regular expressions which can be used to parse the data returned "
-#| "from the URL entered above.  The symbol, price, and date must be found in "
-#| "the quote data to be usable. You may also try the KMyMoney user's "
-#| "mailinglist at <a href=\"mailto:kmymoney2-user@lists.sourceforge.net"
-#| "\">kmymoney2-user@lists.sourceforge.net</a> to find what settings work "
-#| "for other users in your country.</i>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
 "expressions which can be used to parse the data returned from the URL "
@@ -419,11 +383,16 @@ msgid ""
 "a><span style=\" font-style:italic;\"> to find what settings work for other "
 "users in your country.</span></p></body></html>"
 msgstr ""
-"<i>Введите регулярное выражение для разбора данных из указанного выше "
-"источника курсов. В данных должны содержаться символ, цена и дата. В архиве "
-"рассылки <a href=\"mailto:kmymoney2-user@lists.sourceforge.net\">kmymoney2-"
-"user@lists.sourceforge.net</a> вы можете поискать параметры источников, "
-"подходящие для пользователей в вашей стране.</i>"
+"<html><head/><body><p><span style=\" font-style:italic;\">Введите регулярное "
+"выражение для разбора данных из указанного выше источника курсов. В данных "
+"должны содержаться символ, цена и дата. На форуме KMyMoney </span><a href="
+"\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
+"a>  или <span style=\" font-style:italic;\">в пользовательской рассылке </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\">  вы можете поискать параметры "
+"источников, подходящие для пользователей в вашей стране.</i>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequoteswidget.ui:268
@@ -547,45 +516,37 @@ msgstr "Не удалять фрагменты HTML"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequoteswidget.ui:447
-#, fuzzy, kde-format
-#| msgctxt "Accept 'imported' and 'matched' transaction"
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
 msgstr "Принять"
 
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
 #: alkonlinequoteswidget.ui:487
-#, fuzzy, kde-format
-#| msgid "Debug Options"
+#, kde-format
 msgid "Debugging"
 msgstr "Отладка"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteswidget.ui:502
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgid "One Symbol"
-msgstr "Код"
+msgstr "Один символ"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteswidget.ui:516
-#, fuzzy, kde-format
-#| msgid "Symbol"
+#, kde-format
 msgid "Two Symbols"
-msgstr "Код"
+msgstr "Два символа"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
 #: alkonlinequoteswidget.ui:537
-#, fuzzy, kde-format
-#| msgctxt "Online quote source"
-#| msgid "Source"
+#, kde-format
 msgid "Check Source"
-msgstr "Источник"
+msgstr "Проверить источник"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequoteswidget.ui:548
-#, fuzzy, kde-format
-#| msgid "Show Columns"
+#, kde-format
 msgid "Show Page"
-msgstr "Показывать столбцы"
+msgstr "Показать страницу"
