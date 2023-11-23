@@ -127,7 +127,7 @@ msgstr "No s'ha pogut actualitzar el preu de %1 (dades de cotització buides)"
 #: alkonlinequote.cpp:694
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "S'ha excedit el temps límit d'espera en recuperar l'URL per a %1"
+msgstr "S'ha excedit el temps d'espera en recuperar l'URL per a %1"
 
 #: alkonlinequoteswidget.cpp:135
 #, kde-format
