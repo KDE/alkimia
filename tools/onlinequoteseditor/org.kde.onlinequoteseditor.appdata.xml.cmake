@@ -9,6 +9,7 @@
   <name xml:lang="de">Editor für Online-Kursnotizen</name>
   <name xml:lang="el">Επεξεργαστής επιγραμμικών τιμών</name>
   <name xml:lang="en-GB">Online Quotes Editor</name>
+  <name xml:lang="eo">Redaktilo por enretaj akcioprezoj</name>
   <name xml:lang="es">Editor de cotizaciones en línea</name>
   <name xml:lang="fr">Éditeur de cotations en ligne</name>
   <name xml:lang="gl">Editor de cotizacións de Internet</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="de">Editor für Online-Kursnotizen für Finanz-Anwendungen</summary>
   <summary xml:lang="el">Επεξεργαστής για επιγραμμικές τιμές μετοχών που χρησιμοποιούν οι χρηματοοικονομικές εφαρμογές</summary>
   <summary xml:lang="en-GB">Editor for online price quotes used by finance applications</summary>
+  <summary xml:lang="eo">Redaktilo por enretaj akcioprezoj uzata de financaj aplikaĵoj</summary>
   <summary xml:lang="es">Editor de cotizaciones de precios en línea usado por aplicaciones de finanzas</summary>
   <summary xml:lang="fr">Éditeur pour les cotations en ligne utilisées par les applications financières</summary>
   <summary xml:lang="gl">Editor de cotizacións de Internet usado por aplicacións financeiras.</summary>
@@ -101,6 +103,7 @@
     <p xml:lang="ca-valencia">A través dels perfils s'admeten múltiples aplicacions.</p>
     <p xml:lang="el">Πολλαπλές εφαρμογές υποστηρίζονται με τα προφίλ.</p>
     <p xml:lang="en-GB">Multiple applications can be supported via profiles.</p>
+    <p xml:lang="eo">Multoblaj aplikoj povas esti subtenataj per profiloj.</p>
     <p xml:lang="es">Se pueden usar múltiples aplicaciones mediante perfiles.</p>
     <p xml:lang="fr">Plusieurs applications peuvent être prises en charge grâce des profils.</p>
     <p xml:lang="gl">Pódese dar servizo a varias aplicacións mediante perfís.</p>
