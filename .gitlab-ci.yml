@@ -90,7 +90,7 @@ distro kf5 leap webkit:
 
 distro kde4 leap:
   extends: .unix-host-build
-  #when: manual
+  when: manual
   #only:
   #  - merge_requests
   variables:
