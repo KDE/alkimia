@@ -92,6 +92,13 @@ public:
      */
     void setTimeout(int newTimeout);
 
+    /**
+     * Defines a date range within which the data is to be retrieved
+     * @param from first date to include the online quote
+     * @param to last date to include the online quote
+     */
+    void setDateRange(const QDate &from, const QDate &to);
+
 public Q_SLOTS:
     /**
       * This launches a web-based quote update for the given @p _symbol.

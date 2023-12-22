@@ -110,6 +110,8 @@ public:
     QString m_quoteData;
     QString m_symbol;
     QString m_id;
+    QDate m_startDate;
+    QDate m_endDate;
     QDate m_date;
     double m_price;
     AlkOnlineQuoteSource m_source;
@@ -794,6 +796,10 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
             Q_EMIT m_p->failed(m_id, m_symbol);
             return false;
         }
+        if (!m_startDate.isNull() && date < m_startDate)
+            continue;
+        if (!m_endDate.isNull() && date > m_endDate)
+            continue;
         prices[date] = AlkValue(priceValue, decimalSeparator);
     }
     if (prices.isEmpty()) {
@@ -899,6 +905,12 @@ int AlkOnlineQuote::timeout() const
 void AlkOnlineQuote::setTimeout(int newTimeout)
 {
     d->m_timeout = newTimeout;
+}
+
+void AlkOnlineQuote::setDateRange(const QDate &from, const QDate &to)
+{
+    d->m_startDate = from;
+    d->m_endDate = to;
 }
 
 bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QString &_source)
