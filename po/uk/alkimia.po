@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2023-12-23 00:42+0000\n"
 "PO-Revision-Date: 2023-10-09 09:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,105 +20,105 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: alkonlinequote.cpp:193
+#: alkonlinequote.cpp:195
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Джерела <placeholder>%1</placeholder> не існує."
 
-#: alkonlinequote.cpp:227 alkonlinequote.cpp:241
+#: alkonlinequote.cpp:229 alkonlinequote.cpp:243
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "Не вдалося отримати адресу для %1"
 
-#: alkonlinequote.cpp:249 alkonlinequote.cpp:692
+#: alkonlinequote.cpp:251 alkonlinequote.cpp:694
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Знайдено код: «%1»"
 
-#: alkonlinequote.cpp:252 alkonlinequote.cpp:695
+#: alkonlinequote.cpp:254 alkonlinequote.cpp:697
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Не вдалося обробити код для %1"
 
-#: alkonlinequote.cpp:275
+#: alkonlinequote.cpp:277
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Отримання даних URL %1…"
 
-#: alkonlinequote.cpp:346
+#: alkonlinequote.cpp:348
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Виконання %1…"
 
-#: alkonlinequote.cpp:363 alkonlinequote.cpp:573
+#: alkonlinequote.cpp:365 alkonlinequote.cpp:575
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Не вдалося запустити: %1"
 
-#: alkonlinequote.cpp:381
+#: alkonlinequote.cpp:383
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Спроба відкрити отриманий файл завершилася невдало"
 
-#: alkonlinequote.cpp:398
+#: alkonlinequote.cpp:400
 #, kde-format
 msgid "URL found: %1..."
 msgstr "Знайдено адресу: %1…"
 
-#: alkonlinequote.cpp:489 alkonlinequote.cpp:491
+#: alkonlinequote.cpp:491 alkonlinequote.cpp:493
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "Адресу було переспрямовано; перевірте оновлення адреси курсів в інтернеті"
 
-#: alkonlinequote.cpp:565
+#: alkonlinequote.cpp:567
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Виконання %1 %2 %3…"
 
-#: alkonlinequote.cpp:605
+#: alkonlinequote.cpp:607
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Знайдено ціну: «%1» (%2)"
 
-#: alkonlinequote.cpp:608
+#: alkonlinequote.cpp:610
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Не вдалося обробити дані ціни для «%1»"
 
-#: alkonlinequote.cpp:617
+#: alkonlinequote.cpp:619
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Знайдено дату: «%1»"
 
-#: alkonlinequote.cpp:623
+#: alkonlinequote.cpp:625
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Знайдено формат дати: «%1» → «%2»"
 
-#: alkonlinequote.cpp:626
+#: alkonlinequote.cpp:628
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Не вдалося обробити дату «%1» з використанням формату «%2»: %3"
 
-#: alkonlinequote.cpp:630 alkonlinequote.cpp:640
+#: alkonlinequote.cpp:632 alkonlinequote.cpp:642
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Використовуємо поточну дату для «%1»"
 
-#: alkonlinequote.cpp:634
+#: alkonlinequote.cpp:636
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Обробку дат для «%1» вимкнено"
 
-#: alkonlinequote.cpp:637
+#: alkonlinequote.cpp:639
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Не вдалося обробити дату для «%1»"
 
-#: alkonlinequote.cpp:742
+#: alkonlinequote.cpp:744
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -126,32 +126,32 @@ msgstr ""
 "Не вдалося визначити роздільник полів у першому рядку (рядку заголовка) "
 "даних щодо курсів."
 
-#: alkonlinequote.cpp:769
+#: alkonlinequote.cpp:771
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "Не вдалося знайти стовпчик дат «%1» у даних щодо курсів"
 
-#: alkonlinequote.cpp:775
+#: alkonlinequote.cpp:777
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Не вдалося знайти стовпчик ціни «%1» у даних щодо курсів"
 
-#: alkonlinequote.cpp:793
+#: alkonlinequote.cpp:795
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Не вдалося перетворити дату «%1» з «%2» у даних щодо курсів"
 
-#: alkonlinequote.cpp:801
+#: alkonlinequote.cpp:807
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Не вдалося знайти пари дата/курс у даних щодо курсів"
 
-#: alkonlinequote.cpp:824
+#: alkonlinequote.cpp:830
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Не вдалося оновити ціну для %1 (порожні дані щодо курсу)"
 
-#: alkonlinequote.cpp:842
+#: alkonlinequote.cpp:848
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Перевищення часу очікування на отримання адреси для %1"
