@@ -29,6 +29,7 @@ Name[tr]=Çevrimiçi Kurlar
 Name[uk]=Інтернет-курс
 Name[x-test]=xxOnline Quotexx
 Name[zh_CN]=在线报价
+Name[zh_TW]=線上報價
 Comment=Plasma applet for an online quote
 Comment[ca]=Miniaplicació del Plasma per a una cotització en línia
 Comment[ca@valencia]=Miniaplicació de Plasma per a una cotització en línia
@@ -59,6 +60,7 @@ Comment[tr]=Çevrimiçi kurlar için Plasma uygulamacığı
 Comment[uk]=Аплет Плазми для інтернет-курсів
 Comment[x-test]=xxPlasma applet for an online quotexx
 Comment[zh_CN]=在线报价的 Plasma 小程序
+Comment[zh_TW]=線上報價的 Plasma 小程式
 Type=Service
 ServiceTypes=Plasma/Applet
 
