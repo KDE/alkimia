@@ -15,12 +15,12 @@
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 #include <KGlobal>
 #include <KCalendarSystem>
+#include <QRegExp>
 #else
 #include <QLocale>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #endif
-#include <QRegExp>
 
 
 class AlkDateFormat::Private
@@ -76,6 +76,7 @@ public:
 
             m_format = m_format.toLower();
 
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
             QRegExp formatrex("([mdy]+)(\\W+)([mdy]+)(\\W+)([mdy]+)", Qt::CaseInsensitive);
             if (formatrex.indexIn(m_format) == -1) {
                 return setError(AlkDateFormat::InvalidFormatString, m_format);
@@ -88,7 +89,22 @@ public:
             m_format.append(formatrex.cap(4));
             m_format.append(QLatin1String("%"));
             m_format.append(formatrex.cap(5));
+#else
+            QRegularExpression formatrex("([mdy]+)(\\W+)([mdy]+)(\\W+)([mdy]+)", QRegularExpression::CaseInsensitiveOption);
+            QRegularExpressionMatch match = formatrex.match(m_format);
+            if (!match.hasMatch()) {
+                return setError(AlkDateFormat::InvalidFormatString, m_format);
+            }
 
+            m_format = QLatin1String("%");
+            m_format += match.captured(1);
+            m_format += match.captured(2);
+            m_format.append(QLatin1String("%"));
+            m_format += match.captured(3);
+            m_format += match.captured(4);
+            m_format.append(QLatin1String("%"));
+            m_format += match.captured(5);
+#endif
             date = convertStringKMyMoney(_in, true, 2000);
             m_format = skroogeFormat;
         }

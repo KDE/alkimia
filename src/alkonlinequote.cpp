@@ -24,7 +24,6 @@
 #include <QApplication>
 #include <QByteArray>
 #include <QFile>
-#include <QRegExp>
 #include <QTextStream>
 #include <QTextCodec>
 #include <QTimer>
@@ -40,7 +39,6 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KLocalizedString>
-    #include <QRegularExpression>
 #ifndef BUILD_WITH_QTNETWORK
     #include <KIO/Job>
 #endif
@@ -66,8 +64,10 @@
 #include <KShell>
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+    #include <QRegExp>
     using Regex = QRegExp;
 #else
+    #include <QRegularExpression>
     using Regex = QRegularExpression;
 #endif
 
@@ -206,6 +206,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     if (m_source.url().contains("%2")) {
         // this is a two-symbol quote.  split the symbol into two.  valid symbol
         // characters are: 0-9, A-Z and the dot.  anything else is a separator
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
         QRegExp splitrx("([0-9a-z\\.]+)[^a-z0-9]+([0-9a-z\\.]+)", Qt::CaseInsensitive);
         // if we've truly found 2 symbols delimited this way...
         if (splitrx.indexIn(m_symbol) != -1) {
@@ -213,6 +214,16 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
         } else {
             kDebug(Private::dbgArea()) << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
         }
+#else
+        QRegularExpression splitrx("([0-9a-z\\.]+)[^a-z0-9]+([0-9a-z\\.]+)", QRegularExpression::CaseInsensitiveOption);
+        const auto match = splitrx.match(m_symbol);
+        // if we've truly found 2 symbols delimited this way...
+        if (match.hasMatch()) {
+            url = KUrl(m_source.url().arg(match.captured(1), match.captured(2)));
+        } else {
+            kDebug(Private::dbgArea()) << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
+        }
+#endif
     } else {
         // a regular one-symbol quote
         url = KUrl(m_source.url().arg(m_symbol));
@@ -685,9 +696,11 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
     bool gotdate = false;
     bool result = true;
 
-    QRegExp identifierRegExp(m_source.idRegex());
-    QRegExp dateRegExp(m_source.dateRegex());
-    QRegExp priceRegExp(m_source.priceRegex());
+    Regex identifierRegExp(m_source.idRegex());
+    Regex dateRegExp(m_source.dateRegex());
+    Regex priceRegExp(m_source.priceRegex());
+
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 
     if (identifierRegExp.indexIn(quotedata) > -1) {
         kDebug(Private::dbgArea()) << "Symbol" << identifierRegExp.cap(1);
@@ -712,6 +725,37 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
         gotdate = parseDate(QString());
     }
 
+#else
+
+    QRegularExpressionMatch match;
+    match = identifierRegExp.match(quotedata);
+    if (match.hasMatch()) {
+        kDebug(Private::dbgArea()) << "Symbol" << match.captured(1);
+        Q_EMIT m_p->status(i18n("Symbol found: '%1'", match.captured(1)));
+    } else {
+        m_errors |= Errors::Symbol;
+        Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
+    }
+
+    match = priceRegExp.match(quotedata);
+    if (match.hasMatch()) {
+        gotprice = true;
+        QString pricestr = match.captured(1);
+        parsePrice(pricestr);
+    } else {
+        parsePrice(QString());
+    }
+
+    match = dateRegExp.match(quotedata);
+    if (match.hasMatch()) {
+        QString datestr = match.captured(1);
+        gotdate = parseDate(datestr);
+    } else {
+        gotdate = parseDate(QString());
+    }
+
+#endif
+
     if (gotprice && gotdate) {
         Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
     } else {
@@ -734,11 +778,23 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
     QString priceColumn(m_source.priceRegex());
     QStringList lines = quotedata.split(QRegExp("\r?\n"));
     QString header = lines.first();
-    QRegExp rx("([,;\t])");
     QString columnSeparator;
+    Regex rx("([,;\t])");
+
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+
     if (rx.indexIn(header) != -1) {
         columnSeparator = rx.cap(1);
     }
+
+#else
+    const auto match = rx.match(header);
+    if (match.hasMatch()) {
+        columnSeparator = match.captured(1);
+    }
+
+#endif
+
     if (columnSeparator.isEmpty()) {
         m_errors |= Errors::Source;
         Q_EMIT m_p->error(i18n("Unable to detect field delimiter in first line (header line) of quote data."));

@@ -9,11 +9,12 @@
 #include "alkimia/alkvalue.h"
 
 #include <iostream>
-#include <QRegExp>
 #include <QSharedData>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <QRegularExpression>
+#else
+#include <QRegExp>
 #endif
 
 class AlkValue::Private : public QSharedData
@@ -142,6 +143,7 @@ AlkValue::AlkValue(const QString &str, const QChar &decimalSymbol)
 
     // take care of mixed prices of the form "5 8/16" as well
     // as own internal string representation
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     QRegExp regExp(QLatin1String("^((\\d+)\\s+|-)?(\\d+/\\d+)"));
     //                               +-#2-+        +---#3----+
     //                              +-----#1-----+
@@ -160,6 +162,26 @@ AlkValue::AlkValue(const QString &str, const QChar &decimalSymbol)
         }
         return;
     }
+#else
+    QRegularExpression regExp(QLatin1String("^(\\d+\\s+|-)?(\\d+/\\d+)"));
+    //                                        +----#1----+ +---#2----+
+    QRegularExpressionMatch match = regExp.match(str);
+    if (match.hasMatch()) {
+        d->m_val = str.mid(match.capturedStart(2)).toLocal8Bit().constData();
+        d->m_val.canonicalize();
+        const auto part1 = match.captured(1);
+        if (!part1.isEmpty()) {
+            if (part1 == QLatin1String("-")) {
+                mpq_neg(d->m_val.get_mpq_t(), d->m_val.get_mpq_t());
+            } else {
+                mpq_class summand(qPrintable(part1));
+                mpq_add(d->m_val.get_mpq_t(), d->m_val.get_mpq_t(), summand.get_mpq_t());
+                d->m_val.canonicalize();
+            }
+        }
+        return;
+    }
+#endif
 
     // qDebug("we got '%s' to convert", qPrintable(str));
     // everything else gets down here

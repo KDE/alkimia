@@ -26,17 +26,18 @@
 #include <KConfigGroup>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-#include <KNSCore/Engine>
-#include <KSharedConfig>
-#include <QStandardPaths>
-namespace KNS = KNSCore;
+    #include <KNSCore/Engine>
+    #include <KSharedConfig>
+    #include <QRegularExpression>
+    #include <QStandardPaths>
+    namespace KNS = KNSCore;
 #else
+    #include <QRegExp>
     #include <KGlobal>
     #include <KStandardDirs>
     #include <knewstuff3/downloadmanager.h>
     namespace KNS = KNS3;
 #endif
-#include <QRegExp>
 
 class AlkOnlineQuotesProfile::Private : public QObject
 {
@@ -142,6 +143,7 @@ public Q_SLOTS:
         QStringList groups = kconfig->groupList();
 
         QStringList::Iterator it;
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
         QRegExp onlineQuoteSource(QString("^Online-Quote-Source-(.*)$"));
 
         // get rid of all 'non online quote source' entries
@@ -152,7 +154,19 @@ public Q_SLOTS:
                 ++it;
             }
         }
+#else
+        QRegularExpression onlineQuoteSource(QLatin1String("^Online-Quote-Source-(.*)$"));
 
+        // get rid of all 'non online quote source' entries
+        for (it = groups.begin(); it != groups.end(); it = groups.erase(it)) {
+            const auto match = onlineQuoteSource.match(*it);
+            if (match.hasMatch()) {
+                // Insert the name part
+                it = groups.insert(it, match.captured(1));
+                ++it;
+            }
+        }
+#endif
         // Set up each of the default sources.  These are done piecemeal so that
         // when we add a new source, it's automatically picked up. And any changes
         // are also picked up.

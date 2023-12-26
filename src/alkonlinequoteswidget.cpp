@@ -14,7 +14,6 @@
 #include "alkonlinequotesource.h"
 #include "alkwebpage.h"
 
-#include <QRegExp>
 #include <QCheckBox>
 #include <QDesktopServices>
 #include <QtDebug>
