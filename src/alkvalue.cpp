@@ -163,8 +163,8 @@ AlkValue::AlkValue(const QString &str, const QChar &decimalSymbol)
         return;
     }
 #else
-    QRegularExpression regExp(QLatin1String("^(\\d+\\s+|-)?(\\d+/\\d+)"));
-    //                                        +----#1----+ +---#2----+
+    static QRegularExpression regExp(QLatin1String("^(\\d+\\s+|-)?(\\d+/\\d+)"));
+    //                                               +----#1----+ +---#2----+
     QRegularExpressionMatch match = regExp.match(str);
     if (match.hasMatch()) {
         d->m_val = str.mid(match.capturedStart(2)).toLocal8Bit().constData();
