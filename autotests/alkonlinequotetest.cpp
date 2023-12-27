@@ -152,7 +152,6 @@ void AlkOnlineQuoteTest::testLaunch()
 void AlkOnlineQuoteTest::testLaunchWithBrowser()
 {
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-    QSKIP("Browser based tests currently broken", SkipAll);
     AlkOnlineQuote quote(m_profile);
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);

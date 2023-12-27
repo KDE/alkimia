@@ -289,8 +289,8 @@ AlkOnlineQuoteSource AlkOnlineQuoteSource::defaultCurrencyQuoteSource(const QStr
                                 QString(), // idregexp
                                 AlkOnlineQuoteSource::Symbol,
                                 "Today\\s+=\\s+([^<]+)",
-                                "date_value\\s+=\\s+'(\\d{4}-\\d{2}-\\d{2})'",
-                                "%y/%m/%d",
+                                ",\\s*(\\d+\\s*[a-zA-Z]{3}\\s*\\d{4})",
+                                "%d %m %y",
                                 HTML
     );
 }
