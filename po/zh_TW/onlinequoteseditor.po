@@ -2,71 +2,71 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # pan93412 <pan93412@gmail.com>, 2019.
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: onlinequoteseditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-11 02:47+0000\n"
-"PO-Revision-Date: 2019-03-22 00:29+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-30 17:08+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 18.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "pan93412"
+msgstr "pan93412, Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "pan93412@gmail.com"
+msgstr "pan93412@gmail.com, mail@kisaragi-hiu.com"
 
 #: main.cpp:74
 #, kde-format
 msgid "&About %1"
-msgstr ""
+msgstr "關於 %1(&A)"
 
 #: mainwindow.cpp:84
 #, kde-format
 msgid "Profiles"
-msgstr ""
+msgstr "設定檔"
 
 #: mainwindow.cpp:89
 #, kde-format
 msgid "Profile details"
-msgstr ""
+msgstr "設定檔詳細資料"
 
 #: mainwindow.cpp:94
-#, fuzzy, kde-format
-#| msgid "Online Quotes Editor"
+#, kde-format
 msgid "Online quotes"
-msgstr "線上報價編輯器"
+msgstr "線上報價"
 
 #: mainwindow.cpp:99
 #, kde-format
 msgid "Debug"
-msgstr ""
+msgstr "除錯"
 
 #: mainwindow.cpp:104
 #, kde-format
 msgid "Quote details"
-msgstr ""
+msgstr "報價詳細資料"
 
 #: mainwindow.cpp:113
 #, kde-format
 msgid "Browser"
-msgstr ""
+msgstr "瀏覽器"
 
 #: mainwindow.cpp:168
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
-msgstr ""
+msgstr "設定檔 '%2' 中對於 '%1' 有可用的更新"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
 #: mainwindow.ui:14
@@ -78,13 +78,13 @@ msgstr "線上報價編輯器"
 #: mainwindow.ui:30
 #, kde-format
 msgid "File"
-msgstr ""
+msgstr "檔案"
 
 #. i18n: ectx: property (text), widget (QStatusBar, statusBar)
 #: mainwindow.ui:42
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "離開"
 
 #~ msgid "(C) 2018-2019 Ralf Habacker"
 #~ msgstr "(C) 2018-2019 Ralf Habacker"
