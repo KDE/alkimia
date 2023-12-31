@@ -30,6 +30,7 @@
   <name xml:lang="uk">Редактор інтернет-курсів</name>
   <name xml:lang="x-test">xxOnline Quotes Editorxx</name>
   <name xml:lang="zh-CN">在线报价编辑器</name>
+  <name xml:lang="zh-TW">線上報價編輯器</name>
   <summary>Editor for online price quotes used by finance applications</summary>
   <summary xml:lang="ca">Editor per a la cotització en línia dels preus usat per les aplicacions financeres</summary>
   <summary xml:lang="ca-valencia">Editor per a la cotització en línia dels preus utilitzat per les aplicacions financeres</summary>
@@ -56,6 +57,7 @@
   <summary xml:lang="uk">Редактор для джерел курсів цін у інтернеті, який використовується фінансовими програмами</summary>
   <summary xml:lang="x-test">xxEditor for online price quotes used by finance applicationsxx</summary>
   <summary xml:lang="zh-CN">金融应用程序使用的在线价格报价编辑器</summary>
+  <summary xml:lang="zh-TW">金融應用程式所用的線上報價的編輯器</summary>
   <description>
     <p>Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>
     <p xml:lang="ca">L'editor de cotitzacions en línia és una aplicació d'interfície d'usuari gràfica per editar i comprovar les cotitzacions en línia. Les fonts de cotització en línia disponibles es poden afegir des de la botiga KDE, creades localment, editades i verificades per a una execució correcta.</p>
@@ -81,6 +83,7 @@
     <p xml:lang="uk">«Редактор інтернет-курсів» — програма із графічним інтерфейсом для редагування та отримання даних інтернет-курсів. Доступні джерела інтернет-курсів можна додавати з крамниці KDE, створювати локально, редагувати та перевіряти на правильність функціонування.</p>
     <p xml:lang="x-test">xxOnline Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.xx</p>
     <p xml:lang="zh-CN">在线报价编辑器是用于编辑和检查在线报价的图形用户界面应用程序。 可用的在线报价来源可以从 KDE 商店添加，本地创建，编辑并检查是否正确执行。</p>
+    <p xml:lang="zh-TW">「線上報價編輯器」是用來編輯或檢查線上報價的圖形介面應用程式。可用的線上報價來源可以從 KDE store 加入或在本地建立，並且可以編輯它們或檢查執行是否正確。</p>
     <p>The interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
     <p xml:lang="ca">La interfície es divideix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, permetent la configuració flexible de la interfície.</p>
     <p xml:lang="ca-valencia">La interfície es dividix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, permetent la configuració flexible de la interfície.</p>
@@ -105,6 +108,7 @@
     <p xml:lang="uk">Інтерфейс програми поділено на придатні до налаштовування підвікна для профілів, параметрів профілів, призначених інтернет-курсів, атрибутів курсів, діагностики та панель навігації. Усе це уможливлює гнучке налаштовування інтерфейсу.</p>
     <p xml:lang="x-test">xxThe interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.xx</p>
     <p xml:lang="zh-CN">接口分为可自定义的子窗口，用于配置个人资料，分配在线报价，引用属性，调试和浏览器，允许灵活设置接口。</p>
+    <p xml:lang="zh-TW">介面中分割為可自訂的子視窗，提供設定檔、設定檔詳細資料、指派的線上報價、報價屬性、除錯，以及瀏覽器的子視窗，提供彈性化的介面設定。</p>
     <p>Multiple applications can be supported via profiles.</p>
     <p xml:lang="ca">Poden funcionar aplicacions múltiples a través dels perfils.</p>
     <p xml:lang="ca-valencia">A través dels perfils s'admeten múltiples aplicacions.</p>
@@ -129,6 +133,7 @@
     <p xml:lang="uk">Передбачено можливість підтримки декількох програм із різними профілями.</p>
     <p xml:lang="x-test">xxMultiple applications can be supported via profiles.xx</p>
     <p xml:lang="zh-CN">可以通过个人资料支持多个应用程序。</p>
+    <p xml:lang="zh-TW">透過設定檔可以支援多個應用程式。</p>
     <p>Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p>
     <p xml:lang="ca">Les aplicacions financeres que no tenen la seva pròpia interfície d'usuari per editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a aquest propòsit.</p>
     <p xml:lang="ca-valencia">Les aplicacions financeres que no tenen la seua pròpia interfície d'usuari per a editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a este propòsit.</p>
@@ -153,6 +158,7 @@
     <p xml:lang="uk">Фінансові програми, у яких немає власного інтерфейсу для редагування джерел інтернет-курсів, можуть викликати з цією метою «Редактор інтернет-курсів».</p>
     <p xml:lang="x-test">xxFinancial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.xx</p>
     <p xml:lang="zh-CN">没有自己的用户界面来编辑在线报价来源的财务应用程序可以为此目的拨打在线报价编辑器。</p>
+    <p xml:lang="zh-TW">沒有自己的線上報價來源編輯介面的金融應用程式可以呼叫這個程式來進行線上報價編輯。</p>
   </description>
   <url type="homepage">https://community.kde.org/Alkimia</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided%26product=libalkimia%26component=Online+Quotes+Editor</url>
