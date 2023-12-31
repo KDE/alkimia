@@ -483,7 +483,8 @@ bool AlkOnlineQuoteSource::write()
             d->remove();
         return result;
     } else {
-        d->m_name.append(".local");
+        if (d->m_profile->quoteSources().contains(d->m_name))
+            d->m_name.append(".local");
         result = d->write();
         if (d->m_profile->hasGHNSSupport() && d->m_storageChanged) {
             d->removeGHNSFile();
