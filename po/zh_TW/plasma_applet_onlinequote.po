@@ -1,48 +1,48 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-30 17:11+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
 #: configwidget.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "對話框"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: configwidget.ui:25
 #, kde-format
 msgid "Symbol"
-msgstr ""
+msgstr "符號"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: configwidget.ui:32
 #, kde-format
 msgid "Interval[min]"
-msgstr ""
+msgstr "間隔[分鐘]"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: configwidget.ui:42
 #, kde-format
 msgid "Online Quote"
-msgstr ""
+msgstr "線上報價"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: configwidget.ui:65
 #, kde-format
 msgid "Profile"
-msgstr ""
+msgstr "設定檔"
