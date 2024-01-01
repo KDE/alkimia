@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-24 02:23+0000\n"
+"POT-Creation-Date: 2024-01-01 02:29+0000\n"
 "PO-Revision-Date: 2021-06-23 09:13+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -230,7 +230,7 @@ msgstr ""
 msgid "local"
 msgstr "lokální"
 
-#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:473
+#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:474
 #, kde-format
 msgid "New Quote Source"
 msgstr ""
@@ -250,7 +250,7 @@ msgstr ""
 msgid ".copy"
 msgstr ".kopie"
 
-#: alkonlinequoteswidget.cpp:626
+#: alkonlinequoteswidget.cpp:627
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr ""

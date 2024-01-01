@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-24 02:23+0000\n"
+"POT-Creation-Date: 2024-01-01 02:29+0000\n"
 "PO-Revision-Date: 2023-10-08 22:26+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -231,7 +231,7 @@ msgstr "Finance::Quote"
 msgid "local"
 msgstr "로컬"
 
-#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:473
+#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:474
 #, kde-format
 msgid "New Quote Source"
 msgstr "새로운 시세 원본"
@@ -251,7 +251,7 @@ msgstr "온라인 시세 삭제"
 msgid ".copy"
 msgstr ".복사"
 
-#: alkonlinequoteswidget.cpp:626
+#: alkonlinequoteswidget.cpp:627
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "온라인 시세 HTML 결과 창"

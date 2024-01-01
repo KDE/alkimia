@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-24 02:23+0000\n"
+"POT-Creation-Date: 2024-01-01 02:29+0000\n"
 "PO-Revision-Date: 2021-11-05 11:17+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -230,7 +230,7 @@ msgstr "Finance::Quote"
 msgid "local"
 msgstr "helyi"
 
-#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:473
+#: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:474
 #, kde-format
 msgid "New Quote Source"
 msgstr "Új árajánlatforrás"
@@ -250,7 +250,7 @@ msgstr "Online árajánlat törlése"
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:626
+#: alkonlinequoteswidget.cpp:627
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Online árajánlat HTML eredményablak"
