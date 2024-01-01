@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:41+0000\n"
+"POT-Creation-Date: 2024-01-01 00:41+0000\n"
 "PO-Revision-Date: 2023-10-16 06:07+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -644,7 +644,7 @@ msgstr "ფინანსები::კოტა"
 msgid "Local"
 msgstr "ლოკალური"
 
-#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:540
+#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "კვოტის ახალი წყარო"
@@ -664,7 +664,7 @@ msgstr "ონლაინ კოტის წაშლა"
 msgid ".copy"
 msgstr ".კოპირება"
 
-#: alkonlinequoteswidget.cpp:719
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "ონლაინ კოტის HTML შედეგის ფანჯარა"

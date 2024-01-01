@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:41+0000\n"
+"POT-Creation-Date: 2024-01-01 00:41+0000\n"
 "PO-Revision-Date: 2022-04-14 18:10+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -665,7 +665,7 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Lokal"
 
-#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:540
+#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "Neue Kursnotiz-Quelle"
@@ -685,7 +685,7 @@ msgstr "Online-Kursnotiz löschen"
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:719
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Ergebnis-Fenster der Online-Kursnotizen"

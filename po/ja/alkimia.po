@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:41+0000\n"
+"POT-Creation-Date: 2024-01-01 00:41+0000\n"
 "PO-Revision-Date: 2018-12-04 23:10-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -604,7 +604,7 @@ msgstr ""
 msgid "Local"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:540
+#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr ""
@@ -624,7 +624,7 @@ msgstr ""
 msgid ".copy"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:719
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr ""

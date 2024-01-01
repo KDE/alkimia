@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:41+0000\n"
+"POT-Creation-Date: 2024-01-01 00:41+0000\n"
 "PO-Revision-Date: 2023-10-09 09:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -652,7 +652,7 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Локальне"
 
-#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:540
+#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "Створити джерело курсів"
@@ -672,7 +672,7 @@ msgstr "Вилучити інтернет-курс"
 msgid ".copy"
 msgstr ".копія"
 
-#: alkonlinequoteswidget.cpp:719
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Вікно результатів пошуку курсів у форматі HTML"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:41+0000\n"
+"POT-Creation-Date: 2024-01-01 00:41+0000\n"
 "PO-Revision-Date: 2023-10-10 15:31+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -648,7 +648,7 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Local"
 
-#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:540
+#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "Nova fonte de cotizacións"
@@ -668,7 +668,7 @@ msgstr "Eliminar a cotización de Internet"
 msgid ".copy"
 msgstr ".copia"
 
-#: alkonlinequoteswidget.cpp:719
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Xanela HTML de resultados de cotizacións de Internet"

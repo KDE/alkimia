@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:41+0000\n"
+"POT-Creation-Date: 2024-01-01 00:41+0000\n"
 "PO-Revision-Date: 2023-10-09 22:36+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -647,7 +647,7 @@ msgstr "Finanza::Quotazione"
 msgid "Local"
 msgstr "Locale"
 
-#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:540
+#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "Nuova fonte quotazioni"
@@ -667,7 +667,7 @@ msgstr "Elimina quotazione in linea"
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:719
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Finestra risultati HTML quotazione in linea"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:41+0000\n"
+"POT-Creation-Date: 2024-01-01 00:41+0000\n"
 "PO-Revision-Date: 2023-01-03 16:00+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -658,7 +658,7 @@ msgstr "Χρηματοοικονομικά:Μετοχή"
 msgid "Local"
 msgstr "τοπικό"
 
-#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:540
+#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:541
 #, kde-format
 msgid "New Quote Source"
 msgstr "Νέα πηγή τιμών μετοχών"
@@ -678,7 +678,7 @@ msgstr "Διαγραφή προσφοράς"
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:719
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "HTML παράθυρο αποτελέσματος προσφοράς"
