@@ -31,8 +31,8 @@ public:
     QString toHtml();
     void setContent(const QString &s);
     QString getFirstElement(const QString &symbol);
-    void setWebInspectorEnabled(bool state);
-    bool webInspectorEnabled();
+    static void setWebInspectorEnabled(bool state);
+    static bool webInspectorEnabled();
 
 Q_SIGNALS:
     void urlChanged(const QUrl &url);

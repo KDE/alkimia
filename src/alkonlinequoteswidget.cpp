@@ -719,8 +719,13 @@ void AlkOnlineQuotesWidget::Private::slotShowButton()
         m_webPageDialog = new QDialog;
         m_webPageDialog->setWindowTitle(i18n("Online Quote HTML Result Window"));
         QVBoxLayout *layout = new QVBoxLayout;
+#ifdef BUILD_WITH_WEBENGINE
+        AlkWebPage::setWebInspectorEnabled(true);
+#endif
         AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
+#ifndef BUILD_WITH_WEBENGINE
         webPage->setWebInspectorEnabled(true);
+#endif
         layout->addWidget(webPage->widget());
         m_webPageDialog->setLayout(layout);
     }
