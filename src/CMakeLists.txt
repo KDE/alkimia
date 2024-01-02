@@ -110,7 +110,7 @@ endforeach()
 add_definitions(-DKNSRC_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 
 ki18n_wrap_ui(alkimia_LIB_SRCS ${alkimia_UI} )
-add_library(alkimia ${alkimia_LIB_SRCS} ${alkimia_INTERNAL_SRCS} ${alkimia_LIB_HEADERS} ${alkimia_LIB_PRIVATE_HEADERS})
+add_library(alkimia ${alkimia_LIB_SRCS} ${alkimia_LIB_HEADERS} ${alkimia_LIB_PRIVATE_HEADERS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
 if(BUILD_QT4)
