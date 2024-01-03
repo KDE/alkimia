@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 00:41+0000\n"
+"POT-Creation-Date: 2024-01-03 00:41+0000\n"
 "PO-Revision-Date: 2023-12-24 05:44+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -657,3 +657,13 @@ msgstr ".copy"
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "線上報價 HTML 結果視窗"
+
+#: alkwebpage.cpp:52
+#, kde-format
+msgid "Open inspector in new window"
+msgstr ""
+
+#: alkwebpage.cpp:64
+#, kde-format
+msgid "Inspect element"
+msgstr ""

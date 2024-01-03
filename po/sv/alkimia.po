@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 00:41+0000\n"
+"POT-Creation-Date: 2024-01-03 00:41+0000\n"
 "PO-Revision-Date: 2023-10-10 18:50+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -669,6 +669,16 @@ msgstr ".kopia"
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "HTML-resultatfönster för direktkurs"
+
+#: alkwebpage.cpp:52
+#, kde-format
+msgid "Open inspector in new window"
+msgstr ""
+
+#: alkwebpage.cpp:64
+#, kde-format
+msgid "Inspect element"
+msgstr ""
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Reguljärt uttryck för att extrahera symbolen från nerladdad data"

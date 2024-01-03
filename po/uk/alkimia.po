@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 00:41+0000\n"
+"POT-Creation-Date: 2024-01-03 00:41+0000\n"
 "PO-Revision-Date: 2023-10-09 09:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -676,6 +676,16 @@ msgstr ".копія"
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Вікно результатів пошуку курсів у форматі HTML"
+
+#: alkwebpage.cpp:52
+#, kde-format
+msgid "Open inspector in new window"
+msgstr ""
+
+#: alkwebpage.cpp:64
+#, kde-format
+msgid "Inspect element"
+msgstr ""
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr ""

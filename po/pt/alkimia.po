@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 00:41+0000\n"
+"POT-Creation-Date: 2024-01-03 00:41+0000\n"
 "PO-Revision-Date: 2022-04-20 15:59+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -677,6 +677,16 @@ msgstr ".cópia"
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Janela de Resultados HTML da Cotação 'Online'"
+
+#: alkwebpage.cpp:52
+#, kde-format
+msgid "Open inspector in new window"
+msgstr ""
+
+#: alkwebpage.cpp:64
+#, kde-format
+msgid "Inspect element"
+msgstr ""
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Expressão regular para extrair o símbolo dos dados transferidos"

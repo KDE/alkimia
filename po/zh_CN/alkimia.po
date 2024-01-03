@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 00:41+0000\n"
+"POT-Creation-Date: 2024-01-03 00:41+0000\n"
 "PO-Revision-Date: 2023-12-30 13:40\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -656,3 +656,13 @@ msgstr ""
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "在线报价 HTML 结果窗口"
+
+#: alkwebpage.cpp:52
+#, kde-format
+msgid "Open inspector in new window"
+msgstr ""
+
+#: alkwebpage.cpp:64
+#, kde-format
+msgid "Inspect element"
+msgstr ""
