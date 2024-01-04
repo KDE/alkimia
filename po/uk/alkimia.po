@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2018, 2020, 2022, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2018, 2020, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-03 00:41+0000\n"
-"PO-Revision-Date: 2023-10-09 09:15+0300\n"
+"PO-Revision-Date: 2024-01-03 09:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: alkonlinequote.cpp:195
 #, kde-format
@@ -680,12 +680,12 @@ msgstr "Вікно результатів пошуку курсів у форм�
 #: alkwebpage.cpp:52
 #, kde-format
 msgid "Open inspector in new window"
-msgstr ""
+msgstr "Відкрити інспектор у новому вікні"
 
 #: alkwebpage.cpp:64
 #, kde-format
 msgid "Inspect element"
-msgstr ""
+msgstr "Перевірити елемент"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr ""
