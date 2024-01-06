@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Automatically generated, 2018.
-# SPDX-FileCopyrightText: 2018, 2019, 2020, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-03 00:41+0000\n"
-"PO-Revision-Date: 2023-10-09 19:54+0200\n"
+"PO-Revision-Date: 2024-01-05 01:35+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: alkonlinequote.cpp:195
 #, kde-format
@@ -684,12 +684,12 @@ msgstr "Ventana de resultado en HTML de cotizaciones en línea"
 #: alkwebpage.cpp:52
 #, kde-format
 msgid "Open inspector in new window"
-msgstr ""
+msgstr "Abrir el inspector en una ventana nueva"
 
 #: alkwebpage.cpp:64
 #, kde-format
 msgid "Inspect element"
-msgstr ""
+msgstr "Inspeccionar elemento"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Expresión regular para extraer el símbolo de los datos descargados"
