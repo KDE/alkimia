@@ -37,14 +37,10 @@ if(BUILD_QT4)
     set(LIBS
         ${KDE4_KDECORE_LIBS}
         ${KDE4_KDEUI_LIBS}
-        ${QT_USE_LIBSPREFIX}Core
-        ${QT_USE_LIBSPREFIX}Network
     )
 else()
     set(LIBS
-        ${QT_USE_LIBSPREFIX}Widgets
-        ${QT_USE_LIBSPREFIX}Network
-        ${QT_BROWSER_LIB}
+        Qt${QT_MAJOR_VERSION}::Widgets
         KF${QT_MAJOR_VERSION}::CoreAddons
         KF${QT_MAJOR_VERSION}::I18n
         KF${QT_MAJOR_VERSION}::XmlGui
@@ -55,6 +51,7 @@ endif()
 target_link_libraries(onlinequoteseditor
     alkimia
     alkimia-internal
+    Qt${QT_MAJOR_VERSION}::Core
     ${LIBS}
 )
 set_target_properties(onlinequoteseditor PROPERTIES OUTPUT_NAME onlinequoteseditor${TARGET_SUFFIX})

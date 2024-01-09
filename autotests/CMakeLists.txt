@@ -2,9 +2,9 @@ include(ECMAddTests)
 set(TEST_LIB
     alkimia
     alkimia-internal
-    ${QT_USE_LIBSPREFIX}Test
-    ${QT_USE_LIBSPREFIX}Core
-    ${QT_USE_LIBSPREFIX}DBus
+    Qt${QT_MAJOR_VERSION}::Test
+    Qt${QT_MAJOR_VERSION}::Core
+    Qt${QT_MAJOR_VERSION}::DBus
     ${MP_LIBRARIES}
 )
 

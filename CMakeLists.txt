@@ -64,7 +64,7 @@ if(BUILD_QT4)
 
     if(BUILD_WITH_WEBKIT)
         add_definitions(-DBUILD_WITH_WEBKIT)
-        set(QT_BROWSER_COMPONENT QtWebKit)
+        set(QT_BROWSER_COMPONENT WebKit)
         set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}WebKit)
         feature_notes(TRUE TRUE TRUE TRUE)
     else()
@@ -73,13 +73,19 @@ if(BUILD_QT4)
 
     if(BUILD_WITH_QTNETWORK)
         add_definitions(-DBUILD_WITH_QTNETWORK)
-        set(QT_NETWORK_COMPONENT QtNetwork)
+        set(QT_NETWORK_COMPONENT Network)
         set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}Network)
     else()
         set(QT_NETWORK_COMPONENT)
     endif()
 
-    find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui QtDBus ${QT_NETWORK_COMPONENT} QtTest ${QT_BROWSER_COMPONENT} QtDeclarative)
+    set(QT_QML_COMPONENT Declarative)
+    set(QT_QML_LIB ${QT_USE_LIBSPREFIX}${QT_QML_COMPONENT})
+    set(QT_COMPONENTS Core Gui DBus ${QT_NETWORK_COMPONENT} Test ${QT_BROWSER_COMPONENT} ${QT_QML_COMPONENT})
+    foreach(COMPONENT ${QT_COMPONENTS})
+        find_package(Qt4 REQUIRED COMPONENTS QT${COMPONENT})
+        add_library(Qt4::${COMPONENT} ALIAS ${QT_USE_LIBSPREFIX}${COMPONENT})
+    endforeach()
     set(_kde4_uninstall_rule_created 1)
     find_package(KDE4 REQUIRED)
     if(NOT BUILD_WITH_QTNETWORK)
@@ -112,6 +118,7 @@ if(BUILD_QT4)
     endmacro()
 
     add_definitions(-DQStringLiteral=QLatin1String)
+    set(QML_INSTALL_DIR ${LIB_INSTALL_DIR}/qt4/plugins/imports)
 else()
     if (NOT QT_MAJOR_VERSION)
         set(QT_MAJOR_VERSION 5)
@@ -154,13 +161,14 @@ else()
         set(KDE_NETWORK_LIBS KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOWidgets)
     endif()
     set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}${QT_NETWORK_COMPONENT})
-
+    set(QT_QML_COMPONENT Qml)
+    set(QT_QML_LIB ${QT_USE_LIBSPREFIX}${QT_QML_COMPONENT})
     find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
         Core
         ${QT_NETWORK_COMPONENT}
         Test
         ${QT_BROWSER_COMPONENT}
-        Qml
+        ${QT_QML_COMPONENT}
     )
 
     if(BUILD_APPLETS)

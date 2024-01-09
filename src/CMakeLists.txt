@@ -156,7 +156,7 @@ if(NOT BUILD_QT4 AND MSVC AND BUILD_WITH_WEBKIT)
     message(WARNING "Applying fix for broken Qt WebKit package (see https://phabricator.kde.org/T10146 for details)")
     target_link_libraries(alkimia
         PRIVATE
-        ${QT_USE_LIBSPREFIX}Test
+        Qt${QT_MAJOR_VERSION}::Test
     )
 endif()
 
@@ -194,17 +194,16 @@ install(TARGETS ${alkimia_export_targets}
 
 if(BUILD_QT4)
     if(WIN32)
-        set(KNSRC_INSTALL_DIR ${SHARE_INSTALL_DIR}/config)
+        set(KDE_INSTALL_KNSRCDIR ${SHARE_INSTALL_DIR}/config)
     else()
-        set(KNSRC_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/config)
+        set(KDE_INSTALL_KNSRCDIR ${SHARE_INSTALL_DIR}/kde4/config)
     endif()
     set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR}/kde4/apps)
     set(FQ_LOCAL_INSTALL_PATH ${CMAKE_BINARY_DIR}/share/apps/alkimia${ALKIMIA_PATH_SUFFIX}/misc)
 else()
     if(KF5NewStuff_VERSION VERSION_GREATER "5.56.0")
-        set(KNSRC_INSTALL_DIR ${KDE_INSTALL_KNSRCDIR})
     else()
-        set(KNSRC_INSTALL_DIR ${CONFIG_INSTALL_DIR})
+        set(KDE_INSTALL_KNSRCDIR ${CONFIG_INSTALL_DIR})
     endif()
     set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR})
     set(FQ_LOCAL_INSTALL_PATH ${CMAKE_BINARY_DIR}/share/alkimia${ALKIMIA_PATH_SUFFIX}/misc)

@@ -1,8 +1,4 @@
-if(BUILD_QT4)
-    set(LIBS ${QT_USE_LIBSPREFIX}Declarative)
-    set(QML_INSTALL_DIR ${LIB_INSTALL_DIR}/qt4/plugins/imports)
-else()
-    set(LIBS ${QT_USE_LIBSPREFIX}Qml)
+if(NOT BUILD_QT4)
     set_package_properties(Qt5Qml PROPERTIES  URL "git://gitorious.org/qt/qtdeclarative.git"
         DESCRIPTION "QML support for Alkimia"
         TYPE OPTIONAL
@@ -23,7 +19,7 @@ endif()
 
 configure_file(qmldir ${IMPORTS_DIR}/qmldir)
 add_library(qmlalkimia qmlalkimiaplugin.cpp)
-target_link_libraries(qmlalkimia ${LIBS} alkimia)
+target_link_libraries(qmlalkimia ${QT_QML_LIB} alkimia)
 
 install(TARGETS qmlalkimia
     RUNTIME DESTINATION ${QML_INSTALL_DIR}/org/kde/alkimia
