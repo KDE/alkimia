@@ -55,6 +55,7 @@ set(alkimia_LIB_SRCS
     alkcompany.cpp
     alkenvironment.cpp
     alkonlinequote.cpp
+    alkonlinequote_p.cpp
     alkonlinequotesource.cpp
     alkonlinequotesprofile.cpp
     alkonlinequotesprofile_p.cpp
@@ -76,6 +77,7 @@ set(alkimia_LIB_HEADERS
 )
 
 set(alkimia_LIB_PRIVATE_HEADERS
+    alkonlinequote_p.h
     alkonlinequotesprofile_p.h
     alkpushbutton.h
 )

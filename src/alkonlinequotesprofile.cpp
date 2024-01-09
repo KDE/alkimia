@@ -7,9 +7,6 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-#ifdef ENABLE_FINANCEQUOTE
-#include "alkfinancequoteprocess.h"
-#endif
 #include "alkonlinequotesprofile.h"
 
 #include "alkonlinequotesprofilemanager.h"
