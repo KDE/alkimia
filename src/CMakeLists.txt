@@ -78,6 +78,7 @@ set(alkimia_LIB_HEADERS
 
 set(alkimia_LIB_PRIVATE_HEADERS
     alkonlinequote_p.h
+    alkonlinequotesource_p.h
     alkonlinequotesprofile_p.h
     alkpushbutton.h
 )
