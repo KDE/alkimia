@@ -19,8 +19,8 @@ if(BUILD_QT4)
     set(SERVICES_INSTALL_DIR "${SHARE_INSTALL_DIR}/kde4/services")
 else()
     target_link_libraries(plasma_applet_onlinequote
-        KF5::Package
-        KF5::Plasma
+        KF${QT_MAJOR_VERSION}::Package
+        KF${QT_MAJOR_VERSION}::Plasma
     )
     add_definitions(-DTRANSLATION_DOMAIN=\"plasma_applet_onlinequote\")
 endif()

@@ -8,6 +8,8 @@ project(alkimia VERSION 8.1.72)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+
+# adds option BUILD_WITH_QT6
 include(QtVersionOption OPTIONAL)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
@@ -116,7 +118,7 @@ else()
     endif()
     if (${QT_MAJOR_VERSION} EQUAL 5)
         set(QT_MIN_VERSION 5.15.2)
-        set(KF5_MIN_VERSION 5.90)
+        set(KF_MIN_VERSION 5.90)
     endif()
     set(QT_USE_LIBSPREFIX Qt${QT_MAJOR_VERSION}::)
     set(ALKIMIA_LIB_SUFFIX "${QT_MAJOR_VERSION}")
@@ -149,7 +151,7 @@ else()
     else()
         set(QT_NETWORK_COMPONENT)
         set(KDE_NETWORK_COMPONENT KIO)
-        set(KDE_NETWORK_LIBS KF5::KIOCore KF5::KIOWidgets)
+        set(KDE_NETWORK_LIBS KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOWidgets)
     endif()
     set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}${QT_NETWORK_COMPONENT})
 
@@ -166,7 +168,7 @@ else()
     endif()
 
     # search packages used by KDE
-    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    find_package(KF${QT_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
         Config
         CoreAddons
         Completion

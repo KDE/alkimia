@@ -143,45 +143,36 @@ AlkValue::AlkValue(const QString &str, const QChar &decimalSymbol)
 
     // take care of mixed prices of the form "5 8/16" as well
     // as own internal string representation
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+    static QRegularExpression regExp(QLatin1String("^((\\d+)\\s+|-)?(\\d+/\\d+)"));
+    //                                                 +-#2-+        +---#3----+
+    //                                                +-----#1-----+
+    auto match = regExp.match(str);
+    if (match.hasMatch()) {
+        d->m_val = qPrintable(str.mid(match.capturedStart(3)));
+        d->m_val.canonicalize();
+        const QString &part1 = match.captured(1);
+#else
     QRegExp regExp(QLatin1String("^((\\d+)\\s+|-)?(\\d+/\\d+)"));
     //                               +-#2-+        +---#3----+
     //                              +-----#1-----+
+    //
     if (regExp.indexIn(str) > -1) {
         d->m_val = qPrintable(str.mid(regExp.pos(3)));
         d->m_val.canonicalize();
         const QString &part1 = regExp.cap(1);
-        if (!part1.isEmpty()) {
-            if (part1 == QLatin1String("-")) {
-                mpq_neg(d->m_val.get_mpq_t(), d->m_val.get_mpq_t());
-            } else {
-                mpq_class summand(qPrintable(part1));
-                mpq_add(d->m_val.get_mpq_t(), d->m_val.get_mpq_t(), summand.get_mpq_t());
-                d->m_val.canonicalize();
-            }
-        }
-        return;
-    }
-#else
-    static QRegularExpression regExp(QLatin1String("^(\\d+\\s+|-)?(\\d+/\\d+)"));
-    //                                               +----#1----+ +---#2----+
-    QRegularExpressionMatch match = regExp.match(str);
-    if (match.hasMatch()) {
-        d->m_val = str.mid(match.capturedStart(2)).toLocal8Bit().constData();
-        d->m_val.canonicalize();
-        const auto part1 = match.captured(1);
-        if (!part1.isEmpty()) {
-            if (part1 == QLatin1String("-")) {
-                mpq_neg(d->m_val.get_mpq_t(), d->m_val.get_mpq_t());
-            } else {
-                mpq_class summand(qPrintable(part1));
-                mpq_add(d->m_val.get_mpq_t(), d->m_val.get_mpq_t(), summand.get_mpq_t());
-                d->m_val.canonicalize();
-            }
-        }
-        return;
-    }
 #endif
+        if (!part1.isEmpty()) {
+            if (part1 == QLatin1String("-")) {
+                mpq_neg(d->m_val.get_mpq_t(), d->m_val.get_mpq_t());
+            } else {
+                mpq_class summand(qPrintable(part1));
+                mpq_add(d->m_val.get_mpq_t(), d->m_val.get_mpq_t(), summand.get_mpq_t());
+                d->m_val.canonicalize();
+            }
+        }
+        return;
+    }
 
     // qDebug("we got '%s' to convert", qPrintable(str));
     // everything else gets down here

@@ -45,9 +45,9 @@ else()
         ${QT_USE_LIBSPREFIX}Widgets
         ${QT_USE_LIBSPREFIX}Network
         ${QT_BROWSER_LIB}
-        KF5::CoreAddons
-        KF5::I18n
-        KF5::XmlGui
+        KF${QT_MAJOR_VERSION}::CoreAddons
+        KF${QT_MAJOR_VERSION}::I18n
+        KF${QT_MAJOR_VERSION}::XmlGui
     )
     add_definitions(-DTRANSLATION_DOMAIN=\"onlinequoteseditor\")
 endif()

@@ -1,5 +1,5 @@
 # Locate plasma_install_package macro.
-find_package(KF5Plasma REQUIRED)
+find_package(KF${QT_MAJOR_VERSION}Plasma REQUIRED)
 
 set(APPLET_NAME org.wincak.foreigncurrencies2)
 

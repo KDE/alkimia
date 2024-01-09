@@ -90,8 +90,8 @@ public:
             m_format.append(QLatin1String("%"));
             m_format.append(formatrex.cap(5));
 #else
-            QRegularExpression formatrex("([mdy]+)(\\W+)([mdy]+)(\\W+)([mdy]+)", QRegularExpression::CaseInsensitiveOption);
-            QRegularExpressionMatch match = formatrex.match(m_format);
+            static QRegularExpression formatrex("([mdy]+)(\\W+)([mdy]+)(\\W+)([mdy]+)", QRegularExpression::CaseInsensitiveOption);
+            auto match = formatrex.match(m_format);
             if (!match.hasMatch()) {
                 return setError(AlkDateFormat::InvalidFormatString, m_format);
             }

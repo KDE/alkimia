@@ -32,14 +32,18 @@ set(alkimia_INTERNAL_UI
 ki18n_wrap_ui(alkimia_INTERNAL_SRCS ${alkimia_INTERNAL_UI} )
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
 if(NOT BUILD_QT4)
-    set (ALKIMIA_INTERNAL_LIBS
-        PRIVATE
-        KF5::CoreAddons
-        KF5::NewStuff
-    )
+    target_link_libraries(alkimia-internal PRIVATE KF${QT_MAJOR_VERSION}::CoreAddons)
+    if (QT_MAJOR_VERSION GREATER_EQUAL 6)
+        target_link_libraries(alkimia-internal PRIVATE KF6::NewStuffWidgets)
+    else()
+        target_link_libraries(alkimia-internal PRIVATE KF5::NewStuff)
+    endif()
 endif()
 
-target_link_libraries(alkimia-internal PUBLIC ${QT_USE_LIBSPREFIX}Core ${ALKIMIA_INTERNAL_LIBS})
+target_link_libraries(alkimia-internal PUBLIC
+    Qt${QT_MAJOR_VERSION}::Core
+    Qt${QT_MAJOR_VERSION}::DBus
+)
 kde_target_enable_exceptions(alkimia-internal PUBLIC)
 
 ########### target alkimia ###########
@@ -114,8 +118,7 @@ add_library(alkimia ${alkimia_LIB_SRCS} ${alkimia_LIB_HEADERS} ${alkimia_LIB_PRI
 
 kde_target_enable_exceptions(alkimia PUBLIC)
 if(BUILD_QT4)
-    set(ALKIMIA_LIBS
-        PRIVATE
+    target_link_libraries(alkimia PRIVATE
         ${QT_NETWORK_LIB}
         ${KDE4_KDECORE_LIBS}
         ${KDE4_KDEUI_LIBS}
@@ -123,16 +126,19 @@ if(BUILD_QT4)
         ${KDE_NETWORK_LIBS}
     )
 else()
-    set(ALKIMIA_LIBS
-        PRIVATE
+    target_link_libraries(alkimia PRIVATE
         ${QT5_OPTIONAL_COMPONENTS}
-        KF5::Completion
-        KF5::I18n
+        KF${QT_MAJOR_VERSION}::Completion
+        KF${QT_MAJOR_VERSION}::I18n
         ${KDE_NETWORK_LIBS}
-        KF5::NewStuff
-        KF5::IconThemes
-        KF5::TextWidgets
+        KF${QT_MAJOR_VERSION}::IconThemes
+        KF${QT_MAJOR_VERSION}::TextWidgets
     )
+    if (QT_MAJOR_VERSION GREATER_EQUAL 6)
+        target_link_libraries(alkimia PRIVATE KF6::NewStuffWidgets)
+    else()
+        target_link_libraries(alkimia PRIVATE KF5::NewStuff)
+    endif()
 endif()
 
 add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
@@ -140,9 +146,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
 target_link_libraries(alkimia
     PRIVATE
     alkimia-internal
-    ${QT_USE_LIBSPREFIX}Core
-    ${ALKIMIA_LIBS}
-    ${QT_USE_LIBSPREFIX}DBus
+    Qt${QT_MAJOR_VERSION}::Core
     PUBLIC
     ${MP_LIBRARIES}
     ${QT_BROWSER_LIB}
@@ -210,7 +214,7 @@ install(FILES
     alkimia-quotes.knsrc
     kmymoney-quotes.knsrc
     skrooge-quotes.knsrc
-    DESTINATION ${KNSRC_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_KNSRCDIR}
 )
 
 # install perl script in expected location of build dir
