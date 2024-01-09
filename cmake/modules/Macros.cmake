@@ -17,7 +17,7 @@ macro(feature_notes a b c d)
     feature_note("Inspecting of web pages" ${c})
 endmacro()
 
-if(BUILD_QT4)
+if(QT_MAJOR_VERSION EQUAL 4)
 # SPDX-FileCopyrightText: 2006 Alexander Neundorf <neundorf@kde.org>
 #
 # SPDX-License-Identifier: BSD-3-Clause

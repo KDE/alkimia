@@ -17,8 +17,8 @@ ci_variant=kf5 tools/ci-build.sh
 
 # or
 
-ci_variant=kde4 tools/ci-install.sh
-ci_variant=kde4 tools/ci-build.sh
+ci_variant=kf4 tools/ci-install.sh
+ci_variant=kf4 tools/ci-build.sh
 EOF
 
 sudo docker pull opensuse/leap

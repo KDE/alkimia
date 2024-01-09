@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SPDX-FileCopyrightText: 2015-2016 Collabora Ltd.
-# SPDX-FileCopyrightText: 2020 Ralf Habacker ralf.habacker @freenet.de
+# SPDX-FileCopyrightText: 2020-2024 Ralf Habacker ralf.habacker @freenet.de
 #
 # SPDX-License-Identifier: MIT
 
@@ -22,7 +22,7 @@ set -x
 : "${ci_distro_variant:=leap}"
 
 # ci_variant:
-# One of kf5, kde4
+# One of kf5, kf4
 : "${ci_variant:=kf5}"
 
 # setup install command; use sudo outside of docker
@@ -54,7 +54,7 @@ case "$ci_distro" in
                     https://download.opensuse.org/repositories/security:/tls/openSUSE_Tumbleweed/security:tls.repo
                 )
                 ;;
-            (kde4-native)
+            (kf4-native)
                 repos=(
                     "${repos[@]}"
                     https://download.opensuse.org/repositories/windows:/mingw/${repo_name}/windows:mingw.repo
@@ -101,8 +101,6 @@ case "$ci_distro" in
                 packages=(
                     "${packages[@]}"
                     kinit
-                    "cmake(KF5Config)"
-
                 )
                 ;;
             (kf5*-mingw*)
@@ -130,7 +128,7 @@ case "$ci_distro" in
                     wine
                 )
                 ;;
-            (kde4-native)
+            (kf4-native)
                 # for libQtWebKit-devel
                 packages=(
                     "${packages[@]}"
@@ -142,13 +140,13 @@ case "$ci_distro" in
                     gmp-devel
                 )
                 ;;
-            (kde4-mingw*)
+            (kf4-mingw*)
                 prefix=${ci_host}
                 packages=(
                     "${packages[@]}"
                     ${prefix}-cross-gcc-c++
                     ${prefix}-extra-cmake-modules
-                    ${prefix}-libkde4-devel
+                    ${prefix}-libkf4-devel
                     ${prefix}-gmp-devel
                     wine
                 )

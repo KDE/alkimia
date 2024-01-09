@@ -1,4 +1,4 @@
-if(NOT BUILD_QT4)
+if(QT_MAJOR_VERSION GREATER_EQUAL 5)
     set_package_properties(Qt5Qml PROPERTIES  URL "git://gitorious.org/qt/qtdeclarative.git"
         DESCRIPTION "QML support for Alkimia"
         TYPE OPTIONAL

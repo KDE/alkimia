@@ -1,6 +1,5 @@
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
-include(ECMGeneratePriFile)
 include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 
@@ -31,18 +30,18 @@ set(alkimia_INTERNAL_UI
 
 ki18n_wrap_ui(alkimia_INTERNAL_SRCS ${alkimia_INTERNAL_UI} )
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
-if(NOT BUILD_QT4)
-    target_link_libraries(alkimia-internal PRIVATE KF${QT_MAJOR_VERSION}::CoreAddons)
-    if (QT_MAJOR_VERSION GREATER_EQUAL 6)
-        target_link_libraries(alkimia-internal PRIVATE KF6::NewStuffWidgets)
-    else()
-        target_link_libraries(alkimia-internal PRIVATE KF5::NewStuff)
-    endif()
+if (QT_MAJOR_VERSION GREATER_EQUAL 5)
+    list(APPEND ALKIMIA_INTERNAL_LIBS
+        PRIVATE
+        Qt${QT_MAJOR_VERSION}::DBus
+        KF${QT_MAJOR_VERSION}::Completion
+        KF${QT_MAJOR_VERSION}::CoreAddons
+        KF${QT_MAJOR_VERSION}::I18n
+    )
 endif()
 
-target_link_libraries(alkimia-internal PUBLIC
-    Qt${QT_MAJOR_VERSION}::Core
-    Qt${QT_MAJOR_VERSION}::DBus
+target_link_libraries(alkimia-internal PRIVATE
+    ${ALKIMIA_INTERNAL_LIBS}
 )
 kde_target_enable_exceptions(alkimia-internal PUBLIC)
 
@@ -122,33 +121,24 @@ ki18n_wrap_ui(alkimia_LIB_SRCS ${alkimia_UI} )
 add_library(alkimia ${alkimia_LIB_SRCS} ${alkimia_LIB_HEADERS} ${alkimia_LIB_PRIVATE_HEADERS})
 
 kde_target_enable_exceptions(alkimia PUBLIC)
-if(BUILD_QT4)
-    target_link_libraries(alkimia PRIVATE
-        ${QT_NETWORK_LIB}
-        ${KDE4_KDECORE_LIBS}
-        ${KDE4_KDEUI_LIBS}
-        ${KDE4_KNEWSTUFF3_LIBS}
-        ${KDE_NETWORK_LIBS}
-    )
-else()
-    target_link_libraries(alkimia PRIVATE
-        ${QT5_OPTIONAL_COMPONENTS}
-        KF${QT_MAJOR_VERSION}::Completion
-        KF${QT_MAJOR_VERSION}::I18n
-        ${KDE_NETWORK_LIBS}
-        KF${QT_MAJOR_VERSION}::IconThemes
-        KF${QT_MAJOR_VERSION}::TextWidgets
-        PUBLIC
-        KF${QT_MAJOR_VERSION}::ConfigCore
-    )
-    if (QT_MAJOR_VERSION GREATER_EQUAL 6)
-        target_link_libraries(alkimia PRIVATE KF6::NewStuffWidgets)
-    else()
-        target_link_libraries(alkimia PRIVATE KF5::NewStuff)
-    endif()
-endif()
+target_link_libraries(alkimia PRIVATE
+    ${QT_NETWORK_LIB}
+    ${KF_NETWORK_LIB}
+    ${KF_NEWSTUFF_LIB}
+    KF${QT_MAJOR_VERSION}::Completion
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::IconThemes
+    KF${QT_MAJOR_VERSION}::TextWidgets
+    PUBLIC
+    KF${QT_MAJOR_VERSION}::ConfigCore
+)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
+
+target_include_directories(alkimia
+    INTERFACE
+        $<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/alkimia/${ALKIMIA_INCLUDE_SUFFIX}>
+)
 
 target_link_libraries(alkimia
     PRIVATE
@@ -159,7 +149,7 @@ target_link_libraries(alkimia
     ${QT_BROWSER_LIB}
 )
 
-if(NOT BUILD_QT4 AND MSVC AND BUILD_WITH_WEBKIT)
+if(QT_MAJOR_VERSION GREATER_EQUAL 5 AND MSVC AND BUILD_WITH_WEBKIT)
     message(WARNING "Applying fix for broken Qt WebKit package (see https://phabricator.kde.org/T10146 for details)")
     target_link_libraries(alkimia
         PRIVATE
@@ -199,7 +189,7 @@ install(TARGETS ${alkimia_export_targets}
     ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
-if(BUILD_QT4)
+if(QT_MAJOR_VERSION LESS 5)
     if(WIN32)
         set(KDE_INSTALL_KNSRCDIR ${SHARE_INSTALL_DIR}/config)
     else()
@@ -240,13 +230,6 @@ endif(NOT WIN32)
 
 ########### create package configuration file ###########
 
-# create a Config.cmake and a ConfigVersion.cmake file and install them
-if (CMAKECONFIG_INSTALL_PREFIX)
-    set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
-else()
-    set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
-endif()
-
 ecm_setup_version(${alkimia_VERSION} VARIABLE_PREFIX ALKIMIA
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}ConfigVersion.cmake"
     COMPATIBILITY SameMajorVersion
@@ -256,7 +239,6 @@ configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
     INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
-    PATH_VARS INCLUDE_INSTALL_DIR
 )
 
 ########### install files ###############

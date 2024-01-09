@@ -88,28 +88,28 @@ distro kf5 leap webkit:
   variables:
     ci_variant: "kf5-webkit"
 
-distro kde4 leap:
+distro kf4 leap:
   extends: .unix-host-build
   when: manual
   #only:
   #  - merge_requests
   variables:
-    ci_variant: "kde4"
+    ci_variant: "kf4"
 
-distro kde4 leap mingw32:
+distro kf4 leap mingw32:
   extends: .unix-host-build
   when: manual
   #only:
   #  - merge_requests
   variables:
-    ci_variant: "kde4"
+    ci_variant: "kf4"
     ci_host: "mingw32"
 
-distro kde4 leap mingw64:
+distro kf4 leap mingw64:
   extends: .unix-host-build
   when: manual
   #only:
   #  - merge_requests
   variables:
-    ci_variant: "kde4"
+    ci_variant: "kf4"
     ci_host: "mingw64"

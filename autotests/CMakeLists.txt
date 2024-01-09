@@ -1,16 +1,12 @@
 include(ECMAddTests)
 set(TEST_LIB
-    alkimia
-    alkimia-internal
     Qt${QT_MAJOR_VERSION}::Test
     Qt${QT_MAJOR_VERSION}::Core
     Qt${QT_MAJOR_VERSION}::DBus
     ${MP_LIBRARIES}
+    alkimia-internal
+    alkimia
 )
-
-if(BUILD_QT4)
-    list(APPEND TEST_LIB ${KDE4_KDECORE_LIBS})
-endif()
 
 ecm_add_tests(
     alkonlinequotesourcetest.cpp
@@ -19,7 +15,7 @@ ecm_add_tests(
     alkcompanytest.cpp
     alkexceptiontest.cpp
     LINK_LIBRARIES
-    alkimia ${TEST_LIB}
+    ${TEST_LIB}
 )
 
 ecm_add_test(

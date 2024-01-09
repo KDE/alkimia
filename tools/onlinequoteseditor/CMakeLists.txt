@@ -33,18 +33,7 @@ ecm_add_app_icon(SOURCES
 )
 
 ecm_add_executable(onlinequoteseditor ${SOURCES} ${HEADERS})
-if(BUILD_QT4)
-    set(LIBS
-        ${KDE4_KDECORE_LIBS}
-        ${KDE4_KDEUI_LIBS}
-    )
-else()
-    set(LIBS
-        Qt${QT_MAJOR_VERSION}::Widgets
-        KF${QT_MAJOR_VERSION}::CoreAddons
-        KF${QT_MAJOR_VERSION}::I18n
-        KF${QT_MAJOR_VERSION}::XmlGui
-    )
+if(QT_MAJOR_VERSION GREATER_EQUAL 5)
     add_definitions(-DTRANSLATION_DOMAIN=\"onlinequoteseditor\")
 endif()
 
@@ -52,7 +41,11 @@ target_link_libraries(onlinequoteseditor
     alkimia
     alkimia-internal
     Qt${QT_MAJOR_VERSION}::Core
-    ${LIBS}
+    KF${QT_MAJOR_VERSION}::CoreAddons
+    KF${QT_MAJOR_VERSION}::I18n
+    Qt${QT_MAJOR_VERSION}::Network
+    Qt${QT_MAJOR_VERSION}::Widgets
+    KF${QT_MAJOR_VERSION}::XmlGui
 )
 set_target_properties(onlinequoteseditor PROPERTIES OUTPUT_NAME onlinequoteseditor${TARGET_SUFFIX})
 

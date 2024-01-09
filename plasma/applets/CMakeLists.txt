@@ -1,0 +1,5 @@
+if(QT_MAJOR_VERSION GREATER 4)
+    add_subdirectory(ForeignCurrencies)
+else()
+    add_subdirectory(onlinequote)
+endif()

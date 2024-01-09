@@ -7,11 +7,6 @@ set(TEST_LIB
     ${QT_QML_LIB}
 )
 
-if(BUILD_QT4)
-    list(APPEND TEST_LIB
-        ${KDE4_KDECORE_LIBS}
-    )
-endif()
 add_executable(qmlalkonlinequotetest
     qmlalkonlinequotetest.cpp
 )

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SPDX-FileCopyrightText: 2015-2016 Collabora Ltd.
-# SPDX-FileCopyrightText: 2020,2022,2023 Ralf Habacker ralf.habacker @freenet.de
+# SPDX-FileCopyrightText: 2020-2024 Ralf Habacker ralf.habacker @freenet.de
 #
 # SPDX-License-Identifier: MIT
 
@@ -194,7 +194,7 @@ init_cross_runtime() {
 : "${ci_test:=yes}"
 
 # ci_variant:
-# One of kf5, kde4
+# One of kf5, kf4
 : "${ci_variant:=kf5}"
 
 # specify build dir
@@ -222,8 +222,8 @@ case "$ci_variant" in
         start_kde_session=kdeinit5
         ;;
 
-    (kde4)
-        cmake_options+=" -DBUILD_QT4=1 -DKDE4_BUILD_TESTS=1"
+    (kf4)
+        cmake_options+=" -DBUILD_QT4=1 -DBUILD_TESTING=1"
         cmake_suffix="kde4"
         start_kde_session=kdeinit4
         ;;
@@ -237,6 +237,7 @@ case "$ci_host" in
     (mingw32)
         # not yet supported
         ci_test=no
+        cmake_options+=" -DQT_MOC_EXECUTABLE=/usr/i686-w64-mingw32/bin/moc"
         cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime i686-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
@@ -244,11 +245,13 @@ case "$ci_host" in
     (mingw64)
         # not yet supported
         ci_test=no
+        cmake_options+=" -DAUTOMOC_EXECUTABLE=/usr/bin/x86_64-w64-mingw32-moc"
         cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime x86_64-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
         ;;
     (*)
+        cmake_options+=" -DCMAKE_CXX_FLAGS=-fPIC"
         cmake_configure="cmake-$cmake_suffix"
         export LD_LIBRARY_PATH=${builddir}/bin
         wrapper=

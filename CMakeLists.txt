@@ -7,7 +7,7 @@ endif()
 project(alkimia VERSION 8.1.72)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 # adds option BUILD_WITH_QT6
 include(QtVersionOption OPTIONAL)
@@ -34,34 +34,33 @@ if(ENABLE_FINANCEQUOTE)
     set(PACKAGE_COMPILE_OPTIONS "-DHAVE_ALK_FINANCEQUOTE")
 endif()
 
-include(Macros)
+if(BUILD_QT4)
+    set(QT_MAJOR_VERSION 4)
+endif()
 
 include(ECMAddAppIcon)
 include(ECMInstallIcons)
 include(KDEInstallDirs)
-# disable KDE provided appstreamtest which does not have required DESTDIR support
-set(KDE_SKIP_TEST_SETTINGS TRUE)
-if(NOT BUILD_QT4)
-    option(BUILD_TESTING "Build the testing tree." ON)
-    if(BUILD_TESTING)
-         enable_testing()
-    endif()
-endif()
+
+# provides option BUILD_TESTING
 include(KDECMakeSettings)
+
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 
+include(Macros)
+
 # check for PkgConfig, Qt and MPIR/GMP
 find_package(PkgConfig)
-if(BUILD_QT4)
+if(QT_MAJOR_VERSION EQUAL 4)
     set(QT_MAJOR_VERSION 4)
-    set(QT_USE_LIBSPREFIX Qt4::Qt)
+    set(QT_USE_LIBSPREFIX Qt${QT_MAJOR_VERSION}::)
     set(ALKIMIA_LIB_SUFFIX "")
-    set(ALKIMIA_INCLUDE_SUFFIX "Qt4")
     set(ALKIMIA_PATH_SUFFIX)
     set(PC_TARGET_QTPREFIX Qt)
     set(PC_TARGET_SUFFIX)
 
+    # select browser engine
     if(BUILD_WITH_WEBKIT)
         add_definitions(-DBUILD_WITH_WEBKIT)
         set(QT_BROWSER_COMPONENT WebKit)
@@ -71,54 +70,39 @@ if(BUILD_QT4)
         feature_notes(FALSE TRUE FALSE FALSE)
     endif()
 
+    # select network module
     if(BUILD_WITH_QTNETWORK)
         add_definitions(-DBUILD_WITH_QTNETWORK)
         set(QT_NETWORK_COMPONENT Network)
+        set(KF_NETWORK_COMPONENT)
         set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}Network)
     else()
         set(QT_NETWORK_COMPONENT)
+        set(KF_NETWORK_COMPONENT KIO)
+        set(KF_NETWORK_LIB KF${QT_MAJOR_VERSION}::${KF_NETWORK_COMPONENT})
     endif()
 
+    # select qml engine
     set(QT_QML_COMPONENT Declarative)
     set(QT_QML_LIB ${QT_USE_LIBSPREFIX}${QT_QML_COMPONENT})
-    set(QT_COMPONENTS Core Gui DBus ${QT_NETWORK_COMPONENT} Test ${QT_BROWSER_COMPONENT} ${QT_QML_COMPONENT})
-    foreach(COMPONENT ${QT_COMPONENTS})
-        find_package(Qt4 REQUIRED COMPONENTS QT${COMPONENT})
-        add_library(Qt4::${COMPONENT} ALIAS ${QT_USE_LIBSPREFIX}${COMPONENT})
-    endforeach()
-    set(_kde4_uninstall_rule_created 1)
-    find_package(KDE4 REQUIRED)
-    if(NOT BUILD_WITH_QTNETWORK)
-        set(KDE_NETWORK_LIBS ${KDE4_KIO_LIBS})
-    endif()
-    include(KDE4Defaults)
-    include_directories(${KDE4_INCLUDES})
-    macro(ki18n_wrap_ui)
-        kde4_add_ui_files(${ARGN})
-    endmacro(ki18n_wrap_ui)
-    macro(kconfig_add_kcfg_files)
-        kde4_add_kcfg_files(${ARGN})
-    endmacro(kconfig_add_kcfg_files)
-    macro(ecm_add_executable)
-        kde4_add_executable(${ARGN})
-    endmacro(ecm_add_executable)
 
-    macro(ecm_mark_nongui_executable)
-        foreach(_target ${ARGN})
-            set_target_properties(${_target}
-                                  PROPERTIES
-                                  WIN32_EXECUTABLE FALSE
-                                  MACOSX_BUNDLE FALSE
-                                 )
-        endforeach()
-    endmacro(ecm_mark_nongui_executable)
+    # setup Qt components
+    set(QT_PRIVATE_COMPONENTS Core Gui DBus ${QT_NETWORK_COMPONENT} Test ${QT_BROWSER_COMPONENT} ${QT_QML_COMPONENT})
+    set(QT_PUBLIC_COMPONENTS)
+    find_package(Qt${QT_MAJOR_VERSION} COMPONENTS ${QT_PRIVATE_COMPONENTS} ${QT_PUBLIC_COMPONENTS})
 
-    macro(ecm_install_icons)
-        kde4_install_icons(${ICON_INSTALL_DIR})
-    endmacro()
-
-    add_definitions(-DQStringLiteral=QLatin1String)
+    # setup KDE Frameworks components
+    find_package(KF${QT_MAJOR_VERSION} REQUIRED)
+    set(KF_NEWSTUFF_LIB KF${QT_MAJOR_VERSION}::NewStuff)
     set(QML_INSTALL_DIR ${LIB_INSTALL_DIR}/qt4/plugins/imports)
+
+    # install custom cmake files
+    set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
+    install(
+        FILES ${QT4_INSTALL_CMAKECONFIG_FILES} ${KF4_INSTALL_CMAKECONFIG_FILES}
+        DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+        COMPONENT Devel
+    )
 else()
     if (NOT QT_MAJOR_VERSION)
         set(QT_MAJOR_VERSION 5)
@@ -129,11 +113,11 @@ else()
     endif()
     set(QT_USE_LIBSPREFIX Qt${QT_MAJOR_VERSION}::)
     set(ALKIMIA_LIB_SUFFIX "${QT_MAJOR_VERSION}")
-    set(ALKIMIA_INCLUDE_SUFFIX "Qt${QT_MAJOR_VERSION}")
     set(ALKIMIA_PATH_SUFFIX ${QT_MAJOR_VERSION})
     set(PC_TARGET_QTPREFIX Qt${QT_MAJOR_VERSION})
     set(PC_TARGET_SUFFIX ${QT_MAJOR_VERSION})
 
+    # select browser engine
     find_package(Qt${QT_MAJOR_VERSION}WebEngineWidgets ${QT_MIN_VERSION})
 
     option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine (experimental)" ${Qt${QT_MAJOR_VERSION}WebEngineWidgets_FOUND})
@@ -150,52 +134,62 @@ else()
         feature_notes(FALSE TRUE FALSE FALSE)
     endif()
     set(QT_BROWSER_LIB ${QT_USE_LIBSPREFIX}${QT_BROWSER_COMPONENT})
+
+    # select network module
     if(BUILD_WITH_QTNETWORK)
         add_definitions(-DBUILD_WITH_QTNETWORK)
         set(QT_NETWORK_COMPONENT Network)
-        set(KDE_NETWORK_COMPONENT)
-        set(KDE_NETWORK_LIBS)
+        set(KF_NETWORK_COMPONENT)
+        set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}${QT_NETWORK_COMPONENT})
+        set(KF_NETWORK_LIB)
     else()
         set(QT_NETWORK_COMPONENT)
-        set(KDE_NETWORK_COMPONENT KIO)
-        set(KDE_NETWORK_LIBS KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOWidgets)
+        set(KF_NETWORK_COMPONENT KIO)
+        set(QT_NETWORK_LIB)
+        set(KF_NETWORK_LIB KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOWidgets)
     endif()
-    set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}${QT_NETWORK_COMPONENT})
     set(QT_QML_COMPONENT Qml)
     set(QT_QML_LIB ${QT_USE_LIBSPREFIX}${QT_QML_COMPONENT})
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
-        Core
-        ${QT_NETWORK_COMPONENT}
-        Test
-        ${QT_BROWSER_COMPONENT}
-        ${QT_QML_COMPONENT}
-    )
 
+    # setup Qt components
+    set(QT_PRIVATE_COMPONENTS Core DBus ${QT_NETWORK_COMPONENT} Test ${QT_QML_COMPONENT})
+    set(QT_PUBLIC_COMPONENTS ${QT_BROWSER_COMPONENT})
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS ${QT_PRIVATE_COMPONENTS} ${QT_PUBLIC_COMPONENTS})
+
+    # setup KDE Frameworks components
     if(BUILD_APPLETS)
         set(PLASMA_COMPONENT Package Plasma)
     endif()
+    if(QT_MAJOR_VERSION GREATER_EQUAL 6)
+        set(KF_NEWSTUFF_COMPONENT NewStuffWidgets NewStuff)
+    else()
+        set(KF_NEWSTUFF_COMPONENT NewStuff)
+    endif()
+    set(KF_NEWSTUFF_LIB KF${QT_MAJOR_VERSION}::${KF_NEWSTUFF_COMPONENT})
 
-    # search packages used by KDE
-    find_package(KF${QT_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
-        Config
+    set(KF_PUBLIC_COMPONENTS Config)
+    set(KF_PRIVATE_COMPONENTS
         CoreAddons
         Completion
         I18n
-        ${PLASMA_COMPONENT}
-        NewStuff
-        ${KDE_NETWORK_COMPONENT}
+        ${KF_NETWORK_COMPONENT}
+        ${KF_NEWSTUFF_COMPONENT}
         IconThemes
+        ${PLASMA_COMPONENT}
         TextWidgets
         XmlGui
-        OPTIONAL_COMPONENTS ${OPT_KF5_COMPONENTS}
     )
+    find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS ${KF_PRIVATE_COMPONENTS} ${KF_PUBLIC_COMPONENTS})
 
     macro(ecm_add_executable)
         add_executable(${ARGN})
     endmacro(ecm_add_executable)
+
     if(CMAKE_COMPILER_IS_GNUCC)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
     endif()
+
+    set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
 
     add_definitions(
         -DKF_DEPRECATED_WARNINGS_SINCE=0x60000
@@ -204,8 +198,21 @@ else()
         -DQT_DISABLE_DEPRECATED_BEFORE=0x50f02
         -DQT_NO_KEYWORDS
     )
-
 endif()
+
+# setup common variables
+set(ALKIMIA_INCLUDE_SUFFIX "Qt${QT_MAJOR_VERSION}")
+
+# setup components for use in cmake support files
+set(CMAKECONFIG_QT_COMPONENTS ${QT_PUBLIC_COMPONENTS})
+set(CMAKECONFIG_KF_COMPONENTS ${KF_PUBLIC_COMPONENTS})
+
+# static builds need also private components
+if(NOT BUILD_SHARED_LIBS)
+    list(APPEND CMAKECONFIG_QT_COMPONENTS ${QT_PRIVATE_COMPONENTS})
+    list(APPEND CMAKECONFIG_KF_COMPONENTS ${KF_PRIVATE_COMPONENTS})
+endif()
+
 if(NOT SHARE_INSTALL_DIR)
     set(SHARE_INSTALL_DIR ${DATA_INSTALL_DIR})
 endif()
@@ -244,8 +251,6 @@ if(DOXYGEN_FOUND)
   add_custom_target(apidoc "${DOXYGEN}" "${CMAKE_CURRENT_BINARY_DIR}/alkimia.doxygen")
 endif(DOXYGEN_FOUND)
 
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
-
 feature_summary(WHAT ALL)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -253,25 +258,24 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+
 include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
-    ${MP_INCLUDE_DIR}
 )
 
 add_subdirectory(src)
 add_subdirectory(qml)
+
 if(BUILD_APPLETS)
-    if(BUILD_QT4)
-        add_subdirectory(plasma/applets/onlinequote)
-    else()
-        add_subdirectory(plasma/applets/ForeignCurrencies)
-    endif()
+    add_subdirectory(plasma/applets)
 endif()
-if (KDE4_BUILD_TESTS OR BUILD_TESTING)
+
+if (BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
 endif()
+
 if (BUILD_TOOLS)
     add_subdirectory(tools)
 endif()
