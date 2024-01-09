@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
-# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023 Valter Mura <valtermura@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023, 2024 Valter Mura <valtermura@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-03 00:41+0000\n"
-"PO-Revision-Date: 2023-10-09 22:36+0200\n"
+"PO-Revision-Date: 2024-01-06 22:40+0100\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: alkonlinequote.cpp:195
 #, kde-format
@@ -675,12 +675,12 @@ msgstr "Finestra risultati HTML quotazione in linea"
 #: alkwebpage.cpp:52
 #, kde-format
 msgid "Open inspector in new window"
-msgstr ""
+msgstr "Apri l'ispettore in una nuova finestra"
 
 #: alkwebpage.cpp:64
 #, kde-format
 msgid "Inspect element"
-msgstr ""
+msgstr "Ispeziona elemento"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Espressione regolare per estrarre il simbolo dai dati scaricati"
