@@ -10,7 +10,7 @@
 #include "mainwindow.h"
 
 #include <KAboutData>
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     #include <QApplication>
     #include <KLocalizedString>
 
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
                      LICENCE_GPL,
                      _i18n("(C) 2018-2023 Ralf Habacker"));
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QApplication app(argc,argv);
 #else
     KCmdLineArgs::init(argc, argv, &about);
@@ -62,7 +62,7 @@ int main(int argc, char **argv)
 
     MainWindow w;
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     KHelpMenu helpMenu(&w, about.shortDescription());
     QString appName = about.displayName();
 #else

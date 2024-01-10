@@ -71,7 +71,7 @@ QString AlkOnlineQuotesProfile::name() const
 
 QString AlkOnlineQuotesProfile::hotNewStuffConfigFile() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QString configFile = QStandardPaths::locate(QStandardPaths::ConfigLocation, d->m_GHNSFile);
     if (configFile.isEmpty()) {
         configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "knsrcfiles/" + d->m_GHNSFile);

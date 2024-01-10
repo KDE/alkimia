@@ -20,7 +20,7 @@
 #include <QTreeWidget>
 #include <QKeyEvent>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     #include <QIcon>
     #include <KIconLoader>
 #include <knewstuff_version.h>
@@ -47,7 +47,7 @@
 #include <ui_alkonlinequotesprofiledetails.h>
 #include <ui_alkonlinequotesprofiles.h>
 
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 #include <klocale.h>
 static KLocale _locale(TRANSLATION_DOMAIN);
 #define i18nc(context, text) ki18nc(context, text).toString(&_locale)
@@ -127,7 +127,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_showUpload(showUpload)
     , m_ghnsEditable(false)
     , m_disableUpdate(false)
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     , m_inWorkIcon(BarIcon("view-refresh"))
     , m_okIcon(BarIcon("dialog-ok-apply"))
     , m_failIcon(BarIcon("dialog-cancel"))
@@ -138,7 +138,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 #endif
     , m_webPageDialog(nullptr)
 {
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     static KComponentData alk(TRANSLATION_DOMAIN);
 #endif
     Ui::AlkOnlineQuoteDetailsWidget::setupUi(parent);
@@ -181,7 +181,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
                            i18n("Create a new source entry for online quotes"),
                            i18n("Use this to create a new entry for online quotes"));
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     KGuiItem::assign(m_updateButton, updateButtenItem);
     KGuiItem::assign(m_deleteButton, deleteButtenItem);
     KGuiItem::assign(m_checkButton, checkButtonItem);
@@ -212,7 +212,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     m_quoteSourceList->setRootIsDecorated(false);
     m_quoteSourceList->header()->resizeSection(0, 5);
     m_quoteSourceList->header()->setStretchLastSection(false);
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     m_quoteSourceList->header()->setSectionResizeMode(0,QHeaderView::Stretch);
 #else
     m_quoteSourceList->header()->setResizeMode(0,QHeaderView::Stretch);

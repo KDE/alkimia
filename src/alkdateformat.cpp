@@ -11,8 +11,7 @@
 
 #include <QDebug>
 
-
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 #include <KGlobal>
 #include <KCalendarSystem>
 #include <QRegExp>
@@ -116,8 +115,7 @@ public:
         return date;
     }
 
-
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 
     QDate convertStringKMyMoney(const QString &_in, bool _strict, unsigned _centurymidpoint)
     {

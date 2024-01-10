@@ -15,7 +15,7 @@
 void AlkEnvironment::checkForAppImageEnvironment(const char* applicationPath)
 {
 #ifdef Q_OS_UNIX
-    #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     if (qEnvironmentVariableIsSet("APPDIR")) {
         QByteArray appFullPath(applicationPath);
         auto lastDirSeparator = appFullPath.lastIndexOf('/');
@@ -42,7 +42,7 @@ void AlkEnvironment::checkForAppImageEnvironment(const char* applicationPath)
 bool AlkEnvironment::isRunningAsAppImage()
 {
 #ifdef Q_OS_UNIX
-    #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     return qEnvironmentVariableIsSet("RUNNING_AS_APPIMAGE");
     #else
     return false;
@@ -56,7 +56,7 @@ bool AlkEnvironment::isRunningAsAppImage()
 void AlkEnvironment::removeAppImagePathFromLinkLoaderLibPath(QProcess* process)
 {
 #ifdef Q_OS_UNIX
-    #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     if (isRunningAsAppImage() && process) {
         auto environment = QProcessEnvironment::systemEnvironment();
         auto ld_library_path = environment.value(QLatin1String("LD_LIBRARY_PATH"));

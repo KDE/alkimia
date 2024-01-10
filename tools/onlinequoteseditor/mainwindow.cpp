@@ -66,7 +66,7 @@ MainWindow::MainWindow(QWidget *parent)
     AlkOnlineQuotesProfileManager &manager = AlkOnlineQuotesProfileManager::instance();
 
     manager.addProfile(new AlkOnlineQuotesProfile("no-config-file", AlkOnlineQuotesProfile::Type::None));
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     manager.addProfile(new AlkOnlineQuotesProfile("alkimia4", AlkOnlineQuotesProfile::Type::Alkimia4, "alkimia-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("skrooge4", AlkOnlineQuotesProfile::Type::Skrooge4, "skrooge-quotes.knsrc"));
     manager.addProfile(new AlkOnlineQuotesProfile("kmymoney4", AlkOnlineQuotesProfile::Type::KMyMoney4, "kmymoney-quotes.knsrc"));

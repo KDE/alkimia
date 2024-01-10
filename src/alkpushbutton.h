@@ -11,7 +11,7 @@
 
 #include <QtGlobal>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QPushButton>
 #define AlkPushButton QPushButton
 #else
