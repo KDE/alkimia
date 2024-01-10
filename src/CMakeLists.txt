@@ -138,6 +138,8 @@ else()
         ${KDE_NETWORK_LIBS}
         KF${QT_MAJOR_VERSION}::IconThemes
         KF${QT_MAJOR_VERSION}::TextWidgets
+        PUBLIC
+        KF${QT_MAJOR_VERSION}::ConfigCore
     )
     if (QT_MAJOR_VERSION GREATER_EQUAL 6)
         target_link_libraries(alkimia PRIVATE KF6::NewStuffWidgets)

@@ -12,13 +12,11 @@
 #include <alkimia/alk_export.h>
 #include <alkimia/alkonlinequotesource.h>
 
+#include <KSharedConfig>
+
 #include <QObject>
 #include <QString>
 #include <QMap>
-
-#include <QSharedData>
-#include <ksharedconfig.h>
-class KSharedConfig;
 
 class AlkOnlineQuoteSource;
 class AlkOnlineQuotesProfileManager;
