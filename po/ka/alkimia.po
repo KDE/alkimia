@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 00:41+0000\n"
+"POT-Creation-Date: 2024-01-10 00:41+0000\n"
 "PO-Revision-Date: 2024-01-05 04:52+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,104 +18,104 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: alkonlinequote.cpp:195
+#: alkonlinequote_p.cpp:110
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "წყარო <placeholder>%1</placeholder> არ არსებობს."
 
-#: alkonlinequote.cpp:240 alkonlinequote.cpp:254
+#: alkonlinequote_p.cpp:155 alkonlinequote_p.cpp:169
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "%1-სთვის URL-ის გამოთხოვის შეცდომა"
 
-#: alkonlinequote.cpp:262 alkonlinequote.cpp:707 alkonlinequote.cpp:734
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:626 alkonlinequote_p.cpp:653
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "ნაპოვნია სიმბოლო: '%1'"
 
-#: alkonlinequote.cpp:265 alkonlinequote.cpp:710 alkonlinequote.cpp:737
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:629 alkonlinequote_p.cpp:656
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "%1-სთვის სიმბოლოს დამუშავების შეცდომა"
 
-#: alkonlinequote.cpp:288
+#: alkonlinequote_p.cpp:203
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "URL %1-ის გამოთხოვა..."
 
-#: alkonlinequote.cpp:359
+#: alkonlinequote_p.cpp:277
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1-ის შესრულება..."
 
-#: alkonlinequote.cpp:376 alkonlinequote.cpp:586
+#: alkonlinequote_p.cpp:294 alkonlinequote_p.cpp:505
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "გაშვების შედომა: %1"
 
-#: alkonlinequote.cpp:394
+#: alkonlinequote_p.cpp:313
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "გადმოწერილი ფაილის გახსნის პრობლემა"
 
-#: alkonlinequote.cpp:411
+#: alkonlinequote_p.cpp:330
 #, kde-format
 msgid "URL found: %1..."
 msgstr "ნაპოვნია URL: %1..."
 
-#: alkonlinequote.cpp:502 alkonlinequote.cpp:504
+#: alkonlinequote_p.cpp:421 alkonlinequote_p.cpp:423
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr "URL გადამისამართებულია. შეამოწმეთ, ონლაინ კოტის URL-ი ხომ არ განახლდა"
 
-#: alkonlinequote.cpp:578
+#: alkonlinequote_p.cpp:497
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "შესრულება %1 %2 %3..."
 
-#: alkonlinequote.cpp:618
+#: alkonlinequote_p.cpp:537
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "ნაპოვნია ფასი: '%1' (%2)"
 
-#: alkonlinequote.cpp:621
+#: alkonlinequote_p.cpp:540
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "%1-ის ფასის დამუშავების შეცდომა"
 
-#: alkonlinequote.cpp:630
+#: alkonlinequote_p.cpp:549
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "ნაპოვნია მონაცემები: '%1'"
 
-#: alkonlinequote.cpp:636
+#: alkonlinequote_p.cpp:555
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "ნაპოვნია მონაცემების ფორმატი: '%1' -> '%2'"
 
-#: alkonlinequote.cpp:639
+#: alkonlinequote_p.cpp:558
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "მონაცემების '%1' ფორმატით '%2' დამუშავების შეცდომა: %3"
 
-#: alkonlinequote.cpp:643 alkonlinequote.cpp:653
+#: alkonlinequote_p.cpp:562 alkonlinequote_p.cpp:572
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "%1-სთვის მიმდინარე თარიღი გამოიყენება"
 
-#: alkonlinequote.cpp:647
+#: alkonlinequote_p.cpp:566
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "%1-სთვის მონაცემების დამუშავება გამორთულია"
 
-#: alkonlinequote.cpp:650
+#: alkonlinequote_p.cpp:569
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "%1-ის თარიღის დამუშავების შეცდომა"
 
-#: alkonlinequote.cpp:800
+#: alkonlinequote_p.cpp:719
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -123,33 +123,33 @@ msgstr ""
 "ფასის მონაცემების პირველ ხაზზე(თავსართის ხაზი) ველის გამყოფის დადგენა "
 "შეუძლებელია."
 
-#: alkonlinequote.cpp:827
+#: alkonlinequote_p.cpp:746
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "ფასის მონაცემებში თარიღის სვეტი '%1' აღმოჩენილი არაა"
 
-#: alkonlinequote.cpp:833
+#: alkonlinequote_p.cpp:752
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "ფასის მონაცემებში ფასის სვეტი '%1' აღმოჩენილი არაა"
 
-#: alkonlinequote.cpp:851
+#: alkonlinequote_p.cpp:770
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "კვოტის მონაცემებში თარიღის '%1' '%2'-ით გადაყვანა შეუძლებელია"
 
-#: alkonlinequote.cpp:863
+#: alkonlinequote_p.cpp:782
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "ფასის მონაცემებში თარიღი/ფასის წყვილები ვერ ვიპოვე"
 
-#: alkonlinequote.cpp:886
+#: alkonlinequote_p.cpp:805
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr ""
 "%1-ის ფასის განახლების დამუშავების სშეცდომა (კოტის მონაცემები ცარიელია)"
 
-#: alkonlinequote.cpp:904
+#: alkonlinequote_p.cpp:823
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "%1-სთვის URL-ის გამოთხოვის მოლოდინის ვადა გადაცილებულია"

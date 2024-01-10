@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 00:41+0000\n"
+"POT-Creation-Date: 2024-01-10 00:41+0000\n"
 "PO-Revision-Date: 2024-01-06 03:34\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,135 +17,135 @@ msgstr ""
 "X-Crowdin-File: /kf5-trunk/messages/alkimia/alkimia.pot\n"
 "X-Crowdin-File-ID: 10154\n"
 
-#: alkonlinequote.cpp:195
+#: alkonlinequote_p.cpp:110
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "源 <placeholder>%1</placeholder> 不存在。"
 
-#: alkonlinequote.cpp:240 alkonlinequote.cpp:254
+#: alkonlinequote_p.cpp:155 alkonlinequote_p.cpp:169
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "无法获取 %1 的 URL"
 
-#: alkonlinequote.cpp:262 alkonlinequote.cpp:707 alkonlinequote.cpp:734
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:626 alkonlinequote_p.cpp:653
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "找到代号：'%1'"
 
-#: alkonlinequote.cpp:265 alkonlinequote.cpp:710 alkonlinequote.cpp:737
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:629 alkonlinequote_p.cpp:656
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "无法解析 %1 代号"
 
-#: alkonlinequote.cpp:288
+#: alkonlinequote_p.cpp:203
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "正在获取 URL %1..."
 
-#: alkonlinequote.cpp:359
+#: alkonlinequote_p.cpp:277
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "正在执行 %1..."
 
-#: alkonlinequote.cpp:376 alkonlinequote.cpp:586
+#: alkonlinequote_p.cpp:294 alkonlinequote_p.cpp:505
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "无法启动：%1"
 
-#: alkonlinequote.cpp:394
+#: alkonlinequote_p.cpp:313
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "无法打开已下载的文件"
 
-#: alkonlinequote.cpp:411
+#: alkonlinequote_p.cpp:330
 #, kde-format
 msgid "URL found: %1..."
 msgstr "找到网址： %1..."
 
-#: alkonlinequote.cpp:502 alkonlinequote.cpp:504
+#: alkonlinequote_p.cpp:421 alkonlinequote_p.cpp:423
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr "URL 已被重定向；请检查在线报价 URL 的更新"
 
-#: alkonlinequote.cpp:578
+#: alkonlinequote_p.cpp:497
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "正在执行 %1 %2 %3..."
 
-#: alkonlinequote.cpp:618
+#: alkonlinequote_p.cpp:537
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "已找到价格信息：“%1”(%2)"
 
-#: alkonlinequote.cpp:621
+#: alkonlinequote_p.cpp:540
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "无法解析 '%1' 的价格信息"
 
-#: alkonlinequote.cpp:630
+#: alkonlinequote_p.cpp:549
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "已找到日期：'%1'"
 
-#: alkonlinequote.cpp:636
+#: alkonlinequote_p.cpp:555
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "找到日期格式：'%1' -> '%2'"
 
-#: alkonlinequote.cpp:639
+#: alkonlinequote_p.cpp:558
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "无法使用格式 '%1' 解析日期 '%2': %3"
 
-#: alkonlinequote.cpp:643 alkonlinequote.cpp:653
+#: alkonlinequote_p.cpp:562 alkonlinequote_p.cpp:572
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "为 '%1' 使用当前日期"
 
-#: alkonlinequote.cpp:647
+#: alkonlinequote_p.cpp:566
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "'%1' 的日期解析已禁用"
 
-#: alkonlinequote.cpp:650
+#: alkonlinequote_p.cpp:569
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "无法解析 '%1' 日期"
 
-#: alkonlinequote.cpp:800
+#: alkonlinequote_p.cpp:719
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
 
-#: alkonlinequote.cpp:827
+#: alkonlinequote_p.cpp:746
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr ""
 
-#: alkonlinequote.cpp:833
+#: alkonlinequote_p.cpp:752
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr ""
 
-#: alkonlinequote.cpp:851
+#: alkonlinequote_p.cpp:770
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr ""
 
-#: alkonlinequote.cpp:863
+#: alkonlinequote_p.cpp:782
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr ""
 
-#: alkonlinequote.cpp:886
+#: alkonlinequote_p.cpp:805
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "无法更新 %1 的价格信息 (报表数据为空)"
 
-#: alkonlinequote.cpp:904
+#: alkonlinequote_p.cpp:823
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr ""

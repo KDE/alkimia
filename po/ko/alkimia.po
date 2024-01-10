@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 00:41+0000\n"
+"POT-Creation-Date: 2024-01-10 00:41+0000\n"
 "PO-Revision-Date: 2023-10-08 22:26+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -18,136 +18,136 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: alkonlinequote.cpp:195
+#: alkonlinequote_p.cpp:110
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "원본 <placeholder>%1</placeholder>이(가) 없습니다."
 
-#: alkonlinequote.cpp:240 alkonlinequote.cpp:254
+#: alkonlinequote_p.cpp:155 alkonlinequote_p.cpp:169
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "%1의 URL을 가져올 수 없음"
 
-#: alkonlinequote.cpp:262 alkonlinequote.cpp:707 alkonlinequote.cpp:734
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:626 alkonlinequote_p.cpp:653
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "코드 검색됨: '%1'"
 
-#: alkonlinequote.cpp:265 alkonlinequote.cpp:710 alkonlinequote.cpp:737
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:629 alkonlinequote_p.cpp:656
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "%1의 코드를 해석할 수 없음"
 
-#: alkonlinequote.cpp:288
+#: alkonlinequote_p.cpp:203
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "URL %1을(를) 가져오는 중..."
 
-#: alkonlinequote.cpp:359
+#: alkonlinequote_p.cpp:277
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1 실행 중..."
 
-#: alkonlinequote.cpp:376 alkonlinequote.cpp:586
+#: alkonlinequote_p.cpp:294 alkonlinequote_p.cpp:505
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "시작할 수 없음: %1"
 
-#: alkonlinequote.cpp:394
+#: alkonlinequote_p.cpp:313
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "다운로드한 파일을 열 수 없음"
 
-#: alkonlinequote.cpp:411
+#: alkonlinequote_p.cpp:330
 #, kde-format
 msgid "URL found: %1..."
 msgstr "검색된 URL: %1..."
 
-#: alkonlinequote.cpp:502 alkonlinequote.cpp:504
+#: alkonlinequote_p.cpp:421 alkonlinequote_p.cpp:423
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "URL이 다른 곳으로 넘어갔습니다. 온라인 시세 URL 업데이트를 확인하십시오"
 
-#: alkonlinequote.cpp:578
+#: alkonlinequote_p.cpp:497
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "%1 %2 %3 실행 중..."
 
-#: alkonlinequote.cpp:618
+#: alkonlinequote_p.cpp:537
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "검색된 금액: '%1' (%2)"
 
-#: alkonlinequote.cpp:621
+#: alkonlinequote_p.cpp:540
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "'%1'의 금액을 해석할 수 없음"
 
-#: alkonlinequote.cpp:630
+#: alkonlinequote_p.cpp:549
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "검색된 날짜: '%1'"
 
-#: alkonlinequote.cpp:636
+#: alkonlinequote_p.cpp:555
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "검색된 날짜 형식: '%1' -> '%2'"
 
-#: alkonlinequote.cpp:639
+#: alkonlinequote_p.cpp:558
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "'%2' 형식을 사용하여 날짜 '%1'을(를) 해석할 수 없음: %3"
 
-#: alkonlinequote.cpp:643 alkonlinequote.cpp:653
+#: alkonlinequote_p.cpp:562 alkonlinequote_p.cpp:572
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "'%1'에 현재 날짜 사용"
 
-#: alkonlinequote.cpp:647
+#: alkonlinequote_p.cpp:566
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "'%1'의 날짜 처리가 비활성화됨"
 
-#: alkonlinequote.cpp:650
+#: alkonlinequote_p.cpp:569
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "'%1'의 날짜를 해석할 수 없음"
 
-#: alkonlinequote.cpp:800
+#: alkonlinequote_p.cpp:719
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr "시세 데이터의 첫 번째 줄(머릿글 줄)에서 구분자를 확인할 수 없습니다."
 
-#: alkonlinequote.cpp:827
+#: alkonlinequote_p.cpp:746
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "시세 데이터에서 날짜 열 '%1'을(를) 찾을 수 없음"
 
-#: alkonlinequote.cpp:833
+#: alkonlinequote_p.cpp:752
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "시세 데이터에서 금액 열 '%1'을(를) 찾을 수 없음"
 
-#: alkonlinequote.cpp:851
+#: alkonlinequote_p.cpp:770
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "시세 데이터에서 '%2'을(를) 사용하여 날짜 '%1'을(를) 변환할 수 없음"
 
-#: alkonlinequote.cpp:863
+#: alkonlinequote_p.cpp:782
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "시세 데이터에서 날짜/금액 쌍을 찾을 수 없음"
 
-#: alkonlinequote.cpp:886
+#: alkonlinequote_p.cpp:805
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "%1의 금액을 업데이트할 수 없습니다 (빈 시세 데이터)"
 
-#: alkonlinequote.cpp:904
+#: alkonlinequote_p.cpp:823
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "%1의 URL을 가져오는 중에 시간 제한 초과됨"
