@@ -51,7 +51,6 @@ AlkOnlineQuotesProfile::Private::~Private()
 {
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     delete m_manager;
-    delete m_config;
 #endif
 }
 

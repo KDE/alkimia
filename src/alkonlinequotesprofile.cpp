@@ -14,9 +14,11 @@
 
 #include "alkonlinequotesprofile_p.h"
 
+#include <KSharedConfig>
+#include <QtDebug>
+
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KNSCore/Engine>
-    #include <KSharedConfig>
     #include <QRegularExpression>
     #include <QStandardPaths>
 #else
@@ -43,12 +45,8 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
         d->m_kconfigFile.clear();
 
     if (!d->m_kconfigFile.isEmpty()) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         d->m_config = KSharedConfig::openConfig(d->m_kconfigFile, KConfig::SimpleConfig);
-        qDebug() << (void*)d->m_config.constData();
-#else
-        d->m_config = new KConfig(d->m_kconfigFile);
-#endif
+        qDebug() << d->m_config;
     }
 
     if (!d->m_GHNSFile.isEmpty()) {
@@ -126,11 +124,7 @@ QString AlkOnlineQuotesProfile::kConfigFile() const
     return d->m_kconfigFile;
 }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 KSharedConfigPtr AlkOnlineQuotesProfile::kConfig() const
-#else
-KConfig *AlkOnlineQuotesProfile::kConfig() const
-#endif
 {
     return d->m_config;
 }

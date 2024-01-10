@@ -16,12 +16,9 @@
 #include <QString>
 #include <QMap>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QSharedData>
+#include <ksharedconfig.h>
 class KSharedConfig;
-#else
-class KConfig;
-#endif
 
 class AlkOnlineQuoteSource;
 class AlkOnlineQuotesProfileManager;
@@ -49,12 +46,9 @@ public:
     void setManager(AlkOnlineQuotesProfileManager *manager);
     AlkOnlineQuotesProfileManager *manager();
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    QExplicitlySharedDataPointer<KSharedConfig> kConfig() const;
-    void setKConfig(QExplicitlySharedDataPointer<KSharedConfig> kconfig);
-#else
-    KConfig* kConfig() const;
-#endif
+    KSharedConfigPtr kConfig() const;
+    void setKConfig(KSharedConfigPtr kconfig);
+
     /**
      * Check if the profile is supported (build) by Alkimia
      *

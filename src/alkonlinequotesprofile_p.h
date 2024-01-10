@@ -45,12 +45,11 @@ public:
     QString m_GHNSFilePath;
     QString m_kconfigFile;
     AlkOnlineQuotesProfileManager *m_profileManager;
+    KSharedConfigPtr m_config;
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     KNS::DownloadManager *m_manager = 0;
-    KConfig* m_config;
 #else
     KNSCore::Engine *m_engine = 0;
-    KSharedConfigPtr m_config;
 #endif
     Type m_type;
     static QString m_financeQuoteScriptPath;
