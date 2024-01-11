@@ -101,6 +101,8 @@ case "$ci_distro" in
                 packages=(
                     "${packages[@]}"
                     kinit
+                    "cmake(KF5Config)"
+
                 )
                 ;;
             (kf5*-mingw*)
