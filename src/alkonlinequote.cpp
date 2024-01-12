@@ -120,3 +120,8 @@ const AlkOnlineQuote::Errors &AlkOnlineQuote::errors()
 {
     return d->m_errors;
 }
+
+AlkOnlineQuote::Private &AlkOnlineQuote::d_ptr()
+{
+    return *d;
+}

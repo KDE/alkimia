@@ -129,7 +129,7 @@ public Q_SLOTS:
       *
       * @return bit map of errors, see class @ref Errors for details
      */
-    const Errors &errors();
+    const AlkOnlineQuote::Errors &errors();
 
 Q_SIGNALS:
     void quote(QString id, QString symbol, QDate date, double price);
@@ -141,6 +141,11 @@ Q_SIGNALS:
 private:
     class Private;
     Private *const d;
+
+protected:
+    Private &d_ptr();
+
+    friend class AlkOnlineQuotePrivateTest;
 };
 
 #endif // ALKONLINEQUOTE_H

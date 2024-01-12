@@ -9,6 +9,7 @@ set(TEST_LIB
 )
 
 ecm_add_tests(
+    alkonlinequoteprivatetest.cpp
     alkonlinequotesourcetest.cpp
     alkvaluetest.cpp
     alkquoteitemtest.cpp

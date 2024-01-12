@@ -532,9 +532,16 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
             pos = pricestr.lastIndexOf(Regex("\\D"), pos);
         }
 
-        m_price = pricestr.toDouble();
-        kDebug(Private::dbgArea()) << "Price" << pricestr;
-        Q_EMIT m_p->status(i18n("Price found: '%1' (%2)", pricestr, m_price));
+        bool ok;
+        m_price = pricestr.toDouble(&ok);
+        if (ok) {
+            kDebug(Private::dbgArea()) << "Price" << pricestr;
+            Q_EMIT m_p->status(i18n("Price found: '%1' (%2)", pricestr, m_price));
+        } else {
+            m_errors |= Errors::Price;
+            Q_EMIT m_p->error(i18n("Price '%1' cannot be converted to a number for '%2'", pricestr, m_symbol));
+            result = false;
+        }
     } else {
         m_errors |= Errors::Price;
         Q_EMIT m_p->error(i18n("Unable to parse price for '%1'", m_symbol));
