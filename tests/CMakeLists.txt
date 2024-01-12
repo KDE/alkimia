@@ -16,3 +16,8 @@ add_executable(alkonlinequoteswidgettest
     alkonlinequoteswidgettest.cpp
 )
 target_link_libraries(alkonlinequoteswidgettest ${TEST_LIB})
+
+add_executable(alknewstufftest
+    alknewstufftest.cpp
+)
+target_link_libraries(alknewstufftest ${TEST_LIB} ${KF_NEWSTUFF_LIB})
