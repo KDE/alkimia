@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 00:41+0000\n"
+"POT-Creation-Date: 2024-01-13 01:46+0000\n"
 "PO-Revision-Date: 2023-12-24 05:44+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -27,12 +27,12 @@ msgstr "來源 <placeholder>%1</placeholder> 不存在。"
 msgid "Unable to fetch url for %1"
 msgstr "無法為 %1 抓取網址"
 
-#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:626 alkonlinequote_p.cpp:653
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:660
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "找到符號：'%1'"
 
-#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:629 alkonlinequote_p.cpp:656
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:663
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "無法剖析 %1 的符號"
@@ -74,78 +74,83 @@ msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "執行 %1 %2 %3 中..."
 
-#: alkonlinequote_p.cpp:537
+#: alkonlinequote_p.cpp:539
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "找到價格：'%1' (%2)"
 
-#: alkonlinequote_p.cpp:540
+#: alkonlinequote_p.cpp:542
+#, kde-format
+msgid "Price '%1' cannot be converted to a number for '%2'"
+msgstr ""
+
+#: alkonlinequote_p.cpp:547
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "無法剖析 '%1' 的價格"
 
-#: alkonlinequote_p.cpp:549
+#: alkonlinequote_p.cpp:556
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "找到日期：'%1'"
 
-#: alkonlinequote_p.cpp:555
+#: alkonlinequote_p.cpp:562
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "找到日期格式：'%1' → '%2'"
 
-#: alkonlinequote_p.cpp:558
+#: alkonlinequote_p.cpp:565
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "無法使用格式 '%2' 剖析日期 '%1'：%3"
 
-#: alkonlinequote_p.cpp:562 alkonlinequote_p.cpp:572
+#: alkonlinequote_p.cpp:569 alkonlinequote_p.cpp:579
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "為 '%1' 使用目前的日期"
 
-#: alkonlinequote_p.cpp:566
+#: alkonlinequote_p.cpp:573
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "已為 '%1' 停用日期剖析"
 
-#: alkonlinequote_p.cpp:569
+#: alkonlinequote_p.cpp:576
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "無法剖析 '%1' 的日期"
 
-#: alkonlinequote_p.cpp:719
+#: alkonlinequote_p.cpp:726
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr "無法在報價資料的第一行（標頭行）中偵測到欄位分隔符。"
 
-#: alkonlinequote_p.cpp:746
+#: alkonlinequote_p.cpp:753
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "無法在報價資料中找到日期欄位 '%1'"
 
-#: alkonlinequote_p.cpp:752
+#: alkonlinequote_p.cpp:759
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "無法在報價資料中找到價格欄位 '%1'"
 
-#: alkonlinequote_p.cpp:770
+#: alkonlinequote_p.cpp:777
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "無法在報價資料中用 '%2' 轉換日期 '%1'"
 
-#: alkonlinequote_p.cpp:782
+#: alkonlinequote_p.cpp:789
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "無法在報價資料中找到日期/價格對"
 
-#: alkonlinequote_p.cpp:805
+#: alkonlinequote_p.cpp:812
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "無法更新 %1 的價格（空白的報價資料）"
 
-#: alkonlinequote_p.cpp:823
+#: alkonlinequote_p.cpp:830
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "為 %1 抓取網址時逾時"

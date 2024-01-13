@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 00:41+0000\n"
+"POT-Creation-Date: 2024-01-13 01:46+0000\n"
 "PO-Revision-Date: 2023-11-06 11:29+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -27,12 +27,12 @@ msgstr "Zdroj <placeholder>%1</placeholder> neexistuje."
 msgid "Unable to fetch url for %1"
 msgstr ""
 
-#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:626 alkonlinequote_p.cpp:653
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:660
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Symbol nalezen: '%1'"
 
-#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:629 alkonlinequote_p.cpp:656
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:663
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr ""
@@ -74,78 +74,83 @@ msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Provádím %1 %2 %3..."
 
-#: alkonlinequote_p.cpp:537
+#: alkonlinequote_p.cpp:539
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Cena nalezena: '%1' (%2)"
 
-#: alkonlinequote_p.cpp:540
+#: alkonlinequote_p.cpp:542
+#, kde-format
+msgid "Price '%1' cannot be converted to a number for '%2'"
+msgstr ""
+
+#: alkonlinequote_p.cpp:547
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:549
+#: alkonlinequote_p.cpp:556
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Datum nalezeno: '%1'"
 
-#: alkonlinequote_p.cpp:555
+#: alkonlinequote_p.cpp:562
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:558
+#: alkonlinequote_p.cpp:565
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr ""
 
-#: alkonlinequote_p.cpp:562 alkonlinequote_p.cpp:572
+#: alkonlinequote_p.cpp:569 alkonlinequote_p.cpp:579
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:566
+#: alkonlinequote_p.cpp:573
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Datum zpracování je pro '%1' vypnuto"
 
-#: alkonlinequote_p.cpp:569
+#: alkonlinequote_p.cpp:576
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:719
+#: alkonlinequote_p.cpp:726
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
 
-#: alkonlinequote_p.cpp:746
+#: alkonlinequote_p.cpp:753
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:752
+#: alkonlinequote_p.cpp:759
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:770
+#: alkonlinequote_p.cpp:777
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:782
+#: alkonlinequote_p.cpp:789
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:805
+#: alkonlinequote_p.cpp:812
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
 
-#: alkonlinequote_p.cpp:823
+#: alkonlinequote_p.cpp:830
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr ""
