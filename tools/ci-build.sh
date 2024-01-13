@@ -179,7 +179,7 @@ init_cross_runtime() {
 
 # ci_in_docker:
 # flags to indicate that we are running in docker
-: "${ci_in_docker:=yes}"
+: "${ci_in_docker:=auto}"
 
 # ci_jobs:
 # number of jobs
@@ -201,6 +201,14 @@ init_cross_runtime() {
 srcdir="$(pwd)"
 builddir=${srcdir}/ci-build-${ci_variant}-${ci_host}
 
+# check and setup if running in docker
+if [ $ci_in_docker = auto ]; then
+    if [ -f /.dockerenv ]; then
+        ci_in_docker=yes
+    else
+        ci_in_docker=no
+    fi
+fi
 
 # enable sudo if running in docker
 sudo=
