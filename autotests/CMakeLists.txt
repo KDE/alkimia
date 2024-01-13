@@ -38,6 +38,12 @@ ecm_add_test(
     TEST_NAME alkonlinequoteprivatetest
 )
 
+ecm_add_test(
+    alknewstuffenginetest.cpp
+    LINK_LIBRARIES alkimia alkimia-internal ${KF_NEWSTUFF_LIB}
+    TEST_NAME alknewstuffenginetest
+)
+
 #
 # cmake install test
 #

@@ -10,6 +10,7 @@
 #include "alkonlinequotesprofile_p.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <QDebug>
 #include <QRegularExpression>
 #else
 #include <KConfig>
@@ -39,60 +40,25 @@ bool AlkOnlineQuotesProfile::Private::setupFinanceQuoteScriptPath()
 AlkOnlineQuotesProfile::Private::Private(AlkOnlineQuotesProfile *p)
     : m_p(p)
     , m_profileManager(0)
+    , m_engine(new AlkNewStuffEngine)
     , m_config(0)
     , m_type(Type::Undefined)
 {
 #ifdef ENABLE_FINANCEQUOTE
     setupFinanceQuoteScriptPath();
 #endif
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+    connect(m_engine, SIGNAL(updatesAvailable(AlkNewStuffEntryList)), this,
+            SLOT(slotUpdatesAvailable(AlkNewStuffEntryList)));
+#else
+    connect(m_engine, &AlkNewStuffEngine::updatesAvailable, this,
+            &AlkOnlineQuotesProfile::Private::slotUpdatesAvailable);
+#endif
 }
 
 AlkOnlineQuotesProfile::Private::~Private()
 {
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-    delete m_manager;
-#endif
-}
-
-void AlkOnlineQuotesProfile::Private::checkUpdates()
-{
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-    m_manager = new KNS::DownloadManager(m_p->hotNewStuffConfigFile(), this);
-    // to know when checking for updates is done
-    connect(m_manager, SIGNAL(searchResult(KNS3::Entry::List)), this,
-            SLOT(slotUpdatesFound(KNS3::Entry::List)));
-    // to know about finished installations
-    connect(m_manager, SIGNAL(entryStatusChanged(KNS3::Entry)), this,
-            SLOT(entryStatusChanged(KNS3::Entry)));
-    // start checking for updates
-    m_manager->checkForUpdates();
-#else
-    m_engine = new KNSCore::Engine(this);
-    if (m_engine->init(m_p->hotNewStuffConfigFile())) {
-        connect(m_engine, &KNSCore::Engine::signalUpdateableEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &updates) {
-            for (const KNSCore::EntryInternal &entry : updates) {
-                qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.uniqueId() << entry.category() << entry.providerId();
-                Q_EMIT m_p->updateAvailable(m_p->name(), entry.name());
-            }
-        });
-        connect(m_engine, &KNSCore::Engine::signalProvidersLoaded, this, [this]() {
-            m_engine->checkForUpdates();
-        });
-    }
-#endif
-}
-
-void AlkOnlineQuotesProfile::Private::slotUpdatesFound(const KNS3::Entry::List &updates)
-{
-    for (const KNS3::Entry &entry : updates) {
-        qDebug() << "update available in profile" << m_p->name() << "for" << entry.name() << entry.version() << entry.id() << entry.category() << entry.providerId();
-        Q_EMIT m_p->updateAvailable(m_p->name(), entry.name());
-    }
-}
-
-void AlkOnlineQuotesProfile::Private::entryStatusChanged(const KNS3::Entry &entry)
-{
-    qDebug() << __FUNCTION__ << entry.name() << entry.status() << entry.summary();
+    delete m_engine;
 }
 
 const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesNative()
@@ -290,4 +256,14 @@ QString AlkOnlineQuotesProfile::Private::dataWritePath()
         return QString("%1/.kde4/share/apps").arg(homeRootPath());
     return
             QString();
+}
+
+void AlkOnlineQuotesProfile::Private::slotUpdatesAvailable(const AlkNewStuffEntryList &updates)
+{
+    for (auto &entry : updates) {
+        qDebug() << "update available in profile" << m_p->name() << "for"
+                 << entry.name << entry.version << entry.id << entry.category
+                 << entry.providerId;
+        Q_EMIT m_p->updateAvailable(m_p->name(), entry.name);
+    }
 }

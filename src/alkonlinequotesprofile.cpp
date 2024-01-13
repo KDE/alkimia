@@ -50,10 +50,12 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
     }
 
     if (!d->m_GHNSFile.isEmpty()) {
-        KConfig ghnsFile(hotNewStuffConfigFile());
-        KConfigGroup group = ghnsFile.group("KNewStuff3");
+        QString ghnsFile = hotNewStuffConfigFile();
+        KConfig ghnsConfig(ghnsFile);
+        KConfigGroup group = ghnsConfig.group("KNewStuff3");
         d->m_GHNSFilePath = group.readEntry("TargetDir");
-        d->checkUpdates();
+        d->m_engine->init(ghnsFile);
+        d->m_engine->checkForUpdates();
     }
 }
 

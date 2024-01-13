@@ -218,7 +218,10 @@ if(NOT SHARE_INSTALL_DIR)
 endif()
 
 set(TARGET_SUFFIX ${PC_TARGET_SUFFIX})
-add_definitions(-DTARGET_SUFFIX=\"${TARGET_SUFFIX}\")
+add_definitions(
+    -DTARGET_SUFFIX=\"${TARGET_SUFFIX}\"
+    -DKNSRC_DIR="${CMAKE_SOURCE_DIR}/src"
+)
 
 # figure out which multi-precision library to use
 # MPIR is preferred over GMP

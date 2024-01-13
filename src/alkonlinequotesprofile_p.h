@@ -12,6 +12,8 @@
 
 #include "alkonlinequotesprofile.h"
 
+#include "alknewstuffengine.h"
+
 #ifdef ENABLE_FINANCEQUOTE
 #include "alkfinancequoteprocess.h"
 #endif
@@ -27,12 +29,7 @@
 #include <QLibraryInfo>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    #include <KNSCore/Engine>
     #include <KSharedConfig>
-    namespace KNS = KNSCore;
-#else
-    #include <knewstuff3/downloadmanager.h>
-    namespace KNS = KNS3;
 #endif
 
 class ALK_NO_EXPORT AlkOnlineQuotesProfile::Private : public QObject
@@ -45,12 +42,8 @@ public:
     QString m_GHNSFilePath;
     QString m_kconfigFile;
     AlkOnlineQuotesProfileManager *m_profileManager;
+    AlkNewStuffEngine *m_engine = 0;
     KSharedConfigPtr m_config;
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-    KNS::DownloadManager *m_manager = 0;
-#else
-    KNSCore::Engine *m_engine = 0;
-#endif
     Type m_type;
     static QString m_financeQuoteScriptPath;
     static QStringList m_financeQuoteSources;
@@ -60,14 +53,6 @@ public:
     explicit Private(AlkOnlineQuotesProfile *p);
 
     ~Private();
-
-    void checkUpdates();
-
-public Q_SLOTS:
-    void slotUpdatesFound(const KNS3::Entry::List &updates);
-
-    // to know about finished installations
-    void entryStatusChanged(const KNS3::Entry &entry);
 
     const QStringList quoteSourcesNative();
 
@@ -98,6 +83,9 @@ public Q_SLOTS:
     QString dataReadPath();
 
     QString dataWritePath();
+
+public Q_SLOTS:
+    void slotUpdatesAvailable(const AlkNewStuffEntryList &updates);
 };
 
 #endif // ALKONLINEQUOTESPROFILE_P_H

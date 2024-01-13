@@ -12,6 +12,7 @@ include_directories(
 set(alkimia_INTERNAL_SRCS
     alkdateformat.cpp
     alkexception.cpp
+    alknewstuffengine.cpp
     alknewstuffwidget.cpp
     alkonlinequoteprocess.cpp
     alkquoteitem.cpp
@@ -21,6 +22,7 @@ set(alkimia_INTERNAL_SRCS
 set(alkimia_INTERNAL_HEADERS
     alkdateformat.h
     alkexception.h
+    alknewstuffengine.h
     alknewstuffwidget.h
     alkonlinequoteprocess.h
     alkquoteitem.h
@@ -117,8 +119,6 @@ foreach(header ${alkimia_LIB_HEADERS})
         COPYONLY
     )
 endforeach()
-
-add_definitions(-DKNSRC_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 
 ki18n_wrap_ui(alkimia_LIB_SRCS ${alkimia_UI} )
 add_library(alkimia ${alkimia_LIB_SRCS} ${alkimia_LIB_HEADERS} ${alkimia_LIB_PRIVATE_HEADERS})
