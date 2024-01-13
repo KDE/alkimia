@@ -12,6 +12,7 @@ include_directories(
 set(alkimia_INTERNAL_SRCS
     alkdateformat.cpp
     alkexception.cpp
+    alknewstuffwidget.cpp
     alkonlinequoteprocess.cpp
     alkquoteitem.cpp
     alkquotereceiver.cpp
@@ -20,6 +21,7 @@ set(alkimia_INTERNAL_SRCS
 set(alkimia_INTERNAL_HEADERS
     alkdateformat.h
     alkexception.h
+    alknewstuffwidget.h
     alkonlinequoteprocess.h
     alkquoteitem.h
     alkquotereceiver.h
@@ -42,6 +44,7 @@ endif()
 
 target_link_libraries(alkimia-internal PRIVATE
     ${ALKIMIA_INTERNAL_LIBS}
+    ${KF_NEWSTUFF_LIB}
 )
 kde_target_enable_exceptions(alkimia-internal PUBLIC)
 

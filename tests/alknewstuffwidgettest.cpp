@@ -6,20 +6,9 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
+#include "alknewstuffwidget.h"
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-#include <knewstuff_version.h>
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
-    #include <kns3/downloaddialog.h>
-#else
-    #include <KNS3/QtQuickDialogWrapper>
-#endif
-#else
-    #include <knewstuff3/downloaddialog.h>
-#define KNEWSTUFF_VERSION 0
-#endif
 
 #include <QApplication>
 #include <QPointer>
@@ -76,20 +65,9 @@ int main(int argc, char *argv[])
 
     QString configFile = profile.hotNewStuffConfigFile();
 
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
-    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(configFile);
-    dialog->exec();
-    delete dialog;
-    return 0;
-#elif KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 94, 0)
-    KNS3::QtQuickDialogWrapper(configFile).exec();
-#else
-    auto knsWrapper = new KNS3::QtQuickDialogWrapper(configFile);
-    knsWrapper->open();
-    QEventLoop loop;
-    QObject::connect(knsWrapper, &KNS3::QtQuickDialogWrapper::closed, &loop, &QEventLoop::quit);
-    loop.exec();
-#endif
+    AlkNewStuffWidget engine;
+    engine.init(configFile);
+    engine.showInstallDialog();
 
     app.exec();
 }

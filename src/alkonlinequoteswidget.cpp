@@ -8,6 +8,7 @@
 
 #include "alkonlinequoteswidget.h"
 
+#include "alknewstuffwidget.h"
 #include "alkonlinequote.h"
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
@@ -23,19 +24,11 @@
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     #include <QIcon>
     #include <KIconLoader>
-#include <knewstuff_version.h>
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
-    #include <kns3/downloaddialog.h>
-#else
-    #include <KNS3/QtQuickDialogWrapper>
-#endif
     #define KIcon QIcon
 #else
     #include <KComponentData>
     #include <KIcon>
     #include <KIconLoader>
-    #include <knewstuff3/downloaddialog.h>
-#define KNEWSTUFF_VERSION 0
 #endif
 
 #include <KGuiItem>
@@ -688,29 +681,11 @@ void AlkOnlineQuotesWidget::Private::slotInstallEntries()
 {
     QString configFile = m_profile->hotNewStuffConfigFile();
 
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
-    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(configFile, this);
-    dialog->exec();
-    delete dialog;
-    loadQuotesList();
-#else
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 94, 0)
-    if (!KNS3::QtQuickDialogWrapper(configFile).exec().isEmpty()) {
-        // Only load the list if entries are changed
+    AlkNewStuffWidget engine;
+    engine.init(configFile);
+    if (engine.showInstallDialog()) {
         loadQuotesList();
     }
-#else
-    auto knsWrapper = new KNS3::QtQuickDialogWrapper(configFile, this);
-    connect(knsWrapper, &KNS3::QtQuickDialogWrapper::closed, this, [knsWrapper, this](){
-        if (!knsWrapper->changedEntries().isEmpty()) {
-            // Only load the list if entries are changed
-            loadQuotesList();
-        }
-        knsWrapper->deleteLater();
-    });
-    knsWrapper->open();
-#endif
-#endif
 }
 
 void AlkOnlineQuotesWidget::Private::slotShowButton()
