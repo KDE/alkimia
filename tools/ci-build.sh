@@ -10,7 +10,7 @@ set -x
 
 # kill kde and x session
 function cleanup() {
-    touch finished
+    touch $builddir/finished
     if test "$ci_in_docker" = yes; then
         if test "$ci_host" = native; then
             ${start_kde_session}_shutdown
