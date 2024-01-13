@@ -32,14 +32,11 @@ ecm_add_test(
     TEST_NAME alkdateformattest
 )
 
-# workaround for link failure caused by missing AlkOnlineQuote::Private::parsePrice()
-if(NOT MSVC)
-    ecm_add_test(
-        alkonlinequoteprivatetest.cpp
-        LINK_LIBRARIES ${TEST_LIB}
-        TEST_NAME alkonlinequoteprivatetest
-    )
-endif()
+ecm_add_test(
+    alkonlinequoteprivatetest.cpp
+    LINK_LIBRARIES ${TEST_LIB}
+    TEST_NAME alkonlinequoteprivatetest
+)
 
 #
 # cmake install test

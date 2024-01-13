@@ -38,7 +38,7 @@ class KJob;
 #include <QTextCodec>
 #include <QTimer>
 
-class ALK_NO_EXPORT AlkOnlineQuote::Private : public QObject
+class ALK_EXPORT AlkOnlineQuote::Private : public QObject
 {
     Q_OBJECT
 public:
