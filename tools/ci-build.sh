@@ -243,16 +243,12 @@ cmake=cmake
 # settings for platforms
 case "$ci_host" in
     (mingw32)
-        # not yet supported
-        ci_test=no
         cmake_options+=" -DQT_MOC_EXECUTABLE=/usr/i686-w64-mingw32/bin/moc"
         cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime i686-w64-mingw32 $builddir/bin
         wrapper=/usr/bin/wine
         ;;
     (mingw64)
-        # not yet supported
-        ci_test=no
         cmake_options+=" -DAUTOMOC_EXECUTABLE=/usr/bin/x86_64-w64-mingw32-moc"
         cmake_configure="$ci_host-cmake-$cmake_suffix"
         init_cross_runtime x86_64-w64-mingw32 $builddir/bin
