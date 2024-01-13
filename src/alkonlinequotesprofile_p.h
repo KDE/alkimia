@@ -35,7 +35,7 @@
     namespace KNS = KNS3;
 #endif
 
-class AlkOnlineQuotesProfile::Private : public QObject
+class ALK_NO_EXPORT AlkOnlineQuotesProfile::Private : public QObject
 {
     Q_OBJECT
 public:

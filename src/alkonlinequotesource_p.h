@@ -22,7 +22,7 @@
 #endif
 #include <KConfigGroup>
 
-class AlkOnlineQuoteSource::Private
+class ALK_NO_EXPORT AlkOnlineQuoteSource::Private
 {
 public:
     Private()
