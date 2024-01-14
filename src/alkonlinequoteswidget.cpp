@@ -24,6 +24,7 @@
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     #include <QIcon>
     #include <KIconLoader>
+    #include <KMessageWidget>
     #define KIcon QIcon
 #else
     #include <KComponentData>
@@ -73,6 +74,9 @@ public:
     QPixmap m_failIcon;
     QPixmap m_unknownIcon;
     QDialog *m_webPageDialog;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    KMessageWidget* m_infoMessage;
+#endif
 
     Private(bool showProfiles, bool showUpload, QWidget *parent);
     ~Private();
@@ -130,6 +134,10 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_failIcon(QIcon::fromTheme("dialog-cancel").pixmap(16))
 #endif
     , m_webPageDialog(nullptr)
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    , m_infoMessage(nullptr)
+#endif
 {
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     static KComponentData alk(TRANSLATION_DOMAIN);
@@ -180,6 +188,10 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     KGuiItem::assign(m_checkButton, checkButtonItem);
     KGuiItem::assign(m_showButton, showButtonItem);
     KGuiItem::assign(m_newButton, newButtenItem);
+
+    m_infoMessage = new KMessageWidget(onlineQuotesGroupBox);
+    groupBoxLayout->insertWidget(0, m_infoMessage);
+    m_infoMessage->hide();
 #else
     m_updateButton->setGuiItem(updateButtenItem);
     m_deleteButton->setGuiItem(deleteButtenItem);
@@ -444,8 +456,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
 
     bool isFinanceQuote = m_currentItem.isFinanceQuote() || m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
     bool hasWriteSupport = (m_profile->type() != AlkOnlineQuotesProfile::Type::None && !isFinanceQuote) || m_profile->hasGHNSSupport();
-    bool noNewEntry = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly).count() == 0 || isFinanceQuote;
-    m_newButton->setEnabled(hasWriteSupport && noNewEntry);
+    m_newButton->setEnabled(hasWriteSupport);
     m_cancelButton->setEnabled(modified);
     m_duplicateButton->setEnabled(hasWriteSupport);
     m_deleteButton->setEnabled(!m_currentItem.isReadOnly() && !m_currentItem.isGHNS());
@@ -531,10 +542,27 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
 
 void AlkOnlineQuotesWidget::Private::slotNewEntry()
 {
-    AlkOnlineQuoteSource newSource(i18n("New Quote Source"), m_profile);
-    newSource.write();
-    m_currentItem = newSource;
-    loadQuotesList();
+    const auto newEntries = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly);
+    if (newEntries.isEmpty()) {
+        AlkOnlineQuoteSource newSource(i18n("New Quote Source"), m_profile);
+        newSource.write();
+        m_currentItem = newSource;
+        loadQuotesList();
+    } else {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        if (!m_infoMessage->isVisible() && !m_infoMessage->isShowAnimationRunning()) {
+            qDebug() << width() << m_infoMessage->height() << m_infoMessage->heightForWidth(width());
+            m_infoMessage->resize(width(), m_infoMessage->heightForWidth(width()));
+            m_infoMessage->setText(
+                i18nc("@info Detail that only one new entry can exist at any time", "<b>New Quote Source</b> already exists."));
+            m_infoMessage->setMessageType(KMessageWidget::Information);
+            m_infoMessage->animatedShow();
+        }
+#endif
+        const auto item = newEntries.at(0);
+        m_quoteSourceList->setCurrentItem(item);
+        m_quoteSourceList->scrollToItem(item);
+    }
 }
 
 void AlkOnlineQuotesWidget::Private::clearIcons()
