@@ -238,8 +238,6 @@ else()
     set(PC_LIB gmp)
 endif()
 
-message (STATUS "Use MP in ${MP_INCLUDE_DIR}:${MP_LIBRARIES}")
-
 include_directories(${MP_INCLUDE_DIR})
 
 # check for Doxygen (for API documentation)
