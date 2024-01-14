@@ -551,7 +551,6 @@ void AlkOnlineQuotesWidget::Private::slotNewEntry()
     } else {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         if (!m_infoMessage->isVisible() && !m_infoMessage->isShowAnimationRunning()) {
-            qDebug() << width() << m_infoMessage->height() << m_infoMessage->heightForWidth(width());
             m_infoMessage->resize(width(), m_infoMessage->heightForWidth(width()));
             m_infoMessage->setText(
                 i18nc("@info Detail that only one new entry can exist at any time", "<b>New Quote Source</b> already exists."));
