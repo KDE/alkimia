@@ -140,6 +140,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
 
 target_include_directories(alkimia
     INTERFACE
+        ${MP_INCLUDE_DIR}
         $<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/alkimia/${ALKIMIA_INCLUDE_SUFFIX}>
 )
 
