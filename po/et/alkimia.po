@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 01:46+0000\n"
+"POT-Creation-Date: 2024-01-14 01:59+0000\n"
 "PO-Revision-Date: 2020-11-20 00:28+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -512,170 +512,170 @@ msgstr "Rakenduse profiilid"
 msgid "New"
 msgstr "Uus"
 
-#: alkonlinequoteswidget.cpp:159
+#: alkonlinequoteswidget.cpp:152
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Nõustu"
 
-#: alkonlinequoteswidget.cpp:161
+#: alkonlinequoteswidget.cpp:154
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Sisestatud andmetega nõustumine ja nende salvestamine"
 
-#: alkonlinequoteswidget.cpp:162
+#: alkonlinequoteswidget.cpp:155
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "See lubab nõustuda muudetud andmetega."
 
-#: alkonlinequoteswidget.cpp:164
+#: alkonlinequoteswidget.cpp:157
 #, kde-format
 msgid "&Delete"
 msgstr "&Kustuta"
 
-#: alkonlinequoteswidget.cpp:166
+#: alkonlinequoteswidget.cpp:159
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Valitud allikakirje kustutamine"
 
-#: alkonlinequoteswidget.cpp:167
+#: alkonlinequoteswidget.cpp:160
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "See lubab kustutada võrguallika valitud kirje"
 
-#: alkonlinequoteswidget.cpp:169
+#: alkonlinequoteswidget.cpp:162
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "&Kontrolli allikat"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:164
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Valitud allikakirje kontrollimine"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:165
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "See lubab kontrollida võrguallika valitud kirjet"
 
-#: alkonlinequoteswidget.cpp:174
+#: alkonlinequoteswidget.cpp:167
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "&Näita lehekülge"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:169
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Valitud allikakirje näitamine veebilehitsejas"
 
-#: alkonlinequoteswidget.cpp:177
+#: alkonlinequoteswidget.cpp:170
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "See lubab näha võrguallika valitud kirjet"
 
-#: alkonlinequoteswidget.cpp:179
+#: alkonlinequoteswidget.cpp:172
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Uus ..."
 
-#: alkonlinequoteswidget.cpp:181
+#: alkonlinequoteswidget.cpp:174
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Võrgukursside allika uue kirje loomine"
 
-#: alkonlinequoteswidget.cpp:182
+#: alkonlinequoteswidget.cpp:175
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "See lubab luua võrgukursside uue kirje"
 
-#: alkonlinequoteswidget.cpp:211
+#: alkonlinequoteswidget.cpp:204
 #, kde-format
 msgid "Name"
 msgstr "Nimi"
 
-#: alkonlinequoteswidget.cpp:211
+#: alkonlinequoteswidget.cpp:204
 #, kde-format
 msgid "Source"
 msgstr "Allikas"
 
-#: alkonlinequoteswidget.cpp:232
+#: alkonlinequoteswidget.cpp:225
 #, fuzzy, kde-format
 #| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Sümbol"
 
-#: alkonlinequoteswidget.cpp:233
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:234
+#: alkonlinequoteswidget.cpp:227
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nimi"
 
-#: alkonlinequoteswidget.cpp:242
+#: alkonlinequoteswidget.cpp:235
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:243
+#: alkonlinequoteswidget.cpp:236
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:244
+#: alkonlinequoteswidget.cpp:237
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:277
+#: alkonlinequoteswidget.cpp:270
 #, kde-format
 msgid "Remote"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:279
+#: alkonlinequoteswidget.cpp:272
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:280
+#: alkonlinequoteswidget.cpp:273
 #, fuzzy, kde-format
 #| msgid "local"
 msgid "Local"
 msgstr "kohalik"
 
-#: alkonlinequoteswidget.cpp:454 alkonlinequoteswidget.cpp:541
+#: alkonlinequoteswidget.cpp:447 alkonlinequoteswidget.cpp:534
 #, kde-format
 msgid "New Quote Source"
 msgstr "Uus kursside allikas"
 
-#: alkonlinequoteswidget.cpp:487
+#: alkonlinequoteswidget.cpp:480
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Kas tõesti kustutada see võrgukurss?"
 
-#: alkonlinequoteswidget.cpp:488
+#: alkonlinequoteswidget.cpp:481
 #, kde-format
 msgid "Delete online quote"
 msgstr "Võrgukursi kustutamine"
 
-#: alkonlinequoteswidget.cpp:515
+#: alkonlinequoteswidget.cpp:508
 #, kde-format
 msgid ".copy"
 msgstr ".koopia"
 
-#: alkonlinequoteswidget.cpp:720
+#: alkonlinequoteswidget.cpp:695
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Võrgukursside HTML tulemuse aken"
