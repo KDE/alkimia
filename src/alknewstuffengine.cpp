@@ -70,17 +70,17 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
         qDebug() << Q_FUNC_INFO << "updates loaded";
         AlkNewStuffEntryList updateEntries;
         for (const KNSCore::EntryInternal &entry : entries) {
-        AlkNewStuffEntry e;
-        e.category = entry.category();
-        e.id = entry.uniqueId();
-        e.installedFiles = entry.installedFiles();
-        e.name = entry.name();
-        e.providerId = entry.providerId();
-        e.status =
-            static_cast<AlkNewStuffEntry::Status>(entry.status());
-        e.version = entry.version();
-        updateEntries.append(e);
-        qDebug() << Q_FUNC_INFO << e.name << toString(e.status);
+            AlkNewStuffEntry e;
+            e.category = entry.category();
+            e.id = entry.uniqueId();
+            e.installedFiles = entry.installedFiles();
+            e.name = entry.name();
+            e.providerId = entry.providerId();
+            e.status =
+                static_cast<AlkNewStuffEntry::Status>(entry.status());
+            e.version = entry.version();
+            updateEntries.append(e);
+            qDebug() << Q_FUNC_INFO << e.name << toString(e.status);
         }
         Q_EMIT q->updatesAvailable(updateEntries);
     });

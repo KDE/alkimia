@@ -12,7 +12,6 @@ include_directories(
 set(alkimia_INTERNAL_SRCS
     alkdateformat.cpp
     alkexception.cpp
-    alknewstuffengine.cpp
     alknewstuffwidget.cpp
     alkonlinequoteprocess.cpp
     alkquoteitem.cpp
@@ -22,7 +21,6 @@ set(alkimia_INTERNAL_SRCS
 set(alkimia_INTERNAL_HEADERS
     alkdateformat.h
     alkexception.h
-    alknewstuffengine.h
     alknewstuffwidget.h
     alkonlinequoteprocess.h
     alkquoteitem.h
@@ -58,6 +56,7 @@ set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 set(alkimia_LIB_SRCS
     alkcompany.cpp
     alkenvironment.cpp
+    alknewstuffengine.cpp
     alkonlinequote.cpp
     alkonlinequote_p.cpp
     alkonlinequotesource.cpp
@@ -72,6 +71,7 @@ set(alkimia_LIB_SRCS
 set(alkimia_LIB_HEADERS
     alkcompany.h
     alkenvironment.h
+    alknewstuffengine.h
     alkonlinequote.h
     alkonlinequotesource.h
     alkonlinequotesprofile.h
