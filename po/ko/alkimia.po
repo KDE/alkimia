@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-14 01:59+0000\n"
+"POT-Creation-Date: 2024-01-15 01:38+0000\n"
 "PO-Revision-Date: 2023-10-08 22:26+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -504,168 +504,174 @@ msgstr "앱 프로필"
 msgid "New"
 msgstr "새로 만들기"
 
-#: alkonlinequoteswidget.cpp:152
+#: alkonlinequoteswidget.cpp:160
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "수락(&A)"
 
-#: alkonlinequoteswidget.cpp:154
+#: alkonlinequoteswidget.cpp:162
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "입력한 데이터를 수락하고 저장합니다"
 
-#: alkonlinequoteswidget.cpp:155
+#: alkonlinequoteswidget.cpp:163
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "이 옵션을 사용하여 수정된 데이터를 수락합니다."
 
-#: alkonlinequoteswidget.cpp:157
+#: alkonlinequoteswidget.cpp:165
 #, kde-format
 msgid "&Delete"
 msgstr "삭제(&D)"
 
-#: alkonlinequoteswidget.cpp:159
+#: alkonlinequoteswidget.cpp:167
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "선택한 원본 항목 삭제"
 
-#: alkonlinequoteswidget.cpp:160
+#: alkonlinequoteswidget.cpp:168
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 삭제합니다"
 
-#: alkonlinequoteswidget.cpp:162
+#: alkonlinequoteswidget.cpp:170
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "원본 확인(&C)"
 
-#: alkonlinequoteswidget.cpp:164
+#: alkonlinequoteswidget.cpp:172
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "선택한 원본 항목 확인"
 
-#: alkonlinequoteswidget.cpp:165
+#: alkonlinequoteswidget.cpp:173
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 확인합니다."
 
-#: alkonlinequoteswidget.cpp:167
+#: alkonlinequoteswidget.cpp:175
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "페이지 표시(&S)"
 
-#: alkonlinequoteswidget.cpp:169
+#: alkonlinequoteswidget.cpp:177
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "웹 브라우저에서 선택한 원본 항목 표시"
 
-#: alkonlinequoteswidget.cpp:170
+#: alkonlinequoteswidget.cpp:178
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 표시합니다"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:180
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "새로 만들기(&N)..."
 
-#: alkonlinequoteswidget.cpp:174
+#: alkonlinequoteswidget.cpp:182
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "새로운 온라인 시세 항목 만들기"
 
-#: alkonlinequoteswidget.cpp:175
+#: alkonlinequoteswidget.cpp:183
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "이 옵션을 사용하여 새로운 온라인 시세 항목을 만듭니다"
 
-#: alkonlinequoteswidget.cpp:204
+#: alkonlinequoteswidget.cpp:216
 #, kde-format
 msgid "Name"
 msgstr "이름"
 
-#: alkonlinequoteswidget.cpp:204
+#: alkonlinequoteswidget.cpp:216
 #, kde-format
 msgid "Source"
 msgstr "원본"
 
-#: alkonlinequoteswidget.cpp:225
+#: alkonlinequoteswidget.cpp:237
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "코드"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:238
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "식별 번호"
 
-#: alkonlinequoteswidget.cpp:227
+#: alkonlinequoteswidget.cpp:239
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "이름"
 
-#: alkonlinequoteswidget.cpp:235
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "태그가 제거된 HTML"
 
-#: alkonlinequoteswidget.cpp:236
+#: alkonlinequoteswidget.cpp:248
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:237
+#: alkonlinequoteswidget.cpp:249
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:270
+#: alkonlinequoteswidget.cpp:282
 #, kde-format
 msgid "Remote"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:272
+#: alkonlinequoteswidget.cpp:284
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:273
+#: alkonlinequoteswidget.cpp:285
 #, fuzzy, kde-format
 #| msgid "local"
 msgid "Local"
 msgstr "로컬"
 
-#: alkonlinequoteswidget.cpp:447 alkonlinequoteswidget.cpp:534
-#, kde-format
-msgid "New Quote Source"
-msgstr "새로운 시세 원본"
-
-#: alkonlinequoteswidget.cpp:480
+#: alkonlinequoteswidget.cpp:491
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "이 온라인 시세를 삭제하시겠습니까?"
 
-#: alkonlinequoteswidget.cpp:481
+#: alkonlinequoteswidget.cpp:492
 #, kde-format
 msgid "Delete online quote"
 msgstr "온라인 시세 삭제"
 
-#: alkonlinequoteswidget.cpp:508
+#: alkonlinequoteswidget.cpp:519
 #, kde-format
 msgid ".copy"
 msgstr ".복사"
 
-#: alkonlinequoteswidget.cpp:695
+#: alkonlinequoteswidget.cpp:545 alkonlinequoteswidget.cpp:547
+#, kde-format
+msgid "New Quote Source"
+msgstr "새로운 시세 원본"
+
+#: alkonlinequoteswidget.cpp:556
+#, kde-format
+msgctxt "@info Detail that only one new entry can exist at any time"
+msgid "<b>New Quote Source</b> already exists."
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:722
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "온라인 시세 HTML 결과 창"
