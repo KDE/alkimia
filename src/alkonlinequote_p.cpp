@@ -637,11 +637,10 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
     }
 
     if (priceRegExp.indexIn(quotedata) > -1) {
-        gotprice = true;
         QString pricestr = priceRegExp.cap(1);
-        parsePrice(pricestr);
+        gotprice = parsePrice(pricestr);
     } else {
-        parsePrice(QString());
+        gotprice = parsePrice(QString());
     }
 
     if (dateRegExp.indexIn(quotedata) > -1) {
@@ -665,11 +664,10 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
 
     match = priceRegExp.match(quotedata);
     if (match.hasMatch()) {
-        gotprice = true;
         QString pricestr = match.captured(1);
-        parsePrice(pricestr);
+        gotprice = parsePrice(pricestr);
     } else {
-        parsePrice(QString());
+        gotprice = parsePrice(QString());
     }
 
     match = dateRegExp.match(quotedata);
