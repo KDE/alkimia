@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>681</width>
+    <width>592</width>
     <height>1462</height>
    </rect>
   </property>
@@ -266,6 +266,13 @@
          </layout>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="m_buildKey">
+        <property name="text">
+         <string>build_key</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="verticalSpacer_6">

@@ -148,6 +148,11 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     Ui::AlkOnlineQuotesProfilesWidget::setupUi(parent);
     Ui::AlkOnlineQuotesWidget::setupUi(parent);
 
+    if (!QString(BUILD_KEY).isEmpty())
+        m_buildKey->setText(QString("<small>version: %1</small>").arg(BUILD_KEY));
+    else
+        m_buildKey->setText(QString());
+
     profilesGroupBox->setVisible(showProfiles);
     profileDetailsBox->setVisible(showProfiles);
     m_showButton->setVisible(!showProfiles && AlkOnlineQuotesProfileManager::instance().webPageEnabled());

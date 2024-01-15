@@ -218,9 +218,41 @@ if(NOT SHARE_INSTALL_DIR)
 endif()
 
 set(TARGET_SUFFIX ${PC_TARGET_SUFFIX})
+
+find_package(Git QUIET)
+set(BUILD_KEY "${PROJECT_VERSION}")
+if(Git_FOUND)
+    set(GITCOMMAND ${GIT_EXECUTABLE} -C ${CMAKE_CURRENT_SOURCE_DIR})
+    execute_process(
+        COMMAND ${GITCOMMAND} rev-parse --short HEAD
+        OUTPUT_VARIABLE COMMIT_ID
+        ERROR_VARIABLE ERROR
+        RESULT_VARIABLE RESULT
+    )
+    if(NOT RESULT AND COMMIT_ID)
+        string(STRIP ${COMMIT_ID} COMMIT_ID)
+        message(STATUS "Using git commit id '${COMMIT_ID}'")
+        string(APPEND BUILD_KEY "-${COMMIT_ID}")
+    endif()
+endif()
+if(BUILD_WITH_WEBKIT)
+    string(APPEND BUILD_KEY "-webkit")
+elseif(BUILD_WITH_WEBENGINE)
+    string(APPEND BUILD_KEY "-webengine")
+endif()
+if(BUILD_WITH_QTNETWORK)
+    string(APPEND BUILD_KEY "-qtnetwork")
+else()
+    string(APPEND BUILD_KEY "-kionetwork")
+endif()
+if(ENABLE_FINANCEQUOTE)
+    string(APPEND BUILD_KEY "-financequote")
+endif()
+
 add_definitions(
     -DTARGET_SUFFIX=\"${TARGET_SUFFIX}\"
     -DKNSRC_DIR="${CMAKE_SOURCE_DIR}/src"
+    -DBUILD_KEY="${BUILD_KEY}"
 )
 
 # figure out which multi-precision library to use
