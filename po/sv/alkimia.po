@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 01:38+0000\n"
+"POT-Creation-Date: 2024-01-16 01:38+0000\n"
 "PO-Revision-Date: 2024-01-04 20:49+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -27,12 +27,12 @@ msgstr "Källan <placeholder>%1</placeholder> finns inte."
 msgid "Unable to fetch url for %1"
 msgstr "Kan inte hämta webbadress för %1"
 
-#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:660
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:659
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Symbol hittades: '%1'"
 
-#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:663
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:662
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Kan inte tolka symbol för %1"
@@ -121,7 +121,7 @@ msgstr "Tolkning av datum är inaktiverad för '%1'"
 msgid "Unable to parse date for '%1'"
 msgstr "Kan inte tolka datum för '%1'"
 
-#: alkonlinequote_p.cpp:726
+#: alkonlinequote_p.cpp:724
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -129,32 +129,32 @@ msgstr ""
 "Kan inte upptäcka fältavgränsare på första raden (rubrikraden) i "
 "kursinformation."
 
-#: alkonlinequote_p.cpp:753
+#: alkonlinequote_p.cpp:751
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "Kan inte hitta datumkolumn '%1' i kursinformation"
 
-#: alkonlinequote_p.cpp:759
+#: alkonlinequote_p.cpp:757
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Kan inte hitta kurskolumn '%1' i kursinformation"
 
-#: alkonlinequote_p.cpp:777
+#: alkonlinequote_p.cpp:775
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Kan inte konvertera datumet '%1' med användning av '%2' i kursdata"
 
-#: alkonlinequote_p.cpp:789
+#: alkonlinequote_p.cpp:787
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Kan inte hitta datum- och kurspar i kursinformation"
 
-#: alkonlinequote_p.cpp:812
+#: alkonlinequote_p.cpp:810
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
 
-#: alkonlinequote_p.cpp:830
+#: alkonlinequote_p.cpp:828
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Tidsgräns överskreds vid hämtning av webbadress för %1"

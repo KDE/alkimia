@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 01:38+0000\n"
+"POT-Creation-Date: 2024-01-16 01:38+0000\n"
 "PO-Revision-Date: 2020-11-20 00:28+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -28,12 +28,12 @@ msgstr "Allikat <placeholder>%1</placeholder> ei ole olemas."
 msgid "Unable to fetch url for %1"
 msgstr "%1 URL-i hankimine nurjus"
 
-#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:660
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:659
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Leiti sümbol: '%1'"
 
-#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:663
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:662
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "%1 sümboli parsimine nurjus"
@@ -120,42 +120,42 @@ msgstr "'%1' kuupäeva parsimine on välja lülitatud"
 msgid "Unable to parse date for '%1'"
 msgstr "'%1' kuupäeva parsimine nurjus"
 
-#: alkonlinequote_p.cpp:726
+#: alkonlinequote_p.cpp:724
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
 
-#: alkonlinequote_p.cpp:753
+#: alkonlinequote_p.cpp:751
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date column '%1' in quote data"
 msgstr "%1 hinna uuendamine nurjus (tühjad kursiandmed)"
 
-#: alkonlinequote_p.cpp:759
+#: alkonlinequote_p.cpp:757
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find price column '%1' in quote data"
 msgstr "%1 hinna uuendamine nurjus (tühjad kursiandmed)"
 
-#: alkonlinequote_p.cpp:777
+#: alkonlinequote_p.cpp:775
 #, fuzzy, kde-format
 #| msgid "Unable to parse date '%1' using format '%2': %3"
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Vormingus '%2' kuupäeva '%1' parsimine nurjus: %3"
 
-#: alkonlinequote_p.cpp:789
+#: alkonlinequote_p.cpp:787
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "%1 hinna uuendamine nurjus (tühjad kursiandmed)"
 
-#: alkonlinequote_p.cpp:812
+#: alkonlinequote_p.cpp:810
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "%1 hinna uuendamine nurjus (tühjad kursiandmed)"
 
-#: alkonlinequote_p.cpp:830
+#: alkonlinequote_p.cpp:828
 #, fuzzy, kde-format
 #| msgid "Unable to fetch url for %1"
 msgid "Timeout exceeded on fetching url for %1"

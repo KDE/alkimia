@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 01:38+0000\n"
+"POT-Creation-Date: 2024-01-16 01:38+0000\n"
 "PO-Revision-Date: 2023-11-06 11:29+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -27,12 +27,12 @@ msgstr "Zdroj <placeholder>%1</placeholder> neexistuje."
 msgid "Unable to fetch url for %1"
 msgstr ""
 
-#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:660
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:659
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Symbol nalezen: '%1'"
 
-#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:663
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:662
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr ""
@@ -119,38 +119,38 @@ msgstr "Datum zpracování je pro '%1' vypnuto"
 msgid "Unable to parse date for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:726
+#: alkonlinequote_p.cpp:724
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
 
-#: alkonlinequote_p.cpp:753
+#: alkonlinequote_p.cpp:751
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:759
+#: alkonlinequote_p.cpp:757
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:777
+#: alkonlinequote_p.cpp:775
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:789
+#: alkonlinequote_p.cpp:787
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:812
+#: alkonlinequote_p.cpp:810
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
 
-#: alkonlinequote_p.cpp:830
+#: alkonlinequote_p.cpp:828
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr ""

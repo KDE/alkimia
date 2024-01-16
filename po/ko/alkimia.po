@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 01:38+0000\n"
+"POT-Creation-Date: 2024-01-16 01:38+0000\n"
 "PO-Revision-Date: 2023-10-08 22:26+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -28,12 +28,12 @@ msgstr "원본 <placeholder>%1</placeholder>이(가) 없습니다."
 msgid "Unable to fetch url for %1"
 msgstr "%1의 URL을 가져올 수 없음"
 
-#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:660
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:659
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "코드 검색됨: '%1'"
 
-#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:663
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:662
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "%1의 코드를 해석할 수 없음"
@@ -121,38 +121,38 @@ msgstr "'%1'의 날짜 처리가 비활성화됨"
 msgid "Unable to parse date for '%1'"
 msgstr "'%1'의 날짜를 해석할 수 없음"
 
-#: alkonlinequote_p.cpp:726
+#: alkonlinequote_p.cpp:724
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr "시세 데이터의 첫 번째 줄(머릿글 줄)에서 구분자를 확인할 수 없습니다."
 
-#: alkonlinequote_p.cpp:753
+#: alkonlinequote_p.cpp:751
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "시세 데이터에서 날짜 열 '%1'을(를) 찾을 수 없음"
 
-#: alkonlinequote_p.cpp:759
+#: alkonlinequote_p.cpp:757
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "시세 데이터에서 금액 열 '%1'을(를) 찾을 수 없음"
 
-#: alkonlinequote_p.cpp:777
+#: alkonlinequote_p.cpp:775
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "시세 데이터에서 '%2'을(를) 사용하여 날짜 '%1'을(를) 변환할 수 없음"
 
-#: alkonlinequote_p.cpp:789
+#: alkonlinequote_p.cpp:787
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "시세 데이터에서 날짜/금액 쌍을 찾을 수 없음"
 
-#: alkonlinequote_p.cpp:812
+#: alkonlinequote_p.cpp:810
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "%1의 금액을 업데이트할 수 없습니다 (빈 시세 데이터)"
 
-#: alkonlinequote_p.cpp:830
+#: alkonlinequote_p.cpp:828
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "%1의 URL을 가져오는 중에 시간 제한 초과됨"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 01:38+0000\n"
+"POT-Creation-Date: 2024-01-16 01:38+0000\n"
 "PO-Revision-Date: 2024-01-06 22:40+0100\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -27,12 +27,12 @@ msgstr "La fonte <placeholder>%1</placeholder> non esiste."
 msgid "Unable to fetch url for %1"
 msgstr "Impossibile recuperare l'URL per %1"
 
-#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:660
+#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:659
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Simbolo trovato: «%1»"
 
-#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:663
+#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:662
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Impossibile analizzare il simbolo per %1"
@@ -121,7 +121,7 @@ msgstr "L'analisi della data è disabilitata per «%1»"
 msgid "Unable to parse date for '%1'"
 msgstr "Impossibile analizzare la data per «%1»"
 
-#: alkonlinequote_p.cpp:726
+#: alkonlinequote_p.cpp:724
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -129,32 +129,32 @@ msgstr ""
 "Impossibile rilevare il delimitatore di campo nella prima riga (riga "
 "dell'intestazione) dei dati di quotazione."
 
-#: alkonlinequote_p.cpp:753
+#: alkonlinequote_p.cpp:751
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "Impossibile trovare la colonna della data «%1» nei dati di quotazione"
 
-#: alkonlinequote_p.cpp:759
+#: alkonlinequote_p.cpp:757
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Impossibile trovare la colonna del prezzo «%1» nei dati di quotazione"
 
-#: alkonlinequote_p.cpp:777
+#: alkonlinequote_p.cpp:775
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Impossibile convertire la data «%1» in «%2» nei dati di quotazione"
 
-#: alkonlinequote_p.cpp:789
+#: alkonlinequote_p.cpp:787
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Impossibile trovare le coppie data/prezzo nei dati di quotazione"
 
-#: alkonlinequote_p.cpp:812
+#: alkonlinequote_p.cpp:810
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Impossibile aggiornare il prezzo per %1 (dati di quotazione vuoti)"
 
-#: alkonlinequote_p.cpp:830
+#: alkonlinequote_p.cpp:828
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Il tempo di recupero dell'URL per %1 è scaduto"
