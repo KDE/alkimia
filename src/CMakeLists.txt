@@ -10,6 +10,7 @@ include_directories(
 ########### target alkimia-internal ###########
 
 set(alkimia_INTERNAL_SRCS
+    alkapplication.cpp
     alkdateformat.cpp
     alkexception.cpp
     alknewstuffwidget.cpp
@@ -19,6 +20,7 @@ set(alkimia_INTERNAL_SRCS
 )
 
 set(alkimia_INTERNAL_HEADERS
+    alkapplication.h
     alkdateformat.h
     alkexception.h
     alknewstuffwidget.h

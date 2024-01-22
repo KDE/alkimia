@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker @freenet.de
+    SPDX-FileCopyrightText: 2018-2024 Ralf Habacker ralf.habacker @freenet.de
     SPDX-FileCopyrightText: 2019 Thomas Baumgart tbaumgart @kde.org
 
     This file is part of libalkimia.
@@ -9,30 +9,15 @@
 
 #include "mainwindow.h"
 
+#include "alkapplication.h"
+
 #include <KAboutData>
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    #include <QApplication>
-    #include <KLocalizedString>
-
-    #define _i18n i18n
-    #define LICENCE_GPL KAboutLicense::GPL
-    #define CATALOG
-    #define aboutName() about.displayName()
-#else
-    #include <KApplication>
-    #include <KCmdLineArgs>
-    #include <kmenu.h>
-
-    #undef QStringLiteral
-    #define QStringLiteral QByteArray
-    #define _i18n ki18n
-    #define LICENCE_GPL KAboutData::License_GPL
-    #define CATALOG QByteArray("onlinequoteseditor"),
-    #define aboutName() about.programName()
+#include <KHelpMenu>
+#include <KLocalizedString>
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    #include <KMenu>
 #endif
 
-#include <KHelpMenu>
-#include <QMenu>
 #include <QMenuBar>
 
 #if defined(Q_OS_WIN) && !defined(BUILD_WITH_KIO)
@@ -41,20 +26,14 @@
 
 int main(int argc, char **argv)
 {
-    KAboutData about(QStringLiteral("onlinequoteseditor"),
-                     CATALOG
-                     _i18n("Online Quotes Editor"),
-                     QStringLiteral("1.0"),
-                     _i18n("Editor for online price quotes used by finance applications"),
-                     LICENCE_GPL,
-                     _i18n("(C) 2018-2023 Ralf Habacker"));
+    AlkApplication app(argc, argv);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    QApplication app(argc,argv);
-#else
-    KCmdLineArgs::init(argc, argv, &about);
-    KApplication app(true);
-#endif
+    AlkAboutData about(QStringLiteral("onlinequoteseditor"),
+                       "Online Quotes Editor",
+                       QStringLiteral("1.0"),
+                       "Editor for online price quotes used by finance applications",
+                       AlkAboutData::License_GPL,
+                       "(C) 2018-2024 Ralf Habacker");
 
 #if defined(Q_OS_WIN) && !defined(BUILD_WITH_KIO)
     QNetworkProxyFactory::setUseSystemConfiguration(true);
@@ -62,18 +41,12 @@ int main(int argc, char **argv)
 
     MainWindow w;
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     KHelpMenu helpMenu(&w, about.shortDescription());
-    QString appName = about.displayName();
-#else
-    KHelpMenu helpMenu(&w, &about, false);
-    QString appName = about.programName();
-#endif
     helpMenu.menu();
     helpMenu.action(KHelpMenu::menuHelpContents)->setVisible(false);
     helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
     helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(true);
-    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", appName));
+    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", about.displayName()));
     w.menuBar()->addMenu(static_cast<QMenu*>(helpMenu.menu()));
 
     w.show();
