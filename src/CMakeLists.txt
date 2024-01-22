@@ -59,6 +59,8 @@ set(alkimia_LIB_SRCS
     alkcompany.cpp
     alkenvironment.cpp
     alknewstuffengine.cpp
+    alknewstuffstore.cpp
+    alknewstuffwidget.cpp
     alkonlinequote.cpp
     alkonlinequote_p.cpp
     alkonlinequotesource.cpp
@@ -66,6 +68,7 @@ set(alkimia_LIB_SRCS
     alkonlinequotesprofile_p.cpp
     alkonlinequotesprofilemanager.cpp
     alkonlinequoteswidget.cpp
+    alkonlinequoteuploaddialog.cpp
     alkvalue.cpp
     alkutils.cpp
     alkwebpage.cpp
@@ -75,6 +78,7 @@ set(alkimia_LIB_HEADERS
     alkcompany.h
     alkenvironment.h
     alknewstuffengine.h
+    alknewstuffstore.h
     alkonlinequote.h
     alkonlinequotesource.h
     alkonlinequotesprofile.h
@@ -87,6 +91,7 @@ set(alkimia_LIB_PRIVATE_HEADERS
     alkonlinequote_p.h
     alkonlinequotesource_p.h
     alkonlinequotesprofile_p.h
+    alkonlinequoteuploaddialog.h
     alkpushbutton.h
     alkutils.h
 )
@@ -102,6 +107,7 @@ set(alkimia_UI
     alkonlinequotesdebug.ui
     alkonlinequotesprofiledetails.ui
     alkonlinequotesprofiles.ui
+    alkonlinequoteuploaddialog.ui
 )
 
 configure_file(
