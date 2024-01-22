@@ -283,9 +283,12 @@ void AlkOnlineQuotesWidget::Private::loadProfiles()
 
 QString sourceTypeString(AlkOnlineQuoteSource &source)
 {
-    if (source.isGHNS())
-        return i18n("Remote");
-    else if (source.isFinanceQuote())
+    if (source.isGHNS()) {
+        if (source.profile()->GHNSFilePath(source.name()).isEmpty())
+            return i18n("Remote unpublished");
+        else
+            return i18n("Remote");
+    } else if (source.isFinanceQuote())
         return i18n("Finance::Quote");
     return i18n("Local");
 }
@@ -308,11 +311,7 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
         }
 
         QTreeWidgetItem *item = new QTreeWidgetItem(QStringList() << *it << sourceTypeString(source));
-        Qt::ItemFlag editFlag = Qt::ItemIsEditable;
-        if (source.isGHNS()) {
-            if (!m_ghnsEditable)
-                editFlag = Qt::NoItemFlags;
-        }
+        Qt::ItemFlag editFlag = source.isGHNS() ? Qt::NoItemFlags : Qt::ItemIsEditable;
         item->setFlags(editFlag | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
         m_quoteSourceList->addTopLevelItem(item);
         if (updateResetList) {

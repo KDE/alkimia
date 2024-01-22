@@ -76,6 +76,9 @@ public:
 
     QString scriptPath();
 
+    QString GHNSId(const QString &name) const;
+    QString GHNSFilePath(const QString &name) const;
+
 Q_SIGNALS:
     /**
      * emit quote source for which an update is available

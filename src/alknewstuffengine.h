@@ -70,6 +70,8 @@ public:
      */
     void checkForUpdates();
 
+    AlkNewStuffEntryList installedEntries() const;
+
 Q_SIGNALS:
     void updatesAvailable(const AlkNewStuffEntryList &entries);
 

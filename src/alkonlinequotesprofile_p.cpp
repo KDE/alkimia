@@ -61,6 +61,24 @@ AlkOnlineQuotesProfile::Private::~Private()
     delete m_engine;
 }
 
+QString AlkOnlineQuotesProfile::Private::GHNSId(const QString &name) const
+{
+    for (const AlkNewStuffEntry &entry : m_engine->installedEntries()) {
+        if (entry.name == name)
+            return entry.id;
+    }
+    return QString();
+}
+
+QString AlkOnlineQuotesProfile::Private::GHNSFilePath(const QString &name) const
+{
+    for (const AlkNewStuffEntry &entry : m_engine->installedEntries()) {
+        if (entry.name == name)
+            return entry.installedFiles.size() > 0 ? entry.installedFiles[0] : QString();
+    }
+    return QString();
+}
+
 const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesNative()
 {
     auto kconfig = KSharedConfig::openConfig(m_kconfigFile, KConfig::SimpleConfig);
@@ -143,22 +161,37 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesSkrooge()
 const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesGHNS()
 {
     QStringList sources;
-    QStringList resources = AlkUtils::getDataFiles(m_GHNSFilePath, QStringList() << QStringLiteral("*.txt"));
+    QStringList files = AlkUtils::getDataFiles(m_GHNSFilePath, QStringList() << QStringLiteral("*.txt"));
 
-    for (const QString &file : resources) {
-        QFileInfo f(file);
-        QString file2 = f.completeBaseName();
-        AlkOnlineQuoteSource source(file2, m_p);
+    // add installed remote sources
+    for (const AlkNewStuffEntry &entry : m_engine->installedEntries()) {
+        AlkOnlineQuoteSource source(entry.name, m_p);
+        if (entry.installedFiles.size() > 0)
+            files.removeAll(entry.installedFiles[0]);
         if (source.isEmpty()) {
-            qDebug() << "skipping" << file;
+            qDebug() << "skipping" << entry.name;
             continue;
         }
-        if (!sources.contains(file2)) {
-            qDebug() << "adding quote source" << file;
-            sources.push_back(file2);
+        if (!sources.contains(entry.id)) {
+            qDebug() << "adding quote source" << entry.name;
+            sources.push_back(entry.name);
         }
     }
 
+    // add unpublished remote sources
+    for (const QString &file : files) {
+        QFileInfo f(file);
+        QString name = f.completeBaseName();
+        AlkOnlineQuoteSource source(name, m_p);
+        if (source.isEmpty()) {
+            qDebug() << "skipping" << name;
+            continue;
+        }
+        if (!sources.contains(name)) {
+            qDebug() << "adding quote source" << name;
+            sources.push_back(name);
+        }
+    }
     return sources;
 }
 

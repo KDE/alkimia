@@ -54,6 +54,9 @@ public:
 
     ~Private();
 
+    QString GHNSId(const QString &name) const;
+    QString GHNSFilePath(const QString &name) const;
+
     const QStringList quoteSourcesNative();
 
 #ifdef ENABLE_FINANCEQUOTE

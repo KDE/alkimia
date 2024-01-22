@@ -221,3 +221,13 @@ QString AlkOnlineQuotesProfile::scriptPath()
 {
     return d->m_financeQuoteScriptPath;
 }
+
+QString AlkOnlineQuotesProfile::GHNSId(const QString &name) const
+{
+    return d->GHNSId(name);
+}
+
+QString AlkOnlineQuotesProfile::GHNSFilePath(const QString &name) const
+{
+    return d->GHNSFilePath(name);
+}

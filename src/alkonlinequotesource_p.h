@@ -130,11 +130,17 @@ public:
 
     QString ghnsReadFilePath()
     {
+        QString file = m_profile->GHNSFilePath(m_name);
+        if (!file.isEmpty())
+            return file;
         return m_profile->hotNewStuffReadFilePath(m_name + QLatin1String(".txt"));
     }
 
     QString ghnsWriteFilePath()
     {
+        QString file = m_profile->GHNSFilePath(m_name);
+        if (!file.isEmpty())
+            return file;
         return m_profile->hotNewStuffWriteFilePath(m_name + QLatin1String(".txt"));
     }
 

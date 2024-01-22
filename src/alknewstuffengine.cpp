@@ -33,14 +33,20 @@ public:
 #else
     QPointer<KNS3::DownloadManager> m_engine;
 #endif
-    Private(AlkNewStuffEngine *parent);
+    QEventLoop m_loop;
+    AlkNewStuffEntryList m_availableEntries;
+
+    explicit Private(AlkNewStuffEngine *parent);
     ~Private();
 
     bool init(const QString &configFile);
     void checkForUpdates();
 
+    const AlkNewStuffEntryList installedEntries();
+
 public Q_SLOTS:
     void slotUpdatesAvailable(const KNS3::Entry::List &entries);
+    void slotEntriesAvailable(const KNS3::Entry::List &entries);
 };
 
 AlkNewStuffEngine::Private::Private(AlkNewStuffEngine *parent)
@@ -62,7 +68,7 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
         qDebug() << Q_FUNC_INFO << "providers loaded";
         m_providersLoaded = true;
         if (m_wantUpdates)
-        m_engine->checkForUpdates();
+            m_engine->checkForUpdates();
     });
 
     connect(m_engine, &KNSCore::Engine::signalUpdateableEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &entries)
@@ -107,6 +113,50 @@ void AlkNewStuffEngine::Private::checkForUpdates()
 #endif
 }
 
+const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
+{
+    if (m_availableEntries.empty()) {
+        m_engine->setSearchTerm("*");
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        QMetaObject::Connection conn;
+        conn = QObject::connect(m_engine, &KNSCore::Engine::signalEntriesLoaded, this, [this, &conn](const KNSCore::EntryInternal::List &entries)
+        {
+            for (const KNSCore::EntryInternal &entry : entries) {
+                AlkNewStuffEntry e;
+                e.category = entry.category();
+                e.id = entry.uniqueId();
+                e.installedFiles = entry.installedFiles();
+                e.name = entry.name();
+                e.providerId = entry.providerId();
+                e.status =
+                    static_cast<AlkNewStuffEntry::Status>(entry.status());
+                e.version = entry.version();
+                this->m_availableEntries.append(e);
+                qDebug() << Q_FUNC_INFO << e.name << toString(e.status);
+            }
+            QObject::disconnect(conn);
+            m_loop.exit();
+        });
+        m_engine->requestData(0, 1000);
+#else
+        QEventLoop loop;
+        disconnect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
+                SLOT(slotUpdatesAvailable(KNS3::Entry::List)));
+        connect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
+                SLOT(slotEntriesAvailable(KNS3::Entry::List)));
+        m_engine->search(0, 1000);
+#endif
+        m_loop.exec();
+    }
+
+    AlkNewStuffEntryList result;
+    for (const AlkNewStuffEntry &entry : m_availableEntries) {
+        if (entry.status == AlkNewStuffEntry::Installed || entry.status == AlkNewStuffEntry::Updateable)
+            result.append(entry);
+    }
+    return result;
+}
+
 void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &entries)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
@@ -132,6 +182,33 @@ void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &e
 #endif
 }
 
+void AlkNewStuffEngine::Private::slotEntriesAvailable(const KNS3::Entry::List &entries)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    Q_UNUSED(entries);
+#else
+    qDebug() << Q_FUNC_INFO << "entries loaded";
+    for (const KNS3::Entry &entry : entries) {
+        AlkNewStuffEntry e;
+        e.category = entry.category();
+        e.id = entry.id();
+        e.installedFiles = entry.installedFiles();
+        e.name = entry.name();
+        e.providerId = entry.providerId();
+        e.status = static_cast<AlkNewStuffEntry::Status>(entry.status());
+        e.version = entry.version();
+        m_availableEntries.append(e);
+
+        qDebug() << Q_FUNC_INFO << e.name << toString(e.status);
+    }
+    disconnect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
+            SLOT(slotEntriesAvailable(KNS3::Entry::List)));
+    connect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
+            SLOT(slotUpdatesAvailable(KNS3::Entry::List)));
+    m_loop.exit();
+#endif
+}
+
 AlkNewStuffEngine::AlkNewStuffEngine(QObject *parent)
     : QObject{parent}
     , d(new Private(this))
@@ -147,6 +224,11 @@ bool AlkNewStuffEngine::init(const QString &configFile)
 void AlkNewStuffEngine::checkForUpdates()
 {
     d->checkForUpdates();
+}
+
+AlkNewStuffEntryList AlkNewStuffEngine::installedEntries() const
+{
+    return d->installedEntries();
 }
 
 const char *toString(AlkNewStuffEntry::Status status)
