@@ -34,6 +34,7 @@ ecm_add_test(
 
 ecm_add_test(
     alkonlinequoteprivatetest.cpp
+    alkonlinequoteprivatetest.qrc
     LINK_LIBRARIES ${TEST_LIB}
     TEST_NAME alkonlinequoteprivatetest
 )
