@@ -55,6 +55,6 @@ void AlkOnlineQuotePrivateTest::testParsePrice()
     QFile f(":/alkonlinequoteprivatetest.data");
     QVERIFY(f.open(QIODevice::ReadOnly));
     QVERIFY(!p.parsePrice(f.readAll()));
-    QCOMPARE(p.m_price, 0);
+    QCOMPARE(p.m_price, 0.0);
     QVERIFY(errors() & AlkOnlineQuote::Errors::Price);
 }
