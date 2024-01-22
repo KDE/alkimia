@@ -13,16 +13,10 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QDebug>
+#include <QRegularExpression>
 #else
 #include <KConfig>
 #include <KDebug>
-#endif
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QRegExp>
-#else
-#include <QRegularExpression>
-#include <QRegularExpressionMatch>
 #endif
 
 // define static members
@@ -85,7 +79,7 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesNative()
     QStringList groups = kconfig->groupList();
 
     QStringList::Iterator it;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     QRegExp onlineQuoteSource(QString("^Online-Quote-Source-(.*)$"));
 
     // get rid of all 'non online quote source' entries

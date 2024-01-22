@@ -19,17 +19,13 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KNSCore/Engine>
+    #include <QRegularExpression>
     #include <QStandardPaths>
 #else
+    #include <QRegExp>
     #include <KConfig>
     #include <KGlobal>
     #include <KStandardDirs>
-#endif
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QRegExp>
-#else
-#include <QRegularExpression>
 #endif
 
 AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,

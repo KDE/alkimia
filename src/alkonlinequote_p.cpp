@@ -55,7 +55,7 @@
 #include <KProcess>
 #include <KShell>
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     #include <QRegExp>
     using Regex = QRegExp;
 #else
@@ -121,7 +121,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     if (m_source.url().contains("%2")) {
         // this is a two-symbol quote.  split the symbol into two.  valid symbol
         // characters are: 0-9, A-Z and the dot.  anything else is a separator
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
         QRegExp splitrx("([0-9a-z\\.]+)[^a-z0-9]+([0-9a-z\\.]+)", Qt::CaseInsensitive);
         // if we've truly found 2 symbols delimited this way...
         if (splitrx.indexIn(m_symbol) != -1) {
@@ -626,7 +626,7 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
     Regex dateRegExp(m_source.dateRegex());
     Regex priceRegExp(m_source.priceRegex());
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0 ,0)
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 
     if (identifierRegExp.indexIn(quotedata) > -1) {
         kDebug(Private::dbgArea()) << "Symbol" << identifierRegExp.cap(1);
@@ -705,7 +705,7 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
     QString columnSeparator;
     Regex rx("([,;\t])");
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 
     if (rx.indexIn(header) != -1) {
         columnSeparator = rx.cap(1);
