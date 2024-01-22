@@ -65,6 +65,7 @@ set(alkimia_LIB_SRCS
     alkonlinequotesprofilemanager.cpp
     alkonlinequoteswidget.cpp
     alkvalue.cpp
+    alkutils.cpp
     alkwebpage.cpp
 )
 
@@ -85,6 +86,7 @@ set(alkimia_LIB_PRIVATE_HEADERS
     alkonlinequotesource_p.h
     alkonlinequotesprofile_p.h
     alkpushbutton.h
+    alkutils.h
 )
 
 if(ENABLE_FINANCEQUOTE)

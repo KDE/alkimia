@@ -9,13 +9,13 @@
 
 #include "alkonlinequotesprofile_p.h"
 
+#include "alkutils.h"
+
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QDebug>
 #else
 #include <KConfig>
 #include <KDebug>
-#include <KGlobal>
-#include <KStandardDirs>
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -32,13 +32,7 @@ QStringList AlkOnlineQuotesProfile::Private::m_financeQuoteSources;
 bool AlkOnlineQuotesProfile::Private::setupFinanceQuoteScriptPath()
 {
     if (m_financeQuoteScriptPath.isEmpty()) {
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-        m_financeQuoteScriptPath =
-                QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("alkimia%1/misc/financequote.pl").arg(TARGET_SUFFIX));
-#else
-        m_financeQuoteScriptPath = KGlobal::dirs()->findResource("appdata",
-                                                                 QString("misc/financequote.pl"));
-#endif
+        m_financeQuoteScriptPath = AlkUtils::locateDataFile("misc/financequote.pl");
     }
     return !m_financeQuoteScriptPath.isEmpty();
 }
@@ -69,7 +63,6 @@ AlkOnlineQuotesProfile::Private::~Private()
 
 const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesNative()
 {
-    //KSharedConfigPtr kconfig = KGlobal::config();
     auto kconfig = KSharedConfig::openConfig(m_kconfigFile, KConfig::SimpleConfig);
     QStringList groups = kconfig->groupList();
 
@@ -150,20 +143,8 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesSkrooge()
 const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesGHNS()
 {
     QStringList sources;
+    QStringList resources = AlkUtils::getDataFiles(m_GHNSFilePath, QStringList() << QStringLiteral("*.txt"));
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    QStringList resources;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, m_GHNSFilePath, QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString& dir, dirs) {
-        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.txt"));
-        Q_FOREACH (const QString& file, fileNames) {
-            resources.append(dir + '/' + file);
-        }
-    }
-#else
-    const QString filename = QString("%1/*.txt").arg(m_GHNSFilePath);
-    const QStringList resources = KStandardDirs().findAllResources("data", filename);
-#endif
     for (const QString &file : resources) {
         QFileInfo f(file);
         QString file2 = f.completeBaseName();
