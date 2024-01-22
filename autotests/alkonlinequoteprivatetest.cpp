@@ -63,3 +63,107 @@ void AlkOnlineQuotePrivateTest::testParsePrice()
     QCOMPARE(p.m_price, 0.0);
     QVERIFY(errors() & AlkOnlineQuote::Errors::Price);
 }
+
+class SingleQuoteReceiver : public QObject
+{
+    Q_OBJECT
+public:
+    QDate _date;
+    double _price;
+    SingleQuoteReceiver(QDate date, double price)
+        : _date(date)
+        , _price(price)
+    {}
+
+Q_SIGNALS:
+    void finished();
+
+public Q_SLOTS:
+    void quote(QString id, QString symbol, QDate date, double price)
+    {
+        qDebug() << "comparing quote";
+        QCOMPARE(date, _date);
+        QCOMPARE(price, _price);
+        Q_EMIT finished();
+    }
+};
+
+void AlkOnlineQuotePrivateTest::testParseQuoteCSVSingleLine()
+{
+    AlkOnlineQuote::Private &p = d_ptr();
+
+    AlkOnlineQuoteSource source("test", "", "", AlkOnlineQuoteSource::Symbol, "#2", "#1", "%d-%m-%y", AlkOnlineQuoteSource::CSV);
+    p.m_source = source;
+    QString quotedata =
+        "22-01-24,1.0906\n"
+        ;
+    SingleQuoteReceiver receiver(QDate::fromString("22-01-2024", "dd-MM-yyyy"), 1.0906);
+    connect(this, SIGNAL(quote(QString,QString,QDate,double)), &receiver, SLOT(quote(QString,QString,QDate,double)));
+    QVERIFY(p.parseQuoteCSV(quotedata));
+}
+
+class MultipleQuotesReceiver : public QObject
+{
+    Q_OBJECT
+public:
+    const AlkDatePriceMap &_prices;
+    MultipleQuotesReceiver(const AlkDatePriceMap &prices)
+        : _prices(prices)
+    {}
+
+Q_SIGNALS:
+    void finished();
+
+public Q_SLOTS:
+    void quotes(const QString &id, const QString &symbol, const AlkDatePriceMap &prices)
+    {
+        qDebug() << "comparing" << prices.size() << "quotes";
+        QCOMPARE(prices.size(), _prices.size());
+        QCOMPARE(prices.keys(), _prices.keys());
+        for (auto &date: prices.keys()) {
+            QCOMPARE(prices[date].toDouble(), _prices[date].toDouble());
+        }
+        Q_EMIT finished();
+    }
+};
+
+void AlkOnlineQuotePrivateTest::testParseQuoteCSVMultipleLines()
+{
+    AlkOnlineQuote::Private &p = d_ptr();
+
+    QString quotedata =
+        "22-01-24,1.0906\n"
+        "21-01-24,1.1906\n"
+        ;
+    AlkDatePriceMap map;
+    map[QDate::fromString("22-01-2024", "dd-MM-yyyy")] = 1.0906;
+    map[QDate::fromString("21-01-2024", "dd-MM-yyyy")] = 1.1906;
+    MultipleQuotesReceiver receiver(map);
+    connect(this, SIGNAL(quotes(QString,QString,AlkDatePriceMap)), &receiver, SLOT(quotes(QString,QString,AlkDatePriceMap)));
+    QVERIFY(p.parseQuoteCSV(quotedata));
+}
+
+void AlkOnlineQuotePrivateTest::testParseQuoteCSVDateRange()
+{
+    AlkOnlineQuote::Private &p = d_ptr();
+
+    QString quotedata =
+        "22-01-24,1.0906\n"
+        "21-01-24,1.1906\n"
+        "20-01-24,1.4906\n"
+        ;
+    p.m_startDate = QDate::fromString("21-01-2024", "dd-MM-yyyy");
+    p.m_endDate = QDate::fromString("21-01-2024", "dd-MM-yyyy");
+
+    AlkDatePriceMap map;
+    map[QDate::fromString("21-01-2024", "dd-MM-yyyy")] = 1.1906;
+    MultipleQuotesReceiver multiReceiver(map);
+    connect(this, SIGNAL(quotes(QString,QString,AlkDatePriceMap)), &multiReceiver, SLOT(quotes(QString,QString,AlkDatePriceMap)));
+
+    SingleQuoteReceiver singleReceiver(p.m_startDate, 1.1906);
+    connect(this, SIGNAL(quote(QString,QString,QDate,double)), &singleReceiver, SLOT(quote(QString,QString,QDate,double)));
+
+    QVERIFY(p.parseQuoteCSV(quotedata));
+}
+
+#include "alkonlinequoteprivatetest.moc"

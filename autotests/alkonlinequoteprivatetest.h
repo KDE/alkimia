@@ -22,6 +22,9 @@ public:
 
 private Q_SLOTS:
     void testParsePrice();
+    void testParseQuoteCSVSingleLine();
+    void testParseQuoteCSVMultipleLines();
+    void testParseQuoteCSVDateRange();
 };
 
 #endif // ALKONLINEQUOTEPRIVATETEST_H
