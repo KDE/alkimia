@@ -1,10 +1,10 @@
 add_definitions(-DCMAKE_CURRENT_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 set(TEST_LIB
-    alkimia
-    alkimia-internal
     Qt${QT_MAJOR_VERSION}::Core
     ${QT_BROWSER_LIB}
     ${QT_QML_LIB}
+    alkimia-internal
+    alkimia
 )
 
 add_executable(qmlalkonlinequotetest

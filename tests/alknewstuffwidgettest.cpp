@@ -10,6 +10,10 @@
 
 #include "alkapplication.h"
 
+#if defined(Q_OS_WIN) && !defined(BUILD_WITH_KIO)
+#include <QNetworkProxyFactory>
+#endif
+
 int main(int argc, char *argv[])
 {
     AlkApplication app(argc,argv);
