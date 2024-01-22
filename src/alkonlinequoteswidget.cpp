@@ -483,6 +483,11 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
         m_checkSymbol->setText(!m_currentItem.defaultId().isEmpty() ? m_currentItem.defaultId() : "ORCL");
         m_checkSymbol2->setText("");
     }
+    bool isCSVSource = m_currentItem.dataFormat() == AlkOnlineQuoteSource::CSV;
+    m_startDateLabel->setVisible(isCSVSource);
+    m_endDateLabel->setVisible(isCSVSource);
+    m_startDateEdit->setVisible(isCSVSource);
+    m_endDateEdit->setVisible(isCSVSource);
 }
 
 void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
@@ -632,6 +637,11 @@ void AlkOnlineQuotesWidget::Private::slotCheckEntry()
     connect(&quote, SIGNAL(quotes(QString,QString,AlkDatePriceMap)), this,
             SLOT(slotLogQuotes(QString,QString,AlkDatePriceMap)));
     initIcons();
+    if (m_currentItem.dataFormat() == AlkOnlineQuoteSource::CSV) {
+        quote.setDateRange(m_startDateEdit->date(), m_endDateEdit->date());
+    } else {
+        quote.setDateRange(QDate(), QDate());
+    }
     if (m_currentItem.url().contains("%2")) {
         quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.name());
     } else {
