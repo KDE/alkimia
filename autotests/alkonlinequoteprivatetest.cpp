@@ -31,6 +31,11 @@ void AlkOnlineQuotePrivateTest::testParsePrice()
     QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
 
     p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice(" 12 345.675"));
+    QCOMPARE(p.m_price, 12345.675);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
+
+    p.m_errors = AlkOnlineQuote::Errors::Success;
     QVERIFY(p.parsePrice("12,345.675"));
     QCOMPARE(p.m_price, 12345.675);
     QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
@@ -42,7 +47,7 @@ void AlkOnlineQuotePrivateTest::testParsePrice()
 
     p.m_errors = AlkOnlineQuote::Errors::Success;
     QVERIFY(p.parsePrice("1.0971 &#8364; = &#36; Print Exchange Rate Chart Euro to Dollar - EUR/USD Invert DateExchange Rate12 Jan 241 EUR = 1.0982 USD11 Jan 241 EUR = 1.0978 USD10 Jan 241 EUR = 1.0934 USD09 Jan 241 EUR = 1.0963 USD08 Jan 241 EUR = 1.0937 USD07 Jan 241 EUR = 1.0955 USD06 Jan 241 EUR = 1.0955 USD05 Jan 241 EU"));
-    QCOMPARE(p.m_price, 1.0971836436122412e+85);
+    QCOMPARE(p.m_price, 1.0971);
     QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
 
     p.m_errors = AlkOnlineQuote::Errors::Success;

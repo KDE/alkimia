@@ -58,9 +58,13 @@
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     #include <QRegExp>
     using Regex = QRegExp;
+    #define hasRegexMatch(a) indexIn(a) != -1
+    #define capturedText(txt, index) cap(index)
 #else
     #include <QRegularExpression>
     using Regex = QRegularExpression;
+    #define hasRegexMatch(a) match(a).hasMatch()
+    #define capturedText(txt, index) match(txt).captured(index)
 #endif
 
 #ifndef I18N_NOOP
@@ -513,15 +517,21 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
 bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
 {
     bool result = true;
-    // Deal with european quotes that come back as X.XXX,XX or XX,XXX
-    //
-    // We will make the assumption that ALL prices have a decimal separator.
-    // So "1,000" always means 1.0, not 1000.0.
-    //
-    // Remove all non-digits from the price string except the last one, and
-    // set the last one to a period.
-    QString pricestr(_pricestr);
-    if (!pricestr.isEmpty()) {
+    // not made static due to QRegExp
+    const Regex nonDigitChar("\\D");
+    const Regex validChars("^\\s*([0-9,.\\s]*[0-9,.])");
+
+    if (validChars.hasRegexMatch(_pricestr)) {
+        // Deal with european quotes that come back as X.XXX,XX or XX,XXX
+        //
+        // We will make the assumption that ALL prices have a decimal separator.
+        // So "1,000" always means 1.0, not 1000.0.
+        //
+
+        // Remove all non-digits from the price string except the last one, and
+        // set the last one to a period.
+        QString pricestr = validChars.capturedText(_pricestr, 1);
+
         int pos = pricestr.lastIndexOf(Regex("\\D"));
         if (pos > 0) {
             pricestr[pos] = '.';
@@ -546,6 +556,7 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
         m_errors |= Errors::Price;
         Q_EMIT m_p->error(i18n("Unable to parse price for '%1'", m_symbol));
         result = false;
+        m_price = 0.0;
     }
     return result;
 }
