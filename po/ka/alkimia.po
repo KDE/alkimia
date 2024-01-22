@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-16 01:38+0000\n"
-"PO-Revision-Date: 2024-01-05 04:52+0100\n"
+"PO-Revision-Date: 2024-01-21 11:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -83,7 +83,7 @@ msgstr "ნაპოვნია ფასი: '%1' (%2)"
 #: alkonlinequote_p.cpp:542
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
-msgstr ""
+msgstr "ფასის '%1' '%2'-სთვის რიცხვში გადაყვანა შეუძლებელია"
 
 #: alkonlinequote_p.cpp:547
 #, kde-format
@@ -673,7 +673,7 @@ msgstr "კვოტის ახალი წყარო"
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
-msgstr ""
+msgstr "<b>ახალი კვოტის წყარო</b> უკვე არსებობს."
 
 #: alkonlinequoteswidget.cpp:722
 #, kde-format
