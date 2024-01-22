@@ -14,13 +14,16 @@
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 #include <KGlobal>
 #include <KCalendarSystem>
-#include <QRegExp>
 #else
 #include <QLocale>
+#endif
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <QRegExp>
+#else
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #endif
-
 
 class AlkDateFormat::Private
 {
@@ -75,7 +78,7 @@ public:
 
             m_format = m_format.toLower();
 
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             QRegExp formatrex("([mdy]+)(\\W+)([mdy]+)(\\W+)([mdy]+)", Qt::CaseInsensitive);
             if (formatrex.indexIn(m_format) == -1) {
                 return setError(AlkDateFormat::InvalidFormatString, m_format);
@@ -115,7 +118,7 @@ public:
         return date;
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 
     QDate convertStringKMyMoney(const QString &_in, bool _strict, unsigned _centurymidpoint)
     {
@@ -192,6 +195,7 @@ public:
                     return setError(AlkDateFormat::InvalidDay, *it_scanned);
                 }
                 break;
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
             case 'm':
                 month = (*it_scanned).toUInt(&ok);
                 if (!ok) {
@@ -211,7 +215,41 @@ public:
                 if (month < 1 || month > 12) {
                     return setError(AlkDateFormat::InvalidMonth, *it_scanned);
                 }
-
+#else
+            case 'm':
+                month = (*it_scanned).toUInt(&ok);
+                if (!ok) {
+                    month = 0;
+                    // maybe it's a textual date
+                    unsigned i = 1;
+                    // search the name in the current selected locale
+                    QLocale locale;
+                    while (i <= 12) {
+                        if (locale.standaloneMonthName(i).toLower() == *it_scanned
+                                || locale.standaloneMonthName(i, QLocale::ShortFormat).toLower() == *it_scanned) {
+                            month = i;
+                            break;
+                        }
+                        ++i;
+                    }
+                    // in case we did not find the month in the current locale,
+                    // we look for it in the C locale
+                    if(month == 0) {
+                        QLocale localeC(QLocale::C);
+                        if( !(locale == localeC)) {
+                            i = 1;
+                            while (i <= 12) {
+                                if (localeC.standaloneMonthName(i).toLower() == *it_scanned
+                                || localeC.standaloneMonthName(i, QLocale::ShortFormat).toLower() == *it_scanned) {
+                                    month = i;
+                                    break;
+                                }
+                                ++i;
+                            }
+                        }
+                    }
+                }
+#endif
                 break;
             case 'y':
                 if (_strict && (*it_scanned).length() != (*it_format).length()) {
@@ -260,7 +298,7 @@ public:
         return result;
     }
 
-#else // Qt5
+#else // Qt6
 
     QDate convertStringKMyMoney(const QString& _in, bool _strict, unsigned _centurymidpoint)
     {
