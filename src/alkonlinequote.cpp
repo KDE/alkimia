@@ -99,6 +99,11 @@ void AlkOnlineQuote::setDateRange(const QDate &from, const QDate &to)
     d->m_endDate = to;
 }
 
+const AlkOnlineQuoteSource &AlkOnlineQuote::source() const
+{
+    return d->m_source;
+}
+
 bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QString &_source)
 {
 #ifdef ENABLE_FINANCEQUOTE

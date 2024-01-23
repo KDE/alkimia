@@ -18,6 +18,7 @@
 #include <QString>
 #include <QMap>
 
+class AlkOnlineQuoteSource;
 class AlkOnlineQuotesProfile;
 
 typedef QMap<QDate, AlkValue> AlkDatePriceMap;
@@ -104,6 +105,8 @@ public:
      * @param to last date to include the online quote
      */
     void setDateRange(const QDate &from, const QDate &to);
+
+    const AlkOnlineQuoteSource &source() const;
 
 public Q_SLOTS:
     /**
