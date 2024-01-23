@@ -99,6 +99,16 @@ void AlkOnlineQuote::setDateRange(const QDate &from, const QDate &to)
     d->m_endDate = to;
 }
 
+void AlkOnlineQuote::setUseSingleQuoteSignal(bool state)
+{
+    d->m_useSingleQuoteSignal = state;
+}
+
+bool AlkOnlineQuote::useSingleQuoteSignal()
+{
+    return d->m_useSingleQuoteSignal;
+}
+
 const AlkOnlineQuoteSource &AlkOnlineQuote::source() const
 {
     return d->m_source;

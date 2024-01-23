@@ -799,11 +799,13 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
         Q_EMIT m_p->failed(m_id, m_symbol);
         return false;
     }
-    Q_EMIT m_p->quotes(m_id, m_symbol, prices);
-    if (prices.size() == 1) {
-        QDate date = prices.keys().first();
-        AlkValue price = prices[date];
-        Q_EMIT m_p->quote(m_id, m_symbol, date, price.toDouble());
+
+    if (m_useSingleQuoteSignal) {
+        for (auto &key : prices.keys()) {
+            Q_EMIT m_p->quote(m_id, m_symbol, key, prices[key].toDouble());
+        }
+    } else {
+        Q_EMIT m_p->quotes(m_id, m_symbol, prices);
     }
 
     return true;

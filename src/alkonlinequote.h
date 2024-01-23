@@ -97,14 +97,28 @@ public:
      * Defines a date range within which the data is to be retrieved.
      * This range is only taken into account for data in CSV format and
      * provides online quotes via the `quotes` signal.
-     * If the online source only provides a single online quote in the
-     * specified range, the data is also returned with the `quote` signal,
-     * which means that sources in CSV format can be processed via the same
-     * interface as the other formats.
      * @param from first date to include the online quote
      * @param to last date to include the online quote
      */
     void setDateRange(const QDate &from, const QDate &to);
+
+    /**
+     * Always use signal `quote`.
+     * For online sources in CSV data format (see AlkOnlineQuoteSource::DataFormat),
+     * the quotes found are normally returned via the `quotes` signal,
+     * which can be changed to the `quote` signal using this method.
+     *
+     * This means that sources in CSV format can be processed via the
+     * same interface as other formats.
+     * @param state Enable or disable use of the `quote` signal
+     */
+    void setUseSingleQuoteSignal(bool state);
+
+    /**
+     * Returns the status of whether the `quote` signal is always used
+     * @return current state
+     */
+    bool useSingleQuoteSignal();
 
     const AlkOnlineQuoteSource &source() const;
 
