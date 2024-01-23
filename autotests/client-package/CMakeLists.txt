@@ -1,4 +1,4 @@
-#SPDX-License-Identifier: BSD-2-Clause
+#SPDX-License-Identifier: BSD-3-Clause
 #SPDX-FileCopyrightText: 2023 Ralf Habacker ralf.habacker @freenet.de
 
 cmake_minimum_required(VERSION 3.16.0)
