@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-16 01:38+0000\n"
+"POT-Creation-Date: 2024-01-23 01:38+0000\n"
 "PO-Revision-Date: 2020-11-20 00:28+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -18,144 +18,154 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.08.3\n"
 
-#: alkonlinequote_p.cpp:110
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: alkonlinequote_p.cpp:114
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Allikat <placeholder>%1</placeholder> ei ole olemas."
 
-#: alkonlinequote_p.cpp:155 alkonlinequote_p.cpp:169
+#: alkonlinequote_p.cpp:159 alkonlinequote_p.cpp:173
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "%1 URL-i hankimine nurjus"
 
-#: alkonlinequote_p.cpp:177 alkonlinequote_p.cpp:633 alkonlinequote_p.cpp:659
+#: alkonlinequote_p.cpp:181 alkonlinequote_p.cpp:644 alkonlinequote_p.cpp:670
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Leiti sümbol: '%1'"
 
-#: alkonlinequote_p.cpp:180 alkonlinequote_p.cpp:636 alkonlinequote_p.cpp:662
+#: alkonlinequote_p.cpp:184 alkonlinequote_p.cpp:647 alkonlinequote_p.cpp:673
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "%1 sümboli parsimine nurjus"
 
-#: alkonlinequote_p.cpp:203
+#: alkonlinequote_p.cpp:207
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "URL-i %1 tõmbamine ..."
 
-#: alkonlinequote_p.cpp:277
+#: alkonlinequote_p.cpp:281
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1 täitmine ..."
 
-#: alkonlinequote_p.cpp:294 alkonlinequote_p.cpp:505
+#: alkonlinequote_p.cpp:298 alkonlinequote_p.cpp:509
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Käivitamine nurjus: %1"
 
-#: alkonlinequote_p.cpp:313
+#: alkonlinequote_p.cpp:317
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Allalaaditud faili avamine nurjus"
 
-#: alkonlinequote_p.cpp:330
+#: alkonlinequote_p.cpp:334
 #, kde-format
 msgid "URL found: %1..."
 msgstr "Leiti URL: %1 ..."
 
-#: alkonlinequote_p.cpp:421 alkonlinequote_p.cpp:423
+#: alkonlinequote_p.cpp:425 alkonlinequote_p.cpp:427
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 
-#: alkonlinequote_p.cpp:497
+#: alkonlinequote_p.cpp:501
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Täidetakse %1 %2 %3 ..."
 
-#: alkonlinequote_p.cpp:539
+#: alkonlinequote_p.cpp:549
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Leiti hind: '%1' (%2)"
 
-#: alkonlinequote_p.cpp:542
+#: alkonlinequote_p.cpp:552
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:547
+#: alkonlinequote_p.cpp:557
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "'%1' hinna parsimine nurjus"
 
-#: alkonlinequote_p.cpp:556
+#: alkonlinequote_p.cpp:567
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Leiti kuupäev: '%1'"
 
-#: alkonlinequote_p.cpp:562
+#: alkonlinequote_p.cpp:573
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Leiti kuupäevavorming: '%1' -> '%2'"
 
-#: alkonlinequote_p.cpp:565
+#: alkonlinequote_p.cpp:576
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Vormingus '%2' kuupäeva '%1' parsimine nurjus: %3"
 
-#: alkonlinequote_p.cpp:569 alkonlinequote_p.cpp:579
+#: alkonlinequote_p.cpp:580 alkonlinequote_p.cpp:590
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "'%1' hakkab kasutama praegust kuupäeva"
 
-#: alkonlinequote_p.cpp:573
+#: alkonlinequote_p.cpp:584
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "'%1' kuupäeva parsimine on välja lülitatud"
 
-#: alkonlinequote_p.cpp:576
+#: alkonlinequote_p.cpp:587
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "'%1' kuupäeva parsimine nurjus"
 
-#: alkonlinequote_p.cpp:724
+#: alkonlinequote_p.cpp:735
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
 
-#: alkonlinequote_p.cpp:751
+#: alkonlinequote_p.cpp:762
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date column '%1' in quote data"
 msgstr "%1 hinna uuendamine nurjus (tühjad kursiandmed)"
 
-#: alkonlinequote_p.cpp:757
+#: alkonlinequote_p.cpp:768
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find price column '%1' in quote data"
 msgstr "%1 hinna uuendamine nurjus (tühjad kursiandmed)"
 
-#: alkonlinequote_p.cpp:775
+#: alkonlinequote_p.cpp:786
 #, fuzzy, kde-format
 #| msgid "Unable to parse date '%1' using format '%2': %3"
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Vormingus '%2' kuupäeva '%1' parsimine nurjus: %3"
 
-#: alkonlinequote_p.cpp:787
+#: alkonlinequote_p.cpp:798
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "%1 hinna uuendamine nurjus (tühjad kursiandmed)"
 
-#: alkonlinequote_p.cpp:810
+#: alkonlinequote_p.cpp:827
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "%1 hinna uuendamine nurjus (tühjad kursiandmed)"
 
-#: alkonlinequote_p.cpp:828
+#: alkonlinequote_p.cpp:845
 #, fuzzy, kde-format
 #| msgid "Unable to fetch url for %1"
 msgid "Timeout exceeded on fetching url for %1"
@@ -165,12 +175,13 @@ msgstr "%1 URL-i hankimine nurjus"
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfileDetailsWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesDebugWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteUploadDialog)
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteDetailsWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfilesWidget)
 #: alkonlinequotedetails.ui:20 alkonlinequotes.ui:20 alkonlinequotes.ui:32
 #: alkonlinequotesdebug.ui:20 alkonlinequotesprofile.ui:20
 #: alkonlinequotesprofile.ui:32 alkonlinequotesprofiledetails.ui:20
-#: alkonlinequotesprofiles.ui:20
+#: alkonlinequotesprofiles.ui:20 alkonlinequoteuploaddialog.ui:20
 #, kde-format
 msgid "Online Quotes"
 msgstr "Võrgukursid"
@@ -209,69 +220,56 @@ msgstr ""
 msgid "Details"
 msgstr "Üksikasjad"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: alkonlinequotedetails.ui:42 alkonlinequotesprofile.ui:132
-#, kde-format
-msgid "URL"
-msgstr "URL"
-
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: alkonlinequotedetails.ui:52 alkonlinequotesprofile.ui:142
+#: alkonlinequotedetails.ui:42 alkonlinequotesprofile.ui:142
 #, kde-format
 msgid "Identifier"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
-#: alkonlinequotedetails.ui:62 alkonlinequotesprofile.ui:152
+#: alkonlinequotedetails.ui:52 alkonlinequotesprofile.ui:152
 #, kde-format
 msgid "Selected by"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequotedetails.ui:69
-#, fuzzy, kde-format
-#| msgid "Date Format"
-msgid "Data Format"
-msgstr "Kuupäeva vorming"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: alkonlinequotedetails.ui:76 alkonlinequotesprofile.ui:159
-#, kde-format
-msgid "Price"
-msgstr "Hind"
-
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: alkonlinequotedetails.ui:86 alkonlinequotesprofile.ui:169
+#: alkonlinequotedetails.ui:59 alkonlinequotesprofile.ui:169
 #, kde-format
 msgid "Date"
 msgstr "Kuupäev"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: alkonlinequotedetails.ui:96 alkonlinequotesprofile.ui:179
+#: alkonlinequotedetails.ui:69 alkonlinequotesprofile.ui:179
 #, kde-format
 msgid "Date Format"
 msgstr "Kuupäeva vorming"
 
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: alkonlinequotedetails.ui:113
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
+#: alkonlinequotedetails.ui:79 alkonlinequotesprofile.ui:213
 #, kde-format
-msgid "Default Identifier"
+msgid "How to select the identifier"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:189
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
+#: alkonlinequotedetails.ui:86
 #, kde-format
-msgid "Options"
-msgstr "Valikud"
+msgid "The type of data expected to downloaded and processed."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequotedetails.ui:93 alkonlinequotesprofile.ui:132
+#, kde-format
+msgid "URL"
+msgstr "URL"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:127 alkonlinequotesprofile.ui:196
+#: alkonlinequotedetails.ui:117 alkonlinequotesprofile.ui:196
 #, kde-format
 msgid "URL to be used to download the quote"
 msgstr "URL kursi allalaadimiseks"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:130 alkonlinequotesprofile.ui:199
+#: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:199
 #, no-c-format, kde-format
 msgid ""
 "Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
@@ -285,37 +283,30 @@ msgstr ""
 "tahetakse, ja <b>%1</b> vääringuga, mis aluseks võetakse."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
-#: alkonlinequotedetails.ui:137 alkonlinequotesprofile.ui:206
+#: alkonlinequotedetails.ui:127 alkonlinequotesprofile.ui:206
 #, fuzzy, kde-format
 #| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
 msgstr "Regulaaravaldis kuupäeva hankimiseks allalaaditud andmetest"
 
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
-#: alkonlinequotedetails.ui:144 alkonlinequotesprofile.ui:213
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: alkonlinequotedetails.ui:141
 #, kde-format
-msgid "How to select the identifier"
+msgid "Default Identifier"
 msgstr ""
 
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
-#: alkonlinequotedetails.ui:151
-#, kde-format
-msgid "The type of data expected to downloaded and processed."
-msgstr ""
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotedetails.ui:162
+#, fuzzy, kde-format
+#| msgid "Date Format"
+msgid "Data Format"
+msgstr "Kuupäeva vorming"
 
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
-#: alkonlinequotedetails.ui:158 alkonlinequotesprofile.ui:220
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: alkonlinequotedetails.ui:169 alkonlinequotesprofile.ui:159
 #, kde-format
-msgid "Regular Expression to extract the price from the downloaded data"
-msgstr "Regulaaravaldis hinna hankimiseks allalaaditud andmetest"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
-#: alkonlinequotedetails.ui:165 alkonlinequotedetails.ui:172
-#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
-#, kde-format
-msgid "Regular Expression to extract the date from the downloaded data"
-msgstr "Regulaaravaldis kuupäeva hankimiseks allalaaditud andmetest"
+msgid "Price"
+msgstr "Hind"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
 #: alkonlinequotedetails.ui:179
@@ -323,12 +314,32 @@ msgstr "Regulaaravaldis kuupäeva hankimiseks allalaaditud andmetest"
 msgid "An identifier that is known to work for this online quote source"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
+#: alkonlinequotedetails.ui:186 alkonlinequotesprofile.ui:220
+#, kde-format
+msgid "Regular Expression to extract the price from the downloaded data"
+msgstr "Regulaaravaldis hinna hankimiseks allalaaditud andmetest"
+
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:189
+#: alkonlinequotedetails.ui:196
 #, fuzzy, kde-format
 #| msgid "New Quote Source"
 msgid "Remote source"
 msgstr "Uus kursside allikas"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotedetails.ui:203 alkonlinequotesprofile.ui:189
+#, kde-format
+msgid "Options"
+msgstr "Valikud"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#: alkonlinequotedetails.ui:210 alkonlinequotedetails.ui:217
+#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr "Regulaaravaldis kuupäeva hankimiseks allalaaditud andmetest"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
@@ -342,6 +353,12 @@ msgstr "Nõustu"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_buildKey)
+#: alkonlinequotedetails.ui:274
+#, kde-format
+msgid "build_key"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
@@ -391,6 +408,12 @@ msgstr "Klooni"
 msgid "Install"
 msgstr "Paigalda"
 
+#. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequotes.ui:96
+#, kde-format
+msgid "Upload"
+msgstr "Laadi üles"
+
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
 #: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
 #, kde-format
@@ -398,28 +421,40 @@ msgid "Debugging"
 msgstr "Silumine"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequotesdebug.ui:41 alkonlinequotesprofile.ui:367
+#: alkonlinequotesdebug.ui:35 alkonlinequotesprofile.ui:367
 #, kde-format
 msgid "One Symbol"
 msgstr "Üks sümbol"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: alkonlinequotesdebug.ui:55 alkonlinequotesprofile.ui:381
+#: alkonlinequotesdebug.ui:45 alkonlinequotesprofile.ui:381
 #, kde-format
 msgid "Two Symbols"
 msgstr "Kaks sümbolit"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
-#: alkonlinequotesdebug.ui:76 alkonlinequotesprofile.ui:402
+#: alkonlinequotesdebug.ui:57 alkonlinequotesprofile.ui:402
 #, kde-format
 msgid "Check Source"
 msgstr "Kontrolli allikat"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
-#: alkonlinequotesdebug.ui:87 alkonlinequotesprofile.ui:413
+#: alkonlinequotesdebug.ui:69 alkonlinequotesprofile.ui:413
 #, kde-format
 msgid "Show Page"
 msgstr "Näita lehekülge"
+
+#. i18n: ectx: property (text), widget (QLabel, m_startDateLabel)
+#: alkonlinequotesdebug.ui:91
+#, kde-format
+msgid "Start date"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
+#: alkonlinequotesdebug.ui:101
+#, kde-format
+msgid "End date"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -489,8 +524,9 @@ msgstr "GHNS seadistusfail"
 msgid "GHNS data path"
 msgstr "GHNS andmete asukoht"
 
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
-#: alkonlinequotesprofiles.ui:26
+#: alkonlinequotesprofiles.ui:26 alkonlinequoteuploaddialog.ui:26
 #, kde-format
 msgid ""
 "<html><head/><body><p>Select, add or delete an application profile, where to "
@@ -512,179 +548,278 @@ msgstr "Rakenduse profiilid"
 msgid "New"
 msgstr "Uus"
 
-#: alkonlinequoteswidget.cpp:160
+#: alkonlinequoteswidget.cpp:169
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Nõustu"
 
-#: alkonlinequoteswidget.cpp:162
+#: alkonlinequoteswidget.cpp:171
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Sisestatud andmetega nõustumine ja nende salvestamine"
 
-#: alkonlinequoteswidget.cpp:163
+#: alkonlinequoteswidget.cpp:172
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "See lubab nõustuda muudetud andmetega."
 
-#: alkonlinequoteswidget.cpp:165
+#: alkonlinequoteswidget.cpp:174
 #, kde-format
 msgid "&Delete"
 msgstr "&Kustuta"
 
-#: alkonlinequoteswidget.cpp:167
+#: alkonlinequoteswidget.cpp:176
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Valitud allikakirje kustutamine"
 
-#: alkonlinequoteswidget.cpp:168
+#: alkonlinequoteswidget.cpp:177
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "See lubab kustutada võrguallika valitud kirje"
 
-#: alkonlinequoteswidget.cpp:170
+#: alkonlinequoteswidget.cpp:179
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "&Kontrolli allikat"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:181
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Valitud allikakirje kontrollimine"
 
-#: alkonlinequoteswidget.cpp:173
+#: alkonlinequoteswidget.cpp:182
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "See lubab kontrollida võrguallika valitud kirjet"
 
-#: alkonlinequoteswidget.cpp:175
+#: alkonlinequoteswidget.cpp:184
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "&Näita lehekülge"
 
-#: alkonlinequoteswidget.cpp:177
+#: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Valitud allikakirje näitamine veebilehitsejas"
 
-#: alkonlinequoteswidget.cpp:178
+#: alkonlinequoteswidget.cpp:187
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "See lubab näha võrguallika valitud kirjet"
 
-#: alkonlinequoteswidget.cpp:180
+#: alkonlinequoteswidget.cpp:189
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Uus ..."
 
-#: alkonlinequoteswidget.cpp:182
+#: alkonlinequoteswidget.cpp:191
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Võrgukursside allika uue kirje loomine"
 
-#: alkonlinequoteswidget.cpp:183
+#: alkonlinequoteswidget.cpp:192
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "See lubab luua võrgukursside uue kirje"
 
-#: alkonlinequoteswidget.cpp:216
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgid "Name"
 msgstr "Nimi"
 
-#: alkonlinequoteswidget.cpp:216
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgid "Source"
 msgstr "Allikas"
 
-#: alkonlinequoteswidget.cpp:237
+#: alkonlinequoteswidget.cpp:247
 #, fuzzy, kde-format
 #| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Sümbol"
 
-#: alkonlinequoteswidget.cpp:238
+#: alkonlinequoteswidget.cpp:248
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:239
+#: alkonlinequoteswidget.cpp:249
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nimi"
 
-#: alkonlinequoteswidget.cpp:247
+#: alkonlinequoteswidget.cpp:257
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:248
+#: alkonlinequoteswidget.cpp:258
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:249
+#: alkonlinequoteswidget.cpp:259
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:282
+#: alkonlinequoteswidget.cpp:293
+#, kde-format
+msgid "Remote unpublished"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:295
 #, kde-format
 msgid "Remote"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:284
+#: alkonlinequoteswidget.cpp:297
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:285
+#: alkonlinequoteswidget.cpp:298
 #, fuzzy, kde-format
 #| msgid "local"
 msgid "Local"
 msgstr "kohalik"
 
-#: alkonlinequoteswidget.cpp:491
+#: alkonlinequoteswidget.cpp:506
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Kas tõesti kustutada see võrgukurss?"
 
-#: alkonlinequoteswidget.cpp:492
+#: alkonlinequoteswidget.cpp:507
 #, kde-format
 msgid "Delete online quote"
 msgstr "Võrgukursi kustutamine"
 
-#: alkonlinequoteswidget.cpp:519
+#: alkonlinequoteswidget.cpp:534
 #, kde-format
 msgid ".copy"
 msgstr ".koopia"
 
-#: alkonlinequoteswidget.cpp:545 alkonlinequoteswidget.cpp:547
+#: alkonlinequoteswidget.cpp:560 alkonlinequoteswidget.cpp:562
 #, kde-format
 msgid "New Quote Source"
 msgstr "Uus kursside allikas"
 
-#: alkonlinequoteswidget.cpp:556
+#: alkonlinequoteswidget.cpp:571
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:722
+#: alkonlinequoteswidget.cpp:749
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Võrgukursside HTML tulemuse aken"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: alkonlinequoteuploaddialog.ui:29
+#, fuzzy, kde-format
+#| msgid "Delete online quote"
+msgid "Upload online quote"
+msgstr "Võrgukursi kustutamine"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequoteuploaddialog.ui:38
+#, kde-format
+msgid "Version to create:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
+#: alkonlinequoteuploaddialog.ui:61
+#, kde-format
+msgid "Copy path to clipboard"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
+#. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
+#: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
+#, kde-format
+msgid "TextLabel"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
+#: alkonlinequoteuploaddialog.ui:88
+#, kde-format
+msgid "Enter store and close dialog"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequoteuploaddialog.ui:99
+#, fuzzy, kde-format
+#| msgid "Online Quotes"
+msgid "Online quote source:"
+msgstr "Võrgukursid"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
+#: alkonlinequoteuploaddialog.ui:109
+#, kde-format
+msgid "Close dialog"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_0)
+#: alkonlinequoteuploaddialog.ui:123
+#, kde-format
+msgid ""
+"This dialog allows you to create a package for an online quote source, which "
+"you can then upload to the online store used by alkimia to share with other "
+"users."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
+#: alkonlinequoteuploaddialog.ui:133
+#, kde-format
+msgid "Failed to create package at:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: alkonlinequoteuploaddialog.ui:153
+#, kde-format
+msgid ""
+"To upload the generated package to the online store, copy the path of the "
+"generated file into the clipboard, log in to the store mentioned below and "
+"paste the copied url into the corresponding package (see the <b>files</b> "
+"tab)."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
+#: alkonlinequoteuploaddialog.ui:183
+#, kde-format
+msgid "Create package for uploading"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
+#: alkonlinequoteuploaddialog.ui:186
+#, kde-format
+msgid "Create package"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
+#: alkonlinequoteuploaddialog.ui:197
+#, kde-format
+msgid "Package has been created at:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: alkonlinequoteuploaddialog.ui:210
+#, kde-format
+msgid "Package edit url:"
+msgstr ""
 
 #: alkwebpage.cpp:52
 #, kde-format
@@ -698,6 +833,3 @@ msgstr ""
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Regulaaravaldis sümboli hankimiseks allalaaditud andmetest"
-
-#~ msgid "Upload"
-#~ msgstr "Laadi üles"
