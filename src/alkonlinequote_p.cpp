@@ -324,6 +324,7 @@ bool AlkOnlineQuote::Private::processDownloadedFile(const KUrl& url, const QStri
 bool AlkOnlineQuote::Private::processDownloadedPage(const KUrl& url, const QByteArray& page)
 {
     bool result = false;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     KEncodingProber prober(KEncodingProber::Universal);
     prober.feed(page);
     QTextCodec *codec = QTextCodec::codecForName(prober.encoding());
@@ -331,6 +332,9 @@ bool AlkOnlineQuote::Private::processDownloadedPage(const KUrl& url, const QByte
       codec = QTextCodec::codecForLocale();
     }
     QString quote = codec->toUnicode(page);
+#else
+    QString quote = page;
+#endif
     Q_EMIT m_p->status(i18n("URL found: %1...", url.prettyUrl()));
     if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
       AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
@@ -711,7 +715,7 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
 {
     QString dateColumn(m_source.dateRegex());
     QString priceColumn(m_source.priceRegex());
-    QStringList lines = quotedata.split(QRegExp("\r?\n"));
+    QStringList lines = quotedata.split(Regex("\r?\n"));
     QString header = lines.first();
     QString columnSeparator;
     Regex rx("([,;\t])");

@@ -35,7 +35,9 @@ class KJob;
 #include <QByteArray>
 #include <QFile>
 #include <QTextStream>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QTextCodec>
+#endif
 #include <QTimer>
 
 class ALK_EXPORT AlkOnlineQuote::Private : public QObject

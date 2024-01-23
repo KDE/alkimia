@@ -37,7 +37,7 @@ add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_
 if (QT_MAJOR_VERSION GREATER_EQUAL 5)
     list(APPEND ALKIMIA_INTERNAL_LIBS
         PRIVATE
-        Qt${QT_MAJOR_VERSION}::DBus
+        ${QT_DBUS_LIB}
         KF${QT_MAJOR_VERSION}::Completion
         KF${QT_MAJOR_VERSION}::CoreAddons
         KF${QT_MAJOR_VERSION}::I18n
@@ -47,6 +47,7 @@ endif()
 target_link_libraries(alkimia-internal PRIVATE
     ${ALKIMIA_INTERNAL_LIBS}
     ${KF_NEWSTUFF_LIB}
+    KF${QT_MAJOR_VERSION}::ConfigCore
 )
 kde_target_enable_exceptions(alkimia-internal PUBLIC)
 
@@ -136,17 +137,24 @@ add_library(alkimia ${alkimia_LIB_SRCS} ${alkimia_LIB_HEADERS} ${alkimia_LIB_PRI
 kde_target_enable_exceptions(alkimia PUBLIC)
 target_link_libraries(alkimia PRIVATE
     ${QT_NETWORK_LIB}
+    Qt${QT_MAJOR_VERSION}::DBus
     ${KF_NETWORK_LIB}
     ${KF_NEWSTUFF_LIB}
+    KF${QT_MAJOR_VERSION}::Codecs
     KF${QT_MAJOR_VERSION}::Completion
     KF${QT_MAJOR_VERSION}::I18n
     KF${QT_MAJOR_VERSION}::IconThemes
     KF${QT_MAJOR_VERSION}::TextWidgets
+    KF${QT_MAJOR_VERSION}::WidgetsAddons
     PUBLIC
     KF${QT_MAJOR_VERSION}::ConfigCore
 )
 
 add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
+
+if (QT_MAJOR_VERSION GREATER_EQUAL 6 AND NOT INCLUDE_INSTALL_DIR)
+    set(INCLUDE_INSTALL_DIR include)
+endif()
 
 target_include_directories(alkimia
     INTERFACE
@@ -215,6 +223,10 @@ else()
     if(KF5NewStuff_VERSION VERSION_GREATER "5.56.0")
     else()
         set(KDE_INSTALL_KNSRCDIR ${CONFIG_INSTALL_DIR})
+    endif()
+    # TODO
+    if(KF6NewStuffCore_VERSION)
+        set(KDE_INSTALL_KNSRCDIR etc/knsrc)
     endif()
     set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR})
     set(FQ_LOCAL_INSTALL_PATH ${CMAKE_BINARY_DIR}/share/alkimia${ALKIMIA_PATH_SUFFIX}/misc)

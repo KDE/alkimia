@@ -8,7 +8,10 @@
 
 #include "alknewstuffwidget.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define KNEWSTUFFWIDGETS_PRIVATE_BUILDING
+    #include <KNSWidgets/Action>
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     #include <knscore/engine.h>
     #include <knewstuff_version.h>
 #if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
@@ -63,7 +66,22 @@ bool AlkNewStuffWidget::showInstallDialog(QWidget *parent)
 {
     QString configFile = d->_configFile;
 
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QPointer<KNSWidgets::Action> knsWrapper = new KNSWidgets::Action("Install Online quotes", configFile, parent);
+    QEventLoop *loop = new QEventLoop;
+    QList<KNSCore::Entry> *entries = new QList<KNSCore::Entry>;
+    connect(knsWrapper, &KNSWidgets::Action::dialogFinished, this, [this, entries, loop](const QList<KNSCore::Entry> &changedEntries)
+    {
+        *entries = changedEntries;
+        loop->quit();
+    });
+    knsWrapper->trigger();
+    loop->exec();
+    delete loop;
+    bool result = !entries->isEmpty();
+    delete entries;
+    return result;
+#elif KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
     QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(configFile, parent);
     dialog->exec();
     delete dialog;

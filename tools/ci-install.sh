@@ -54,6 +54,13 @@ case "$ci_distro" in
                     https://download.opensuse.org/repositories/security:/tls/openSUSE_Tumbleweed/security:tls.repo
                 )
                 ;;
+            (kf6-native)
+                repos=(
+                    "${repos[@]}"
+                    https://download.opensuse.org/repositories/KDE:/Unstable:/Frameworks/openSUSE_Factory/KDE:Unstable:Frameworks.repo
+                )
+                ;;
+
             (kf4-native)
                 repos=(
                     "${repos[@]}"
@@ -93,6 +100,34 @@ case "$ci_distro" in
             xwd ImageMagick
         )
         case "$ci_variant-$ci_host" in
+            (kf6*-native)
+                source_packages=(
+                    "${source_packages[@]}"
+                )
+                packages=(
+                    "${packages[@]}"
+                    kinit
+                    "cmake(KF6Completion)"
+                    "cmake(KF6Config)"
+                    "cmake(KF6CoreAddons)"
+                    "cmake(KF6I18n)"
+                    "cmake(KF6IconThemes)"
+                    "cmake(KF6KIO)"
+                    "cmake(KF6NewStuff)"
+                    "cmake(KF6NewStuffCore)"
+                    "cmake(KF6Package)"
+                    "cmake(KF6TextWidgets)"
+                    "cmake(KF6WidgetsAddons)"
+                    "cmake(Qt6Core)"
+                    "cmake(Qt6DBus)"
+                    "cmake(Qt6Qml)"
+                    "cmake(Qt6Test)"
+                    "cmake(Qt6Widgets)"
+                    "doxygen"
+                    "gmp-devel"
+                    "kf6-extra-cmake-modules"
+                )
+                ;;
             (kf5*-native)
                 source_packages=(
                     "${source_packages[@]}"
@@ -168,6 +203,12 @@ case "$ci_distro" in
                 packages=(
                     "${packages[@]}"
                     libqt5-qtwebengine-devel
+                )
+                ;;
+            (kf6-webengine)
+                packages=(
+                    "${packages[@]}"
+                    libqt6-qtwebengine-devel
                 )
                 ;;
         esac

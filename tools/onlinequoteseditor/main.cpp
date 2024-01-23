@@ -44,7 +44,9 @@ int main(int argc, char **argv)
     KHelpMenu helpMenu(&w, about.shortDescription());
     helpMenu.menu();
     helpMenu.action(KHelpMenu::menuHelpContents)->setVisible(false);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
+#endif
     helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(true);
     helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", about.displayName()));
     w.menuBar()->addMenu(static_cast<QMenu*>(helpMenu.menu()));

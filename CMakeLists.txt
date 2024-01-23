@@ -161,14 +161,20 @@ else()
         set(PLASMA_COMPONENT Package Plasma)
     endif()
     if(QT_MAJOR_VERSION GREATER_EQUAL 6)
-        set(KF_NEWSTUFF_COMPONENT NewStuffWidgets NewStuff)
+        set(QT_DBUS_LIB Qt${QT_MAJOR_VERSION}::DBus)
+        set(KF_NEWSTUFF_COMPONENT NewStuffCore NewStuff)
+        set(KF_NEWSTUFF_LIB KF${QT_MAJOR_VERSION}::NewStuffWidgets)
+        set(KF_PRIVATE_COMPONENTS Codecs WidgetsAddons)
+        set(KF_PRIVATE_LIBS KF${QT_MAJOR_VERSION}::Codecs KF${QT_MAJOR_VERSION}::WidgetsAddons)
     else()
+        set(QT_DBUS_LIB)
         set(KF_NEWSTUFF_COMPONENT NewStuff)
+        set(KF_NEWSTUFF_LIB KF${QT_MAJOR_VERSION}::${KF_NEWSTUFF_COMPONENT})
+        set(KF_PRIVATE_COMPONENTS)
     endif()
-    set(KF_NEWSTUFF_LIB KF${QT_MAJOR_VERSION}::${KF_NEWSTUFF_COMPONENT})
 
     set(KF_PUBLIC_COMPONENTS Config)
-    set(KF_PRIVATE_COMPONENTS
+    list(APPEND KF_PRIVATE_COMPONENTS
         CoreAddons
         Completion
         I18n

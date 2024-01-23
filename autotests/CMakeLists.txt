@@ -81,7 +81,7 @@ if(ENABLE_CLIENT_PACKAGE_TEST)
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     )
 
-    set(FIND_ROOT_PATH "${TARGET_SYSROOT};${TEMP_INSTALL_DIR}${CMAKE_INSTALL_PREFIX}")
+    set(FIND_ROOT_PATH ${TARGET_SYSROOT} ${TEMP_INSTALL_DIR}${CMAKE_INSTALL_PREFIX})
     # build/install a client package using dbus cmake package support from this build
     add_test(
         NAME test-install-build-client-package

@@ -17,6 +17,15 @@ image: opensuse/leap:15.4
   script:
     - runuser -u user ./tools/ci-build.sh
 
+distro kf6 tumbleweed:
+  extends: .unix-host-build
+  when: manual
+  image: opensuse/tumbleweed
+  #only:
+  #  - merge_requests
+  variables:
+    ci_variant: "kf6"
+
 distro kf5 tumbleweed:
   extends: .unix-host-build
   #when: manual

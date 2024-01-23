@@ -8,7 +8,11 @@
 
 #include "alknewstuffengine.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #include <KNSCore/EngineBase>
+    #include <KNSCore/Provider>
+    #include <KNSCore/ResultsStream>
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     #include <knscore/engine.h>
     #include <knewstuff_version.h>
 #else
@@ -26,7 +30,12 @@ class AlkNewStuffEngine::Private : public QObject
     Q_OBJECT
 public:
     AlkNewStuffEngine *q;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QPointer<KNSCore::EngineBase> m_engine;
+    #define KNS3 KNSCore
+    bool m_providersLoaded{false};
+    bool m_wantUpdates{false};
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QPointer<KNSCore::Engine> m_engine;
     bool m_providersLoaded{false};
     bool m_wantUpdates{false};
@@ -45,8 +54,10 @@ public:
     const AlkNewStuffEntryList installedEntries();
 
 public Q_SLOTS:
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     void slotUpdatesAvailable(const KNS3::Entry::List &entries);
     void slotEntriesAvailable(const KNS3::Entry::List &entries);
+#endif
 };
 
 AlkNewStuffEngine::Private::Private(AlkNewStuffEngine *parent)
@@ -57,7 +68,17 @@ AlkNewStuffEngine::Private::~Private() { delete m_engine; }
 bool AlkNewStuffEngine::Private::init(const QString &configFile)
 {
     bool state = false;
-#if KNEWSTUFF_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    m_engine = new KNSCore::EngineBase(this);
+    connect(m_engine, &KNSCore::EngineBase::signalProvidersLoaded, this, [this]()
+    {
+        qDebug() << Q_FUNC_INFO << "providers loaded";
+        m_providersLoaded = true;
+        if (m_wantUpdates) {
+            checkForUpdates();
+        }
+    });
+#elif KNEWSTUFF_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     m_engine = new KNSCore::Engine(this);
     state = m_engine->init(configFile);
     if (!state)
@@ -103,7 +124,9 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
 
 void AlkNewStuffEngine::Private::checkForUpdates()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    qDebug() << "FIXME Qt6: no checkforUpdates() - how to proceed ?";
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     if (m_providersLoaded && !m_wantUpdates) {
         m_engine->checkForUpdates();
     } else
@@ -116,6 +139,9 @@ void AlkNewStuffEngine::Private::checkForUpdates()
 const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
 {
     if (m_availableEntries.empty()) {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+        qDebug() << "FIXME Qt6:";
+#else
         m_engine->setSearchTerm("*");
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         QMetaObject::Connection conn;
@@ -147,6 +173,7 @@ const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
         m_engine->search(0, 1000);
 #endif
         m_loop.exec();
+#endif
     }
 
     AlkNewStuffEntryList result;
@@ -157,6 +184,7 @@ const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
     return result;
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &entries)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
@@ -208,6 +236,7 @@ void AlkNewStuffEngine::Private::slotEntriesAvailable(const KNS3::Entry::List &e
     m_loop.exit();
 #endif
 }
+#endif
 
 AlkNewStuffEngine::AlkNewStuffEngine(QObject *parent)
     : QObject{parent}

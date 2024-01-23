@@ -53,6 +53,12 @@ function start_session() {
         sed "s,Prefix.*$,Prefix=$dep_prefix,g" "$dep_prefix/bin/qt5.conf" > "$builddir/bin/qt5.conf"
     fi
 
+    if test "$ci_variant" = kf6 && test -v dep_prefix; then
+        # setup qt6.conf
+        qtconf="$dep_prefix/bin/qt6.conf"
+        sed "s,Prefix.*$,Prefix=$dep_prefix,g" "$dep_prefix/bin/qt6.conf" > "$builddir/bin/qt6.conf"
+    fi
+
     if test "$ci_in_docker" = yes; then
         start_x_session
         start_kde_session
@@ -75,6 +81,16 @@ function cmake-kf5() {
     ${LDFLAGS:=}
     ${icerun:=}
     eval "`rpm --eval "%${NAME} $(printf " %q" "${@}")"`"
+}
+
+# missing wrapper for associated rpm macro
+function cmake-kf6() {
+    NAME="cmake_kf6"
+    ${RPM_OPT_FLAGS:=}
+    ${LDFLAGS:=}
+    ${icerun:=}
+    #eval "`rpm --eval "%${NAME} $(printf " %q" "${@}")"`"
+    $(echo "${@}" | sed 's,--,cmake,g')
 }
 
 ##
@@ -221,6 +237,15 @@ cmake_options="-DBUILD_WITH_QTNETWORK=1"
 
 # settings for build variants
 case "$ci_variant" in
+    (kf6*)
+        cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1 -DBUILD_WITH_QT6=1 -DBUILD_WITH_QTNETWORK=1"
+        cmake_suffix="kf6"
+        export QT_LOGGING_RULES="*=true"
+        export QT_FORCE_STDERR_LOGGING=1
+        export QT_ASSUME_STDERR_HAS_CONSOLE=1
+        start_kde_session=kdeinit5
+        ;;
+
     (kf5*)
         cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1"
         cmake_suffix="kf5"
@@ -264,13 +289,13 @@ esac
 
 # custom settings
 case "$ci_variant" in
-    (kf5)
+    (kf[56])
         cmake_options+=" -DBUILD_WITH_WEBKIT=0 -DBUILD_WITH_WEBENGINE=0"
         ;;
-    (kf5-webkit)
+    (kf*-webkit)
         cmake_options+=" -DBUILD_WITH_WEBKIT=1"
         ;;
-    (kf5-webengine)
+    (kf*-webengine)
         cmake_options+=" -DBUILD_WITH_WEBENGINE=1"
         ;;
 esac
