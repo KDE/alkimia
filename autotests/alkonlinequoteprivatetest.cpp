@@ -79,9 +79,9 @@ Q_SIGNALS:
     void finished();
 
 public Q_SLOTS:
-    void quote([[maybe_unused]] QString id, [[maybe_unused]] QString symbol, QDate date, double price)
+    void quote(QString id, QString symbol, QDate date, double price)
     {
-        qDebug() << "comparing quote";
+        qDebug() << "comparing quote" << id << symbol;
         QCOMPARE(date, _date);
         QCOMPARE(price, _price);
         Q_EMIT finished();
@@ -115,9 +115,9 @@ Q_SIGNALS:
     void finished();
 
 public Q_SLOTS:
-    void quotes([[maybe_unused]] const QString& id, [[maybe_unused]] const QString& symbol, const AlkDatePriceMap& prices)
+    void quotes(const QString& id, const QString& symbol, const AlkDatePriceMap& prices)
     {
-        qDebug() << "comparing" << prices.size() << "quotes";
+        qDebug() << "comparing" << prices.size() << "quotes" << id << symbol;
         QCOMPARE(prices.size(), _prices.size());
         QCOMPARE(prices.keys(), _prices.keys());
         for (auto &date: prices.keys()) {
