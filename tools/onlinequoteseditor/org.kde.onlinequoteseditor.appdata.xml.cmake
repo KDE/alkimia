@@ -16,7 +16,7 @@
   <name xml:lang="ia">Editor de citationes in linea</name>
   <name xml:lang="id">Editor Kutipan Online</name>
   <name xml:lang="it">Editor delle quotazioni in linea</name>
-  <name xml:lang="ka">ონლაინ კოტების რედაქტორი</name>
+  <name xml:lang="ka">ონლაინ კვოტების რედაქტორი</name>
   <name xml:lang="ko">온라인 시세 편집기</name>
   <name xml:lang="nl">Bewerker voor Online koersen</name>
   <name xml:lang="pl">Edytor wycen z sieci</name>
@@ -44,7 +44,7 @@
   <summary xml:lang="ia">Editor per citationes de prcio in linea usate per applicationes de financia</summary>
   <summary xml:lang="id">Editor untuk kutipan harga online yang digunakan oleh aplikasi keuangan</summary>
   <summary xml:lang="it">Editor delle quotazioni in linea usato delle applicazioni finanziarie</summary>
-  <summary xml:lang="ka">ფინანსური აპლიკაციების მიერ გამოყენებული ონლაინ ფასების კოტების რედაქტორი</summary>
+  <summary xml:lang="ka">ფინანსური აპლიკაციების მიერ გამოყენებული ონლაინ ფასების კვოტების რედაქტორი</summary>
   <summary xml:lang="ko">재무 앱에서 사용하는 온라인 가격 시세 편집기</summary>
   <summary xml:lang="nl">Bewerker voor online koersen gebruikt door financiële toepassingen</summary>
   <summary xml:lang="pl">Edytor dla wycen z sieci używanych przez aplikacje finansowe</summary>
