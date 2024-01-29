@@ -60,7 +60,7 @@
   <summary xml:lang="zh-TW">金融應用程式所用的線上報價的編輯器</summary>
   <description>
     <p>Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>
-    <p xml:lang="ca">L'editor de cotitzacions en línia és una aplicació d'interfície d'usuari gràfica per editar i comprovar les cotitzacions en línia. Les fonts de cotització en línia disponibles es poden afegir des de la botiga KDE, creades localment, editades i verificades per a una execució correcta.</p>
+    <p xml:lang="ca">L'editor de cotitzacions en línia és una aplicació d'interfície d'usuari gràfica per a editar i comprovar les cotitzacions en línia. Les fonts de cotització en línia disponibles es poden afegir des de la botiga KDE, creades localment, editades i verificades per a una execució correcta.</p>
     <p xml:lang="ca-valencia">L'editor de cotitzacions en línia és una aplicació d'interfície d'usuari gràfica per a editar i comprovar les cotitzacions en línia. Les fonts de cotització en línia disponibles es poden afegir des de la botiga KDE, creades localment, editades i verificades per a una execució correcta.</p>
     <p xml:lang="el">Ο επεξεργαστής επιγραμμικών τιμών είναι μια εφαρμογή γραφικού περιβάλλοντος για επεξεργασία και έλεγχο επιγραμμικών τιμών μετοχών. Διαθέσιμες πηγές τιμών μετοχών υπάρχουν στο KDE store, δημιουργούνται τοπικά, γίνονται αντικείμενο επεξεργασίας και ελέγχου για σωστή εκτέλεση.</p>
     <p xml:lang="en-GB">Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>
@@ -135,7 +135,7 @@
     <p xml:lang="zh-CN">可以通过个人资料支持多个应用程序。</p>
     <p xml:lang="zh-TW">透過設定檔可以支援多個應用程式。</p>
     <p>Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p>
-    <p xml:lang="ca">Les aplicacions financeres que no tenen la seva pròpia interfície d'usuari per editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a aquest propòsit.</p>
+    <p xml:lang="ca">Les aplicacions financeres que no tenen la seva pròpia interfície d'usuari per a editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a aquest propòsit.</p>
     <p xml:lang="ca-valencia">Les aplicacions financeres que no tenen la seua pròpia interfície d'usuari per a editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a este propòsit.</p>
     <p xml:lang="el">Οι χρηματοοικονομικές εφαρμογές που δεν έχουν δικό τους περιβάλλον χρήστη για επεξεργασία επιγραμμικών τιμών μπορούν να καλούν τον επεξεργαστή.</p>
     <p xml:lang="en-GB">Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p>
