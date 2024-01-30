@@ -64,7 +64,7 @@ if(KDE4_FOUND)
 
     add_definitions(-DQStringLiteral=QLatin1String)
 
-    set(KF5_COMPONENTS
+    set(KF4_COMPONENTS
         kdnssd
         kemoticons
         kfile
@@ -104,6 +104,7 @@ if(KDE4_FOUND)
     endforeach()
 
 # KF >= 5 compatible wrapper
+    add_library(KF4::Codecs ALIAS KDE4__kdecore)
     add_library(KF4::Completion ALIAS KDE4__kdecore)
     add_library(KF4::ConfigCore ALIAS KDE4__kdecore)
     add_library(KF4::CoreAddons ALIAS KDE4__kdecore)
@@ -120,6 +121,7 @@ if(KDE4_FOUND)
     add_library(KF4::TextWidgets ALIAS KDE4__kdeui)
     add_library(KF4::IconThemes ALIAS KDE4__kdeui)
     add_library(KF4::Package ALIAS KDE4__kdecore)
+    add_library(KF4::WidgetsAddons ALIAS KDE4__kdecore)
     add_library(KF4::XmlGui ALIAS KDE4__kdeui)
 
     set(KF4_INSTALL_CMAKECONFIG_FILES ${CMAKE_CURRENT_LIST_DIR}/FindKF4.cmake)
