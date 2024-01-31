@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"POT-Creation-Date: 2024-01-31 01:44+0000\n"
 "PO-Revision-Date: 2024-01-15 18:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -155,12 +155,12 @@ msgstr "無法在報價資料中用 '%2' 轉換日期 '%1'"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "無法在報價資料中找到日期/價格對"
 
-#: alkonlinequote_p.cpp:827
+#: alkonlinequote_p.cpp:829
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "無法更新 %1 的價格（空白的報價資料）"
 
-#: alkonlinequote_p.cpp:845
+#: alkonlinequote_p.cpp:847
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "為 %1 抓取網址時逾時"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"POT-Creation-Date: 2024-01-31 01:44+0000\n"
 "PO-Revision-Date: 2024-01-15 10:13+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -166,12 +166,12 @@ msgid "Unable to find date/price pairs in quote data"
 msgstr ""
 "No s'han pogut trobar les parelles data/preu en les dades de cotització"
 
-#: alkonlinequote_p.cpp:827
+#: alkonlinequote_p.cpp:829
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "No s'ha pogut actualitzar el preu de %1 (dades de cotització buides)"
 
-#: alkonlinequote_p.cpp:845
+#: alkonlinequote_p.cpp:847
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "S'ha excedit el temps d'espera en recuperar l'URL per a %1"

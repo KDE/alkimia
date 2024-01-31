@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"POT-Creation-Date: 2024-01-31 01:44+0000\n"
 "PO-Revision-Date: 2022-04-14 18:10+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -162,12 +162,12 @@ msgstr "Datum %1 kann nicht im Format %2 verarbeitet werden: %3"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"
 
-#: alkonlinequote_p.cpp:827
+#: alkonlinequote_p.cpp:829
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"
 
-#: alkonlinequote_p.cpp:845
+#: alkonlinequote_p.cpp:847
 #, fuzzy, kde-format
 #| msgid "Unable to fetch url for %1"
 msgid "Timeout exceeded on fetching url for %1"

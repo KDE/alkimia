@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"POT-Creation-Date: 2024-01-31 01:44+0000\n"
 "PO-Revision-Date: 2024-01-04 20:49+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -159,12 +159,12 @@ msgstr "Kan inte konvertera datumet '%1' med användning av '%2' i kursdata"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Kan inte hitta datum- och kurspar i kursinformation"
 
-#: alkonlinequote_p.cpp:827
+#: alkonlinequote_p.cpp:829
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
 
-#: alkonlinequote_p.cpp:845
+#: alkonlinequote_p.cpp:847
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Tidsgräns överskreds vid hämtning av webbadress för %1"

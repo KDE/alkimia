@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"POT-Creation-Date: 2024-01-31 01:44+0000\n"
 "PO-Revision-Date: 2022-04-20 15:59+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -159,12 +159,12 @@ msgstr "Não é possível processar a data '%1' com o formato '%2': %3"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Não foi possível actualizar o preço de %1 (dados da cotação em branco)"
 
-#: alkonlinequote_p.cpp:827
+#: alkonlinequote_p.cpp:829
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Não foi possível actualizar o preço de %1 (dados da cotação em branco)"
 
-#: alkonlinequote_p.cpp:845
+#: alkonlinequote_p.cpp:847
 #, fuzzy, kde-format
 #| msgid "Unable to fetch url for %1"
 msgid "Timeout exceeded on fetching url for %1"

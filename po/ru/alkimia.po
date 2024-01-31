@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"POT-Creation-Date: 2024-01-31 01:44+0000\n"
 "PO-Revision-Date: 2023-11-10 14:32+0300\n"
 "Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -166,12 +166,12 @@ msgstr "Невозможно обработать дату «%1» с помощ�
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
 
-#: alkonlinequote_p.cpp:827
+#: alkonlinequote_p.cpp:829
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
 
-#: alkonlinequote_p.cpp:845
+#: alkonlinequote_p.cpp:847
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Превышено время ожидания получения данных с адреса для %1"
