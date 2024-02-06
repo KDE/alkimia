@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Jung Hee Lee <daemul72@gmail.com>, 2019.
-# Shinjo Park <kde@peremen.name>, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-31 01:44+0000\n"
-"PO-Revision-Date: 2023-10-08 22:26+0200\n"
+"PO-Revision-Date: 2023-11-04 21:33+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -315,10 +315,9 @@ msgstr "다운로드한 데이터에서 금액을 추출하는 정규 표현식"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:196
-#, fuzzy, kde-format
-#| msgid "New Quote Source"
+#, kde-format
 msgid "Remote source"
-msgstr "새로운 시세 원본"
+msgstr "원격 원본"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:203 alkonlinequotesprofile.ui:189
@@ -673,7 +672,7 @@ msgstr ""
 #: alkonlinequoteswidget.cpp:295
 #, kde-format
 msgid "Remote"
-msgstr ""
+msgstr "원격"
 
 #: alkonlinequoteswidget.cpp:297
 #, kde-format
@@ -681,8 +680,7 @@ msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
 #: alkonlinequoteswidget.cpp:298
-#, fuzzy, kde-format
-#| msgid "local"
+#, kde-format
 msgid "Local"
 msgstr "로컬"
 
