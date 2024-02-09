@@ -391,7 +391,7 @@ msgstr "Instalovat"
 #: alkonlinequotes.ui:96
 #, kde-format
 msgid "Upload"
-msgstr ""
+msgstr "Odeslat"
 
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
 #: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
@@ -427,13 +427,13 @@ msgstr "Zobrazit stránku"
 #: alkonlinequotesdebug.ui:91
 #, kde-format
 msgid "Start date"
-msgstr ""
+msgstr "Počáteční datum"
 
 #. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
 #: alkonlinequotesdebug.ui:101
 #, kde-format
 msgid "End date"
-msgstr ""
+msgstr "Datum ukončení"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -701,10 +701,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: alkonlinequoteuploaddialog.ui:29
-#, fuzzy, kde-format
-#| msgid "Online Quotes"
+#, kde-format
 msgid "Upload online quote"
-msgstr "Online ceny"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
@@ -723,7 +722,7 @@ msgstr ""
 #: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "Textový štítek"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
 #: alkonlinequoteuploaddialog.ui:88
@@ -733,16 +732,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
-#, fuzzy, kde-format
-#| msgid "Online Quotes"
+#, kde-format
 msgid "Online quote source:"
-msgstr "Online ceny"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
 #, kde-format
 msgid "Close dialog"
-msgstr ""
+msgstr "Zavřít dialog"
 
 #. i18n: ectx: property (text), widget (QLabel, label_0)
 #: alkonlinequoteuploaddialog.ui:123
