@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-31 01:44+0000\n"
-"PO-Revision-Date: 2024-01-23 19:03+0300\n"
+"PO-Revision-Date: 2024-02-09 18:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -36,7 +36,7 @@ msgstr "<placeholder>%1</placeholder> kaynağı yok."
 #: alkonlinequote_p.cpp:159 alkonlinequote_p.cpp:173
 #, kde-format
 msgid "Unable to fetch url for %1"
-msgstr "%1 URL'si getirilemedi"
+msgstr "%1 URL’si getirilemedi"
 
 #: alkonlinequote_p.cpp:181 alkonlinequote_p.cpp:644 alkonlinequote_p.cpp:670
 #, kde-format
@@ -51,7 +51,7 @@ msgstr "%1 sembolü ayrıştırılamadı"
 #: alkonlinequote_p.cpp:207
 #, kde-format
 msgid "Fetching URL %1..."
-msgstr "%1 URL'si getiriliyor..."
+msgstr "%1 URL’si getiriliyor..."
 
 #: alkonlinequote_p.cpp:281
 #, kde-format
@@ -78,7 +78,7 @@ msgstr "URL bulundu: %1..."
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
-"URL yeniden yönlendirildi; çevrimiçi kur URL'si güncellemelerini denetleyin"
+"URL yeniden yönlendirildi; çevrimiçi kur URL’si güncellemelerini denetleyin"
 
 #: alkonlinequote_p.cpp:501
 #, kde-format
@@ -167,7 +167,7 @@ msgstr "%1 fiyatı güncellenemedi (boş alıntı verisi)"
 #: alkonlinequote_p.cpp:847
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "%1 URL'si getirilirken zaman aşımı gerçekleşti"
+msgstr "%1 URL’si getirilirken zaman aşımı gerçekleşti"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
@@ -201,7 +201,7 @@ msgid ""
 "users in your country.</span></p></body></html>"
 msgstr ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Yukarıda girilen "
-"URL'den veriyi ayrıştırmak için kullanılabilecek bir düzenli ifade girin. "
+"URL’den veriyi ayrıştırmak için kullanılabilecek bir düzenli ifade girin. "
 "Verinin kullanılabilir olması için, sembol, fiyat ve tarih kurda var "
 "olmalıdır. Ayrıca, ülkenizdeki kullanıcılar için hangi ayarların çalıştığını "
 "bulmak için </span><a href=\"https://forum.kde.org/viewforum.php?"
@@ -276,7 +276,7 @@ msgid ""
 "conversions, <b>%2</b> will be replaced with the currency to be quoted and "
 "<b>%1</b> with the currency the quote is based on."
 msgstr ""
-"Hisse alıntılarının indirileceği URL'yi girin. Kuru alınan kıymetli kağıt "
+"Hisse alıntılarının indirileceği URL’yi girin. Kuru alınan kıymetli kağıt "
 "için <b>%1</b> sembol ile değiştirilecektir. Para birimi dönüşümleri için, "
 "<b>%2</b> alıntılanacak para birimiyle ve <b>%1</b> ise kurun taban alındığı "
 "para birimiyle değiştirilir."
@@ -793,7 +793,7 @@ msgid ""
 msgstr ""
 "Oluşturulan paketi çevrimiçi mağazaya yüklemek için oluşturulan dosyanın "
 "yolunu panoya kopyalayın, aşağıda belirtilen mağazada oturum açın ve "
-"kopyalanan URL'yi ilgili pakete yapıştırın (<b>dosyalar</b> sekmesine bakın)."
+"kopyalanan URL’yi ilgili pakete yapıştırın (<b>dosyalar</b> sekmesine bakın)."
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:183
@@ -817,7 +817,7 @@ msgstr "Şurada paket oluşturuldu:"
 #: alkonlinequoteuploaddialog.ui:210
 #, kde-format
 msgid "Package edit url:"
-msgstr "Paket düzenleme URL'si:"
+msgstr "Paket düzenleme URL’si:"
 
 #: alkwebpage.cpp:52
 #, kde-format

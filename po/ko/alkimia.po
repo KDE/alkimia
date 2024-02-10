@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Jung Hee Lee <daemul72@gmail.com>, 2019.
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-31 01:44+0000\n"
-"PO-Revision-Date: 2023-11-04 21:33+0100\n"
+"PO-Revision-Date: 2024-02-10 00:34+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -21,12 +21,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "박신조"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde@peremen.name"
 
 #: alkonlinequote_p.cpp:114
 #, kde-format
@@ -440,13 +440,13 @@ msgstr "페이지 표시"
 #: alkonlinequotesdebug.ui:91
 #, kde-format
 msgid "Start date"
-msgstr ""
+msgstr "시작 날짜"
 
 #. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
 #: alkonlinequotesdebug.ui:101
 #, kde-format
 msgid "End date"
-msgstr ""
+msgstr "종료 날짜"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -708,7 +708,7 @@ msgstr "새로운 시세 원본"
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
-msgstr ""
+msgstr "<b>새 시세 원본</b>이 이미 존재합니다."
 
 #: alkonlinequoteswidget.cpp:749
 #, kde-format
@@ -717,22 +717,21 @@ msgstr "온라인 시세 HTML 결과 창"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: alkonlinequoteuploaddialog.ui:29
-#, fuzzy, kde-format
-#| msgid "Delete online quote"
+#, kde-format
 msgid "Upload online quote"
-msgstr "온라인 시세 삭제"
+msgstr "온라인 시세 업로드"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
 #, kde-format
 msgid "Version to create:"
-msgstr ""
+msgstr "생성할 버전:"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
 #: alkonlinequoteuploaddialog.ui:61
 #, kde-format
 msgid "Copy path to clipboard"
-msgstr ""
+msgstr "클립보드에 경로 복사"
 
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
@@ -749,16 +748,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
-#, fuzzy, kde-format
-#| msgid "Online Quotes"
+#, kde-format
 msgid "Online quote source:"
-msgstr "온라인 시세"
+msgstr "온라인 시세 원본:"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
 #, kde-format
 msgid "Close dialog"
-msgstr ""
+msgstr "대화 상자 닫기"
 
 #. i18n: ectx: property (text), widget (QLabel, label_0)
 #: alkonlinequoteuploaddialog.ui:123
@@ -773,7 +771,7 @@ msgstr ""
 #: alkonlinequoteuploaddialog.ui:133
 #, kde-format
 msgid "Failed to create package at:"
-msgstr ""
+msgstr "다음 위치에 패키지를 만들 수 없음:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: alkonlinequoteuploaddialog.ui:153
@@ -789,35 +787,35 @@ msgstr ""
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr ""
+msgstr "업로드할 패키지 만들기"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
 #, kde-format
 msgid "Create package"
-msgstr ""
+msgstr "패키지 만들기"
 
 #. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
 #: alkonlinequoteuploaddialog.ui:197
 #, kde-format
 msgid "Package has been created at:"
-msgstr ""
+msgstr "패키지 생성 일시:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequoteuploaddialog.ui:210
 #, kde-format
 msgid "Package edit url:"
-msgstr ""
+msgstr "패키지 편집 URL:"
 
 #: alkwebpage.cpp:52
 #, kde-format
 msgid "Open inspector in new window"
-msgstr ""
+msgstr "새 창으로 요소 검사 도구 열기"
 
 #: alkwebpage.cpp:64
 #, kde-format
 msgid "Inspect element"
-msgstr ""
+msgstr "요소 검사"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "다운로드한 데이터에서 기호를 추출하는 정규 표현식"
