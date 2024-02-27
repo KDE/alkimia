@@ -1,0 +1,87 @@
+# translation of onlinequoteseditor.pot to Esperanto
+# Copyright (C) 2024 Free Software Foundation, Inc.
+# This file is distributed under the same license as the alkimia package.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"PO-Revision-Date: 2024-02-26 21:30+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "&About %1"
+msgstr "&Pri %1"
+
+#: mainwindow.cpp:85
+#, kde-format
+msgid "Profiles"
+msgstr "Profiloj"
+
+#: mainwindow.cpp:90
+#, kde-format
+msgid "Profile details"
+msgstr ""
+
+#: mainwindow.cpp:95
+#, kde-format
+msgid "Online quotes"
+msgstr ""
+
+#: mainwindow.cpp:100
+#, kde-format
+msgid "Debug"
+msgstr "Sencimigi"
+
+#: mainwindow.cpp:105
+#, kde-format
+msgid "Quote details"
+msgstr ""
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Browser"
+msgstr "Retumilo"
+
+#: mainwindow.cpp:169
+#, kde-format
+msgid "Update for '%1' available in profile '%2'"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Redaktilo por enretaj akcioprezoj"
+
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Dosiero"
+
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Forlasi"
