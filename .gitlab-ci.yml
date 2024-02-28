@@ -12,8 +12,6 @@ image: opensuse/leap:15.5
 
 .unix-host-build:
   stage: build
-  tags:
-    - Linux
   interruptible: true
   before_script:
     - ./tools/ci-install.sh
