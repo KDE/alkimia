@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"POT-Creation-Date: 2024-02-29 01:38+0000\n"
 "PO-Revision-Date: 2019-04-09 03:16+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: lt\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: main.cpp:49
+#: main.cpp:51
 #, kde-format
 msgid "&About %1"
 msgstr ""
