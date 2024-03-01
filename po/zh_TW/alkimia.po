@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-29 01:38+0000\n"
-"PO-Revision-Date: 2024-01-15 18:34+0900\n"
+"PO-Revision-Date: 2024-03-01 04:49+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "mail@kisaragi-hiu.com"
 
 #: alkonlinequote_p.cpp:114
 #, kde-format
@@ -347,7 +347,7 @@ msgstr "取消"
 #: alkonlinequotedetails.ui:274
 #, kde-format
 msgid "build_key"
-msgstr ""
+msgstr "build_key"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29
@@ -400,7 +400,7 @@ msgstr "安裝"
 #: alkonlinequotes.ui:96
 #, kde-format
 msgid "Upload"
-msgstr ""
+msgstr "上傳"
 
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
 #: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
@@ -436,13 +436,13 @@ msgstr "顯示頁面"
 #: alkonlinequotesdebug.ui:91
 #, kde-format
 msgid "Start date"
-msgstr ""
+msgstr "開始日期"
 
 #. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
 #: alkonlinequotesdebug.ui:101
 #, kde-format
 msgid "End date"
-msgstr ""
+msgstr "結束日期"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -662,7 +662,7 @@ msgstr "CSV"
 #: alkonlinequoteswidget.cpp:293
 #, kde-format
 msgid "Remote unpublished"
-msgstr ""
+msgstr "遠端已取消發布"
 
 #: alkonlinequoteswidget.cpp:295
 #, kde-format
@@ -712,48 +712,46 @@ msgstr "線上報價 HTML 結果視窗"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: alkonlinequoteuploaddialog.ui:29
-#, fuzzy, kde-format
-#| msgid "Delete online quote"
+#, kde-format
 msgid "Upload online quote"
-msgstr "刪除線上報價"
+msgstr "上傳線上報價"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
 #, kde-format
 msgid "Version to create:"
-msgstr ""
+msgstr "要建立的版本："
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
 #: alkonlinequoteuploaddialog.ui:61
 #, kde-format
 msgid "Copy path to clipboard"
-msgstr ""
+msgstr "將路徑複製到剪貼簿"
 
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
 #: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "文字標籤"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
 #: alkonlinequoteuploaddialog.ui:88
 #, kde-format
 msgid "Enter store and close dialog"
-msgstr ""
+msgstr "進入商店並關閉對話框"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
-#, fuzzy, kde-format
-#| msgid "Online Quotes"
+#, kde-format
 msgid "Online quote source:"
-msgstr "線上報價"
+msgstr "線上報價來源："
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
 #, kde-format
 msgid "Close dialog"
-msgstr ""
+msgstr "關閉對話框"
 
 #. i18n: ectx: property (text), widget (QLabel, label_0)
 #: alkonlinequoteuploaddialog.ui:123
@@ -763,12 +761,14 @@ msgid ""
 "you can then upload to the online store used by alkimia to share with other "
 "users."
 msgstr ""
+"這個對話框讓您為線上報價來源建立軟體包，讓您能將其上傳到 Alkimia 所使用的線上"
+"商店來與其他使用者分享。"
 
 #. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
 #: alkonlinequoteuploaddialog.ui:133
 #, kde-format
 msgid "Failed to create package at:"
-msgstr ""
+msgstr "無法建立軟體包於："
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: alkonlinequoteuploaddialog.ui:153
@@ -779,30 +779,32 @@ msgid ""
 "paste the copied url into the corresponding package (see the <b>files</b> "
 "tab)."
 msgstr ""
+"要將產生的軟體包上傳到線上商店，請將產生檔案的路徑複製到剪貼簿，登入到下方提"
+"到的商店，然後將複製的網址貼進對應的軟體包當中（請見<b>檔案</b>分頁）。"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr ""
+msgstr "建立軟體包以上傳"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
 #, kde-format
 msgid "Create package"
-msgstr ""
+msgstr "建立軟體包"
 
 #. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
 #: alkonlinequoteuploaddialog.ui:197
 #, kde-format
 msgid "Package has been created at:"
-msgstr ""
+msgstr "軟體包建立於："
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequoteuploaddialog.ui:210
 #, kde-format
 msgid "Package edit url:"
-msgstr ""
+msgstr "軟體包編輯網址："
 
 #: alkwebpage.cpp:52
 #, kde-format
