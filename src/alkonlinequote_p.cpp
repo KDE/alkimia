@@ -186,7 +186,7 @@ void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
 
         // parse price
         QString price = webPage->getFirstElement(m_source.priceRegex());
-        bool gotprice = parsePrice(price);
+        bool gotprice = parsePrice(price, m_source.priceDecimalSeparator());
 
         // parse date
         QString date = webPage->getFirstElement(m_source.dateRegex());
@@ -518,7 +518,7 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
 }
 #endif
 
-bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
+bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr, AlkOnlineQuoteSource::DecimalSeparator separator)
 {
     bool result = true;
     // not made static due to QRegExp
@@ -526,24 +526,34 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr)
     const Regex validChars("^\\s*([0-9,.\\s]*[0-9,.])");
 
     if (validChars.hasRegexMatch(_pricestr)) {
-        // Deal with european quotes that come back as X.XXX,XX or XX,XXX
-        //
-        // We will make the assumption that ALL prices have a decimal separator.
-        // So "1,000" always means 1.0, not 1000.0.
-        //
 
         // Remove all non-digits from the price string except the last one, and
         // set the last one to a period.
         QString pricestr = validChars.capturedText(_pricestr, 1);
 
-        int pos = pricestr.lastIndexOf(Regex("\\D"));
-        if (pos > 0) {
-            pricestr[pos] = '.';
-            pos = pricestr.lastIndexOf(Regex("\\D"), pos - 1);
-        }
-        while (pos > 0) {
-            pricestr.remove(pos, 1);
-            pos = pricestr.lastIndexOf(Regex("\\D"), pos);
+        // Deal with european quotes that come back as X.XXX,XX or XX,XXX
+        // tbaumgart: I think if both characters are present we can safely fall back to Legacy mode
+        if (pricestr.contains(QLatin1Char('.')) && pricestr.contains(QLatin1Char(',')))
+            separator = AlkOnlineQuoteSource::Legacy;
+
+        if (separator == AlkOnlineQuoteSource::Legacy) {
+            int pos = pricestr.lastIndexOf(Regex("\\D"));
+            if (pos > 0) {
+                pricestr[pos] = '.';
+                pos = pricestr.lastIndexOf(Regex("\\D"), pos - 1);
+            }
+            while (pos > 0) {
+                pricestr.remove(pos, 1);
+                pos = pricestr.lastIndexOf(Regex("\\D"), pos);
+            }
+        } else {
+            pricestr.remove(QLatin1Char(' '));
+            if (separator == AlkOnlineQuoteSource::Period)
+                pricestr.remove(QLatin1Char(','));
+            else if (separator == AlkOnlineQuoteSource::Comma) {
+                pricestr.remove(QLatin1Char('.'));
+                pricestr.replace(QLatin1Char(','), QLatin1Char('.'));
+            }
         }
 
         bool ok;
@@ -653,7 +663,7 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
 
     if (priceRegExp.indexIn(quotedata) > -1) {
         QString pricestr = priceRegExp.cap(1);
-        gotprice = parsePrice(pricestr);
+        gotprice = parsePrice(pricestr, m_source.priceDecimalSeparator());
     } else {
         gotprice = parsePrice(QString());
     }
@@ -795,6 +805,10 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
             continue;
         if (!m_endDate.isNull() && date > m_endDate)
             continue;
+
+        if (m_source.priceDecimalSeparator() == AlkOnlineQuoteSource::Comma)
+            priceValue.replace(QLatin1Char(','), QLatin1Char('.'));
+
         prices[date] = AlkValue(priceValue, decimalSeparator);
     }
     if (prices.isEmpty()) {

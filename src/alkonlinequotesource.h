@@ -39,6 +39,15 @@ public:
         CSV
     };
 
+    /**
+     * Type of decimal separator
+     */
+    enum DecimalSeparator {
+        Legacy,
+        Period,
+        Comma
+    };
+
     AlkOnlineQuoteSource();
     explicit AlkOnlineQuoteSource(const QString &name, AlkOnlineQuotesProfile *profile);
     explicit AlkOnlineQuoteSource(const QString& name,
@@ -48,7 +57,8 @@ public:
                                   const QString& priceRegex,
                                   const QString& dateRegex,
                                   const QString& dateFormat,
-                                  DataFormat dataFormat = HTML);
+                                  DataFormat dataFormat = HTML,
+                                  DecimalSeparator priceDecimalSeparator = Legacy);
     ~AlkOnlineQuoteSource();
 
     AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other);
@@ -68,6 +78,7 @@ public:
 
     QString name() const;
     QString url() const;
+    DecimalSeparator priceDecimalSeparator() const;
     QString priceRegex() const;
     QString idRegex() const;
     /**
@@ -88,6 +99,7 @@ public:
 
     void setName(const QString &name);
     void setUrl(const QString &url);
+    void setPriceDecimalSeparator(DecimalSeparator separator);
     void setPriceRegex(const QString &priceRegex);
     void setIdRegex(const QString &idRegex);
 

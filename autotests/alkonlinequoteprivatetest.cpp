@@ -42,7 +42,27 @@ void AlkOnlineQuotePrivateTest::testParsePrice()
 
     p.m_errors = AlkOnlineQuote::Errors::Success;
     QVERIFY(p.parsePrice("12,345675"));
-    QCOMPARE(p.m_price, 12.345675);
+    QCOMPARE(p.m_price, 12.3456750);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
+
+    p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice("12,345"));
+    QCOMPARE(p.m_price, 12.3450);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
+
+    p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice("12,345675", AlkOnlineQuoteSource::Period));
+    QCOMPARE(p.m_price, 12345675.0);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
+
+    p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice("12,345", AlkOnlineQuoteSource::Period));
+    QCOMPARE(p.m_price, 12345.0);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
+
+    p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice("12345"));
+    QCOMPARE(p.m_price, 12345.0);
     QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
 
     p.m_errors = AlkOnlineQuote::Errors::Success;
@@ -67,6 +87,22 @@ void AlkOnlineQuotePrivateTest::testParsePrice()
     QVERIFY(!p.parsePrice(f.readAll()));
     QCOMPARE(p.m_price, 0.0);
     QVERIFY(errors() & AlkOnlineQuote::Errors::Price);
+
+    // comma as decimal separator
+    p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice("12,345.675", AlkOnlineQuoteSource::Comma));
+    QCOMPARE(p.m_price, 12345.675);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
+
+    p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice("12,345675", AlkOnlineQuoteSource::Comma));
+    QCOMPARE(p.m_price, 12.345675);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
+
+    p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice("12345675", AlkOnlineQuoteSource::Comma));
+    QCOMPARE(p.m_price, 12345675.0);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
 }
 
 class SingleQuoteReceiver : public QObject

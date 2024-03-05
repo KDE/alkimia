@@ -36,78 +36,13 @@
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="1" column="0">
-           <widget class="QLabel" name="textLabel2">
-            <property name="text">
-             <string>Identifier</string>
-            </property>
-            <property name="wordWrap">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="m_editIdSelectorLabel">
-            <property name="text">
-             <string>Selected by</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="textLabel4">
-            <property name="text">
-             <string>Date</string>
-            </property>
-            <property name="wordWrap">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="textLabel4_2">
-            <property name="text">
-             <string>Date Format</string>
-            </property>
-            <property name="wordWrap">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="KComboBox" name="m_editIdSelector">
-            <property name="toolTip">
-             <string>How to select the identifier</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="KComboBox" name="m_editDataFormat">
-            <property name="toolTip">
-             <string>The type of data expected to downloaded and processed.</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="textLabel1">
-            <property name="text">
-             <string>URL</string>
-            </property>
-            <property name="wordWrap">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QLabel" name="m_urlCheckLabel">
-            <property name="text">
+          <item row="10" column="1">
+           <widget class="QCheckBox" name="m_ghnsSource">
+            <property name="whatsThis">
              <string/>
             </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QLabel" name="m_symbolCheckLabel">
             <property name="text">
-             <string/>
+             <string>Remote source</string>
             </property>
            </widget>
           </item>
@@ -128,17 +63,72 @@
             </property>
            </widget>
           </item>
-          <item row="7" column="0">
+          <item row="6" column="3">
+           <widget class="QLabel" name="m_dateCheckLabel">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="KComboBox" name="m_editDataFormat">
+            <property name="toolTip">
+             <string>The type of data expected to downloaded and processed.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="textLabel2">
+            <property name="text">
+             <string>Identifier</string>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="3">
+           <widget class="QLabel" name="m_dateFormatCheckLabel">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="KComboBox" name="m_editIdSelector">
+            <property name="toolTip">
+             <string>How to select the identifier</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="KLineEdit" name="m_editDate">
+            <property name="toolTip">
+             <string>Regular Expression to extract the date from the downloaded data</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
            <widget class="Line" name="line">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
-          <item row="8" column="0">
-           <widget class="QLabel" name="label_5">
+          <item row="2" column="0">
+           <widget class="QLabel" name="m_editIdSelectorLabel">
             <property name="text">
-             <string>Default Identifier</string>
+             <string>Selected by</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="textLabel4">
+            <property name="text">
+             <string>Date</string>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -149,17 +139,10 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="3">
-           <widget class="QLabel" name="m_dateCheckLabel">
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_2">
             <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>Data Format</string>
+             <string>Price decimal separator</string>
             </property>
            </widget>
           </item>
@@ -173,7 +156,62 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="1">
+          <item row="1" column="3">
+           <widget class="QLabel" name="m_symbolCheckLabel">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="textLabel4_2">
+            <property name="text">
+             <string>Date Format</string>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Default Identifier</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel1">
+            <property name="text">
+             <string>URL</string>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="KLineEdit" name="m_editDateFormat">
+            <property name="toolTip">
+             <string>Regular Expression to extract the date from the downloaded data</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Data Format</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Options</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
            <widget class="KLineEdit" name="m_editDefaultId">
             <property name="toolTip">
              <string>An identifier that is known to work for this online quote source</string>
@@ -187,42 +225,30 @@
             </property>
            </widget>
           </item>
-          <item row="9" column="1">
-           <widget class="QCheckBox" name="m_ghnsSource">
-            <property name="whatsThis">
+          <item row="0" column="3">
+           <widget class="QLabel" name="m_urlCheckLabel">
+            <property name="text">
              <string/>
-            </property>
-            <property name="text">
-             <string>Remote source</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Options</string>
             </property>
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="KLineEdit" name="m_editDate">
-            <property name="toolTip">
-             <string>Regular Expression to extract the date from the downloaded data</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="KLineEdit" name="m_editDateFormat">
-            <property name="toolTip">
-             <string>Regular Expression to extract the date from the downloaded data</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="3">
-           <widget class="QLabel" name="m_dateFormatCheckLabel">
-            <property name="text">
-             <string/>
-            </property>
+           <widget class="KComboBox" name="m_editPriceDecimalSeparator">
+            <item>
+             <property name="text">
+              <string comment="1">Period (.)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string comment="2">Comma (,)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string comment="0">Legacy</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>

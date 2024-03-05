@@ -38,6 +38,7 @@ public:
     explicit Private(const Private* other)
         : m_name(other->m_name)
         , m_url(other->m_url)
+        , m_priceDecimalSeparator(other->m_priceDecimalSeparator)
         , m_priceRegex(other->m_priceRegex)
         , m_dataFormat(other->m_dataFormat)
         , m_dateRegex(other->m_dateRegex)
@@ -75,6 +76,7 @@ public:
             m_defaultId = grp.readEntry("DefaultId");
         else if (grp.hasKey("DebugId")) // For compatibility with 8.1.72
             m_defaultId = grp.readEntry("DebugId");
+        m_priceDecimalSeparator = static_cast<DecimalSeparator>(grp.readEntry("PriceDecimalSeparator", QString("%1").arg(static_cast<int>(Legacy))).toInt());
         m_priceRegex = grp.readEntry("PriceRegex");
         if (grp.hasKey("SymbolRegex"))
             m_idRegex = grp.readEntry("SymbolRegex");
@@ -95,6 +97,7 @@ public:
             return false;
         KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
         grp.writeEntry("URL", m_url);
+        grp.writeEntry("PriceDecimalSeparator", static_cast<int>(m_priceDecimalSeparator));
         grp.writeEntry("PriceRegex", m_priceRegex);
         grp.writeEntry("DataFormat", static_cast<int>(m_dataFormat));
         grp.writeEntry("DateRegex", m_dateRegex);
@@ -166,7 +169,14 @@ public:
             QString value = line.mid(index+1);
             if (key == "url")
                 m_url = value;
-            else if (key == "price") {
+            else if (key == "pricedecimalseparator") {
+                if (value == "Legacy")
+                    m_priceDecimalSeparator = AlkOnlineQuoteSource::Legacy;
+                else if (value == "Period")
+                    m_priceDecimalSeparator = AlkOnlineQuoteSource::Period;
+                else if (value == "Comma")
+                    m_priceDecimalSeparator = AlkOnlineQuoteSource::Comma;
+            } else if (key == "price") {
                 m_priceRegex = value;
                 m_priceRegex.replace("\\\\", "\\");
             } else if (key == "date") {
@@ -209,6 +219,12 @@ public:
             out << "mode=HTML\n";
         else if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::CSV)
             out << "mode=CSV\n";
+        if (m_priceDecimalSeparator == AlkOnlineQuoteSource::Legacy)
+            out << "pricedecimalseparator=Legacy\n";
+        else if (m_priceDecimalSeparator == AlkOnlineQuoteSource::Period)
+            out << "pricedecimalseparator=Period\n";
+        else if (m_priceDecimalSeparator == AlkOnlineQuoteSource::Comma)
+            out << "pricedecimalseparator=Comma\n";
         out << "price=" << m_priceRegex << "\n";
         out << "url=" << m_url << "\n";
         return true;
@@ -222,6 +238,7 @@ public:
 
     QString m_name;
     QString m_url;
+    DecimalSeparator m_priceDecimalSeparator{Legacy};
     QString m_priceRegex;
     DataFormat m_dataFormat;
     QString m_dateRegex;

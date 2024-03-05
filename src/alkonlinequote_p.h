@@ -79,7 +79,7 @@ public:
     bool launchWebKitHtmlParser(const QString &_symbol, const QString &_id, const QString &_source);
     bool launchNative(const QString &_symbol, const QString &_id, const QString &_source);
     bool launchFinanceQuote(const QString& _symbol, const QString& _id, const QString& _source);
-    bool parsePrice(const QString &pricestr);
+    bool parsePrice(const QString &pricestr, AlkOnlineQuoteSource::DecimalSeparator separator = AlkOnlineQuoteSource::Legacy);
     bool parseDate(const QString &datestr);
     bool parseQuoteStripHTML(const QString &quotedata);
     bool parseQuoteHTML(const QString &quotedata);

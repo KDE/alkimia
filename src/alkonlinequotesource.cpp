@@ -40,13 +40,15 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
                                            const QString& priceRegex,
                                            const QString& dateRegex,
                                            const QString& dateFormat,
-                                           DataFormat dataFormat)
+                                           DataFormat dataFormat,
+                                           DecimalSeparator priceDecimalSeparator)
     : d(new Private)
 {
     d->m_name = name;
     d->m_url = url;
     d->m_idRegex = idRegex;
     d->m_idSelector = idBy;
+    d->m_priceDecimalSeparator = priceDecimalSeparator;
     d->m_priceRegex = priceRegex;
     d->m_dataFormat = dataFormat;
     d->m_dateRegex = dateRegex;
@@ -119,6 +121,11 @@ QString AlkOnlineQuoteSource::priceRegex() const
     return d->m_priceRegex;
 }
 
+AlkOnlineQuoteSource::DecimalSeparator AlkOnlineQuoteSource::priceDecimalSeparator() const
+{
+    return d->m_priceDecimalSeparator;
+}
+
 QString AlkOnlineQuoteSource::dateRegex() const
 {
     return d->m_dateRegex;
@@ -159,6 +166,11 @@ void AlkOnlineQuoteSource::setUrl(const QString &url)
 void AlkOnlineQuoteSource::setPriceRegex(const QString &priceRegex)
 {
     d->m_priceRegex = priceRegex;
+}
+
+void AlkOnlineQuoteSource::setPriceDecimalSeparator(DecimalSeparator separator)
+{
+    d->m_priceDecimalSeparator = separator;
 }
 
 void AlkOnlineQuoteSource::setIdRegex(const QString &idRegex)
