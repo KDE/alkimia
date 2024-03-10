@@ -26,10 +26,18 @@ set -x
 : "${ci_variant:=kf5}"
 
 # setup install command; use sudo outside of docker
-sudo=
-if ! [ -f /.dockerenv ]; then
+# found on https://stackoverflow.com/questions/23513045
+case $(cat /proc/1/sched  | head -n 1 | cut -d' ' -f1) in
+  systemd|init)
     sudo=sudo
-fi
+    ci_in_docker="no"
+    ;;
+  *)
+    ci_in_docker="yes"
+    sudo=
+    ;;
+esac
+
 zypper="$sudo /usr/bin/zypper --non-interactive"
 
 install=
@@ -232,7 +240,7 @@ esac
 
 # Add the user that we will use to do the build inside the
 # Docker container, and let them use sudo
-if [ -f /.dockerenv ] && [ -z `getent passwd | grep ^user` ]; then
+if [ "$ci_in_docker" = "yes" ] && [ -z `getent passwd | grep ^user` ]; then
     useradd -m user
     passwd -ud user
     echo "user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nopasswd
