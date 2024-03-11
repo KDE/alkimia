@@ -62,7 +62,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUF
 
 if(APPSTREAMCLI)
     add_test(
-        NAME appstreamtest
+        NAME appstreamtest-onlinequoteseditor
         COMMAND ${APPSTREAMCLI} validate ${CMAKE_CURRENT_BINARY_DIR}/org.kde.onlinequoteseditor${TARGET_SUFFIX}.appdata.xml
     )
 else()
