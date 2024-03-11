@@ -204,19 +204,19 @@ case "$ci_distro" in
             (kf5-webkit)
                 packages=(
                     "${packages[@]}"
-                    libQt5WebKitWidgets-devel
+                    "cmake(Qt5WebKitWidgets)"
                 )
                 ;;
             (kf5-webengine)
                 packages=(
                     "${packages[@]}"
-                    libqt5-qtwebengine-devel
+                    "cmake(Qt5WebEngineWidgets)"
                 )
                 ;;
             (kf6-webengine)
                 packages=(
                     "${packages[@]}"
-                    libqt6-qtwebengine-devel
+                    "cmake(Qt6WebEngineWidgets)"
                 )
                 ;;
         esac
