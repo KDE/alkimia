@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 01:38+0000\n"
+"POT-Creation-Date: 2024-03-14 02:00+0000\n"
 "PO-Revision-Date: 2024-01-28 18:24+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -40,12 +40,12 @@ msgstr "La font <placeholder>%1</placeholder> no existix."
 msgid "Unable to fetch url for %1"
 msgstr "No s'ha pogut recuperar l'URL per a %1"
 
-#: alkonlinequote_p.cpp:181 alkonlinequote_p.cpp:648 alkonlinequote_p.cpp:674
+#: alkonlinequote_p.cpp:181 alkonlinequote_p.cpp:658 alkonlinequote_p.cpp:684
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Símbol trobat: «%1»"
 
-#: alkonlinequote_p.cpp:184 alkonlinequote_p.cpp:651 alkonlinequote_p.cpp:677
+#: alkonlinequote_p.cpp:184 alkonlinequote_p.cpp:661 alkonlinequote_p.cpp:687
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "No s'ha pogut interpretar el símbol per a %1"
@@ -89,52 +89,52 @@ msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "S'està executant %1 %2 %3..."
 
-#: alkonlinequote_p.cpp:553
+#: alkonlinequote_p.cpp:563
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "S'ha trobat un preu: «%1» (%2)"
 
-#: alkonlinequote_p.cpp:556
+#: alkonlinequote_p.cpp:566
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "El preu «%1» no s'ha pogut convertir a un nombre per a «%2»"
 
-#: alkonlinequote_p.cpp:561
+#: alkonlinequote_p.cpp:571
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "No s'ha pogut interpretar el preu per a «%1»"
 
-#: alkonlinequote_p.cpp:571
+#: alkonlinequote_p.cpp:581
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Data trobada: «%1»"
 
-#: alkonlinequote_p.cpp:577
+#: alkonlinequote_p.cpp:587
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Format de la data trobat: «%1» -> «%2»"
 
-#: alkonlinequote_p.cpp:580
+#: alkonlinequote_p.cpp:590
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "No s'ha pogut interpretar la data «%1» emprant el fitxer «%2»: %3"
 
-#: alkonlinequote_p.cpp:584 alkonlinequote_p.cpp:594
+#: alkonlinequote_p.cpp:594 alkonlinequote_p.cpp:604
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "S'està utilitzant la data actual per a «%1»"
 
-#: alkonlinequote_p.cpp:588
+#: alkonlinequote_p.cpp:598
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "L'anàlisi de la data està desactivat per a «%1»"
 
-#: alkonlinequote_p.cpp:591
+#: alkonlinequote_p.cpp:601
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "No s'ha pogut interpretar la data per a «%1»"
 
-#: alkonlinequote_p.cpp:739
+#: alkonlinequote_p.cpp:749
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -142,36 +142,36 @@ msgstr ""
 "No s'ha pogut detectar el delimitador de camp en la primera línia (línia de "
 "capçalera) de les dades de cotització."
 
-#: alkonlinequote_p.cpp:766
+#: alkonlinequote_p.cpp:776
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr ""
 "No s'ha pogut trobar la columna de data «%1» en les dades de cotització"
 
-#: alkonlinequote_p.cpp:772
+#: alkonlinequote_p.cpp:782
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr ""
 "No s'ha pogut trobar la columna de preu «%1» en les dades de cotització"
 
-#: alkonlinequote_p.cpp:790
+#: alkonlinequote_p.cpp:800
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr ""
 "No s'ha pogut convertir la data «%1» amb «%2» en les dades de cotització"
 
-#: alkonlinequote_p.cpp:802
+#: alkonlinequote_p.cpp:816
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr ""
 "No s'han pogut trobar les parelles data/preu en les dades de cotització"
 
-#: alkonlinequote_p.cpp:833
+#: alkonlinequote_p.cpp:847
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "No s'ha pogut actualitzar el preu de %1 (dades de cotització buides)"
 
-#: alkonlinequote_p.cpp:851
+#: alkonlinequote_p.cpp:865
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "S'ha excedit el temps d'espera en recuperar l'URL per a %1"
@@ -226,56 +226,20 @@ msgstr ""
 msgid "Details"
 msgstr "Detalls"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: alkonlinequotedetails.ui:42 alkonlinequotesprofile.ui:142
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequotedetails.ui:45
 #, kde-format
-msgid "Identifier"
-msgstr "Identificador"
-
-#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
-#: alkonlinequotedetails.ui:52 alkonlinequotesprofile.ui:152
-#, kde-format
-msgid "Selected by"
-msgstr "Seleccionat per"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: alkonlinequotedetails.ui:59 alkonlinequotesprofile.ui:169
-#, kde-format
-msgid "Date"
-msgstr "Data"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: alkonlinequotedetails.ui:69 alkonlinequotesprofile.ui:179
-#, kde-format
-msgid "Date Format"
-msgstr "Format de la data"
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
-#: alkonlinequotedetails.ui:79 alkonlinequotesprofile.ui:213
-#, kde-format
-msgid "How to select the identifier"
-msgstr "Com seleccionar l'identificador"
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
-#: alkonlinequotedetails.ui:86
-#, kde-format
-msgid "The type of data expected to downloaded and processed."
-msgstr "El tipus de dades esperat a baixar i processar."
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: alkonlinequotedetails.ui:93 alkonlinequotesprofile.ui:132
-#, kde-format
-msgid "URL"
-msgstr "URL"
+msgid "Remote source"
+msgstr "Font remota"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:117 alkonlinequotesprofile.ui:196
+#: alkonlinequotedetails.ui:52 alkonlinequotesprofile.ui:196
 #, kde-format
 msgid "URL to be used to download the quote"
 msgstr "URL que s'ha d'utilitzar per a baixar la cotització"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:120 alkonlinequotesprofile.ui:199
+#: alkonlinequotedetails.ui:55 alkonlinequotesprofile.ui:199
 #, no-c-format, kde-format
 msgid ""
 "Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
@@ -289,31 +253,93 @@ msgstr ""
 "cotitza i <b>%1</b> amb el símbol de la divisa en què es basa la cotització."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
-#: alkonlinequotedetails.ui:127 alkonlinequotesprofile.ui:206
+#: alkonlinequotedetails.ui:62 alkonlinequotesprofile.ui:206
 #, kde-format
 msgid "Regular Expression to extract the identifier from the downloaded data"
 msgstr "Expressió regular per a extraure l'identificador de les dades baixades"
 
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: alkonlinequotedetails.ui:141
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
+#: alkonlinequotedetails.ui:76
 #, kde-format
-msgid "Default Identifier"
-msgstr "Identificador predeterminat"
+msgid "The type of data expected to downloaded and processed."
+msgstr "El tipus de dades esperat a baixar i processar."
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequotedetails.ui:162
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequotedetails.ui:83 alkonlinequotesprofile.ui:142
 #, kde-format
-msgid "Data Format"
-msgstr "Format de les dades"
+msgid "Identifier"
+msgstr "Identificador"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
+#: alkonlinequotedetails.ui:100 alkonlinequotesprofile.ui:213
+#, kde-format
+msgid "How to select the identifier"
+msgstr "Com seleccionar l'identificador"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#: alkonlinequotedetails.ui:107 alkonlinequotedetails.ui:196
+#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr "Expressió regular per a extraure la data de les dades baixades"
+
+#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
+#: alkonlinequotedetails.ui:121 alkonlinequotesprofile.ui:152
+#, kde-format
+msgid "Selected by"
+msgstr "Seleccionat per"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequotedetails.ui:128 alkonlinequotesprofile.ui:169
+#, kde-format
+msgid "Date"
+msgstr "Data"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequotedetails.ui:145
+#, kde-format
+msgid "Price decimal separator"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: alkonlinequotedetails.ui:169 alkonlinequotesprofile.ui:159
+#: alkonlinequotedetails.ui:152 alkonlinequotesprofile.ui:159
 #, kde-format
 msgid "Price"
 msgstr "Preu"
 
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequotedetails.ui:169 alkonlinequotesprofile.ui:179
+#, kde-format
+msgid "Date Format"
+msgstr "Format de la data"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:179
+#, kde-format
+msgid "Default Identifier"
+msgstr "Identificador predeterminat"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequotedetails.ui:186 alkonlinequotesprofile.ui:132
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotedetails.ui:203
+#, kde-format
+msgid "Data Format"
+msgstr "Format de les dades"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotedetails.ui:210 alkonlinequotesprofile.ui:189
+#, kde-format
+msgid "Options"
+msgstr "Opcions"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
+#: alkonlinequotedetails.ui:217
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
 msgstr ""
@@ -321,47 +347,47 @@ msgstr ""
 "línia"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
-#: alkonlinequotedetails.ui:186 alkonlinequotesprofile.ui:220
+#: alkonlinequotedetails.ui:224 alkonlinequotesprofile.ui:220
 #, kde-format
 msgid "Regular Expression to extract the price from the downloaded data"
 msgstr "Expressió regular per a extraure el preu de les dades baixades"
 
-#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:196
+#. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:239
 #, kde-format
-msgid "Remote source"
-msgstr "Font remota"
+msgctxt "1"
+msgid "Period (.)"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequotedetails.ui:203 alkonlinequotesprofile.ui:189
+#. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:244
 #, kde-format
-msgid "Options"
-msgstr "Opcions"
+msgctxt "2"
+msgid "Comma (,)"
+msgstr ""
 
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
-#: alkonlinequotedetails.ui:210 alkonlinequotedetails.ui:217
-#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
+#. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:249
 #, kde-format
-msgid "Regular Expression to extract the date from the downloaded data"
-msgstr "Expressió regular per a extraure la data de les dades baixades"
+msgid "Legacy"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
-#: alkonlinequotedetails.ui:238 alkonlinequotesprofile.ui:312
+#: alkonlinequotedetails.ui:264 alkonlinequotesprofile.ui:312
 #, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
 msgstr "Accepta"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
-#: alkonlinequotedetails.ui:245
+#: alkonlinequotedetails.ui:271
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
 msgstr "Cancel·la"
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
-#: alkonlinequotedetails.ui:274
+#: alkonlinequotedetails.ui:300
 #, kde-format
 msgid "build_key"
 msgstr "build_key"
@@ -666,71 +692,71 @@ msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nom"
 
-#: alkonlinequoteswidget.cpp:257
+#: alkonlinequoteswidget.cpp:258
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "HTML netejat"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:259
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:260
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:293
+#: alkonlinequoteswidget.cpp:294
 #, kde-format
 msgid "Remote unpublished"
 msgstr "Remot sense publicar"
 
-#: alkonlinequoteswidget.cpp:295
+#: alkonlinequoteswidget.cpp:296
 #, kde-format
 msgid "Remote"
 msgstr "Remot"
 
-#: alkonlinequoteswidget.cpp:297
+#: alkonlinequoteswidget.cpp:298
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:298
+#: alkonlinequoteswidget.cpp:299
 #, kde-format
 msgid "Local"
 msgstr "Local"
 
-#: alkonlinequoteswidget.cpp:506
+#: alkonlinequoteswidget.cpp:511
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Segur que voleu suprimir esta cotització en línia?"
 
-#: alkonlinequoteswidget.cpp:507
+#: alkonlinequoteswidget.cpp:512
 #, kde-format
 msgid "Delete online quote"
 msgstr "Suprimix la cotització en línia"
 
-#: alkonlinequoteswidget.cpp:534
+#: alkonlinequoteswidget.cpp:539
 #, kde-format
 msgid ".copy"
 msgstr ".copia"
 
-#: alkonlinequoteswidget.cpp:560 alkonlinequoteswidget.cpp:562
+#: alkonlinequoteswidget.cpp:566 alkonlinequoteswidget.cpp:568
 #, kde-format
 msgid "New Quote Source"
 msgstr "Font nova de cotitzacions"
 
-#: alkonlinequoteswidget.cpp:571
+#: alkonlinequoteswidget.cpp:577
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "La <b>font nova de cotitzacions</b> ja existix."
 
-#: alkonlinequoteswidget.cpp:749
+#: alkonlinequoteswidget.cpp:755
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Finestra de resultats en HTML de la cotització en línia"
