@@ -144,21 +144,25 @@ void AlkOnlineQuoteTest::testLaunch()
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);
 
-    for (const QString &source : m_profile->quoteSources())
-        if (!source.endsWith(QLatin1String(".webkit")))
-            QVERIFY(quote.launch("EUR USD", "EUR USD", source));
+    for (const QString &name : m_profile->quoteSources()) {
+        AlkOnlineQuoteSource source(name, m_profile);
+        if (source.downloadType() == AlkOnlineQuoteSource::Default)
+            QVERIFY(quote.launch("EUR USD", "EUR USD", name));
+    }
 }
 
-void AlkOnlineQuoteTest::testLaunchWithBrowser()
+void AlkOnlineQuoteTest::testLaunchWithJavaScriptSupport()
 {
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     AlkOnlineQuote quote(m_profile);
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);
 
-    for (const QString &source : m_profile->quoteSources())
-        if (source.endsWith(QLatin1String(".webkit")))
-            QVERIFY(quote.launch("EUR USD", "EUR USD", source));
+    for (const QString &name : m_profile->quoteSources()) {
+        AlkOnlineQuoteSource source(name, m_profile);
+        if (source.downloadType() == AlkOnlineQuoteSource::Javascript)
+            QVERIFY(quote.launch("EUR USD", "EUR USD", name));
+    }
 #else
     QSKIP("Browser based tests skipped because requirements are not met", SkipAll);
 #endif

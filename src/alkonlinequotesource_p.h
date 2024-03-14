@@ -35,22 +35,7 @@ public:
     {
     }
 
-    explicit Private(const Private* other)
-        : m_name(other->m_name)
-        , m_url(other->m_url)
-        , m_priceDecimalSeparator(other->m_priceDecimalSeparator)
-        , m_priceRegex(other->m_priceRegex)
-        , m_dataFormat(other->m_dataFormat)
-        , m_dateRegex(other->m_dateRegex)
-        , m_dateFormat(other->m_dateFormat)
-        , m_idRegex(other->m_idRegex)
-        , m_idSelector(other->m_idSelector)
-        , m_profile(other->m_profile)
-        , m_isGHNSSource(other->m_isGHNSSource)
-        , m_storageChanged(other->m_storageChanged)
-        , m_readOnly(other->m_readOnly)
-    {
-    }
+    explicit Private(const Private* other);
 
     bool read()
     {
@@ -76,6 +61,7 @@ public:
             m_defaultId = grp.readEntry("DefaultId");
         else if (grp.hasKey("DebugId")) // For compatibility with 8.1.72
             m_defaultId = grp.readEntry("DebugId");
+        m_downloadType = static_cast<DownloadType>(grp.readEntry("DownloadType", QString("%1").arg(static_cast<int>(Default))).toInt());
         m_priceDecimalSeparator = static_cast<DecimalSeparator>(grp.readEntry("PriceDecimalSeparator", QString("%1").arg(static_cast<int>(Legacy))).toInt());
         m_priceRegex = grp.readEntry("PriceRegex");
         if (grp.hasKey("SymbolRegex"))
@@ -104,6 +90,7 @@ public:
         grp.writeEntry("DateFormatRegex", m_dateFormat);
         grp.deleteEntry("DebugId");
         grp.writeEntry("DefaultId", m_defaultId);
+        grp.writeEntry("DownloadType", static_cast<int>(m_downloadType));
         grp.writeEntry("IDRegex", m_idRegex);
         grp.writeEntry("IDBy", static_cast<int>(m_idSelector));
         /// @todo remove the following code block if backward
@@ -169,7 +156,12 @@ public:
             QString value = line.mid(index+1);
             if (key == "url")
                 m_url = value;
-            else if (key == "pricedecimalseparator") {
+            else if (key == "downloadtype") {
+                if (value == "Default")
+                    m_downloadType = AlkOnlineQuoteSource::Default;
+                else if (value == "Javascript")
+                    m_downloadType = AlkOnlineQuoteSource::Javascript;
+            } else if (key == "pricedecimalseparator") {
                 if (value == "Legacy")
                     m_priceDecimalSeparator = AlkOnlineQuoteSource::Legacy;
                 else if (value == "Period")
@@ -195,6 +187,8 @@ public:
                     m_dataFormat = AlkOnlineQuoteSource::DataFormat::HTML;
                 else if (value == "CSV")
                     m_dataFormat = AlkOnlineQuoteSource::DataFormat::CSV;
+                else if (value == "CSS")
+                    m_dataFormat = AlkOnlineQuoteSource::DataFormat::CSS;
             }
         }
 
@@ -219,6 +213,12 @@ public:
             out << "mode=HTML\n";
         else if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::CSV)
             out << "mode=CSV\n";
+        else if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::CSS)
+            out << "mode=CSS\n";
+        if (m_downloadType == AlkOnlineQuoteSource::Default)
+            out << "downloadtype=Default\n";
+        else if (m_downloadType == AlkOnlineQuoteSource::Javascript)
+            out << "downloadtype=Javascript\n";
         if (m_priceDecimalSeparator == AlkOnlineQuoteSource::Legacy)
             out << "pricedecimalseparator=Legacy\n";
         else if (m_priceDecimalSeparator == AlkOnlineQuoteSource::Period)
@@ -244,6 +244,7 @@ public:
     QString m_dateRegex;
     QString m_dateFormat;
     QString m_defaultId;
+    DownloadType m_downloadType{Default};
     QString m_idRegex;
     IdSelector m_idSelector;
     AlkOnlineQuotesProfile *m_profile;

@@ -36,7 +36,8 @@ public:
     enum DataFormat {
         StrippedHTML,
         HTML,
-        CSV
+        CSV,
+        CSS,
     };
 
     /**
@@ -46,6 +47,11 @@ public:
         Legacy,
         Period,
         Comma
+    };
+
+    enum DownloadType {
+        Default,
+        Javascript,
     };
 
     AlkOnlineQuoteSource();
@@ -58,7 +64,8 @@ public:
                                   const QString& dateRegex,
                                   const QString& dateFormat,
                                   DataFormat dataFormat = HTML,
-                                  DecimalSeparator priceDecimalSeparator = Legacy);
+                                  DecimalSeparator priceDecimalSeparator = Legacy,
+                                  DownloadType downloadType = Default);
     ~AlkOnlineQuoteSource();
 
     AlkOnlineQuoteSource(const AlkOnlineQuoteSource &other);
@@ -89,6 +96,7 @@ public:
     DataFormat dataFormat() const;
     QString dateRegex() const;
     QString dateFormat() const;
+    DownloadType downloadType() const;
     QString financeQuoteName() const;
     IdSelector idSelector() const;
 
@@ -111,6 +119,7 @@ public:
     void setDataFormat(DataFormat dataFormat);
     void setDateRegex(const QString &dateRegex);
     void setDateFormat(const QString &dateFormat);
+    void setDownloadType(DownloadType downloadType);
     void setGHNS(bool state);
     void setIdSelector(IdSelector idSelector);
 

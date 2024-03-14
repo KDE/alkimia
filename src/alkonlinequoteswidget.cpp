@@ -258,7 +258,14 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "Stripped HTML"), AlkOnlineQuoteSource::DataFormat::StrippedHTML);
     m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "HTML"), AlkOnlineQuoteSource::DataFormat::HTML);
     m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "CSV"), AlkOnlineQuoteSource::DataFormat::CSV);
+#ifdef BUILD_WITH_WEBKIT
+    m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "CSS"), AlkOnlineQuoteSource::DataFormat::CSS);
+#endif
     connect(m_editDataFormat, SIGNAL(currentIndexChanged(int)), this, SLOT(slotEntryChanged()));
+
+    m_editDownloadType->addItem(i18nc("@item:inlistbox Stock", "Default"), AlkOnlineQuoteSource::DownloadType::Default);
+    m_editDownloadType->addItem(i18nc("@item:inlistbox Stock", "Javascript"), AlkOnlineQuoteSource::DownloadType::Javascript);
+    connect(m_editDownloadType, SIGNAL(currentIndexChanged(int)), this, SLOT(slotEntryChanged()));
 
     connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
     connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowButton()));
@@ -423,6 +430,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_editDate->setText(m_currentItem.dateRegex());
         m_editDateFormat->setText(m_currentItem.dateFormat());
         m_editDefaultId->setText(m_currentItem.defaultId());
+        m_editDownloadType->setCurrentIndex(m_currentItem.downloadType());
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
     }
 
@@ -440,6 +448,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_editDate->setEnabled(enabled);
     m_editDateFormat->setEnabled(enabled);
     m_editDefaultId->setEnabled(enabled);
+    m_editDownloadType->setEnabled(enabled);
     m_ghnsSource->setEnabled(enabled);
     m_editDataFormat->setEnabled(enabled);
 
@@ -465,6 +474,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
                     || m_editDateFormat->text() != m_currentItem.dateFormat()
                     || m_editDefaultId->text() != m_currentItem.defaultId()
                     || m_editPriceDecimalSeparator->currentIndex() != static_cast<int>(m_currentItem.priceDecimalSeparator())
+                    || m_editDownloadType->currentIndex() != static_cast<int>(m_currentItem.downloadType())
                     || m_editPrice->text() != m_currentItem.priceRegex()
                     || m_ghnsSource->isChecked() != m_currentItem.isGHNS();
 
@@ -554,6 +564,7 @@ void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
     m_currentItem.setDateFormat(m_editDateFormat->text());
     m_currentItem.setDefaultId(m_editDefaultId->text());
     m_currentItem.setPriceDecimalSeparator(static_cast<AlkOnlineQuoteSource::DecimalSeparator>(m_editPriceDecimalSeparator->currentIndex()));
+    m_currentItem.setDownloadType(static_cast<AlkOnlineQuoteSource::DownloadType>(m_editDownloadType->currentIndex()));
     m_currentItem.setPriceRegex(m_editPrice->text());
     m_currentItem.setGHNS(m_ghnsSource->isChecked());
     m_currentItem.write();

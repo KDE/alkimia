@@ -69,6 +69,8 @@ public:
 
     const AlkOnlineQuotesProfile::Map defaultQuoteSources();
 
+    void updateQuoteSources(QStringList &sources);
+
     /**
      * @brief return data root path
      * @return path

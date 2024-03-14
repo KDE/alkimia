@@ -122,12 +122,14 @@ bool AlkOnlineQuote::launch(const QString &_symbol, const QString &_id, const QS
         return d->launchFinanceQuote(_symbol, _id, _source);
     } else
 #endif
-    if (_source.endsWith(QLatin1String(".css"))) {
-        return d->launchWebKitCssSelector(_symbol, _id, _source);
-    } else if (_source.endsWith(QLatin1String(".webkit"))) {
-        return d->launchWebKitHtmlParser(_symbol, _id, _source);
+    d->initSource(_source);
+
+    if (d->m_source.downloadType() == AlkOnlineQuoteSource::Javascript) {
+        return d->launchWithJavaScriptSupport(_symbol, _id, AlkDownloadEngine::JavaScriptEngine);
+    } else if (d->m_source.dataFormat() == AlkOnlineQuoteSource::CSS) {
+        return d->launchWithJavaScriptSupport(_symbol, _id, AlkDownloadEngine::JavaScriptEngineCSS);
     } else {
-        return d->launchNative(_symbol, _id, _source);
+        return d->launchNative(_symbol, _id);
     }
 }
 

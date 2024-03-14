@@ -207,8 +207,9 @@ const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::defaultQuoteS
         source.setProfile(m_p);
         result[source.name()] = source;
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-        AlkOnlineQuoteSource source2(AlkOnlineQuoteSource::defaultCurrencyQuoteSource("Alkimia Currency.webkit"));
+        AlkOnlineQuoteSource source2(AlkOnlineQuoteSource::defaultCurrencyQuoteSource("Alkimia Currency (Javascript)"));
         source2.setProfile(m_p);
+        source2.setDownloadType(AlkOnlineQuoteSource::Javascript);
         result[source2.name()] = source2;
 #endif
         break;
@@ -217,6 +218,29 @@ const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::defaultQuoteS
         break;
     }
     return result;
+}
+
+void AlkOnlineQuotesProfile::Private::updateQuoteSources(QStringList &sources)
+{
+    for (auto &s : QStringList(sources)) {
+        if (s.endsWith(QLatin1String(".webkit"))) {
+            AlkOnlineQuoteSource source(s, m_p);
+            source.setName(source.name().replace(QLatin1String(".webkit"), QLatin1String(" (Javascript)")));
+            source.setDownloadType(AlkOnlineQuoteSource::Javascript);
+            source.write();
+            sources.removeAll(s);
+            sources.append(source.name());
+        } else if (s.endsWith(QLatin1String(".css"))) {
+            AlkOnlineQuoteSource source(s, m_p);
+            source.setName(source.name().replace(QLatin1String(".css"), QLatin1String(" (Javascript/CSS)")));
+            source.setDownloadType(AlkOnlineQuoteSource::Javascript);
+            source.setDataFormat(AlkOnlineQuoteSource::CSS);
+            source.write();
+            sources.removeAll(s);
+            sources.append(source.name());
+            // TODO
+        }
+    }
 }
 
 QString AlkOnlineQuotesProfile::Private::dataRootPath()

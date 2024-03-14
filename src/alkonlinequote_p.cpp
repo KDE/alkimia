@@ -87,14 +87,8 @@ int AlkOnlineQuote::Private::dbgArea()
 }
 #endif
 
-bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &_id, const QString &_source)
+bool AlkOnlineQuote::Private::initSource(const QString &_source)
 {
-    m_symbol = _symbol;
-    m_id = _id;
-    m_errors = Errors::None;
-
-    Q_EMIT m_p->status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol, _id));
-
     // Get sources from the config file
     QString source = _source;
     if (source.isEmpty()) {
@@ -109,6 +103,16 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
 
     //m_profile->createSource(source);
     m_source = AlkOnlineQuoteSource(source, m_profile);
+    return true;
+}
+
+bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &_id)
+{
+    m_symbol = _symbol;
+    m_id = _id;
+    m_errors = Errors::None;
+
+    Q_EMIT m_p->status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol, _id));
 
     KUrl url;
 
@@ -166,33 +170,19 @@ void AlkOnlineQuote::Private::slotLoadRedirected(const QUrl &, const QUrl &)
 void AlkOnlineQuote::Private::slotLoadFinished(const QUrl &url, const QString &data)
 {
     // show in browser widget
+    if (m_source.downloadType() == AlkOnlineQuoteSource::Default &&
+            AlkOnlineQuotesProfileManager::instance().webPageEnabled())
+        AlkOnlineQuotesProfileManager::instance().webPage()->setHtml(data, url);
     processDownloadedPage(url, data.toLocal8Bit());
 }
 
+// TODO let javascript engine also call this and fetch hml from AlkWebPage
 void AlkOnlineQuote::Private::slotLoadFinishedPage(const QUrl &, AlkWebPage *page)
 {
-    // parse symbol
-    QString identifier = page->getFirstElement(m_source.idRegex());
-    if (!identifier.isEmpty()) {
-        Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifier));
-    } else {
-        m_errors |= Errors::Symbol;
-        Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
-    }
-
-    // parse price
-    QString price = page->getFirstElement(m_source.priceRegex());
-    bool gotprice = parsePrice(price);
-
-    // parse date
-    QString date = page->getFirstElement(m_source.dateRegex());
-    bool gotdate = parseDate(date);
-
-    if (gotprice && gotdate) {
-        Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
-    } else {
-        Q_EMIT m_p->failed(m_id, m_symbol);
-    }
+    if (m_source.dataFormat() == AlkOnlineQuoteSource::CSS)
+        parseQuoteCSS(page);
+    else
+        slotParseQuote(page->toHtml());
 }
 
 void AlkOnlineQuote::Private::slotLoadStarted(const QUrl &)
@@ -200,14 +190,13 @@ void AlkOnlineQuote::Private::slotLoadStarted(const QUrl &)
     Q_EMIT m_p->status(i18n("Fetching URL %1...", m_url.prettyUrl()));
 }
 
-bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, const QString &_id,
-                                             const QString &_source)
+bool AlkOnlineQuote::Private::launchWithJavaScriptSupport(const QString &_symbol, const QString &_id, AlkDownloadEngine::Type type)
 {
-    if (!initLaunch(_symbol, _id, _source)) {
+    if (!initLaunch(_symbol, _id)) {
         return false;
     }
 
-    if (!m_downloader.downloadUrl(m_url, AlkDownloadEngine::JavaScriptEngineCSS, m_timeout)) {
+    if (!m_downloader.downloadUrl(m_url, type, m_timeout)) {
         return false;
     }
 
@@ -215,26 +204,10 @@ bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, co
              || m_errors & Errors::Date || m_errors & Errors::Data);
 }
 
-bool AlkOnlineQuote::Private::launchWebKitHtmlParser(const QString &_symbol, const QString &_id,
-                                            const QString &_source)
-{
-    if (!initLaunch(_symbol, _id, _source)) {
-        return false;
-    }
-
-    if (!m_downloader.downloadUrl(m_url, AlkDownloadEngine::JavaScriptEngine, m_timeout)) {
-        return false;
-    }
-
-    return !(m_errors & Errors::URL || m_errors & Errors::Price
-             || m_errors & Errors::Date || m_errors & Errors::Data);
-}
-
-bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString &_id,
-                               const QString &_source)
+bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString &_id)
 {
     bool result = true;
-    if (!initLaunch(_symbol, _id, _source)) {
+    if (!initLaunch(_symbol, _id)) {
         return false;
     }
 
@@ -243,9 +216,11 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
 #ifdef ENABLE_FINANCEQUOTE
         result = processLocalScript(url);
 #endif
-    } else if (!m_downloader.downloadUrl(url, AlkDownloadEngine::DefaultEngine, m_timeout)) {
-        return false;
-        return !(m_errors & Errors::URL || m_errors & Errors::Price
+    } else {
+        if (!m_downloader.downloadUrl(url, AlkDownloadEngine::DefaultEngine, m_timeout)) {
+            return false;
+        }
+        result = !(m_errors & Errors::URL || m_errors & Errors::Price
                  || m_errors & Errors::Date || m_errors & Errors::Data);
     }
     return result;
@@ -534,6 +509,32 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
         result = false;
     }
     return result;
+}
+
+void AlkOnlineQuote::Private::parseQuoteCSS(AlkWebPage *page)
+{
+    // parse symbol
+    QString identifier = page->getFirstElement(m_source.idRegex());
+    if (!identifier.isEmpty()) {
+        Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifier));
+    } else {
+        m_errors |= Errors::Symbol;
+        Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
+    }
+
+    // parse price
+    QString price = page->getFirstElement(m_source.priceRegex());
+    bool gotprice = parsePrice(price);
+
+    // parse date
+    QString date = page->getFirstElement(m_source.dateRegex());
+    bool gotdate = parseDate(date);
+
+    if (gotprice && gotdate) {
+        Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
+    } else {
+        Q_EMIT m_p->failed(m_id, m_symbol);
+    }
 }
 
 /**

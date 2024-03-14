@@ -41,7 +41,8 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
                                            const QString& dateRegex,
                                            const QString& dateFormat,
                                            DataFormat dataFormat,
-                                           DecimalSeparator priceDecimalSeparator)
+                                           DecimalSeparator priceDecimalSeparator,
+                                           DownloadType downloadType)
     : d(new Private)
 {
     d->m_name = name;
@@ -53,6 +54,7 @@ AlkOnlineQuoteSource::AlkOnlineQuoteSource(const QString& name,
     d->m_dataFormat = dataFormat;
     d->m_dateRegex = dateRegex;
     d->m_dateFormat = dateFormat;
+    d->m_downloadType = downloadType;
     d->m_isGHNSSource = false;
 }
 
@@ -141,6 +143,11 @@ QString AlkOnlineQuoteSource::dateFormat() const
     return d->m_dateFormat;
 }
 
+AlkOnlineQuoteSource::DownloadType AlkOnlineQuoteSource::downloadType() const
+{
+    return d->m_downloadType;
+}
+
 /**
  * Returns the name of the "Finance::Quote" source.
  * This function only makes sense if the current source
@@ -205,6 +212,11 @@ void AlkOnlineQuoteSource::setDataFormat(DataFormat dataFormat)
 void AlkOnlineQuoteSource::setDateFormat(const QString &dateFormat)
 {
     d->m_dateFormat = dateFormat;
+}
+
+void AlkOnlineQuoteSource::setDownloadType(DownloadType downloadType)
+{
+    d->m_downloadType = downloadType;
 }
 
 void AlkOnlineQuoteSource::setGHNS(bool state)
@@ -327,4 +339,22 @@ void AlkOnlineQuoteSource::setDefaultId(const QString &defaultId)
 bool AlkOnlineQuoteSource::requiresTwoIdentifier() const
 {
     return url().contains("%2");
+}
+
+AlkOnlineQuoteSource::Private::Private(const Private *other)
+    : m_name(other->m_name)
+    , m_url(other->m_url)
+    , m_priceDecimalSeparator(other->m_priceDecimalSeparator)
+    , m_priceRegex(other->m_priceRegex)
+    , m_dataFormat(other->m_dataFormat)
+    , m_dateRegex(other->m_dateRegex)
+    , m_dateFormat(other->m_dateFormat)
+    , m_downloadType(other->m_downloadType)
+    , m_idRegex(other->m_idRegex)
+    , m_idSelector(other->m_idSelector)
+    , m_profile(other->m_profile)
+    , m_isGHNSSource(other->m_isGHNSSource)
+    , m_storageChanged(other->m_storageChanged)
+    , m_readOnly(other->m_readOnly)
+{
 }

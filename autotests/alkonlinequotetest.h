@@ -32,7 +32,7 @@ private Q_SLOTS:
     void testAlkOnlineQuoteErrorCopy();
     void testQuoteSources();
     void testLaunch();
-    void testLaunchWithBrowser();
+    void testLaunchWithJavaScriptSupport();
 private:
     AlkOnlineQuotesProfile *m_profile;
 };

@@ -75,16 +75,16 @@ public:
 
     ~Private();
 
-    bool initLaunch(const QString &_symbol, const QString &_id, const QString &_source);
-    bool launchWebKitCssSelector(const QString &_symbol, const QString &_id,
-                                 const QString &_source);
-    bool launchWebKitHtmlParser(const QString &_symbol, const QString &_id, const QString &_source);
-    bool launchNative(const QString &_symbol, const QString &_id, const QString &_source);
+    bool initSource(const QString &_source);
+    bool initLaunch(const QString &_symbol, const QString &_id);
+    bool launchWithJavaScriptSupport(const QString &_symbol, const QString &_id, AlkDownloadEngine::Type type);
+    bool launchNative(const QString &_symbol, const QString &_id);
     bool launchFinanceQuote(const QString& _symbol, const QString& _id, const QString& _source);
     bool parsePrice(const QString &pricestr, AlkOnlineQuoteSource::DecimalSeparator separator = AlkOnlineQuoteSource::Legacy);
     bool parseDate(const QString &datestr);
     bool parseQuoteStripHTML(const QString &quotedata);
     bool parseQuoteHTML(const QString &quotedata);
+    void parseQuoteCSS(AlkWebPage *page);
     bool parseQuoteCSV(const QString &quotedata);
     bool processDownloadedPage(const KUrl &url, const QByteArray &page);
 #ifdef ENABLE_FINANCEQUOTE
