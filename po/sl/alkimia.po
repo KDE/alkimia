@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-14 02:00+0000\n"
-"PO-Revision-Date: 2024-01-23 09:31+0100\n"
+"PO-Revision-Date: 2024-03-14 07:42+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -293,7 +293,7 @@ msgstr "Datum"
 #: alkonlinequotedetails.ui:145
 #, kde-format
 msgid "Price decimal separator"
-msgstr ""
+msgstr "Decimalni ločilnik cene"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:152 alkonlinequotesprofile.ui:159
@@ -348,20 +348,20 @@ msgstr "Regularni izraz za pridobivanje cene iz prenesenih podatkov"
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
-msgstr ""
+msgstr "Pika(.)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:244
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
-msgstr ""
+msgstr "Vejica(,)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:249
 #, kde-format
 msgid "Legacy"
-msgstr ""
+msgstr "Zapuščina"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:264 alkonlinequotesprofile.ui:312

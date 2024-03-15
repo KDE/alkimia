@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-14 02:00+0000\n"
-"PO-Revision-Date: 2024-01-28 18:24+0100\n"
+"PO-Revision-Date: 2024-03-14 12:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -300,7 +300,7 @@ msgstr "Data"
 #: alkonlinequotedetails.ui:145
 #, kde-format
 msgid "Price decimal separator"
-msgstr ""
+msgstr "Separador decimal del preu"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:152 alkonlinequotesprofile.ui:159
@@ -357,20 +357,20 @@ msgstr "Expressió regular per a extreure el preu de les dades baixades"
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
-msgstr ""
+msgstr "Punt (.)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:244
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
-msgstr ""
+msgstr "Coma (,)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:249
 #, kde-format
 msgid "Legacy"
-msgstr ""
+msgstr "Antic"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:264 alkonlinequotesprofile.ui:312

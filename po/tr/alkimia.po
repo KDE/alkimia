@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-14 02:00+0000\n"
-"PO-Revision-Date: 2024-02-09 18:00+0300\n"
+"PO-Revision-Date: 2024-03-14 14:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,7 +41,7 @@ msgstr "%1 URL’si getirilemedi"
 #: alkonlinequote_p.cpp:181 alkonlinequote_p.cpp:658 alkonlinequote_p.cpp:684
 #, kde-format
 msgid "Symbol found: '%1'"
-msgstr "Sembol bulundu: '%1'"
+msgstr "Sembol bulundu: “%1”"
 
 #: alkonlinequote_p.cpp:184 alkonlinequote_p.cpp:661 alkonlinequote_p.cpp:687
 #, kde-format
@@ -51,13 +51,13 @@ msgstr "%1 sembolü ayrıştırılamadı"
 #: alkonlinequote_p.cpp:207
 #, kde-format
 msgid "Fetching URL %1..."
-msgstr "%1 URL’si getiriliyor..."
+msgstr "%1 URL’si getiriliyor…"
 
 #: alkonlinequote_p.cpp:281
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
-msgstr "%1 yürütülüyor..."
+msgstr "%1 yürütülüyor…"
 
 #: alkonlinequote_p.cpp:298 alkonlinequote_p.cpp:513
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "İndirilen dosya açılamadı"
 #: alkonlinequote_p.cpp:338
 #, kde-format
 msgid "URL found: %1..."
-msgstr "URL bulundu: %1..."
+msgstr "URL bulundu: %1…"
 
 #: alkonlinequote_p.cpp:429 alkonlinequote_p.cpp:431
 #, kde-format
@@ -84,85 +84,85 @@ msgstr ""
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
-msgstr "%1 %2 %3 yürütülüyor..."
+msgstr "%1 %2 %3 yürütülüyor…"
 
 #: alkonlinequote_p.cpp:563
 #, kde-format
 msgid "Price found: '%1' (%2)"
-msgstr "Fiyat bulundu: '%1' (%2)"
+msgstr "Fiyat bulundu: “%1” (%2)"
 
 #: alkonlinequote_p.cpp:566
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
-msgstr "'%1' fiyatı, '%2' için bir sayıya dönüştürülemiyor"
+msgstr "“%1” fiyatı, “%2” için bir sayıya dönüştürülemiyor"
 
 #: alkonlinequote_p.cpp:571
 #, kde-format
 msgid "Unable to parse price for '%1'"
-msgstr "'%1' fiyatı ayrıştırılamadı"
+msgstr "“%1” fiyatı ayrıştırılamadı"
 
 #: alkonlinequote_p.cpp:581
 #, kde-format
 msgid "Date found: '%1'"
-msgstr "Tarih bulundu: '%1'"
+msgstr "Tarih bulundu: “%1”"
 
 #: alkonlinequote_p.cpp:587
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
-msgstr "Tarih biçimi bulundu: '%1' -> '%2'"
+msgstr "Tarih biçimi bulundu: “%1” → “%2”"
 
 #: alkonlinequote_p.cpp:590
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
-msgstr "'%1' tarihi, '%2' biçimi kullanılarak ayrıştırılamadı: %3"
+msgstr "“%1” tarihi, “%2” biçimi kullanılarak ayrıştırılamadı: %3"
 
 #: alkonlinequote_p.cpp:594 alkonlinequote_p.cpp:604
 #, kde-format
 msgid "Using current date for '%1'"
-msgstr "'%1' için geçerli tarih kullanılıyor"
+msgstr "“%1” için geçerli tarih kullanılıyor"
 
 #: alkonlinequote_p.cpp:598
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
-msgstr "'%1' için tarih ayrıştırması devre dışı bırakıldı"
+msgstr "“%1” için tarih ayrıştırması devre dışı bırakıldı"
 
 #: alkonlinequote_p.cpp:601
 #, kde-format
 msgid "Unable to parse date for '%1'"
-msgstr "'%1' için tarih ayrıştırılamadı"
+msgstr "“%1” için tarih ayrıştırılamadı"
 
 #: alkonlinequote_p.cpp:749
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
-"Alıntı verisinin ilk satırında (üstbilgi satırı) alan sınırlayıcısı "
+"Kur verisinin ilk satırında (üstbilgi satırı) alan sınırlayıcısı "
 "algılanamıyor."
 
 #: alkonlinequote_p.cpp:776
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "Alıntı verisinde '%1' tarih sütunu bulunamıyor"
+msgstr "Kur verisinde “%1” tarih sütunu bulunamıyor"
 
 #: alkonlinequote_p.cpp:782
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "Alıntı verisinde '%1' fiyat sütunu bulunamıyor"
+msgstr "Kur verisinde “%1” fiyat sütunu bulunamıyor"
 
 #: alkonlinequote_p.cpp:800
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "Alıntı verisinde '%1' tarihi '%2' ile dönüştürülemiyor"
+msgstr "Kur verisinde “%1” tarihi “%2” ile dönüştürülemiyor"
 
 #: alkonlinequote_p.cpp:816
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "Alıntı verisinde tarih/fiyat eşleri bulunamıyor"
+msgstr "Kur verisinde tarih/fiyat eşleri bulunamıyor"
 
 #: alkonlinequote_p.cpp:847
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
-msgstr "%1 fiyatı güncellenemedi (boş alıntı verisi)"
+msgstr "%1 fiyatı güncellenemedi (boş kur verisi)"
 
 #: alkonlinequote_p.cpp:865
 #, kde-format
@@ -240,10 +240,10 @@ msgid ""
 "conversions, <b>%2</b> will be replaced with the currency to be quoted and "
 "<b>%1</b> with the currency the quote is based on."
 msgstr ""
-"Hisse alıntılarının indirileceği URL’yi girin. Kuru alınan kıymetli kağıt "
-"için <b>%1</b> sembol ile değiştirilecektir. Para birimi dönüşümleri için, "
-"<b>%2</b> alıntılanacak para birimiyle ve <b>%1</b> ise kurun taban alındığı "
-"para birimiyle değiştirilir."
+"Hisse kurlarının indirileceği URL’yi girin. Kuru alınan kıymetli kağıt için "
+"<b>%1</b> sembol ile değiştirilecektir. Para birimi dönüşümleri için <b>%2</"
+"b> alıntılanacak para birimiyle ve <b>%1</b> ise kurun taban alındığı para "
+"birimiyle değiştirilir."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequotedetails.ui:62 alkonlinequotesprofile.ui:206
@@ -293,7 +293,7 @@ msgstr "Tarih"
 #: alkonlinequotedetails.ui:145
 #, kde-format
 msgid "Price decimal separator"
-msgstr ""
+msgstr "Fiyat ondalık ayırıcısı"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:152 alkonlinequotesprofile.ui:159
@@ -348,20 +348,20 @@ msgstr "İndirilen veriden fiyatı çıkarmak için düzenli ifade"
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
-msgstr ""
+msgstr "Nokta (.)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:244
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
-msgstr ""
+msgstr "Virgül (,)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:249
 #, kde-format
 msgid "Legacy"
-msgstr ""
+msgstr "Eski"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:264 alkonlinequotesprofile.ui:312
@@ -638,7 +638,7 @@ msgstr "Seçili çevrimiçi kaynak girdisini göstermek için bunu kullanın"
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
-msgstr "&Yeni..."
+msgstr "&Yeni…"
 
 #: alkonlinequoteswidget.cpp:191
 #, kde-format
