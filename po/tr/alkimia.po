@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-01 02:29+0000\n"
-"PO-Revision-Date: 2024-01-03 16:04+0300\n"
+"PO-Revision-Date: 2024-03-14 14:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: alkonlinequote.cpp:181
 #, kde-format
@@ -30,7 +30,7 @@ msgstr "%1 URL'si getirilemedi"
 #: alkonlinequote.cpp:237 alkonlinequote.cpp:656
 #, kde-format
 msgid "Symbol found: '%1'"
-msgstr "Sembol bulundu: '%1'"
+msgstr "Sembol bulundu: “%1”"
 
 #: alkonlinequote.cpp:240 alkonlinequote.cpp:659
 #, kde-format
@@ -46,7 +46,7 @@ msgstr "%1 URL'si getiriliyor..."
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
-msgstr "%1 yürütülüyor..."
+msgstr "%1 yürütülüyor…"
 
 #: alkonlinequote.cpp:336 alkonlinequote.cpp:544
 #, kde-format
@@ -61,7 +61,7 @@ msgstr "İndirilen dosya açılamadı"
 #: alkonlinequote.cpp:375
 #, kde-format
 msgid "URL found: %1..."
-msgstr "URL bulundu: %1..."
+msgstr "URL bulundu: %1…"
 
 #: alkonlinequote.cpp:465
 #, kde-format
@@ -73,52 +73,52 @@ msgstr ""
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
-msgstr "%1 %2 %3 yürütülüyor..."
+msgstr "%1 %2 %3 yürütülüyor…"
 
 #: alkonlinequote.cpp:576
 #, kde-format
 msgid "Price found: '%1' (%2)"
-msgstr "Fiyat bulundu: '%1' (%2)"
+msgstr "Fiyat bulundu: “%1” (%2)"
 
 #: alkonlinequote.cpp:579
 #, kde-format
 msgid "Unable to parse price for '%1'"
-msgstr "'%1' fiyatı ayrıştırılamadı"
+msgstr "“%1” fiyatı ayrıştırılamadı"
 
 #: alkonlinequote.cpp:588
 #, kde-format
 msgid "Date found: '%1'"
-msgstr "Tarih bulundu: '%1'"
+msgstr "Tarih bulundu: “%1”"
 
 #: alkonlinequote.cpp:594
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
-msgstr "Tarih biçimi bulundu: '%1' -> '%2'"
+msgstr "Tarih biçimi bulundu: “%1” → “%2”"
 
 #: alkonlinequote.cpp:597
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
-msgstr "'%1' tarihi, '%2' biçimi kullanılarak ayrıştırılamadı: %3"
+msgstr "“%1” tarihi, “%2” biçimi kullanılarak ayrıştırılamadı: %3"
 
 #: alkonlinequote.cpp:601 alkonlinequote.cpp:611
 #, kde-format
 msgid "Using current date for '%1'"
-msgstr "'%1' için geçerli tarih kullanılıyor"
+msgstr "“%1” için geçerli tarih kullanılıyor"
 
 #: alkonlinequote.cpp:605
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
-msgstr "'%1' için tarih ayrıştırması devre dışı bırakıldı"
+msgstr "“%1” için tarih ayrıştırması devre dışı bırakıldı"
 
 #: alkonlinequote.cpp:608
 #, kde-format
 msgid "Unable to parse date for '%1'"
-msgstr "'%1' için tarih ayrıştırılamadı"
+msgstr "“%1” için tarih ayrıştırılamadı"
 
 #: alkonlinequote.cpp:685
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
-msgstr "%1 fiyatı güncellenemedi (boş alıntı verisi)"
+msgstr "%1 fiyatı güncellenemedi (boş kur verisi)"
 
 #: alkonlinequote.cpp:694
 #, kde-format
@@ -192,7 +192,7 @@ msgstr "Seçili çevrimiçi kaynak girdisini göstermek için bunu kullanın"
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
-msgstr "&Yeni..."
+msgstr "&Yeni…"
 
 #: alkonlinequoteswidget.cpp:157
 #, kde-format
