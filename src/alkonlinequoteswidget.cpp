@@ -470,10 +470,11 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
 
     bool isFinanceQuote = m_currentItem.isFinanceQuote() || m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
     bool hasWriteSupport = (m_profile->type() != AlkOnlineQuotesProfile::Type::None && !isFinanceQuote) || m_profile->hasGHNSSupport();
+    bool isRemoteUnpublished = m_currentItem.isGHNS() && m_currentItem.profile()->GHNSFilePath(m_currentItem.name()).isEmpty();
     m_newButton->setEnabled(hasWriteSupport);
     m_cancelButton->setEnabled(modified);
     m_duplicateButton->setEnabled(hasWriteSupport);
-    m_deleteButton->setEnabled(!m_currentItem.isReadOnly() && !m_currentItem.isGHNS());
+    m_deleteButton->setEnabled((!m_currentItem.isReadOnly() && !m_currentItem.isGHNS()) || isRemoteUnpublished);
     m_uploadButton->setEnabled(m_profile->hasGHNSSupport() && m_currentItem.isGHNS() && AlkOnlineQuoteUploadDialog::isSupported());
     m_updateButton->setEnabled(modified);
     m_checkButton->setEnabled(isFinanceQuote || !modified);

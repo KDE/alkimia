@@ -233,7 +233,7 @@ public:
     bool removeGHNSFile()
     {
         qDebug() << "delete" << ghnsWriteFilePath();
-        return true;
+        return QFile::remove(ghnsWriteFilePath());
     }
 
     QString m_name;
