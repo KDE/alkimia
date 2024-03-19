@@ -123,7 +123,7 @@ void AlkOnlineQuoteTest::testAlkOnlineQuoteErrorCopy()
 
 void AlkOnlineQuoteTest::init()
 {
-    m_profile = new AlkOnlineQuotesProfile("alkimia");
+    m_profile = new AlkOnlineQuotesProfile("Test");
 }
 
 void AlkOnlineQuoteTest::cleanup()

@@ -78,6 +78,8 @@ MainWindow::MainWindow(QWidget *parent)
 #ifdef ENABLE_FINANCEQUOTE
     manager.addProfile(new AlkOnlineQuotesProfile("Finance::Quote", AlkOnlineQuotesProfile::Type::Script));
 #endif
+    manager.addProfile(new AlkOnlineQuotesProfile("Test", AlkOnlineQuotesProfile::Type::Test));
+
     d->ui.setupUi(this);
     d->quotesWidget = new AlkOnlineQuotesWidget(true, true);
     d->quotesWidget->setGHNSSourceEditable(true);

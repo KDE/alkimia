@@ -40,6 +40,8 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
         d->m_kconfigFile = QString("%1/kmymoneyrc").arg(d->configPath());
     else if (type == Type::Alkimia5 || type == Type::Alkimia4)
         d->m_kconfigFile = QString("%1/alkimiarc").arg(d->configPath());
+    else if (type == Type::Test)
+        d->m_kconfigFile = QString("%1/alkimiatestrc").arg(d->configPath());
     else
         d->m_kconfigFile.clear();
 
@@ -184,6 +186,7 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::Alkimia5:
     case AlkOnlineQuotesProfile::Type::KMyMoney4:
     case AlkOnlineQuotesProfile::Type::KMyMoney5:
+    case AlkOnlineQuotesProfile::Type::Test:
         result << d->quoteSourcesNative();
         break;
 #ifdef ENABLE_FINANCEQUOTE

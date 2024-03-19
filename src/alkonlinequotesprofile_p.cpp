@@ -200,7 +200,9 @@ const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::defaultQuoteS
     switch (m_p->type()) {
     case AlkOnlineQuotesProfile::Type::None:
     case AlkOnlineQuotesProfile::Type::Alkimia4:
-    case AlkOnlineQuotesProfile::Type::Alkimia5: {
+    case AlkOnlineQuotesProfile::Type::Alkimia5:
+    case AlkOnlineQuotesProfile::Type::Test:
+    {
         AlkOnlineQuoteSource source(AlkOnlineQuoteSource::defaultCurrencyQuoteSource("Alkimia Currency"));
         source.setProfile(m_p);
         result[source.name()] = source;
@@ -224,7 +226,7 @@ QString AlkOnlineQuotesProfile::Private::dataRootPath()
 
 QString AlkOnlineQuotesProfile::Private::homeRootPath()
 {
-    if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
+    if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5 || m_type == Type::Test)
         return QDir::homePath();
     else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4) {
 #ifdef Q_OS_WIN
@@ -242,7 +244,7 @@ QString AlkOnlineQuotesProfile::Private::configPath()
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     if (m_type == Type::KMyMoney5)
         return QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
-    else if(m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
+    else if(m_type == Type::Alkimia5 || m_type == Type::Skrooge5 || m_type == Type::Test)
         return QString("%1/.config").arg(homeRootPath());
     else
 #endif
@@ -254,7 +256,7 @@ QString AlkOnlineQuotesProfile::Private::configPath()
 
 QString AlkOnlineQuotesProfile::Private::dataReadPath()
 {
-    if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
+    if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5 || m_type == Type::Test)
         return dataRootPath();
     else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
         return QString("%1/kde4/apps").arg(dataRootPath());
@@ -264,7 +266,7 @@ QString AlkOnlineQuotesProfile::Private::dataReadPath()
 
 QString AlkOnlineQuotesProfile::Private::dataWritePath()
 {
-    if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5)
+    if (m_type == Type::KMyMoney5 || m_type == Type::Alkimia5 || m_type == Type::Skrooge5 || m_type == Type::Test)
         return QString("%1/.local/share").arg(homeRootPath());
     else if (m_type == Type::KMyMoney4 || m_type == Type::Alkimia4 || m_type == Type::Skrooge4)
         return QString("%1/.kde4/share/apps").arg(homeRootPath());
