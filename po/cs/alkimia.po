@@ -344,7 +344,7 @@ msgstr ""
 #: alkonlinequotedetails.ui:249
 #, kde-format
 msgid "Legacy"
-msgstr ""
+msgstr "Zastaralé"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:264 alkonlinequotesprofile.ui:312
