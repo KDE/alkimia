@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 02:00+0000\n"
+"POT-Creation-Date: 2024-03-20 01:40+0000\n"
 "PO-Revision-Date: 2024-03-14 20:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -724,33 +724,33 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Локальне"
 
-#: alkonlinequoteswidget.cpp:511
+#: alkonlinequoteswidget.cpp:512
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Ви справді хочете вилучити цей інтернет-курс?"
 
-#: alkonlinequoteswidget.cpp:512
+#: alkonlinequoteswidget.cpp:513
 #, kde-format
 msgid "Delete online quote"
 msgstr "Вилучити інтернет-курс"
 
-#: alkonlinequoteswidget.cpp:539
+#: alkonlinequoteswidget.cpp:540
 #, kde-format
 msgid ".copy"
 msgstr ".копія"
 
-#: alkonlinequoteswidget.cpp:566 alkonlinequoteswidget.cpp:568
+#: alkonlinequoteswidget.cpp:567 alkonlinequoteswidget.cpp:569
 #, kde-format
 msgid "New Quote Source"
 msgstr "Створити джерело курсів"
 
-#: alkonlinequoteswidget.cpp:577
+#: alkonlinequoteswidget.cpp:578
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Нове джерело курсів</b> вже існує."
 
-#: alkonlinequoteswidget.cpp:755
+#: alkonlinequoteswidget.cpp:756
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Вікно результатів пошуку курсів у форматі HTML"

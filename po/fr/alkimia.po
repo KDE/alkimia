@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 02:00+0000\n"
+"POT-Creation-Date: 2024-03-20 01:40+0000\n"
 "PO-Revision-Date: 2024-03-15 08:57+0100\n"
 "Last-Translator: xavier <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -737,33 +737,33 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Local"
 
-#: alkonlinequoteswidget.cpp:511
+#: alkonlinequoteswidget.cpp:512
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Voulez-vous vraiment supprimer cette cotation en ligne ?"
 
-#: alkonlinequoteswidget.cpp:512
+#: alkonlinequoteswidget.cpp:513
 #, kde-format
 msgid "Delete online quote"
 msgstr "Supprimer la cotation en ligne"
 
-#: alkonlinequoteswidget.cpp:539
+#: alkonlinequoteswidget.cpp:540
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:566 alkonlinequoteswidget.cpp:568
+#: alkonlinequoteswidget.cpp:567 alkonlinequoteswidget.cpp:569
 #, kde-format
 msgid "New Quote Source"
 msgstr "Nouvelle source de cotation"
 
-#: alkonlinequoteswidget.cpp:577
+#: alkonlinequoteswidget.cpp:578
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>La nouvelle source de cotations</b> existe déjà."
 
-#: alkonlinequoteswidget.cpp:755
+#: alkonlinequoteswidget.cpp:756
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Fenêtre de résultat HTML de cotation en ligne"

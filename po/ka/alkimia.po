@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 02:00+0000\n"
+"POT-Creation-Date: 2024-03-20 01:40+0000\n"
 "PO-Revision-Date: 2024-01-27 05:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -716,33 +716,33 @@ msgstr "ფინანსები::კვოტა"
 msgid "Local"
 msgstr "ლოკალური"
 
-#: alkonlinequoteswidget.cpp:511
+#: alkonlinequoteswidget.cpp:512
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ ამ ონლაინ კვოტის წაშლა?"
 
-#: alkonlinequoteswidget.cpp:512
+#: alkonlinequoteswidget.cpp:513
 #, kde-format
 msgid "Delete online quote"
 msgstr "ონლაინ კვოტის წაშლა"
 
-#: alkonlinequoteswidget.cpp:539
+#: alkonlinequoteswidget.cpp:540
 #, kde-format
 msgid ".copy"
 msgstr ".კოპირება"
 
-#: alkonlinequoteswidget.cpp:566 alkonlinequoteswidget.cpp:568
+#: alkonlinequoteswidget.cpp:567 alkonlinequoteswidget.cpp:569
 #, kde-format
 msgid "New Quote Source"
 msgstr "კვოტის ახალი წყარო"
 
-#: alkonlinequoteswidget.cpp:577
+#: alkonlinequoteswidget.cpp:578
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>ახალი კვოტის წყარო</b> უკვე არსებობს."
 
-#: alkonlinequoteswidget.cpp:755
+#: alkonlinequoteswidget.cpp:756
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "ონლაინ კვოტის HTML შედეგის ფანჯარა"

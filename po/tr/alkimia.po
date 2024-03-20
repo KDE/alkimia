@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 02:00+0000\n"
+"POT-Creation-Date: 2024-03-20 01:40+0000\n"
 "PO-Revision-Date: 2024-03-14 14:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -716,33 +716,33 @@ msgstr "Finans::Kur"
 msgid "Local"
 msgstr "Yerel"
 
-#: alkonlinequoteswidget.cpp:511
+#: alkonlinequoteswidget.cpp:512
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Bu çevrimiçi kuru silmek istediğinize emin misiniz?"
 
-#: alkonlinequoteswidget.cpp:512
+#: alkonlinequoteswidget.cpp:513
 #, kde-format
 msgid "Delete online quote"
 msgstr "Çevrimiçi Kuru Sil"
 
-#: alkonlinequoteswidget.cpp:539
+#: alkonlinequoteswidget.cpp:540
 #, kde-format
 msgid ".copy"
 msgstr ".kopya"
 
-#: alkonlinequoteswidget.cpp:566 alkonlinequoteswidget.cpp:568
+#: alkonlinequoteswidget.cpp:567 alkonlinequoteswidget.cpp:569
 #, kde-format
 msgid "New Quote Source"
 msgstr "Yeni Kur Kaynağı"
 
-#: alkonlinequoteswidget.cpp:577
+#: alkonlinequoteswidget.cpp:578
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Yeni Kur Kaynağı</b> halihazırda var."
 
-#: alkonlinequoteswidget.cpp:755
+#: alkonlinequoteswidget.cpp:756
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Çevrimiçi Kur HTML Sonuç Penceresi"

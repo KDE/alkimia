@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 02:00+0000\n"
+"POT-Creation-Date: 2024-03-20 01:40+0000\n"
 "PO-Revision-Date: 2024-03-17 20:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -704,33 +704,33 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:511
+#: alkonlinequoteswidget.cpp:512
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "您确定删除该在线报价吗？"
 
-#: alkonlinequoteswidget.cpp:512
+#: alkonlinequoteswidget.cpp:513
 #, kde-format
 msgid "Delete online quote"
 msgstr "删除在线报价"
 
-#: alkonlinequoteswidget.cpp:539
+#: alkonlinequoteswidget.cpp:540
 #, kde-format
 msgid ".copy"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:566 alkonlinequoteswidget.cpp:568
+#: alkonlinequoteswidget.cpp:567 alkonlinequoteswidget.cpp:569
 #, kde-format
 msgid "New Quote Source"
 msgstr "新报价来源"
 
-#: alkonlinequoteswidget.cpp:577
+#: alkonlinequoteswidget.cpp:578
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:755
+#: alkonlinequoteswidget.cpp:756
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "在线报价 HTML 结果窗口"
