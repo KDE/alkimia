@@ -192,7 +192,8 @@ public:
     ~Private()
     {
         p->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
-        inspector->setPage(nullptr);
+        if (inspector)
+            inspector->setPage(nullptr);
         delete inspector;
         delete networkAccessManager;
     }
