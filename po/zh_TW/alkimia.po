@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-20 01:40+0000\n"
-"PO-Revision-Date: 2024-03-01 04:49+0900\n"
+"PO-Revision-Date: 2024-03-20 18:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -285,7 +285,7 @@ msgstr "日期"
 #: alkonlinequotedetails.ui:145
 #, kde-format
 msgid "Price decimal separator"
-msgstr ""
+msgstr "價格小數點符號"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:152 alkonlinequotesprofile.ui:159
@@ -340,20 +340,20 @@ msgstr "從下載資料中取出價格所使用的正規表示式"
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
-msgstr ""
+msgstr "點 (.)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:244
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
-msgstr ""
+msgstr "逗號 (,)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:249
 #, kde-format
 msgid "Legacy"
-msgstr ""
+msgstr "舊式"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequotedetails.ui:264 alkonlinequotesprofile.ui:312
