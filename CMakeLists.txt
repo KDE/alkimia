@@ -121,7 +121,7 @@ else()
     find_package(Qt${QT_MAJOR_VERSION}WebEngineWidgets ${QT_MIN_VERSION})
 
     option(BUILD_WITH_WEBENGINE "Build with Qt Web Engine (experimental)" ${Qt${QT_MAJOR_VERSION}WebEngineWidgets_FOUND})
-    if (BUILD_WITH_WEBENGINE)
+    if (BUILD_WITH_WEBENGINE AND NOT BUILD_WITH_WEBKIT)
         add_definitions(-DBUILD_WITH_WEBENGINE)
         set(QT_BROWSER_COMPONENT WebEngineWidgets)
         feature_notes(FALSE TRUE FALSE FALSE)
