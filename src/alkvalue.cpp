@@ -266,7 +266,7 @@ double AlkValue::toDouble() const
     return d->m_val.get_d();
 }
 
-AlkValue AlkValue::convertDenominator(int _denom, const AlkValue::RoundingMethod how) const
+AlkValue AlkValue::convertDenominator(const int _denom, const AlkValue::RoundingMethod how) const
 {
     mpz_class denom(_denom);
     return convertDenominator(denom, how);
@@ -398,7 +398,7 @@ AlkValue AlkValue::convertDenominator(const mpz_class _denom, const AlkValue::Ro
     return out;
 }
 
-AlkValue AlkValue::convertPrecision(int prec, const RoundingMethod how) const
+AlkValue AlkValue::convertPrecision(const int prec, const RoundingMethod how) const
 {
     return convertDenominator(precisionToDenominator(prec).get_si(), how);
 }
