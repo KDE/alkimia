@@ -117,8 +117,7 @@ QWidget *AlkWebPage::widget()
 
 void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 {
-    Q_UNUSED(acceptLanguage)
-
+    profile()->setHttpAcceptLanguage(acceptLanguage);
     setUrl(url);
 }
 
