@@ -312,6 +312,12 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
     Q_EMIT loadStarted();
 }
 
+void AlkWebPage::setHtml(const QString &data, const QUrl &url)
+{
+    Q_UNUSED(url);
+    QTextBrowser::setHtml(data);
+}
+
 void AlkWebPage::setUrl(const QUrl &url)
 {
     load(url, QString());
