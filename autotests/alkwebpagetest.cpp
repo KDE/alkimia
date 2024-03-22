@@ -35,7 +35,7 @@ void AlkWebPageTest::testLoad()
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     QVERIFY(spyFinished.wait(1000));
 #else
-    QSKIP("spying loadFinished() does not");
+    QSKIP("spying loadFinished() does not work");
 #endif
     QVERIFY(spyStarted.count() >= 1);
     QCOMPARE(spyFinished.count(), 1);
