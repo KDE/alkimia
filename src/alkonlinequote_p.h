@@ -16,6 +16,7 @@
 #ifdef ENABLE_FINANCEQUOTE
 #include "alkonlinequoteprocess.h"
 #endif
+#include "alkdownloadengine.h"
 #include "alkonlinequotesource.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
@@ -57,6 +58,7 @@ public:
     double m_price;
     AlkOnlineQuoteSource m_source;
     AlkOnlineQuote::Errors m_errors;
+    AlkDownloadEngine m_downloader;
     KUrl m_url;
     QEventLoop *m_eventLoop;
     QString m_acceptLanguage;
@@ -84,26 +86,19 @@ public:
     bool parseQuoteStripHTML(const QString &quotedata);
     bool parseQuoteHTML(const QString &quotedata);
     bool parseQuoteCSV(const QString &quotedata);
-    bool downloadUrl(const KUrl& url);
-    bool processDownloadedFile(const KUrl& url, const QString& tmpFile);
     bool processDownloadedPage(const KUrl &url, const QByteArray &page);
 #ifdef ENABLE_FINANCEQUOTE
     bool processLocalScript(const KUrl& url);
 #endif
 
 public Q_SLOTS:
-    void slotLoadStarted();
-    void slotLoadFinishedHtmlParser(bool ok = false);
-    void slotLoadFinishedCssSelector(bool ok);
+    void slotLoadError(const QUrl &, const QString &);
+    void slotLoadFinished(const QUrl &url, const QString &data);
+    void slotLoadFinishedPage(const QUrl &, AlkWebPage *page);
+    void slotLoadRedirected(const QUrl &, const QUrl &);
+    void slotLoadStarted(const QUrl &);
+    void slotLoadTimeout(const QUrl &);
     bool slotParseQuote(const QString &quotedata);
-
-private Q_SLOTS:
-    void slotLoadTimeout();
-#ifndef BUILD_WITH_QTNETWORK
-    void downloadUrlDone(KJob* job);
-#else
-    void downloadUrlDone(QNetworkReply *reply);
-#endif
 };
 
 #endif // ALKONLINEQUOTE_PRIVATE_H

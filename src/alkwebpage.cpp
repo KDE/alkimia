@@ -142,6 +142,13 @@ void AlkWebPage::setContent(const QString &s)
     setHtml(s);
 }
 
+QStringList AlkWebPage::getAllElements(const QString &symbol)
+{
+    Q_UNUSED(symbol)
+
+    return QStringList();
+}
+
 QString AlkWebPage::getFirstElement(const QString &symbol)
 {
     Q_UNUSED(symbol)
@@ -258,6 +265,17 @@ QString AlkWebPage::toHtml()
     return frame->toHtml();
 }
 
+QStringList AlkWebPage::getAllElements(const QString &symbol)
+{
+    QStringList result;
+    QWebFrame *frame = page()->mainFrame();
+    QWebElementCollection elements = frame->findAllElements(symbol);
+    for (const auto &e: elements) {
+        result.append(e.toPlainText());
+    }
+    return result;
+}
+
 QString AlkWebPage::getFirstElement(const QString &symbol)
 {
     QWebFrame *frame = page()->mainFrame();
@@ -326,7 +344,14 @@ void AlkWebPage::setUrl(const QUrl &url)
 
 void AlkWebPage::setContent(const QString &s)
 {
-    setHtml(s);
+    QTextBrowser::setHtml(s);
+}
+
+QStringList AlkWebPage::getAllElements(const QString &symbol)
+{
+    Q_UNUSED(symbol)
+
+    return QStringList();
 }
 
 QString AlkWebPage::getFirstElement(const QString &symbol)

@@ -95,6 +95,7 @@ if(QT_MAJOR_VERSION EQUAL 4)
     find_package(KF${QT_MAJOR_VERSION} REQUIRED)
     set(KF_NEWSTUFF_LIB KF${QT_MAJOR_VERSION}::NewStuff)
     set(QML_INSTALL_DIR ${LIB_INSTALL_DIR}/qt4/plugins/imports)
+    set(BUILD_WITH_WEBKIT 1)
 
     # install custom cmake files
     set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")

@@ -22,21 +22,8 @@
 #include "alkimia/alkversion.h"
 #include "alkwebpage.h"
 
-
-#ifdef BUILD_WITH_QTNETWORK
-    #include <QNetworkAccessManager>
-    #include <QNetworkRequest>
-    #include <QNetworkReply>
-    #include <QNetworkProxyFactory>
-#else
-    #include <KIO/Scheduler>
-#endif
-
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KLocalizedString>
-#ifndef BUILD_WITH_QTNETWORK
-    #include <KIO/Job>
-#endif
     #include <QDebug>
     #include <QTemporaryFile>
     #define kDebug(a) qDebug()
@@ -45,9 +32,6 @@
     #include <KDebug>
     #include <KGlobal>
     #include <KLocale>
-#ifndef BUILD_WITH_QTNETWORK
-    #include <kio/netaccess.h>
-#endif
 #endif
 
 #include <KConfigGroup>
@@ -80,6 +64,13 @@ AlkOnlineQuote::Private::Private(AlkOnlineQuote *parent)
 #ifdef ENABLE_FINANCEQUOTE
     connect(&m_filter, SIGNAL(processExited(QString)), this, SLOT(slotParseQuote(QString)));
 #endif
+    m_downloader.setWebPage(AlkOnlineQuotesProfileManager::instance().webPage());
+    connect(&m_downloader, SIGNAL(started(QUrl)), this, SLOT(slotLoadStarted(QUrl)));
+    connect(&m_downloader, SIGNAL(finished(QUrl,QString)), this, SLOT(slotLoadFinished(QUrl,QString)));
+    connect(&m_downloader, SIGNAL(finishedPage(QUrl,AlkWebPage*)), this, SLOT(slotLoadFinishedPage(QUrl,AlkWebPage*)));
+    connect(&m_downloader, SIGNAL(timeout(QUrl)), this, SLOT(slotLoadTimeout(QUrl)));
+    connect(&m_downloader, SIGNAL(error(QUrl,QString)), this, SLOT(slotLoadError(QUrl,QString)));
+    connect(&m_downloader, SIGNAL(redirected(QUrl,QUrl)), this, SLOT(slotLoadRedirected(QUrl,QUrl)));
 }
 
 AlkOnlineQuote::Private::~Private()
@@ -149,60 +140,62 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     }
 
     m_url = url;
+    m_downloader.setAcceptedLanguage(m_acceptLanguage);
 
     return true;
 }
 
-void AlkOnlineQuote::Private::slotLoadFinishedHtmlParser(bool ok)
+void AlkOnlineQuote::Private::slotLoadError(const QUrl &, const QString &)
 {
-    if (!ok) {
-        Q_EMIT m_p->error(i18n("Unable to fetch url for %1", m_symbol));
-        m_errors |= Errors::URL;
-        Q_EMIT m_p->failed(m_id, m_symbol);
-    } else {
-        // parse symbol
-        slotParseQuote(AlkOnlineQuotesProfileManager::instance().webPage()->toHtml());
-    }
-    if (m_eventLoop)
-        m_eventLoop->exit();
+    Q_EMIT m_p->error(i18n("Unable to fetch url for %1", m_symbol));
+    m_errors |= Errors::URL;
+    Q_EMIT m_p->failed(m_id, m_symbol);
 }
 
-void AlkOnlineQuote::Private::slotLoadFinishedCssSelector(bool ok)
+
+void AlkOnlineQuote::Private::slotLoadRedirected(const QUrl &, const QUrl &)
 {
-    if (!ok) {
-        Q_EMIT m_p->error(i18n("Unable to fetch url for %1", m_symbol));
-        m_errors |= Errors::URL;
-        Q_EMIT m_p->failed(m_id, m_symbol);
-    } else {
-        AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
-        // parse symbol
-        QString identifier = webPage->getFirstElement(m_source.idRegex());
-        if (!identifier.isEmpty()) {
-            Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifier));
-        } else {
-            m_errors |= Errors::Symbol;
-            Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
-        }
-
-        // parse price
-        QString price = webPage->getFirstElement(m_source.priceRegex());
-        bool gotprice = parsePrice(price, m_source.priceDecimalSeparator());
-
-        // parse date
-        QString date = webPage->getFirstElement(m_source.dateRegex());
-        bool gotdate = parseDate(date);
-
-        if (gotprice && gotdate) {
-            Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
-        } else {
-            Q_EMIT m_p->failed(m_id, m_symbol);
-        }
-    }
-    if (m_eventLoop)
-        m_eventLoop->exit();
+    Q_EMIT m_p->status(QString("<font color=\"orange\">%1</font>")
+    #ifdef I18N_NOOP
+        .arg(I18N_NOOP("The URL has been redirected; check an update of the online quote URL")));
+    #else
+        .arg(kli18n("The URL has been redirected; check an update of the online quote URL").untranslatedText()));
+    #endif
 }
 
-void AlkOnlineQuote::Private::slotLoadStarted()
+void AlkOnlineQuote::Private::slotLoadFinished(const QUrl &url, const QString &data)
+{
+    // show in browser widget
+    processDownloadedPage(url, data.toLocal8Bit());
+}
+
+void AlkOnlineQuote::Private::slotLoadFinishedPage(const QUrl &, AlkWebPage *page)
+{
+    // parse symbol
+    QString identifier = page->getFirstElement(m_source.idRegex());
+    if (!identifier.isEmpty()) {
+        Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifier));
+    } else {
+        m_errors |= Errors::Symbol;
+        Q_EMIT m_p->error(i18n("Unable to parse symbol for %1", m_symbol));
+    }
+
+    // parse price
+    QString price = page->getFirstElement(m_source.priceRegex());
+    bool gotprice = parsePrice(price);
+
+    // parse date
+    QString date = page->getFirstElement(m_source.dateRegex());
+    bool gotdate = parseDate(date);
+
+    if (gotprice && gotdate) {
+        Q_EMIT m_p->quote(m_id, m_symbol, m_date, m_price);
+    } else {
+        Q_EMIT m_p->failed(m_id, m_symbol);
+    }
+}
+
+void AlkOnlineQuote::Private::slotLoadStarted(const QUrl &)
 {
     Q_EMIT m_p->status(i18n("Fetching URL %1...", m_url.prettyUrl()));
 }
@@ -213,20 +206,10 @@ bool AlkOnlineQuote::Private::launchWebKitCssSelector(const QString &_symbol, co
     if (!initLaunch(_symbol, _id, _source)) {
         return false;
     }
-    AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
-    connect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    connect(webPage, SIGNAL(loadFinished(bool)), this,
-            SLOT(slotLoadFinishedCssSelector(bool)));
-    if (m_timeout != -1)
-        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
-    webPage->setUrl(m_url);
-    m_eventLoop = new QEventLoop;
-    m_eventLoop->exec();
-    delete m_eventLoop;
-    m_eventLoop = nullptr;
-    disconnect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    disconnect(webPage, SIGNAL(loadFinished(bool)), this,
-               SLOT(slotLoadFinishedCssSelector(bool)));
+
+    if (!m_downloader.downloadUrl(m_url, AlkDownloadEngine::JavaScriptEngineCSS, m_timeout)) {
+        return false;
+    }
 
     return !(m_errors & Errors::URL || m_errors & Errors::Price
              || m_errors & Errors::Date || m_errors & Errors::Data);
@@ -238,18 +221,10 @@ bool AlkOnlineQuote::Private::launchWebKitHtmlParser(const QString &_symbol, con
     if (!initLaunch(_symbol, _id, _source)) {
         return false;
     }
-    AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
-    connect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    connect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
-    if (m_timeout != -1)
-        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
-    webPage->load(m_url, m_acceptLanguage);
-    m_eventLoop = new QEventLoop;
-    m_eventLoop->exec();
-    delete m_eventLoop;
-    m_eventLoop = nullptr;
-    disconnect(webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    disconnect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinishedHtmlParser(bool)));
+
+    if (!m_downloader.downloadUrl(m_url, AlkDownloadEngine::JavaScriptEngine, m_timeout)) {
+        return false;
+    }
 
     return !(m_errors & Errors::URL || m_errors & Errors::Price
              || m_errors & Errors::Date || m_errors & Errors::Data);
@@ -268,9 +243,10 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
 #ifdef ENABLE_FINANCEQUOTE
         result = processLocalScript(url);
 #endif
-    } else {
-        slotLoadStarted();
-        result = downloadUrl(url);
+    } else if (!m_downloader.downloadUrl(url, AlkDownloadEngine::DefaultEngine, m_timeout)) {
+        return false;
+        return !(m_errors & Errors::URL || m_errors & Errors::Price
+                 || m_errors & Errors::Date || m_errors & Errors::Data);
     }
     return result;
 }
@@ -303,24 +279,6 @@ bool AlkOnlineQuote::Private::processLocalScript(const KUrl& url)
 }
 #endif
 
-bool AlkOnlineQuote::Private::processDownloadedFile(const KUrl& url, const QString& tmpFile)
-{
-  bool result = false;
-
-  QFile f(tmpFile);
-  if (f.open(QIODevice::ReadOnly)) {
-    // Find out the page encoding and convert it to unicode
-    QByteArray page = f.readAll();
-    result = processDownloadedPage(url, page);
-    f.close();
-  } else {
-    Q_EMIT m_p->error(i18n("Failed to open downloaded file"));
-    m_errors |= Errors::URL;
-    result = slotParseQuote(QString());
-  }
-  return result;
-}
-
 bool AlkOnlineQuote::Private::processDownloadedPage(const KUrl& url, const QByteArray& page)
 {
     bool result = false;
@@ -336,145 +294,9 @@ bool AlkOnlineQuote::Private::processDownloadedPage(const KUrl& url, const QByte
     QString quote = page;
 #endif
     Q_EMIT m_p->status(i18n("URL found: %1...", url.prettyUrl()));
-    if (AlkOnlineQuotesProfileManager::instance().webPageEnabled())
-      AlkOnlineQuotesProfileManager::instance().webPage()->setContent(quote.toLocal8Bit());
     result = slotParseQuote(quote);
     return result;
 }
-
-#ifndef BUILD_WITH_QTNETWORK
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-
-bool AlkOnlineQuote::Private::downloadUrl(const QUrl& url)
-{
-    // Create a temporary filename (w/o leaving the file on the filesystem)
-    // In case the file is still present, the KIO::file_copy operation cannot
-    // be performed on some operating systems (Windows).
-    auto tmpFile = new QTemporaryFile;
-    tmpFile->open();
-    auto tmpFileName = QUrl::fromLocalFile(tmpFile->fileName());
-    delete tmpFile;
-
-    m_eventLoop = new QEventLoop;
-    KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo);
-    connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDone(KJob*)));
-
-    if (m_timeout != -1)
-        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
-    auto result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
-    delete m_eventLoop;
-    m_eventLoop = nullptr;
-
-    return result;
-}
-
-void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
-{
-  QString tmpFileName = dynamic_cast<KIO::FileCopyJob*>(job)->destUrl().toLocalFile();
-  QUrl url = dynamic_cast<KIO::FileCopyJob*>(job)->srcUrl();
-
-  bool result;
-  if (!job->error()) {
-    qDebug() << "Downloaded" << tmpFileName << "from" << url;
-    result = processDownloadedFile(url, tmpFileName);
-  } else {
-    Q_EMIT m_p->error(job->errorString());
-    m_errors |= Errors::URL;
-    result = slotParseQuote(QString());
-  }
-  m_eventLoop->exit(result);
-}
-
-#else // QT_VERSION
-
-// This is simply a placeholder. It is unused but needs to be present
-// to make the linker happy (since the declaration of the slot cannot
-// be made dependendant on QT_VERSION with the Qt4 moc compiler.
-void AlkOnlineQuote::Private::downloadUrlDone(KJob* job)
-{
-    Q_UNUSED(job);
-}
-
-bool AlkOnlineQuote::Private::downloadUrl(const KUrl& url)
-{
-    bool result = false;
-
-    QString tmpFile;
-    if (KIO::NetAccess::download(url, tmpFile, nullptr)) {
-        // kDebug(Private::dbgArea()) << "Downloaded " << tmpFile;
-        kDebug(Private::dbgArea()) << "Downloaded" << tmpFile << "from" << url;
-        result = processDownloadedFile(url, tmpFile);
-        KIO::NetAccess::removeTempFile(tmpFile);
-    } else {
-        Q_EMIT m_p->error(KIO::NetAccess::lastErrorString());
-        m_errors |= Errors::URL;
-        result = slotParseQuote(QString());
-    }
-    return result;
-}
-
-#endif // QT_VERSION
-#else // BUILD_WITH_QTNETWORK
-
-void AlkOnlineQuote::Private::downloadUrlDone(QNetworkReply *reply)
-{
-    int result = 0;
-    if (reply->error() == QNetworkReply::NoError) {
-        QUrl newUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
-        if (!newUrl.isEmpty() && newUrl != reply->url()) {
-            m_url = reply->url().resolved(newUrl);
-            // TODO migrate to i18n()
-            Q_EMIT m_p->status(QString("<font color=\"orange\">%1</font>")
-            #ifdef I18N_NOOP
-                            .arg(I18N_NOOP("The URL has been redirected; check an update of the online quote URL")));
-            #else
-                            .arg(kli18n("The URL has been redirected; check an update of the online quote URL").untranslatedText()));
-            #endif
-            result = 2;
-        } else {
-            kDebug(Private::dbgArea()) << "Downloaded data from" << reply->url();
-            result = processDownloadedPage(KUrl(reply->url()), reply->readAll()) ? 0 : 1;
-        }
-    } else {
-        Q_EMIT m_p->error(reply->errorString());
-        m_errors |= Errors::URL;
-        result = slotParseQuote(QString()) ? 0 : 1;
-    }
-    m_eventLoop->exit(result);
-}
-
-bool AlkOnlineQuote::Private::downloadUrl(const KUrl &url)
-{
-    QNetworkAccessManager manager(this);
-    connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(downloadUrlDone(QNetworkReply*)));
-
-    QNetworkRequest request;
-    request.setUrl(url);
-    request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
-    manager.get(request);
-
-    if (m_timeout != -1)
-        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
-    m_eventLoop = new QEventLoop;
-    int result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
-    delete m_eventLoop;
-    m_eventLoop = nullptr;
-    if (result == 2) {
-        QNetworkRequest req;
-        req.setUrl(m_url);
-        req.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
-        manager.get(req);
-
-        if (m_timeout != -1)
-            QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
-        m_eventLoop = new QEventLoop;
-        result = m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents);
-        delete m_eventLoop;
-        m_eventLoop = nullptr;
-    }
-    return result == 0;
-}
-#endif // BUILD_WITH_QTNETWORK
 
 #ifdef ENABLE_FINANCEQUOTE
 bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const QString &_id,
@@ -860,7 +682,7 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &quotedata)
     }
 }
 
-void AlkOnlineQuote::Private::slotLoadTimeout()
+void AlkOnlineQuote::Private::slotLoadTimeout(const QUrl &)
 {
     Q_EMIT m_p->error(i18n("Timeout exceeded on fetching url for %1", m_symbol));
     m_errors |= Errors::Timeout;

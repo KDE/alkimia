@@ -14,25 +14,33 @@ set(TEST_LIB
     alkimia
 )
 
+if(BUILD_WITH_WEBKIT)
+    set(TEST_SUFFIX "-webkit-")
+elseif(BUILD_WITH_WEBENGINE)
+    set(TEST_SUFFIX "-webengine-")
+else(BUILD_WITH_WEBKIT)
+    set(TEST_SUFFIX "")
+endif()
+
 ecm_add_tests(
     alkonlinequotesourcetest.cpp
     alkvaluetest.cpp
     alkquoteitemtest.cpp
     alkcompanytest.cpp
     alkexceptiontest.cpp
-    alkwebpagetest.cpp
     LINK_LIBRARIES
     ${TEST_LIB}
 )
-set_property(TEST alkwebpagetest PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
 
 ecm_add_test(
     alkonlinequotetest.cpp
     ../src/alkquotereceiver.cpp
     LINK_LIBRARIES ${TEST_LIB}
-    TEST_NAME alkonlinequotestest
+    TEST_NAME alkonlinequotes${TEST_SUFFIX}test
 )
-set_property(TEST alkonlinequotestest PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
+if(BUILD_WITH_WEBENGINE)
+    set_property(TEST alkonlinequotes${TEST_SUFFIX}test PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
+endif()
 
 ecm_add_test(
     alkdateformattest.cpp
@@ -48,10 +56,29 @@ ecm_add_test(
 )
 
 ecm_add_test(
+    alkdownloadenginetest.cpp
+    alkdownloadenginetest.h
+    LINK_LIBRARIES ${TEST_LIB}
+    TEST_NAME alkdownloadengine${TEST_SUFFIX}test
+)
+if(BUILD_WITH_WEBENGINE)
+    set_property(TEST alkdownloadengine${TEST_SUFFIX}test PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
+endif()
+
+ecm_add_test(
     alknewstuffenginetest.cpp
     LINK_LIBRARIES alkimia alkimia-internal ${KF_NEWSTUFF_LIB}
     TEST_NAME alknewstuffenginetest
 )
+
+ecm_add_test(
+    alkwebpagetest.cpp
+    LINK_LIBRARIES ${TEST_LIB}
+    TEST_NAME alkwebpage${TEST_SUFFIX}test
+)
+if(BUILD_WITH_WEBENGINE)
+    set_property(TEST alkwebpage${TEST_SUFFIX}test PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
+endif()
 
 #
 # cmake install test

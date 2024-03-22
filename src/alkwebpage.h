@@ -30,6 +30,7 @@ public:
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
     void setContent(const QString &s);
+    QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
     static void setWebInspectorEnabled(bool state);
     static bool webInspectorEnabled();
@@ -64,6 +65,7 @@ public:
     QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
+    QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
@@ -96,6 +98,7 @@ public:
     void setHtml(const QString &data, const QUrl &url = QUrl());
     void setUrl(const QUrl &url);
     void setContent(const QString &s);
+    QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
