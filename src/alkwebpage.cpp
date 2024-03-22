@@ -276,6 +276,11 @@ bool AlkWebPage::webInspectorEnabled()
 
 #else
 
+#include <QEventLoop>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QThread>
+
 class AlkWebPage::Private
 {
 public:
@@ -287,6 +292,7 @@ AlkWebPage::AlkWebPage(QWidget *parent)
 {
     setOpenExternalLinks(false);
     setOpenLinks(false);
+    connect(this, SIGNAL(sourceChanged(QUrl)), SIGNAL(urlChanged(QUrl)));
 }
 
 AlkWebPage::~AlkWebPage()
@@ -301,13 +307,14 @@ QWidget *AlkWebPage::widget()
 
 void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 {
-    Q_UNUSED(url)
     Q_UNUSED(acceptLanguage)
+    setSource(url, QTextDocument::HtmlResource);
+    Q_EMIT loadStarted();
 }
 
 void AlkWebPage::setUrl(const QUrl &url)
 {
-    Q_UNUSED(url)
+    load(url, QString());
 }
 
 void AlkWebPage::setContent(const QString &s)
@@ -330,6 +337,27 @@ void AlkWebPage::setWebInspectorEnabled(bool enable)
 bool AlkWebPage::webInspectorEnabled()
 {
     return false;
+}
+
+QVariant AlkWebPage::loadResource(int type, const QUrl &name)
+{
+    switch(type) {
+    case QTextDocument::HtmlResource:
+    case QTextDocument::StyleSheetResource:
+        QNetworkAccessManager networkManager;
+        QNetworkRequest request;
+        request.setUrl(name);
+        QNetworkReply* reply = networkManager.get(request);
+        QEventLoop loop;
+        connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+        connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), &loop, SLOT(quit()));
+        loop.exec();
+        QString data = reply->readAll();
+        Q_EMIT loadFinished(true);
+        return data;
+    }
+
+    return QVariant();
 }
 
 #endif

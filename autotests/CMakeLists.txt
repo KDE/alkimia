@@ -14,9 +14,11 @@ ecm_add_tests(
     alkquoteitemtest.cpp
     alkcompanytest.cpp
     alkexceptiontest.cpp
+    alkwebpagetest.cpp
     LINK_LIBRARIES
     ${TEST_LIB}
 )
+set_property(TEST alkwebpagetest PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
 
 ecm_add_test(
     alkonlinequotetest.cpp

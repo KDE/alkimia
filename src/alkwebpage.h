@@ -91,6 +91,7 @@ public:
 
     QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
+    void setHtml(const QString &data, const QUrl &url = QUrl());
     void setUrl(const QUrl &url);
     void setContent(const QString &s);
     QString getFirstElement(const QString &symbol);
@@ -99,10 +100,12 @@ public:
 Q_SIGNALS:
     void loadStarted();
     void loadFinished(bool);
+    void urlChanged(const QUrl&);
 
 private:
     class Private;
     Private *d;
+    QVariant loadResource(int type, const QUrl &name) override;
 };
 #endif
 
