@@ -210,12 +210,14 @@ case "$ci_distro" in
             (kf5-webengine)
                 packages=(
                     "${packages[@]}"
+                    "google-droid-fonts"
                     "cmake(Qt5WebEngineWidgets)"
                 )
                 ;;
             (kf6-webengine)
                 packages=(
                     "${packages[@]}"
+                    "google-droid-fonts"
                     "cmake(Qt6WebEngineWidgets)"
                 )
                 ;;
