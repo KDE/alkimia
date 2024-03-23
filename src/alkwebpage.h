@@ -34,9 +34,6 @@ public:
     static void setWebInspectorEnabled(bool state);
     static bool webInspectorEnabled();
 
-Q_SIGNALS:
-    void urlChanged(const QUrl &url);
-
 private:
     class Private;
     Private *d;
