@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker @freenet.de
+    SPDX-FileCopyrightText: 2018, 2024 Ralf Habacker ralf.habacker @freenet.de
 
     This file is part of libalkimia.
 

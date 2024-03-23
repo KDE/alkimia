@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2018 Ralf Habacker ralf.habacker @freenet.de
+    SPDX-FileCopyrightText: 2018, 2024 Ralf Habacker ralf.habacker @freenet.de
 
     This file is part of libalkimia.
 
@@ -17,6 +17,7 @@
 #include <QMenu>
 #include <QUrl>
 #include <QWebEnginePage>
+#include <QWebEngineProfile>
 #include <QWebEngineView>
 
 // Port used by web inspector, may be converted into a tool setting attribute
