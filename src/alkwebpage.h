@@ -34,6 +34,11 @@ public:
     static void setWebInspectorEnabled(bool state);
     static bool webInspectorEnabled();
 
+Q_SIGNALS:
+    // This signal override is required because QWebEnginePage::urlChanged()
+    // returns the html content set with setContent() as url.
+    void urlChanged(const QUrl &url);
+
 private:
     class Private;
     Private *d;
