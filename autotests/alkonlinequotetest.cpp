@@ -123,7 +123,8 @@ void AlkOnlineQuoteTest::testAlkOnlineQuoteErrorCopy()
 
 void AlkOnlineQuoteTest::init()
 {
-    m_profile = new AlkOnlineQuotesProfile("Test");
+    // TODO The used test profile should be readonly to prevent any changes by the ui
+    m_profile = new AlkOnlineQuotesProfile("Test", AlkOnlineQuotesProfile::Type::Test);
 }
 
 void AlkOnlineQuoteTest::cleanup()

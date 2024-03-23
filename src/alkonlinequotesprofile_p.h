@@ -67,6 +67,8 @@ public:
 
     const QStringList quoteSourcesGHNS();
 
+    Map quoteSourcesTesting();
+
     const AlkOnlineQuotesProfile::Map defaultQuoteSources();
 
     void updateQuoteSources(QStringList &sources);

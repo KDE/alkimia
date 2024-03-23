@@ -175,7 +175,12 @@ bool AlkOnlineQuotesProfile::hasGHNSSupport()
 
 const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::defaultQuoteSources()
 {
-    return d->defaultQuoteSources();
+    switch(d->m_type) {
+    case AlkOnlineQuotesProfile::Type::Test:
+        return d->quoteSourcesTesting();
+    default:
+        return d->defaultQuoteSources();
+    }
 }
 
 const QStringList AlkOnlineQuotesProfile::quoteSources()
@@ -186,7 +191,6 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::Alkimia5:
     case AlkOnlineQuotesProfile::Type::KMyMoney4:
     case AlkOnlineQuotesProfile::Type::KMyMoney5:
-    case AlkOnlineQuotesProfile::Type::Test:
         result << d->quoteSourcesNative();
         break;
 #ifdef ENABLE_FINANCEQUOTE
@@ -197,12 +201,20 @@ const QStringList AlkOnlineQuotesProfile::quoteSources()
     case AlkOnlineQuotesProfile::Type::None:
         result << d->defaultQuoteSources().keys();
         break;
+    case AlkOnlineQuotesProfile::Type::Test:
+        result << d->quoteSourcesNative();
+        break;
     default:
         break;
     }
     if (hasGHNSSupport())
         result << d->quoteSourcesGHNS();
     return result;
+}
+
+const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::quoteSourcesTesting()
+{
+    return d->quoteSourcesTesting();
 }
 
 void AlkOnlineQuotesProfile::setManager(AlkOnlineQuotesProfileManager *manager)

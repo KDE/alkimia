@@ -74,6 +74,11 @@ public:
      */
     const QStringList quoteSources();
 
+    /**
+     * return testing sources from this profile
+     */
+    const Map quoteSourcesTesting();
+
     QString scriptPath();
 
     QString GHNSId(const QString &name) const;

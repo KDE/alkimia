@@ -15,7 +15,7 @@
 #define TEST_DOWNLOAD_HOST "http://dev.kmymoney.org"
 #endif
 
-// alkwebpagetest.cpp
+// alkwebpagetest.cpp, alkonlinequotesource.cpp
 #define TEST_LAUNCH_URL TEST_DOWNLOAD_HOST "/onlinequotestest.php?"
 // alkdownloadenginetest.cpp
 #define TEST_DOWNLOAD_URL TEST_LAUNCH_URL "a=BTC&b=GBP"

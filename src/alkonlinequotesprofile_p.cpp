@@ -189,6 +189,26 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesGHNS()
     return sources;
 }
 
+AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::quoteSourcesTesting()
+{
+    QMap<QString, AlkOnlineQuoteSource> result;
+
+    AlkOnlineQuoteSource source1(AlkOnlineQuoteSource::testQuoteSource(
+                                     "Alkimia:Test:1:Default:HTML"));
+    source1.setProfile(m_p);
+    source1.setDownloadType(AlkOnlineQuoteSource::Default);
+    result[source1.name()] = source1;
+
+    AlkOnlineQuoteSource source2(AlkOnlineQuoteSource::testQuoteSource(
+                                     "Alkimia:Test:1:Javascript:HTML", false,
+                                     AlkOnlineQuoteSource::Javascript, AlkOnlineQuoteSource::HTML));
+    source2.setProfile(m_p);
+    source2.setDownloadType(AlkOnlineQuoteSource::Javascript);
+    result[source2.name()] = source2;
+
+    return result;
+}
+
 const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::defaultQuoteSources()
 {
     QMap<QString, AlkOnlineQuoteSource> result;
@@ -201,7 +221,6 @@ const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::defaultQuoteS
     case AlkOnlineQuotesProfile::Type::None:
     case AlkOnlineQuotesProfile::Type::Alkimia4:
     case AlkOnlineQuotesProfile::Type::Alkimia5:
-    case AlkOnlineQuotesProfile::Type::Test:
     {
         AlkOnlineQuoteSource source(AlkOnlineQuoteSource::defaultCurrencyQuoteSource("Alkimia Currency"));
         source.setProfile(m_p);
@@ -214,6 +233,9 @@ const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::defaultQuoteS
 #endif
         break;
     }
+    case AlkOnlineQuotesProfile::Type::Test:
+        result = quoteSourcesTesting();
+        break;
     default:
         break;
     }

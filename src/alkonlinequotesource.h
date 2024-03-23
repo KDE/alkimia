@@ -72,6 +72,7 @@ public:
     AlkOnlineQuoteSource &operator=(AlkOnlineQuoteSource other);
 
     static AlkOnlineQuoteSource defaultCurrencyQuoteSource(const QString& name);
+    static AlkOnlineQuoteSource testQuoteSource(const QString &name, bool twoSymbols = false, DownloadType downloadType = Default, DataFormat format = HTML);
 
     friend void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second);
 
