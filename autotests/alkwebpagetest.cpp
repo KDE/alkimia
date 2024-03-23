@@ -76,5 +76,3 @@ void AlkWebPageTest::testSetUrlChanged()
 }
 
 QTEST_MAIN(AlkWebPageTest)
-
-#include "alkwebpagetest.moc"
