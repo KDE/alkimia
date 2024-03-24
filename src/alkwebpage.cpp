@@ -15,6 +15,7 @@
 #include <QDesktopServices>
 #include <QEventLoop>
 #include <QMenu>
+#include <QPointer>
 #include <QUrl>
 #include <QWebEnginePage>
 #include <QWebEngineProfile>
@@ -125,14 +126,14 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 QString AlkWebPage::toHtml()
 {
     QString html;
-    QEventLoop loop;
-    QWebEnginePage::toHtml([&html, &loop](const QString &result)
+    QPointer <QEventLoop> loop = new QEventLoop;
+    QWebEnginePage::toHtml([&html, loop](const QString &result)
         {
             html = result;
-            loop.quit();
+            loop->quit();
         }
     );
-    loop.exec();
+    loop->exec();
     return html;
 }
 
