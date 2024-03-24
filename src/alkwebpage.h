@@ -32,7 +32,10 @@ public:
     void setContent(const QString &s);
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
+    /// Set timeout [ms] for AlkWebPage::toHtml()
+    void setTimeout(int timeout = -1);
     static void setWebInspectorEnabled(bool state);
+    int timeout();
     static bool webInspectorEnabled();
 
 Q_SIGNALS:
@@ -67,7 +70,9 @@ public:
     QString toHtml();
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
+    void setTimeout(int timeout = -1) { Q_UNUSED(timeout) }
     void setWebInspectorEnabled(bool enable);
+    int timeout() { return -1; }
     bool webInspectorEnabled();
 
 private:
@@ -100,7 +105,9 @@ public:
     void setContent(const QString &s);
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
+    void setTimeout(int timeout = -1) { Q_UNUSED(timeout) }
     void setWebInspectorEnabled(bool enable);
+    int timeout() { return -1; }
     bool webInspectorEnabled();
 Q_SIGNALS:
     void loadStarted();

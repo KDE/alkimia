@@ -59,7 +59,7 @@ public:
      * @return true - fetching succeded
      * @return false - fetching failed
      */
-    bool downloadUrl(const QUrl &url, Type type, int timeout = -1);
+    bool downloadUrl(const QUrl &url, Type type);
 
     /**
      * Set specific language to be accepted for the download.
@@ -68,6 +68,19 @@ public:
      * @param language String with the accepted language
      */
     void setAcceptedLanguage(const QString &language);
+
+    /**
+     * Set timeout for download operation
+     * A \p timeout value of -1 disables timeout support
+     * @param timeout Timeout in milliseconds
+     */
+    void setTimeout(int timeout = -1);
+
+    /**
+     * Return timeout for download operation
+     * @return timeout in milliseconds
+     */
+    int timeout();
 
 Q_SIGNALS:
     /**

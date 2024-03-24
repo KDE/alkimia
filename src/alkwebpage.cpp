@@ -16,6 +16,7 @@
 #include <QEventLoop>
 #include <QMenu>
 #include <QPointer>
+#include <QTimer>
 #include <QUrl>
 #include <QWebEnginePage>
 #include <QWebEngineProfile>
@@ -75,6 +76,7 @@ class AlkWebPage::Private : public QObject
 public:
     AlkWebPage *q;
     bool inspectorEnabled{false};
+    int timeout{-1}; // msec
 
     explicit Private(AlkWebPage *_q)
         : q(_q)
@@ -133,6 +135,8 @@ QString AlkWebPage::toHtml()
             loop->quit();
         }
     );
+    if (d->timeout != -1)
+        QTimer::singleShot(d->timeout, loop, SLOT(quit()));
     loop->exec();
     return html;
 }
@@ -156,6 +160,11 @@ QString AlkWebPage::getFirstElement(const QString &symbol)
     return QString();
 }
 
+void AlkWebPage::setTimeout(int timeout)
+{
+    d->timeout = timeout;
+}
+
 void AlkWebPage::setWebInspectorEnabled(bool state)
 {
     s_webInspectorEnabled = state;
@@ -163,6 +172,11 @@ void AlkWebPage::setWebInspectorEnabled(bool state)
         qputenv("QTWEBENGINE_REMOTE_DEBUGGING", QByteArray::number(s_webInspectorPort));
     else
         qunsetenv("QTWEBENGINE_REMOTE_DEBUGGING");
+}
+
+int AlkWebPage::timeout()
+{
+    return d->timeout;
 }
 
 bool AlkWebPage::webInspectorEnabled()

@@ -141,13 +141,18 @@ void AlkOnlineQuoteTest::testQuoteSources()
 void AlkOnlineQuoteTest::testLaunch()
 {
     AlkOnlineQuote quote(m_profile);
+    quote.setTimeout(20000);
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);
 
     for (const QString &name : m_profile->quoteSources()) {
         AlkOnlineQuoteSource source(name, m_profile);
-        if (source.downloadType() == AlkOnlineQuoteSource::Default)
-            QVERIFY(quote.launch("EUR USD", "EUR USD", name));
+        if (source.downloadType() == AlkOnlineQuoteSource::Default) {
+            if (source.requiresTwoIdentifier())
+                QVERIFY(quote.launch("EUR USD", "EUR USD", name));
+            else
+                QVERIFY(quote.launch("EUR", "EUR", name));
+        }
     }
 }
 
@@ -155,13 +160,18 @@ void AlkOnlineQuoteTest::testLaunchWithJavaScriptSupport()
 {
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     AlkOnlineQuote quote(m_profile);
+    quote.setTimeout(20000);
     convertertest::AlkQuoteReceiver receiver(&quote);
     receiver.setVerbose(true);
 
     for (const QString &name : m_profile->quoteSources()) {
         AlkOnlineQuoteSource source(name, m_profile);
-        if (source.downloadType() == AlkOnlineQuoteSource::Javascript)
-            QVERIFY(quote.launch("EUR USD", "EUR USD", name));
+        if (source.downloadType() == AlkOnlineQuoteSource::Javascript) {
+            if (source.requiresTwoIdentifier())
+                QVERIFY(quote.launch("EUR USD", "EUR USD", name));
+            else
+                QVERIFY(quote.launch("EUR", "EUR", name));
+        }
     }
 #else
     QSKIP("Browser based tests skipped because requirements are not met", SkipAll);

@@ -101,7 +101,8 @@ void AlkDownloadEngine::Private::slotLoadStarted()
 void AlkDownloadEngine::Private::slotLoadTimeout()
 {
     Q_EMIT m_p->timeout(m_url);
-    m_eventLoop->exit(Result::TimeoutError);
+    if (m_eventLoop)
+        m_eventLoop->exit(Result::TimeoutError);
 }
 
 void AlkDownloadEngine::Private::slotUrlChanged(const QUrl &url)
@@ -143,10 +144,12 @@ bool AlkDownloadEngine::Private::downloadUrl(const QUrl &url)
         request.setRawHeader("Accept-Language: ", m_acceptLanguage.toLocal8Bit());
     manager.get(request);
 
-    if (m_timeout != -1)
-        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
     m_eventLoop = new QEventLoop;
     Q_EMIT m_p->started(m_url);
+
+    if (m_timeout != -1)
+        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
+
     Result result = static_cast<Result>(m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents));
     delete m_eventLoop;
     m_eventLoop = nullptr;
@@ -156,10 +159,12 @@ bool AlkDownloadEngine::Private::downloadUrl(const QUrl &url)
         req.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
         manager.get(req);
 
-        if (m_timeout != -1)
-            QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
         m_eventLoop = new QEventLoop;
         Q_EMIT m_p->started(m_url);
+
+        if (m_timeout != -1)
+            QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
+
         result = static_cast<Result>(m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents));
         delete m_eventLoop;
         m_eventLoop = nullptr;
@@ -208,9 +213,11 @@ bool AlkDownloadEngine::Private::downloadUrl(const QUrl& url)
     KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo);
     connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDone(KJob*)));
 
+    Q_EMIT m_p->started(m_url);
+
     if (m_timeout != -1)
         QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
-    Q_EMIT m_p->started(m_url);
+
     Result result = static_cast<Result>(m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents));
     delete m_eventLoop;
     m_eventLoop = nullptr;
@@ -281,14 +288,22 @@ bool AlkDownloadEngine::Private::downloadUrlWithJavaScriptEngine(const QUrl &url
     connect(m_webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(m_webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotFinishedJavaScriptEngine(bool)));
     connect(m_webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
-    if (m_timeout != -1)
+    m_eventLoop = new QEventLoop;
+
+    int saveTimeout = m_webPage->timeout();
+    if (m_timeout != -1) {
+        m_webPage->setTimeout(m_timeout);
         QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
+    }
+
     m_url = url;
     m_webPage->load(url, m_acceptLanguage);
-    m_eventLoop = new QEventLoop;
     Result result = static_cast<Result>(m_eventLoop->exec());
     delete m_eventLoop;
     m_eventLoop = nullptr;
+
+    if (m_timeout != -1)
+        m_webPage->setTimeout(saveTimeout);
 
     if (!m_webPageCreated) {
         disconnect(m_webPage, SIGNAL(loadStarted()), this, SIGNAL(slotLoadStarted()));
@@ -315,9 +330,18 @@ void AlkDownloadEngine::setWebPage(AlkWebPage *webPage)
     d->m_webPage = webPage;
 }
 
-bool AlkDownloadEngine::downloadUrl(const QUrl &url, Type type, int timeout)
+void AlkDownloadEngine::setTimeout(int timeout)
 {
     d->m_timeout = timeout;
+}
+
+int AlkDownloadEngine::timeout()
+{
+    return d->m_timeout;
+}
+
+bool AlkDownloadEngine::downloadUrl(const QUrl &url, Type type)
+{
     d->m_type = type;
     switch(type) {
     case DefaultEngine:

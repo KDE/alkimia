@@ -98,6 +98,7 @@ AlkDownloadEngineTest::AlkDownloadEngineTest()
 void AlkDownloadEngineTest::testDownloadDefaultEngineError()
 {
     QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
+    engine->setTimeout(20000);
     TestReceiver receiver(engine);
 
     QVERIFY(!engine->downloadUrl(m_errorUrl, AlkDownloadEngine::DefaultEngine));
@@ -111,6 +112,7 @@ void AlkDownloadEngineTest::testDownloadDefaultEngineError()
 void AlkDownloadEngineTest::testDownloadJavaScriptEngineError()
 {
     QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
+    engine->setTimeout(20000);
     TestReceiver receiver(engine);
 
     QVERIFY(!engine->downloadUrl(m_errorUrl, AlkDownloadEngine::JavaScriptEngine));

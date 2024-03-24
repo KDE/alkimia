@@ -144,6 +144,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     }
 
     m_url = url;
+    m_downloader.setTimeout(m_timeout);
     m_downloader.setAcceptedLanguage(m_acceptLanguage);
 
     return true;
@@ -196,7 +197,7 @@ bool AlkOnlineQuote::Private::launchWithJavaScriptSupport(const QString &_symbol
         return false;
     }
 
-    if (!m_downloader.downloadUrl(m_url, type, m_timeout)) {
+    if (!m_downloader.downloadUrl(m_url, type)) {
         return false;
     }
 
@@ -217,7 +218,7 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
         result = processLocalScript(url);
 #endif
     } else {
-        if (!m_downloader.downloadUrl(url, AlkDownloadEngine::DefaultEngine, m_timeout)) {
+        if (!m_downloader.downloadUrl(url, AlkDownloadEngine::DefaultEngine)) {
             return false;
         }
         result = !(m_errors & Errors::URL || m_errors & Errors::Price
