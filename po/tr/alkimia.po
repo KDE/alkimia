@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 01:40+0000\n"
+"POT-Creation-Date: 2024-03-24 01:39+0000\n"
 "PO-Revision-Date: 2024-03-22 16:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -845,12 +845,12 @@ msgstr "Şurada paket oluşturuldu:"
 msgid "Package edit url:"
 msgstr "Paket düzenleme URL’si:"
 
-#: alkwebpage.cpp:52
+#: alkwebpage.cpp:53
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Denetçiyi yeni pencerede aç"
 
-#: alkwebpage.cpp:64
+#: alkwebpage.cpp:65
 #, kde-format
 msgid "Inspect element"
 msgstr "Ögeyi Denetle"

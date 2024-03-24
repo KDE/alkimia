@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 01:40+0000\n"
+"POT-Creation-Date: 2024-03-24 01:39+0000\n"
 "PO-Revision-Date: 2024-01-04 20:49+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -842,12 +842,12 @@ msgstr ""
 msgid "Package edit url:"
 msgstr ""
 
-#: alkwebpage.cpp:52
+#: alkwebpage.cpp:53
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Öppna inspektör i nytt fönster"
 
-#: alkwebpage.cpp:64
+#: alkwebpage.cpp:65
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspektera element"
