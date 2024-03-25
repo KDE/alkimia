@@ -152,7 +152,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     Ui::AlkOnlineQuotesWidget::setupUi(parent);
 
     if (!QString(BUILD_KEY).isEmpty())
-        m_buildKey->setText(QString("<small>version: %1</small>").arg(BUILD_KEY));
+        m_buildKey->setText(QString("<small>alkimia version: %1</small>").arg(BUILD_KEY));
     else
         m_buildKey->setText(QString());
 
