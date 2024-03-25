@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 01:38+0000\n"
+"POT-Creation-Date: 2024-03-25 02:00+0000\n"
 "PO-Revision-Date: 2020-09-21 23:34+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -32,37 +32,37 @@ msgstr "freekdekruijf@kde.nl"
 msgid "&About %1"
 msgstr "&Over %1"
 
-#: mainwindow.cpp:85
+#: mainwindow.cpp:87
 #, kde-format
 msgid "Profiles"
 msgstr "Profielen"
 
-#: mainwindow.cpp:90
+#: mainwindow.cpp:92
 #, kde-format
 msgid "Profile details"
 msgstr "Profieldetails"
 
-#: mainwindow.cpp:95
+#: mainwindow.cpp:97
 #, kde-format
 msgid "Online quotes"
 msgstr "Online koersen"
 
-#: mainwindow.cpp:100
+#: mainwindow.cpp:102
 #, kde-format
 msgid "Debug"
 msgstr "Debuggen"
 
-#: mainwindow.cpp:105
+#: mainwindow.cpp:107
 #, kde-format
 msgid "Quote details"
 msgstr "Details van koersen"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "Browser"
 msgstr "Bladerprogramma"
 
-#: mainwindow.cpp:169
+#: mainwindow.cpp:171
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Item voor bijwerken beschikbaar voor '%1' in profile '%2'"

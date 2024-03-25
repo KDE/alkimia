@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 01:38+0000\n"
+"POT-Creation-Date: 2024-03-25 02:00+0000\n"
 "PO-Revision-Date: 2020-09-28 01:53+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -33,37 +33,37 @@ msgstr "qiilaq69@gmail.com"
 msgid "&About %1"
 msgstr "%1 &teave"
 
-#: mainwindow.cpp:85
+#: mainwindow.cpp:87
 #, kde-format
 msgid "Profiles"
 msgstr "Profiilid"
 
-#: mainwindow.cpp:90
+#: mainwindow.cpp:92
 #, kde-format
 msgid "Profile details"
 msgstr "Profiili üksikasjad"
 
-#: mainwindow.cpp:95
+#: mainwindow.cpp:97
 #, kde-format
 msgid "Online quotes"
 msgstr "Võrgukursid"
 
-#: mainwindow.cpp:100
+#: mainwindow.cpp:102
 #, kde-format
 msgid "Debug"
 msgstr "Silumine"
 
-#: mainwindow.cpp:105
+#: mainwindow.cpp:107
 #, kde-format
 msgid "Quote details"
 msgstr "Kursi üksikasjad"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "Browser"
 msgstr "Sirvija"
 
-#: mainwindow.cpp:169
+#: mainwindow.cpp:171
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Saadaval on uuendus elemendile \"%1\" profiilis \"%2\""

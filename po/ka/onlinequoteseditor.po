@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 01:38+0000\n"
+"POT-Creation-Date: 2024-03-25 02:00+0000\n"
 "PO-Revision-Date: 2024-01-27 05:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -33,37 +33,37 @@ msgstr "Temuri.doghonadze@gmail.com"
 msgid "&About %1"
 msgstr "%1-ის &შესახებ"
 
-#: mainwindow.cpp:85
+#: mainwindow.cpp:87
 #, kde-format
 msgid "Profiles"
 msgstr "პროფილები"
 
-#: mainwindow.cpp:90
+#: mainwindow.cpp:92
 #, kde-format
 msgid "Profile details"
 msgstr "პროფილის დეტალები"
 
-#: mainwindow.cpp:95
+#: mainwindow.cpp:97
 #, kde-format
 msgid "Online quotes"
 msgstr "ონლაინ კვოტები"
 
-#: mainwindow.cpp:100
+#: mainwindow.cpp:102
 #, kde-format
 msgid "Debug"
 msgstr "გამართვა"
 
-#: mainwindow.cpp:105
+#: mainwindow.cpp:107
 #, kde-format
 msgid "Quote details"
 msgstr "კვოტის დეტალები"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "Browser"
 msgstr "ბრაუზერი"
 
-#: mainwindow.cpp:169
+#: mainwindow.cpp:171
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "ხელმისაწვდომია %1-ის განახლება, პროფილში %2"
