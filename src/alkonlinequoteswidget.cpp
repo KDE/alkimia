@@ -159,7 +159,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     profilesGroupBox->setVisible(showProfiles);
     profileDetailsBox->setVisible(showProfiles);
     m_showButton->setVisible(!showProfiles && AlkOnlineQuotesProfileManager::instance().webPageEnabled());
-    m_ghnsSource->setEnabled(showProfiles);
+    m_ghnsSource->setEnabled(showProfiles && showUpload);
     m_uploadButton->setVisible(showUpload);
     m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
