@@ -28,7 +28,8 @@
 #endif
 #ifdef BUILD_WITH_QTNETWORK
 class QNetworkReply;
-#else
+#endif
+#ifdef BUILD_WITH_KIO
 class KJob;
 #endif
 

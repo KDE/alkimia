@@ -26,6 +26,10 @@ class ALK_EXPORT AlkDownloadEngine : public QObject
     Q_OBJECT
 public:
     enum Type {
+        QtEngine,
+        KIOEngine,
+        WebKitEngine,
+        WebEngine,
         DefaultEngine, ///< Use KIO or Qt network support
         JavaScriptEngine, ///< Use an HTML engine with Javascript support
         JavaScriptEngineCSS, ///< Use an HTML engine with Javascript support, @see AlkDownloadEngine::finishedPage for details

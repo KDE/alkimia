@@ -90,54 +90,54 @@ public Q_SLOTS:
 };
 
 AlkDownloadEngineTest::AlkDownloadEngineTest()
+    : m_url(TEST_DOWNLOAD_URL)
+    , m_errorUrl(TEST_DOWNLOAD_URL_ERROR)
 {
-    m_url = QUrl(TEST_DOWNLOAD_URL);
-    m_errorUrl = QUrl(TEST_DOWNLOAD_URL_ERROR);
 }
 
-void AlkDownloadEngineTest::testDownloadDefaultEngineError()
+void testDownloadError(const QString &url, AlkDownloadEngine::Type type)
 {
     QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
-    engine->setTimeout(20000);
+    engine->setTimeout(5000);
     TestReceiver receiver(engine);
 
-    QVERIFY(!engine->downloadUrl(m_errorUrl, AlkDownloadEngine::DefaultEngine));
-    QVERIFY(receiver.gotError);
-    QVERIFY(!receiver.gotFinished);
-    QVERIFY(!receiver.gotRedirected);
-    QVERIFY(receiver.gotStarted);
-    QVERIFY(!receiver.gotTimeout);
-}
-
-void AlkDownloadEngineTest::testDownloadJavaScriptEngineError()
-{
-    QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
-    engine->setTimeout(20000);
-    TestReceiver receiver(engine);
-
-    QVERIFY(!engine->downloadUrl(m_errorUrl, AlkDownloadEngine::JavaScriptEngine));
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-    QVERIFY(receiver.gotError);
-    QVERIFY(!receiver.gotFinished);
-    QVERIFY(!receiver.gotRedirected);
-    QVERIFY(receiver.gotStarted);
-    QVERIFY(!receiver.gotTimeout);
+#if defined(USE_KIO)
+    QWARN("KIO does return false in case of errors");
+    QVERIFY(engine->downloadUrl(url, type));
+    QWARN("KIO does not emit the error signal");
+    QVERIFY(!receiver.gotError);
+    QVERIFY(receiver.gotFinished);
 #else
+    QVERIFY(!engine->downloadUrl(url, type));
+    QVERIFY(receiver.gotError);
+    QVERIFY(!receiver.gotFinished);
+#endif
+    QVERIFY(!receiver.gotRedirected);
+    QVERIFY(receiver.gotStarted);
+    QVERIFY(!receiver.gotTimeout);
+}
+
+void testDownloadFailed(const QString &url, AlkDownloadEngine::Type type)
+{
+    QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
+    engine->setTimeout(20000);
+    TestReceiver receiver(engine);
+
+    QVERIFY(!engine->downloadUrl(url, type));
     QVERIFY(!receiver.gotError);
     QVERIFY(!receiver.gotFinished);
     QVERIFY(!receiver.gotRedirected);
     QVERIFY(!receiver.gotStarted);
     QVERIFY(!receiver.gotTimeout);
-#endif
 }
 
-void AlkDownloadEngineTest::testDownloadDefaultEngineFinished()
+void testDownloadFinished(const QString &url, AlkDownloadEngine::Type type)
 {
     QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
     engine->setTimeout(20000);
     TestReceiver receiver(engine);
 
-    QVERIFY(engine->downloadUrl(m_url, AlkDownloadEngine::DefaultEngine));
+    QVERIFY(engine->downloadUrl(url, type));
     QVERIFY(!receiver.gotError);
     QVERIFY(receiver.gotFinished);
     QVERIFY(receiver.gotDataMatches);
@@ -146,75 +146,98 @@ void AlkDownloadEngineTest::testDownloadDefaultEngineFinished()
     QVERIFY(!receiver.gotTimeout);
 }
 
-void AlkDownloadEngineTest::testDownloadJavaScriptEngineFinished()
+void testDownloadRedirected(const QString &url, AlkDownloadEngine::Type type)
 {
     QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
     engine->setTimeout(20000);
     TestReceiver receiver(engine);
 
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-    QVERIFY(engine->downloadUrl(m_url, AlkDownloadEngine::JavaScriptEngine));
+    QVERIFY(engine->downloadUrl(QUrl(url + "&redirect=1"), type));
     QVERIFY(!receiver.gotError);
     QVERIFY(receiver.gotFinished);
     QVERIFY(receiver.gotDataMatches);
-    QVERIFY(!receiver.gotRedirected);
-    QVERIFY(receiver.gotStarted);
-    QVERIFY(!receiver.gotTimeout);
+#if defined(USE_KIO) || defined(USE_WEBKIT)
+    QWARN("This engine does not return a redirected url");
 #else
-    QVERIFY(!engine->downloadUrl(m_url, AlkDownloadEngine::JavaScriptEngine));
-    QVERIFY(!receiver.gotError);
-    QVERIFY(!receiver.gotFinished);
-    QVERIFY(!receiver.gotRedirected);
-    QVERIFY(!receiver.gotStarted);
-    QVERIFY(!receiver.gotTimeout);
+    QVERIFY(receiver.gotRedirected);
 #endif
-}
-
-void AlkDownloadEngineTest::testDownloadDefaultEngineRedirected()
-{
-    QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
-    engine->setTimeout(20000);
-    TestReceiver receiver(engine);
-
-    QUrl url(m_url.toString() + "&redirect=1");
-    QVERIFY(engine->downloadUrl(url, AlkDownloadEngine::DefaultEngine));
-    QVERIFY(!receiver.gotError);
-    QVERIFY(receiver.gotFinished);
-    QVERIFY(receiver.gotDataMatches);
-    QVERIFY(receiver.gotRedirected);
     QVERIFY(receiver.gotStarted);
     QVERIFY(!receiver.gotTimeout);
 }
 
-void AlkDownloadEngineTest::testDownloadJavaScriptEngineRedirected()
+void testDownloadTimeout(const QString &url, AlkDownloadEngine::Type type)
 {
     QPointer<AlkDownloadEngine> engine = new AlkDownloadEngine;
-    engine->setTimeout(20000);
+    engine->setTimeout(5000);
     TestReceiver receiver(engine);
 
-    QUrl url(m_url.toString() + "&redirect=1");
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-    QVERIFY(engine->downloadUrl(url, AlkDownloadEngine::JavaScriptEngine));
-    QVERIFY(!receiver.gotError);
-    QVERIFY(receiver.gotFinished);
-    QVERIFY(receiver.gotDataMatches);
-    QVERIFY(receiver.gotRedirected);
-    QVERIFY(receiver.gotStarted);
-    QVERIFY(!receiver.gotTimeout);
-#else
-    QVERIFY(!engine->downloadUrl(url, AlkDownloadEngine::JavaScriptEngine));
+    QVERIFY(!engine->downloadUrl(QUrl(url + "&timeout=6"), type));
     QVERIFY(!receiver.gotError);
     QVERIFY(!receiver.gotFinished);
     QVERIFY(!receiver.gotDataMatches);
     QVERIFY(!receiver.gotRedirected);
-    QVERIFY(!receiver.gotStarted);
-    QVERIFY(!receiver.gotTimeout);
+    QVERIFY(receiver.gotStarted);
+    QVERIFY(receiver.gotTimeout);
+}
+
+void AlkDownloadEngineTest::testDownloadEngineError()
+{
+#if defined(USE_QTNETWORK)
+    testDownloadError(m_errorUrl, AlkDownloadEngine::QtEngine);
+#elif defined(USE_KIO)
+    testDownloadError(m_errorUrl, AlkDownloadEngine::KIOEngine);
+#elif defined(USE_WEBKIT)
+    testDownloadError(m_errorUrl, AlkDownloadEngine::WebKitEngine);
+#elif defined(USE_WEBENGINE)
+    testDownloadError(m_errorUrl, AlkDownloadEngine::WebEngine);
+#else
+    testDownloadError(m_errorUrl, AlkDownloadEngine::DefaultEngine);
 #endif
 }
 
-void AlkDownloadEngineTest::testDownloadTimout()
+void AlkDownloadEngineTest::testDownloadEngineFinished()
 {
-    QSKIP("not implemented yet - needs special reliable service", SkipAll);
+#if defined(USE_QTNETWORK)
+    testDownloadFinished(m_url, AlkDownloadEngine::QtEngine);
+#elif defined(USE_KIO)
+    testDownloadFinished(m_url, AlkDownloadEngine::KIOEngine);
+#elif defined(USE_WEBKIT)
+    testDownloadFinished(m_url, AlkDownloadEngine::WebKitEngine);
+#elif defined(USE_WEBENGINE)
+    testDownloadFinished(m_url, AlkDownloadEngine::WebEngine);
+#else
+    testDownloadFinished(m_url, AlkDownloadEngine::DefaultEngine);
+#endif
+}
+
+void AlkDownloadEngineTest::testDownloadEngineRedirected()
+{
+    #if defined(USE_QTNETWORK)
+        testDownloadRedirected(m_url, AlkDownloadEngine::QtEngine);
+    #elif defined(USE_KIO)
+        testDownloadRedirected(m_url, AlkDownloadEngine::KIOEngine);
+    #elif defined(USE_WEBKIT)
+        testDownloadRedirected(m_url, AlkDownloadEngine::WebKitEngine);
+    #elif defined(USE_WEBENGINE)
+        testDownloadRedirected(m_url, AlkDownloadEngine::WebEngine);
+    #else
+        testDownloadRedirected(m_url, AlkDownloadEngine::DefaultEngine);
+    #endif
+}
+
+void AlkDownloadEngineTest::testDownloadEngineTimeout()
+{
+    #if defined(USE_QTNETWORK)
+        testDownloadTimeout(m_url, AlkDownloadEngine::QtEngine);
+    #elif defined(USE_KIO)
+        testDownloadTimeout(m_url, AlkDownloadEngine::KIOEngine);
+    #elif defined(USE_WEBKIT)
+        testDownloadTimeout(m_url, AlkDownloadEngine::WebKitEngine);
+    #elif defined(USE_WEBENGINE)
+        testDownloadTimeout(m_url, AlkDownloadEngine::WebEngine);
+    #else
+        testDownloadTimeout(m_url, AlkDownloadEngine::DefaultEngine);
+    #endif
 }
 
 // GUI is required by KIO and webxxx

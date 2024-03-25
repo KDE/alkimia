@@ -55,14 +55,45 @@ ecm_add_test(
     TEST_NAME alkonlinequoteprivatetest
 )
 
-ecm_add_test(
-    alkdownloadenginetest.cpp
-    alkdownloadenginetest.h
-    LINK_LIBRARIES ${TEST_LIB}
-    TEST_NAME alkdownloadengine${TEST_SUFFIX}test
-)
+if(BUILD_WITH_QTNETWORK)
+    ecm_add_test(
+        alkdownloadenginetest.cpp
+        alkdownloadenginetest.h
+        COMPILER_FLAGS -DUSE_QTNETWORK
+        LINK_LIBRARIES ${TEST_LIB}
+        TEST_NAME alkdownloadengine-qt-test
+    )
+endif()
+
+if(BUILD_WITH_KIO)
+    ecm_add_test(
+        alkdownloadenginetest.cpp
+        alkdownloadenginetest.h
+        COMPILER_FLAGS -DUSE_KIO
+        LINK_LIBRARIES ${TEST_LIB}
+        TEST_NAME alkdownloadengine-kio-test
+    )
+endif()
+
+if(BUILD_WITH_WEBKIT)
+    ecm_add_test(
+        alkdownloadenginetest.cpp
+        alkdownloadenginetest.h
+        COMPILER_FLAGS -DUSE_WEBKIT
+        LINK_LIBRARIES ${TEST_LIB}
+        TEST_NAME alkdownloadengine-webkit-test
+    )
+endif()
+
 if(BUILD_WITH_WEBENGINE)
-    set_property(TEST alkdownloadengine${TEST_SUFFIX}test PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
+    ecm_add_test(
+        alkdownloadenginetest.cpp
+        alkdownloadenginetest.h
+        COMPILER_FLAGS -DUSE_WEBENGINE
+        LINK_LIBRARIES ${TEST_LIB}
+        TEST_NAME alkdownloadengine-webengine-test
+    )
+    set_property(TEST alkdownloadengine-webengine-test PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
 endif()
 
 ecm_add_test(

@@ -16,18 +16,15 @@ class AlkDownloadEngineTest : public QObject
 {
     Q_OBJECT
 public:
-    QUrl m_url;
-    QUrl m_errorUrl;
+    QString m_url;
+    QString m_errorUrl;
     AlkDownloadEngineTest();
 
 private Q_SLOTS:
-    void testDownloadDefaultEngineFinished();
-    void testDownloadJavaScriptEngineFinished();
-    void testDownloadDefaultEngineError();
-    void testDownloadJavaScriptEngineError();
-    void testDownloadDefaultEngineRedirected();
-    void testDownloadJavaScriptEngineRedirected();
-    void testDownloadTimout();
+    void testDownloadEngineError();
+    void testDownloadEngineFinished();
+    void testDownloadEngineRedirected();
+    void testDownloadEngineTimeout();
 };
 
 #endif // ALKDOWNLOADENGINETEST_H

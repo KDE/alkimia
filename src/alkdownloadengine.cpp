@@ -16,8 +16,8 @@
 #ifdef BUILD_WITH_QTNETWORK
 #include <QNetworkReply>
 #include <QNetworkAccessManager>
-#define KJob void
-#else
+#endif
+#ifdef BUILD_WITH_KIO
     #include <KIO/Scheduler>
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KIO/Job>
@@ -53,7 +53,12 @@ public:
     Type m_type{DefaultEngine};
     int m_timeout{-1};
     QUrl m_url;
-    bool downloadUrl(const QUrl& url);
+#ifdef BUILD_WITH_QTNETWORK
+    bool downloadUrlQt(const QUrl& url);
+#endif
+#ifdef BUILD_WITH_KIO
+    bool downloadUrlKIO(const QUrl& url);
+#endif
     bool downloadUrlWithJavaScriptEngine(const QUrl &url);
     AlkWebPage *m_webPage{nullptr};
     bool m_webPageCreated{false};
@@ -81,9 +86,10 @@ public:
 
 public Q_SLOTS:
 #ifdef BUILD_WITH_QTNETWORK
-    void downloadUrlDone(QNetworkReply *reply);
-#else
-    void downloadUrlDone(KJob *reply);
+    void downloadUrlDoneQt(QNetworkReply *reply);
+#endif
+#ifdef BUILD_WITH_KIO
+    void downloadUrlDoneKIO(KJob *reply);
 #endif
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0) || defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     void slotFinishedJavaScriptEngine(bool ok);
@@ -112,7 +118,7 @@ void AlkDownloadEngine::Private::slotUrlChanged(const QUrl &url)
 }
 
 #ifdef BUILD_WITH_QTNETWORK
-void AlkDownloadEngine::Private::downloadUrlDone(QNetworkReply *reply)
+void AlkDownloadEngine::Private::downloadUrlDoneQt(QNetworkReply *reply)
 {
     Result result = Result::NoError;
     if (reply->error() == QNetworkReply::NoError) {
@@ -131,10 +137,10 @@ void AlkDownloadEngine::Private::downloadUrlDone(QNetworkReply *reply)
     m_eventLoop->exit(result);
 }
 
-bool AlkDownloadEngine::Private::downloadUrl(const QUrl &url)
+bool AlkDownloadEngine::Private::downloadUrlQt(const QUrl &url)
 {
     QNetworkAccessManager manager(this);
-    connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(downloadUrlDone(QNetworkReply*)));
+    connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(downloadUrlDoneQt(QNetworkReply*)));
 
     m_url = url;
     QNetworkRequest request;
@@ -171,9 +177,10 @@ bool AlkDownloadEngine::Private::downloadUrl(const QUrl &url)
     }
     return result == Result::NoError;
 }
-#else
+#endif
+#if defined(BUILD_WITH_KIO)
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-void AlkDownloadEngine::Private::downloadUrlDone(KJob* job)
+void AlkDownloadEngine::Private::downloadUrlDoneKIO(KJob* job)
 {
     QString tmpFileName = dynamic_cast<KIO::FileCopyJob*>(job)->destUrl().toLocalFile();
     QUrl url = dynamic_cast<KIO::FileCopyJob*>(job)->srcUrl();
@@ -198,7 +205,7 @@ void AlkDownloadEngine::Private::downloadUrlDone(KJob* job)
     m_eventLoop->exit(result);
 }
 
-bool AlkDownloadEngine::Private::downloadUrl(const QUrl& url)
+bool AlkDownloadEngine::Private::downloadUrlKIO(const QUrl& url)
 {
     // Create a temporary filename (w/o leaving the file on the filesystem)
     // In case the file is still present, the KIO::file_copy operation cannot
@@ -211,7 +218,7 @@ bool AlkDownloadEngine::Private::downloadUrl(const QUrl& url)
     m_eventLoop = new QEventLoop;
     // TODO add accept language support
     KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo);
-    connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDone(KJob*)));
+    connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDoneKIO(KJob*)));
 
     Q_EMIT m_p->started(m_url);
 
@@ -229,12 +236,12 @@ bool AlkDownloadEngine::Private::downloadUrl(const QUrl& url)
 // This is simply a placeholder. It is unused but needs to be present
 // to make the linker happy (since the declaration of the slot cannot
 // be made dependendant on QT_VERSION with the Qt4 moc compiler.
-void AlkDownloadEngine::Private::downloadUrlDone(KJob* job)
+void AlkDownloadEngine::Private::downloadUrlDoneKIO(KJob* job)
 {
     Q_UNUSED(job);
 }
 
-bool AlkDownloadEngine::Private::downloadUrl(const QUrl& url)
+bool AlkDownloadEngine::Private::downloadUrlKIO(const QUrl& url)
 {
     Result result = NoError;
 
@@ -260,7 +267,7 @@ bool AlkDownloadEngine::Private::downloadUrl(const QUrl& url)
     return result == NoError;
 }
 #endif // QT_VERSION
-#endif // BUILD_WITH_QTNETWORK
+#endif // BUILD_WITH_KIO
 
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
 void AlkDownloadEngine::Private::slotFinishedJavaScriptEngine(bool ok)
@@ -345,13 +352,21 @@ bool AlkDownloadEngine::downloadUrl(const QUrl &url, Type type)
     d->m_type = type;
     switch(type) {
     case DefaultEngine:
-        return d->downloadUrl(url);
-#if defined(BUILD_WITH_WEBKIT)
+#ifdef BUILD_WITH_QTNETWORK
+    case QtEngine:
+        return d->downloadUrlQt(url);
+#endif
+#ifdef BUILD_WITH_KIO
+    case KIOEngine:
+        return d->downloadUrlKIO(url);
+#endif
     case JavaScriptEngine:
+#if defined(BUILD_WITH_WEBKIT)
+    case WebKitEngine:
     case JavaScriptEngineCSS:
         return d->downloadUrlWithJavaScriptEngine(url);
 #elif defined(BUILD_WITH_WEBENGINE)
-    case JavaScriptEngine:
+    case WebEngine:
         return d->downloadUrlWithJavaScriptEngine(url);
 #endif
     default:
