@@ -1,3 +1,9 @@
+
+option(TEST_DEVELOP_HOST "Use development host for testing" OFF)
+if(TEST_DEVELOP_HOST)
+    add_definitions(-DTEST_DEVELOP_HOST)
+endif()
+
 include(ECMAddTests)
 set(TEST_LIB
     Qt${QT_MAJOR_VERSION}::Test

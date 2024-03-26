@@ -9,6 +9,8 @@
 #include "alkwebpagetest.h"
 
 #include "alkwebpage.h"
+#include "alktestdefs.h"
+
 #include "test.h"
 
 #include <QSignalSpy>
@@ -29,7 +31,7 @@ void AlkWebPageTest::testLoad()
     QSignalSpy spyStarted(page, SIGNAL(loadStarted()));
     QSignalSpy spyFinished(page, SIGNAL(loadFinished(bool)));
 
-    page->load(QUrl("https://kmymoney.org/onlinequotestest.php"), QString());
+    page->load(QUrl(TEST_LAUNCH_URL), QString());
 
     // test signals
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
@@ -54,7 +56,7 @@ void AlkWebPageTest::testSetUrlChanged()
     QSignalSpy spyFinished(page, SIGNAL(loadFinished(bool)));
     QSignalSpy spyUrlChanged(page, SIGNAL(urlChanged(QUrl)));
 
-    QUrl url("https://kmymoney.org/onlinequotestest.php");
+    QUrl url(TEST_LAUNCH_URL);
     page->load(url, QString());
 
     // test signals
