@@ -37,7 +37,7 @@ void AlkWebPageTest::testLoad()
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     QVERIFY(spyFinished.wait(1000));
 #else
-    QSKIP("spying loadFinished() does not work");
+    QWARN("spying loadFinished() does not work");
 #endif
     QVERIFY(spyStarted.count() >= 1);
     QCOMPARE(spyFinished.count(), 1);
@@ -48,13 +48,13 @@ void AlkWebPageTest::testLoad()
     QVERIFY(page->toHtml().contains(QLatin1String("</body></html>")));
 }
 
-void AlkWebPageTest::testSetUrlChanged()
+void AlkWebPageTest::testRedirected()
 {
     QPointer<AlkWebPage> page = new AlkWebPage;
 
     QSignalSpy spyStarted(page, SIGNAL(loadStarted()));
     QSignalSpy spyFinished(page, SIGNAL(loadFinished(bool)));
-    QSignalSpy spyUrlChanged(page, SIGNAL(urlChanged(QUrl)));
+    QSignalSpy spyRedirected(page, SIGNAL(loadRedirectedTo(QUrl)));
 
     QUrl url(TEST_LAUNCH_URL);
     page->load(url, QString());
@@ -63,16 +63,17 @@ void AlkWebPageTest::testSetUrlChanged()
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     QVERIFY(spyFinished.wait(1000));
 #else
-    QSKIP("spying loadFinished() does not work");
+    QWARN("spying loadFinished() does not work");
 #endif
     QCOMPARE(spyFinished.count(), 1);
     QVERIFY(spyStarted.count() >= 1);
     QList<QVariant> arguments = spyFinished.takeFirst();
     QVERIFY(arguments.at(0).toBool() == true);
-    QCOMPARE(spyUrlChanged.count(), 1);
-    arguments = spyUrlChanged.takeFirst();
+#ifndef BUILD_WITH_WEBKIT
+    QCOMPARE(spyRedirected.count(), 1);
+    arguments = spyRedirected.takeFirst();
     QCOMPARE(arguments.at(0).toUrl(), url);
-
+#endif
     // test content
     QVERIFY(page->toHtml().contains(QLatin1String("</body></html>")));
 }

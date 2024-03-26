@@ -39,13 +39,13 @@ public:
     static bool webInspectorEnabled();
 
 Q_SIGNALS:
-    // This signal override is required because QWebEnginePage::urlChanged()
-    // returns the html content set with setContent() as url.
-    void urlChanged(const QUrl &url);
+    void loadRedirectedTo(const QUrl &url);
 
 private:
     class Private;
     Private *d;
+
+    bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override;
 };
 
 #elif defined(BUILD_WITH_WEBKIT)
@@ -61,6 +61,7 @@ private:
  */
 class ALK_EXPORT AlkWebPage : public QWebView
 {
+    Q_OBJECT
 public:
     explicit AlkWebPage(QWidget *parent = nullptr);
     virtual ~AlkWebPage();
@@ -74,6 +75,9 @@ public:
     void setWebInspectorEnabled(bool enable);
     int timeout() { return -1; }
     bool webInspectorEnabled();
+
+Q_SIGNALS:
+    void loadRedirectedTo(const QUrl&);
 
 private:
     class Private;
@@ -112,7 +116,7 @@ public:
 Q_SIGNALS:
     void loadStarted();
     void loadFinished(bool);
-    void urlChanged(const QUrl&);
+    void loadRedirectedTo(const QUrl&);
 
 private:
     class Private;

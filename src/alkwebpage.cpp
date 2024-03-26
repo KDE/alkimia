@@ -84,23 +84,12 @@ public:
     }
     Private(const Private& right) = delete;
     Private& operator=(const Private& right) = delete;
-
-    void slotUrlChanged(const QUrl &url)
-    {
-        // This workaround is necessary because QWebEnginePage::urlChanged()
-        // returns the html content set with setContent() as url.
-        if (url.scheme().startsWith("http"))
-            Q_EMIT q->urlChanged(url);
-        else
-            Q_EMIT q->urlChanged(QUrl());
-    }
 };
 
 AlkWebPage::AlkWebPage(QWidget *parent)
   : QWebEnginePage(parent)
   , d(new Private(this))
 {
-    connect(this, &QWebEnginePage::urlChanged, d, &Private::slotUrlChanged);
 }
 
 AlkWebPage::~AlkWebPage()
@@ -182,6 +171,13 @@ int AlkWebPage::timeout()
 bool AlkWebPage::webInspectorEnabled()
 {
     return s_webInspectorEnabled;
+}
+
+bool AlkWebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
+{
+    if (type == QWebEnginePage::NavigationTypeRedirect && isMainFrame)
+        Q_EMIT loadRedirectedTo(url);
+    return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
 }
 
 #include "alkwebpage.moc"
@@ -325,7 +321,7 @@ AlkWebPage::AlkWebPage(QWidget *parent)
 {
     setOpenExternalLinks(false);
     setOpenLinks(false);
-    connect(this, SIGNAL(sourceChanged(QUrl)), SIGNAL(urlChanged(QUrl)));
+    connect(this, SIGNAL(sourceChanged(QUrl)), SIGNAL(loadRedirectedTo(QUrl)));
 }
 
 AlkWebPage::~AlkWebPage()

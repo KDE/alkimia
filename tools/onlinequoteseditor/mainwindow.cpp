@@ -37,7 +37,7 @@ public:
     Ui::MainWindow ui;
 };
 
-void MainWindow::slotUrlChanged(const QUrl &url)
+void MainWindow::slotLoadRedirectedTo(const QUrl &url)
 {
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     d->urlLine->setText(url.toString());
@@ -142,7 +142,7 @@ MainWindow::MainWindow(QWidget *parent)
     hLayout->addWidget(box);
 
     webPage->setWebInspectorEnabled(true);
-    connect(webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
+    connect(webPage, SIGNAL(loadRedirectedTo(QUrl)), this, SLOT(slotLoadRedirectedTo(QUrl)));
 #endif
     // setup browser window
     QVBoxLayout *layout = new QVBoxLayout;

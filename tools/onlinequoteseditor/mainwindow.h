@@ -24,7 +24,7 @@ public:
 
 protected Q_SLOTS:
     void slotUpdateAvailable(const QString &profile, const QString &name);
-    void slotUrlChanged(const QUrl &url);
+    void slotLoadRedirectedTo(const QUrl &url);
     void slotEditingFinished();
     void slotLanguageChanged(const QString &);
 

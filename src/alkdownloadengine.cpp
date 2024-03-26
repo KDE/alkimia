@@ -96,7 +96,7 @@ public Q_SLOTS:
 #endif
     void slotLoadStarted();
     void slotLoadTimeout();
-    void slotUrlChanged(const QUrl &url);
+    void slotLoadRedirectedTo(const QUrl &url);
 };
 
 void AlkDownloadEngine::Private::slotLoadStarted()
@@ -111,7 +111,7 @@ void AlkDownloadEngine::Private::slotLoadTimeout()
         m_eventLoop->exit(Result::TimeoutError);
 }
 
-void AlkDownloadEngine::Private::slotUrlChanged(const QUrl &url)
+void AlkDownloadEngine::Private::slotLoadRedirectedTo(const QUrl &url)
 {
     Q_EMIT m_p->redirected(m_url, url);
     m_url = url;
@@ -124,7 +124,7 @@ void AlkDownloadEngine::Private::downloadUrlDoneQt(QNetworkReply *reply)
     if (reply->error() == QNetworkReply::NoError) {
         QUrl newUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
         if (!newUrl.isEmpty() && newUrl != reply->url()) {
-            slotUrlChanged(reply->url().resolved(newUrl));
+            slotLoadRedirectedTo(reply->url().resolved(newUrl));
             result = Result::Redirect;
         } else {
             //kDebug(dbgArea()) << "Downloaded data from" << reply->url();
@@ -294,7 +294,7 @@ bool AlkDownloadEngine::Private::downloadUrlWithJavaScriptEngine(const QUrl &url
     }
     connect(m_webPage, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(m_webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotFinishedJavaScriptEngine(bool)));
-    connect(m_webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
+    connect(m_webPage, SIGNAL(loadRedirectedTo(QUrl)), this, SLOT(slotLoadRedirectedTo(QUrl)));
     m_eventLoop = new QEventLoop;
 
     int saveTimeout = m_webPage->timeout();
@@ -315,7 +315,7 @@ bool AlkDownloadEngine::Private::downloadUrlWithJavaScriptEngine(const QUrl &url
     if (!m_webPageCreated) {
         disconnect(m_webPage, SIGNAL(loadStarted()), this, SIGNAL(slotLoadStarted()));
         disconnect(m_webPage, SIGNAL(loadFinished(bool)), this, SLOT(slotFinishedJavaScriptEngine(bool)));
-        disconnect(m_webPage, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
+        disconnect(m_webPage, SIGNAL(loadRedirectedTo(QUrl)), this, SLOT(slotLoadRedirectedTo(QUrl)));
     }
     return result == NoError;
 }
