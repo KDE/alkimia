@@ -21,3 +21,17 @@ add_executable(alknewstuffwidgettest
     alknewstuffwidgettest.cpp
 )
 target_link_libraries(alknewstuffwidgettest ${TEST_LIB} ${KF_NEWSTUFF_LIB} KF${QT_MAJOR_VERSION}::I18n)
+
+if(BUILD_WITH_WEBKIT)
+    add_executable(alkwebpagewidget-webkit-test
+        alkwebpagewidgettest.cpp
+    )
+    target_link_libraries(alkwebpagewidget-webkit-test ${TEST_LIB})
+endif()
+
+if(BUILD_WITH_WEBENGINE)
+    add_executable(alkwebpagewidget-webengine-test
+        alkwebpagewidgettest.cpp
+    )
+    target_link_libraries(alkwebpagewidget-webengine-test ${TEST_LIB})
+endif()
