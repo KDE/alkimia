@@ -71,6 +71,7 @@ set(alkimia_LIB_SRCS
     alkonlinequoteswidget.cpp
     alkonlinequoteuploaddialog.cpp
     alkvalue.cpp
+    alkversion.cpp
     alkutils.cpp
     alkwebpage.cpp
 )
