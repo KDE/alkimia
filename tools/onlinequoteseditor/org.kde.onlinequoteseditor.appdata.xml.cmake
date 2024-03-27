@@ -163,7 +163,7 @@
   <url type="homepage">https://community.kde.org/Alkimia</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided%26product=libalkimia%26component=Online+Quotes+Editor</url>
   <url type="donation">https://www.kde.org/community/donations/?app=onlinequoteseditor</url>
-  <launchable type="desktop-id">org.kde.onlinequoteseditor.desktop</launchable>
+  <launchable type="desktop-id">org.kde.onlinequoteseditor@TARGET_SUFFIX@.desktop</launchable>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/onlinequoteseditor/onlinequoteseditor.png</image>
