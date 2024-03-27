@@ -292,6 +292,7 @@ case "$ci_host" in
 esac
 
 # custom settings
+cmake_options+=" -DBUILD_WITH_QTNETWORK=1 -DBUILD_WITH_KIO=1"
 case "$ci_variant" in
     (kf[56])
         cmake_options+=" -DBUILD_WITH_WEBKIT=0 -DBUILD_WITH_WEBENGINE=0"
