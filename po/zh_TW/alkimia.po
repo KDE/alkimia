@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-25 02:00+0000\n"
+"POT-Creation-Date: 2024-03-28 02:07+0000\n"
 "PO-Revision-Date: 2024-03-20 18:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -27,140 +27,140 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: alkonlinequote_p.cpp:114
+#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:260
+#, kde-format
+msgid "Failed to open downloaded file"
+msgstr "無法開啟已下載的檔案"
+
+#: alkonlinequote_p.cpp:99
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "來源 <placeholder>%1</placeholder> 不存在。"
 
-#: alkonlinequote_p.cpp:159 alkonlinequote_p.cpp:173
+#: alkonlinequote_p.cpp:155
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "無法為 %1 抓取網址"
 
-#: alkonlinequote_p.cpp:181 alkonlinequote_p.cpp:658 alkonlinequote_p.cpp:684
+#: alkonlinequote_p.cpp:165 alkonlinequote_p.cpp:167
 #, kde-format
-msgid "Symbol found: '%1'"
-msgstr "找到符號：'%1'"
+msgid "The URL has been redirected; check an update of the online quote URL"
+msgstr "網址已被重新導向；請檢查線上報價網址的更新"
 
-#: alkonlinequote_p.cpp:184 alkonlinequote_p.cpp:661 alkonlinequote_p.cpp:687
-#, kde-format
-msgid "Unable to parse symbol for %1"
-msgstr "無法剖析 %1 的符號"
-
-#: alkonlinequote_p.cpp:207
+#: alkonlinequote_p.cpp:191
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "抓取網址 %1 中..."
 
-#: alkonlinequote_p.cpp:281
+#: alkonlinequote_p.cpp:233
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "執行 %1 中..."
 
-#: alkonlinequote_p.cpp:298 alkonlinequote_p.cpp:513
+#: alkonlinequote_p.cpp:250 alkonlinequote_p.cpp:311
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "無法啟動：%1"
 
-#: alkonlinequote_p.cpp:317
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "無法開啟已下載的檔案"
-
-#: alkonlinequote_p.cpp:338
+#: alkonlinequote_p.cpp:272
 #, kde-format
 msgid "URL found: %1..."
 msgstr "找到網址：%1..."
 
-#: alkonlinequote_p.cpp:429 alkonlinequote_p.cpp:431
-#, kde-format
-msgid "The URL has been redirected; check an update of the online quote URL"
-msgstr "網址已被重新導向；請檢查線上報價網址的更新"
-
-#: alkonlinequote_p.cpp:505
+#: alkonlinequote_p.cpp:303
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "執行 %1 %2 %3 中..."
 
-#: alkonlinequote_p.cpp:563
+#: alkonlinequote_p.cpp:361
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "找到價格：'%1' (%2)"
 
-#: alkonlinequote_p.cpp:566
+#: alkonlinequote_p.cpp:364
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "價格 '%1' 無法為 '%2' 轉換為數字"
 
-#: alkonlinequote_p.cpp:571
+#: alkonlinequote_p.cpp:369
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "無法剖析 '%1' 的價格"
 
-#: alkonlinequote_p.cpp:581
+#: alkonlinequote_p.cpp:379
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "找到日期：'%1'"
 
-#: alkonlinequote_p.cpp:587
+#: alkonlinequote_p.cpp:385
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "找到日期格式：'%1' → '%2'"
 
-#: alkonlinequote_p.cpp:590
+#: alkonlinequote_p.cpp:388
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "無法使用格式 '%2' 剖析日期 '%1'：%3"
 
-#: alkonlinequote_p.cpp:594 alkonlinequote_p.cpp:604
+#: alkonlinequote_p.cpp:392 alkonlinequote_p.cpp:402
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "為 '%1' 使用目前的日期"
 
-#: alkonlinequote_p.cpp:598
+#: alkonlinequote_p.cpp:396
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "已為 '%1' 停用日期剖析"
 
-#: alkonlinequote_p.cpp:601
+#: alkonlinequote_p.cpp:399
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "無法剖析 '%1' 的日期"
 
-#: alkonlinequote_p.cpp:749
+#: alkonlinequote_p.cpp:456 alkonlinequote_p.cpp:482 alkonlinequote_p.cpp:520
+#, kde-format
+msgid "Symbol found: '%1'"
+msgstr "找到符號：'%1'"
+
+#: alkonlinequote_p.cpp:459 alkonlinequote_p.cpp:485 alkonlinequote_p.cpp:523
+#, kde-format
+msgid "Unable to parse symbol for %1"
+msgstr "無法剖析 %1 的符號"
+
+#: alkonlinequote_p.cpp:573
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr "無法在報價資料的第一行（標頭行）中偵測到欄位分隔符。"
 
-#: alkonlinequote_p.cpp:776
+#: alkonlinequote_p.cpp:600
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "無法在報價資料中找到日期欄位 '%1'"
 
-#: alkonlinequote_p.cpp:782
+#: alkonlinequote_p.cpp:606
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "無法在報價資料中找到價格欄位 '%1'"
 
-#: alkonlinequote_p.cpp:800
+#: alkonlinequote_p.cpp:624
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "無法在報價資料中用 '%2' 轉換日期 '%1'"
 
-#: alkonlinequote_p.cpp:816
+#: alkonlinequote_p.cpp:640
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "無法在報價資料中找到日期/價格對"
 
-#: alkonlinequote_p.cpp:847
+#: alkonlinequote_p.cpp:671
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "無法更新 %1 的價格（空白的報價資料）"
 
-#: alkonlinequote_p.cpp:865
+#: alkonlinequote_p.cpp:689
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "為 %1 抓取網址時逾時"
@@ -213,20 +213,88 @@ msgstr ""
 msgid "Details"
 msgstr "詳細資料"
 
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: alkonlinequotedetails.ui:42
+#, kde-format
+msgid "Download mode"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:45
+#: alkonlinequotedetails.ui:52
 #, kde-format
 msgid "Remote source"
 msgstr "遠端來源"
 
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
+#: alkonlinequotedetails.ui:66 alkonlinequotesprofile.ui:220
+#, kde-format
+msgid "Regular Expression to extract the price from the downloaded data"
+msgstr "從下載資料中取出價格所使用的正規表示式"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
+#: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
+#, kde-format
+msgid "Regular Expression to extract the identifier from the downloaded data"
+msgstr "從下載資料中取出識別子所使用的正規表示式"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#: alkonlinequotedetails.ui:80 alkonlinequotedetails.ui:202
+#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr "從下載資料中取出日期所使用的正規表示式"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
+#, kde-format
+msgid "Identifier"
+msgstr "識別子"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
+#, kde-format
+msgid "Price"
+msgstr "價格"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: alkonlinequotedetails.ui:107
+#, kde-format
+msgid "Default Identifier"
+msgstr "預設識別子"
+
+#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
+#: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
+#, kde-format
+msgid "Selected by"
+msgstr "由誰選取"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequotedetails.ui:135
+#, kde-format
+msgid "Price decimal separator"
+msgstr "價格小數點符號"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
+#: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
+#, kde-format
+msgid "How to select the identifier"
+msgstr "如何選取識別子"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotedetails.ui:156
+#, kde-format
+msgid "Data Format"
+msgstr "資料格式"
+
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:52 alkonlinequotesprofile.ui:196
+#: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
 #, kde-format
 msgid "URL to be used to download the quote"
 msgstr "用來下載報價的網址"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:55 alkonlinequotesprofile.ui:199
+#: alkonlinequotedetails.ui:166 alkonlinequotesprofile.ui:199
 #, no-c-format, kde-format
 msgid ""
 "Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
@@ -237,140 +305,78 @@ msgstr ""
 "輸入要抓取股票報價的網址。<b>%1</b> 會被替換為正在報價的證券的符號。對於貨幣"
 "轉換，<b>%2</b> 會被替換為要報價的貨幣而 <b>%1</b> 則會替換為報價基底的貨幣。"
 
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
-#: alkonlinequotedetails.ui:62 alkonlinequotesprofile.ui:206
-#, kde-format
-msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "從下載資料中取出識別子所使用的正規表示式"
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
-#: alkonlinequotedetails.ui:76
-#, kde-format
-msgid "The type of data expected to downloaded and processed."
-msgstr "預期會被下載與處理的資料型態。"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: alkonlinequotedetails.ui:83 alkonlinequotesprofile.ui:142
-#, kde-format
-msgid "Identifier"
-msgstr "識別子"
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
-#: alkonlinequotedetails.ui:100 alkonlinequotesprofile.ui:213
-#, kde-format
-msgid "How to select the identifier"
-msgstr "如何選取識別子"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
-#: alkonlinequotedetails.ui:107 alkonlinequotedetails.ui:196
-#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
-#, kde-format
-msgid "Regular Expression to extract the date from the downloaded data"
-msgstr "從下載資料中取出日期所使用的正規表示式"
-
-#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
-#: alkonlinequotedetails.ui:121 alkonlinequotesprofile.ui:152
-#, kde-format
-msgid "Selected by"
-msgstr "由誰選取"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: alkonlinequotedetails.ui:128 alkonlinequotesprofile.ui:169
-#, kde-format
-msgid "Date"
-msgstr "日期"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: alkonlinequotedetails.ui:145
-#, kde-format
-msgid "Price decimal separator"
-msgstr "價格小數點符號"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: alkonlinequotedetails.ui:152 alkonlinequotesprofile.ui:159
-#, kde-format
-msgid "Price"
-msgstr "價格"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: alkonlinequotedetails.ui:169 alkonlinequotesprofile.ui:179
-#, kde-format
-msgid "Date Format"
-msgstr "日期格式"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: alkonlinequotedetails.ui:179
-#, kde-format
-msgid "Default Identifier"
-msgstr "預設識別子"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: alkonlinequotedetails.ui:186 alkonlinequotesprofile.ui:132
-#, kde-format
-msgid "URL"
-msgstr "網址"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequotedetails.ui:203
-#, kde-format
-msgid "Data Format"
-msgstr "資料格式"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequotedetails.ui:210 alkonlinequotesprofile.ui:189
-#, kde-format
-msgid "Options"
-msgstr "選項"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
-#: alkonlinequotedetails.ui:217
-#, kde-format
-msgid "An identifier that is known to work for this online quote source"
-msgstr "已知為這個線上報價來源會正常運作的識別子"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
-#: alkonlinequotedetails.ui:224 alkonlinequotesprofile.ui:220
-#, kde-format
-msgid "Regular Expression to extract the price from the downloaded data"
-msgstr "從下載資料中取出價格所使用的正規表示式"
-
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
-#: alkonlinequotedetails.ui:239
+#: alkonlinequotedetails.ui:184
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
 msgstr "點 (.)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
-#: alkonlinequotedetails.ui:244
+#: alkonlinequotedetails.ui:189
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
 msgstr "逗號 (,)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
-#: alkonlinequotedetails.ui:249
+#: alkonlinequotedetails.ui:194
 #, kde-format
 msgid "Legacy"
 msgstr "舊式"
 
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotedetails.ui:209 alkonlinequotesprofile.ui:189
+#, kde-format
+msgid "Options"
+msgstr "選項"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequotedetails.ui:223 alkonlinequotesprofile.ui:179
+#, kde-format
+msgid "Date Format"
+msgstr "日期格式"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequotedetails.ui:233 alkonlinequotesprofile.ui:132
+#, kde-format
+msgid "URL"
+msgstr "網址"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
+#: alkonlinequotedetails.ui:243
+#, kde-format
+msgid "An identifier that is known to work for this online quote source"
+msgstr "已知為這個線上報價來源會正常運作的識別子"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequotedetails.ui:250 alkonlinequotesprofile.ui:169
+#, kde-format
+msgid "Date"
+msgstr "日期"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
+#: alkonlinequotedetails.ui:260
+#, kde-format
+msgid "The type of data expected to downloaded and processed."
+msgstr "預期會被下載與處理的資料型態。"
+
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
-#: alkonlinequotedetails.ui:264 alkonlinequotesprofile.ui:312
+#: alkonlinequotedetails.ui:274 alkonlinequotesprofile.ui:312
 #, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
 msgstr "接受"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
-#: alkonlinequotedetails.ui:271
+#: alkonlinequotedetails.ui:281
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
 msgstr "取消"
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
-#: alkonlinequotedetails.ui:300
+#: alkonlinequotedetails.ui:309
 #, kde-format
 msgid "build_key"
 msgstr "build_key"
@@ -685,53 +691,73 @@ msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:294
+#: alkonlinequoteswidget.cpp:262
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox Stock"
+#| msgid "CSV"
+msgctxt "@item:inlistbox Stock"
+msgid "CSS"
+msgstr "CSV"
+
+#: alkonlinequoteswidget.cpp:266
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Default"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:267
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Javascript"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:301
 #, kde-format
 msgid "Remote unpublished"
 msgstr "遠端已取消發布"
 
-#: alkonlinequoteswidget.cpp:296
+#: alkonlinequoteswidget.cpp:303
 #, kde-format
 msgid "Remote"
 msgstr "遠端"
 
-#: alkonlinequoteswidget.cpp:298
+#: alkonlinequoteswidget.cpp:305
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:299
+#: alkonlinequoteswidget.cpp:306
 #, kde-format
 msgid "Local"
 msgstr "本地"
 
-#: alkonlinequoteswidget.cpp:512
+#: alkonlinequoteswidget.cpp:522
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "您確定要刪除這個線上報價嗎？"
 
-#: alkonlinequoteswidget.cpp:513
+#: alkonlinequoteswidget.cpp:523
 #, kde-format
 msgid "Delete online quote"
 msgstr "刪除線上報價"
 
-#: alkonlinequoteswidget.cpp:540
+#: alkonlinequoteswidget.cpp:550
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:567 alkonlinequoteswidget.cpp:569
+#: alkonlinequoteswidget.cpp:578 alkonlinequoteswidget.cpp:580
 #, kde-format
 msgid "New Quote Source"
 msgstr "新的報價來源"
 
-#: alkonlinequoteswidget.cpp:578
+#: alkonlinequoteswidget.cpp:589
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>新的報價來源</b>已經存在。"
 
-#: alkonlinequoteswidget.cpp:756
+#: alkonlinequoteswidget.cpp:767
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "線上報價 HTML 結果視窗"
@@ -832,12 +858,12 @@ msgstr "軟體包建立於："
 msgid "Package edit url:"
 msgstr "軟體包編輯網址："
 
-#: alkwebpage.cpp:54
+#: alkwebpage.cpp:55
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "在新視窗中開啟檢測器"
 
-#: alkwebpage.cpp:66
+#: alkwebpage.cpp:67
 #, kde-format
 msgid "Inspect element"
 msgstr "檢測元素"
