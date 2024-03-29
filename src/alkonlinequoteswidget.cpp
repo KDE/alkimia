@@ -159,8 +159,8 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     profilesGroupBox->setVisible(showProfiles);
     profileDetailsBox->setVisible(showProfiles);
     m_showButton->setVisible(!showProfiles && AlkOnlineQuotesProfileManager::instance().webPageEnabled());
-    m_ghnsSource->setEnabled(showProfiles && showUpload);
-    m_uploadButton->setVisible(showUpload);
+    m_ghnsSource->setVisible(false);
+    m_uploadButton->setVisible(showUpload && m_profile->hasGHNSSupport());
     m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
     loadProfiles();
@@ -449,7 +449,8 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_editDateFormat->setEnabled(enabled);
     m_editDefaultId->setEnabled(enabled);
     m_editDownloadType->setEnabled(enabled);
-    m_ghnsSource->setEnabled(enabled);
+    m_ghnsSource->setVisible(m_profile && m_profile->hasGHNSSupport());
+    m_ghnsSource->setEnabled(m_showUpload && m_profile && m_profile->hasGHNSSupport() && enabled);
     m_editDataFormat->setEnabled(enabled);
 
     m_disableUpdate = false;
