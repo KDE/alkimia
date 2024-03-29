@@ -33,7 +33,9 @@ public:
 
     ~Private()
     {
-        m_page.data()->deleteLater();
+        if (m_page.data()) {
+            m_page.data()->deleteLater();
+        }
     }
 };
 
