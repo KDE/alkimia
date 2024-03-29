@@ -57,6 +57,15 @@ ecm_add_test(
     TEST_NAME alkdateformattest
 )
 
+if(BUILD_WITH_WEBENGINE)
+    ecm_add_test(
+        test-qwebengine-offscreen.cpp
+        ENV ${TEST_ENV}
+        LINK_LIBRARIES ${TEST_LIB}
+        TEST_NAME test-qwebengine-offscreen
+    )
+endif()
+
 ecm_add_test(
     alkonlinequoteprivatetest.cpp
     alkonlinequoteprivatetest.qrc

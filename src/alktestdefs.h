@@ -22,4 +22,7 @@
 #define TEST_DOWNLOAD_URL_CURRENCY TEST_LAUNCH_URL "a=BTC&b=GBP"
 #define TEST_DOWNLOAD_URL_ERROR TEST_LAUNCH_URL "servererror=1"
 
+#define TEST_LAUNCH_JAVASCRIPT_URL TEST_LAUNCH_URL "a=EUR&dtype=javascript"
+#define TEST_LAUNCH_JAVASCRIPT_EXPECTED "</span>\n<div></div></body>"
+
 #endif // ALKTESTDEFS_H
