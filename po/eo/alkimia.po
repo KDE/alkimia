@@ -1,265 +1,266 @@
+# translation of alkimia.pot to Esperanto
+# Copyright (C) 2024 Free Software Foundation, Inc.
+# This file is distributed under the same license as the alkimia package.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-01 02:29+0000\n"
-"PO-Revision-Date: 2024-03-28 19:24\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-03-28 08:18+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo.org>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-stable/messages/alkimia/alkimia.pot\n"
-"X-Crowdin-File-ID: 10164\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: alkonlinequote.cpp:181
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
-msgstr "源 <placeholder>%1</placeholder> 不存在。"
+msgstr "Fonto <placeholder>%1</placeholder> ne ekzistas."
 
 #: alkonlinequote.cpp:215 alkonlinequote.cpp:229
 #, kde-format
 msgid "Unable to fetch url for %1"
-msgstr "无法获取 %1 的 URL"
+msgstr "Ne eblas akiri URL por %1"
 
 #: alkonlinequote.cpp:237 alkonlinequote.cpp:656
 #, kde-format
 msgid "Symbol found: '%1'"
-msgstr "找到代号：'%1'"
+msgstr "Simbolo trovita: '%1'"
 
 #: alkonlinequote.cpp:240 alkonlinequote.cpp:659
 #, kde-format
 msgid "Unable to parse symbol for %1"
-msgstr "无法解析 %1 代号"
+msgstr "Ne eblas analizi simbolon por %1"
 
 #: alkonlinequote.cpp:263
 #, kde-format
 msgid "Fetching URL %1..."
-msgstr "正在获取 URL %1..."
+msgstr "Akirante URL %1..."
 
 #: alkonlinequote.cpp:324
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
-msgstr "正在执行 %1..."
+msgstr "Plenumante %1..."
 
 #: alkonlinequote.cpp:336 alkonlinequote.cpp:544
 #, kde-format
 msgid "Unable to launch: %1"
-msgstr "无法启动：%1"
+msgstr "Ne eblas lanĉi: %1"
 
 #: alkonlinequote.cpp:358
 #, kde-format
 msgid "Failed to open downloaded file"
-msgstr "无法打开已下载的文件"
+msgstr "Malsukcesis malfermi elŝutitan dosieron"
 
 #: alkonlinequote.cpp:375
 #, kde-format
 msgid "URL found: %1..."
-msgstr "找到网址： %1..."
+msgstr "URL trovita: %1..."
 
 #: alkonlinequote.cpp:465
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
-msgstr "URL 已被重定向；请检查在线报价 URL 的更新"
+msgstr "La URL estis alidirektita; kontrolu ĝisdatigon de la reta citaĵo URL"
 
 #: alkonlinequote.cpp:536
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
-msgstr "正在执行 %1 %2 %3..."
+msgstr "Efektivigante %1 %2 %3..."
 
 #: alkonlinequote.cpp:576
 #, kde-format
 msgid "Price found: '%1' (%2)"
-msgstr "已找到价格信息：“%1”(%2)"
+msgstr "Prezo trovita: '%1' (%2)"
 
 #: alkonlinequote.cpp:579
 #, kde-format
 msgid "Unable to parse price for '%1'"
-msgstr "无法解析 '%1' 的价格信息"
+msgstr "Ne eblas analizi prezon por '%1'"
 
 #: alkonlinequote.cpp:588
 #, kde-format
 msgid "Date found: '%1'"
-msgstr "已找到日期：'%1'"
+msgstr "Trovita dato: '%1'"
 
 #: alkonlinequote.cpp:594
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
-msgstr "找到日期格式：'%1' -> '%2'"
+msgstr "Trovita dato-formato: '%1' -> '%2'"
 
 #: alkonlinequote.cpp:597
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
-msgstr "无法使用格式 '%1' 解析日期 '%2': %3"
+msgstr "Ne eblas analizi la daton '%1' per formato '%2': ​​%3"
 
 #: alkonlinequote.cpp:601 alkonlinequote.cpp:611
 #, kde-format
 msgid "Using current date for '%1'"
-msgstr "为 '%1' 使用当前日期"
+msgstr "Uzanta aktualan daton por '%1'"
 
 #: alkonlinequote.cpp:605
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
-msgstr "'%1' 的日期解析已禁用"
+msgstr "Analiza dato estas malŝaltita por '%1'"
 
 #: alkonlinequote.cpp:608
 #, kde-format
 msgid "Unable to parse date for '%1'"
-msgstr "无法解析 '%1' 日期"
+msgstr "Ne eblas analizi daton por '%1'"
 
 #: alkonlinequote.cpp:685
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
-msgstr "无法更新 %1 的价格信息 (报表数据为空)"
+msgstr "Ne eblas ĝisdatigi prezon por %1 (malplenaj citaĵoj)"
 
 #: alkonlinequote.cpp:694
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr ""
+msgstr "La tempodaŭro superita alportante URL por %1"
 
 #: alkonlinequoteswidget.cpp:135
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
-msgstr "接受(&A)"
+msgstr "&Konsentu"
 
 #: alkonlinequoteswidget.cpp:137
 #, kde-format
 msgid "Accepts the entered data and stores it"
-msgstr "接受并保存输入的数据"
+msgstr "Akceptas la enmetitajn datumojn kaj konservas ĝin"
 
 #: alkonlinequoteswidget.cpp:138
 #, kde-format
 msgid "Use this to accept the modified data."
-msgstr "用它来接受修改后的数据。"
+msgstr "Uzu ĉi tion por akcepti la modifitajn datumojn."
 
 #: alkonlinequoteswidget.cpp:140
 #, kde-format
 msgid "&Delete"
-msgstr "删除(&D)"
+msgstr "&Forigi"
 
 #: alkonlinequoteswidget.cpp:142
 #, kde-format
 msgid "Delete the selected source entry"
-msgstr "删除选中的来源项"
+msgstr "Forigi la elektitan fontan eron"
 
 #: alkonlinequoteswidget.cpp:143
 #, kde-format
 msgid "Use this to delete the selected online source entry"
-msgstr "用它来删除选中的在线源项"
+msgstr "Uzi ĉi tion por forigi la elektitan interretan fontan eron"
 
 #: alkonlinequoteswidget.cpp:145
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
-msgstr "检查来源(%C)"
+msgstr "&Kontroli Fonton"
 
 #: alkonlinequoteswidget.cpp:147
 #, kde-format
 msgid "Check the selected source entry"
-msgstr "检查选中的来源项"
+msgstr "Kontroli la elektitan fontan eniron"
 
 #: alkonlinequoteswidget.cpp:148
 #, kde-format
 msgid "Use this to check the selected online source entry"
-msgstr "用它来检查选中的在线源项"
+msgstr "Uzi ĉi tion por kontroli la elektitan interretan fontan eniron"
 
 #: alkonlinequoteswidget.cpp:150
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
-msgstr "显示页面(&S)"
+msgstr "&Montri paĝon"
 
 #: alkonlinequoteswidget.cpp:152
 #, kde-format
 msgid "Show the selected source entry in a web browser"
-msgstr "在网页浏览器中显示选中的源项"
+msgstr "Montri la elektitan fontan eniron en TTT-legilo"
 
 #: alkonlinequoteswidget.cpp:153
 #, kde-format
 msgid "Use this to show the selected online source entry"
-msgstr "用它来显示选中的在线源项"
+msgstr "Uzi ĉi tion por montri la elektitan interretan fontan eniron"
 
 #: alkonlinequoteswidget.cpp:155
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
-msgstr "新建(&N)..."
+msgstr "&Nova..."
 
 #: alkonlinequoteswidget.cpp:157
 #, kde-format
 msgid "Create a new source entry for online quotes"
-msgstr "为在线报价新建一个来源项"
+msgstr "Krei novan fontan eron por interretaj citaĵoj"
 
 #: alkonlinequoteswidget.cpp:158
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
-msgstr "用它为在线报价新建一个来源项"
+msgstr "Uzi ĉi tion por krei novan eron por interretaj citaĵoj"
 
 #: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Name"
-msgstr "姓名"
+msgstr "Nomo"
 
 #: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Source"
-msgstr "来源"
+msgstr "Fonto"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequoteswidget.cpp:242 alkonlinequoteswidget.ui:379
 #, kde-format
 msgid "GHNS Source"
-msgstr "GHNS 源"
+msgstr "GHNS Fonto"
 
 #: alkonlinequoteswidget.cpp:244
 #, kde-format
 msgid "Finance::Quote"
-msgstr "Finance::Quote"
+msgstr "Financo::Citaĵo"
 
 #: alkonlinequoteswidget.cpp:245
 #, kde-format
 msgid "local"
-msgstr "本地"
+msgstr "loka"
 
 #: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:474
 #, kde-format
 msgid "New Quote Source"
-msgstr "新报价来源"
+msgstr "Nova Citfonto"
 
 #: alkonlinequoteswidget.cpp:422
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
-msgstr "您确定删除该在线报价吗？"
+msgstr "Ĉu vi certas forigi ĉi tiun retan citaĵon?"
 
 #: alkonlinequoteswidget.cpp:423
 #, kde-format
 msgid "Delete online quote"
-msgstr "删除在线报价"
+msgstr "Forigi interretan citaĵon"
 
 #: alkonlinequoteswidget.cpp:450
 #, kde-format
 msgid ".copy"
-msgstr ""
+msgstr ".kopio"
 
 #: alkonlinequoteswidget.cpp:627
 #, kde-format
 msgid "Online Quote HTML Result Window"
-msgstr "在线报价 HTML 结果窗口"
+msgstr "Interreta Citaĵo HTML Rezulta Fenestro"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteswidget.ui:20 alkonlinequoteswidget.ui:188
 #, kde-format
 msgid "Online Quotes"
-msgstr "在线报价"
+msgstr "Retaj Citaĵoj"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequoteswidget.ui:26
@@ -268,62 +269,64 @@ msgid ""
 "<html><head/><body><p>Select, add or delete an application profile, where to "
 "load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Elektu, aldonu aŭ forigu aplikan profilon, de kie "
+"ŝarĝi profilojn kaj konservi en ekz. kmymoney aŭ skrooge.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequoteswidget.ui:29
 #, kde-format
 msgid "Application Profiles"
-msgstr "应用程序配置文件"
+msgstr "Aplikaj Profiloj"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newProfile)
 #: alkonlinequoteswidget.ui:48
 #, kde-format
 msgid "New"
-msgstr "新建"
+msgstr "Nova"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
 #. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
 #: alkonlinequoteswidget.ui:62 alkonlinequoteswidget.ui:211
 #, kde-format
 msgid "Delete"
-msgstr "删除"
+msgstr "Forigi"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
 #: alkonlinequoteswidget.ui:93
 #, kde-format
 msgid "Profile details"
-msgstr "配置文件详情"
+msgstr "Profilaj detaloj"
 
 #. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
 #: alkonlinequoteswidget.ui:102
 #, kde-format
 msgid "GHNS config file"
-msgstr "GHNS 配置文件"
+msgstr "GHNS agordosiero"
 
 #. i18n: ectx: property (text), widget (QLabel, m_configLabel)
 #: alkonlinequoteswidget.ui:122
 #, kde-format
 msgid "Config file"
-msgstr "配置文件"
+msgstr "Agorda dosiero"
 
 #. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
 #: alkonlinequoteswidget.ui:159
 #, kde-format
 msgid "GHNS data path"
-msgstr "GHNS 数据路径"
+msgstr "GHNS-datumvojo"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteswidget.ui:185
 #, kde-format
 msgid "<html><head/><body><p>online price quotes</p></body></html>"
-msgstr "<html><head/><body><p>在线报价</p></body></html>"
+msgstr "<html><head/><body><p>interretaj prezoj</p></body></html>"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteswidget.ui:204
 #, kde-format
 msgctxt "@action create new quote source"
 msgid "New"
-msgstr "新建"
+msgstr "Nova"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:218
@@ -331,25 +334,25 @@ msgstr "新建"
 msgid ""
 "Create a duplicate of the currently selected source entry under a different "
 "name."
-msgstr "以不同的名称创建当前选中的源条目的副本。"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:221
 #, kde-format
 msgid "Use this to create a duplicate of an entry for an online source"
-msgstr "用它来为在线源条目创建副本"
+msgstr "Uzi ĉi tion por krei duplikaton de eniro por interreta fonto"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:224
 #, kde-format
 msgid "Duplicate"
-msgstr "制作副本"
+msgstr "Duobligi"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteswidget.ui:235
 #, kde-format
 msgid "Install"
-msgstr "安装"
+msgstr "Instali"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequoteswidget.ui:265
@@ -367,22 +370,12 @@ msgid ""
 "a><span style=\" font-style:italic;\"> to find what settings work for other "
 "users in your country.</span></p></body></html>"
 msgstr ""
-"<html><head/><body><p><span style=\" font-style:italic;\">请输入正则表达式，"
-"这将用于转换上方输入的URL返回的数据。符号、价格和日期需出现在报价数据才可用。"
-"您也可通过 KMyMoney 社区论坛 </span><a href=\"https://forum.kde.org/"
-"viewforum.php?f=69\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></a>  或 <span "
-"style=\" font-style:italic;\">用户邮箱列表 </span><a href=\"mailto:"
-"kmymoney@kde.org\"><span style=\" font-style:italic; text-decoration: "
-"underline; color:#2980b9;\">kmymoney@kde.org</span></a><span style=\" font-"
-"style:italic;\"> 了解在您所在的国家对其他用户有效的设置。</span></p></body></"
-"html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequoteswidget.ui:268
 #, kde-format
 msgid "Details"
-msgstr "详细信息"
+msgstr "Detaloj"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: alkonlinequoteswidget.ui:281
@@ -394,37 +387,37 @@ msgstr "URL"
 #: alkonlinequoteswidget.ui:291
 #, kde-format
 msgid "Symbol"
-msgstr "代号"
+msgstr "Simbolo"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequoteswidget.ui:301
 #, kde-format
 msgid "Price"
-msgstr "价格"
+msgstr "Prezo"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequoteswidget.ui:311
 #, kde-format
 msgid "Date"
-msgstr "日期"
+msgstr "Dato"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequoteswidget.ui:321
 #, kde-format
 msgid "Date Format"
-msgstr "日期格式"
+msgstr "Datoformato"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequoteswidget.ui:331
 #, kde-format
 msgid "Options"
-msgstr "选项"
+msgstr "Elektebloj"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:338
 #, kde-format
 msgid "URL to be used to download the quote"
-msgstr "用于下载报价的地址"
+msgstr "URL uzota por elŝuti la citaĵon"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
 #: alkonlinequoteswidget.ui:341
@@ -435,28 +428,25 @@ msgid ""
 "conversions, <b>%2</b> will be replaced with the currency to be quoted and "
 "<b>%1</b> with the currency the quote is based on."
 msgstr ""
-"输入用于获取股票报价的 URL。由于安全原因，<b>%1</b> 会被替换为报价中的股票代"
-"号。货币转换时，<b>%2</b> 会被替换为需报价的货币，<b>%1</b> 会被替换为报价的"
-"基准货币。"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editSymbol)
 #: alkonlinequoteswidget.ui:348
 #, kde-format
 msgid "Regular Expression to extract the symbol from the downloaded data"
-msgstr "从下载数据中提取代号用的正则表达式"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequoteswidget.ui:355
 #, kde-format
 msgid "Regular Expression to extract the price from the downloaded data"
-msgstr "从下载数据中提取价格用的正则表达式"
+msgstr "Regula Esprimo por ĉerpi la prezon el la elŝutitaj datumoj"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
 #: alkonlinequoteswidget.ui:362 alkonlinequoteswidget.ui:369
 #, kde-format
 msgid "Regular Expression to extract the date from the downloaded data"
-msgstr "用于从下载数据中提取日期的正则表达式"
+msgstr "Regula Esprimo por ĉerpi la daton el la elŝutitaj datumoj"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
 #: alkonlinequoteswidget.ui:395
@@ -476,58 +466,46 @@ msgid ""
 "</ul>\n"
 "</p>"
 msgstr ""
-"<p>为了更方便处理在线源返回的数据，KMyMoney 通常会删除未使用的部分，再使用正"
-"则表达式进行解析。如果字段匹配需要以下内容，您可以通过此选项保留完整数据。</"
-"p>\n"
-"\n"
-"<p>以下内容通常会被删除：\n"
-"\n"
-"<ul>\n"
-"<li>HTML 标签，如 <b>&lt;tag&gt;</b></li>\n"
-"<li>编码字符，如 <b>&amp;nbsp;</b></li>\n"
-"<li>重复的空格</li>\n"
-"</ul>\n"
-"</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
 #: alkonlinequoteswidget.ui:398
 #, kde-format
 msgid "Skip HTML stripping"
-msgstr "跳过 HTML 精简"
+msgstr "Preterlasi HTML-an nudigon"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #: alkonlinequoteswidget.ui:447
 #, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
-msgstr "接受"
+msgstr "Akcepti"
 
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
 #: alkonlinequoteswidget.ui:487
 #, kde-format
 msgid "Debugging"
-msgstr "调试"
+msgstr "Sencimigado"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteswidget.ui:502
 #, kde-format
 msgid "One Symbol"
-msgstr "一个代号"
+msgstr "Unu Simbolo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteswidget.ui:516
 #, kde-format
 msgid "Two Symbols"
-msgstr "两个代号"
+msgstr "Du Simboloj"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
 #: alkonlinequoteswidget.ui:537
 #, kde-format
 msgid "Check Source"
-msgstr "检查来源"
+msgstr "Kontroli Fonton"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequoteswidget.ui:548
 #, kde-format
 msgid "Show Page"
-msgstr "显示页面"
+msgstr "Montri Paĝon"
