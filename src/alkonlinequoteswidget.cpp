@@ -160,7 +160,6 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     profileDetailsBox->setVisible(showProfiles);
     m_showButton->setVisible(!showProfiles && AlkOnlineQuotesProfileManager::instance().webPageEnabled());
     m_ghnsSource->setVisible(false);
-    m_uploadButton->setVisible(showUpload && m_profile->hasGHNSSupport());
     m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
     loadProfiles();
@@ -270,6 +269,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
     connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowButton()));
 
+    m_updateButton->setVisible(false);
     m_updateButton->setEnabled(false);
     slotLoadProfile();
 }
@@ -370,12 +370,14 @@ void AlkOnlineQuotesWidget::Private::slotSelectProfile()
 
 void AlkOnlineQuotesWidget::Private::slotLoadProfile()
 {
+    m_uploadButton->setEnabled(false);
     const AlkOnlineQuotesProfileList list = AlkOnlineQuotesProfileManager::instance().profiles();
     if (!m_showProfiles) {
         if (list.isEmpty())
             return;
         m_profile = list.first();
         m_installButton->setVisible(m_profile->hasGHNSSupport());
+        m_uploadButton->setVisible(m_profile->hasGHNSSupport());
         loadQuotesList(true);
         return;
     }
@@ -385,6 +387,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
             m_profile = profile;
             loadQuotesList(true);
             m_installButton->setVisible(profile->hasGHNSSupport());
+            m_uploadButton->setVisible(profile->hasGHNSSupport());
             break;
         }
     }
@@ -451,6 +454,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_editDownloadType->setEnabled(enabled);
     m_ghnsSource->setVisible(m_profile && m_profile->hasGHNSSupport());
     m_ghnsSource->setEnabled(m_showUpload && m_profile && m_profile->hasGHNSSupport() && enabled);
+    m_uploadButton->setEnabled(m_showUpload && m_profile && m_profile->hasGHNSSupport());
     m_editDataFormat->setEnabled(enabled);
 
     m_disableUpdate = false;
