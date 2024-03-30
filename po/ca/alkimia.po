@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 02:07+0000\n"
+"POT-Creation-Date: 2024-03-30 01:34+0000\n"
 "PO-Revision-Date: 2024-03-28 08:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -587,144 +587,144 @@ msgstr "Perfils de l'aplicació"
 msgid "New"
 msgstr "Nou"
 
-#: alkonlinequoteswidget.cpp:169
+#: alkonlinequoteswidget.cpp:168
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Accepta"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:170
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Accepta les dades introduïdes i les desa"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:171
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Useu això per a acceptar les dades modificades."
 
-#: alkonlinequoteswidget.cpp:174
+#: alkonlinequoteswidget.cpp:173
 #, kde-format
 msgid "&Delete"
 msgstr "Su&primeix"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:175
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Suprimeix l'entrada de la font seleccionada"
 
-#: alkonlinequoteswidget.cpp:177
+#: alkonlinequoteswidget.cpp:176
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Useu això per a suprimir l'entrada de la font en línia seleccionada"
 
-#: alkonlinequoteswidget.cpp:179
+#: alkonlinequoteswidget.cpp:178
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "&Comprova la font"
 
-#: alkonlinequoteswidget.cpp:181
+#: alkonlinequoteswidget.cpp:180
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Comprova l'entrada de la font seleccionada"
 
-#: alkonlinequoteswidget.cpp:182
+#: alkonlinequoteswidget.cpp:181
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "Useu això per a comprovar l'entrada de la font en línia seleccionada"
 
-#: alkonlinequoteswidget.cpp:184
+#: alkonlinequoteswidget.cpp:183
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "Mo&stra la pàgina"
 
-#: alkonlinequoteswidget.cpp:186
+#: alkonlinequoteswidget.cpp:185
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Mostra l'entrada de la font seleccionada en un navegador web"
 
-#: alkonlinequoteswidget.cpp:187
+#: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "Useu això per a mostrar l'entrada de la font en línia seleccionada"
 
-#: alkonlinequoteswidget.cpp:189
+#: alkonlinequoteswidget.cpp:188
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Nova..."
 
-#: alkonlinequoteswidget.cpp:191
+#: alkonlinequoteswidget.cpp:190
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Crea una entrada de font nova per a les cotitzacions en línia"
 
-#: alkonlinequoteswidget.cpp:192
+#: alkonlinequoteswidget.cpp:191
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "Useu això per a crear una entrada nova per a les cotitzacions en línia"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:225
 #, kde-format
 msgid "Name"
 msgstr "Nom"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:225
 #, kde-format
 msgid "Source"
 msgstr "Font"
 
-#: alkonlinequoteswidget.cpp:247
+#: alkonlinequoteswidget.cpp:246
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Símbol"
 
-#: alkonlinequoteswidget.cpp:248
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Número d'identificació"
 
-#: alkonlinequoteswidget.cpp:249
+#: alkonlinequoteswidget.cpp:248
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nom"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:257
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "HTML netejat"
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:258
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:260
+#: alkonlinequoteswidget.cpp:259
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:262
+#: alkonlinequoteswidget.cpp:261
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequoteswidget.cpp:266
+#: alkonlinequoteswidget.cpp:265
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Predeterminat"
 
-#: alkonlinequoteswidget.cpp:267
+#: alkonlinequoteswidget.cpp:266
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
@@ -750,33 +750,33 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Local"
 
-#: alkonlinequoteswidget.cpp:522
+#: alkonlinequoteswidget.cpp:527
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Segur que voleu suprimir aquesta cotització en línia?"
 
-#: alkonlinequoteswidget.cpp:523
+#: alkonlinequoteswidget.cpp:528
 #, kde-format
 msgid "Delete online quote"
 msgstr "Suprimeix la cotització en línia"
 
-#: alkonlinequoteswidget.cpp:550
+#: alkonlinequoteswidget.cpp:555
 #, kde-format
 msgid ".copy"
 msgstr ".copia"
 
-#: alkonlinequoteswidget.cpp:578 alkonlinequoteswidget.cpp:580
+#: alkonlinequoteswidget.cpp:583 alkonlinequoteswidget.cpp:585
 #, kde-format
 msgid "New Quote Source"
 msgstr "Font nova de cotitzacions"
 
-#: alkonlinequoteswidget.cpp:589
+#: alkonlinequoteswidget.cpp:594
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "La <b>font nova de cotitzacions</b> ja existeix."
 
-#: alkonlinequoteswidget.cpp:767
+#: alkonlinequoteswidget.cpp:772
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Finestra de resultats en HTML de la cotització en línia"

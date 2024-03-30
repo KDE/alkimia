@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 02:07+0000\n"
-"PO-Revision-Date: 2024-03-28 10:03+0100\n"
+"POT-Creation-Date: 2024-03-30 01:34+0000\n"
+"PO-Revision-Date: 2024-03-29 07:38+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -576,150 +576,148 @@ msgstr "Profili aplikacij"
 msgid "New"
 msgstr "Nov"
 
-#: alkonlinequoteswidget.cpp:169
+#: alkonlinequoteswidget.cpp:168
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "Sprejmi"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:170
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Sprejema vnesene podatke in jih shranjuje"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:171
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Uporabi to za sprejem spremenjenih podatkov."
 
-#: alkonlinequoteswidget.cpp:174
+#: alkonlinequoteswidget.cpp:173
 #, kde-format
 msgid "&Delete"
 msgstr "Zbriši"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:175
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Izbriši izbrani vnos vira"
 
-#: alkonlinequoteswidget.cpp:177
+#: alkonlinequoteswidget.cpp:176
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Uporabi to za brisanje izbranega vnosa spletnega vira"
 
-#: alkonlinequoteswidget.cpp:179
+#: alkonlinequoteswidget.cpp:178
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "Preveri vir"
 
-#: alkonlinequoteswidget.cpp:181
+#: alkonlinequoteswidget.cpp:180
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Preveri izbrani vhodni vir"
 
-#: alkonlinequoteswidget.cpp:182
+#: alkonlinequoteswidget.cpp:181
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "To uporabi za preverjanje izbranega vnosa spletnega vira"
 
-#: alkonlinequoteswidget.cpp:184
+#: alkonlinequoteswidget.cpp:183
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "Prikaži stran"
 
-#: alkonlinequoteswidget.cpp:186
+#: alkonlinequoteswidget.cpp:185
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Prikaži izbrani vhodni vir v spletnem brskalniku"
 
-#: alkonlinequoteswidget.cpp:187
+#: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "Uporabi to za prikaz izbranega vnosa spletnega vira"
 
-#: alkonlinequoteswidget.cpp:189
+#: alkonlinequoteswidget.cpp:188
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "Nov..."
 
-#: alkonlinequoteswidget.cpp:191
+#: alkonlinequoteswidget.cpp:190
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Ustvari nov vnos vira spletne ponudbe"
 
-#: alkonlinequoteswidget.cpp:192
+#: alkonlinequoteswidget.cpp:191
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "S tem ustvarite nov vnos spletne ponudbe"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:225
 #, kde-format
 msgid "Name"
 msgstr "Ime"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:225
 #, kde-format
 msgid "Source"
 msgstr "Vir"
 
-#: alkonlinequoteswidget.cpp:247
+#: alkonlinequoteswidget.cpp:246
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Simbol"
 
-#: alkonlinequoteswidget.cpp:248
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Identifikacijska številka"
 
-#: alkonlinequoteswidget.cpp:249
+#: alkonlinequoteswidget.cpp:248
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Ime"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:257
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "Oluščen HTML"
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:258
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:260
+#: alkonlinequoteswidget.cpp:259
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:262
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox Stock"
-#| msgid "CSV"
+#: alkonlinequoteswidget.cpp:261
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
-msgstr "CSV"
+msgstr "CSS"
+
+#: alkonlinequoteswidget.cpp:265
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Default"
+msgstr "Privzeto"
 
 #: alkonlinequoteswidget.cpp:266
 #, kde-format
 msgctxt "@item:inlistbox Stock"
-msgid "Default"
-msgstr ""
-
-#: alkonlinequoteswidget.cpp:267
-#, kde-format
-msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
-msgstr ""
+msgstr "Javascript"
 
 #: alkonlinequoteswidget.cpp:301
 #, kde-format
@@ -741,33 +739,33 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Lokalni"
 
-#: alkonlinequoteswidget.cpp:522
+#: alkonlinequoteswidget.cpp:527
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Ali ste prepričani, da bi izbrisali to spletno navedbo?"
 
-#: alkonlinequoteswidget.cpp:523
+#: alkonlinequoteswidget.cpp:528
 #, kde-format
 msgid "Delete online quote"
 msgstr "Izbriši spletno navedbo"
 
-#: alkonlinequoteswidget.cpp:550
+#: alkonlinequoteswidget.cpp:555
 #, kde-format
 msgid ".copy"
 msgstr ".kopiraj"
 
-#: alkonlinequoteswidget.cpp:578 alkonlinequoteswidget.cpp:580
+#: alkonlinequoteswidget.cpp:583 alkonlinequoteswidget.cpp:585
 #, kde-format
 msgid "New Quote Source"
 msgstr "Vir nove spletne navedbe"
 
-#: alkonlinequoteswidget.cpp:589
+#: alkonlinequoteswidget.cpp:594
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Novi vir kotacij</b> že obstaja."
 
-#: alkonlinequoteswidget.cpp:767
+#: alkonlinequoteswidget.cpp:772
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Okno rezultatov spletnih navedb v HTML"
