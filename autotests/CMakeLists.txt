@@ -66,6 +66,15 @@ if(BUILD_WITH_WEBENGINE)
     )
 endif()
 
+if(BUILD_WITH_WEBENGINE)
+    ecm_add_test(
+        test-qwebengine-cli.cpp
+        ENV ${TEST_ENV}
+        LINK_LIBRARIES ${TEST_LIB}
+        TEST_NAME test-qwebengine-cli
+    )
+endif()
+
 ecm_add_test(
     alkonlinequoteprivatetest.cpp
     alkonlinequoteprivatetest.qrc
