@@ -90,7 +90,7 @@ public Q_SLOTS:
 
     void slotDeleteEntry();
     void slotDuplicateEntry();
-    void slotUpdateEntry();
+    void slotAcceptEntry();
     void slotLoadQuoteSource();
     void slotEntryChanged();
     void slotNewEntry();
@@ -165,7 +165,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     loadProfiles();
 
     // TODO move to ui file
-    KGuiItem updateButtenItem(i18nc("Accepts the entered data and stores it", "&Accept"),
+    KGuiItem acceptButtonItem(i18nc("Accepts the entered data and stores it", "&Accept"),
                               "dialog-ok",
                               i18n("Accepts the entered data and stores it"),
                               i18n("Use this to accept the modified data."));
@@ -191,7 +191,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
                            i18n("Use this to create a new entry for online quotes"));
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    KGuiItem::assign(m_updateButton, updateButtenItem);
+    KGuiItem::assign(m_acceptButton, acceptButtonItem);
     KGuiItem::assign(m_deleteButton, deleteButtenItem);
     KGuiItem::assign(m_checkButton, checkButtonItem);
     KGuiItem::assign(m_showButton, showButtonItem);
@@ -201,7 +201,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     groupBoxLayout->insertWidget(0, m_infoMessage);
     m_infoMessage->hide();
 #else
-    m_updateButton->setGuiItem(updateButtenItem);
+    m_acceptButton->setGuiItem(acceptButtonItem);
     m_deleteButton->setGuiItem(deleteButtenItem);
     m_checkButton->setGuiItem(checkButtonItem);
     m_showButton->setGuiItem(showButtonItem);
@@ -213,7 +213,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_profileList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadProfile()));
 
     connect(m_cancelButton, SIGNAL(clicked()), this, SLOT(slotLoadQuoteSource()));
-    connect(m_updateButton, SIGNAL(clicked()), this, SLOT(slotUpdateEntry()));
+    connect(m_acceptButton, SIGNAL(clicked()), this, SLOT(slotAcceptEntry()));
     connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
     connect(m_checkButton, SIGNAL(clicked()), this, SLOT(slotCheckEntry()));
     connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
@@ -270,7 +270,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowButton()));
 
     m_uploadButton->setVisible(false);
-    m_updateButton->setEnabled(false);
+    m_acceptButton->setEnabled(false);
     slotLoadProfile();
 }
 
@@ -491,7 +491,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     m_duplicateButton->setEnabled(hasWriteSupport);
     m_deleteButton->setEnabled((!m_currentItem.isReadOnly() && !m_currentItem.isGHNS()) || isRemoteUnpublished);
     m_uploadButton->setEnabled(m_profile->hasGHNSSupport() && m_currentItem.isGHNS() && AlkOnlineQuoteUploadDialog::isSupported());
-    m_updateButton->setEnabled(modified);
+    m_acceptButton->setEnabled(modified);
     m_checkButton->setEnabled(isFinanceQuote || !modified);
     m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
     m_checkSymbol2->setEnabled(m_currentItem.url().contains("%2"));
@@ -559,7 +559,7 @@ void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
     loadQuotesList();
 }
 
-void AlkOnlineQuotesWidget::Private::slotUpdateEntry()
+void AlkOnlineQuotesWidget::Private::slotAcceptEntry()
 {
     m_currentItem.setUrl(m_editURL->text());
     m_currentItem.setIdRegex(m_editIdentifier->text());

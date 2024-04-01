@@ -269,7 +269,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="AlkPushButton" name="m_updateButton">
+           <widget class="AlkPushButton" name="m_acceptButton">
             <property name="text">
              <string comment="@action update quotes from online quote source">Accept</string>
             </property>
