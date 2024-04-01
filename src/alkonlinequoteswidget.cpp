@@ -269,7 +269,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
     connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowButton()));
 
-    m_updateButton->setVisible(false);
+    m_uploadButton->setVisible(false);
     m_updateButton->setEnabled(false);
     slotLoadProfile();
 }
