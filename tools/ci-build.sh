@@ -201,10 +201,22 @@ init_cross_runtime() {
 srcdir="$(pwd)"
 builddir=${srcdir}/ci-build-${ci_variant}-${ci_host}
 
+# check and setup if running in docker
+# found on https://stackoverflow.com/questions/23513045
+if [ $ci_in_docker = auto ]; then
+    case $(cat /proc/1/sched  | head -n 1 | cut -d' ' -f1) in
+    systemd|init)
+        ci_in_docker=no
+        ;;
+    *)
+        ci_in_docker=yes
+        ;;
+    esac
+fi
 
 # enable sudo if running in docker
 sudo=
-if [ -f /.dockerenv ] && [ -n `getent passwd | grep ^user` ]; then
+if [ "$ci_in_docker" = "yes" ] && [ -n `getent passwd | grep ^user` ]; then
     sudo=sudo
 fi
 
