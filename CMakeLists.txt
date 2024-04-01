@@ -148,6 +148,10 @@ else()
     endif()
     set(QT_NETWORK_LIB ${QT_USE_LIBSPREFIX}${QT_NETWORK_COMPONENT})
 
+    # setup QT_VERSION_MAJOR
+    find_package(QT NAMES Qt5 REQUIRED COMPONENTS Core)
+
+    # find Qt components
     find_package(Qt5 REQUIRED COMPONENTS
         Core
         ${QT_NETWORK_COMPONENT}
