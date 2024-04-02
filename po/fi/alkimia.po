@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 01:34+0000\n"
+"POT-Creation-Date: 2024-04-02 01:34+0000\n"
 "PO-Revision-Date: 2019-02-28 15:29+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -358,6 +358,7 @@ msgid "The type of data expected to downloaded and processed."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_acceptButton)
 #: alkonlinequotedetails.ui:274 alkonlinequotesprofile.ui:312
 #, kde-format
 msgctxt "@action update quotes from online quote source"

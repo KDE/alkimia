@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 01:34+0000\n"
+"POT-Creation-Date: 2024-04-02 01:34+0000\n"
 "PO-Revision-Date: 2024-03-29 10:43+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -372,6 +372,7 @@ msgid "The type of data expected to downloaded and processed."
 msgstr "O tipo de datos que se espera descargar e procesar."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_acceptButton)
 #: alkonlinequotedetails.ui:274 alkonlinequotesprofile.ui:312
 #, kde-format
 msgctxt "@action update quotes from online quote source"
