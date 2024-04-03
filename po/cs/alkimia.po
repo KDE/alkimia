@@ -207,7 +207,7 @@ msgstr "Podrobnosti"
 #: alkonlinequotedetails.ui:42
 #, kde-format
 msgid "Download mode"
-msgstr ""
+msgstr "Režim stahování"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:52
@@ -682,12 +682,10 @@ msgid "CSV"
 msgstr "CSV"
 
 #: alkonlinequoteswidget.cpp:261
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox Stock"
-#| msgid "CSV"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
-msgstr "CSV"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:265
 #, kde-format
