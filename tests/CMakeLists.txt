@@ -27,11 +27,24 @@ if(BUILD_WITH_WEBKIT)
         alkwebpagewidgettest.cpp
     )
     target_link_libraries(alkwebpagewidget-webkit-test ${TEST_LIB})
-endif()
 
-if(BUILD_WITH_WEBENGINE)
+    add_executable(alkwebviewwidget-webkit-test
+        alkwebviewwidgettest.cpp
+    )
+    target_link_libraries(alkwebviewwidget-webkit-test ${TEST_LIB})
+elseif(BUILD_WITH_WEBENGINE)
     add_executable(alkwebpagewidget-webengine-test
         alkwebpagewidgettest.cpp
     )
     target_link_libraries(alkwebpagewidget-webengine-test ${TEST_LIB})
+
+    add_executable(alkwebviewwidget-webengine-test
+        alkwebviewwidgettest.cpp
+    )
+    target_link_libraries(alkwebviewwidget-webengine-test ${TEST_LIB})
+else()
+    add_executable(alkwebviewwidget-qtextbrowser-test
+        alkwebviewwidgettest.cpp
+    )
+    target_link_libraries(alkwebviewwidget-qtextbrowser-test ${TEST_LIB})
 endif()
