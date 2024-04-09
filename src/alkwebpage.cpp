@@ -8,6 +8,8 @@
 
 #include "alkwebpage.h"
 
+#include "alkwebview.h"
+
 #if defined(BUILD_WITH_WEBENGINE)
 #include <klocalizedstring.h>
 
@@ -26,49 +28,6 @@
 static const int s_webInspectorPort{8181};
 static bool s_webInspectorEnabled{false};
 
-class AlkWebView: public QWebEngineView
-{
-    Q_OBJECT
-public:
-    AlkWebPage *q;
-
-    explicit AlkWebView(AlkWebPage *parent)
-        : QWebEngineView()
-        , q(parent)
-    {}
-
-    void contextMenuEvent(QContextMenuEvent *event) override
-    {
-        if (!s_webInspectorEnabled) {
-            QWebEngineView::contextMenuEvent(event);
-            return;
-        }
-        QMenu *menu = page()->createStandardContextMenu();
-        const QList<QAction *> actions = menu->actions();
-        auto inspectElement = std::find(actions.cbegin(), actions.cend(), page()->action(QWebEnginePage::InspectElement));
-        if (inspectElement == actions.cend()) {
-            auto viewSource = std::find(actions.cbegin(), actions.cend(), page()->action(QWebEnginePage::ViewSource));
-            if (viewSource == actions.cend())
-                menu->addSeparator();
-
-            QAction *action = new QAction(menu);
-            action->setText(i18n("Open inspector in new window"));
-            connect(action, &QAction::triggered, []() {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
-                QDesktopServices::openUrl(QString("http://localhost:%1/devtools/page/%2").arg(webInspectorPort, page()->devToolsId()));
-#else
-                QDesktopServices::openUrl(QString("http://localhost:%1").arg(s_webInspectorPort));
-#endif
-            });
-
-            QAction *before(inspectElement == actions.cend() ? nullptr : *inspectElement);
-            menu->insertAction(before, action);
-        } else {
-            (*inspectElement)->setText(i18n("Inspect element"));
-        }
-        menu->popup(event->globalPos());
-    }
-};
 
 class AlkWebPage::Private : public QObject
 {
@@ -101,7 +60,7 @@ QWidget *AlkWebPage::widget()
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     if (!view())
-        setView(new AlkWebView(this));
+        setView(new AlkWebView);
     return view();
 #else
     return QWebEngineView::forPage(this);

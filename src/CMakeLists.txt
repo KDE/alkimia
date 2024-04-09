@@ -75,6 +75,7 @@ set(alkimia_LIB_SRCS
     alkversion.cpp
     alkutils.cpp
     alkwebpage.cpp
+    alkwebview.cpp
 )
 
 set(alkimia_LIB_HEADERS
@@ -88,6 +89,7 @@ set(alkimia_LIB_HEADERS
     alkonlinequotesprofilemanager.h
     alkonlinequoteswidget.h
     alkwebpage.h
+    alkwebview.h
 )
 
 set(alkimia_LIB_PRIVATE_HEADERS
