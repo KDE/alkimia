@@ -8,6 +8,7 @@
 
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesprofile.h"
+#include "alkwebview.h"
 #include "alkwebpage.h"
 
 #include <QPointer>
@@ -24,17 +25,17 @@ class AlkOnlineQuotesProfileManager::Private
 {
 public:
     AlkOnlineQuotesProfileList m_profiles;
-    QPointer<AlkWebPage> m_page;
-    bool m_withPage;
+    QPointer<AlkWebView> m_view;
+    bool m_withView;
     Private()
-      : m_withPage(false)
+      : m_withView(false)
     {
     }
 
     ~Private()
     {
-        if (m_page.data()) {
-            m_page.data()->deleteLater();
+        if (m_view.data()) {
+            m_view.data()->deleteLater();
         }
     }
 };
@@ -49,14 +50,14 @@ AlkOnlineQuotesProfileManager::~AlkOnlineQuotesProfileManager()
     delete d;
 }
 
-bool AlkOnlineQuotesProfileManager::webPageEnabled()
+bool AlkOnlineQuotesProfileManager::webViewEnabled()
 {
-    return d->m_withPage;
+    return d->m_withView;
 }
 
-void AlkOnlineQuotesProfileManager::setWebPageEnabled(bool enable)
+void AlkOnlineQuotesProfileManager::setWebViewEnabled(bool enable)
 {
-    d->m_withPage = enable;
+    d->m_withView = enable;
 }
 
 void AlkOnlineQuotesProfileManager::addProfile(AlkOnlineQuotesProfile *profile)
@@ -92,14 +93,15 @@ QStringList AlkOnlineQuotesProfileManager::profileNames()
     return profiles;
 }
 
-AlkWebPage *AlkOnlineQuotesProfileManager::webPage()
+AlkWebView *AlkOnlineQuotesProfileManager::webView()
 {
-    if (!d->m_page) {
+    if (!d->m_view) {
     // make sure that translations are installed on windows
         initLocale();
-        d->m_page = new AlkWebPage;
+        d->m_view = new AlkWebView;
+        d->m_view->setWebPage(new AlkWebPage);
     }
-    return d->m_page;
+    return d->m_view;
 }
 
 AlkOnlineQuotesProfileManager &AlkOnlineQuotesProfileManager::instance()

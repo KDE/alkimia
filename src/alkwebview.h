@@ -15,6 +15,8 @@
 
 #include <QWebEngineView>
 
+class AlkWebPage;
+
 /**
 * The AlkWebView class provides an interface to a browser component.
 * It is used for fetching and showing web pages.
@@ -31,6 +33,8 @@ public:
     void load(const QUrl &url);
     static void setWebInspectorEnabled(bool state);
     static bool webInspectorEnabled();
+    AlkWebPage *webPage();
+    void setWebPage(AlkWebPage *webPage);
 
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);
@@ -42,6 +46,8 @@ protected:
 #elif defined(BUILD_WITH_WEBKIT)
 
 #include <QWebView>
+
+class AlkWebPage;
 
 /**
  * The AlkWebView class provides an interface to a browser component.
@@ -58,6 +64,8 @@ public:
 
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
+    AlkWebPage *webPage();
+    void setWebPage(AlkWebPage *webPage);
 
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);

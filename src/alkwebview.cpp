@@ -8,6 +8,8 @@
 
 #include "alkwebview.h"
 
+#include "alkwebpage.h"
+
 #include <QEventLoop>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -52,6 +54,16 @@ void AlkWebView::setWebInspectorEnabled(bool state)
 bool AlkWebView::webInspectorEnabled()
 {
     return s_webInspectorEnabled;
+}
+
+AlkWebPage *AlkWebView::webPage()
+{
+    return dynamic_cast<AlkWebPage*>(page());
+}
+
+void AlkWebView::setWebPage(AlkWebPage *webPage)
+{
+    setPage(dynamic_cast<QWebEnginePage*>(webPage->d));
 }
 
 void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
@@ -105,6 +117,16 @@ AlkWebView::AlkWebView(QWidget *parent)
 
 AlkWebView::~AlkWebView()
 {
+}
+
+AlkWebPage *AlkWebView::webPage()
+{
+    return dynamic_cast<AlkWebPage*>(page());
+}
+
+void AlkWebView::setWebPage(AlkWebPage *webPage)
+{
+    setPage(dynamic_cast<QWebPage*>(webPage));
 }
 
 void AlkWebView::setWebInspectorEnabled(bool enable)

@@ -14,7 +14,7 @@
 #include <QList>
 #include <QStringList>
 
-class AlkWebPage;
+class AlkWebView;
 
 typedef QList<AlkOnlineQuotesProfile *> AlkOnlineQuotesProfileList;
 
@@ -28,9 +28,9 @@ public:
     AlkOnlineQuotesProfileList profiles();
     AlkOnlineQuotesProfile *profile(const QString &name);
     QStringList profileNames();
-    AlkWebPage *webPage();
-    void setWebPageEnabled(bool enable);
-    bool webPageEnabled();
+    AlkWebView *webView();
+    void setWebViewEnabled(bool enable);
+    bool webViewEnabled();
 
     /**
      * Return instance of this class

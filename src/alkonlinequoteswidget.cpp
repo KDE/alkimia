@@ -15,6 +15,7 @@
 #include "alkonlinequotesource.h"
 #include "alkonlinequoteuploaddialog.h"
 #include "alkwebpage.h"
+#include "alkwebview.h"
 
 #include <QCheckBox>
 #include <QDesktopServices>
@@ -158,7 +159,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 
     profilesGroupBox->setVisible(showProfiles);
     profileDetailsBox->setVisible(showProfiles);
-    m_showButton->setVisible(!showProfiles && AlkOnlineQuotesProfileManager::instance().webPageEnabled());
+    m_showButton->setVisible(!showProfiles && AlkOnlineQuotesProfileManager::instance().webViewEnabled());
     m_ghnsSource->setVisible(false);
     m_urlCheckLabel->setMinimumWidth(m_okIcon.width());
 
@@ -772,13 +773,13 @@ void AlkOnlineQuotesWidget::Private::slotShowButton()
         m_webPageDialog->setWindowTitle(i18n("Online Quote HTML Result Window"));
         QVBoxLayout *layout = new QVBoxLayout;
 #ifdef BUILD_WITH_WEBENGINE
-        AlkWebPage::setWebInspectorEnabled(true);
+        AlkWebView::setWebInspectorEnabled(true);
 #endif
-        AlkWebPage *webPage = AlkOnlineQuotesProfileManager::instance().webPage();
+        AlkWebView *webView = AlkOnlineQuotesProfileManager::instance().webView();
 #ifndef BUILD_WITH_WEBENGINE
-        webPage->setWebInspectorEnabled(true);
+        webView->setWebInspectorEnabled(true);
 #endif
-        layout->addWidget(webPage->widget());
+        layout->addWidget(webView);
         m_webPageDialog->setLayout(layout);
     }
     m_webPageDialog->show();

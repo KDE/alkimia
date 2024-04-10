@@ -21,6 +21,7 @@
 #include "alkonlinequotesource.h"
 #include "alkimia/alkversion.h"
 #include "alkwebpage.h"
+#include "alkwebview.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KLocalizedString>
@@ -64,7 +65,7 @@ AlkOnlineQuote::Private::Private(AlkOnlineQuote *parent)
 #ifdef ENABLE_FINANCEQUOTE
     connect(&m_filter, SIGNAL(processExited(QString)), this, SLOT(slotParseQuote(QString)));
 #endif
-    m_downloader.setWebPage(AlkOnlineQuotesProfileManager::instance().webPage());
+    m_downloader.setWebPage(AlkOnlineQuotesProfileManager::instance().webView()->webPage());
     connect(&m_downloader, SIGNAL(started(QUrl)), this, SLOT(slotLoadStarted(QUrl)));
     connect(&m_downloader, SIGNAL(finished(QUrl,QString)), this, SLOT(slotLoadFinished(QUrl,QString)));
     connect(&m_downloader, SIGNAL(finishedPage(QUrl,AlkWebPage*)), this, SLOT(slotLoadFinishedPage(QUrl,AlkWebPage*)));
@@ -172,8 +173,8 @@ void AlkOnlineQuote::Private::slotLoadFinished(const QUrl &url, const QString &d
 {
     // show in browser widget
     if (m_source.downloadType() == AlkOnlineQuoteSource::Default &&
-            AlkOnlineQuotesProfileManager::instance().webPageEnabled())
-        AlkOnlineQuotesProfileManager::instance().webPage()->setHtml(data, url);
+            AlkOnlineQuotesProfileManager::instance().webViewEnabled())
+        AlkOnlineQuotesProfileManager::instance().webView()->setHtml(data, url);
     processDownloadedPage(url, data.toLocal8Bit());
 }
 

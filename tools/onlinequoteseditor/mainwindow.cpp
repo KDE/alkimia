@@ -13,6 +13,7 @@
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequoteswidget.h"
 #include "alkwebpage.h"
+#include "alkwebview.h"
 
 #include <QComboBox>
 #include <QDockWidget>
@@ -48,7 +49,9 @@ void MainWindow::slotLoadRedirectedTo(const QUrl &url)
 
 void MainWindow::slotEditingFinished()
 {
-    AlkOnlineQuotesProfileManager::instance().webPage()->load(QUrl(d->urlLine->text()), d->quotesWidget->acceptLanguage());
+    AlkWebView *view = AlkOnlineQuotesProfileManager::instance().webView();
+    if (view && view->webPage())
+        view->webPage()->load(QUrl(d->urlLine->text()), d->quotesWidget->acceptLanguage());
 }
 
 void MainWindow::slotLanguageChanged(const QString &text)
@@ -112,10 +115,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&AlkOnlineQuotesProfileManager::instance(), SIGNAL(updateAvailable(QString,QString)),
             this, SLOT(slotUpdateAvailable(QString,QString)));
 
-    manager.setWebPageEnabled(true);
+    manager.setWebViewEnabled(true);
     QDockWidget *browserWidget = new QDockWidget(i18n("Browser"), this);
     browserWidget->setObjectName("browserDockWidget");
-    AlkWebPage *webPage = manager.webPage();
+    AlkWebView *webView = manager.webView();
 
     QHBoxLayout *hLayout = new QHBoxLayout;
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
@@ -141,13 +144,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(box, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotLanguageChanged(QString)));
     hLayout->addWidget(box);
 
-    webPage->setWebInspectorEnabled(true);
-    connect(webPage, SIGNAL(loadRedirectedTo(QUrl)), this, SLOT(slotLoadRedirectedTo(QUrl)));
+    webView->setWebInspectorEnabled(true);
+    connect(webView, SIGNAL(loadRedirectedTo(QUrl)), this, SLOT(slotLoadRedirectedTo(QUrl)));
 #endif
     // setup browser window
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addLayout(hLayout);
-    layout->addWidget(webPage->widget());
+    layout->addWidget(webView);
     QWidget *group = new QWidget;
     group->setLayout(layout);
     browserWidget->setWidget(group);
