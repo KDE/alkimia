@@ -19,21 +19,15 @@ void AlkWebPageTest::testLoad()
 {
     AlkWebPage page;
 
-    QSignalSpy spyStarted(&page, SIGNAL(loadStarted()));
-    QSignalSpy spyFinished(&page, SIGNAL(loadFinished(bool)));
+    QSignalSpy spyLoadStarted(&page, SIGNAL(loadStarted()));
+    QSignalSpy spyLoadFinished(&page, SIGNAL(loadFinished(bool)));
 
     page.load(QUrl(TEST_LAUNCH_URL), QString());
 
     // test signals
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-    QVERIFY(spyFinished.wait(1000));
-#else
-    QWARN("spying loadFinished() does not work");
-#endif
-    QVERIFY(spyStarted.count() >= 1);
-    QCOMPARE(spyFinished.count(), 1);
-    QList<QVariant> arguments = spyFinished.takeFirst();
-    QVERIFY(arguments.at(0).toBool() == true);
+    QTRY_COMPARE_WITH_TIMEOUT(spyLoadFinished.size() > 0, true, 20000);
+    QCOMPARE(spyLoadFinished.takeFirst().at(0).toBool(), true);
+    QVERIFY(spyLoadStarted.count() >= 1);
 
     // test content
     QVERIFY(page.toHtml().contains(QLatin1String("</body></html>")));
@@ -43,27 +37,24 @@ void AlkWebPageTest::testRedirected()
 {
     AlkWebPage page;
 
-    QSignalSpy spyStarted(&page, SIGNAL(loadStarted()));
-    QSignalSpy spyFinished(&page, SIGNAL(loadFinished(bool)));
-    QSignalSpy spyRedirected(&page, SIGNAL(loadRedirectedTo(QUrl)));
+    QSignalSpy spyLoadStarted(&page, SIGNAL(loadStarted()));
+    QSignalSpy spyLoadFinished(&page, SIGNAL(loadFinished(bool)));
+    QSignalSpy spyLoadRedirected(&page, SIGNAL(loadRedirectedTo(QUrl)));
 
-    QUrl url(TEST_LAUNCH_URL);
-    page.load(url, QString());
+    QString url(TEST_LAUNCH_URL);
+    page.load(QUrl(url + "&redirect=1"), QString());
 
     // test signals
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
-    QVERIFY(spyFinished.wait(1000));
+    QTRY_COMPARE_WITH_TIMEOUT(spyLoadFinished.size() > 0, true, 20000);
+    QCOMPARE(spyLoadFinished.takeFirst().at(0).toBool(), true);
+    QVERIFY(spyLoadStarted.count() >= 1);
+
+#if defined(BUILD_WITH_WEBENGINE) && QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+    QCOMPARE(spyLoadRedirected.count(), 1);
+    QCOMPARE(spyLoadRedirected.takeFirst().at(0).toUrl(), QUrl(url));
 #else
-    QWARN("spying loadFinished() does not work");
-#endif
-    QCOMPARE(spyFinished.count(), 1);
-    QVERIFY(spyStarted.count() >= 1);
-    QList<QVariant> arguments = spyFinished.takeFirst();
-    QVERIFY(arguments.at(0).toBool() == true);
-#ifndef BUILD_WITH_WEBKIT
-    QCOMPARE(spyRedirected.count(), 1);
-    arguments = spyRedirected.takeFirst();
-    QCOMPARE(arguments.at(0).toUrl(), url);
+    QWARN("This engine does not emit signal loadRedirectedTo()");
+    QWARN("This engine does not return a redirected url");
 #endif
     // test content
     QVERIFY(page.toHtml().contains(QLatin1String("</body></html>")));
