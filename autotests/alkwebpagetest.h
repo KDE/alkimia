@@ -16,7 +16,6 @@ class AlkWebPageTest : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
-    void testToHtml();
     void testLoad();
     void testRedirected();
 };

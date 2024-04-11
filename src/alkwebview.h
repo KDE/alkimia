@@ -18,11 +18,11 @@
 class AlkWebPage;
 
 /**
-* The AlkWebView class provides an interface to a browser component.
-* It is used for fetching and showing web pages.
-*
-* @author Ralf Habacker ralf.habacker @freenet.de
-*/
+ *  The AlkWebView class provides a widget that
+ *  is used to load and display web documents.
+ *
+ * @author Ralf Habacker ralf.habacker @freenet.de
+ */
 class ALK_EXPORT AlkWebView : public QWebEngineView
 {
     Q_OBJECT
@@ -50,8 +50,8 @@ protected:
 class AlkWebPage;
 
 /**
- * The AlkWebView class provides an interface to a browser component.
- * It is used for fetching and showing web pages.
+ *  The AlkWebView class provides a widget that
+ *  is used to load and display web documents.
  *
  * @author Ralf Habacker ralf.habacker @freenet.de
  */
@@ -75,9 +75,11 @@ Q_SIGNALS:
 
 #include <QTextBrowser>
 
+class AlkWebPage;
+
 /**
- * The AlkWebView class provides an interface to a browser component.
- * It is used for fetching and showing web pages.
+ *  The AlkWebView class provides a widget that
+ *  is used to load and display web documents.
  *
  * @author Ralf Habacker ralf.habacker @freenet.de
  */
@@ -89,9 +91,12 @@ public:
     virtual ~AlkWebView();
 
     void load(const QUrl &url);
+    void setHtml(const QString &data, const QUrl &baseUrl);
     void setUrl(const QUrl &url);
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
+    AlkWebPage *webPage();
+    void setWebPage(AlkWebPage *webPage);
 
 Q_SIGNALS:
     void loadStarted();
@@ -99,6 +104,7 @@ Q_SIGNALS:
     void loadRedirectedTo(const QUrl &to);
 
 private:
+    AlkWebPage *m_page{nullptr};
     QVariant loadResource(int type, const QUrl &name) override;
 };
 #endif

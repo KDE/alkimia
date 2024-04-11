@@ -63,7 +63,7 @@ AlkWebPage *AlkWebView::webPage()
 
 void AlkWebView::setWebPage(AlkWebPage *webPage)
 {
-    setPage(dynamic_cast<QWebEnginePage*>(webPage->d));
+    setPage(dynamic_cast<QWebEnginePage*>(webPage));
 }
 
 void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
@@ -119,16 +119,6 @@ AlkWebView::~AlkWebView()
 {
 }
 
-AlkWebPage *AlkWebView::webPage()
-{
-    return dynamic_cast<AlkWebPage*>(page());
-}
-
-void AlkWebView::setWebPage(AlkWebPage *webPage)
-{
-    setPage(dynamic_cast<QWebPage*>(webPage));
-}
-
 void AlkWebView::setWebInspectorEnabled(bool enable)
 {
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, enable);
@@ -141,6 +131,16 @@ void AlkWebView::setWebInspectorEnabled(bool enable)
 bool AlkWebView::webInspectorEnabled()
 {
     return page()->settings()->testAttribute(QWebSettings::DeveloperExtrasEnabled);
+}
+
+AlkWebPage *AlkWebView::webPage()
+{
+    return dynamic_cast<AlkWebPage*>(page());
+}
+
+void AlkWebView::setWebPage(AlkWebPage *webPage)
+{
+    setPage(dynamic_cast<QWebPage*>(webPage));
 }
 
 #else
@@ -164,6 +164,12 @@ void AlkWebView::load(const QUrl &url)
     Q_EMIT loadStarted();
 }
 
+void AlkWebView::setHtml(const QString &data, const QUrl &baseUrl)
+{
+    Q_UNUSED(baseUrl);
+    QTextBrowser::setHtml(data);
+}
+
 void AlkWebView::setWebInspectorEnabled(bool enable)
 {
     Q_UNUSED(enable);
@@ -172,6 +178,16 @@ void AlkWebView::setWebInspectorEnabled(bool enable)
 bool AlkWebView::webInspectorEnabled()
 {
     return false;
+}
+
+AlkWebPage *AlkWebView::webPage()
+{
+    return m_page;
+}
+
+void AlkWebView::setWebPage(AlkWebPage *webPage)
+{
+    m_page = webPage;
 }
 
 QVariant AlkWebView::loadResource(int type, const QUrl &name)

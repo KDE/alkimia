@@ -15,15 +15,6 @@
 
 #include <QSignalSpy>
 
-void AlkWebPageTest::testToHtml()
-{
-    AlkWebPage page;
-
-    QString content(QLatin1String("<html><head></head><body></body></html>"));
-    page.setHtml(content);
-    QVERIFY(page.toHtml().contains(QLatin1String("</body></html>")));
-}
-
 void AlkWebPageTest::testLoad()
 {
     QPointer<AlkWebPage> page = new AlkWebPage;

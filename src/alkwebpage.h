@@ -19,6 +19,13 @@ class QUrl;
 
 #include <QWebEnginePage>
 
+/**
+ * The AlkWebPage class provides an object for loading
+ * web documents in order to offer functionality such
+ * as AlkWebView in a widgetless environment.
+ *
+ * @author Ralf Habacker ralf.habacker @freenet.de
+ */
 class ALK_EXPORT AlkWebPage : public QWebEnginePage
 {
     Q_OBJECT
@@ -26,17 +33,13 @@ public:
     explicit AlkWebPage(QWidget *parent = nullptr);
     virtual ~AlkWebPage();
 
-    QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
-    void setContent(const QString &s);
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
     /// Set timeout [ms] for AlkWebPage::toHtml()
     void setTimeout(int timeout = -1);
-    static void setWebInspectorEnabled(bool state);
     int timeout();
-    static bool webInspectorEnabled();
 
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);
@@ -50,31 +53,29 @@ private:
 
 #elif defined(BUILD_WITH_WEBKIT)
 
-#include <QWebView>
+#include <QWebPage>
 
 /**
- * The AlkWebPage class provides an interface
- * to a browser component
- * It is used for fetching and showing web pages.
+ * The AlkWebPage class provides an object for loading
+ * web documents in order to offer functionality such
+ * as AlkWebView in a widgetless environment.
  *
  * @author Ralf Habacker ralf.habacker @freenet.de
  */
-class ALK_EXPORT AlkWebPage : public QWebView
+class ALK_EXPORT AlkWebPage : public QWebPage
 {
     Q_OBJECT
 public:
-    explicit AlkWebPage(QWidget *parent = nullptr);
+    explicit AlkWebPage(QObject *parent = nullptr);
     virtual ~AlkWebPage();
 
-    QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
+    void setHtml(const QString &data);
     QString toHtml();
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
     void setTimeout(int timeout = -1) { Q_UNUSED(timeout) }
-    void setWebInspectorEnabled(bool enable);
     int timeout() { return -1; }
-    bool webInspectorEnabled();
 
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl&);
@@ -89,9 +90,9 @@ private:
 #include <QTextBrowser>
 
 /**
- * The AlkWebPage class provides an interface
- * to a browser component with javascript support
- * It is used for fetching and showing web pages.
+ * The AlkWebPage class provides an object to load
+ * and view web documents to provide functionality
+ * like AlkWebView in a widget-less environment.
  *
  * @author Ralf Habacker ralf.habacker @freenet.de
  */
@@ -102,17 +103,13 @@ public:
     explicit AlkWebPage(QWidget *parent = nullptr);
     virtual ~AlkWebPage();
 
-    QWidget *widget();
     void load(const QUrl &url, const QString &acceptLanguage);
-    void setHtml(const QString &data, const QUrl &url = QUrl());
     void setUrl(const QUrl &url);
-    void setContent(const QString &s);
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
     void setTimeout(int timeout = -1) { Q_UNUSED(timeout) }
-    void setWebInspectorEnabled(bool enable);
     int timeout() { return -1; }
-    bool webInspectorEnabled();
+
 Q_SIGNALS:
     void loadStarted();
     void loadFinished(bool);
