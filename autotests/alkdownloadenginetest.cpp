@@ -103,18 +103,21 @@ void testDownloadError(const QString &url, AlkDownloadEngine::Type type)
 
 #if defined(USE_KIO)
     QWARN("KIO does return false in case of errors");
-    QVERIFY(engine->downloadUrl(url, type));
+    QVERIFY(!engine->downloadUrl(url, type));
     QWARN("KIO does not emit the error signal");
     QVERIFY(!receiver.gotError);
-    QVERIFY(receiver.gotFinished);
+    QWARN("KIO does not emit the finished signal");
+    QVERIFY(!receiver.gotFinished);
+    QWARN("KIO emits the signal");
+    QVERIFY(receiver.gotTimeout);
 #else
     QVERIFY(!engine->downloadUrl(url, type));
     QVERIFY(receiver.gotError);
     QVERIFY(!receiver.gotFinished);
+    QVERIFY(!receiver.gotTimeout);
 #endif
     QVERIFY(!receiver.gotRedirected);
     QVERIFY(receiver.gotStarted);
-    QVERIFY(!receiver.gotTimeout);
 }
 
 void testDownloadFailed(const QString &url, AlkDownloadEngine::Type type)
