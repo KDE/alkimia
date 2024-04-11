@@ -17,12 +17,12 @@
 
 void AlkWebPageTest::testLoad()
 {
-    QPointer<AlkWebPage> page = new AlkWebPage;
+    AlkWebPage page;
 
-    QSignalSpy spyStarted(page, SIGNAL(loadStarted()));
-    QSignalSpy spyFinished(page, SIGNAL(loadFinished(bool)));
+    QSignalSpy spyStarted(&page, SIGNAL(loadStarted()));
+    QSignalSpy spyFinished(&page, SIGNAL(loadFinished(bool)));
 
-    page->load(QUrl(TEST_LAUNCH_URL), QString());
+    page.load(QUrl(TEST_LAUNCH_URL), QString());
 
     // test signals
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
@@ -36,19 +36,19 @@ void AlkWebPageTest::testLoad()
     QVERIFY(arguments.at(0).toBool() == true);
 
     // test content
-    QVERIFY(page->toHtml().contains(QLatin1String("</body></html>")));
+    QVERIFY(page.toHtml().contains(QLatin1String("</body></html>")));
 }
 
 void AlkWebPageTest::testRedirected()
 {
-    QPointer<AlkWebPage> page = new AlkWebPage;
+    AlkWebPage page;
 
-    QSignalSpy spyStarted(page, SIGNAL(loadStarted()));
-    QSignalSpy spyFinished(page, SIGNAL(loadFinished(bool)));
-    QSignalSpy spyRedirected(page, SIGNAL(loadRedirectedTo(QUrl)));
+    QSignalSpy spyStarted(&page, SIGNAL(loadStarted()));
+    QSignalSpy spyFinished(&page, SIGNAL(loadFinished(bool)));
+    QSignalSpy spyRedirected(&page, SIGNAL(loadRedirectedTo(QUrl)));
 
     QUrl url(TEST_LAUNCH_URL);
-    page->load(url, QString());
+    page.load(url, QString());
 
     // test signals
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
@@ -66,7 +66,7 @@ void AlkWebPageTest::testRedirected()
     QCOMPARE(arguments.at(0).toUrl(), url);
 #endif
     // test content
-    QVERIFY(page->toHtml().contains(QLatin1String("</body></html>")));
+    QVERIFY(page.toHtml().contains(QLatin1String("</body></html>")));
 }
 
 QTEST_MAIN(AlkWebPageTest)
