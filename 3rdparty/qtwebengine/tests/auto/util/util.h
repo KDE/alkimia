@@ -10,9 +10,12 @@
 #include <QEventLoop>
 #include <QPoint>
 #include <QRect>
-#include <QSignalSpy>
+#include <QtTest/QSignalSpy>
 #include <QTimer>
+#include <QUrl>
+#ifdef WITH_FINDTEXTSYNC
 #include <qwebenginefindtextresult.h>
+#endif
 #include <qwebenginepage.h>
 
 // Disconnect signal on destruction.
@@ -117,12 +120,14 @@ static inline QString toHtmlSync(QWebEnginePage *page)
     return spy.waitForResult();
 }
 
+#ifdef WITH_FINDTEXTSYNC
 static inline bool findTextSync(QWebEnginePage *page, const QString &subString)
 {
     CallbackSpy<QWebEngineFindTextResult> spy;
     page->findText(subString, {}, spy.ref());
     return spy.waitForResult().numberOfMatches() > 0;
 }
+#endif
 
 static inline QVariant evaluateJavaScriptSync(QWebEnginePage *page, const QString &script)
 {

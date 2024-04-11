@@ -11,6 +11,8 @@
 #include "alkwebview.h"
 
 #if defined(BUILD_WITH_WEBENGINE)
+#include "../3rdparty/qtwebengine/tests/auto/util/util.h"
+
 #include <klocalizedstring.h>
 
 #include <QContextMenuEvent>
@@ -58,17 +60,9 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 
 QString AlkWebPage::toHtml()
 {
-    QString html;
-    QPointer <QEventLoop> loop = new QEventLoop;
-    QWebEnginePage::toHtml([&html, loop](const QString &result)
-        {
-            html = result;
-            loop->quit();
-        }
-    );
-    if (d->timeout != -1)
-        QTimer::singleShot(d->timeout, loop, SLOT(quit()));
-    loop->exec();
+    CallbackSpy<QString> spy;
+    QWebEnginePage::toHtml(spy.ref());
+    QString html = d->timeout != -1 ? spy.waitForResult(d->timeout) : spy.waitForResult();
     return html;
 }
 
