@@ -89,7 +89,7 @@ distro kf5 leap mingw64:
 
 distro kf5 leap webengine:
   extends: .unix-build
-  when: manual
+  # when: manual
   #only:
   #  - merge_requests
   variables:
@@ -97,7 +97,7 @@ distro kf5 leap webengine:
 
 distro kf5 leap webkit:
   extends: .unix-build
-  when: manual
+  # when: manual
   #only:
   #  - merge_requests
   variables:
