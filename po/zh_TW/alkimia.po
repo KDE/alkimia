@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 01:43+0000\n"
+"POT-Creation-Date: 2024-04-13 01:44+0000\n"
 "PO-Revision-Date: 2024-03-20 18:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -32,135 +32,135 @@ msgstr "mail@kisaragi-hiu.com"
 msgid "Failed to open downloaded file"
 msgstr "無法開啟已下載的檔案"
 
-#: alkonlinequote_p.cpp:99
+#: alkonlinequote_p.cpp:100
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "來源 <placeholder>%1</placeholder> 不存在。"
 
-#: alkonlinequote_p.cpp:155
+#: alkonlinequote_p.cpp:156
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "無法為 %1 抓取網址"
 
-#: alkonlinequote_p.cpp:165 alkonlinequote_p.cpp:167
+#: alkonlinequote_p.cpp:166 alkonlinequote_p.cpp:168
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr "網址已被重新導向；請檢查線上報價網址的更新"
 
-#: alkonlinequote_p.cpp:191
+#: alkonlinequote_p.cpp:192
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "抓取網址 %1 中..."
 
-#: alkonlinequote_p.cpp:233
+#: alkonlinequote_p.cpp:234
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "執行 %1 中..."
 
-#: alkonlinequote_p.cpp:250 alkonlinequote_p.cpp:311
+#: alkonlinequote_p.cpp:251 alkonlinequote_p.cpp:312
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "無法啟動：%1"
 
-#: alkonlinequote_p.cpp:272
+#: alkonlinequote_p.cpp:273
 #, kde-format
 msgid "URL found: %1..."
 msgstr "找到網址：%1..."
 
-#: alkonlinequote_p.cpp:303
+#: alkonlinequote_p.cpp:304
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "執行 %1 %2 %3 中..."
 
-#: alkonlinequote_p.cpp:361
+#: alkonlinequote_p.cpp:362
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "找到價格：'%1' (%2)"
 
-#: alkonlinequote_p.cpp:364
+#: alkonlinequote_p.cpp:365
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "價格 '%1' 無法為 '%2' 轉換為數字"
 
-#: alkonlinequote_p.cpp:369
+#: alkonlinequote_p.cpp:370
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "無法剖析 '%1' 的價格"
 
-#: alkonlinequote_p.cpp:379
+#: alkonlinequote_p.cpp:380
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "找到日期：'%1'"
 
-#: alkonlinequote_p.cpp:385
+#: alkonlinequote_p.cpp:386
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "找到日期格式：'%1' → '%2'"
 
-#: alkonlinequote_p.cpp:388
+#: alkonlinequote_p.cpp:389
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "無法使用格式 '%2' 剖析日期 '%1'：%3"
 
-#: alkonlinequote_p.cpp:392 alkonlinequote_p.cpp:402
+#: alkonlinequote_p.cpp:393 alkonlinequote_p.cpp:403
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "為 '%1' 使用目前的日期"
 
-#: alkonlinequote_p.cpp:396
+#: alkonlinequote_p.cpp:397
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "已為 '%1' 停用日期剖析"
 
-#: alkonlinequote_p.cpp:399
+#: alkonlinequote_p.cpp:400
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "無法剖析 '%1' 的日期"
 
-#: alkonlinequote_p.cpp:456 alkonlinequote_p.cpp:482 alkonlinequote_p.cpp:520
+#: alkonlinequote_p.cpp:457 alkonlinequote_p.cpp:483 alkonlinequote_p.cpp:521
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "找到符號：'%1'"
 
-#: alkonlinequote_p.cpp:459 alkonlinequote_p.cpp:485 alkonlinequote_p.cpp:523
+#: alkonlinequote_p.cpp:460 alkonlinequote_p.cpp:486 alkonlinequote_p.cpp:524
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "無法剖析 %1 的符號"
 
-#: alkonlinequote_p.cpp:573
+#: alkonlinequote_p.cpp:574
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr "無法在報價資料的第一行（標頭行）中偵測到欄位分隔符。"
 
-#: alkonlinequote_p.cpp:600
+#: alkonlinequote_p.cpp:601
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "無法在報價資料中找到日期欄位 '%1'"
 
-#: alkonlinequote_p.cpp:606
+#: alkonlinequote_p.cpp:607
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "無法在報價資料中找到價格欄位 '%1'"
 
-#: alkonlinequote_p.cpp:624
+#: alkonlinequote_p.cpp:625
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "無法在報價資料中用 '%2' 轉換日期 '%1'"
 
-#: alkonlinequote_p.cpp:640
+#: alkonlinequote_p.cpp:641
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "無法在報價資料中找到日期/價格對"
 
-#: alkonlinequote_p.cpp:671
+#: alkonlinequote_p.cpp:672
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "無法更新 %1 的價格（空白的報價資料）"
 
-#: alkonlinequote_p.cpp:689
+#: alkonlinequote_p.cpp:690
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "為 %1 抓取網址時逾時"
@@ -567,132 +567,132 @@ msgstr "應用程式設定檔"
 msgid "New"
 msgstr "新增"
 
-#: alkonlinequoteswidget.cpp:168
+#: alkonlinequoteswidget.cpp:169
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "接受(&A)"
 
-#: alkonlinequoteswidget.cpp:170
+#: alkonlinequoteswidget.cpp:171
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "接受輸入的資料並儲存"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:172
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "用這個來接受變更的資料。"
 
-#: alkonlinequoteswidget.cpp:173
+#: alkonlinequoteswidget.cpp:174
 #, kde-format
 msgid "&Delete"
 msgstr "刪除(&D)"
 
-#: alkonlinequoteswidget.cpp:175
+#: alkonlinequoteswidget.cpp:176
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "刪除選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:177
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "用這個來刪除選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:178
+#: alkonlinequoteswidget.cpp:179
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "檢查來源(&C)"
 
-#: alkonlinequoteswidget.cpp:180
+#: alkonlinequoteswidget.cpp:181
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "檢查選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:181
+#: alkonlinequoteswidget.cpp:182
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "用這個來檢查選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:183
+#: alkonlinequoteswidget.cpp:184
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "顯示頁面(&S)"
 
-#: alkonlinequoteswidget.cpp:185
+#: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "在網頁瀏覽器中線上所選的來源項目"
 
-#: alkonlinequoteswidget.cpp:186
+#: alkonlinequoteswidget.cpp:187
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "用這個來顯示選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:188
+#: alkonlinequoteswidget.cpp:189
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "新增(&N)..."
 
-#: alkonlinequoteswidget.cpp:190
+#: alkonlinequoteswidget.cpp:191
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "建立新的線上報價來源項目"
 
-#: alkonlinequoteswidget.cpp:191
+#: alkonlinequoteswidget.cpp:192
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "用這個來建立新的線上報價項目"
 
-#: alkonlinequoteswidget.cpp:225
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgid "Name"
 msgstr "名稱"
 
-#: alkonlinequoteswidget.cpp:225
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgid "Source"
 msgstr "來源"
 
-#: alkonlinequoteswidget.cpp:246
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "符號"
 
-#: alkonlinequoteswidget.cpp:247
+#: alkonlinequoteswidget.cpp:248
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "識別編號"
 
-#: alkonlinequoteswidget.cpp:248
+#: alkonlinequoteswidget.cpp:249
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "名稱"
 
-#: alkonlinequoteswidget.cpp:257
+#: alkonlinequoteswidget.cpp:258
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "已整理的 HTML"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:259
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:260
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:261
+#: alkonlinequoteswidget.cpp:262
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox Stock"
 #| msgid "CSV"
@@ -700,65 +700,65 @@ msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:265
+#: alkonlinequoteswidget.cpp:266
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:266
+#: alkonlinequoteswidget.cpp:267
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:301
+#: alkonlinequoteswidget.cpp:302
 #, kde-format
 msgid "Remote unpublished"
 msgstr "遠端已取消發布"
 
-#: alkonlinequoteswidget.cpp:303
+#: alkonlinequoteswidget.cpp:304
 #, kde-format
 msgid "Remote"
 msgstr "遠端"
 
-#: alkonlinequoteswidget.cpp:305
+#: alkonlinequoteswidget.cpp:306
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:306
+#: alkonlinequoteswidget.cpp:307
 #, kde-format
 msgid "Local"
 msgstr "本地"
 
-#: alkonlinequoteswidget.cpp:527
+#: alkonlinequoteswidget.cpp:528
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "您確定要刪除這個線上報價嗎？"
 
-#: alkonlinequoteswidget.cpp:528
+#: alkonlinequoteswidget.cpp:529
 #, kde-format
 msgid "Delete online quote"
 msgstr "刪除線上報價"
 
-#: alkonlinequoteswidget.cpp:555
+#: alkonlinequoteswidget.cpp:556
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:583 alkonlinequoteswidget.cpp:585
+#: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
 #, kde-format
 msgid "New Quote Source"
 msgstr "新的報價來源"
 
-#: alkonlinequoteswidget.cpp:594
+#: alkonlinequoteswidget.cpp:595
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>新的報價來源</b>已經存在。"
 
-#: alkonlinequoteswidget.cpp:772
+#: alkonlinequoteswidget.cpp:773
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "線上報價 HTML 結果視窗"
@@ -859,12 +859,12 @@ msgstr "軟體包建立於："
 msgid "Package edit url:"
 msgstr "軟體包編輯網址："
 
-#: alkwebview.cpp:72
+#: alkwebview.cpp:84
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "在新視窗中開啟檢測器"
 
-#: alkwebview.cpp:84
+#: alkwebview.cpp:96
 #, kde-format
 msgid "Inspect element"
 msgstr "檢測元素"

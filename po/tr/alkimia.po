@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 01:43+0000\n"
+"POT-Creation-Date: 2024-04-13 01:44+0000\n"
 "PO-Revision-Date: 2024-03-28 14:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -33,105 +33,105 @@ msgstr "emir_sari@icloud.com"
 msgid "Failed to open downloaded file"
 msgstr "İndirilen dosya açılamadı"
 
-#: alkonlinequote_p.cpp:99
+#: alkonlinequote_p.cpp:100
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "<placeholder>%1</placeholder> kaynağı yok."
 
-#: alkonlinequote_p.cpp:155
+#: alkonlinequote_p.cpp:156
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "%1 URL’si getirilemedi"
 
-#: alkonlinequote_p.cpp:165 alkonlinequote_p.cpp:167
+#: alkonlinequote_p.cpp:166 alkonlinequote_p.cpp:168
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "URL yeniden yönlendirildi; çevrimiçi kur URL’si güncellemelerini denetleyin"
 
-#: alkonlinequote_p.cpp:191
+#: alkonlinequote_p.cpp:192
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "%1 URL’si getiriliyor…"
 
-#: alkonlinequote_p.cpp:233
+#: alkonlinequote_p.cpp:234
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1 yürütülüyor…"
 
-#: alkonlinequote_p.cpp:250 alkonlinequote_p.cpp:311
+#: alkonlinequote_p.cpp:251 alkonlinequote_p.cpp:312
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Başlatılamadı: %1"
 
-#: alkonlinequote_p.cpp:272
+#: alkonlinequote_p.cpp:273
 #, kde-format
 msgid "URL found: %1..."
 msgstr "URL bulundu: %1…"
 
-#: alkonlinequote_p.cpp:303
+#: alkonlinequote_p.cpp:304
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "%1 %2 %3 yürütülüyor…"
 
-#: alkonlinequote_p.cpp:361
+#: alkonlinequote_p.cpp:362
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Fiyat bulundu: “%1” (%2)"
 
-#: alkonlinequote_p.cpp:364
+#: alkonlinequote_p.cpp:365
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "“%1” fiyatı, “%2” için bir sayıya dönüştürülemiyor"
 
-#: alkonlinequote_p.cpp:369
+#: alkonlinequote_p.cpp:370
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "“%1” fiyatı ayrıştırılamadı"
 
-#: alkonlinequote_p.cpp:379
+#: alkonlinequote_p.cpp:380
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Tarih bulundu: “%1”"
 
-#: alkonlinequote_p.cpp:385
+#: alkonlinequote_p.cpp:386
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Tarih biçimi bulundu: “%1” → “%2”"
 
-#: alkonlinequote_p.cpp:388
+#: alkonlinequote_p.cpp:389
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "“%1” tarihi, “%2” biçimi kullanılarak ayrıştırılamadı: %3"
 
-#: alkonlinequote_p.cpp:392 alkonlinequote_p.cpp:402
+#: alkonlinequote_p.cpp:393 alkonlinequote_p.cpp:403
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "“%1” için geçerli tarih kullanılıyor"
 
-#: alkonlinequote_p.cpp:396
+#: alkonlinequote_p.cpp:397
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "“%1” için tarih ayrıştırması devre dışı bırakıldı"
 
-#: alkonlinequote_p.cpp:399
+#: alkonlinequote_p.cpp:400
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "“%1” için tarih ayrıştırılamadı"
 
-#: alkonlinequote_p.cpp:456 alkonlinequote_p.cpp:482 alkonlinequote_p.cpp:520
+#: alkonlinequote_p.cpp:457 alkonlinequote_p.cpp:483 alkonlinequote_p.cpp:521
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Sembol bulundu: “%1”"
 
-#: alkonlinequote_p.cpp:459 alkonlinequote_p.cpp:485 alkonlinequote_p.cpp:523
+#: alkonlinequote_p.cpp:460 alkonlinequote_p.cpp:486 alkonlinequote_p.cpp:524
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "%1 sembolü ayrıştırılamadı"
 
-#: alkonlinequote_p.cpp:573
+#: alkonlinequote_p.cpp:574
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -139,32 +139,32 @@ msgstr ""
 "Kur verisinin ilk satırında (üstbilgi satırı) alan sınırlayıcısı "
 "algılanamıyor."
 
-#: alkonlinequote_p.cpp:600
+#: alkonlinequote_p.cpp:601
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "Kur verisinde “%1” tarih sütunu bulunamıyor"
 
-#: alkonlinequote_p.cpp:606
+#: alkonlinequote_p.cpp:607
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Kur verisinde “%1” fiyat sütunu bulunamıyor"
 
-#: alkonlinequote_p.cpp:624
+#: alkonlinequote_p.cpp:625
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Kur verisinde “%1” tarihi “%2” ile dönüştürülemiyor"
 
-#: alkonlinequote_p.cpp:640
+#: alkonlinequote_p.cpp:641
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Kur verisinde tarih/fiyat eşleri bulunamıyor"
 
-#: alkonlinequote_p.cpp:671
+#: alkonlinequote_p.cpp:672
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "%1 fiyatı güncellenemedi (boş kur verisi)"
 
-#: alkonlinequote_p.cpp:689
+#: alkonlinequote_p.cpp:690
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "%1 URL’si getirilirken zaman aşımı gerçekleşti"
@@ -578,196 +578,196 @@ msgstr "Uygulama Profilleri"
 msgid "New"
 msgstr "Yeni"
 
-#: alkonlinequoteswidget.cpp:168
+#: alkonlinequoteswidget.cpp:169
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Kabul Et"
 
-#: alkonlinequoteswidget.cpp:170
+#: alkonlinequoteswidget.cpp:171
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Girilen veriyi kabul eder ve depolar"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:172
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Değiştirilen veriyi kabul etmek için bunu kullanın."
 
-#: alkonlinequoteswidget.cpp:173
+#: alkonlinequoteswidget.cpp:174
 #, kde-format
 msgid "&Delete"
 msgstr "&Sil"
 
-#: alkonlinequoteswidget.cpp:175
+#: alkonlinequoteswidget.cpp:176
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Seçili kaynak girdisini sil"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:177
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Seçili çevrimiçi kaynak girdisini silmek için bunu kullanın"
 
-#: alkonlinequoteswidget.cpp:178
+#: alkonlinequoteswidget.cpp:179
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "K&aynağı Denetle"
 
-#: alkonlinequoteswidget.cpp:180
+#: alkonlinequoteswidget.cpp:181
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Seçili kaynak girdisini denetle"
 
-#: alkonlinequoteswidget.cpp:181
+#: alkonlinequoteswidget.cpp:182
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "Seçili çevrimiçi kaynak girdisini denetlemek için bunu kullanın"
 
-#: alkonlinequoteswidget.cpp:183
+#: alkonlinequoteswidget.cpp:184
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "Sa&yfayı göster"
 
-#: alkonlinequoteswidget.cpp:185
+#: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Seçili kaynak girdisini bir web tarayıcısında göster"
 
-#: alkonlinequoteswidget.cpp:186
+#: alkonlinequoteswidget.cpp:187
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "Seçili çevrimiçi kaynak girdisini göstermek için bunu kullanın"
 
-#: alkonlinequoteswidget.cpp:188
+#: alkonlinequoteswidget.cpp:189
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Yeni…"
 
-#: alkonlinequoteswidget.cpp:190
+#: alkonlinequoteswidget.cpp:191
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Çevrimiçi kurlar için yeni bir kaynak girdisi oluştur"
 
-#: alkonlinequoteswidget.cpp:191
+#: alkonlinequoteswidget.cpp:192
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "Çevrimiçi kurlar için yeni bir girdi oluşturmak için bunu kullanın"
 
-#: alkonlinequoteswidget.cpp:225
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgid "Name"
 msgstr "Ad"
 
-#: alkonlinequoteswidget.cpp:225
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgid "Source"
 msgstr "Kaynak"
 
-#: alkonlinequoteswidget.cpp:246
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Sembol"
 
-#: alkonlinequoteswidget.cpp:247
+#: alkonlinequoteswidget.cpp:248
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Tanımlayıcı numarası"
 
-#: alkonlinequoteswidget.cpp:248
+#: alkonlinequoteswidget.cpp:249
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Ad"
 
-#: alkonlinequoteswidget.cpp:257
+#: alkonlinequoteswidget.cpp:258
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "Soyulmuş HTML"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:259
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:260
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:261
+#: alkonlinequoteswidget.cpp:262
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequoteswidget.cpp:265
+#: alkonlinequoteswidget.cpp:266
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: alkonlinequoteswidget.cpp:266
+#: alkonlinequoteswidget.cpp:267
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "Javascript"
 
-#: alkonlinequoteswidget.cpp:301
+#: alkonlinequoteswidget.cpp:302
 #, kde-format
 msgid "Remote unpublished"
 msgstr "Uzak yayınlanmamış"
 
-#: alkonlinequoteswidget.cpp:303
+#: alkonlinequoteswidget.cpp:304
 #, kde-format
 msgid "Remote"
 msgstr "Uzak Konum"
 
-#: alkonlinequoteswidget.cpp:305
+#: alkonlinequoteswidget.cpp:306
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finans::Kur"
 
-#: alkonlinequoteswidget.cpp:306
+#: alkonlinequoteswidget.cpp:307
 #, kde-format
 msgid "Local"
 msgstr "Yerel"
 
-#: alkonlinequoteswidget.cpp:527
+#: alkonlinequoteswidget.cpp:528
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Bu çevrimiçi kuru silmek istediğinizden emin misiniz?"
 
-#: alkonlinequoteswidget.cpp:528
+#: alkonlinequoteswidget.cpp:529
 #, kde-format
 msgid "Delete online quote"
 msgstr "Çevrimiçi Kuru Sil"
 
-#: alkonlinequoteswidget.cpp:555
+#: alkonlinequoteswidget.cpp:556
 #, kde-format
 msgid ".copy"
 msgstr ".kopya"
 
-#: alkonlinequoteswidget.cpp:583 alkonlinequoteswidget.cpp:585
+#: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
 #, kde-format
 msgid "New Quote Source"
 msgstr "Yeni Kur Kaynağı"
 
-#: alkonlinequoteswidget.cpp:594
+#: alkonlinequoteswidget.cpp:595
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Yeni Kur Kaynağı</b> halihazırda var."
 
-#: alkonlinequoteswidget.cpp:772
+#: alkonlinequoteswidget.cpp:773
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Çevrimiçi Kur HTML Sonuç Penceresi"
@@ -870,12 +870,12 @@ msgstr "Şurada paket oluşturuldu:"
 msgid "Package edit url:"
 msgstr "Paket düzenleme URL’si:"
 
-#: alkwebview.cpp:72
+#: alkwebview.cpp:84
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Denetçiyi yeni pencerede aç"
 
-#: alkwebview.cpp:84
+#: alkwebview.cpp:96
 #, kde-format
 msgid "Inspect element"
 msgstr "Ögeyi Denetle"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-25 02:00+0000\n"
+"POT-Creation-Date: 2024-04-13 01:44+0000\n"
 "PO-Revision-Date: 2023-12-30 17:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -33,37 +33,37 @@ msgstr "pan93412@gmail.com, mail@kisaragi-hiu.com"
 msgid "&About %1"
 msgstr "關於 %1(&A)"
 
-#: mainwindow.cpp:87
+#: mainwindow.cpp:90
 #, kde-format
 msgid "Profiles"
 msgstr "設定檔"
 
-#: mainwindow.cpp:92
+#: mainwindow.cpp:95
 #, kde-format
 msgid "Profile details"
 msgstr "設定檔詳細資料"
 
-#: mainwindow.cpp:97
+#: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
 msgstr "線上報價"
 
-#: mainwindow.cpp:102
+#: mainwindow.cpp:105
 #, kde-format
 msgid "Debug"
 msgstr "除錯"
 
-#: mainwindow.cpp:107
+#: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
 msgstr "報價詳細資料"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Browser"
 msgstr "瀏覽器"
 
-#: mainwindow.cpp:171
+#: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "設定檔 '%2' 中對於 '%1' 有可用的更新"

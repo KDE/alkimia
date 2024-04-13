@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onlinequoteeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-25 02:00+0000\n"
+"POT-Creation-Date: 2024-04-13 01:44+0000\n"
 "PO-Revision-Date: 2020-09-20 11:54+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -34,37 +34,37 @@ msgstr "ecuadra@eloihr.net"
 msgid "&About %1"
 msgstr "&Acerca de %1"
 
-#: mainwindow.cpp:87
+#: mainwindow.cpp:90
 #, kde-format
 msgid "Profiles"
 msgstr "Perfiles"
 
-#: mainwindow.cpp:92
+#: mainwindow.cpp:95
 #, kde-format
 msgid "Profile details"
 msgstr "Detalles del perfil"
 
-#: mainwindow.cpp:97
+#: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
 msgstr "Cotizaciones en línea"
 
-#: mainwindow.cpp:102
+#: mainwindow.cpp:105
 #, kde-format
 msgid "Debug"
 msgstr "Depuración"
 
-#: mainwindow.cpp:107
+#: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
 msgstr "Detalles de la cotización"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Browser"
 msgstr "Explorador"
 
-#: mainwindow.cpp:171
+#: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Actualización para «%1» disponible en el perfil «%2»"

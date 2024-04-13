@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-25 02:00+0000\n"
+"POT-Creation-Date: 2024-04-13 01:44+0000\n"
 "PO-Revision-Date: 2023-04-30 10:33+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -32,37 +32,37 @@ msgstr "adrian@chaves.io"
 msgid "&About %1"
 msgstr "&Sobre %1"
 
-#: mainwindow.cpp:87
+#: mainwindow.cpp:90
 #, kde-format
 msgid "Profiles"
 msgstr "Perfís"
 
-#: mainwindow.cpp:92
+#: mainwindow.cpp:95
 #, kde-format
 msgid "Profile details"
 msgstr "Detalles do perfil"
 
-#: mainwindow.cpp:97
+#: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
 msgstr "Cotizacións de Internet"
 
-#: mainwindow.cpp:102
+#: mainwindow.cpp:105
 #, kde-format
 msgid "Debug"
 msgstr "Depurar"
 
-#: mainwindow.cpp:107
+#: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
 msgstr "Detalles da cotización"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Browser"
 msgstr "Navegador"
 
-#: mainwindow.cpp:171
+#: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Hai unha actualización para «%1» dispoñíbel no perfil «%2»"

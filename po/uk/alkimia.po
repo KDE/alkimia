@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 01:43+0000\n"
+"POT-Creation-Date: 2024-04-13 01:44+0000\n"
 "PO-Revision-Date: 2024-03-28 08:46+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -35,105 +35,105 @@ msgstr "yurchor@ukr.net"
 msgid "Failed to open downloaded file"
 msgstr "Спроба відкрити отриманий файл завершилася невдало"
 
-#: alkonlinequote_p.cpp:99
+#: alkonlinequote_p.cpp:100
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Джерела <placeholder>%1</placeholder> не існує."
 
-#: alkonlinequote_p.cpp:155
+#: alkonlinequote_p.cpp:156
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "Не вдалося отримати адресу для %1"
 
-#: alkonlinequote_p.cpp:165 alkonlinequote_p.cpp:167
+#: alkonlinequote_p.cpp:166 alkonlinequote_p.cpp:168
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "Адресу було переспрямовано; перевірте оновлення адреси курсів в інтернеті"
 
-#: alkonlinequote_p.cpp:191
+#: alkonlinequote_p.cpp:192
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Отримання даних URL %1…"
 
-#: alkonlinequote_p.cpp:233
+#: alkonlinequote_p.cpp:234
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Виконання %1…"
 
-#: alkonlinequote_p.cpp:250 alkonlinequote_p.cpp:311
+#: alkonlinequote_p.cpp:251 alkonlinequote_p.cpp:312
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Не вдалося запустити: %1"
 
-#: alkonlinequote_p.cpp:272
+#: alkonlinequote_p.cpp:273
 #, kde-format
 msgid "URL found: %1..."
 msgstr "Знайдено адресу: %1…"
 
-#: alkonlinequote_p.cpp:303
+#: alkonlinequote_p.cpp:304
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Виконання %1 %2 %3…"
 
-#: alkonlinequote_p.cpp:361
+#: alkonlinequote_p.cpp:362
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Знайдено ціну: «%1» (%2)"
 
-#: alkonlinequote_p.cpp:364
+#: alkonlinequote_p.cpp:365
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "Ціну «%1» для «%2» не може бути перетворено на число"
 
-#: alkonlinequote_p.cpp:369
+#: alkonlinequote_p.cpp:370
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Не вдалося обробити дані ціни для «%1»"
 
-#: alkonlinequote_p.cpp:379
+#: alkonlinequote_p.cpp:380
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Знайдено дату: «%1»"
 
-#: alkonlinequote_p.cpp:385
+#: alkonlinequote_p.cpp:386
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Знайдено формат дати: «%1» → «%2»"
 
-#: alkonlinequote_p.cpp:388
+#: alkonlinequote_p.cpp:389
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Не вдалося обробити дату «%1» з використанням формату «%2»: %3"
 
-#: alkonlinequote_p.cpp:392 alkonlinequote_p.cpp:402
+#: alkonlinequote_p.cpp:393 alkonlinequote_p.cpp:403
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Використовуємо поточну дату для «%1»"
 
-#: alkonlinequote_p.cpp:396
+#: alkonlinequote_p.cpp:397
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Обробку дат для «%1» вимкнено"
 
-#: alkonlinequote_p.cpp:399
+#: alkonlinequote_p.cpp:400
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Не вдалося обробити дату для «%1»"
 
-#: alkonlinequote_p.cpp:456 alkonlinequote_p.cpp:482 alkonlinequote_p.cpp:520
+#: alkonlinequote_p.cpp:457 alkonlinequote_p.cpp:483 alkonlinequote_p.cpp:521
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Знайдено код: «%1»"
 
-#: alkonlinequote_p.cpp:459 alkonlinequote_p.cpp:485 alkonlinequote_p.cpp:523
+#: alkonlinequote_p.cpp:460 alkonlinequote_p.cpp:486 alkonlinequote_p.cpp:524
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Не вдалося обробити код для %1"
 
-#: alkonlinequote_p.cpp:573
+#: alkonlinequote_p.cpp:574
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -141,32 +141,32 @@ msgstr ""
 "Не вдалося визначити роздільник полів у першому рядку (рядку заголовка) "
 "даних щодо курсів."
 
-#: alkonlinequote_p.cpp:600
+#: alkonlinequote_p.cpp:601
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "Не вдалося знайти стовпчик дат «%1» у даних щодо курсів"
 
-#: alkonlinequote_p.cpp:606
+#: alkonlinequote_p.cpp:607
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Не вдалося знайти стовпчик ціни «%1» у даних щодо курсів"
 
-#: alkonlinequote_p.cpp:624
+#: alkonlinequote_p.cpp:625
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Не вдалося перетворити дату «%1» з «%2» у даних щодо курсів"
 
-#: alkonlinequote_p.cpp:640
+#: alkonlinequote_p.cpp:641
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Не вдалося знайти пари дата/курс у даних щодо курсів"
 
-#: alkonlinequote_p.cpp:671
+#: alkonlinequote_p.cpp:672
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Не вдалося оновити ціну для %1 (порожні дані щодо курсу)"
 
-#: alkonlinequote_p.cpp:689
+#: alkonlinequote_p.cpp:690
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Перевищення часу очікування на отримання адреси для %1"
@@ -583,199 +583,199 @@ msgstr "Профілі програм"
 msgid "New"
 msgstr "Створити"
 
-#: alkonlinequoteswidget.cpp:168
+#: alkonlinequoteswidget.cpp:169
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Прийняти"
 
-#: alkonlinequoteswidget.cpp:170
+#: alkonlinequoteswidget.cpp:171
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Підтвердити введені дані і зберегти їх"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:172
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Натисніть, щоб підтвердити змінені дані."
 
-#: alkonlinequoteswidget.cpp:173
+#: alkonlinequoteswidget.cpp:174
 #, kde-format
 msgid "&Delete"
 msgstr "Ви&лучити"
 
-#: alkonlinequoteswidget.cpp:175
+#: alkonlinequoteswidget.cpp:176
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Вилучити позначений запис джерела"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:177
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Натисніть, щоб вилучити позначений запис джерела даних"
 
-#: alkonlinequoteswidget.cpp:178
+#: alkonlinequoteswidget.cpp:179
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "П&еревірити джерело"
 
-#: alkonlinequoteswidget.cpp:180
+#: alkonlinequoteswidget.cpp:181
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Перевірити вибраний запис джерела"
 
-#: alkonlinequoteswidget.cpp:181
+#: alkonlinequoteswidget.cpp:182
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr ""
 "Скористайтеся цим пунктом для перевірки вибраного запису інтернет-джерела"
 
-#: alkonlinequoteswidget.cpp:183
+#: alkonlinequoteswidget.cpp:184
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "По&казати сторінку"
 
-#: alkonlinequoteswidget.cpp:185
+#: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr ""
 "Показати сторінку вибраного запису джерела у програмі для перегляду інтернету"
 
-#: alkonlinequoteswidget.cpp:186
+#: alkonlinequoteswidget.cpp:187
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr ""
 "Скористайтеся цим пунктом для перегляду вибраного запису інтернет-джерела"
 
-#: alkonlinequoteswidget.cpp:188
+#: alkonlinequoteswidget.cpp:189
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "С&творити…"
 
-#: alkonlinequoteswidget.cpp:190
+#: alkonlinequoteswidget.cpp:191
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Створити запис джерела курсів у інтернеті"
 
-#: alkonlinequoteswidget.cpp:191
+#: alkonlinequoteswidget.cpp:192
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "Натисніть, щоб створити запис джерела курсів у інтернеті"
 
-#: alkonlinequoteswidget.cpp:225
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgid "Name"
 msgstr "Назва"
 
-#: alkonlinequoteswidget.cpp:225
+#: alkonlinequoteswidget.cpp:226
 #, kde-format
 msgid "Source"
 msgstr "Джерело"
 
-#: alkonlinequoteswidget.cpp:246
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Код"
 
-#: alkonlinequoteswidget.cpp:247
+#: alkonlinequoteswidget.cpp:248
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Ідентифікаційний номер"
 
-#: alkonlinequoteswidget.cpp:248
+#: alkonlinequoteswidget.cpp:249
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Назва"
 
-#: alkonlinequoteswidget.cpp:257
+#: alkonlinequoteswidget.cpp:258
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "Очищений HTML"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:259
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:260
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:261
+#: alkonlinequoteswidget.cpp:262
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequoteswidget.cpp:265
+#: alkonlinequoteswidget.cpp:266
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Типовий"
 
-#: alkonlinequoteswidget.cpp:266
+#: alkonlinequoteswidget.cpp:267
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "Javascript"
 
-#: alkonlinequoteswidget.cpp:301
+#: alkonlinequoteswidget.cpp:302
 #, kde-format
 msgid "Remote unpublished"
 msgstr "Віддалене, неоприлюднене"
 
-#: alkonlinequoteswidget.cpp:303
+#: alkonlinequoteswidget.cpp:304
 #, kde-format
 msgid "Remote"
 msgstr "Віддалене"
 
-#: alkonlinequoteswidget.cpp:305
+#: alkonlinequoteswidget.cpp:306
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
-#: alkonlinequoteswidget.cpp:306
+#: alkonlinequoteswidget.cpp:307
 #, kde-format
 msgid "Local"
 msgstr "Локальне"
 
-#: alkonlinequoteswidget.cpp:527
+#: alkonlinequoteswidget.cpp:528
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Ви справді хочете вилучити цей інтернет-курс?"
 
-#: alkonlinequoteswidget.cpp:528
+#: alkonlinequoteswidget.cpp:529
 #, kde-format
 msgid "Delete online quote"
 msgstr "Вилучити інтернет-курс"
 
-#: alkonlinequoteswidget.cpp:555
+#: alkonlinequoteswidget.cpp:556
 #, kde-format
 msgid ".copy"
 msgstr ".копія"
 
-#: alkonlinequoteswidget.cpp:583 alkonlinequoteswidget.cpp:585
+#: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
 #, kde-format
 msgid "New Quote Source"
 msgstr "Створити джерело курсів"
 
-#: alkonlinequoteswidget.cpp:594
+#: alkonlinequoteswidget.cpp:595
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Нове джерело курсів</b> вже існує."
 
-#: alkonlinequoteswidget.cpp:772
+#: alkonlinequoteswidget.cpp:773
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Вікно результатів пошуку курсів у форматі HTML"
@@ -880,12 +880,12 @@ msgstr "Пакунок створено тут:"
 msgid "Package edit url:"
 msgstr "Адреса редагування пакунка:"
 
-#: alkwebview.cpp:72
+#: alkwebview.cpp:84
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Відкрити інспектор у новому вікні"
 
-#: alkwebview.cpp:84
+#: alkwebview.cpp:96
 #, kde-format
 msgid "Inspect element"
 msgstr "Перевірити елемент"

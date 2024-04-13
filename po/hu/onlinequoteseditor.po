@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-25 02:00+0000\n"
+"POT-Creation-Date: 2024-04-13 01:44+0000\n"
 "PO-Revision-Date: 2021-11-04 12:51+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -32,37 +32,37 @@ msgstr "kiszel.kristof@gmail.com"
 msgid "&About %1"
 msgstr "Né&vjegy: %1"
 
-#: mainwindow.cpp:87
+#: mainwindow.cpp:90
 #, kde-format
 msgid "Profiles"
 msgstr "Profilok"
 
-#: mainwindow.cpp:92
+#: mainwindow.cpp:95
 #, kde-format
 msgid "Profile details"
 msgstr "Profiladatok"
 
-#: mainwindow.cpp:97
+#: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
 msgstr "Online árajánlatok"
 
-#: mainwindow.cpp:102
+#: mainwindow.cpp:105
 #, kde-format
 msgid "Debug"
 msgstr "Hibakeresés"
 
-#: mainwindow.cpp:107
+#: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
 msgstr "Árajánlat részletei"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Browser"
 msgstr "Böngésző"
 
-#: mainwindow.cpp:171
+#: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr "A(z) „%2” profilban elérhető „%1” frissítése"
