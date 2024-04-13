@@ -25,6 +25,10 @@ set -x
 # One of kf5, kf4
 : "${ci_variant:=kf5}"
 
+# ci_webserver:
+# if yes, install simple webserver
+: "${ci_webserver:=yes}"
+
 # setup install command; use sudo outside of docker
 # found on https://stackoverflow.com/questions/23513045
 case $(cat /proc/1/sched  | head -n 1 | cut -d' ' -f1) in
@@ -87,6 +91,7 @@ case "$ci_distro" in
         # misc packages
         packages=(
            "${packages[@]}"
+            gawk
             gettext-runtime
             # prevents crashing of mingwxx-windres (https://bugzilla.opensuse.org/show_bug.cgi?id=1198923)
             glibc-locale-base
@@ -101,6 +106,13 @@ case "$ci_distro" in
             xauth
             xterm
         )
+
+        if [ "$ci_webserver" = "yes" ]; then
+            packages=(
+            "${packages[@]}"
+                php8-cli # webserver
+            )
+        fi
 
         # for screenshots
         packages=(

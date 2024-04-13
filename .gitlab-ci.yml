@@ -18,8 +18,13 @@ image: opensuse/leap:15.5
   script:
     - runuser -u user ./tools/ci-build.sh
 
-distro kf6 tumbleweed:
+.unix-build:
   extends: .unix-host-build
+  variables:
+    ci_webserver: "yes"
+
+distro kf6 tumbleweed:
+  extends: .unix-build
   when: manual
   image: opensuse/tumbleweed
   #only:
@@ -28,7 +33,7 @@ distro kf6 tumbleweed:
     ci_variant: "kf6"
 
 distro kf5 tumbleweed:
-  extends: .unix-host-build
+  extends: .unix-build
   #when: manual
   image: opensuse/tumbleweed
   #only:
@@ -57,7 +62,7 @@ distro kf5 tumbleweed mingw64:
     ci_host: "mingw64"
 
 distro kf5 leap:
-  extends: .unix-host-build
+  extends: .unix-build
   #when: manual
   #only:
   #  - merge_requests
@@ -83,7 +88,7 @@ distro kf5 leap mingw64:
     ci_host: "mingw64"
 
 distro kf5 leap webengine:
-  extends: .unix-host-build
+  extends: .unix-build
   when: manual
   #only:
   #  - merge_requests
@@ -91,7 +96,7 @@ distro kf5 leap webengine:
     ci_variant: "kf5-webengine"
 
 distro kf5 leap webkit:
-  extends: .unix-host-build
+  extends: .unix-build
   when: manual
   #only:
   #  - merge_requests
@@ -99,7 +104,7 @@ distro kf5 leap webkit:
     ci_variant: "kf5-webkit"
 
 distro kf4 leap:
-  extends: .unix-host-build
+  extends: .unix-build
   when: manual
   #only:
   #  - merge_requests

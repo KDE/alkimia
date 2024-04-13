@@ -11,17 +11,8 @@ set -x
 # kill kde and x session
 function cleanup() {
     touch $builddir/finished
-    if test "$ci_in_docker" = yes; then
-        if test "$ci_host" = native; then
-            ${start_kde_session}_shutdown
-            kill -s 9 $DBUS_SESSION_BUS_PID
-        else
-            $wrapper $start_kde_session --terminate
-        fi
-        killall -s 9 xvfb-run
-        sleep 1
-        killall -s 9 Xvfb
-    fi
+    stop_session
+    stop_webserver
 }
 
 # start xvfb session - will restart in case of crashes
@@ -36,6 +27,12 @@ function start_x_session() {
     sleep 2
 }
 
+function stop_x_session() {
+    killall -s 9 xvfb-run
+    sleep 1
+    killall -s 9 Xvfb
+}
+
 # start dbus-daemon and kde background processes
 function start_kde_session() {
     if test "$ci_host" = native; then
@@ -44,6 +41,15 @@ function start_kde_session() {
         eval `dbus-launch --sh-syntax`
     fi
     $wrapper $start_kde_session --verbose
+}
+
+function stop_kde_session() {
+    if test "$ci_host" = native; then
+        ${start_kde_session}_shutdown
+        kill -s 9 $DBUS_SESSION_BUS_PID
+    else
+        $wrapper $start_kde_session --terminate
+    fi
 }
 
 function start_session() {
@@ -62,6 +68,34 @@ function start_session() {
     if test "$ci_in_docker" = yes; then
         start_x_session
         start_kde_session
+    fi
+}
+
+function stop_session() {
+    if test "$ci_in_docker" = yes; then
+        stop_kde_session
+        stop_x_session
+    fi
+}
+
+# start webserver for testing
+function start_webserver() {
+    if [ "$ci_webserver" = yes ]; then
+        n=$(gawk '$2 ~ TEST_HOST { print $2 }' TEST_HOST=$test_host /etc/hosts)
+        if test -z "$n"; then
+            echo "127.0.0.1 $test_host" | $sudo tee --append /etc/hosts
+        fi
+        $sudo php8 -S "$test_host:80" -t $srcdir/tools &
+    fi
+}
+
+# stop webserver for testing
+function stop_webserver() {
+    if [ "$ci_webserver" = yes ]; then
+        pid=$(ps aux | grep php8 | grep "$test_host" | gawk '{ print $2 }')
+        if test -n "$pid"; then
+            $sudo kill -s 9 $pid
+        fi
     fi
 }
 
@@ -210,8 +244,15 @@ init_cross_runtime() {
 : "${ci_test:=yes}"
 
 # ci_variant:
-# One of kf5, kf4
+# One of kf6, kf5, kf4
 : "${ci_variant:=kf5}"
+
+# ci_webserver:
+# if yes, run simple webserver for testing
+: "${ci_webserver:=yes}"
+
+# host name for testing
+test_host=dev.kmymoney.org
 
 # specify build dir
 srcdir="$(pwd)"
@@ -239,6 +280,12 @@ fi
 # common cmake options
 cmake_options="-DBUILD_WITH_QTNETWORK=1"
 
+# check if webserver is enabled
+if [ "$ci_webserver" = yes ]; then
+    # todo add separate host to avoid conflicts host
+    cmake_options+=" -DTEST_DEVELOP_HOST=1"
+fi
+
 # settings for build variants
 case "$ci_variant" in
     (kf6*)
@@ -247,6 +294,7 @@ case "$ci_variant" in
         export QT_LOGGING_RULES="*=true"
         export QT_FORCE_STDERR_LOGGING=1
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
+        export QT_QPA_PLATFORM=offscreen
         start_kde_session=kdeinit5
         ;;
 
@@ -256,6 +304,7 @@ case "$ci_variant" in
         export QT_LOGGING_RULES="*=true"
         export QT_FORCE_STDERR_LOGGING=1
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
+        export QT_QPA_PLATFORM=offscreen
         start_kde_session=kdeinit5
         ;;
 
@@ -329,6 +378,8 @@ if test "$ci_test" = yes; then
     trap cleanup EXIT
 
     start_session
+
+    start_webserver
 
     # run tests
     ctest --test-dir ${builddir} --output-on-failure --timeout 60 --jobs $ci_jobs
