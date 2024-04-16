@@ -226,7 +226,11 @@ AlkWebPage::~AlkWebPage()
 void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 {
     Q_UNUSED(acceptLanguage)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     setSource(url, QTextDocument::HtmlResource);
+#else
+    setSource(url);
+#endif
     Q_EMIT loadStarted();
 }
 

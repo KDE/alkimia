@@ -158,7 +158,11 @@ AlkWebView::~AlkWebView()
 
 void AlkWebView::load(const QUrl &url)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     setSource(url, QTextDocument::HtmlResource);
+#else
+    setSource(url);
+#endif
     if (source() == url)
         reload();
     Q_EMIT loadStarted();

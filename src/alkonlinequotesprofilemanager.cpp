@@ -26,6 +26,7 @@ class AlkOnlineQuotesProfileManager::Private
 public:
     AlkOnlineQuotesProfileList m_profiles;
     QPointer<AlkWebView> m_view;
+    QPointer<AlkWebPage> m_page;
     bool m_withView;
     Private()
       : m_withView(false)
@@ -93,14 +94,23 @@ QStringList AlkOnlineQuotesProfileManager::profileNames()
     return profiles;
 }
 
+void AlkOnlineQuotesProfileManager::setWebPage(AlkWebPage *webPage)
+{
+    d->m_page = webPage;
+}
+
+AlkWebPage *AlkOnlineQuotesProfileManager::webPage()
+{
+    return d->m_page;
+}
+
+void AlkOnlineQuotesProfileManager::setWebView(AlkWebView *webView)
+{
+    d->m_view = webView;
+}
+
 AlkWebView *AlkOnlineQuotesProfileManager::webView()
 {
-    if (!d->m_view) {
-    // make sure that translations are installed on windows
-        initLocale();
-        d->m_view = new AlkWebView;
-        d->m_view->setWebPage(new AlkWebPage);
-    }
     return d->m_view;
 }
 

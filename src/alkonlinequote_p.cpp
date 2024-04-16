@@ -65,7 +65,7 @@ AlkOnlineQuote::Private::Private(AlkOnlineQuote *parent)
 #ifdef ENABLE_FINANCEQUOTE
     connect(&m_filter, SIGNAL(processExited(QString)), this, SLOT(slotParseQuote(QString)));
 #endif
-    m_downloader.setWebPage(AlkOnlineQuotesProfileManager::instance().webView()->webPage());
+    m_downloader.setWebPage(AlkOnlineQuotesProfileManager::instance().webPage());
     connect(&m_downloader, SIGNAL(started(QUrl)), this, SLOT(slotLoadStarted(QUrl)));
     connect(&m_downloader, SIGNAL(finished(QUrl,QString)), this, SLOT(slotLoadFinished(QUrl,QString)));
     connect(&m_downloader, SIGNAL(finishedPage(QUrl,AlkWebPage*)), this, SLOT(slotLoadFinishedPage(QUrl,AlkWebPage*)));

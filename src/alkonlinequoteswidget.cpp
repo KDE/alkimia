@@ -34,6 +34,14 @@
     #include <KIconLoader>
 #endif
 
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#include <QLocale>
+#define initLocale() QLocale()
+#else
+#include <KGlobal>
+#define initLocale() KGlobal::locale()
+#endif
+
 #include <KGuiItem>
 #include <KMessageBox>
 
@@ -66,6 +74,7 @@ public:
     AlkOnlineQuoteSource m_currentItem;
     bool m_quoteInEditing;
     AlkOnlineQuotesProfile *m_profile;
+    AlkWebView *m_webView;
     bool m_showProfiles;
     bool m_showUpload;
     bool m_ghnsEditable;
@@ -156,6 +165,18 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
         m_buildKey->setText(QString("<small>alkimia version: %1</small>").arg(BUILD_KEY));
     else
         m_buildKey->setText(QString());
+
+#ifdef BUILD_WITH_WEBENGINE
+    AlkWebView::setWebInspectorEnabled(true);
+#endif
+    initLocale();
+    m_webView = new AlkWebView;
+    m_webView->setWebPage(new AlkWebPage);
+#ifdef BUILD_WITH_WEBKIT
+    m_webView->setWebInspectorEnabled(true);
+#endif
+    AlkOnlineQuotesProfileManager::instance().setWebView(m_webView);
+    AlkOnlineQuotesProfileManager::instance().setWebPage(m_webView->webPage());
 
     profilesGroupBox->setVisible(showProfiles);
     profileDetailsBox->setVisible(showProfiles);
@@ -278,6 +299,8 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 AlkOnlineQuotesWidget::Private::~Private()
 {
     m_webPageDialog->deleteLater();
+    delete m_webView->webPage();
+    delete m_webView;
 }
 
 void AlkOnlineQuotesWidget::Private::loadProfiles()
@@ -772,14 +795,7 @@ void AlkOnlineQuotesWidget::Private::slotShowButton()
         m_webPageDialog = new QDialog;
         m_webPageDialog->setWindowTitle(i18n("Online Quote HTML Result Window"));
         QVBoxLayout *layout = new QVBoxLayout;
-#ifdef BUILD_WITH_WEBENGINE
-        AlkWebView::setWebInspectorEnabled(true);
-#endif
-        AlkWebView *webView = AlkOnlineQuotesProfileManager::instance().webView();
-#ifndef BUILD_WITH_WEBENGINE
-        webView->setWebInspectorEnabled(true);
-#endif
-        layout->addWidget(webView);
+        layout->addWidget(m_webView);
         m_webPageDialog->setLayout(layout);
     }
     m_webPageDialog->show();
