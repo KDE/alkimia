@@ -145,6 +145,8 @@ void AlkWebView::setWebPage(AlkWebPage *webPage)
 
 #else
 
+#include <QtDebug>
+
 AlkWebView::AlkWebView(QWidget *parent)
     : QTextBrowser(parent)
 {
