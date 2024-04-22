@@ -3,10 +3,12 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 macro(feature_note text state)
-    if(${state})
+    if(${state} STREQUAL "UNSTABLE")
+        message(STATUS "${text} is unstable")
+    elseif(${state})
         message(STATUS "${text} is supported")
     else()
-        message(WARNING "${text} is not supported")
+        message(STATUS "${text} is not supported")
     endif()
 endmacro()
 
@@ -14,7 +16,7 @@ macro(feature_notes a b c d)
     feature_note("Fetching pages with javascript" ${a})
     feature_note("Preview of fetched pages" ${b})
     feature_note("Multilingual preview of web pages" ${c})
-    feature_note("Inspecting of web pages" ${c})
+    feature_note("Inspecting of web pages" ${d})
 endmacro()
 
 if(QT_MAJOR_VERSION EQUAL 4)
