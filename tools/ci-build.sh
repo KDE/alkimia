@@ -13,6 +13,9 @@ function cleanup() {
     touch $builddir/finished
     stop_session
     stop_webserver
+    if [ "$ci_in_docker" = yes ]; then
+        cleanup_docker
+    fi
 }
 
 # start xvfb session - will restart in case of crashes
@@ -97,6 +100,29 @@ function stop_webserver() {
             $sudo kill -s 9 $pid
         fi
     fi
+}
+
+function init_docker() {
+    mkdir -p ~/.config/gdb
+    cat << EOF > ~/.config/gdb/gdbinit
+print("loading gdb event handler")
+python
+
+def stop_handler (event):
+    print ("event type: stop")
+    gdb.execute("set pagination off")
+    gdb.execute("thread apply all bt")
+    gdb.execute("set confirm off")
+    gdb.execute("quit 1")
+
+gdb.events.stop.connect (stop_handler)
+end
+EOF
+
+}
+
+function cleanup_docker() {
+    rm ~/.config/gdb/gdbinit
 }
 
 # missing wrapper for associated rpm macro
@@ -286,6 +312,17 @@ if [ "$ci_webserver" = yes ]; then
     cmake_options+=" -DTEST_DEVELOP_HOST=1"
 fi
 
+# check if running in docker
+if [ "$ci_in_docker" = yes ]; then
+    cmake_options+=" -DTEST_IN_DOCKER=1 -DCMAKE_TEST_LAUNCHER=/usr/bin/gdb;-q;-ex;r;-ex;q"
+    init_docker
+fi
+
+# check if running in gitlab CI
+if [[ -v CI_RUNNER_VERSION ]]; then
+    cmake_options+=" -DTEST_IN_GITLAB_CI=1"
+fi
+
 # settings for build variants
 case "$ci_variant" in
     (kf6*)
@@ -296,6 +333,8 @@ case "$ci_variant" in
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
         export QT_QPA_PLATFORM=offscreen
         start_kde_session=kdeinit5
+        # disable drkonqi
+        export KDE_DEBUG=1
         ;;
 
     (kf5*)
@@ -306,6 +345,8 @@ case "$ci_variant" in
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
         export QT_QPA_PLATFORM=offscreen
         start_kde_session=kdeinit5
+        # disable drkonqi
+        export KDE_DEBUG=1
         ;;
 
     (kf4)
@@ -382,7 +423,7 @@ if test "$ci_test" = yes; then
     start_webserver
 
     # run tests
-    ctest --test-dir ${builddir} --output-on-failure --timeout 60 --jobs $ci_jobs
+    ctest --test-dir ${builddir} --output-on-failure --timeout 60 --jobs $ci_jobs -VV
 
     # show screenshot in case of errors
     if test $? -ne 0; then

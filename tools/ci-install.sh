@@ -56,6 +56,19 @@ case "$ci_distro" in
         # add required repos
         repo_name=$(. /etc/os-release; echo $PRETTY_NAME | sed 's, ,_,g')
         repos=()
+        # install newest cmake
+        case "$repo_name" in
+            (*Leap*)
+                devel_tools_building_repo_name=$(. /etc/os-release; echo $VERSION_ID)
+                ;;
+            (*Tumbleweed*)
+                devel_tools_building_repo_name=openSUSE_Factory
+                ;;
+        esac
+        repos=(
+            "${repos[@]}"
+            https://download.opensuse.org/repositories/devel:/tools:/building/$devel_tools_building_repo_name/devel:tools:building.repo
+        )
         case "$ci_variant-$ci_host" in
             (*-mingw*)
                 bits=$(echo $ci_host | sed 's,mingw,,g')
@@ -93,6 +106,8 @@ case "$ci_distro" in
            "${packages[@]}"
             gawk
             gettext-runtime
+            # for catching segfaults
+            gdb
             # prevents crashing of mingwxx-windres (https://bugzilla.opensuse.org/show_bug.cgi?id=1198923)
             glibc-locale-base
             # xvfb-run does not have added all required tools
