@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 01:44+0000\n"
+"POT-Creation-Date: 2024-04-22 01:54+0000\n"
 "PO-Revision-Date: 2024-03-28 12:51+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -585,196 +585,196 @@ msgstr "Toepassingsprofielen"
 msgid "New"
 msgstr "Nieuw"
 
-#: alkonlinequoteswidget.cpp:169
+#: alkonlinequoteswidget.cpp:190
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Accepteren"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:192
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Accepteert de ingevoerde gegevens en slaat deze op"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:193
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Gebruik dit om de gewijzigde gegevens te accepteren."
 
-#: alkonlinequoteswidget.cpp:174
+#: alkonlinequoteswidget.cpp:195
 #, kde-format
 msgid "&Delete"
 msgstr "Verwij&deren"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:197
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Verwijder het geselecteerde bronitem"
 
-#: alkonlinequoteswidget.cpp:177
+#: alkonlinequoteswidget.cpp:198
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Gebruik dit om het geselecteerde online bronitem te verwijderen"
 
-#: alkonlinequoteswidget.cpp:179
+#: alkonlinequoteswidget.cpp:200
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "Bron &controleren"
 
-#: alkonlinequoteswidget.cpp:181
+#: alkonlinequoteswidget.cpp:202
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Het geselecteerde bronitem controleren"
 
-#: alkonlinequoteswidget.cpp:182
+#: alkonlinequoteswidget.cpp:203
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "Dit gebruiken om het geselecteerde online bronitem te controleren"
 
-#: alkonlinequoteswidget.cpp:184
+#: alkonlinequoteswidget.cpp:205
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "Pagina &tonen"
 
-#: alkonlinequoteswidget.cpp:186
+#: alkonlinequoteswidget.cpp:207
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Het geselecteerde bronitem in een webbrowser tonen"
 
-#: alkonlinequoteswidget.cpp:187
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "Dit gebruiken om het geselecteerde online bronitem te tonen"
 
-#: alkonlinequoteswidget.cpp:189
+#: alkonlinequoteswidget.cpp:210
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Nieuw..."
 
-#: alkonlinequoteswidget.cpp:191
+#: alkonlinequoteswidget.cpp:212
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Creëer een nieuw bronitem voor online koersen"
 
-#: alkonlinequoteswidget.cpp:192
+#: alkonlinequoteswidget.cpp:213
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "Dit gebruiken om een nieuw item voor online koersen aan te maken"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgid "Name"
 msgstr "Naam"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgid "Source"
 msgstr "Bron"
 
-#: alkonlinequoteswidget.cpp:247
+#: alkonlinequoteswidget.cpp:268
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Symbool"
 
-#: alkonlinequoteswidget.cpp:248
+#: alkonlinequoteswidget.cpp:269
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Identificatienummer"
 
-#: alkonlinequoteswidget.cpp:249
+#: alkonlinequoteswidget.cpp:270
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Naam"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:279
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "Gestripte HTML"
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:280
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:260
+#: alkonlinequoteswidget.cpp:281
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:262
+#: alkonlinequoteswidget.cpp:283
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequoteswidget.cpp:266
+#: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Standaard"
 
-#: alkonlinequoteswidget.cpp:267
+#: alkonlinequoteswidget.cpp:288
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "Javascript"
 
-#: alkonlinequoteswidget.cpp:302
+#: alkonlinequoteswidget.cpp:325
 #, kde-format
 msgid "Remote unpublished"
 msgstr "Niet gepubliceerd op afstand"
 
-#: alkonlinequoteswidget.cpp:304
+#: alkonlinequoteswidget.cpp:327
 #, kde-format
 msgid "Remote"
 msgstr "Op afstand"
 
-#: alkonlinequoteswidget.cpp:306
+#: alkonlinequoteswidget.cpp:329
 #, kde-format
 msgid "Finance::Quote"
 msgstr "Financiën::Koers"
 
-#: alkonlinequoteswidget.cpp:307
+#: alkonlinequoteswidget.cpp:330
 #, kde-format
 msgid "Local"
 msgstr "Lokaal"
 
-#: alkonlinequoteswidget.cpp:528
+#: alkonlinequoteswidget.cpp:551
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Wilt u deze online koers echt verwijderen ?"
 
-#: alkonlinequoteswidget.cpp:529
+#: alkonlinequoteswidget.cpp:552
 #, kde-format
 msgid "Delete online quote"
 msgstr "Online koers verwijderen"
 
-#: alkonlinequoteswidget.cpp:556
+#: alkonlinequoteswidget.cpp:579
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
+#: alkonlinequoteswidget.cpp:607 alkonlinequoteswidget.cpp:609
 #, kde-format
 msgid "New Quote Source"
 msgstr "Nieuwe koersenbron"
 
-#: alkonlinequoteswidget.cpp:595
+#: alkonlinequoteswidget.cpp:618
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Nieuwe koersenbron</b> bestaat al."
 
-#: alkonlinequoteswidget.cpp:773
+#: alkonlinequoteswidget.cpp:796
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Venster met resultaat online Quote HTML"

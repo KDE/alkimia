@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 01:44+0000\n"
+"POT-Creation-Date: 2024-04-22 01:54+0000\n"
 "PO-Revision-Date: 2023-12-04 09:37+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -562,132 +562,132 @@ msgstr ""
 msgid "New"
 msgstr "Nové"
 
-#: alkonlinequoteswidget.cpp:169
+#: alkonlinequoteswidget.cpp:190
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Akceptovať"
 
-#: alkonlinequoteswidget.cpp:171
+#: alkonlinequoteswidget.cpp:192
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Prijíma zadané údaje a uloží ich"
 
-#: alkonlinequoteswidget.cpp:172
+#: alkonlinequoteswidget.cpp:193
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Použiť na prijatie zmenených údajov."
 
-#: alkonlinequoteswidget.cpp:174
+#: alkonlinequoteswidget.cpp:195
 #, kde-format
 msgid "&Delete"
 msgstr "Vymazať"
 
-#: alkonlinequoteswidget.cpp:176
+#: alkonlinequoteswidget.cpp:197
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Vymazať vybranú položku zdroja"
 
-#: alkonlinequoteswidget.cpp:177
+#: alkonlinequoteswidget.cpp:198
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Použiť na vymazanie vybranej položky online zdroja"
 
-#: alkonlinequoteswidget.cpp:179
+#: alkonlinequoteswidget.cpp:200
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:181
+#: alkonlinequoteswidget.cpp:202
 #, kde-format
 msgid "Check the selected source entry"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:182
+#: alkonlinequoteswidget.cpp:203
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:184
+#: alkonlinequoteswidget.cpp:205
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "Zobraziť stránku"
 
-#: alkonlinequoteswidget.cpp:186
+#: alkonlinequoteswidget.cpp:207
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:187
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:189
+#: alkonlinequoteswidget.cpp:210
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Nový..."
 
-#: alkonlinequoteswidget.cpp:191
+#: alkonlinequoteswidget.cpp:212
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Vytvoriť novú položku zdroja pre online cenové ponuky"
 
-#: alkonlinequoteswidget.cpp:192
+#: alkonlinequoteswidget.cpp:213
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "Použiť na vytvorenie novej položky pre online cenové ponuky"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgid "Name"
 msgstr "Názov"
 
-#: alkonlinequoteswidget.cpp:226
+#: alkonlinequoteswidget.cpp:247
 #, kde-format
 msgid "Source"
 msgstr "Zdroj"
 
-#: alkonlinequoteswidget.cpp:247
+#: alkonlinequoteswidget.cpp:268
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Symbol"
 
-#: alkonlinequoteswidget.cpp:248
+#: alkonlinequoteswidget.cpp:269
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:249
+#: alkonlinequoteswidget.cpp:270
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Názov"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:279
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:280
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:260
+#: alkonlinequoteswidget.cpp:281
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:262
+#: alkonlinequoteswidget.cpp:283
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox Stock"
 #| msgid "CSV"
@@ -695,65 +695,65 @@ msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:266
+#: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:267
+#: alkonlinequoteswidget.cpp:288
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:302
+#: alkonlinequoteswidget.cpp:325
 #, kde-format
 msgid "Remote unpublished"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:304
+#: alkonlinequoteswidget.cpp:327
 #, kde-format
 msgid "Remote"
 msgstr "Vzdialené"
 
-#: alkonlinequoteswidget.cpp:306
+#: alkonlinequoteswidget.cpp:329
 #, kde-format
 msgid "Finance::Quote"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:307
+#: alkonlinequoteswidget.cpp:330
 #, kde-format
 msgid "Local"
 msgstr "Lokálne"
 
-#: alkonlinequoteswidget.cpp:528
+#: alkonlinequoteswidget.cpp:551
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:529
+#: alkonlinequoteswidget.cpp:552
 #, kde-format
 msgid "Delete online quote"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:556
+#: alkonlinequoteswidget.cpp:579
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
+#: alkonlinequoteswidget.cpp:607 alkonlinequoteswidget.cpp:609
 #, kde-format
 msgid "New Quote Source"
 msgstr "Pridať zdroj cenovej ponuky"
 
-#: alkonlinequoteswidget.cpp:595
+#: alkonlinequoteswidget.cpp:618
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:773
+#: alkonlinequoteswidget.cpp:796
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr ""
