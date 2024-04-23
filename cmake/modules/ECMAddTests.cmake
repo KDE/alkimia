@@ -13,6 +13,7 @@ Convenience functions for adding tests.
 
   ecm_add_tests(<sources>
       COMPILER_FLAGS <flag> [<flag> [...]]
+      ENV <list>
       LINK_LIBRARIES <library> [<library> [...]]
       [NAME_PREFIX <prefix>]
       [GUI]
@@ -25,7 +26,8 @@ A convenience function for adding multiple tests, each consisting of a
 single source file. For each file in <sources>, an executable target will be
 created (the name of which will be the basename of the source file). This
 will be linked against the libraries given with ``LINK_LIBRARIES``. Each
-executable will be added as a test with the same name.
+executable will be added as a test with the same name and can have an
+environment provided by ``ENV``.
 
 If ``NAME_PREFIX`` is given, this prefix will be prepended to the test names, but
 not the target names. As a result, it will not prevent clashes between tests
@@ -61,6 +63,7 @@ generator expressions. Since 5.111.
       <sources>
       COMPILER_FLAGS <flag> [<flag> [...]]
       LINK_LIBRARIES <library> [<library> [...]]
+      ENV <list>
       [TEST_NAME <name>]
       [NAME_PREFIX <prefix>]
       [GUI]
@@ -89,7 +92,7 @@ function(ecm_add_test)
   # TARGET_NAME_VAR and TEST_NAME_VAR are undocumented args used by
   # ecm_add_tests
   set(oneValueArgs TEST_NAME NAME_PREFIX TARGET_NAME_VAR TEST_NAME_VAR WORKING_DIRECTORY)
-  set(multiValueArgs COMPILER_FLAGS LINK_LIBRARIES)
+  set(multiValueArgs COMPILER_FLAGS ENV LINK_LIBRARIES)
   cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
   set(_sources ${ARG_UNPARSED_ARGUMENTS})
   list(LENGTH _sources _sourceCount)
@@ -117,6 +120,9 @@ function(ecm_add_test)
       list(APPEND test_args WORKING_DIRECTORY ${ARG_WORKING_DIRECTORY})
   endif()
   add_test(NAME ${_testname} COMMAND ${_targetname} ${test_args})
+  if (ARG_ENV)
+      set_property(TEST ${_testname} PROPERTY ENVIRONMENT ${ARG_ENV})
+  endif()
   target_link_libraries(${_targetname} ${ARG_LINK_LIBRARIES})
   target_compile_definitions(${_targetname} PRIVATE -DQT_FORCE_ASSERTS ${ARG_COMPILER_FLAGS})
   ecm_mark_as_test(${_targetname})
@@ -141,7 +147,7 @@ endfunction()
 function(ecm_add_tests)
   set(options GUI)
   set(oneValueArgs NAME_PREFIX TARGET_NAMES_VAR TEST_NAMES_VAR WORKING_DIRECTORY)
-  set(multiValueArgs COMPILER_FLAGS LINK_LIBRARIES)
+  set(multiValueArgs COMPILER_FLAGS ENV LINK_LIBRARIES)
   cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
   if(ARG_GUI)
     set(_exe_type GUI)
@@ -158,6 +164,7 @@ function(ecm_add_tests)
     ecm_add_test(${_test_source}
       NAME_PREFIX ${ARG_NAME_PREFIX}
       COMPILER_FLAGS ${ARG_COMPILER_FLAGS}
+      ENV ${ARG_ENV}
       LINK_LIBRARIES ${ARG_LINK_LIBRARIES}
       TARGET_NAME_VAR target_name
       TEST_NAME_VAR test_name
