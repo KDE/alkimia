@@ -218,6 +218,7 @@ bool AlkDownloadEngine::Private::downloadUrlKIO(const QUrl& url)
     m_eventLoop = new QEventLoop;
     // TODO add accept language support
     KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
     connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDoneKIO(KJob*)));
 
     Q_EMIT m_p->started(m_url);
