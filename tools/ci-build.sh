@@ -328,7 +328,7 @@ case "$ci_variant" in
     (kf6*)
         cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1 -DBUILD_WITH_QT6=1 -DBUILD_WITH_QTNETWORK=1"
         cmake_suffix="kf6"
-        export QT_LOGGING_RULES="*=true"
+        export QT_LOGGING_RULES="*=true;kf.kio.workers.http.debug=false;qt.text.*.debug=false"
         export QT_FORCE_STDERR_LOGGING=1
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
         start_kde_session=kdeinit5
@@ -337,7 +337,7 @@ case "$ci_variant" in
     (kf5*)
         cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1"
         cmake_suffix="kf5"
-        export QT_LOGGING_RULES="*=true"
+        export QT_LOGGING_RULES="*=true;kf.kio.workers.http.debug=false;qt.text.*.debug=false"
         export QT_FORCE_STDERR_LOGGING=1
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
         start_kde_session=kdeinit5
