@@ -24,6 +24,12 @@
 #include <QNetworkProxyFactory>
 #endif
 
+void checkAndSetVisible(QAction *action, bool state)
+{
+    if (action)
+        action->setVisible(state);
+}
+
 int main(int argc, char **argv)
 {
     AlkApplication app(argc, argv);
@@ -43,11 +49,11 @@ int main(int argc, char **argv)
 
     KHelpMenu helpMenu(&w, about.shortDescription());
     helpMenu.menu();
-    helpMenu.action(KHelpMenu::menuHelpContents)->setVisible(false);
+    checkAndSetVisible(helpMenu.action(KHelpMenu::menuHelpContents), false);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
+    checkAndSetVisible(helpMenu.action(KHelpMenu::menuReportBug), false);
 #endif
-    helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(true);
+    checkAndSetVisible(helpMenu.action(KHelpMenu::menuSwitchLanguage), true);
     helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", about.displayName()));
     w.menuBar()->addMenu(static_cast<QMenu*>(helpMenu.menu()));
 
