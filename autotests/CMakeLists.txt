@@ -14,6 +14,15 @@ set(TEST_LIB
     alkimia
 )
 
+# setup test environment
+list(APPEND TEST_ENV "KDE_DEBUG=1")
+if(BUILD_WITH_WEBENGINE)
+    list(APPEND TEST_ENV "QTWEBENGINE_DISABLE_SANDBOX=1")
+endif()
+if(TEST_IN_DOCKER)
+    list(APPEND TEST_ENV "QT_QPA_PLATFORM=offscreen")
+endif()
+
 if(BUILD_WITH_WEBKIT)
     set(TEST_SUFFIX "-webkit-")
 elseif(BUILD_WITH_WEBENGINE)
@@ -28,6 +37,7 @@ ecm_add_tests(
     alkquoteitemtest.cpp
     alkcompanytest.cpp
     alkexceptiontest.cpp
+    ENV ${TEST_ENV}
     LINK_LIBRARIES
     ${TEST_LIB}
 )
@@ -35,15 +45,14 @@ ecm_add_tests(
 ecm_add_test(
     alkonlinequotetest.cpp
     ../src/alkquotereceiver.cpp
+    ENV ${TEST_ENV}
     LINK_LIBRARIES ${TEST_LIB}
     TEST_NAME alkonlinequotes${TEST_SUFFIX}test
 )
-if(BUILD_WITH_WEBENGINE)
-    set_property(TEST alkonlinequotes${TEST_SUFFIX}test PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
-endif()
 
 ecm_add_test(
     alkdateformattest.cpp
+    ENV ${TEST_ENV}
     LINK_LIBRARIES ${TEST_LIB}
     TEST_NAME alkdateformattest
 )
@@ -51,6 +60,7 @@ ecm_add_test(
 ecm_add_test(
     alkonlinequoteprivatetest.cpp
     alkonlinequoteprivatetest.qrc
+    ENV ${TEST_ENV}
     LINK_LIBRARIES ${TEST_LIB}
     TEST_NAME alkonlinequoteprivatetest
 )
@@ -60,6 +70,7 @@ if(BUILD_WITH_QTNETWORK)
         alkdownloadenginetest.cpp
         alkdownloadenginetest.h
         COMPILER_FLAGS -DUSE_QTNETWORK
+        ENV ${TEST_ENV}
         LINK_LIBRARIES ${TEST_LIB}
         TEST_NAME alkdownloadengine-qt-test
     )
@@ -70,6 +81,7 @@ if(BUILD_WITH_KIO)
         alkdownloadenginetest.cpp
         alkdownloadenginetest.h
         COMPILER_FLAGS -DUSE_KIO
+        ENV ${TEST_ENV}
         LINK_LIBRARIES ${TEST_LIB}
         TEST_NAME alkdownloadengine-kio-test
     )
@@ -80,6 +92,7 @@ if(BUILD_WITH_WEBKIT)
         alkdownloadenginetest.cpp
         alkdownloadenginetest.h
         COMPILER_FLAGS -DUSE_WEBKIT
+        ENV ${TEST_ENV}
         LINK_LIBRARIES ${TEST_LIB}
         TEST_NAME alkdownloadengine-webkit-test
     )
@@ -90,26 +103,25 @@ if(BUILD_WITH_WEBENGINE)
         alkdownloadenginetest.cpp
         alkdownloadenginetest.h
         COMPILER_FLAGS -DUSE_WEBENGINE
+        ENV ${TEST_ENV}
         LINK_LIBRARIES ${TEST_LIB}
         TEST_NAME alkdownloadengine-webengine-test
     )
-    set_property(TEST alkdownloadengine-webengine-test PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
 endif()
 
 ecm_add_test(
     alknewstuffenginetest.cpp
+    ENV ${TEST_ENV}
     LINK_LIBRARIES alkimia alkimia-internal ${KF_NEWSTUFF_LIB}
     TEST_NAME alknewstuffenginetest
 )
 
 ecm_add_test(
     alkwebpagetest.cpp
+    ENV ${TEST_ENV}
     LINK_LIBRARIES ${TEST_LIB}
     TEST_NAME alkwebpage${TEST_SUFFIX}test
 )
-if(BUILD_WITH_WEBENGINE)
-    set_property(TEST alkwebpage${TEST_SUFFIX}test PROPERTY ENVIRONMENT "QTWEBENGINE_DISABLE_SANDBOX=1")
-endif()
 
 #
 # cmake install test

@@ -331,10 +331,7 @@ case "$ci_variant" in
         export QT_LOGGING_RULES="*=true"
         export QT_FORCE_STDERR_LOGGING=1
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
-        export QT_QPA_PLATFORM=offscreen
         start_kde_session=kdeinit5
-        # disable drkonqi
-        export KDE_DEBUG=1
         ;;
 
     (kf5*)
@@ -343,10 +340,7 @@ case "$ci_variant" in
         export QT_LOGGING_RULES="*=true"
         export QT_FORCE_STDERR_LOGGING=1
         export QT_ASSUME_STDERR_HAS_CONSOLE=1
-        export QT_QPA_PLATFORM=offscreen
         start_kde_session=kdeinit5
-        # disable drkonqi
-        export KDE_DEBUG=1
         ;;
 
     (kf4)
