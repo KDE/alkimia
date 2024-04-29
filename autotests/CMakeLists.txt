@@ -78,6 +78,19 @@ endif()
 
 if(BUILD_WITH_KIO)
     ecm_add_test(
+        test-kio-cli.cpp
+        ENV ${TEST_ENV}
+        LINK_LIBRARIES ${TEST_LIB} ${KF_NETWORK_LIB}
+        TEST_NAME test-kio-cli
+    )
+    ecm_add_test(
+        test-kio-cli.cpp
+        ENV ${TEST_ENV}
+        COMPILER_FLAGS -DUSE_ERROR_URL
+        LINK_LIBRARIES ${TEST_LIB} ${KF_NETWORK_LIB}
+        TEST_NAME test-kio-error-cli
+    )
+    ecm_add_test(
         alkdownloadenginetest.cpp
         alkdownloadenginetest.h
         COMPILER_FLAGS -DUSE_KIO
