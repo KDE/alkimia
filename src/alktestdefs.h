@@ -18,7 +18,7 @@
 // alkwebpagetest.cpp, alkonlinequotesource.cpp
 #define TEST_LAUNCH_URL TEST_DOWNLOAD_HOST "/onlinequotestest.php?"
 // alkdownloadenginetest.cpp
-#define TEST_DOWNLOAD_URL TEST_LAUNCH_URL "a=BTC&b=GBP"
+#define TEST_DOWNLOAD_URL_CURRENCY TEST_LAUNCH_URL "a=BTC&b=GBP"
 #define TEST_DOWNLOAD_URL_ERROR TEST_LAUNCH_URL "servererror=1"
 
 #endif // ALKTESTDEFS_H

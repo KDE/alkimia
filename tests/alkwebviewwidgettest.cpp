@@ -57,7 +57,7 @@ public:
         layout->addWidget(new QLabel("redirected:"), 4, 5);
         layout->addWidget(redirectedLabel, 4, 6);
         setLayout(layout);
-        QString url = QLatin1String(TEST_DOWNLOAD_URL) + "&redirect=1";
+        QString url = QLatin1String(TEST_DOWNLOAD_URL_CURRENCY) + "&redirect=1";
         urlEdit->setText(url);
         view->load(url);
     }

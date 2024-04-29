@@ -90,7 +90,7 @@ public Q_SLOTS:
 };
 
 AlkDownloadEngineTest::AlkDownloadEngineTest()
-    : m_url(TEST_DOWNLOAD_URL)
+    : m_url(TEST_DOWNLOAD_URL_CURRENCY)
     , m_errorUrl(TEST_DOWNLOAD_URL_ERROR)
 {
 }
