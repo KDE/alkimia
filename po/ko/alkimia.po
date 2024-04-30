@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 01:54+0000\n"
+"POT-Creation-Date: 2024-04-30 01:44+0000\n"
 "PO-Revision-Date: 2024-02-10 00:34+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:260
+#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:261
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "다운로드한 파일을 열 수 없음"

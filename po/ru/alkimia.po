@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 01:54+0000\n"
+"POT-Creation-Date: 2024-04-30 01:44+0000\n"
 "PO-Revision-Date: 2023-11-10 14:32+0300\n"
 "Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -38,7 +38,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:260
+#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:261
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Не удалось открыть загруженный файл"

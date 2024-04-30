@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 01:54+0000\n"
+"POT-Creation-Date: 2024-04-30 01:44+0000\n"
 "PO-Revision-Date: 2024-03-29 10:43+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adrian@chaves.io"
 
-#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:260
+#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:261
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Non foi posíbel abrir o ficheiro descargado"

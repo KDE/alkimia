@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 01:54+0000\n"
+"POT-Creation-Date: 2024-04-30 01:44+0000\n"
 "PO-Revision-Date: 2024-04-27 19:00+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "okellogg@users.sourceforge.net"
 
-#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:260
+#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:261
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Malsukcesis malfermi elŝutitan dosieron"
