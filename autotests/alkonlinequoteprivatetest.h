@@ -25,6 +25,7 @@ private Q_SLOTS:
     void testParseQuoteCSVSingleLine();
     void testParseQuoteCSVMultipleLines();
     void testParseQuoteCSVDateRange();
+    void testDateRangeInCSVUrls();
 };
 
 #endif // ALKONLINEQUOTEPRIVATETEST_H

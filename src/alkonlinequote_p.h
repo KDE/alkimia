@@ -76,6 +76,13 @@ public:
 
     ~Private();
 
+    /**
+     * Apply date range to specified URL
+     * @param url Reference of the URL to which the date range is to be applied
+     * @return true the date range was applied to the specified URL
+     * @return false there was an error applying the date range; the URL was not changed
+     */
+    bool applyDateRange(QUrl &url);
     bool initSource(const QString &_source);
     bool initLaunch(const QString &_symbol, const QString &_id);
     bool launchWithJavaScriptSupport(const QString &_symbol, const QString &_id, AlkDownloadEngine::Type type);

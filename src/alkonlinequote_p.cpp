@@ -88,6 +88,55 @@ int AlkOnlineQuote::Private::dbgArea()
 }
 #endif
 
+bool AlkOnlineQuote::Private::applyDateRange(QUrl &url)
+{
+    QString urlStr(url.toEncoded());
+    int i = -1;
+    int j = -1;
+    if (m_startDate.isValid() && m_endDate.isValid()) {
+        QDateTime startDate = QDateTime(m_startDate, QTime(), Qt::LocalTime);
+        QDateTime endDate = QDateTime(m_endDate, QTime(23,59,59, 999), Qt::LocalTime);
+        qint64 startUnixTime = startDate.toMSecsSinceEpoch() / 1000;
+        qint64 endUnixTime = endDate.toMSecsSinceEpoch() / 1000;
+
+        qDebug() << startUnixTime << endUnixTime;
+
+        QString startNumber = QString::number(startUnixTime);
+        QString endNumber = QString::number(endUnixTime);
+
+        qDebug() << startNumber << endNumber;
+
+        i = urlStr.indexOf(QLatin1String("%25unix"));
+        if (i != -1)
+            urlStr.replace(i, 7, startNumber);
+        else {
+            i = urlStr.indexOf(QLatin1String("%unix"));
+            if (i != -1)
+                urlStr.replace(i, 5, startNumber);
+        }
+
+        j = urlStr.indexOf(QLatin1String("%25unix"));
+        if (j != -1)
+            urlStr.replace(j, 7, endNumber);
+        else {
+            j = urlStr.indexOf(QLatin1String("%unix"));
+            if (j != -1)
+                urlStr.replace(j, 5, endNumber);
+        }
+    }
+
+    qDebug() << urlStr;
+
+
+    // return error if only one or more than two placeholders are present
+    if (urlStr.contains(QLatin1String("%25unix")) || urlStr.contains(QLatin1String("%unix")) || (i != -1 && j == -1)) {
+        return false;
+    }
+
+    url = QUrl::fromEncoded(urlStr.toLocal8Bit());
+    return true;
+}
+
 bool AlkOnlineQuote::Private::initSource(const QString &_source)
 {
     // Get sources from the config file
@@ -142,6 +191,12 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     } else {
         // a regular one-symbol quote
         url = KUrl(m_source.url().arg(m_symbol));
+    }
+
+    if (!applyDateRange(url)) {
+        Q_EMIT m_p->error(i18n("Cannot resolve input date."));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
     }
 
     m_url = url;

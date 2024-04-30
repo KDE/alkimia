@@ -207,4 +207,30 @@ void AlkOnlineQuotePrivateTest::testParseQuoteCSVDateRange()
     QVERIFY(p.parseQuoteCSV(quotedata));
 }
 
+void AlkOnlineQuotePrivateTest::testDateRangeInCSVUrls()
+{
+    AlkOnlineQuote::Private &p = d_ptr();
+
+    p.m_startDate = QDate::fromString("21-01-2024", "dd-MM-yyyy");
+    p.m_endDate = QDate::fromString("23-01-2024", "dd-MM-yyyy");
+
+    QUrl url("http://unknown.host/path?start=%unix&end=%unix");
+    QVERIFY(p.applyDateRange(url));
+    QString urlStr = url.toEncoded();
+
+    QDateTime startDate = QDateTime(p.m_startDate, QTime(), Qt::LocalTime);
+    QDateTime endDate = QDateTime(p.m_endDate, QTime(23,59, 59, 999), Qt::LocalTime);
+    qint64 startUnixTime = startDate.toMSecsSinceEpoch() / 1000;
+    qint64 endUnixTime = endDate.toMSecsSinceEpoch() / 1000;
+
+    QVERIFY(urlStr.contains(QString(QLatin1String("start=%1")).arg(startUnixTime)));
+    QVERIFY(urlStr.contains(QString(QLatin1String("end=%1")).arg(endUnixTime)));
+
+    url.setUrl("http://unknown.host/path?start=%unix&end=%unix&some=%unix");
+    QVERIFY(!p.applyDateRange(url));
+
+    url.setUrl("http://unknown.host/path?start=%unix");
+    QVERIFY(!p.applyDateRange(url));
+}
+
 #include "alkonlinequoteprivatetest.moc"
