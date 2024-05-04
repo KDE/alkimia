@@ -9,7 +9,6 @@
 
 // #include <QtGlobal>
 #include <QProcess>
-#include <QDebug>
 
 #include <alkimia/alkenvironment.h>
 #include "alkdebug.h"
