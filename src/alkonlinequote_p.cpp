@@ -644,9 +644,9 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
     } else { // find columns
         QStringList headerColumns = header.split(columnSeparator);
         for (int i = 0; i < headerColumns.size(); i++) {
-            if (headerColumns[i].contains(dateColumn))
+            if (headerColumns[i].compare(dateColumn) == 0)
                 dateCol = i;
-            else if (headerColumns[i].contains(priceColumn))
+            else if (headerColumns[i].compare(priceColumn) == 0)
                 priceCol = i;
         }
         lines.takeFirst();
