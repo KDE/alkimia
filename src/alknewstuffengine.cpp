@@ -55,10 +55,8 @@ public:
     const AlkNewStuffEntryList installedEntries();
 
 public Q_SLOTS:
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     void slotUpdatesAvailable(const KNS3::Entry::List &entries);
     void slotEntriesAvailable(const KNS3::Entry::List &entries);
-#endif
 };
 
 AlkNewStuffEngine::Private::Private(AlkNewStuffEngine *parent)
@@ -185,7 +183,6 @@ const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
     return result;
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &entries)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
@@ -237,7 +234,6 @@ void AlkNewStuffEngine::Private::slotEntriesAvailable(const KNS3::Entry::List &e
     m_loop.exit();
 #endif
 }
-#endif
 
 AlkNewStuffEngine::AlkNewStuffEngine(QObject *parent)
     : QObject{parent}
