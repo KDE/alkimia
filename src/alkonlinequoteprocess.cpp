@@ -24,13 +24,13 @@ AlkOnlineQuoteProcess::AlkOnlineQuoteProcess()
 void AlkOnlineQuoteProcess::slotReceivedDataFromFilter()
 {
     QByteArray data = readAllStandardOutput();
-    alkDebug() << Q_FUNC_INFO << data;
+    alkDebug() << data;
     m_string += QString(readAllStandardOutput());
 }
 
 void AlkOnlineQuoteProcess::slotProcessExited(int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/)
 {
-    alkDebug() << Q_FUNC_INFO;
+    alkDebug() ;
     Q_EMIT processExited(m_string);
     m_string.truncate(0);
 }

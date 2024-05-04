@@ -22,7 +22,7 @@ public Q_SLOTS:
     void updatesAvailable(const AlkNewStuffEntryList &entries)
     {
         for (const AlkNewStuffEntry &entry : entries) {
-            alkDebug() << Q_FUNC_INFO << entry.name;
+            alkDebug() << entry.name;
         }
         Q_EMIT finished();
     }

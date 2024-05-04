@@ -42,7 +42,7 @@ public Q_SLOTS:
     {
         gotError = true;
         if (verbose)
-            alkDebug() << Q_FUNC_INFO << url << message;
+            alkDebug() << url << message;
     }
 
     void slotFinished(const QUrl &url, const QString &data)
@@ -50,7 +50,7 @@ public Q_SLOTS:
         gotFinished = true;
         gotDataMatches = data.contains("</body></html>");
         if (verbose)
-            alkDebug() << Q_FUNC_INFO << url << data;
+            alkDebug() << url << data;
     }
 
     void slotFinishedPage(const QUrl &url, AlkWebPage *page)
@@ -65,28 +65,28 @@ public Q_SLOTS:
         alkDebug() << entries << entries.contains(match);
 
         if (verbose)
-            alkDebug() << Q_FUNC_INFO << url << entries;
+            alkDebug() << url << entries;
     }
 
     void slotStarted(const QUrl &url)
     {
         gotStarted = true;
         if (verbose)
-            alkDebug() << Q_FUNC_INFO << url;
+            alkDebug() << url;
     }
 
     void slotTimeout(const QUrl &url)
     {
         gotTimeout = true;
         if (verbose)
-            alkDebug() << Q_FUNC_INFO << url;
+            alkDebug() << url;
     }
 
     void slotRedirected(const QUrl &url, const QUrl &newurl)
     {
         gotRedirected = true;
         if (verbose)
-            alkDebug() << Q_FUNC_INFO << url << newurl;
+            alkDebug() << url << newurl;
     }
 };
 

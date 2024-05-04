@@ -71,7 +71,7 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
     m_engine = new KNSCore::EngineBase(this);
     connect(m_engine, &KNSCore::EngineBase::signalProvidersLoaded, this, [this]()
     {
-        alkDebug() << Q_FUNC_INFO << "providers loaded";
+        alkDebug() << "providers loaded";
         m_providersLoaded = true;
         if (m_wantUpdates) {
             checkForUpdates();
@@ -85,7 +85,7 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
 
     connect(m_engine, &KNSCore::Engine::signalProvidersLoaded, this, [this]()
     {
-        alkDebug() << Q_FUNC_INFO << "providers loaded";
+        alkDebug() << "providers loaded";
         m_providersLoaded = true;
         if (m_wantUpdates)
             m_engine->checkForUpdates();
@@ -93,7 +93,7 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
 
     connect(m_engine, &KNSCore::Engine::signalUpdateableEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &entries)
     {
-        alkDebug() << Q_FUNC_INFO << "updates loaded";
+        alkDebug() << "updates loaded";
         AlkNewStuffEntryList updateEntries;
         for (const KNSCore::EntryInternal &entry : entries) {
             AlkNewStuffEntry e;
@@ -106,7 +106,7 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
                 static_cast<AlkNewStuffEntry::Status>(entry.status());
             e.version = entry.version();
             updateEntries.append(e);
-            alkDebug() << Q_FUNC_INFO << e.name << toString(e.status);
+            alkDebug() << e.name << toString(e.status);
         }
         Q_EMIT q->updatesAvailable(updateEntries);
     });
@@ -157,7 +157,7 @@ const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
                     static_cast<AlkNewStuffEntry::Status>(entry.status());
                 e.version = entry.version();
                 this->m_availableEntries.append(e);
-                alkDebug() << Q_FUNC_INFO << e.name << toString(e.status);
+                alkDebug() << e.name << toString(e.status);
             }
             QObject::disconnect(conn);
             m_loop.exit();
@@ -188,7 +188,7 @@ void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &e
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     Q_UNUSED(entries);
 #else
-    alkDebug() << Q_FUNC_INFO << "updates loaded";
+    alkDebug() << "updates loaded";
     AlkNewStuffEntryList updateEntries;
     for (const KNS3::Entry &entry : entries) {
         AlkNewStuffEntry e;
@@ -201,7 +201,7 @@ void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &e
         e.version = entry.version();
         updateEntries.append(e);
 
-        alkDebug() << Q_FUNC_INFO << e.name << toString(e.status);
+        alkDebug() << e.name << toString(e.status);
     }
 
     Q_EMIT q->updatesAvailable(updateEntries);
@@ -213,7 +213,7 @@ void AlkNewStuffEngine::Private::slotEntriesAvailable(const KNS3::Entry::List &e
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     Q_UNUSED(entries);
 #else
-    alkDebug() << Q_FUNC_INFO << "entries loaded";
+    alkDebug() << "entries loaded";
     for (const KNS3::Entry &entry : entries) {
         AlkNewStuffEntry e;
         e.category = entry.category();
@@ -225,7 +225,7 @@ void AlkNewStuffEngine::Private::slotEntriesAvailable(const KNS3::Entry::List &e
         e.version = entry.version();
         m_availableEntries.append(e);
 
-        alkDebug() << Q_FUNC_INFO << e.name << toString(e.status);
+        alkDebug() << e.name << toString(e.status);
     }
     disconnect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
             SLOT(slotEntriesAvailable(KNS3::Entry::List)));
