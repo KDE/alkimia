@@ -8,6 +8,7 @@
 
 #include "alkwebview.h"
 
+#include "alkdebug.h"
 #include "alkwebpage.h"
 
 #include <QEventLoop>
@@ -145,8 +146,6 @@ void AlkWebView::setWebPage(AlkWebPage *webPage)
 
 #else
 
-#include <QtDebug>
-
 AlkWebView::AlkWebView(QWidget *parent)
     : QTextBrowser(parent)
 {
@@ -221,7 +220,7 @@ QVariant AlkWebView::loadResource(int type, const QUrl &name)
                     break;
                 }
             } else {
-                qDebug() << reply->error();
+                alkDebug() << reply->error();
                 return QString();
             }
         }

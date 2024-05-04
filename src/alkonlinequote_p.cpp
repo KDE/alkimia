@@ -10,6 +10,7 @@
 
 #include "alkonlinequote_p.h"
 
+#include "alkdebug.h"
 #include "alkdateformat.h"
 #include "alkexception.h"
 #ifdef ENABLE_FINANCEQUOTE
@@ -25,12 +26,9 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <KLocalizedString>
-    #include <QDebug>
     #include <QTemporaryFile>
-    #define kDebug(a) qDebug()
     #define KIcon QIcon
 #else
-    #include <KDebug>
     #include <KGlobal>
     #include <KLocale>
 #endif
@@ -80,14 +78,6 @@ AlkOnlineQuote::Private::~Private()
         delete m_profile;
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-int AlkOnlineQuote::Private::dbgArea()
-{
-    static int s_area = KDebug::registerArea("Alkimia (AlkOnlineQuote)");
-    return s_area;
-}
-#endif
-
 bool AlkOnlineQuote::Private::applyDateRange(QUrl &url)
 {
     QString urlStr(url.toEncoded());
@@ -99,12 +89,12 @@ bool AlkOnlineQuote::Private::applyDateRange(QUrl &url)
         qint64 startUnixTime = startDate.toMSecsSinceEpoch() / 1000;
         qint64 endUnixTime = endDate.toMSecsSinceEpoch() / 1000;
 
-        qDebug() << startUnixTime << endUnixTime;
+        alkDebug() << startUnixTime << endUnixTime;
 
         QString startNumber = QString::number(startUnixTime);
         QString endNumber = QString::number(endUnixTime);
 
-        qDebug() << startNumber << endNumber;
+        alkDebug() << startNumber << endNumber;
 
         i = urlStr.indexOf(QLatin1String("%25unix"));
         if (i != -1)
@@ -125,7 +115,7 @@ bool AlkOnlineQuote::Private::applyDateRange(QUrl &url)
         }
     }
 
-    qDebug() << urlStr;
+    alkDebug() << urlStr;
 
 
     // return error if only one or more than two placeholders are present
@@ -176,7 +166,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
         if (splitrx.indexIn(m_symbol) != -1) {
             url = KUrl(m_source.url().arg(splitrx.cap(1), splitrx.cap(2)));
         } else {
-            kDebug(Private::dbgArea()) << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
+            alkDebug() << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
         }
 #else
         QRegularExpression splitrx("([0-9a-z\\.]+)[^a-z0-9]+([0-9a-z\\.]+)", QRegularExpression::CaseInsensitiveOption);
@@ -185,7 +175,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
         if (match.hasMatch()) {
             url = KUrl(m_source.url().arg(match.captured(1), match.captured(2)));
         } else {
-            kDebug(Private::dbgArea()) << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
+            alkDebug() << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
         }
 #endif
     } else {
@@ -413,7 +403,7 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr, AlkOnlineQuot
         bool ok;
         m_price = pricestr.toDouble(&ok);
         if (ok) {
-            kDebug(Private::dbgArea()) << "Price" << pricestr;
+            alkDebug() << "Price" << pricestr;
             Q_EMIT m_p->status(i18n("Price found: '%1' (%2)", pricestr, m_price));
         } else {
             m_errors |= Errors::Price;
@@ -437,7 +427,7 @@ bool AlkOnlineQuote::Private::parseDate(const QString &datestr)
         AlkDateFormat dateparse(m_source.dateFormat());
         try {
             m_date = dateparse.convertString(datestr, false /*strict*/);
-            kDebug(Private::dbgArea()) << "Date" << datestr;
+            alkDebug() << "Date" << datestr;
             Q_EMIT m_p->status(i18n("Date format found: '%1' -> '%2'", datestr, m_date.toString()));
         } catch (const AlkException &e) {
             m_errors |= Errors::DateFormat;
@@ -483,7 +473,7 @@ bool AlkOnlineQuote::Private::parseQuoteStripHTML(const QString &_quotedata)
 
     // Extra white space
     quotedata = quotedata.simplified();
-    kDebug(Private::dbgArea()) << "stripped text" << quotedata;
+    alkDebug() << "stripped text" << quotedata;
 
     return parseQuoteHTML(quotedata);
 }
@@ -508,7 +498,7 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 
     if (identifierRegExp.indexIn(quotedata) > -1) {
-        kDebug(Private::dbgArea()) << "Symbol" << identifierRegExp.cap(1);
+        alkDebug() << "Symbol" << identifierRegExp.cap(1);
         Q_EMIT m_p->status(i18n("Symbol found: '%1'", identifierRegExp.cap(1)));
     } else {
         m_errors |= Errors::Symbol;
@@ -534,7 +524,7 @@ bool AlkOnlineQuote::Private::parseQuoteHTML(const QString &quotedata)
     QRegularExpressionMatch match;
     match = identifierRegExp.match(quotedata);
     if (match.hasMatch()) {
-        kDebug(Private::dbgArea()) << "Symbol" << match.captured(1);
+        alkDebug() << "Symbol" << match.captured(1);
         Q_EMIT m_p->status(i18n("Symbol found: '%1'", match.captured(1)));
     } else {
         m_errors |= Errors::Symbol;
@@ -720,7 +710,7 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &quotedata)
 {
     m_quoteData = quotedata;
 
-    kDebug(Private::dbgArea()) << "quotedata" << quotedata;
+    alkDebug() << "quotedata" << quotedata;
 
     if (quotedata.isEmpty()) {
         m_errors |= Errors::Data;

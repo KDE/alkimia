@@ -8,6 +8,8 @@
 
 #include "alkonlinequoteprocess.h"
 
+#include "alkdebug.h"
+
 //
 // Helper class to babysit the KProcess used for running the local script in that case
 //
@@ -21,13 +23,14 @@ AlkOnlineQuoteProcess::AlkOnlineQuoteProcess()
 
 void AlkOnlineQuoteProcess::slotReceivedDataFromFilter()
 {
-//   kDebug(2) << "WebPriceQuoteProcess::slotReceivedDataFromFilter(): " << QString(data);
+    QByteArray data = readAllStandardOutput();
+    alkDebug() << Q_FUNC_INFO << data;
     m_string += QString(readAllStandardOutput());
 }
 
 void AlkOnlineQuoteProcess::slotProcessExited(int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/)
 {
-//   kDebug(2) << "WebPriceQuoteProcess::slotProcessExited()";
+    alkDebug() << Q_FUNC_INFO;
     Q_EMIT processExited(m_string);
     m_string.truncate(0);
 }

@@ -8,6 +8,7 @@
 
 #include "alkonlinequoteswidget.h"
 
+#include "alkdebug.h"
 #include "alknewstuffwidget.h"
 #include "alkonlinequote.h"
 #include "alkonlinequotesprofile.h"
@@ -19,7 +20,6 @@
 
 #include <QCheckBox>
 #include <QDesktopServices>
-#include <QtDebug>
 #include <QTreeWidget>
 #include <QKeyEvent>
 

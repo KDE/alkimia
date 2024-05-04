@@ -310,7 +310,7 @@ QString AlkOnlineQuoteSource::ghnsWriteFileName() const
 void AlkOnlineQuoteSource::setProfile(AlkOnlineQuotesProfile *profile)
 {
     d->m_profile = profile;
-    qDebug() << "using profile" << profile->name();
+    alkDebug() << "using profile" << profile->name();
 }
 
 AlkOnlineQuotesProfile *AlkOnlineQuoteSource::profile()

@@ -9,6 +9,7 @@
 
 #include "alkonlinequotetest.h"
 
+#include "alkdebug.h"
 #include "alkonlinequote.h"
 #include "alkonlinequotesprofile.h"
 #include "alkquotereceiver.h"
@@ -135,7 +136,7 @@ void AlkOnlineQuoteTest::cleanup()
 void AlkOnlineQuoteTest::testQuoteSources()
 {
     QStringList sources = m_profile->quoteSources();
-    qDebug() << sources;
+    alkDebug() << sources;
     QVERIFY(sources.size() > 0);
 }
 

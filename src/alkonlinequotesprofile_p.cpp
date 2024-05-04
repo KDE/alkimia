@@ -9,10 +9,10 @@
 
 #include "alkonlinequotesprofile_p.h"
 
+#include "alkdebug.h"
 #include "alkutils.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-#include <QDebug>
 #include <QRegularExpression>
 #else
 #include <KConfig>
@@ -163,11 +163,11 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesGHNS()
         if (entry.installedFiles.size() > 0)
             files.removeAll(entry.installedFiles[0]);
         if (source.isEmpty()) {
-            qDebug() << "skipping" << entry.name;
+            alkDebug() << "skipping" << entry.name;
             continue;
         }
         if (!sources.contains(entry.id)) {
-            qDebug() << "adding quote source" << entry.name;
+            alkDebug() << "adding quote source" << entry.name;
             sources.push_back(entry.name);
         }
     }
@@ -178,11 +178,11 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesGHNS()
         QString name = f.completeBaseName();
         AlkOnlineQuoteSource source(name, m_p);
         if (source.isEmpty()) {
-            qDebug() << "skipping" << name;
+            alkDebug() << "skipping" << name;
             continue;
         }
         if (!sources.contains(name)) {
-            qDebug() << "adding quote source" << name;
+            alkDebug() << "adding quote source" << name;
             sources.push_back(name);
         }
     }
@@ -323,7 +323,7 @@ QString AlkOnlineQuotesProfile::Private::dataWritePath()
 void AlkOnlineQuotesProfile::Private::slotUpdatesAvailable(const AlkNewStuffEntryList &updates)
 {
     for (auto &entry : updates) {
-        qDebug() << "update available in profile" << m_p->name() << "for"
+        alkDebug() << "update available in profile" << m_p->name() << "for"
                  << entry.name << entry.version << entry.id << entry.category
                  << entry.providerId;
         Q_EMIT m_p->updateAvailable(m_p->name(), entry.name);

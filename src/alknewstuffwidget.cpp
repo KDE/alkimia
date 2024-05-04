@@ -8,6 +8,8 @@
 
 #include "alknewstuffwidget.h"
 
+#include "alkdebug.h"
+
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     #define KNEWSTUFFWIDGETS_PRIVATE_BUILDING
     #include <KNSWidgets/Action>
@@ -26,7 +28,6 @@
 #endif
 
 #include <QEventLoop>
-#include <QtDebug>
 #include <QPointer>
 #include <QWidget>
 

@@ -9,6 +9,7 @@
 #include "alkdownloadengine.h"
 
 #include "alkimia/alkversion.h"
+#include "alkdebug.h"
 #include "alkwebpage.h"
 
 #include <QEventLoop>
@@ -25,13 +26,11 @@
 #else
     #include <kio/netaccess.h>
 #endif
-#include <QtDebug>
 #endif
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <klocalizedstring.h>
 #else
-    #include <KDebug>
     #include <KGlobal>
     #include <KLocale>
 #endif
@@ -73,16 +72,6 @@ public:
         if (m_webPageCreated)
             delete m_webPage;
     }
-
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-    static int dbgArea()
-    {
-        static int s_area = KDebug::registerArea("Alkimia (AlkOnlineQuote)");
-        return s_area;
-    }
-#else
-    static int dbgArea() {return 0; }
-#endif
 
 public Q_SLOTS:
 #ifdef BUILD_WITH_QTNETWORK
@@ -127,7 +116,7 @@ void AlkDownloadEngine::Private::downloadUrlDoneQt(QNetworkReply *reply)
             slotLoadRedirectedTo(reply->url().resolved(newUrl));
             result = Result::Redirect;
         } else {
-            //kDebug(dbgArea()) << "Downloaded data from" << reply->url();
+            //alkDebug() << "Downloaded data from" << reply->url();
             Q_EMIT m_p->finished(reply->url(), reply->readAll());
         }
     } else {
@@ -187,7 +176,7 @@ void AlkDownloadEngine::Private::downloadUrlDoneKIO(KJob* job)
 
     Result result = NoError;
     if (!job->error()) {
-        qDebug() << "Downloaded" << tmpFileName << "from" << url;
+        alkDebug() << "Downloaded" << tmpFileName << "from" << url;
         QFile f(tmpFileName);
         if (f.open(QIODevice::ReadOnly)) {
             // TODO Find out the page encoding and convert it to unicode
@@ -249,8 +238,7 @@ bool AlkDownloadEngine::Private::downloadUrlKIO(const QUrl& url)
     QString tmpFile;
     // TODO add accept language support
     if (KIO::NetAccess::download(url, tmpFile, nullptr)) {
-        // kDebug(Private::dbgArea()) << "Downloaded " << tmpFile;
-        kDebug(Private::dbgArea()) << "Downloaded" << tmpFile << "from" << url;
+        alkDebug() << "Downloaded" << tmpFile << "from" << url;
         QFile f(tmpFile);
         if (f.open(QIODevice::ReadOnly)) {
             // TODO Find out the page encoding and convert it to unicode

@@ -6,11 +6,13 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
+
 // #include <QtGlobal>
 #include <QProcess>
 #include <QDebug>
 
 #include <alkimia/alkenvironment.h>
+#include "alkdebug.h"
 
 void AlkEnvironment::checkForAppImageEnvironment(const char* applicationPath)
 {
@@ -21,7 +23,7 @@ void AlkEnvironment::checkForAppImageEnvironment(const char* applicationPath)
         auto lastDirSeparator = appFullPath.lastIndexOf('/');
         auto appDir = appFullPath.left(lastDirSeparator + 1);
         auto appName = QString::fromUtf8(appFullPath.mid(lastDirSeparator + 1));
-        qDebug() << "AppImageInfo:" << appFullPath << appDir << appName;
+        alkDebug() << "AppImageInfo:" << appFullPath << appDir << appName;
         if (appName == QStringLiteral("AppRun.wrapped")) {
             appDir.append("usr/lib");
             const auto libPath = qgetenv("LD_LIBRARY_PATH");
@@ -32,7 +34,7 @@ void AlkEnvironment::checkForAppImageEnvironment(const char* applicationPath)
             }
             qputenv("RUNNING_AS_APPIMAGE", "true");
             qputenv("LD_LIBRARY_PATH", newLibPath);
-            qDebug() << "LD_LIBRARY_PATH set to" << newLibPath;
+            alkDebug() << "LD_LIBRARY_PATH set to" << newLibPath;
         }
     }
     #endif

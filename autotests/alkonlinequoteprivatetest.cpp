@@ -9,6 +9,7 @@
 
 #include "alkonlinequoteprivatetest.h"
 
+#include "alkdebug.h"
 #include "alkonlinequote_p.h"
 #include "alkonlinequotesprofile.h"
 
@@ -122,7 +123,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void quote(QString id, QString symbol, QDate date, double price)
     {
-        qDebug() << "comparing quote" << id << symbol;
+        alkDebug() << "comparing quote" << id << symbol;
         QCOMPARE(date, _date);
         QCOMPARE(price, _price);
         Q_EMIT finished();
@@ -158,7 +159,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void quotes(const QString& id, const QString& symbol, const AlkDatePriceMap& prices)
     {
-        qDebug() << "comparing" << prices.size() << "quotes" << id << symbol;
+        alkDebug() << "comparing" << prices.size() << "quotes" << id << symbol;
         QCOMPARE(prices.size(), _prices.size());
         QCOMPARE(prices.keys(), _prices.keys());
         for (auto &date: prices.keys()) {

@@ -9,13 +9,14 @@
 
 #include "alkonlinequotesprofile.h"
 
+#include "alkdebug.h"
+
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesource.h"
 
 #include "alkonlinequotesprofile_p.h"
 
 #include <KSharedConfig>
-#include <QtDebug>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
     #include <QRegularExpression>
@@ -47,7 +48,7 @@ AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,
 
     if (!d->m_kconfigFile.isEmpty()) {
         d->m_config = KSharedConfig::openConfig(d->m_kconfigFile, KConfig::SimpleConfig);
-        qDebug() << d->m_config;
+        alkDebug() << d->m_config;
     }
 
     if (!d->m_GHNSFile.isEmpty()) {

@@ -8,6 +8,7 @@
 
 #include "alkdownloadenginetest.h"
 
+#include "alkdebug.h"
 #include "alkdownloadengine.h"
 #include "alktestdefs.h"
 #include "alkwebpage.h"
@@ -41,7 +42,7 @@ public Q_SLOTS:
     {
         gotError = true;
         if (verbose)
-            qDebug() << Q_FUNC_INFO << url << message;
+            alkDebug() << Q_FUNC_INFO << url << message;
     }
 
     void slotFinished(const QUrl &url, const QString &data)
@@ -49,43 +50,43 @@ public Q_SLOTS:
         gotFinished = true;
         gotDataMatches = data.contains("</body></html>");
         if (verbose)
-            qDebug() << Q_FUNC_INFO << url << data;
+            alkDebug() << Q_FUNC_INFO << url << data;
     }
 
     void slotFinishedPage(const QUrl &url, AlkWebPage *page)
     {
         QString match(QLatin1String("1 Bitcoin = "));
         QStringList entries = page->getAllElements("span");
-        qDebug() << entries;
+        alkDebug() << entries;
         gotFinished = entries.contains(match);
         entries = page->getAllElements("div h1 span");
-        qDebug() << entries << entries.contains(match);
+        alkDebug() << entries << entries.contains(match);
         entries = page->getAllElements("div#pair_today div div h1 span");
-        qDebug() << entries << entries.contains(match);
+        alkDebug() << entries << entries.contains(match);
 
         if (verbose)
-            qDebug() << Q_FUNC_INFO << url << entries;
+            alkDebug() << Q_FUNC_INFO << url << entries;
     }
 
     void slotStarted(const QUrl &url)
     {
         gotStarted = true;
         if (verbose)
-            qDebug() << Q_FUNC_INFO << url;
+            alkDebug() << Q_FUNC_INFO << url;
     }
 
     void slotTimeout(const QUrl &url)
     {
         gotTimeout = true;
         if (verbose)
-            qDebug() << Q_FUNC_INFO << url;
+            alkDebug() << Q_FUNC_INFO << url;
     }
 
     void slotRedirected(const QUrl &url, const QUrl &newurl)
     {
         gotRedirected = true;
         if (verbose)
-            qDebug() << Q_FUNC_INFO << url << newurl;
+            alkDebug() << Q_FUNC_INFO << url << newurl;
     }
 };
 

@@ -165,7 +165,7 @@ void AlkQuoteItemTest::qDbusArgument()
 AlkQuoteItem itemEnd;
 endArg >> itemEnd;
 
-qDebug() << "symbol: " << itemEnd.symbol();
+alkDebug() << "symbol: " << itemEnd.symbol();
 
 QVERIFY(symbol == itemEnd.symbol());
 QVERIFY(dateTime == itemEnd.dateTime());

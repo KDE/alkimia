@@ -7,9 +7,9 @@
 */
 
 #include "alkquotereceiver.h"
-#include "alkonlinequote.h"
 
-#include <QtDebug>
+#include "alkdebug.h"
+#include "alkonlinequote.h"
 
 convertertest::AlkQuoteReceiver::AlkQuoteReceiver(AlkOnlineQuote *q, QObject *parent)
     : QObject(parent)
@@ -30,7 +30,7 @@ void convertertest::AlkQuoteReceiver::slotGetQuote(const QString &a, const QStri
                                                    const QDate &d, const double &m)
 {
     if (m_verbose) {
-        qDebug() << "test::AlkQuoteReceiver::slotGetQuote( , " << a << " , " << b << " , " << d
+        alkDebug() << "test::AlkQuoteReceiver::slotGetQuote( , " << a << " , " << b << " , " << d
                  << " , " << m << " )";
     }
     m_price = AlkValue(m);
@@ -40,7 +40,7 @@ void convertertest::AlkQuoteReceiver::slotGetQuote(const QString &a, const QStri
 void convertertest::AlkQuoteReceiver::slotStatus(const QString &msg)
 {
     if (m_verbose) {
-        qDebug() << "test::AlkQuoteReceiver::slotStatus( " << msg << " )";
+        alkDebug() << "test::AlkQuoteReceiver::slotStatus( " << msg << " )";
     }
 
     m_statuses += msg;
@@ -49,7 +49,7 @@ void convertertest::AlkQuoteReceiver::slotStatus(const QString &msg)
 void convertertest::AlkQuoteReceiver::slotError(const QString &msg)
 {
     if (m_verbose) {
-        qDebug() << "test::AlkQuoteReceiver::slotError( " << msg << " )";
+        alkDebug() << "test::AlkQuoteReceiver::slotError( " << msg << " )";
     }
 
     m_errors += msg;

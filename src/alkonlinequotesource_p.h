@@ -11,9 +11,10 @@
 
 #include "alkonlinequotesource.h"
 
+#include "alkdebug.h"
+
 #include <QFile>
 #include <QFileInfo>
-#include <QtDebug>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <KSharedConfig>
@@ -232,7 +233,7 @@ public:
 
     bool removeGHNSFile()
     {
-        qDebug() << "delete" << ghnsWriteFilePath();
+        alkDebug() << "delete" << ghnsWriteFilePath();
         return QFile::remove(ghnsWriteFilePath());
     }
 

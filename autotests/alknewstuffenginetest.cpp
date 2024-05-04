@@ -10,7 +10,7 @@
 
 #include <QApplication>
 #include <QObject>
-#include <QtDebug>
+#include "alkdebug.h"
 
 class TestReceiver : public QObject
 {
@@ -22,7 +22,7 @@ public Q_SLOTS:
     void updatesAvailable(const AlkNewStuffEntryList &entries)
     {
         for (const AlkNewStuffEntry &entry : entries) {
-            qDebug() << Q_FUNC_INFO << entry.name;
+            alkDebug() << Q_FUNC_INFO << entry.name;
         }
         Q_EMIT finished();
     }
