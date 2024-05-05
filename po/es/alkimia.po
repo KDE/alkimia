@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-30 01:44+0000\n"
+"POT-Creation-Date: 2024-05-05 01:44+0000\n"
 "PO-Revision-Date: 2024-03-28 04:58+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -29,111 +29,116 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
-#: alkdownloadengine.cpp:198 alkdownloadengine.cpp:261
+#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "No se ha podido abrir el archivo descargado"
 
-#: alkonlinequote_p.cpp:100
+#: alkonlinequote_p.cpp:139
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "La fuente <placeholder>%1</placeholder> no existe."
 
-#: alkonlinequote_p.cpp:156
+#: alkonlinequote_p.cpp:187
+#, kde-format
+msgid "Cannot resolve input date."
+msgstr ""
+
+#: alkonlinequote_p.cpp:201
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "No se ha podido extraer el URL para %1"
 
-#: alkonlinequote_p.cpp:166 alkonlinequote_p.cpp:168
+#: alkonlinequote_p.cpp:211 alkonlinequote_p.cpp:213
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "La URL ha sido redirigida; compruebe una actualización de la URL de la "
 "cotización en línea"
 
-#: alkonlinequote_p.cpp:192
+#: alkonlinequote_p.cpp:237
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Extrayendo URL %1..."
 
-#: alkonlinequote_p.cpp:234
+#: alkonlinequote_p.cpp:279
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Ejecutando %1..."
 
-#: alkonlinequote_p.cpp:251 alkonlinequote_p.cpp:312
+#: alkonlinequote_p.cpp:296 alkonlinequote_p.cpp:357
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "No se ha podido lanzar: %1"
 
-#: alkonlinequote_p.cpp:273
+#: alkonlinequote_p.cpp:318
 #, kde-format
 msgid "URL found: %1..."
 msgstr "URL encontrado: %1..."
 
-#: alkonlinequote_p.cpp:304
+#: alkonlinequote_p.cpp:349
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Ejecutando %1 %2 %3..."
 
-#: alkonlinequote_p.cpp:362
+#: alkonlinequote_p.cpp:407
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Precio encontrado: «%1» (%2)"
 
-#: alkonlinequote_p.cpp:365
+#: alkonlinequote_p.cpp:410
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "El precio «%1» no se puede convertir en un número para «%2»"
 
-#: alkonlinequote_p.cpp:370
+#: alkonlinequote_p.cpp:415
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "No se ha podido analizar el precio para «%1»"
 
-#: alkonlinequote_p.cpp:380
+#: alkonlinequote_p.cpp:425
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Fecha encontrada: «%1»"
 
-#: alkonlinequote_p.cpp:386
+#: alkonlinequote_p.cpp:431
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Formato de fecha encontrado: «%1» -> «%2»"
 
-#: alkonlinequote_p.cpp:389
+#: alkonlinequote_p.cpp:434
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "No se ha podido analizar la fecha «%1» usando el formato «%2»: %3"
 
-#: alkonlinequote_p.cpp:393 alkonlinequote_p.cpp:403
+#: alkonlinequote_p.cpp:438 alkonlinequote_p.cpp:448
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Usando la fecha actual para «%1»"
 
-#: alkonlinequote_p.cpp:397
+#: alkonlinequote_p.cpp:442
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Análisis de fecha desactivado para «%1»"
 
-#: alkonlinequote_p.cpp:400
+#: alkonlinequote_p.cpp:445
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "No se ha podido analizar la fecha para «%1»"
 
-#: alkonlinequote_p.cpp:457 alkonlinequote_p.cpp:483 alkonlinequote_p.cpp:521
+#: alkonlinequote_p.cpp:502 alkonlinequote_p.cpp:528 alkonlinequote_p.cpp:566
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Símbolo encontrado: «%1»"
 
-#: alkonlinequote_p.cpp:460 alkonlinequote_p.cpp:486 alkonlinequote_p.cpp:524
+#: alkonlinequote_p.cpp:505 alkonlinequote_p.cpp:531 alkonlinequote_p.cpp:569
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "No se ha podido analizar el símbolo para %1"
 
-#: alkonlinequote_p.cpp:574
+#: alkonlinequote_p.cpp:619
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -141,37 +146,37 @@ msgstr ""
 "No se ha podido detectar el delimitador de campos en la primera línea (línea "
 "de cabecera) de los datos de cotización."
 
-#: alkonlinequote_p.cpp:601
+#: alkonlinequote_p.cpp:646
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr ""
 "No se ha podido encontrar la columna de fecha «%1» en los datos de cotización"
 
-#: alkonlinequote_p.cpp:607
+#: alkonlinequote_p.cpp:652
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr ""
 "No se ha podido encontrar la columna de precio «%1» en los datos de "
 "cotización"
 
-#: alkonlinequote_p.cpp:625
+#: alkonlinequote_p.cpp:670
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr ""
 "No se ha podido convertir la fecha «%1» con «%2» en los datos de cotización"
 
-#: alkonlinequote_p.cpp:641
+#: alkonlinequote_p.cpp:686
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "No se han encontrado parejas fecha/precio en los datos de cotización"
 
-#: alkonlinequote_p.cpp:672
+#: alkonlinequote_p.cpp:717
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr ""
 "No se ha podido actualizar el precio para %1 (datos de cotización vacíos)"
 
-#: alkonlinequote_p.cpp:690
+#: alkonlinequote_p.cpp:735
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Se ha agotado el tiempo para extraer la URL para %1"
@@ -883,12 +888,12 @@ msgstr "El paquete se ha creado en:"
 msgid "Package edit url:"
 msgstr "URL de edición del paquete:"
 
-#: alkwebview.cpp:84
+#: alkwebview.cpp:85
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Abrir el inspector en una ventana nueva"
 
-#: alkwebview.cpp:96
+#: alkwebview.cpp:97
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspeccionar elemento"
