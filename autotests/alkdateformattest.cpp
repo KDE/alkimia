@@ -51,6 +51,16 @@ void AlkDateFormatTest::testDateFormatKMyMoney()
     QCOMPARE(format.convertString("12/31/50", false, 2000), QDate(1950, 12, 31));
     QCOMPARE(format.convertString("1/1/90", false, 2000), QDate(1990, 1, 1));
     QCOMPARE(format.convertString("december 31st, 5", false), QDate(2005, 12, 31));
+
+    format = AlkDateFormat("%u");
+    QCOMPARE(format.convertString("1714827042", false), QDate(2024, 5, 4));
+    QCOMPARE(format.convertString("ABC", false), QDate());
+    QCOMPARE(format.convertString("-1234", false), QDate());
+
+    format = AlkDateFormat("%ud");
+    QCOMPARE(format.convertString("19847", false), QDate(2024, 5, 4));
+    QCOMPARE(format.convertString("ABC", false), QDate());
+    QCOMPARE(format.convertString("-1234", false), QDate());
 }
 
 void AlkDateFormatTest::testDateFormatSkrooge()

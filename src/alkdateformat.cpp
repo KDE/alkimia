@@ -63,11 +63,12 @@ public:
     {
         QDate date;
         if (m_format == "UNIX") {
-#if QT_VERSION >= QT_VERSION_CHECK(5,8,0)
-            date = QDateTime::fromSecsSinceEpoch(_in.toUInt(), Qt::UTC).date();
-#else
-            date = QDateTime::fromTime_t(_in.toUInt()).date();
-#endif
+            bool ok;
+            const quint64 unixTime = _in.toUInt(&ok);
+            if (ok) {
+                date = QDateTime::fromMSecsSinceEpoch(unixTime * 1000, Qt::UTC).date();
+            }
+
         } else {
             const QString skroogeFormat = m_format;
 
@@ -113,10 +114,27 @@ public:
         return date;
     }
 
+    QDate convertStringUnix(const QString& _in)
+    {
+        bool ok;
+        quint64 unixTime = _in.toUInt(&ok);
+        if (!ok) {
+            return setError(AlkDateFormat::InvalidDate, _in);
+        }
+        if (m_format.startsWith(QLatin1String("%ud"))) {
+            unixTime *= 86400; // times seconds per day
+        }
+        return QDateTime::fromMSecsSinceEpoch(unixTime * 1000, Qt::UTC).date();
+    }
+
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 
     QDate convertStringKMyMoney(const QString &_in, bool _strict, unsigned _centurymidpoint)
     {
+        if (m_format.startsWith(QLatin1String("%u"))) {
+            return convertStringUnix(_in);
+        }
+
         //
         // Break date format string into component parts
         //
@@ -262,6 +280,10 @@ public:
 
     QDate convertStringKMyMoney(const QString& _in, bool _strict, unsigned _centurymidpoint)
     {
+      if (m_format.startsWith(QLatin1String("%u"))) {
+        return convertStringUnix(_in);
+      }
+
       //
       // Break date format string into component parts
       //
