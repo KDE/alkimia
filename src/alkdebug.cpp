@@ -14,7 +14,7 @@
 static Q_LOGGING_CATEGORY(alkimia, "Alkimia")
 QDebug _alkDebug(const char *file, int line, const char *func)
 {
-    return QMessageLogger(file, line, func, alkimia().categoryName()).debug();
+    return QMessageLogger(file, line, func, alkimia().categoryName()).debug() << func;
 }
 #else
 #include <KDebug>
