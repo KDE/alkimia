@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-05 01:44+0000\n"
-"PO-Revision-Date: 2024-03-30 11:26+0100\n"
+"PO-Revision-Date: 2024-05-05 20:02+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -40,7 +40,7 @@ msgstr "La fonte <placeholder>%1</placeholder> non esiste."
 #: alkonlinequote_p.cpp:187
 #, kde-format
 msgid "Cannot resolve input date."
-msgstr ""
+msgstr "Impossibile risolvere la data di immissione."
 
 #: alkonlinequote_p.cpp:201
 #, kde-format
