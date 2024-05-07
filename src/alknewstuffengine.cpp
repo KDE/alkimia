@@ -143,8 +143,7 @@ const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
 #else
         m_engine->setSearchTerm("*");
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-        QMetaObject::Connection conn;
-        conn = QObject::connect(m_engine, &KNSCore::Engine::signalEntriesLoaded, this, [this, &conn](const KNSCore::EntryInternal::List &entries)
+        connect(m_engine, &KNSCore::Engine::signalEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &entries)
         {
             for (const KNSCore::EntryInternal &entry : entries) {
                 AlkNewStuffEntry e;
@@ -159,7 +158,6 @@ const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
                 this->m_availableEntries.append(e);
                 alkDebug() << e.name << toString(e.status);
             }
-            QObject::disconnect(conn);
             m_loop.exit();
         });
         m_engine->requestData(0, 1000);
