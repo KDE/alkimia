@@ -43,13 +43,13 @@ msgstr "No s'ha pogut interpretar el símbol per a %1"
 #: alkonlinequote.cpp:263
 #, kde-format
 msgid "Fetching URL %1..."
-msgstr "S'està recuperant l'URL %1..."
+msgstr "S'està recuperant l'URL %1…"
 
 #: alkonlinequote.cpp:324
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
-msgstr "S'està executant %1..."
+msgstr "S'està executant %1…"
 
 #: alkonlinequote.cpp:336 alkonlinequote.cpp:544
 #, kde-format
@@ -64,7 +64,7 @@ msgstr "No s'ha pogut obrir el fitxer baixat"
 #: alkonlinequote.cpp:375
 #, kde-format
 msgid "URL found: %1..."
-msgstr "URL trobat: %1..."
+msgstr "URL trobat: %1…"
 
 #: alkonlinequote.cpp:465
 #, kde-format
@@ -77,7 +77,7 @@ msgstr ""
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
-msgstr "S'està executant %1 %2 %3..."
+msgstr "S'està executant %1 %2 %3…"
 
 #: alkonlinequote.cpp:576
 #, kde-format
@@ -197,7 +197,7 @@ msgstr "Utilitzeu-la per a mostrar l'entrada de la font en línia seleccionada"
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
-msgstr "&Nova..."
+msgstr "&Nova…"
 
 #: alkonlinequoteswidget.cpp:157
 #, kde-format
