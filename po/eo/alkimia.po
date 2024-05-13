@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-05 01:44+0000\n"
-"PO-Revision-Date: 2024-04-27 19:00+0100\n"
+"PO-Revision-Date: 2024-05-12 23:22+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -41,7 +41,7 @@ msgstr "Fonto <placeholder>%1</placeholder> ne ekzistas."
 #: alkonlinequote_p.cpp:187
 #, kde-format
 msgid "Cannot resolve input date."
-msgstr ""
+msgstr "Ne eblas solvi enigan daton."
 
 #: alkonlinequote_p.cpp:201
 #, kde-format

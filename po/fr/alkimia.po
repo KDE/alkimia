@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-05 01:44+0000\n"
-"PO-Revision-Date: 2024-03-29 13:54+0100\n"
+"PO-Revision-Date: 2024-05-08 18:07+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -42,7 +42,7 @@ msgstr "La source <placeholder>%1</placeholder> n'existe pas."
 #: alkonlinequote_p.cpp:187
 #, kde-format
 msgid "Cannot resolve input date."
-msgstr ""
+msgstr "Impossible de résoudre la date d'entrée."
 
 #: alkonlinequote_p.cpp:201
 #, kde-format
