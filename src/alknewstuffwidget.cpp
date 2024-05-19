@@ -8,7 +8,7 @@
 
 #include "alknewstuffwidget.h"
 
-#include "alkdebug.h"
+#include "alknewstuffentry_p.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     #define KNEWSTUFFWIDGETS_PRIVATE_BUILDING
@@ -85,6 +85,8 @@ bool AlkNewStuffWidget::showInstallDialog(QWidget *parent)
 #elif KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
     QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(configFile, parent);
     dialog->exec();
+    alkDebug() << "changed entries" << dialog->changedEntries();
+    alkDebug() << "installed entries" << dialog->installedEntries();
     delete dialog;
     return true;
 #elif KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 94, 0)

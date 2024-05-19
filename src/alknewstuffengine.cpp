@@ -7,6 +7,7 @@
 */
 
 #include "alknewstuffengine.h"
+#include "alknewstuffentry_p.h"
 
 #include "alkdebug.h"
 
@@ -93,21 +94,10 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
 
     connect(m_engine, &KNSCore::Engine::signalUpdateableEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &entries)
     {
-        alkDebug() << "updates loaded";
+        alkDebug() << entries.size() << "updates loaded";
         AlkNewStuffEntryList updateEntries;
-        for (const KNSCore::EntryInternal &entry : entries) {
-            AlkNewStuffEntry e;
-            e.category = entry.category();
-            e.id = entry.uniqueId();
-            e.installedFiles = entry.installedFiles();
-            e.name = entry.name();
-            e.providerId = entry.providerId();
-            e.status =
-                static_cast<AlkNewStuffEntry::Status>(entry.status());
-            e.version = entry.version();
-            updateEntries.append(e);
-            alkDebug() << e.name << toString(e.status);
-        }
+        toAlkEntryList(updateEntries, entries);
+        alkDebug() << updateEntries;
         Q_EMIT q->updatesAvailable(updateEntries);
     });
 #else
@@ -145,19 +135,8 @@ const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         connect(m_engine, &KNSCore::Engine::signalEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &entries)
         {
-            for (const KNSCore::EntryInternal &entry : entries) {
-                AlkNewStuffEntry e;
-                e.category = entry.category();
-                e.id = entry.uniqueId();
-                e.installedFiles = entry.installedFiles();
-                e.name = entry.name();
-                e.providerId = entry.providerId();
-                e.status =
-                    static_cast<AlkNewStuffEntry::Status>(entry.status());
-                e.version = entry.version();
-                this->m_availableEntries.append(e);
-                alkDebug() << e.name << toString(e.status);
-            }
+            toAlkEntryList(m_availableEntries, entries);
+            alkDebug() << entries;
             m_loop.exit();
         });
         m_engine->requestData(0, 1000);
@@ -186,21 +165,10 @@ void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &e
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     Q_UNUSED(entries);
 #else
-    alkDebug() << "updates loaded";
+    alkDebug() << entries.size() << "updates loaded";
     AlkNewStuffEntryList updateEntries;
-    for (const KNS3::Entry &entry : entries) {
-        AlkNewStuffEntry e;
-        e.category = entry.category();
-        e.id = entry.id();
-        e.installedFiles = entry.installedFiles();
-        e.name = entry.name();
-        e.providerId = entry.providerId();
-        e.status = static_cast<AlkNewStuffEntry::Status>(entry.status());
-        e.version = entry.version();
-        updateEntries.append(e);
-
-        alkDebug() << e.name << toString(e.status);
-    }
+    toAlkEntryList(updateEntries, entries);
+    alkDebug() << entries;
 
     Q_EMIT q->updatesAvailable(updateEntries);
 #endif
@@ -211,20 +179,10 @@ void AlkNewStuffEngine::Private::slotEntriesAvailable(const KNS3::Entry::List &e
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     Q_UNUSED(entries);
 #else
-    alkDebug() << "entries loaded";
-    for (const KNS3::Entry &entry : entries) {
-        AlkNewStuffEntry e;
-        e.category = entry.category();
-        e.id = entry.id();
-        e.installedFiles = entry.installedFiles();
-        e.name = entry.name();
-        e.providerId = entry.providerId();
-        e.status = static_cast<AlkNewStuffEntry::Status>(entry.status());
-        e.version = entry.version();
-        m_availableEntries.append(e);
+    alkDebug() << entries.size() << "entries loaded";
+    toAlkEntryList(m_availableEntries, entries);
+    alkDebug() << entries;
 
-        alkDebug() << e.name << toString(e.status);
-    }
     disconnect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
             SLOT(slotEntriesAvailable(KNS3::Entry::List)));
     connect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
