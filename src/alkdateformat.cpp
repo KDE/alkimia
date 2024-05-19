@@ -66,7 +66,7 @@ public:
             bool ok;
             const quint64 unixTime = _in.toUInt(&ok);
             if (ok) {
-                date = QDateTime::fromMSecsSinceEpoch(unixTime * 1000, Qt::UTC).date();
+                date = QDateTime::fromMSecsSinceEpoch(unixTime * 1000).date();
             }
 
         } else {
@@ -124,7 +124,7 @@ public:
         if (m_format.startsWith(QLatin1String("%ud"))) {
             unixTime *= 86400; // times seconds per day
         }
-        return QDateTime::fromMSecsSinceEpoch(unixTime * 1000, Qt::UTC).date();
+        return QDateTime::fromMSecsSinceEpoch(unixTime * 1000).date();
     }
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
