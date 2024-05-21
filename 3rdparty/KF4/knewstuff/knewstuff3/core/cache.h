@@ -56,6 +56,13 @@ public:
             KNS3::EntryInternal e;
             e.setEntryXML(stuff);
             e.setSource(KNS3::EntryInternal::Cache);
+            // remove double path separators
+            // see https://bugs.kde.org/show_bug.cgi?id=484016
+            QStringList files = e.installedFiles();
+            for (QString &f : files) {
+                f.replace("//", "/");
+            }
+            e.setInstalledFiles(files);
             cache.insert(e);
             stuff = stuff.nextSiblingElement("stuff");
         }
