@@ -110,7 +110,7 @@ if(QT_MAJOR_VERSION EQUAL 4)
 
     # setup KDE Frameworks components
     find_package(KF${QT_MAJOR_VERSION} REQUIRED)
-    set(KF_NEWSTUFF_LIB KF${QT_MAJOR_VERSION}::NewStuff)
+    set(KF_NEWSTUFF_LIB KF${QT_MAJOR_VERSION}::NewStuff knewstuff)
     set(QML_INSTALL_DIR ${LIB_INSTALL_DIR}/qt4/plugins/imports)
     set(BUILD_WITH_WEBKIT 1)
 
@@ -121,6 +121,7 @@ if(QT_MAJOR_VERSION EQUAL 4)
         DESTINATION ${CMAKECONFIG_INSTALL_DIR}
         COMPONENT Devel
     )
+    add_subdirectory(3rdparty/KF${QT_MAJOR_VERSION}/knewstuff)
 else()
     if (QT_MAJOR_VERSION EQUAL 5)
         set(QT_MIN_VERSION 5.12.2)

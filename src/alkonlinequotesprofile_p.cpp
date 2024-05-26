@@ -167,7 +167,7 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesGHNS()
             continue;
         }
         if (!sources.contains(entry.id)) {
-            alkDebug() << "adding quote source" << entry.name;
+            alkDebug() << "adding published quote source" << entry.name;
             sources.push_back(entry.name);
         }
     }
@@ -182,7 +182,7 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesGHNS()
             continue;
         }
         if (!sources.contains(name)) {
-            alkDebug() << "adding quote source" << name;
+            alkDebug() << "adding unpublished remote quote source" << name;
             sources.push_back(name);
         }
     }

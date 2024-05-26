@@ -775,9 +775,10 @@ void AlkOnlineQuotesWidget::Private::slotInstallEntries()
 {
     QString configFile = m_profile->hotNewStuffConfigFile();
 
-    AlkNewStuffWidget engine;
-    engine.init(configFile);
-    if (engine.showInstallDialog()) {
+    AlkNewStuffWidget widget;
+    widget.init(configFile);
+    if (widget.showInstallDialog()) {
+        m_profile->reload();
         loadQuotesList();
     }
 }

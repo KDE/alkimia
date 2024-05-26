@@ -84,6 +84,8 @@ public:
     QString GHNSId(const QString &name) const;
     QString GHNSFilePath(const QString &name) const;
 
+    void reload();
+
 Q_SIGNALS:
     /**
      * emit quote source for which an update is available

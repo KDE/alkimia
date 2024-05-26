@@ -140,6 +140,11 @@ void AlkOnlineQuotesProfile::setKConfig(KSharedConfigPtr kconfig)
 }
 #endif
 
+void AlkOnlineQuotesProfile::reload()
+{
+    d->m_engine->reload();
+}
+
 AlkOnlineQuotesProfile::Type AlkOnlineQuotesProfile::type()
 {
     return d->m_type;

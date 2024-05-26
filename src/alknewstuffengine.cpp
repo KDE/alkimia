@@ -16,10 +16,12 @@
     #include <KNSCore/Provider>
     #include <KNSCore/ResultsStream>
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    #include <KNSCore/Cache>
     #include <knscore/engine.h>
     #include <knewstuff_version.h>
 #else
     #include <knewstuff3/downloadmanager.h>
+    #include <knewstuff3/core/cache.h>
     #define KNEWSTUFF_VERSION 0
 #endif
 
@@ -39,13 +41,14 @@ public:
     bool m_wantUpdates{false};
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QPointer<KNSCore::Engine> m_engine;
+    QSharedPointer<KNSCore::Cache> m_cache;
     bool m_providersLoaded{false};
     bool m_wantUpdates{false};
 #else
     QPointer<KNS3::DownloadManager> m_engine;
+    Cache* m_cache;
 #endif
     QEventLoop m_loop;
-    AlkNewStuffEntryList m_availableEntries;
 
     explicit Private(AlkNewStuffEngine *parent);
     ~Private();
@@ -57,13 +60,18 @@ public:
 
 public Q_SLOTS:
     void slotUpdatesAvailable(const KNS3::Entry::List &entries);
-    void slotEntriesAvailable(const KNS3::Entry::List &entries);
 };
 
 AlkNewStuffEngine::Private::Private(AlkNewStuffEngine *parent)
     : q(parent), m_engine(nullptr) {}
 
-AlkNewStuffEngine::Private::~Private() { delete m_engine; }
+AlkNewStuffEngine::Private::~Private()
+{
+    delete m_engine;
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    delete m_cache;
+#endif
+}
 
 bool AlkNewStuffEngine::Private::init(const QString &configFile)
 {
@@ -83,11 +91,18 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
     state = m_engine->init(configFile);
     if (!state)
         return false;
+    m_cache = m_engine->cache();
+
+    q->connect(m_engine, &KNSCore::Engine::signalErrorCode, q, [](const KNSCore::ErrorCode &, const QString &message, const QVariant &) {
+        alkDebug() << message;
+    });
 
     connect(m_engine, &KNSCore::Engine::signalProvidersLoaded, this, [this]()
     {
         alkDebug() << "providers loaded";
         m_providersLoaded = true;
+        m_engine->reloadEntries();
+        alkDebug() << "cache" << m_engine->cache() << m_engine->cache()->registry();
         if (m_wantUpdates)
             m_engine->checkForUpdates();
     });
@@ -102,6 +117,9 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
     });
 #else
     m_engine = new KNS3::DownloadManager(configFile, this);
+    QFileInfo f(configFile);
+    m_cache = new Cache(f.baseName());
+    m_cache->readRegistry();
     // no chance get the state
     state = true;
 
@@ -127,36 +145,14 @@ void AlkNewStuffEngine::Private::checkForUpdates()
 
 const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
 {
-    if (m_availableEntries.empty()) {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-        alkDebug() << "FIXME Qt6:";
-#else
-        m_engine->setSearchTerm("*");
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-        connect(m_engine, &KNSCore::Engine::signalEntriesLoaded, this, [this](const KNSCore::EntryInternal::List &entries)
-        {
-            toAlkEntryList(m_availableEntries, entries);
-            alkDebug() << entries;
-            m_loop.exit();
-        });
-        m_engine->requestData(0, 1000);
-#else
-        QEventLoop loop;
-        disconnect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
-                SLOT(slotUpdatesAvailable(KNS3::Entry::List)));
-        connect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
-                SLOT(slotEntriesAvailable(KNS3::Entry::List)));
-        m_engine->search(0, 1000);
-#endif
-        m_loop.exec();
-#endif
-    }
-
     AlkNewStuffEntryList result;
-    for (const AlkNewStuffEntry &entry : m_availableEntries) {
-        if (entry.status == AlkNewStuffEntry::Installed || entry.status == AlkNewStuffEntry::Updateable)
-            result.append(entry);
-    }
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    alkDebug() << "FIXME Qt6:";
+#else
+    if (m_cache)
+        toAlkEntryList(result, m_cache->registry());
+#endif
+    alkDebug() << result;
     return result;
 }
 
@@ -171,23 +167,6 @@ void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &e
     alkDebug() << entries;
 
     Q_EMIT q->updatesAvailable(updateEntries);
-#endif
-}
-
-void AlkNewStuffEngine::Private::slotEntriesAvailable(const KNS3::Entry::List &entries)
-{
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    Q_UNUSED(entries);
-#else
-    alkDebug() << entries.size() << "entries loaded";
-    toAlkEntryList(m_availableEntries, entries);
-    alkDebug() << entries;
-
-    disconnect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
-            SLOT(slotEntriesAvailable(KNS3::Entry::List)));
-    connect(m_engine, SIGNAL(searchResult(KNS3::Entry::List)), this,
-            SLOT(slotUpdatesAvailable(KNS3::Entry::List)));
-    m_loop.exit();
 #endif
 }
 
@@ -211,6 +190,11 @@ void AlkNewStuffEngine::checkForUpdates()
 AlkNewStuffEntryList AlkNewStuffEngine::installedEntries() const
 {
     return d->installedEntries();
+}
+
+void AlkNewStuffEngine::reload()
+{
+    d->m_cache->readRegistry();
 }
 
 const char *toString(AlkNewStuffEntry::Status status)
