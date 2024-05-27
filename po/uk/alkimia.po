@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 01:44+0000\n"
+"POT-Creation-Date: 2024-05-27 01:46+0000\n"
 "PO-Revision-Date: 2024-05-05 08:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -780,7 +780,7 @@ msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Нове джерело курсів</b> вже існує."
 
-#: alkonlinequoteswidget.cpp:796
+#: alkonlinequoteswidget.cpp:797
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Вікно результатів пошуку курсів у форматі HTML"

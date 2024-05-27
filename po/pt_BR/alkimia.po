@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 01:44+0000\n"
+"POT-Creation-Date: 2024-05-27 01:46+0000\n"
 "PO-Revision-Date: 2023-09-24 02:24-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -780,7 +780,7 @@ msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:796
+#: alkonlinequoteswidget.cpp:797
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Janela de resultado HTML da cotação online"

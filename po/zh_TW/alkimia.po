@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 01:44+0000\n"
+"POT-Creation-Date: 2024-05-27 01:46+0000\n"
 "PO-Revision-Date: 2024-05-06 09:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -761,7 +761,7 @@ msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>新的報價來源</b>已經存在。"
 
-#: alkonlinequoteswidget.cpp:796
+#: alkonlinequoteswidget.cpp:797
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "線上報價 HTML 結果視窗"

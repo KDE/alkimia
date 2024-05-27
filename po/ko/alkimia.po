@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 01:44+0000\n"
+"POT-Creation-Date: 2024-05-27 01:46+0000\n"
 "PO-Revision-Date: 2024-02-10 00:34+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -768,7 +768,7 @@ msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>새 시세 원본</b>이 이미 존재합니다."
 
-#: alkonlinequoteswidget.cpp:796
+#: alkonlinequoteswidget.cpp:797
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "온라인 시세 HTML 결과 창"

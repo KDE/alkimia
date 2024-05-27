@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 01:44+0000\n"
+"POT-Creation-Date: 2024-05-27 01:46+0000\n"
 "PO-Revision-Date: 2024-01-27 05:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -774,7 +774,7 @@ msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>ახალი კვოტის წყარო</b> უკვე არსებობს."
 
-#: alkonlinequoteswidget.cpp:796
+#: alkonlinequoteswidget.cpp:797
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "ონლაინ კვოტის HTML შედეგის ფანჯარა"
