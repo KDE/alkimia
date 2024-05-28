@@ -67,6 +67,7 @@ set(alkimia_LIB_SRCS
     alknewstuffstore.cpp
     alkonlinequote.cpp
     alkonlinequote_p.cpp
+    alkonlinequotesmodel.cpp
     alkonlinequotesource.cpp
     alkonlinequotesprofile.cpp
     alkonlinequotesprofile_p.cpp
@@ -99,6 +100,7 @@ set(alkimia_LIB_PRIVATE_HEADERS
     alkdownloadengine.h
     alknewstuffentry_p.h
     alkonlinequote_p.h
+    alkonlinequotesmodel.h
     alkonlinequotesource_p.h
     alkonlinequotesprofile_p.h
     alkonlinequoteuploaddialog.h

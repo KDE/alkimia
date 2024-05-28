@@ -11,6 +11,7 @@
 #include "alkdebug.h"
 #include "alknewstuffwidget.h"
 #include "alkonlinequote.h"
+#include "alkonlinequotesmodel.h"
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesource.h"
@@ -22,6 +23,10 @@
 #include <QDesktopServices>
 #include <QTreeWidget>
 #include <QKeyEvent>
+#include <QSortFilterProxyModel>
+#include <QtDebug>
+#include <QTreeView>
+#include <QTreeWidgetItem>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     #include <QIcon>
@@ -88,6 +93,7 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     KMessageWidget* m_infoMessage;
 #endif
+    AlkOnlineQuotesModel *m_model;
 
     Private(bool showProfiles, bool showUpload, QWidget *parent);
     ~Private();
@@ -101,7 +107,7 @@ public Q_SLOTS:
     void slotDeleteEntry();
     void slotDuplicateEntry();
     void slotAcceptEntry();
-    void slotLoadQuoteSource();
+    void slotLoadQuoteSource(const QModelIndex &index = QModelIndex());
     void slotEntryChanged();
     void slotNewEntry();
     void slotCheckEntry();
@@ -110,8 +116,6 @@ public Q_SLOTS:
     void slotLogFailed(const QString &id, const QString &symbol);
     void slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price);
     void slotLogQuotes(const QString &id, const QString &symbol, const AlkDatePriceMap &prices);
-    void slotQuoteSourceRenamed(QTreeWidgetItem *item, int column);
-    void slotQuoteSourceStartRename(QTreeWidgetItem *item, int column);
     void slotInstallEntries();
     void slotUploadEntry();
     void slotShowButton();
@@ -126,7 +130,6 @@ public:
     QStringList doubleSymbol() const;
     QString expandedUrl() const;
     void updateButtonState();
-    bool eventFilter(QObject* o, QEvent* e) override;
 };
 
 AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWidget *parent)
@@ -243,24 +246,25 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_installButton, SIGNAL(clicked()), this, SLOT(slotInstallEntries()));
     connect(m_uploadButton, SIGNAL(clicked()), this, SLOT(slotUploadEntry()));
 
-    m_quoteSourceList->setColumnCount(2);
-    m_quoteSourceList->setHeaderLabels(QStringList() << i18n("Name") << i18n("Source"));
-    m_quoteSourceList->setRootIsDecorated(false);
-    m_quoteSourceList->header()->resizeSection(0, 5);
-    m_quoteSourceList->header()->setStretchLastSection(false);
+    QFontMetrics fm(QApplication::font());
+    const int rowHeight = fm.height();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    m_quoteSourceList->header()->setSectionResizeMode(0,QHeaderView::Stretch);
+    m_quoteSourceList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    m_quoteSourceList->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    m_quoteSourceList->verticalHeader()->setDefaultSectionSize(rowHeight);
 #else
-    m_quoteSourceList->header()->setResizeMode(0,QHeaderView::Stretch);
+    m_quoteSourceList->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    m_quoteSourceList->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+    m_quoteSourceList->verticalHeader()->setDefaultSectionSize(rowHeight);
 #endif
+    m_quoteSourceList->verticalHeader()->setVisible(false);
+    m_quoteSourceList->setShowGrid(false);
+    m_quoteSourceList->horizontalHeader()->setVisible(true);
     m_quoteSourceList->setSortingEnabled(true);
-    m_quoteSourceList->installEventFilter(this);
+    m_quoteSourceList->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_quoteSourceList->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    connect(m_quoteSourceList, SIGNAL(itemSelectionChanged()), this, SLOT(slotLoadQuoteSource()));
-    connect(m_quoteSourceList, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this,
-            SLOT(slotQuoteSourceRenamed(QTreeWidgetItem*,int)));
-    connect(m_quoteSourceList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this,
-            SLOT(slotQuoteSourceStartRename(QTreeWidgetItem*,int)));
+    connect(m_quoteSourceList, SIGNAL(clicked(QModelIndex)), this, SLOT(slotLoadQuoteSource(QModelIndex)));
 
     connect(m_editURL, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editIdentifier, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
@@ -318,60 +322,25 @@ void AlkOnlineQuotesWidget::Private::loadProfiles()
     loadQuotesList(true);
 }
 
-QString sourceTypeString(AlkOnlineQuoteSource &source)
-{
-    if (source.isGHNS()) {
-        if (source.profile()->GHNSFilePath(source.name()).isEmpty())
-            return i18n("Remote unpublished");
-        else
-            return i18n("Remote");
-    } else if (source.isFinanceQuote())
-        return i18n("Finance::Quote");
-    return i18n("Local");
-}
-
 void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
 {
-    m_quoteInEditing = false;
-    QStringList groups = m_profile->quoteSources();
-
     if (updateResetList) {
         m_resetList.clear();
     }
-    m_quoteSourceList->blockSignals(true);
-    m_quoteSourceList->clear();
-    QStringList::Iterator it;
-    for (it = groups.begin(); it != groups.end(); ++it) {
-        AlkOnlineQuoteSource source(*it, m_profile);
-        if (!source.isValid()) {
-            continue;
-        }
 
-        QTreeWidgetItem *item = new QTreeWidgetItem(QStringList() << *it << sourceTypeString(source));
-        Qt::ItemFlag editFlag = source.isGHNS() ? Qt::NoItemFlags : Qt::ItemIsEditable;
-        item->setFlags(editFlag | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
-        m_quoteSourceList->addTopLevelItem(item);
-        if (updateResetList) {
-            m_resetList += source;
-        }
+    // update model
+    if (m_quoteSourceList->model()) {
+        QSortFilterProxyModel *model = dynamic_cast<QSortFilterProxyModel*>(m_quoteSourceList->model());
+        model->sourceModel()->deleteLater();
+        m_quoteSourceList->model()->deleteLater();
     }
-    m_quoteSourceList->sortItems(0, Qt::AscendingOrder);
+    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel;
+    m_model = new AlkOnlineQuotesModel(m_profile);
+    proxyModel->setSourceModel(m_model);
 
-    QTreeWidgetItem *item = nullptr;
-    if (!m_currentItem.name().isEmpty()) {
-        QList<QTreeWidgetItem*> items = m_quoteSourceList->findItems(m_currentItem.name(), Qt::MatchExactly);
-        if (items.size() > 0)
-            item = items.at(0);
-        if (item)
-            m_quoteSourceList->setCurrentItem(item);
-    }
-    if (!item) {
-        item = m_quoteSourceList->topLevelItem(0);
-        if (item)
-            m_quoteSourceList->setCurrentItem(item);
-    }
-    m_quoteSourceList->blockSignals(false);
-    slotLoadQuoteSource();
+    m_quoteSourceList->setModel(proxyModel);
+    m_quoteSourceList->setCurrentIndex(m_model->indexFromName(m_currentItem.name()));
+    slotLoadQuoteSource(m_quoteSourceList->currentIndex());
     updateButtonState();
 }
 
@@ -431,7 +400,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
     m_GHNSDataLabel->setEnabled(visible);
 }
 
-void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
+void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource(const QModelIndex &index)
 {
     m_quoteInEditing = false;
 
@@ -445,9 +414,10 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
     m_editDateFormat->clear();
     m_editDefaultId->clear();
 
-    QTreeWidgetItem *item = m_quoteSourceList->currentItem();
-    if (item) {
-        m_currentItem = AlkOnlineQuoteSource(item->text(0), m_profile);
+    QString name;
+    if (m_quoteSourceList->currentIndex().isValid()) {
+        name = m_quoteSourceList->model()->data(m_quoteSourceList->currentIndex(), AlkOnlineQuotesModel::NameRole).toString();
+        m_currentItem = AlkOnlineQuoteSource(name, m_profile);
         m_editURL->setText(m_currentItem.url());
         m_editIdentifier->setText(m_currentItem.idRegex());
         m_editIdSelector->setCurrentIndex(m_currentItem.idSelector());
@@ -461,9 +431,10 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource()
         m_ghnsSource->setChecked(m_currentItem.isGHNS());
     }
 
-    bool isFinanceQuoteSource = (item && AlkOnlineQuoteSource::isFinanceQuote(item->text(0))) ||
+    bool enabled = !name.isEmpty();
+    bool isFinanceQuoteSource = (enabled && AlkOnlineQuoteSource::isFinanceQuote(name)) ||
             m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
-    bool enabled = item;
+
     if (isFinanceQuoteSource || (m_currentItem.isGHNS() && !m_ghnsEditable))
         enabled = false;
 
@@ -513,6 +484,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     m_newButton->setEnabled(hasWriteSupport);
     m_cancelButton->setEnabled(modified);
     m_duplicateButton->setEnabled(hasWriteSupport);
+    // TODO default quote sources are not deletable
     m_deleteButton->setEnabled((!m_currentItem.isReadOnly() && !m_currentItem.isGHNS()) || isRemoteUnpublished);
     m_uploadButton->setEnabled(m_profile->hasGHNSSupport() && m_currentItem.isGHNS() && AlkOnlineQuoteUploadDialog::isSupported());
     m_acceptButton->setEnabled(modified);
@@ -537,15 +509,8 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
 
 void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
 {
-    QList<QTreeWidgetItem *> items = m_quoteSourceList->findItems(
-        m_currentItem.name(), Qt::MatchExactly);
-    if (items.isEmpty()) {
+    if (!m_quoteSourceList->currentIndex().isValid())
         return;
-    }
-    QTreeWidgetItem *item = items.at(0);
-    if (!item) {
-        return;
-    }
 
     int ret = KMessageBox::warningContinueCancel(this,
                                                  i18n("Are you sure to delete this online quote ?"),
@@ -558,28 +523,21 @@ void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
     }
 
     // keep this order to avoid deleting the wrong current item
-    m_currentItem.remove();
-    delete item;
+    m_quoteSourceList->model()->removeRow(m_quoteSourceList->currentIndex().row());
     updateButtonState();
 }
 
 void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
 {
-    QList<QTreeWidgetItem *> items = m_quoteSourceList->findItems(
-        m_currentItem.name(), Qt::MatchExactly);
-    if (items.isEmpty()) {
+    if (!m_quoteSourceList->currentIndex().isValid())
         return;
-    }
-    QTreeWidgetItem *item = items.at(0);
-    if (!item) {
-        return;
-    }
 
     AlkOnlineQuoteSource copy(m_currentItem);
     copy.setName(copy.name() + i18n(".copy"));
     copy.setGHNS(false);
     copy.write();
     m_currentItem = copy;
+    m_quoteSourceList->model()->insertRow(m_quoteSourceList->currentIndex().row() + 1);
     loadQuotesList();
 }
 
@@ -604,12 +562,16 @@ void AlkOnlineQuotesWidget::Private::slotAcceptEntry()
 
 void AlkOnlineQuotesWidget::Private::slotNewEntry()
 {
-    const auto newEntries = m_quoteSourceList->findItems(i18n("New Quote Source"), Qt::MatchExactly);
-    if (newEntries.isEmpty()) {
+    const bool newEntries = m_profile->quoteSources().contains(i18n("New Quote Source"));
+    if (!newEntries) {
         AlkOnlineQuoteSource newSource(i18n("New Quote Source"), m_profile);
         newSource.write();
         m_currentItem = newSource;
         loadQuotesList();
+        // TODO select new entry
+        //int index = m_profile->quoteSources().indexOf(newSource.name());
+        m_quoteSourceList->setCurrentIndex(QModelIndex());
+
     } else {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         if (!m_infoMessage->isVisible() && !m_infoMessage->isShowAnimationRunning()) {
@@ -620,9 +582,6 @@ void AlkOnlineQuotesWidget::Private::slotNewEntry()
             m_infoMessage->animatedShow();
         }
 #endif
-        const auto item = newEntries.at(0);
-        m_quoteSourceList->setCurrentItem(item);
-        m_quoteSourceList->scrollToItem(item);
     }
 }
 
@@ -732,45 +691,6 @@ void AlkOnlineQuotesWidget::Private::slotLogQuotes(const QString &id, const QStr
     }
 }
 
-void AlkOnlineQuotesWidget::Private::slotQuoteSourceStartRename(QTreeWidgetItem *item, int column)
-{
-    Q_UNUSED(column);
-
-    m_quoteInEditing = true;
-    m_quoteSourceList->editItem(item);
-}
-
-void AlkOnlineQuotesWidget::Private::slotQuoteSourceRenamed(QTreeWidgetItem *item, int column)
-{
-    Q_UNUSED(column);
-    //if there is no current item selected, exit
-    if (m_quoteInEditing == false || !m_quoteSourceList->currentItem()
-        || item != m_quoteSourceList->currentItem()) {
-        // revert name change
-        item->setText(0, m_currentItem.name());
-        return;
-    }
-
-    m_quoteInEditing = false;
-    QString text = item->text(0);
-    int nameCount = 0;
-    for (int i = 0; i < m_quoteSourceList->topLevelItemCount(); ++i) {
-        if (m_quoteSourceList->topLevelItem(i)->text(0) == text) {
-            ++nameCount;
-        }
-    }
-
-    // Make sure we get a non-empty and unique name
-    if (text.length() > 0 && nameCount == 1) {
-        m_currentItem.rename(text);
-    } else {
-        // revert name change
-        item->setText(0, m_currentItem.name());
-    }
-    m_quoteSourceList->sortItems(0, Qt::AscendingOrder);
-    updateButtonState();
-}
-
 void AlkOnlineQuotesWidget::Private::slotInstallEntries()
 {
     QString configFile = m_profile->hotNewStuffConfigFile();
@@ -809,21 +729,6 @@ QString AlkOnlineQuotesWidget::Private::expandedUrl() const
     } else {
         return m_currentItem.url().arg(m_checkSymbol->text());
     }
-}
-
-bool AlkOnlineQuotesWidget::Private::eventFilter(QObject* o, QEvent* e)
-{
-    if (o == m_quoteSourceList && e->type() == QEvent::KeyRelease) {
-        QKeyEvent *k = dynamic_cast<QKeyEvent*>(e);
-#ifdef Q_OS_DARWIN
-        if (k->key() == Qt::Key_Enter) {
-#else
-        if (k->key() == Qt::Key_F2) {
-#endif
-            slotQuoteSourceStartRename(m_quoteSourceList->currentItem(), 0);
-        }
-    }
-    return false;
 }
 
 AlkOnlineQuotesWidget::AlkOnlineQuotesWidget(bool showProfiles, bool showUpload, QWidget *parent)
