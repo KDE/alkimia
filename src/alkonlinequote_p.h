@@ -13,10 +13,8 @@
 
 #include "alkonlinequote.h"
 
-#ifdef ENABLE_FINANCEQUOTE
-#include "alkonlinequoteprocess.h"
-#endif
 #include "alkdownloadengine.h"
+#include "alkonlinequoteprocess.h"
 #include "alkonlinequotesource.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
@@ -47,9 +45,7 @@ class ALK_EXPORT AlkOnlineQuote::Private : public QObject
     Q_OBJECT
 public:
     AlkOnlineQuote *m_p;
-#ifdef ENABLE_FINANCEQUOTE
     AlkOnlineQuoteProcess m_filter;
-#endif
     QString m_quoteData;
     QString m_symbol;
     QString m_id;
@@ -95,9 +91,7 @@ public:
     void parseQuoteCSS(AlkWebPage *page);
     bool parseQuoteCSV(const QString &quotedata);
     bool processDownloadedPage(const KUrl &url, const QByteArray &page);
-#ifdef ENABLE_FINANCEQUOTE
     bool processLocalScript(const KUrl& url);
-#endif
 
 public Q_SLOTS:
     void slotLoadError(const QUrl &, const QString &);

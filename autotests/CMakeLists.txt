@@ -79,7 +79,7 @@ ecm_add_test(
     alkonlinequoteprivatetest.cpp
     alkonlinequoteprivatetest.qrc
     ENV ${TEST_ENV}
-    LINK_LIBRARIES ${TEST_LIB}
+    LINK_LIBRARIES ${TEST_LIB} KF${QT_MAJOR_VERSION}::CoreAddons
     TEST_NAME alkonlinequoteprivatetest
 )
 

@@ -15,7 +15,6 @@
 #include "alkexception.h"
 #ifdef ENABLE_FINANCEQUOTE
 #include "alkfinancequoteprocess.h"
-#include "alkonlinequoteprocess.h"
 #endif
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
@@ -33,6 +32,7 @@
     #include <KLocale>
 #endif
 
+#include <QFileInfo>
 #include <KConfigGroup>
 #include <KEncodingProber>
 #include <KProcess>
@@ -60,9 +60,7 @@ AlkOnlineQuote::Private::Private(AlkOnlineQuote *parent)
     , m_ownProfile(false)
     , m_timeout(-1)
 {
-#ifdef ENABLE_FINANCEQUOTE
     connect(&m_filter, SIGNAL(processExited(QString)), this, SLOT(slotParseQuote(QString)));
-#endif
     m_downloader.setWebPage(AlkOnlineQuotesProfileManager::instance().webPage());
     connect(&m_downloader, SIGNAL(started(QUrl)), this, SLOT(slotLoadStarted(QUrl)));
     connect(&m_downloader, SIGNAL(finished(QUrl,QString)), this, SLOT(slotLoadFinished(QUrl,QString)));
@@ -259,10 +257,18 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
     }
 
     KUrl url = m_url;
+
+    // url at this point may contain a local file that shall be
+    // executed and has the symbol separated from it by a blank
+    bool isExecutable = false;
     if (url.isLocalFile()) {
-#ifdef ENABLE_FINANCEQUOTE
+        const auto localFileName = url.toLocalFile().split(' ').at(0);
+        const QFileInfo fi(localFileName);
+        isExecutable = fi.isExecutable();
+    }
+
+    if (url.isLocalFile() && isExecutable) {
         result = processLocalScript(url);
-#endif
     } else {
         if (!m_downloader.downloadUrl(url, AlkDownloadEngine::DefaultEngine)) {
             return false;
@@ -273,7 +279,6 @@ bool AlkOnlineQuote::Private::launchNative(const QString &_symbol, const QString
     return result;
 }
 
-#ifdef ENABLE_FINANCEQUOTE
 bool AlkOnlineQuote::Private::processLocalScript(const KUrl& url)
 {
     Q_EMIT m_p->status(i18nc("The process x is executing", "Executing %1...", url.toLocalFile()));
@@ -299,7 +304,6 @@ bool AlkOnlineQuote::Private::processLocalScript(const KUrl& url)
     }
     return result;
 }
-#endif
 
 bool AlkOnlineQuote::Private::processDownloadedPage(const KUrl& url, const QByteArray& page)
 {

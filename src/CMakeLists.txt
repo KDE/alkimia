@@ -65,7 +65,6 @@ set(alkimia_LIB_SRCS
     alknewstuffengine.cpp
     alknewstuffentry.cpp
     alknewstuffstore.cpp
-    alknewstuffwidget.cpp
     alkonlinequote.cpp
     alkonlinequote_p.cpp
     alkonlinequotesource.cpp
