@@ -25,7 +25,7 @@ void AlkOnlineQuoteProcess::slotReceivedDataFromFilter()
 {
     QByteArray data = readAllStandardOutput();
     alkDebug() << data;
-    m_string += QString(readAllStandardOutput());
+    m_string += QString(data);
 }
 
 void AlkOnlineQuoteProcess::slotProcessExited(int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/)
