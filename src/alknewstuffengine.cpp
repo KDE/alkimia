@@ -63,7 +63,11 @@ public Q_SLOTS:
 };
 
 AlkNewStuffEngine::Private::Private(AlkNewStuffEngine *parent)
-    : q(parent), m_engine(nullptr) {}
+    : q(parent)
+    , m_engine(nullptr)
+    , m_cache(nullptr)
+{
+}
 
 AlkNewStuffEngine::Private::~Private()
 {
