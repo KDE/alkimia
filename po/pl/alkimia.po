@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2019, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-01 02:29+0000\n"
-"PO-Revision-Date: 2023-10-22 10:36+0200\n"
+"PO-Revision-Date: 2024-05-30 10:59+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: alkonlinequote.cpp:181
 #, kde-format
@@ -229,7 +230,7 @@ msgstr "Finance::Quote"
 #: alkonlinequoteswidget.cpp:245
 #, kde-format
 msgid "local"
-msgstr "lokalny"
+msgstr "lokalna"
 
 #: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:474
 #, kde-format
@@ -451,7 +452,7 @@ msgstr ""
 #: alkonlinequoteswidget.ui:348
 #, kde-format
 msgid "Regular Expression to extract the symbol from the downloaded data"
-msgstr "Wyrażenie regularne do wydobycia symbolu ze ściągniętych danych"
+msgstr "Wyrażenie regularne do wydobycia symbolu z pobranych danych"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequoteswidget.ui:355
