@@ -1,171 +1,171 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2023 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2023, 2024 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-27 01:46+0000\n"
-"PO-Revision-Date: 2023-11-06 11:29+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"POT-Creation-Date: 2024-05-31 01:57+0000\n"
+"PO-Revision-Date: 2024-05-30 13:34+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Vít Pelčák"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "vit@pelcak.org"
 
 #: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
 #, kde-format
 msgid "Failed to open downloaded file"
 msgstr "Nelze otevřít stažený soubor"
 
-#: alkonlinequote_p.cpp:139
+#: alkonlinequote_p.cpp:137
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Zdroj <placeholder>%1</placeholder> neexistuje."
 
-#: alkonlinequote_p.cpp:187
+#: alkonlinequote_p.cpp:185
 #, kde-format
 msgid "Cannot resolve input date."
 msgstr ""
 
-#: alkonlinequote_p.cpp:201
+#: alkonlinequote_p.cpp:199
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr ""
 
-#: alkonlinequote_p.cpp:211 alkonlinequote_p.cpp:213
+#: alkonlinequote_p.cpp:209 alkonlinequote_p.cpp:211
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 
-#: alkonlinequote_p.cpp:237
+#: alkonlinequote_p.cpp:235
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Stahuji URL %1"
 
-#: alkonlinequote_p.cpp:279
+#: alkonlinequote_p.cpp:284
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Provádím %1..."
 
-#: alkonlinequote_p.cpp:296 alkonlinequote_p.cpp:357
+#: alkonlinequote_p.cpp:301 alkonlinequote_p.cpp:361
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Nelze spustit: %1"
 
-#: alkonlinequote_p.cpp:318
+#: alkonlinequote_p.cpp:322
 #, kde-format
 msgid "URL found: %1..."
 msgstr "URL nalezena: %1..."
 
-#: alkonlinequote_p.cpp:349
+#: alkonlinequote_p.cpp:353
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Provádím %1 %2 %3..."
 
-#: alkonlinequote_p.cpp:407
+#: alkonlinequote_p.cpp:411
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Cena nalezena: '%1' (%2)"
 
-#: alkonlinequote_p.cpp:410
+#: alkonlinequote_p.cpp:414
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:415
+#: alkonlinequote_p.cpp:419
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:425
+#: alkonlinequote_p.cpp:429
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Datum nalezeno: '%1'"
 
-#: alkonlinequote_p.cpp:431
+#: alkonlinequote_p.cpp:435
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:434
+#: alkonlinequote_p.cpp:438
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr ""
 
-#: alkonlinequote_p.cpp:438 alkonlinequote_p.cpp:448
+#: alkonlinequote_p.cpp:442 alkonlinequote_p.cpp:452
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:442
+#: alkonlinequote_p.cpp:446
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Datum zpracování je pro '%1' vypnuto"
 
-#: alkonlinequote_p.cpp:445
+#: alkonlinequote_p.cpp:449
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:502 alkonlinequote_p.cpp:528 alkonlinequote_p.cpp:566
+#: alkonlinequote_p.cpp:506 alkonlinequote_p.cpp:532 alkonlinequote_p.cpp:570
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Symbol nalezen: '%1'"
 
-#: alkonlinequote_p.cpp:505 alkonlinequote_p.cpp:531 alkonlinequote_p.cpp:569
+#: alkonlinequote_p.cpp:509 alkonlinequote_p.cpp:535 alkonlinequote_p.cpp:573
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr ""
 
-#: alkonlinequote_p.cpp:619
+#: alkonlinequote_p.cpp:623
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
 
-#: alkonlinequote_p.cpp:646
+#: alkonlinequote_p.cpp:650
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:652
+#: alkonlinequote_p.cpp:656
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:670
+#: alkonlinequote_p.cpp:674
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:686
+#: alkonlinequote_p.cpp:690
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr ""
 
-#: alkonlinequote_p.cpp:717
+#: alkonlinequote_p.cpp:721
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
 
-#: alkonlinequote_p.cpp:735
+#: alkonlinequote_p.cpp:739
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr ""
@@ -306,14 +306,14 @@ msgstr ""
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
-msgstr ""
+msgstr "Tečka (.)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:189
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
-msgstr ""
+msgstr "Čárka (,)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:194
@@ -690,13 +690,13 @@ msgstr "CSV"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
-msgstr ""
+msgstr "CSS"
 
 #: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
-msgstr ""
+msgstr "Výchozí"
 
 #: alkonlinequoteswidget.cpp:288
 #, kde-format
@@ -827,13 +827,13 @@ msgstr ""
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr ""
+msgstr "Vytvořit balíček pro odeslání"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
 #, kde-format
 msgid "Create package"
-msgstr ""
+msgstr "Vytvořit balíček"
 
 #. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
 #: alkonlinequoteuploaddialog.ui:197
@@ -850,9 +850,9 @@ msgstr ""
 #: alkwebview.cpp:85
 #, kde-format
 msgid "Open inspector in new window"
-msgstr ""
+msgstr "Otevřít inspektor v novém okně"
 
 #: alkwebview.cpp:97
 #, kde-format
 msgid "Inspect element"
-msgstr ""
+msgstr "Prozkoumat prvek"
