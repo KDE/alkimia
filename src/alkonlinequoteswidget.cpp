@@ -517,8 +517,8 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     m_uploadButton->setEnabled(m_profile->hasGHNSSupport() && m_currentItem.isGHNS() && AlkOnlineQuoteUploadDialog::isSupported());
     m_acceptButton->setEnabled(modified);
     m_checkButton->setEnabled(isFinanceQuote || !modified);
-    m_checkSymbol->setEnabled(!m_currentItem.url().contains("%2"));
-    m_checkSymbol2->setEnabled(m_currentItem.url().contains("%2"));
+    m_checkSymbol->setEnabled(!m_currentItem.requiresTwoIdentifier());
+    m_checkSymbol2->setEnabled(m_currentItem.requiresTwoIdentifier());
     m_editIdSelector->setVisible(m_profile->type() == AlkOnlineQuotesProfile::Type::KMyMoney5);
     m_editIdSelectorLabel->setVisible(m_profile->type() == AlkOnlineQuotesProfile::Type::KMyMoney5);
     if (m_currentItem.requiresTwoIdentifier()) {
@@ -689,7 +689,7 @@ void AlkOnlineQuotesWidget::Private::slotCheckEntry()
     } else {
         quote.setDateRange(QDate(), QDate());
     }
-    if (m_currentItem.url().contains("%2")) {
+    if (m_currentItem.requiresTwoIdentifier()) {
         quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.name());
     } else {
         quote.launch(m_checkSymbol->text(), m_checkSymbol->text(), m_currentItem.name());
@@ -804,7 +804,7 @@ void AlkOnlineQuotesWidget::Private::slotShowButton()
 
 QString AlkOnlineQuotesWidget::Private::expandedUrl() const
 {
-    if (m_currentItem.url().contains("%2")) {
+    if (m_currentItem.requiresTwoIdentifier()) {
         return m_currentItem.url().arg(m_checkSymbol2->text());
     } else {
         return m_currentItem.url().arg(m_checkSymbol->text());

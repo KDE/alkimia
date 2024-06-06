@@ -155,7 +155,7 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     KUrl url;
 
     // if the source has room for TWO symbols..
-    if (m_source.url().contains("%2")) {
+    if (m_source.requiresTwoIdentifier()) {
         // this is a two-symbol quote.  split the symbol into two.  valid symbol
         // characters are: 0-9, A-Z and the dot.  anything else is a separator
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
