@@ -142,7 +142,7 @@ void AlkOnlineQuotesProfile::setKConfig(KSharedConfigPtr kconfig)
 
 void AlkOnlineQuotesProfile::reload()
 {
-    d->m_engine->reload();
+    d->reload();
     Q_EMIT sourcesChanged();
 }
 

@@ -55,18 +55,19 @@ AlkOnlineQuotesProfile::Private::~Private()
     delete m_engine;
 }
 
-QString AlkOnlineQuotesProfile::Private::GHNSId(const QString &name) const
+QString AlkOnlineQuotesProfile::Private::GHNSId(const QString &name)
 {
-    for (const AlkNewStuffEntry &entry : m_engine->installedEntries()) {
+    for (const AlkNewStuffEntry &entry : installedNewStuffEntries()) {
         if (entry.name == name)
             return entry.id;
     }
     return QString();
 }
 
-QString AlkOnlineQuotesProfile::Private::GHNSFilePath(const QString &name) const
+QString AlkOnlineQuotesProfile::Private::GHNSFilePath(const QString &name)
 {
-    for (const AlkNewStuffEntry &entry : m_engine->installedEntries()) {
+    // TODO: find a more efficient way to get the installed file
+    for (const AlkNewStuffEntry &entry : installedNewStuffEntries()) {
         if (entry.name == name)
             return entry.installedFiles.size() > 0 ? entry.installedFiles[0] : QString();
     }
@@ -158,7 +159,7 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesGHNS()
     QStringList files = AlkUtils::getDataFiles(m_GHNSFilePath, QStringList() << QStringLiteral("*.txt"));
 
     // add installed remote sources
-    for (const AlkNewStuffEntry &entry : m_engine->installedEntries()) {
+    for (const AlkNewStuffEntry &entry : installedNewStuffEntries()) {
         AlkOnlineQuoteSource source(entry.name, m_p);
         if (entry.installedFiles.size() > 0)
             files.removeAll(entry.installedFiles[0]);
@@ -318,6 +319,19 @@ QString AlkOnlineQuotesProfile::Private::dataWritePath()
         return QString("%1/.kde4/share/apps").arg(homeRootPath());
     return
             QString();
+}
+
+void AlkOnlineQuotesProfile::Private::reload()
+{
+    m_installedNewStuffEntries.clear();
+    m_engine->reload();
+}
+
+const AlkNewStuffEntryList &AlkOnlineQuotesProfile::Private::installedNewStuffEntries()
+{
+    if (m_installedNewStuffEntries.isEmpty())
+        m_installedNewStuffEntries = m_engine->installedEntries();
+    return m_installedNewStuffEntries;
 }
 
 void AlkOnlineQuotesProfile::Private::slotUpdatesAvailable(const AlkNewStuffEntryList &updates)

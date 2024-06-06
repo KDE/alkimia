@@ -45,6 +45,7 @@ public:
     AlkNewStuffEngine *m_engine = 0;
     KSharedConfigPtr m_config;
     Type m_type;
+    AlkNewStuffEntryList m_installedNewStuffEntries;
     static QString m_financeQuoteScriptPath;
     static QStringList m_financeQuoteSources;
 
@@ -54,8 +55,8 @@ public:
 
     ~Private();
 
-    QString GHNSId(const QString &name) const;
-    QString GHNSFilePath(const QString &name) const;
+    QString GHNSId(const QString &name);
+    QString GHNSFilePath(const QString &name);
 
     const QStringList quoteSourcesNative();
 
@@ -90,6 +91,10 @@ public:
     QString dataReadPath();
 
     QString dataWritePath();
+
+    void reload();
+
+    const AlkNewStuffEntryList &installedNewStuffEntries();
 
 public Q_SLOTS:
     void slotUpdatesAvailable(const AlkNewStuffEntryList &updates);
