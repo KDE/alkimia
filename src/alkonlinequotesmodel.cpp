@@ -120,7 +120,7 @@ bool AlkOnlineQuotesModel::removeRows(int row, int count, const QModelIndex &par
 
 bool AlkOnlineQuotesModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if(!index.isValid()) {
+    if(!index.isValid() || _sourceNames.contains(value.toString())) {
         return false;
     }
 
