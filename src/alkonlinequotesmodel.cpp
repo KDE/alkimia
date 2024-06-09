@@ -47,16 +47,19 @@ int AlkOnlineQuotesModel::rowCount(const QModelIndex &parent) const
 
 QVariant AlkOnlineQuotesModel::data(const QModelIndex &index, int role) const
 {
+    if (!index.isValid())
+        return QVariant();
+    if (index.row() < 0 || index.row() >= rowCount())
+        return QVariant();
+
     switch (role) {
         case Qt::DisplayRole:
         case Qt::EditRole:
-            if (index.row() < _sourceNames.size()) {
-                switch(index.column()) {
-                case Name:
-                    return _sourceNames.at(index.row());
-                case Source:
-                    return sourceTypeString(AlkOnlineQuoteSource(_sourceNames.at(index.row()), _profile));
-                }
+            switch(index.column()) {
+            case Name:
+                return _sourceNames.at(index.row());
+            case Source:
+                return sourceTypeString(AlkOnlineQuoteSource(_sourceNames.at(index.row()), _profile));
             }
             break;
         case NameRole:
@@ -68,10 +71,17 @@ QVariant AlkOnlineQuotesModel::data(const QModelIndex &index, int role) const
 
 Qt::ItemFlags AlkOnlineQuotesModel::flags(const QModelIndex &index) const
 {
+    if (!index.isValid())
+        return Qt::NoItemFlags;
+    if (index.row() < 0 || index.row() >= rowCount())
+        return Qt::NoItemFlags;
+    if (index.column() < 0 || index.column() >= columnCount())
+        return Qt::NoItemFlags;
+
     Qt::ItemFlags flags = Qt::ItemIsSelectable | Qt::ItemIsEnabled /*| QAbstractTableModel::flags(index)*/;
     switch (index.column()) {
         case Name: {
-            QString name = data(index).toString();
+            QString name = _sourceNames.at(index.row());
             if (name.isEmpty())
                 return flags;
             AlkOnlineQuoteSource source(name, _profile);
@@ -123,28 +133,36 @@ bool AlkOnlineQuotesModel::setData(const QModelIndex &index, const QVariant &val
     if(!index.isValid() || _sourceNames.contains(value.toString())) {
         return false;
     }
+    if (index.row() < 0 || index.row() >= rowCount())
+        return false;
 
-    if (role == Qt::EditRole && index.row() < _sourceNames.size() && index.column() == Name) {
+    if (role == Qt::EditRole && index.column() == Name) {
+        // update profile
         AlkOnlineQuoteSource source(_sourceNames.at(index.row()).trimmed(), _profile);
         source.rename(value.toString());
-        slotSourcesChanged();
+
+        // update model and inform everyone else
+        _sourceNames[index.row()] = value.toString();
+        Q_EMIT dataChanged(index, index);
         return true;
     }
     return false;
 }
 
-QModelIndex AlkOnlineQuotesModel::indexFromName(const QString &name)
-{
-    for (int i = 0; i < _sourceNames.size(); i++) {
-        if (name == _sourceNames.at(i))
-            return createIndex(i, 0, nullptr);
-    }
-    return createIndex(-1, -1, nullptr);
-}
-
 void AlkOnlineQuotesModel::slotSourcesChanged()
 {
-    int endRow = _sourceNames.size() - 1;
+    beginResetModel();
     _sourceNames = _profile->quoteSources();
-    Q_EMIT dataChanged(createIndex(0, 0), createIndex(endRow, 1));
+    endResetModel();
+}
+
+void AlkOnlineQuotesModel::setProfile(AlkOnlineQuotesProfile* profile)
+{
+    if (_profile != profile) {
+        beginResetModel();
+        _profile = profile;
+        connect(profile, SIGNAL(sourcesChanged()), this, SLOT(slotSourcesChanged()));
+        _sourceNames = _profile->quoteSources();
+        endResetModel();
+    }
 }

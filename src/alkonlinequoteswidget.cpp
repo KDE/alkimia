@@ -154,6 +154,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     , m_infoMessage(nullptr)
 #endif
+    , m_model(nullptr)
 {
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     static KComponentData alk(TRANSLATION_DOMAIN);
@@ -328,18 +329,20 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
         m_resetList.clear();
     }
 
-    // update model
-    if (m_quoteSourceList->model()) {
-        QSortFilterProxyModel *model = dynamic_cast<QSortFilterProxyModel*>(m_quoteSourceList->model());
-        model->sourceModel()->deleteLater();
-        m_quoteSourceList->model()->deleteLater();
+    // create or update model stack
+    if (!m_model) {
+        m_model = new AlkOnlineQuotesModel(m_profile);
+        auto proxyModel = new QSortFilterProxyModel(this);
+        proxyModel->setSourceModel(m_model);
+        m_quoteSourceList->setModel(proxyModel);
+    } else {
+        m_model->setProfile(m_profile);
     }
-    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel;
-    m_model = new AlkOnlineQuotesModel(m_profile);
-    proxyModel->setSourceModel(m_model);
 
-    m_quoteSourceList->setModel(proxyModel);
-    m_quoteSourceList->setCurrentIndex(m_model->indexFromName(m_currentItem.name()));
+    const auto indexes = m_model->match(m_model->index(0, 0), Qt::DisplayRole, m_currentItem.name(), 1, Qt::MatchExactly);
+    const auto index = !indexes.isEmpty() ? indexes.at(0) : QModelIndex();
+
+    m_quoteSourceList->setCurrentIndex(index);
     slotLoadQuoteSource(m_quoteSourceList->currentIndex());
     updateButtonState();
 }
@@ -402,6 +405,8 @@ void AlkOnlineQuotesWidget::Private::slotLoadProfile()
 
 void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource(const QModelIndex &index)
 {
+    Q_UNUSED(index)
+
     m_quoteInEditing = false;
 
     m_disableUpdate = true;
