@@ -339,10 +339,12 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
         m_model->setProfile(m_profile);
     }
 
-    const auto indexes = m_model->match(m_model->index(0, 0), Qt::DisplayRole, m_currentItem.name(), 1, Qt::MatchExactly);
+    const auto indexes = m_quoteSourceList->model()->match(m_model->index(0, 0), Qt::DisplayRole, m_currentItem.name(), 1, Qt::MatchExactly);
     const auto index = !indexes.isEmpty() ? indexes.at(0) : QModelIndex();
 
     m_quoteSourceList->setCurrentIndex(index);
+    m_quoteSourceList->selectRow(index.row());
+    m_quoteSourceList->scrollTo(index, QAbstractItemView::EnsureVisible);
     slotLoadQuoteSource(m_quoteSourceList->currentIndex());
     updateButtonState();
 }
@@ -573,9 +575,6 @@ void AlkOnlineQuotesWidget::Private::slotNewEntry()
         newSource.write();
         m_currentItem = newSource;
         loadQuotesList();
-        // TODO select new entry
-        //int index = m_profile->quoteSources().indexOf(newSource.name());
-        m_quoteSourceList->setCurrentIndex(QModelIndex());
 
     } else {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
