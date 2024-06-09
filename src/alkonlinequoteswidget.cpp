@@ -544,7 +544,6 @@ void AlkOnlineQuotesWidget::Private::slotDuplicateEntry()
     copy.setGHNS(false);
     copy.write();
     m_currentItem = copy;
-    m_quoteSourceList->model()->insertRow(m_quoteSourceList->currentIndex().row() + 1);
     loadQuotesList();
 }
 
