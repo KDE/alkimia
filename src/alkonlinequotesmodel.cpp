@@ -158,11 +158,9 @@ void AlkOnlineQuotesModel::slotSourcesChanged()
 
 void AlkOnlineQuotesModel::setProfile(AlkOnlineQuotesProfile* profile)
 {
-    if (_profile != profile) {
-        beginResetModel();
-        _profile = profile;
-        connect(profile, SIGNAL(sourcesChanged()), this, SLOT(slotSourcesChanged()));
-        _sourceNames = _profile->quoteSources();
-        endResetModel();
-    }
+    beginResetModel();
+    _profile = profile;
+    connect(profile, SIGNAL(sourcesChanged()), this, SLOT(slotSourcesChanged()));
+    _sourceNames = _profile->quoteSources();
+    endResetModel();
 }
