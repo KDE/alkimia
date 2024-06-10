@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-09 01:44+0000\n"
+"POT-Creation-Date: 2024-06-10 02:06+0000\n"
 "PO-Revision-Date: 2024-05-08 18:07+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -528,12 +528,12 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Local"
 
-#: alkonlinequotesmodel.cpp:90
+#: alkonlinequotesmodel.cpp:100
 #, kde-format
 msgid "Name"
 msgstr "Nom"
 
-#: alkonlinequotesmodel.cpp:91
+#: alkonlinequotesmodel.cpp:101
 #, kde-format
 msgid "Source"
 msgstr "Source"
@@ -631,169 +631,169 @@ msgstr "Profils d'applications"
 msgid "New"
 msgstr "Nouveau"
 
-#: alkonlinequoteswidget.cpp:193
+#: alkonlinequoteswidget.cpp:194
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Accepter"
 
-#: alkonlinequoteswidget.cpp:195
+#: alkonlinequoteswidget.cpp:196
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Accepte les données saisies et les enregistre"
 
-#: alkonlinequoteswidget.cpp:196
+#: alkonlinequoteswidget.cpp:197
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Utilisez ce bouton pour accepter les modifications."
 
-#: alkonlinequoteswidget.cpp:198
+#: alkonlinequoteswidget.cpp:199
 #, kde-format
 msgid "&Delete"
 msgstr "&Supprimer"
 
-#: alkonlinequoteswidget.cpp:200
+#: alkonlinequoteswidget.cpp:201
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Supprimer la source sélectionnée"
 
-#: alkonlinequoteswidget.cpp:201
+#: alkonlinequoteswidget.cpp:202
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Utiliser cette option pour supprimer la source en ligne sélectionnée"
 
-#: alkonlinequoteswidget.cpp:203
+#: alkonlinequoteswidget.cpp:204
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "&Vérifier la source"
 
-#: alkonlinequoteswidget.cpp:205
+#: alkonlinequoteswidget.cpp:206
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Vérifier l'entrée de la source sélectionnée"
 
-#: alkonlinequoteswidget.cpp:206
+#: alkonlinequoteswidget.cpp:207
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr ""
 "Utiliser cette option pour vérifier l'entrée de la source en ligne "
 "sélectionnée"
 
-#: alkonlinequoteswidget.cpp:208
+#: alkonlinequoteswidget.cpp:209
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "&Afficher la page"
 
-#: alkonlinequoteswidget.cpp:210
+#: alkonlinequoteswidget.cpp:211
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Afficher l'entrée de la source sélectionnée dans un navigateur Web"
 
-#: alkonlinequoteswidget.cpp:211
+#: alkonlinequoteswidget.cpp:212
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "Utiliser cette option pour afficher la source en ligne sélectionnée"
 
-#: alkonlinequoteswidget.cpp:213
+#: alkonlinequoteswidget.cpp:214
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Nouveau..."
 
-#: alkonlinequoteswidget.cpp:215
+#: alkonlinequoteswidget.cpp:216
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Créer une nouvelle source de cotations en ligne"
 
-#: alkonlinequoteswidget.cpp:216
+#: alkonlinequoteswidget.cpp:217
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr ""
 "Utilisez ce bouton pour créer une nouvelle source de cotations en ligne"
 
-#: alkonlinequoteswidget.cpp:272
+#: alkonlinequoteswidget.cpp:273
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Symbole"
 
-#: alkonlinequoteswidget.cpp:273
+#: alkonlinequoteswidget.cpp:274
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Numéro d'identifiant"
 
-#: alkonlinequoteswidget.cpp:274
+#: alkonlinequoteswidget.cpp:275
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nom"
 
-#: alkonlinequoteswidget.cpp:283
+#: alkonlinequoteswidget.cpp:284
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "HTML épuré"
 
-#: alkonlinequoteswidget.cpp:284
+#: alkonlinequoteswidget.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:285
+#: alkonlinequoteswidget.cpp:286
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:287
+#: alkonlinequoteswidget.cpp:288
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequoteswidget.cpp:291
+#: alkonlinequoteswidget.cpp:292
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Par défaut"
 
-#: alkonlinequoteswidget.cpp:292
+#: alkonlinequoteswidget.cpp:293
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "Javascript"
 
-#: alkonlinequoteswidget.cpp:516
+#: alkonlinequoteswidget.cpp:523
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Voulez-vous vraiment supprimer cette cotation en ligne ?"
 
-#: alkonlinequoteswidget.cpp:517
+#: alkonlinequoteswidget.cpp:524
 #, kde-format
 msgid "Delete online quote"
 msgstr "Supprimer la cotation en ligne"
 
-#: alkonlinequoteswidget.cpp:536
+#: alkonlinequoteswidget.cpp:543
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:565 alkonlinequoteswidget.cpp:567
+#: alkonlinequoteswidget.cpp:571 alkonlinequoteswidget.cpp:573
 #, kde-format
 msgid "New Quote Source"
 msgstr "Nouvelle source de cotation"
 
-#: alkonlinequoteswidget.cpp:580
+#: alkonlinequoteswidget.cpp:583
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>La nouvelle source de cotations</b> existe déjà."
 
-#: alkonlinequoteswidget.cpp:717
+#: alkonlinequoteswidget.cpp:720
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Fenêtre de résultat HTML de cotation en ligne"
