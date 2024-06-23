@@ -24,7 +24,6 @@
 #include <QTreeWidget>
 #include <QKeyEvent>
 #include <QSortFilterProxyModel>
-#include <QtDebug>
 #include <QTreeView>
 #include <QTreeWidgetItem>
 
@@ -306,6 +305,7 @@ AlkOnlineQuotesWidget::Private::~Private()
     m_webPageDialog->deleteLater();
     delete m_webView->webPage();
     delete m_webView;
+    delete m_model;
 }
 
 void AlkOnlineQuotesWidget::Private::loadProfiles()
@@ -325,10 +325,6 @@ void AlkOnlineQuotesWidget::Private::loadProfiles()
 
 void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
 {
-    if (updateResetList) {
-        m_resetList.clear();
-    }
-
     // create or update model stack
     if (!m_model) {
         m_model = new AlkOnlineQuotesModel(m_profile);
@@ -337,6 +333,22 @@ void AlkOnlineQuotesWidget::Private::loadQuotesList(const bool updateResetList)
         m_quoteSourceList->setModel(proxyModel);
     } else {
         m_model->setProfile(m_profile);
+    }
+
+    if (updateResetList) {
+        m_resetList.clear();
+        const QStringList groups = m_profile->quoteSources();
+
+        // Keep a copy of all loaded local entries.
+        // GHNS sources can only be maintained through the
+        // external dialog because otherwise resetConfig() would
+        // remove the GHNS file behind the scenes.
+        for (const auto& quoteSourceName : groups) {
+            const auto quoteSource = AlkOnlineQuoteSource(quoteSourceName, m_profile);
+            if (!quoteSource.isGHNS()) {
+                m_resetList.append(quoteSource);
+            }
+        }
     }
 
     const auto indexes = m_quoteSourceList->model()->match(m_model->index(0, 0), Qt::DisplayRole, m_currentItem.name(), 1, Qt::MatchExactly);
@@ -795,7 +807,16 @@ void AlkOnlineQuotesWidget::resetConfig()
 
     // delete all currently defined entries
     for (it = groups.constBegin(); it != groups.constEnd(); ++it) {
-        AlkOnlineQuoteSource(*it, d->m_profile).remove();
+        AlkOnlineQuoteSource quoteSource(*it, d->m_profile);
+        // Only remove when not a GHNS source. Those can only
+        // be removed via the external dialog. If removed here
+        // only the GHNS file will be removed and the entry
+        // shows up as empty local one when added by the logic
+        // below. Hence, the GHNS entries are not collected
+        // in the m_resetList.
+        if (!quoteSource.isGHNS()) {
+            quoteSource.remove();
+        }
     }
 
     // and write back the one's from the reset list
