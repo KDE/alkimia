@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-10 02:06+0000\n"
+"POT-Creation-Date: 2024-06-24 01:40+0000\n"
 "PO-Revision-Date: 2024-05-06 09:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -602,166 +602,166 @@ msgstr "應用程式設定檔"
 msgid "New"
 msgstr "新增"
 
-#: alkonlinequoteswidget.cpp:194
+#: alkonlinequoteswidget.cpp:193
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "接受(&A)"
 
-#: alkonlinequoteswidget.cpp:196
+#: alkonlinequoteswidget.cpp:195
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "接受輸入的資料並儲存"
 
-#: alkonlinequoteswidget.cpp:197
+#: alkonlinequoteswidget.cpp:196
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "用這個來接受變更的資料。"
 
-#: alkonlinequoteswidget.cpp:199
+#: alkonlinequoteswidget.cpp:198
 #, kde-format
 msgid "&Delete"
 msgstr "刪除(&D)"
 
-#: alkonlinequoteswidget.cpp:201
+#: alkonlinequoteswidget.cpp:200
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "刪除選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:202
+#: alkonlinequoteswidget.cpp:201
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "用這個來刪除選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:204
+#: alkonlinequoteswidget.cpp:203
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "檢查來源(&C)"
 
-#: alkonlinequoteswidget.cpp:206
+#: alkonlinequoteswidget.cpp:205
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "檢查選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:207
+#: alkonlinequoteswidget.cpp:206
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "用這個來檢查選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:209
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "顯示頁面(&S)"
 
-#: alkonlinequoteswidget.cpp:211
+#: alkonlinequoteswidget.cpp:210
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "在網頁瀏覽器中線上所選的來源項目"
 
-#: alkonlinequoteswidget.cpp:212
+#: alkonlinequoteswidget.cpp:211
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "用這個來顯示選取的來源項目"
 
-#: alkonlinequoteswidget.cpp:214
+#: alkonlinequoteswidget.cpp:213
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "新增(&N)..."
 
-#: alkonlinequoteswidget.cpp:216
+#: alkonlinequoteswidget.cpp:215
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "建立新的線上報價來源項目"
 
-#: alkonlinequoteswidget.cpp:217
+#: alkonlinequoteswidget.cpp:216
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "用這個來建立新的線上報價項目"
 
-#: alkonlinequoteswidget.cpp:273
+#: alkonlinequoteswidget.cpp:272
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "符號"
 
-#: alkonlinequoteswidget.cpp:274
+#: alkonlinequoteswidget.cpp:273
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "識別編號"
 
-#: alkonlinequoteswidget.cpp:275
+#: alkonlinequoteswidget.cpp:274
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "名稱"
 
-#: alkonlinequoteswidget.cpp:284
+#: alkonlinequoteswidget.cpp:283
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "已整理的 HTML"
 
-#: alkonlinequoteswidget.cpp:285
+#: alkonlinequoteswidget.cpp:284
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:286
+#: alkonlinequoteswidget.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:288
+#: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequoteswidget.cpp:292
+#: alkonlinequoteswidget.cpp:291
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "預設"
 
-#: alkonlinequoteswidget.cpp:293
+#: alkonlinequoteswidget.cpp:292
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "JavaScript"
 
-#: alkonlinequoteswidget.cpp:523
+#: alkonlinequoteswidget.cpp:535
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "您確定要刪除這個線上報價嗎？"
 
-#: alkonlinequoteswidget.cpp:524
+#: alkonlinequoteswidget.cpp:536
 #, kde-format
 msgid "Delete online quote"
 msgstr "刪除線上報價"
 
-#: alkonlinequoteswidget.cpp:543
+#: alkonlinequoteswidget.cpp:555
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:571 alkonlinequoteswidget.cpp:573
+#: alkonlinequoteswidget.cpp:583 alkonlinequoteswidget.cpp:585
 #, kde-format
 msgid "New Quote Source"
 msgstr "新的報價來源"
 
-#: alkonlinequoteswidget.cpp:583
+#: alkonlinequoteswidget.cpp:595
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>新的報價來源</b>已經存在。"
 
-#: alkonlinequoteswidget.cpp:720
+#: alkonlinequoteswidget.cpp:732
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "線上報價 HTML 結果視窗"

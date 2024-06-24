@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-10 02:06+0000\n"
+"POT-Creation-Date: 2024-06-24 01:40+0000\n"
 "PO-Revision-Date: 2021-11-05 11:17+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -616,168 +616,168 @@ msgstr "Alkalmazásprofilok"
 msgid "New"
 msgstr "Új"
 
-#: alkonlinequoteswidget.cpp:194
+#: alkonlinequoteswidget.cpp:193
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Elfogadás"
 
-#: alkonlinequoteswidget.cpp:196
+#: alkonlinequoteswidget.cpp:195
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Megadott adatok elfogadása és tárolása"
 
-#: alkonlinequoteswidget.cpp:197
+#: alkonlinequoteswidget.cpp:196
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Használja ezt, hogy a módosított adatokat elfogadja."
 
-#: alkonlinequoteswidget.cpp:199
+#: alkonlinequoteswidget.cpp:198
 #, kde-format
 msgid "&Delete"
 msgstr "&Törlés"
 
-#: alkonlinequoteswidget.cpp:201
+#: alkonlinequoteswidget.cpp:200
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Kijelölt forrásbejegyzés törlése"
 
-#: alkonlinequoteswidget.cpp:202
+#: alkonlinequoteswidget.cpp:201
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Használja ezt, hogy törölhesse a kiválasztott online forrásbejegyzést"
 
-#: alkonlinequoteswidget.cpp:204
+#: alkonlinequoteswidget.cpp:203
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "&Forrás ellenőrzése"
 
-#: alkonlinequoteswidget.cpp:206
+#: alkonlinequoteswidget.cpp:205
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Kijelölt forrásbejegyzés ellenőrzése"
 
-#: alkonlinequoteswidget.cpp:207
+#: alkonlinequoteswidget.cpp:206
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "Használja ezt a kiválasztott online forrásbejegyzés ellenőrzéséhez"
 
-#: alkonlinequoteswidget.cpp:209
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "&Oldal megjelenítése"
 
-#: alkonlinequoteswidget.cpp:211
+#: alkonlinequoteswidget.cpp:210
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Kijelölt forrásbejegyzés megjelenítése webböngészőben"
 
-#: alkonlinequoteswidget.cpp:212
+#: alkonlinequoteswidget.cpp:211
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "Használja ezt a kiválasztott online forrásbejegyzés megjelenítéséhez"
 
-#: alkonlinequoteswidget.cpp:214
+#: alkonlinequoteswidget.cpp:213
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "Ú&j…"
 
-#: alkonlinequoteswidget.cpp:216
+#: alkonlinequoteswidget.cpp:215
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Új forrásbejegyzés létrehozása online árajánlatokhoz"
 
-#: alkonlinequoteswidget.cpp:217
+#: alkonlinequoteswidget.cpp:216
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr "Használja ezt új bejegyzés létrehozásához online árajánlatokhoz"
 
-#: alkonlinequoteswidget.cpp:273
+#: alkonlinequoteswidget.cpp:272
 #, fuzzy, kde-format
 #| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Szimbólum"
 
-#: alkonlinequoteswidget.cpp:274
+#: alkonlinequoteswidget.cpp:273
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:275
+#: alkonlinequoteswidget.cpp:274
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Név"
 
-#: alkonlinequoteswidget.cpp:284
+#: alkonlinequoteswidget.cpp:283
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:285
+#: alkonlinequoteswidget.cpp:284
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:286
+#: alkonlinequoteswidget.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:288
+#: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:292
+#: alkonlinequoteswidget.cpp:291
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:293
+#: alkonlinequoteswidget.cpp:292
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:523
+#: alkonlinequoteswidget.cpp:535
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Biztosan törli ezt az online árajánlatot?"
 
-#: alkonlinequoteswidget.cpp:524
+#: alkonlinequoteswidget.cpp:536
 #, kde-format
 msgid "Delete online quote"
 msgstr "Online árajánlat törlése"
 
-#: alkonlinequoteswidget.cpp:543
+#: alkonlinequoteswidget.cpp:555
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:571 alkonlinequoteswidget.cpp:573
+#: alkonlinequoteswidget.cpp:583 alkonlinequoteswidget.cpp:585
 #, kde-format
 msgid "New Quote Source"
 msgstr "Új árajánlatforrás"
 
-#: alkonlinequoteswidget.cpp:583
+#: alkonlinequoteswidget.cpp:595
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:720
+#: alkonlinequoteswidget.cpp:732
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Online árajánlat HTML eredményablak"

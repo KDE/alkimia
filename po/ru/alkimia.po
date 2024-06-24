@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-10 02:06+0000\n"
+"POT-Creation-Date: 2024-06-24 01:40+0000\n"
 "PO-Revision-Date: 2023-11-10 14:32+0300\n"
 "Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -617,167 +617,167 @@ msgstr "Профили приложения"
 msgid "New"
 msgstr "Создать"
 
-#: alkonlinequoteswidget.cpp:194
+#: alkonlinequoteswidget.cpp:193
 #, kde-format
 msgctxt "Accepts the entered data and stores it"
 msgid "&Accept"
 msgstr "&Принять"
 
-#: alkonlinequoteswidget.cpp:196
+#: alkonlinequoteswidget.cpp:195
 #, kde-format
 msgid "Accepts the entered data and stores it"
 msgstr "Сохранить данные"
 
-#: alkonlinequoteswidget.cpp:197
+#: alkonlinequoteswidget.cpp:196
 #, kde-format
 msgid "Use this to accept the modified data."
 msgstr "Нажмите эту кнопку, чтобы принять изменения данных."
 
-#: alkonlinequoteswidget.cpp:199
+#: alkonlinequoteswidget.cpp:198
 #, kde-format
 msgid "&Delete"
 msgstr "У&далить"
 
-#: alkonlinequoteswidget.cpp:201
+#: alkonlinequoteswidget.cpp:200
 #, kde-format
 msgid "Delete the selected source entry"
 msgstr "Удалить источник курсов"
 
-#: alkonlinequoteswidget.cpp:202
+#: alkonlinequoteswidget.cpp:201
 #, kde-format
 msgid "Use this to delete the selected online source entry"
 msgstr "Нажмите эту кнопку, чтобы удалить выбранный источник"
 
-#: alkonlinequoteswidget.cpp:204
+#: alkonlinequoteswidget.cpp:203
 #, kde-format
 msgctxt "Check the selected source entry"
 msgid "&Check Source"
 msgstr "&Проверить источник"
 
-#: alkonlinequoteswidget.cpp:206
+#: alkonlinequoteswidget.cpp:205
 #, kde-format
 msgid "Check the selected source entry"
 msgstr "Проверить выбранный источник курсов"
 
-#: alkonlinequoteswidget.cpp:207
+#: alkonlinequoteswidget.cpp:206
 #, kde-format
 msgid "Use this to check the selected online source entry"
 msgstr "Нажмите эту кнопку, чтобы проверить выбранный онлайн-источник"
 
-#: alkonlinequoteswidget.cpp:209
+#: alkonlinequoteswidget.cpp:208
 #, kde-format
 msgctxt "Show the selected source entry in a web browser"
 msgid "&Show page"
 msgstr "&Показать страницу"
 
-#: alkonlinequoteswidget.cpp:211
+#: alkonlinequoteswidget.cpp:210
 #, kde-format
 msgid "Show the selected source entry in a web browser"
 msgstr "Показать выбранный источник курсов в браузере"
 
-#: alkonlinequoteswidget.cpp:212
+#: alkonlinequoteswidget.cpp:211
 #, kde-format
 msgid "Use this to show the selected online source entry"
 msgstr "Нажмите эту кнопку, чтобы показать выбранный источник в Интернете"
 
-#: alkonlinequoteswidget.cpp:214
+#: alkonlinequoteswidget.cpp:213
 #, kde-format
 msgctxt "Create a new source entry for online quotes"
 msgid "&New..."
 msgstr "&Добавить..."
 
-#: alkonlinequoteswidget.cpp:216
+#: alkonlinequoteswidget.cpp:215
 #, kde-format
 msgid "Create a new source entry for online quotes"
 msgstr "Добавить новый источник котировок в Интернете"
 
-#: alkonlinequoteswidget.cpp:217
+#: alkonlinequoteswidget.cpp:216
 #, kde-format
 msgid "Use this to create a new entry for online quotes"
 msgstr ""
 "Нажмите эту кнопку, чтобы добавить новый источник котировок в Интернете"
 
-#: alkonlinequoteswidget.cpp:273
+#: alkonlinequoteswidget.cpp:272
 #, fuzzy, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Код"
 
-#: alkonlinequoteswidget.cpp:274
+#: alkonlinequoteswidget.cpp:273
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:275
+#: alkonlinequoteswidget.cpp:274
 #, fuzzy, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Имя"
 
-#: alkonlinequoteswidget.cpp:284
+#: alkonlinequoteswidget.cpp:283
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:285
+#: alkonlinequoteswidget.cpp:284
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:286
+#: alkonlinequoteswidget.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:288
+#: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:292
+#: alkonlinequoteswidget.cpp:291
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:293
+#: alkonlinequoteswidget.cpp:292
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:523
+#: alkonlinequoteswidget.cpp:535
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Действительно удалить эту котировку, полученную из Интернета?"
 
-#: alkonlinequoteswidget.cpp:524
+#: alkonlinequoteswidget.cpp:536
 #, kde-format
 msgid "Delete online quote"
 msgstr "Удалить котировку в Интернете"
 
-#: alkonlinequoteswidget.cpp:543
+#: alkonlinequoteswidget.cpp:555
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:571 alkonlinequoteswidget.cpp:573
+#: alkonlinequoteswidget.cpp:583 alkonlinequoteswidget.cpp:585
 #, kde-format
 msgid "New Quote Source"
 msgstr "Новый источник котировок"
 
-#: alkonlinequoteswidget.cpp:583
+#: alkonlinequoteswidget.cpp:595
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:720
+#: alkonlinequoteswidget.cpp:732
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Окно результатов котировки в Интернете в формате HTML"
