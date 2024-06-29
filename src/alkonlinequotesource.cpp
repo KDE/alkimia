@@ -336,21 +336,23 @@ bool AlkOnlineQuoteSource::read()
 bool AlkOnlineQuoteSource::write()
 {
     bool result = false;
-    // check if type has been changedd->isGHNS
-    if (d->m_profile->hasGHNSSupport() && d->m_isGHNSSource) {
-        result = d->writeToGHNSFile();
-        if (d->m_storageChanged)
-            d->remove();
-        return result;
-    } else {
-        if (d->m_storageChanged && d->m_profile->quoteSources().contains(d->m_name))
-            d->m_name.append(".local");
-        result = d->write();
-        if (d->m_profile->hasGHNSSupport() && d->m_storageChanged) {
-            d->removeGHNSFile();
+    if (d->m_profile) {
+        // check if type has been changedd->isGHNS
+        if (d->m_profile->hasGHNSSupport() && d->m_isGHNSSource) {
+            result = d->writeToGHNSFile();
+            if (d->m_storageChanged)
+                d->remove();
+            return result;
+        } else {
+            if (d->m_storageChanged && d->m_profile->quoteSources().contains(d->m_name))
+                d->m_name.append(".local");
+            result = d->write();
+            if (d->m_profile->hasGHNSSupport() && d->m_storageChanged) {
+                d->removeGHNSFile();
+            }
         }
+        d->m_storageChanged = false;
     }
-    d->m_storageChanged = false;
     return result;
 }
 
