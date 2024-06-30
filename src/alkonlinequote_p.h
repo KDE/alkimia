@@ -63,6 +63,7 @@ public:
     bool m_ownProfile;
     int m_timeout;
     bool m_useSingleQuoteSignal{false};
+    LastPriceState m_alwaysReturnLastPrice{AlwaysWhenToday};
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     static int dbgArea();

@@ -68,6 +68,29 @@ public:
         QList<Type> m_type;
     };
 
+    /**
+     * Supported values for returning prices in special cases
+     */
+    enum LastPriceState {
+        /**
+         * No handling of special cases
+         */
+        Off,
+        /**
+         *  If no price is available in the specified period,
+         *  but older ones are available, the most current price
+         *  is returned.
+         */
+        Always,
+        /**
+         * If the date range has the same start and end date,
+         * is identical to the current date, no price was
+         * found but older ones are available, the most current
+         * price is returned. (Default)
+         */
+        AlwaysWhenToday
+    };
+
     AlkOnlineQuotesProfile *profile();
     void setProfile(AlkOnlineQuotesProfile *profile);
 
@@ -101,6 +124,28 @@ public:
      * @param to last date to include the online quote
      */
     void setDateRange(const QDate &from, const QDate &to);
+
+    /**
+     * Returns the status of the price to be returned for special date ranges.
+     *
+     * See setReturnLastPriceState() for details.
+     *
+     * @return current state used, see AlkOnlineQuote::LastPriceState for the supported values.
+     */
+    LastPriceState returnLastPriceState();
+
+    /**
+     * Sets the status of the price to be returned for special date range.
+     *
+     * This setting is intended for handling special cases when returning
+     * prices and rates, for example in cases where the time range for a
+     * price query does not match the delivered prices, e.g. because only
+     * today was specified and the last available price is from the day
+     * before yesterday.
+     *
+     * @param state the state to use, see AlkOnlineQuote::LastPriceState for the supported values.
+     */
+    void setReturnLastPriceState(LastPriceState state);
 
     /**
      * Always use signal `quote`.

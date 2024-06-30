@@ -657,6 +657,9 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
         Q_EMIT m_p->failed(m_id, m_symbol);
         return false;
     }
+
+    QDate lastDate;
+    AlkValue lastPrice;
     AlkDatePriceMap prices;
     for (const auto &line : lines) {
         if (line.trimmed().isEmpty())
@@ -675,16 +678,30 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
             Q_EMIT m_p->failed(m_id, m_symbol);
             return false;
         }
+
+        if (m_source.priceDecimalSeparator() == AlkOnlineQuoteSource::Comma)
+            priceValue.replace(QLatin1Char(','), QLatin1Char('.'));
+
+        AlkValue price = AlkValue(priceValue, decimalSeparator);
+        if (lastDate.isNull() || lastDate <= date) {
+            lastPrice = price;
+            lastDate = date;
+        }
+
         if (!m_startDate.isNull() && date < m_startDate)
             continue;
         if (!m_endDate.isNull() && date > m_endDate)
             continue;
 
-        if (m_source.priceDecimalSeparator() == AlkOnlineQuoteSource::Comma)
-            priceValue.replace(QLatin1Char(','), QLatin1Char('.'));
-
-        prices[date] = AlkValue(priceValue, decimalSeparator);
+        prices[date] = price;
     }
+
+    if (prices.isEmpty() && !lastDate.isNull()) {
+        if (m_alwaysReturnLastPrice == Always ||
+                (m_alwaysReturnLastPrice == AlwaysWhenToday && m_startDate == m_endDate && m_startDate == QDate::currentDate()))
+            prices[lastDate] = lastPrice;
+    }
+
     if (prices.isEmpty()) {
         m_errors |= Errors::Price;
         Q_EMIT m_p->error(i18n("Unable to find date/price pairs in quote data"));

@@ -99,6 +99,16 @@ void AlkOnlineQuote::setDateRange(const QDate &from, const QDate &to)
     d->m_endDate = to;
 }
 
+AlkOnlineQuote::LastPriceState AlkOnlineQuote::returnLastPriceState()
+{
+    return d->m_alwaysReturnLastPrice;
+}
+
+void AlkOnlineQuote::setReturnLastPriceState(LastPriceState state)
+{
+    d->m_alwaysReturnLastPrice = state;
+}
+
 void AlkOnlineQuote::setUseSingleQuoteSignal(bool state)
 {
     d->m_useSingleQuoteSignal = state;
