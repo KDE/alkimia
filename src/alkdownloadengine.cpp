@@ -110,6 +110,11 @@ void AlkDownloadEngine::Private::slotLoadRedirectedTo(const QUrl &url)
 void AlkDownloadEngine::Private::downloadUrlDoneQt(QNetworkReply *reply)
 {
     Result result = Result::NoError;
+    for (const auto &header: reply->request().rawHeaderList())
+        alkDebug() << "request header" << header << reply->request().rawHeader(header);
+
+    alkDebug() << "reply header" << reply->rawHeaderPairs();
+
     if (reply->error() == QNetworkReply::NoError) {
         QUrl newUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
         if (!newUrl.isEmpty() && newUrl != reply->url()) {
