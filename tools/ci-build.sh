@@ -417,7 +417,7 @@ if test "$ci_test" = yes; then
     start_webserver
 
     # run tests
-    ctest --test-dir ${builddir} --output-on-failure --timeout 60 --jobs $ci_jobs -VV
+    ctest --test-dir ${builddir} --output-on-failure --timeout 60 --parallel $ci_jobs -VV
 
     # show screenshot in case of errors
     if test $? -ne 0; then
