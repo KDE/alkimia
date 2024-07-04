@@ -29,27 +29,7 @@
       <set>Qt::AlignCenter</set>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>One Symbol</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLineEdit" name="m_checkSymbol"/>
-      </item>
-      <item row="0" column="3">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Two Symbols</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QLineEdit" name="m_checkSymbol2"/>
-      </item>
-      <item row="0" column="5" rowspan="3">
+      <item row="0" column="5" rowspan="4">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="AlkPushButton" name="m_checkButton">
@@ -85,15 +65,8 @@
         </item>
        </layout>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="m_startDateLabel">
-        <property name="text">
-         <string>Start date</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="5">
-       <widget class="KTextEdit" name="m_logWindow"/>
+      <item row="0" column="2">
+       <widget class="QLineEdit" name="m_checkSymbol"/>
       </item>
       <item row="1" column="3">
        <widget class="QLabel" name="m_endDateLabel">
@@ -102,11 +75,64 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="KDateComboBox" name="m_startDateEdit"/>
+      <item row="0" column="3">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Two Symbols</string>
+        </property>
+       </widget>
       </item>
       <item row="1" column="4">
        <widget class="KDateComboBox" name="m_endDateEdit"/>
+      </item>
+      <item row="3" column="0" colspan="5">
+       <widget class="KTextEdit" name="m_logWindow"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="KDateComboBox" name="m_startDateEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="m_startDateLabel">
+        <property name="text">
+         <string>Start date</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLineEdit" name="m_checkSymbol2"/>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>One Symbol</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Return last price state</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QComboBox" name="m_returnLastPriceStateComboBox">
+        <item>
+         <property name="text">
+          <string>Off</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Always</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Always when today</string>
+         </property>
+        </item>
+       </widget>
       </item>
      </layout>
     </widget>

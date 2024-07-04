@@ -663,6 +663,7 @@ void AlkOnlineQuotesWidget::Private::slotCheckEntry()
     } else {
         quote.setDateRange(QDate(), QDate());
     }
+    quote.setReturnLastPriceState(static_cast<AlkOnlineQuote::LastPriceState>(m_returnLastPriceStateComboBox->currentIndex()));
     if (m_currentItem.requiresTwoIdentifier()) {
         quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), m_currentItem.name());
     } else {
