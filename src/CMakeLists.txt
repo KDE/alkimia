@@ -36,6 +36,17 @@ set(alkimia_INTERNAL_UI
 
 ki18n_wrap_ui(alkimia_INTERNAL_SRCS ${alkimia_INTERNAL_UI} )
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
+
+if(MINGW)
+    # On Windows we need undecorated symbols for class AlkValue
+    set_source_files_properties(
+        alkquoteitem.cpp
+        alkquotereceiver.cpp
+        PROPERTIES
+            COMPILE_DEFINITIONS -DALK_STATIC_DEFINE
+    )
+endif()
+
 if (QT_MAJOR_VERSION GREATER_EQUAL 5)
     list(APPEND ALKIMIA_INTERNAL_LIBS
         PRIVATE
