@@ -9,6 +9,7 @@
 #define ALKONLINEQUOTESMODEL_H
 
 #include <QAbstractItemModel>
+#include <QStringList>
 
 class AlkOnlineQuotesProfile;
 
