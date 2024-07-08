@@ -20,6 +20,7 @@ public:
     enum Columns {
         Name,
         Source,
+        ReferenceTo
     };
 
     enum Roles {

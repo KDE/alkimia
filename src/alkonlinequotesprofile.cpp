@@ -248,3 +248,8 @@ QString AlkOnlineQuotesProfile::GHNSFilePath(const QString &name) const
 {
     return d->GHNSFilePath(name);
 }
+
+QString AlkOnlineQuotesProfile::GHNSName(const QString &id) const
+{
+    return  d->GHNSName(id);
+}

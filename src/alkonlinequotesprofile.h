@@ -83,6 +83,7 @@ public:
 
     QString GHNSId(const QString &name) const;
     QString GHNSFilePath(const QString &name) const;
+    QString GHNSName(const QString &id) const;
 
     void reload();
 

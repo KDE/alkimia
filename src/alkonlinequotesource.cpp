@@ -135,6 +135,16 @@ AlkOnlineQuoteSource::~AlkOnlineQuoteSource()
     delete d;
 }
 
+AlkOnlineQuoteSource AlkOnlineQuoteSource::asReference()
+{
+    return AlkOnlineQuoteSource(referenceName(), d->m_profile);
+}
+
+bool AlkOnlineQuoteSource::isReference()
+{
+    return !d->m_referenceId.isEmpty();
+}
+
 bool AlkOnlineQuoteSource::isEmpty()
 {
     return !isValid()  && !d->m_url.isEmpty();
@@ -143,6 +153,11 @@ bool AlkOnlineQuoteSource::isEmpty()
 bool AlkOnlineQuoteSource::isValid()
 {
     return !d->m_name.isEmpty();
+}
+
+QString AlkOnlineQuoteSource::referenceName() const
+{
+    return d->m_profile->GHNSName(d->m_referenceId);
 }
 
 QString AlkOnlineQuoteSource::name() const
@@ -205,6 +220,11 @@ AlkOnlineQuoteSource::DownloadType AlkOnlineQuoteSource::downloadType() const
 QString AlkOnlineQuoteSource::financeQuoteName() const
 {
     return d->m_name.section(' ', 1);
+}
+
+void AlkOnlineQuoteSource::setReferenceName(const QString &name)
+{
+    d->m_referenceId = d->m_profile->GHNSId(name);
 }
 
 void AlkOnlineQuoteSource::setName(const QString &name)
@@ -391,7 +411,8 @@ bool AlkOnlineQuoteSource::requiresTwoIdentifier() const
 }
 
 AlkOnlineQuoteSource::Private::Private(const Private *other)
-    : m_name(other->m_name)
+    : m_referenceId(other->m_referenceId)
+    , m_name(other->m_name)
     , m_url(other->m_url)
     , m_priceDecimalSeparator(other->m_priceDecimalSeparator)
     , m_priceRegex(other->m_priceRegex)

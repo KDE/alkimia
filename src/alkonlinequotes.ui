@@ -69,7 +69,26 @@
             </property>
             <property name="icon">
              <iconset theme="edit-copy">
-              <normaloff>.</normaloff>.</iconset>
+              <normaloff/>
+             </iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="AlkPushButton" name="m_addReferenceButton">
+            <property name="toolTip">
+             <string>Creates a new local online source as reference to a remote online quote source</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to create a new local online quote source that links to a remote online quote source. The attributes of the remote online course source are then used for a price or quote request.</string>
+            </property>
+            <property name="text">
+             <string>Add reference</string>
+            </property>
+            <property name="icon">
+             <iconset theme="tool_references">
+              <normaloff/>
+             </iconset>
             </property>
            </widget>
           </item>
@@ -80,7 +99,8 @@
             </property>
             <property name="icon">
              <iconset theme="run-install">
-              <normaloff>.</normaloff>.</iconset>
+              <normaloff/>
+             </iconset>
             </property>
            </widget>
           </item>
@@ -91,7 +111,8 @@
             </property>
             <property name="icon">
              <iconset theme="cloud-upload">
-              <normaloff>.</normaloff>.</iconset>
+              <normaloff/>
+             </iconset>
             </property>
            </widget>
           </item>

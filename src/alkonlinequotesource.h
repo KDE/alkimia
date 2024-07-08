@@ -76,6 +76,22 @@ public:
 
     friend void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second);
 
+    /**
+     * Return referenced quote source
+     *
+     * If this source is not a reference, an empty source is returned.
+     *
+     * @return referenced quote source or empty source otherwise
+     */
+    AlkOnlineQuoteSource asReference();
+
+    /**
+     * Return state if this source is a reference
+     *
+     * @return true the current source is a reference
+     * @return false the current source is not a reference
+     */
+    bool isReference();
     bool isEmpty();
     bool isValid();
 
@@ -84,6 +100,12 @@ public:
     void rename(const QString &name);
     void remove();
 
+    /**
+     * Return name of the referenced quote source
+     *
+     * @return referenced source name
+     */
+    QString referenceName() const;
     QString name() const;
     QString url() const;
     DecimalSeparator priceDecimalSeparator() const;
@@ -106,6 +128,14 @@ public:
     bool isFinanceQuote() const;
     static bool isFinanceQuote(const QString &name);
 
+    /**
+     * Make this source a reference
+     *
+     * Calling this method makes this source a reference to a remote online quote source.
+     *
+     *@param name name of the referenced source
+     */
+    void setReferenceName(const QString &name);
     void setName(const QString &name);
     void setUrl(const QString &url);
     void setPriceDecimalSeparator(DecimalSeparator separator);

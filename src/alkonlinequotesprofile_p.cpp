@@ -74,6 +74,15 @@ QString AlkOnlineQuotesProfile::Private::GHNSFilePath(const QString &name)
     return QString();
 }
 
+QString AlkOnlineQuotesProfile::Private::GHNSName(const QString &id)
+{
+    for (const AlkNewStuffEntry &entry : installedNewStuffEntries()) {
+        if (entry.id == id)
+            return entry.name;
+    }
+    return QString();
+}
+
 const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesNative()
 {
     auto kconfig = KSharedConfig::openConfig(m_kconfigFile, KConfig::SimpleConfig);

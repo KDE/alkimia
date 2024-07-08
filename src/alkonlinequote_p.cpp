@@ -141,6 +141,9 @@ bool AlkOnlineQuote::Private::initSource(const QString &_source)
 
     //m_profile->createSource(source);
     m_source = AlkOnlineQuoteSource(source, m_profile);
+    if (m_source.isReference())
+        m_source = m_source.asReference();
+
     return true;
 }
 

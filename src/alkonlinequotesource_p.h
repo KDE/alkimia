@@ -56,6 +56,7 @@ public:
             m_dataFormat = grp.readEntry<bool>(QLatin1String("SkipStripping"), false) == true ? HTML : StrippedHTML;
         }
 
+        m_referenceId = grp.readEntry("ReferenceId");
         m_dateRegex = grp.readEntry("DateRegex");
         m_dateFormat = grp.readEntry("DateFormatRegex", "%m %d %y");
         if (grp.hasKey("DefaultId"))
@@ -83,6 +84,7 @@ public:
         if (!kconfig)
             return false;
         KConfigGroup grp = kconfig->group(QString("Online-Quote-Source-%1").arg(m_name));
+        grp.writeEntry("ReferenceId", m_referenceId);
         grp.writeEntry("URL", m_url);
         grp.writeEntry("PriceDecimalSeparator", static_cast<int>(m_priceDecimalSeparator));
         grp.writeEntry("PriceRegex", m_priceRegex);
@@ -237,6 +239,7 @@ public:
         return QFile::remove(ghnsWriteFilePath());
     }
 
+    QString m_referenceId;
     QString m_name;
     QString m_url;
     DecimalSeparator m_priceDecimalSeparator{Legacy};
