@@ -102,21 +102,10 @@ void testDownloadError(const QString &url, AlkDownloadEngine::Type type)
     engine->setTimeout(5000);
     TestReceiver receiver(engine);
 
-#if defined(USE_KIO)
-    QWARN("KIO does return false in case of errors");
-    QVERIFY(!engine->downloadUrl(url, type));
-    QWARN("KIO does not emit the error signal");
-    QVERIFY(!receiver.gotError);
-    QWARN("KIO does not emit the finished signal");
-    QVERIFY(!receiver.gotFinished);
-    QWARN("KIO emits the signal");
-    QVERIFY(receiver.gotTimeout);
-#else
     QVERIFY(!engine->downloadUrl(url, type));
     QVERIFY(receiver.gotError);
     QVERIFY(!receiver.gotFinished);
     QVERIFY(!receiver.gotTimeout);
-#endif
     QVERIFY(!receiver.gotRedirected);
     QVERIFY(receiver.gotStarted);
 }
@@ -160,7 +149,7 @@ void testDownloadRedirected(const QString &url, AlkDownloadEngine::Type type)
     QVERIFY(!receiver.gotError);
     QVERIFY(receiver.gotFinished);
     QVERIFY(receiver.gotDataMatches);
-#if defined(USE_KIO) || defined(USE_WEBKIT)
+#if defined(USE_WEBKIT)
     QWARN("This engine does not return a redirected url");
 #else
     QVERIFY(receiver.gotRedirected);
@@ -188,8 +177,6 @@ void AlkDownloadEngineTest::testDownloadEngineError()
 {
 #if defined(USE_QTNETWORK)
     testDownloadError(m_errorUrl, AlkDownloadEngine::QtEngine);
-#elif defined(USE_KIO)
-    testDownloadError(m_errorUrl, AlkDownloadEngine::KIOEngine);
 #elif defined(USE_WEBKIT)
     testDownloadError(m_errorUrl, AlkDownloadEngine::WebKitEngine);
 #elif defined(USE_WEBENGINE)
@@ -203,8 +190,6 @@ void AlkDownloadEngineTest::testDownloadEngineFinished()
 {
 #if defined(USE_QTNETWORK)
     testDownloadFinished(m_url, AlkDownloadEngine::QtEngine);
-#elif defined(USE_KIO)
-    testDownloadFinished(m_url, AlkDownloadEngine::KIOEngine);
 #elif defined(USE_WEBKIT)
     testDownloadFinished(m_url, AlkDownloadEngine::WebKitEngine);
 #elif defined(USE_WEBENGINE)
@@ -218,8 +203,6 @@ void AlkDownloadEngineTest::testDownloadEngineRedirected()
 {
     #if defined(USE_QTNETWORK)
         testDownloadRedirected(m_url, AlkDownloadEngine::QtEngine);
-    #elif defined(USE_KIO)
-        testDownloadRedirected(m_url, AlkDownloadEngine::KIOEngine);
     #elif defined(USE_WEBKIT)
         testDownloadRedirected(m_url, AlkDownloadEngine::WebKitEngine);
     #elif defined(USE_WEBENGINE)
@@ -233,8 +216,6 @@ void AlkDownloadEngineTest::testDownloadEngineTimeout()
 {
     #if defined(USE_QTNETWORK)
         testDownloadTimeout(m_url, AlkDownloadEngine::QtEngine);
-    #elif defined(USE_KIO)
-        testDownloadTimeout(m_url, AlkDownloadEngine::KIOEngine);
     #elif defined(USE_WEBKIT)
         testDownloadTimeout(m_url, AlkDownloadEngine::WebKitEngine);
     #elif defined(USE_WEBENGINE)
@@ -244,7 +225,7 @@ void AlkDownloadEngineTest::testDownloadEngineTimeout()
     #endif
 }
 
-// GUI is required by KIO and webxxx
+// GUI is required by webxxx
 QTEST_MAIN(AlkDownloadEngineTest)
 
 #include "alkdownloadenginetest.moc"

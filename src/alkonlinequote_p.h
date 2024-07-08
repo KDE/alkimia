@@ -27,9 +27,6 @@
 #ifdef BUILD_WITH_QTNETWORK
 class QNetworkReply;
 #endif
-#ifdef BUILD_WITH_KIO
-class KJob;
-#endif
 
 #include <QApplication>
 #include <QByteArray>

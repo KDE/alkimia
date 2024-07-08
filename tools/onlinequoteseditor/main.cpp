@@ -20,7 +20,7 @@
 
 #include <QMenuBar>
 
-#if defined(Q_OS_WIN) && !defined(BUILD_WITH_KIO)
+#if defined(Q_OS_WIN)
 #include <QNetworkProxyFactory>
 #endif
 
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
                        AlkAboutData::License_GPL,
                        "(C) 2018-2024 Ralf Habacker");
 
-#if defined(Q_OS_WIN) && !defined(BUILD_WITH_KIO)
+#if defined(Q_OS_WIN)
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 #endif
 

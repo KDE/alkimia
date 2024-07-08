@@ -10,7 +10,7 @@
 
 #include "alkapplication.h"
 
-#if defined(Q_OS_WIN) && !defined(BUILD_WITH_KIO)
+#if defined(Q_OS_WIN)
 #include <QNetworkProxyFactory>
 #endif
 
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     aboutData.setOrganizationDomain("kde.org");
     AlkAboutData::setApplicationData(aboutData);
 
-#if defined(Q_OS_WIN) && !defined(BUILD_WITH_KIO)
+#if defined(Q_OS_WIN)
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 #endif
 

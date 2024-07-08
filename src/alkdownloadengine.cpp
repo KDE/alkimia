@@ -18,15 +18,6 @@
 #include <QNetworkReply>
 #include <QNetworkAccessManager>
 #endif
-#ifdef BUILD_WITH_KIO
-    #include <KIO/Scheduler>
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    #include <KIO/Job>
-    #include <QTemporaryFile>
-#else
-    #include <kio/netaccess.h>
-#endif
-#endif
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <klocalizedstring.h>
@@ -55,9 +46,6 @@ public:
 #ifdef BUILD_WITH_QTNETWORK
     bool downloadUrlQt(const QUrl& url);
 #endif
-#ifdef BUILD_WITH_KIO
-    bool downloadUrlKIO(const QUrl& url);
-#endif
     bool downloadUrlWithJavaScriptEngine(const QUrl &url);
     AlkWebPage *m_webPage{nullptr};
     bool m_webPageCreated{false};
@@ -76,9 +64,6 @@ public:
 public Q_SLOTS:
 #ifdef BUILD_WITH_QTNETWORK
     void downloadUrlDoneQt(QNetworkReply *reply);
-#endif
-#ifdef BUILD_WITH_KIO
-    void downloadUrlDoneKIO(KJob *reply);
 #endif
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0) || defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     void slotFinishedJavaScriptEngine(bool ok);
@@ -172,96 +157,6 @@ bool AlkDownloadEngine::Private::downloadUrlQt(const QUrl &url)
     return result == Result::NoError;
 }
 #endif
-#if defined(BUILD_WITH_KIO)
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-void AlkDownloadEngine::Private::downloadUrlDoneKIO(KJob* job)
-{
-    QString tmpFileName = dynamic_cast<KIO::FileCopyJob*>(job)->destUrl().toLocalFile();
-    QUrl url = dynamic_cast<KIO::FileCopyJob*>(job)->srcUrl();
-
-    Result result = NoError;
-    if (!job->error()) {
-        alkDebug() << "Downloaded" << tmpFileName << "from" << url;
-        QFile f(tmpFileName);
-        if (f.open(QIODevice::ReadOnly)) {
-            // TODO Find out the page encoding and convert it to unicode
-            QByteArray data = f.readAll();
-            Q_EMIT m_p->finished(m_url, data);
-            f.close();
-        } else {
-            Q_EMIT m_p->error(m_url, i18n("Failed to open downloaded file"));
-            result = FileNotFoundError;
-        }
-    } else {
-        Q_EMIT m_p->error(m_url, job->errorString());
-        result = OtherError;
-    }
-    m_eventLoop->exit(result);
-}
-
-bool AlkDownloadEngine::Private::downloadUrlKIO(const QUrl& url)
-{
-    // Create a temporary filename (w/o leaving the file on the filesystem)
-    // In case the file is still present, the KIO::file_copy operation cannot
-    // be performed on some operating systems (Windows).
-    auto tmpFile = new QTemporaryFile;
-    tmpFile->open();
-    auto tmpFileName = QUrl::fromLocalFile(tmpFile->fileName());
-    delete tmpFile;
-
-    m_eventLoop = new QEventLoop;
-    // TODO add accept language support
-    KJob *job = KIO::file_copy(url, tmpFileName, -1, KIO::HideProgressInfo);
-    job->setUiDelegate(nullptr);
-    connect(job, SIGNAL(result(KJob*)), this, SLOT(downloadUrlDoneKIO(KJob*)));
-
-    Q_EMIT m_p->started(m_url);
-
-    if (m_timeout != -1)
-        QTimer::singleShot(m_timeout, this, SLOT(slotLoadTimeout()));
-
-    Result result = static_cast<Result>(m_eventLoop->exec(QEventLoop::ExcludeUserInputEvents));
-    delete m_eventLoop;
-    m_eventLoop = nullptr;
-
-    return result == NoError;
-}
-#else // QT_VERSION
-
-// This is simply a placeholder. It is unused but needs to be present
-// to make the linker happy (since the declaration of the slot cannot
-// be made dependendant on QT_VERSION with the Qt4 moc compiler.
-void AlkDownloadEngine::Private::downloadUrlDoneKIO(KJob* job)
-{
-    Q_UNUSED(job);
-}
-
-bool AlkDownloadEngine::Private::downloadUrlKIO(const QUrl& url)
-{
-    Result result = NoError;
-
-    QString tmpFile;
-    // TODO add accept language support
-    if (KIO::NetAccess::download(url, tmpFile, nullptr)) {
-        alkDebug() << "Downloaded" << tmpFile << "from" << url;
-        QFile f(tmpFile);
-        if (f.open(QIODevice::ReadOnly)) {
-            // TODO Find out the page encoding and convert it to unicode
-            QByteArray data = f.readAll();
-            Q_EMIT m_p->finished(m_url, data);
-            f.close();
-        } else {
-            Q_EMIT m_p->error(m_url, i18n("Failed to open downloaded file"));
-            result = FileNotFoundError;
-        }
-        KIO::NetAccess::removeTempFile(tmpFile);
-    } else {
-        Q_EMIT m_p->error(m_url, KIO::NetAccess::lastErrorString());
-    }
-    return result == NoError;
-}
-#endif // QT_VERSION
-#endif // BUILD_WITH_KIO
 
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
 void AlkDownloadEngine::Private::slotFinishedJavaScriptEngine(bool ok)
@@ -349,10 +244,6 @@ bool AlkDownloadEngine::downloadUrl(const QUrl &url, Type type)
 #ifdef BUILD_WITH_QTNETWORK
     case QtEngine:
         return d->downloadUrlQt(url);
-#endif
-#ifdef BUILD_WITH_KIO
-    case KIOEngine:
-        return d->downloadUrlKIO(url);
 #endif
     case JavaScriptEngine:
 #if defined(BUILD_WITH_WEBKIT)
