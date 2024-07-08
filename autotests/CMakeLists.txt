@@ -94,7 +94,7 @@ if(BUILD_WITH_QTNETWORK)
     )
 endif()
 
-if(BUILD_WITH_KIO)
+if(BUILD_WITH_KIO AND QT_MAJOR_VERSION GREATER_EQUAL 5)
     ecm_add_test(
         test-kio-cli.cpp
         ENV ${TEST_ENV}
