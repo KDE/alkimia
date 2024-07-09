@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-24 01:40+0000\n"
+"POT-Creation-Date: 2024-07-09 01:42+0000\n"
 "PO-Revision-Date: 2023-12-04 09:37+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -150,24 +150,24 @@ msgstr "Nemožno aktualizovať cenu pre %1 (prázdne dáta cenovej ponuky)"
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Nemožno aktualizovať cenu pre %1 (prázdne dáta cenovej ponuky)"
 
-#: alkonlinequote_p.cpp:674
+#: alkonlinequote_p.cpp:677
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Nemožno aktualizovať cenu pre %1 (prázdne dáta cenovej ponuky)"
 
-#: alkonlinequote_p.cpp:690
+#: alkonlinequote_p.cpp:707
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Nemožno aktualizovať cenu pre %1 (prázdne dáta cenovej ponuky)"
 
-#: alkonlinequote_p.cpp:721
+#: alkonlinequote_p.cpp:738
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Nemožno aktualizovať cenu pre %1 (prázdne dáta cenovej ponuky)"
 
-#: alkonlinequote_p.cpp:739
+#: alkonlinequote_p.cpp:756
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr ""
@@ -443,40 +443,64 @@ msgstr "Nahrať"
 msgid "Debugging"
 msgstr "Ladenie"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequotesdebug.ui:35 alkonlinequotesprofile.ui:367
-#, kde-format
-msgid "One Symbol"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: alkonlinequotesdebug.ui:45 alkonlinequotesprofile.ui:381
-#, kde-format
-msgid "Two Symbols"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
-#: alkonlinequotesdebug.ui:57 alkonlinequotesprofile.ui:402
+#: alkonlinequotesdebug.ui:37 alkonlinequotesprofile.ui:402
 #, kde-format
 msgid "Check Source"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
-#: alkonlinequotesdebug.ui:69 alkonlinequotesprofile.ui:413
+#: alkonlinequotesdebug.ui:49 alkonlinequotesprofile.ui:413
 #, kde-format
 msgid "Show Page"
 msgstr "Zobraziť stránku"
 
+#. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
+#: alkonlinequotesdebug.ui:74
+#, kde-format
+msgid "End date"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequotesdebug.ui:81 alkonlinequotesprofile.ui:381
+#, kde-format
+msgid "Two Symbols"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, m_startDateLabel)
-#: alkonlinequotesdebug.ui:91
+#: alkonlinequotesdebug.ui:97
 #, kde-format
 msgid "Start date"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
-#: alkonlinequotesdebug.ui:101
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotesdebug.ui:107 alkonlinequotesprofile.ui:367
 #, kde-format
-msgid "End date"
+msgid "One Symbol"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotesdebug.ui:114
+#, kde-format
+msgid "Return last price state"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
+#: alkonlinequotesdebug.ui:122
+#, kde-format
+msgid "Off"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
+#: alkonlinequotesdebug.ui:127
+#, kde-format
+msgid "Always"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
+#: alkonlinequotesdebug.ui:132
+#, kde-format
+msgid "Always when today"
 msgstr ""
 
 #: alkonlinequotesmodel.cpp:19
@@ -758,7 +782,7 @@ msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:732
+#: alkonlinequoteswidget.cpp:733
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr ""
