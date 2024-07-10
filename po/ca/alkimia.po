@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-09 01:42+0000\n"
-"PO-Revision-Date: 2024-05-05 10:48+0200\n"
+"PO-Revision-Date: 2024-07-09 09:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -504,25 +504,25 @@ msgstr "Un símbol"
 #: alkonlinequotesdebug.ui:114
 #, kde-format
 msgid "Return last price state"
-msgstr ""
+msgstr "Retorna l'estat del darrer preu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:122
 #, kde-format
 msgid "Off"
-msgstr ""
+msgstr "Inactiu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:127
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:132
 #, kde-format
 msgid "Always when today"
-msgstr ""
+msgstr "Carrega si és d'avui"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format

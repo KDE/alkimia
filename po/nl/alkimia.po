@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-09 01:42+0000\n"
-"PO-Revision-Date: 2024-05-05 14:49+0200\n"
+"PO-Revision-Date: 2024-07-09 12:42+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -502,25 +502,25 @@ msgstr "Eén symbool"
 #: alkonlinequotesdebug.ui:114
 #, kde-format
 msgid "Return last price state"
-msgstr ""
+msgstr "Laatste status van prijs teruggeven"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:122
 #, kde-format
 msgid "Off"
-msgstr ""
+msgstr "Uit"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:127
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Altijd"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:132
 #, kde-format
 msgid "Always when today"
-msgstr ""
+msgstr "Altijd indien vandaag"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-09 01:42+0000\n"
-"PO-Revision-Date: 2024-05-05 11:43+0300\n"
+"PO-Revision-Date: 2024-07-10 00:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -495,25 +495,25 @@ msgstr "Tek Sembol"
 #: alkonlinequotesdebug.ui:114
 #, kde-format
 msgid "Return last price state"
-msgstr ""
+msgstr "Son fiyat durumunu döndür"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:122
 #, kde-format
 msgid "Off"
-msgstr ""
+msgstr "Kapalı"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:127
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Her zaman"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:132
 #, kde-format
 msgid "Always when today"
-msgstr ""
+msgstr "Bugün ise her zaman"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
