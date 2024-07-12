@@ -115,7 +115,6 @@ bool AlkOnlineQuote::Private::applyDateRange(QUrl &url)
 
     alkDebug() << urlStr;
 
-
     // return error if only one or more than two placeholders are present
     if (urlStr.contains(QLatin1String("%25unix")) || urlStr.contains(QLatin1String("%unix")) || (i != -1 && j == -1)) {
         return false;
@@ -203,7 +202,6 @@ void AlkOnlineQuote::Private::slotLoadError(const QUrl &, const QString &)
     m_errors |= Errors::URL;
     Q_EMIT m_p->failed(m_id, m_symbol);
 }
-
 
 void AlkOnlineQuote::Private::slotLoadRedirected(const QUrl &, const QUrl &)
 {
@@ -377,7 +375,6 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr, AlkOnlineQuot
     const Regex validChars("^\\s*([0-9,.\\s]*[0-9,.])");
 
     if (validChars.hasRegexMatch(_pricestr)) {
-
         // Remove all non-digits from the price string except the last one, and
         // set the last one to a period.
         QString pricestr = validChars.capturedText(_pricestr, 1);

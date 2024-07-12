@@ -106,7 +106,6 @@ public:
         }
         grp.deleteEntry("SymbolRegex");
 
-
         kconfig->sync();
         return true;
     }

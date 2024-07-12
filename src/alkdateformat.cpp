@@ -19,7 +19,6 @@
 #include <QRegularExpressionMatch>
 #endif
 
-
 class AlkDateFormat::Private
 {
 public:
@@ -480,7 +479,6 @@ QString AlkDateFormat::lastErrorMessage() const
 {
     return d->m_errorMessage;
 }
-
 
 QDate AlkDateFormat::convertString(const QString& date, bool strict, unsigned int centuryMidPoint)
 {

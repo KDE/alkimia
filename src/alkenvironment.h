@@ -54,6 +54,5 @@ public:
      * @note Requires checkForAppImageEnvironment() to be run before
      */
     static void removeAppImagePathFromLinkLoaderLibPath(QProcess* process);
-
 };
 #endif // ALKENVIRONMENT_H

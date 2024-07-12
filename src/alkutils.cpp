@@ -27,7 +27,6 @@ QStringList AlkUtils::getDataFiles(const QString &path, const QStringList &exten
 
 QString AlkUtils::locateDataFile(const QString &filePath)
 {
-
     return QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("alkimia%1/%2").arg(TARGET_SUFFIX, filePath));
 }
 

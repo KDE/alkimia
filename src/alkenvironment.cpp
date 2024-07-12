@@ -6,7 +6,6 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-
 // #include <QtGlobal>
 #include <QProcess>
 
@@ -52,7 +51,6 @@ bool AlkEnvironment::isRunningAsAppImage()
     return false;
 #endif
 }
-
 
 void AlkEnvironment::removeAppImagePathFromLinkLoaderLibPath(QProcess* process)
 {

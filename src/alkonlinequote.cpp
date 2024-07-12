@@ -36,7 +36,6 @@ bool AlkOnlineQuote::Errors::operator &(Type t) const
     return m_type.contains(t);
 }
 
-
 AlkOnlineQuote::AlkOnlineQuote(AlkOnlineQuotesProfile *profile, QObject *_parent)
     : QObject(_parent)
     , d(new Private(this))

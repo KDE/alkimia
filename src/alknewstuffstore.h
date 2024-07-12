@@ -19,5 +19,4 @@ public:
     static const char *newPackageUrl;
 };
 
-
 #endif // ALKNEWSTUFFSTORE_H
