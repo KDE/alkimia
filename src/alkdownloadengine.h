@@ -29,7 +29,7 @@ public:
         QtEngine,
         WebKitEngine,
         WebEngine,
-        DefaultEngine, ///< Use t network support
+        DefaultEngine, ///< Use Qt network support
         JavaScriptEngine, ///< Use an HTML engine with Javascript support
         JavaScriptEngineCSS, ///< Use an HTML engine with Javascript support, @see AlkDownloadEngine::finishedPage for details
     };
