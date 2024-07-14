@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 01:44+0000\n"
-"PO-Revision-Date: 2024-07-09 12:42+0200\n"
+"POT-Creation-Date: 2024-07-14 01:42+0000\n"
+"PO-Revision-Date: 2024-07-13 17:06+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -26,11 +26,6 @@ msgstr "Freek de Kruijf - 2024"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
-
-#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "Openen van gedownload bestand is mislukt"
 
 #: alkonlinequote_p.cpp:137
 #, kde-format
@@ -446,12 +441,13 @@ msgstr "Dupliceren"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:80
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "Creëer een nieuw bronitem voor online koersen"
+msgstr ""
+"Creëer een nieuw online bron als referentie naar een online bron met koersen "
+"op afstand"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:83
@@ -461,12 +457,15 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"Dit gebruiken om een nieuwe lokale online bron met koersen aan te maken die "
+"koppelt met een online bron met koersen op afstand. De attributen van de "
+"online bron met koersen worden dan gebruikt voor een verzoek om een koers."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:86
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Referentie toevoegen"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequotes.ui:98 alkonlinequotesprofile.ui:85
@@ -579,7 +578,7 @@ msgstr "Bron"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Referentie naar"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -824,7 +823,7 @@ msgstr ".copy"
 #: alkonlinequoteswidget.cpp:602
 #, kde-format
 msgid ".reference"
-msgstr ""
+msgstr ".reference"
 
 #: alkonlinequoteswidget.cpp:618 alkonlinequoteswidget.cpp:620
 #, kde-format
@@ -950,6 +949,9 @@ msgstr "Inspecteur in nieuw venster openen"
 #, kde-format
 msgid "Inspect element"
 msgstr "Element inspecteren"
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Openen van gedownload bestand is mislukt"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr ""

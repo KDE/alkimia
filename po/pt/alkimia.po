@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 01:44+0000\n"
+"POT-Creation-Date: 2024-07-14 01:42+0000\n"
 "PO-Revision-Date: 2022-04-20 15:59+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -24,11 +24,6 @@ msgstr ""
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-
-#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "Não foi possível abrir o ficheiro transferido"
 
 #: alkonlinequote_p.cpp:137
 #, kde-format
@@ -947,6 +942,9 @@ msgstr ""
 #, kde-format
 msgid "Inspect element"
 msgstr ""
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Não foi possível abrir o ficheiro transferido"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Expressão regular para extrair o símbolo dos dados transferidos"

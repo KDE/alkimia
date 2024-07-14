@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 01:44+0000\n"
+"POT-Creation-Date: 2024-07-14 01:42+0000\n"
 "PO-Revision-Date: 2024-04-22 17:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -26,11 +26,6 @@ msgstr ""
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-
-#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "无法打开已下载的文件"
 
 #: alkonlinequote_p.cpp:137
 #, kde-format
@@ -432,7 +427,6 @@ msgstr "制作副本"
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:80
 #, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
@@ -924,3 +918,6 @@ msgstr ""
 #, kde-format
 msgid "Inspect element"
 msgstr ""
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "无法打开已下载的文件"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 01:44+0000\n"
+"POT-Creation-Date: 2024-07-14 01:42+0000\n"
 "PO-Revision-Date: 2024-05-05 20:02+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -26,11 +26,6 @@ msgstr "Valter Mura"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "valtermura@gmail.com"
-
-#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "Impossibile aprire il file scaricato"
 
 #: alkonlinequote_p.cpp:137
 #, kde-format
@@ -945,6 +940,9 @@ msgstr "Apri l'ispettore in una nuova finestra"
 #, kde-format
 msgid "Inspect element"
 msgstr "Ispeziona elemento"
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Impossibile aprire il file scaricato"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Espressione regolare per estrarre il simbolo dai dati scaricati"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 01:44+0000\n"
+"POT-Creation-Date: 2024-07-14 01:42+0000\n"
 "PO-Revision-Date: 2024-07-09 15:30+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -26,11 +26,6 @@ msgstr "Vít Pelčák"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vit@pelcak.org"
-
-#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "Nelze otevřít stažený soubor"
 
 #: alkonlinequote_p.cpp:137
 #, kde-format
@@ -913,3 +908,6 @@ msgstr "Otevřít inspektor v novém okně"
 #, kde-format
 msgid "Inspect element"
 msgstr "Prozkoumat prvek"
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Nelze otevřít stažený soubor"

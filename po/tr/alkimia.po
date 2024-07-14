@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 01:44+0000\n"
-"PO-Revision-Date: 2024-07-10 00:32+0300\n"
+"POT-Creation-Date: 2024-07-14 01:42+0000\n"
+"PO-Revision-Date: 2024-07-13 09:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -27,11 +27,6 @@ msgstr "Emir SARI"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
-
-#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "İndirilen dosya açılamadı"
 
 #: alkonlinequote_p.cpp:137
 #, kde-format
@@ -439,12 +434,13 @@ msgstr "Çoğalt"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:80
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "Çevrimiçi kurlar için yeni bir kaynak girdisi oluştur"
+msgstr ""
+"Uzak bir çevrimiçi kur kaynağına başvuran yeni bir yerel çevrimiçi kaynak "
+"oluşturur"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:83
@@ -454,12 +450,15 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"Uzak bir çevrimiçi kur kaynağına bağlanan yeni bir yerel çevrimiçi kur "
+"kaynağı oluşturmak için bunu kullanın. Uzak çevrimiçi kur kaynağının "
+"öznitelikleri daha sonra fiyat veya kur isteği için kullanılır."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:86
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Başvuru Ekle"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequotes.ui:98 alkonlinequotesprofile.ui:85
@@ -572,7 +571,7 @@ msgstr "Kaynak"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Başvuru"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -817,7 +816,7 @@ msgstr ".kopya"
 #: alkonlinequoteswidget.cpp:602
 #, kde-format
 msgid ".reference"
-msgstr ""
+msgstr ".başvuru"
 
 #: alkonlinequoteswidget.cpp:618 alkonlinequoteswidget.cpp:620
 #, kde-format
@@ -942,3 +941,6 @@ msgstr "Denetçiyi yeni pencerede aç"
 #, kde-format
 msgid "Inspect element"
 msgstr "Ögeyi Denetle"
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "İndirilen dosya açılamadı"

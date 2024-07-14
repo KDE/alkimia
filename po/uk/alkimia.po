@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 01:44+0000\n"
-"PO-Revision-Date: 2024-07-09 07:29+0300\n"
+"POT-Creation-Date: 2024-07-14 01:42+0000\n"
+"PO-Revision-Date: 2024-07-13 09:08+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -29,11 +29,6 @@ msgstr "Юрій Чорноіван"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
-
-#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "Спроба відкрити отриманий файл завершилася невдало"
 
 #: alkonlinequote_p.cpp:137
 #, kde-format
@@ -444,12 +439,13 @@ msgstr "Дублювати"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:80
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "Створити запис джерела курсів у інтернеті"
+msgstr ""
+"Створює нове локальне інтернет-джерело як посилання на віддалене джерело "
+"інтернет-курсів"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:83
@@ -459,12 +455,16 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"Скористайтеся для створення локального джерела інтернет-курсів, які "
+"посилається на віддалене джерело інтернет-курсів. Після цього атрибути "
+"віддаленого джерела інтернет-курсів буде використано для запитів щодо ціни "
+"або курсу."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:86
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Додати посилання"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequotes.ui:98 alkonlinequotesprofile.ui:85
@@ -577,7 +577,7 @@ msgstr "Джерело"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Посилання на"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -825,7 +825,7 @@ msgstr ".копія"
 #: alkonlinequoteswidget.cpp:602
 #, kde-format
 msgid ".reference"
-msgstr ""
+msgstr ".посилання"
 
 #: alkonlinequoteswidget.cpp:618 alkonlinequoteswidget.cpp:620
 #, kde-format
@@ -952,6 +952,9 @@ msgstr "Відкрити інспектор у новому вікні"
 #, kde-format
 msgid "Inspect element"
 msgstr "Перевірити елемент"
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Спроба відкрити отриманий файл завершилася невдало"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr ""

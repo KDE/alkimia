@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 01:44+0000\n"
-"PO-Revision-Date: 2024-07-09 06:33+0200\n"
+"POT-Creation-Date: 2024-07-14 01:42+0000\n"
+"PO-Revision-Date: 2024-07-13 06:38+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -27,11 +27,6 @@ msgstr "Matjaž Jeran"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
-
-#: alkdownloadengine.cpp:187 alkdownloadengine.cpp:249
-#, kde-format
-msgid "Failed to open downloaded file"
-msgstr "Naložene datoteke ni bilo mogoče odpreti"
 
 #: alkonlinequote_p.cpp:137
 #, kde-format
@@ -313,7 +308,7 @@ msgid ""
 "conversions, <b>%2</b> will be replaced with the currency to be quoted and "
 "<b>%1</b> with the currency the quote is based on."
 msgstr ""
-"Vnesite spletni naslov, od koder boste prejeli kotacije delnic. <b>%1</b> bo "
+"Vnesite spletni naslov, od koder boste prejeli navedbe delnic. <b>%1</b> bo "
 "nadomeščen s simbolom za vrednostni papir. Pri valutnih pretvorbah bo <b>%2</"
 "b> nadomeščena z valuto navedbe in <b>%1</b> z valuto, na kateri je ponudba "
 "osnovana."
@@ -438,12 +433,12 @@ msgstr "Dvojnik"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:80
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "Ustvari nov vnos vira spletne ponudbe"
+msgstr ""
+"Ustvari nov lokalni spletni vir kot referenco na oddaljeni spletni vir navedb"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:83
@@ -453,12 +448,15 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"Uporabite to za ustvarjanje novega lokalnega spletnega vira navedb, ki je "
+"povezan z oddaljenim spletnim virom navedb. Atributi vira oddaljenega "
+"spletnega tečaja se nato uporabijo za zahtevo po ceni ali navedbi."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:86
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Dodaj referenco"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequotes.ui:98 alkonlinequotesprofile.ui:85
@@ -571,7 +569,7 @@ msgstr "Vir"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Referenca na"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -816,7 +814,7 @@ msgstr ".kopiraj"
 #: alkonlinequoteswidget.cpp:602
 #, kde-format
 msgid ".reference"
-msgstr ""
+msgstr ".reference"
 
 #: alkonlinequoteswidget.cpp:618 alkonlinequoteswidget.cpp:620
 #, kde-format
@@ -827,7 +825,7 @@ msgstr "Vir nove spletne navedbe"
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
-msgstr "<b>Novi vir kotacij</b> že obstaja."
+msgstr "<b>Novi vir navedb</b> že obstaja."
 
 #: alkonlinequoteswidget.cpp:772
 #, kde-format
@@ -941,6 +939,9 @@ msgstr "Odpri pregledovalnika v novem oknu"
 #, kde-format
 msgid "Inspect element"
 msgstr "Preglej element"
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Naložene datoteke ni bilo mogoče odpreti"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Regularni izraz za pridobivanje simbola iz prenesenih podatkov"
