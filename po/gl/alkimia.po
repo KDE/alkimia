@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:42+0000\n"
-"PO-Revision-Date: 2024-07-09 19:36+0200\n"
+"PO-Revision-Date: 2024-07-14 07:37+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -437,12 +437,13 @@ msgstr "Duplicar"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:80
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "Crear unha nova entrada de fonte de cotizacións de Internet"
+msgstr ""
+"Crea unha nova fonte de Internet local como referencia a unha fonte de "
+"cotizacións de Internet."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:83
@@ -452,12 +453,16 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"Use isto para crear unha nova fonte de cotizacións de Internet local que "
+"liga a unha fonte remota de cotizacións de Internet. Os atributos da fonte "
+"remota de curso de Internet úsanse para solicitudes de prezo ou de "
+"cotización."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:86
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Engadir unha referencia"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequotes.ui:98 alkonlinequotesprofile.ui:85
@@ -570,7 +575,7 @@ msgstr "Fonte"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Referencia a"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -816,7 +821,7 @@ msgstr ".copia"
 #: alkonlinequoteswidget.cpp:602
 #, kde-format
 msgid ".reference"
-msgstr ""
+msgstr ".reference"
 
 #: alkonlinequoteswidget.cpp:618 alkonlinequoteswidget.cpp:620
 #, kde-format

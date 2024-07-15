@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:42+0000\n"
-"PO-Revision-Date: 2024-05-30 10:59+0200\n"
+"PO-Revision-Date: 2024-07-14 13:44+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -527,7 +527,7 @@ msgstr ""
 #: alkonlinequotesdebug.ui:127
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Zawsze"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:132
