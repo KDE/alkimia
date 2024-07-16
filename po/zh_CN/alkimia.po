@@ -426,11 +426,11 @@ msgstr "制作副本"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:80
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "为在线报价新建一个来源项"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:83
@@ -918,6 +918,3 @@ msgstr ""
 #, kde-format
 msgid "Inspect element"
 msgstr ""
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "无法打开已下载的文件"
