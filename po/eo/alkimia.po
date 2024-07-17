@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:42+0000\n"
-"PO-Revision-Date: 2024-05-12 23:22+0100\n"
+"PO-Revision-Date: 2024-07-16 21:47+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -103,7 +103,7 @@ msgstr "Trovita dato-formato: '%1' -> '%2'"
 #: alkonlinequote_p.cpp:441
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
-msgstr "Ne eblas analizi la daton '%1' per formato '%2': ​​%3"
+msgstr "Ne eblas analizi daton '%1' per formato '%2': %3"
 
 #: alkonlinequote_p.cpp:445 alkonlinequote_p.cpp:455
 #, kde-format
@@ -430,12 +430,12 @@ msgstr "Duobligi"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:80
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "Krei novan fontan eron por interretaj citaĵoj"
+msgstr ""
+"Kreas novan lokan enretan fonton kiel referenco al fora enreta citaĵfonto"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequotes.ui:83
@@ -450,7 +450,7 @@ msgstr ""
 #: alkonlinequotes.ui:86
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Aldoni referencon"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequotes.ui:98 alkonlinequotesprofile.ui:85
@@ -510,25 +510,25 @@ msgstr "Unu Simbolo"
 #: alkonlinequotesdebug.ui:114
 #, kde-format
 msgid "Return last price state"
-msgstr ""
+msgstr "Redoni lastan prezostaton"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:122
 #, kde-format
 msgid "Off"
-msgstr ""
+msgstr "Malŝaltita"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:127
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Ĉiam"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:132
 #, kde-format
 msgid "Always when today"
-msgstr ""
+msgstr "Ĉiam kiam hodiaŭ"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
@@ -563,7 +563,7 @@ msgstr "Fonto"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Referenco al"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -807,7 +807,7 @@ msgstr ".kopio"
 #: alkonlinequoteswidget.cpp:602
 #, kde-format
 msgid ".reference"
-msgstr ""
+msgstr ".reference"
 
 #: alkonlinequoteswidget.cpp:618 alkonlinequoteswidget.cpp:620
 #, kde-format
@@ -933,6 +933,3 @@ msgstr "Malfermi inspektiston en nova fenestro"
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspekti elementon"
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Malsukcesis malfermi elŝutitan dosieron"

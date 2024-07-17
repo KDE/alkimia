@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:42+0000\n"
-"PO-Revision-Date: 2024-07-09 15:30+0200\n"
+"PO-Revision-Date: 2024-07-15 15:34+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -435,7 +435,7 @@ msgstr ""
 #: alkonlinequotes.ui:86
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Přidat odkaz"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequotes.ui:98 alkonlinequotesprofile.ui:85
@@ -549,7 +549,7 @@ msgstr "Zdroj"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Odkaz na"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -908,6 +908,3 @@ msgstr "Otevřít inspektor v novém okně"
 #, kde-format
 msgid "Inspect element"
 msgstr "Prozkoumat prvek"
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Nelze otevřít stažený soubor"
