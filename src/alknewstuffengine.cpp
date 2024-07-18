@@ -12,17 +12,17 @@
 #include "alkdebug.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    #include <KNSCore/EngineBase>
-    #include <KNSCore/Provider>
-    #include <KNSCore/ResultsStream>
+#include <KNSCore/EngineBase>
+#include <KNSCore/Provider>
+#include <KNSCore/ResultsStream>
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    #include <KNSCore/Cache>
-    #include <knscore/engine.h>
-    #include <knewstuff_version.h>
+#include <KNSCore/Cache>
+#include <knewstuff_version.h>
+#include <knscore/engine.h>
 #else
-    #include <knewstuff3/downloadmanager.h>
-    #include <knewstuff3/core/cache.h>
-    #define KNEWSTUFF_VERSION 0
+#include <knewstuff3/core/cache.h>
+#include <knewstuff3/downloadmanager.h>
+#define KNEWSTUFF_VERSION 0
 #endif
 
 #include <QEventLoop>

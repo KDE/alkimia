@@ -7,8 +7,8 @@
 
 #include "alkonlinequotesmodel.h"
 
-#include "alkonlinequotesprofile.h"
 #include "alkonlinequotesource.h"
+#include "alkonlinequotesprofile.h"
 
 #include <klocalizedstring.h>
 

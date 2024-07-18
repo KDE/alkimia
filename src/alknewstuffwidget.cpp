@@ -11,19 +11,19 @@
 #include "alknewstuffentry_p.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    #define KNEWSTUFFWIDGETS_PRIVATE_BUILDING
-    #include <KNSWidgets/Action>
+#define KNEWSTUFFWIDGETS_PRIVATE_BUILDING
+#include <KNSWidgets/Action>
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    #include <knscore/engine.h>
-    #include <knewstuff_version.h>
+#include <knewstuff_version.h>
+#include <knscore/engine.h>
 #if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 78, 0)
-    #include <kns3/downloaddialog.h>
+#include <kns3/downloaddialog.h>
 #else
-    #include <KNS3/QtQuickDialogWrapper>
+#include <KNS3/QtQuickDialogWrapper>
 #endif
 #else
-    #include <knewstuff3/downloadmanager.h>
-    #include <knewstuff3/downloaddialog.h>
+#include <knewstuff3/downloaddialog.h>
+#include <knewstuff3/downloadmanager.h>
 #define KNEWSTUFF_VERSION 0
 #endif
 

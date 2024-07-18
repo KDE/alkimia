@@ -13,9 +13,9 @@
 #include "alknewstuffentry.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    #include <knscore/entryinternal.h>
+#include <knscore/entryinternal.h>
 #else
-    #include <knewstuff3/entry.h>
+#include <knewstuff3/entry.h>
 #endif
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)

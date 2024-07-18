@@ -14,9 +14,9 @@
 
 #include <KSharedConfig>
 
+#include <QMap>
 #include <QObject>
 #include <QString>
-#include <QMap>
 
 class AlkOnlineQuoteSource;
 class AlkOnlineQuotesProfileManager;

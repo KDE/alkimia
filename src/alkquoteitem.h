@@ -11,8 +11,8 @@
 
 #include <alkimia/alkvalue.h>
 
-#include <QDate>
 #include <QDBusArgument>
+#include <QDate>
 #include <QMetaType>
 #include <QTime>
 

@@ -8,8 +8,8 @@
 
 #include "alkonlinequotesource.h"
 
-#include "alkonlinequotesprofile.h"
 #include "alkonlinequotesource_p.h"
+#include "alkonlinequotesprofile.h"
 #include "alktestdefs.h"
 
 /**

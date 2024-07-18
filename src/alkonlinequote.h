@@ -13,10 +13,10 @@
 
 #include <alkimia/alkvalue.h>
 
-#include <QObject>
 #include <QDateTime>
-#include <QString>
 #include <QMap>
+#include <QObject>
+#include <QString>
 
 class AlkOnlineQuoteSource;
 class AlkOnlineQuotesProfile;

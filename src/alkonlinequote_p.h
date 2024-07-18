@@ -18,11 +18,11 @@
 #include "alkonlinequotesource.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    #define KUrl QUrl
-    #define prettyUrl() toDisplayString()
-    #include <QUrl>
+#define KUrl QUrl
+#define prettyUrl() toDisplayString()
+#include <QUrl>
 #else
-    #include <KUrl>
+#include <KUrl>
 #endif
 #ifdef BUILD_WITH_QTNETWORK
 class QNetworkReply;

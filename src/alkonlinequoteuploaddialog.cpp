@@ -8,9 +8,9 @@
 
 #include "alkonlinequoteuploaddialog.h"
 
-#include "ui_alkonlinequoteuploaddialog.h"
-#include "alkonlinequotesource.h"
 #include "alknewstuffstore.h"
+#include "alkonlinequotesource.h"
+#include "ui_alkonlinequoteuploaddialog.h"
 
 #include <QApplication>
 #include <QClipboard>

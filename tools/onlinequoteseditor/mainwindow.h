@@ -9,8 +9,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include "applicationsettings.h"
+#include <QMainWindow>
 
 class QUrl;
 

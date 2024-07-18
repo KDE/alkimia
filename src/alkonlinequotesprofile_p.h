@@ -29,7 +29,7 @@
 #include <QLibraryInfo>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    #include <KSharedConfig>
+#include <KSharedConfig>
 #endif
 
 class ALK_NO_EXPORT AlkOnlineQuotesProfile::Private : public QObject

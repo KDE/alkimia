@@ -10,8 +10,8 @@
 // #include <QtGlobal>
 #include <QProcess>
 
-#include <alkimia/alkenvironment.h>
 #include "alkdebug.h"
+#include <alkimia/alkenvironment.h>
 
 void AlkEnvironment::checkForAppImageEnvironment(const char* applicationPath)
 {

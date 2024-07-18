@@ -12,8 +12,8 @@
 #include <alkimia/alk_export.h>
 
 #include <QList>
-#include <QStringList>
 #include <QObject>
+#include <QStringList>
 
 /**
  * Wrapper for new stuff widgets

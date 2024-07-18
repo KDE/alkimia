@@ -8,8 +8,8 @@
 
 #include "alkimia/alkvalue.h"
 
-#include <iostream>
 #include <QSharedData>
+#include <iostream>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QRegularExpression>

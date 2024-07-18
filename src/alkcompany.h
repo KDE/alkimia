@@ -11,8 +11,8 @@
 
 #include <alkimia/alk_export.h>
 
-#include <QMetaType>
 #include <QDBusArgument>
+#include <QMetaType>
 #include <QObject>
 #include <QString>
 

@@ -9,8 +9,8 @@
 
 #include "alkfinancequoteprocess.h"
 
-#include <QString>
 #include <QMap>
+#include <QString>
 #include <QtDebug>
 
 class AlkFinanceQuoteProcess::Private

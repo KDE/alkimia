@@ -10,44 +10,44 @@
 
 #include "alkonlinequote_p.h"
 
-#include "alkdebug.h"
 #include "alkdateformat.h"
+#include "alkdebug.h"
 #include "alkexception.h"
 #ifdef ENABLE_FINANCEQUOTE
 #include "alkfinancequoteprocess.h"
 #endif
+#include "alkimia/alkversion.h"
+#include "alkonlinequotesource.h"
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
-#include "alkonlinequotesource.h"
-#include "alkimia/alkversion.h"
 #include "alkwebpage.h"
 #include "alkwebview.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    #include <KLocalizedString>
-    #include <QTemporaryFile>
-    #define KIcon QIcon
+#include <KLocalizedString>
+#include <QTemporaryFile>
+#define KIcon QIcon
 #else
-    #include <KGlobal>
-    #include <KLocale>
+#include <KGlobal>
+#include <KLocale>
 #endif
 
-#include <QFileInfo>
 #include <KConfigGroup>
 #include <KEncodingProber>
 #include <KProcess>
 #include <KShell>
+#include <QFileInfo>
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-    #include <QRegExp>
-    using Regex = QRegExp;
-    #define hasRegexMatch(a) indexIn(a) != -1
-    #define capturedText(txt, index) cap(index)
+#include <QRegExp>
+using Regex = QRegExp;
+#define hasRegexMatch(a) indexIn(a) != -1
+#define capturedText(txt, index) cap(index)
 #else
-    #include <QRegularExpression>
-    using Regex = QRegularExpression;
-    #define hasRegexMatch(a) match(a).hasMatch()
-    #define capturedText(txt, index) match(txt).captured(index)
+#include <QRegularExpression>
+using Regex = QRegularExpression;
+#define hasRegexMatch(a) match(a).hasMatch()
+#define capturedText(txt, index) match(txt).captured(index)
 #endif
 
 #ifndef I18N_NOOP

@@ -10,8 +10,8 @@
 #include "alkdateformat.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-#include <KGlobal>
 #include <KCalendarSystem>
+#include <KGlobal>
 #include <QRegExp>
 #else
 #include <QLocale>

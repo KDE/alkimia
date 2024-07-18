@@ -11,21 +11,21 @@
 
 #include "alkdebug.h"
 
-#include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesource.h"
+#include "alkonlinequotesprofilemanager.h"
 
 #include "alkonlinequotesprofile_p.h"
 
 #include <KSharedConfig>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-    #include <QRegularExpression>
-    #include <QStandardPaths>
+#include <QRegularExpression>
+#include <QStandardPaths>
 #else
-    #include <QRegExp>
-    #include <KConfig>
-    #include <KGlobal>
-    #include <KStandardDirs>
+#include <KConfig>
+#include <KGlobal>
+#include <KStandardDirs>
+#include <QRegExp>
 #endif
 
 AlkOnlineQuotesProfile::AlkOnlineQuotesProfile(const QString &name, Type type,

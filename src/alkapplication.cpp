@@ -11,11 +11,11 @@
 #include <KAboutData>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    #include <QApplication>
-    #include <KLocalizedString>
+#include <KLocalizedString>
+#include <QApplication>
 #else
-    #include <KApplication>
-    #include <KCmdLineArgs>
+#include <KApplication>
+#include <KCmdLineArgs>
 #endif
 
 class Private

@@ -8,22 +8,22 @@
 
 #include "alkdownloadengine.h"
 
-#include "alkimia/alkversion.h"
 #include "alkdebug.h"
+#include "alkimia/alkversion.h"
 #include "alkwebpage.h"
 
 #include <QEventLoop>
 #include <QTimer>
 #ifdef BUILD_WITH_QTNETWORK
-#include <QNetworkReply>
 #include <QNetworkAccessManager>
+#include <QNetworkReply>
 #endif
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <klocalizedstring.h>
 #else
-    #include <KGlobal>
-    #include <KLocale>
+#include <KGlobal>
+#include <KLocale>
 #endif
 
 class AlkDownloadEngine::Private : public QObject {

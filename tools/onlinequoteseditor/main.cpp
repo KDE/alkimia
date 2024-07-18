@@ -15,7 +15,7 @@
 #include <KHelpMenu>
 #include <KLocalizedString>
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-    #include <KMenu>
+#include <KMenu>
 #endif
 
 #include <QMenuBar>

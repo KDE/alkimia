@@ -8,8 +8,8 @@
 
 #include "alkcompany.h"
 
-#include <QDBusMetaType>
 #include <QDBusArgument>
+#include <QDBusMetaType>
 
 class AlkCompany::Private
 {

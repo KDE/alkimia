@@ -8,8 +8,8 @@
 
 #include "alkonlinequotesprofilemanager.h"
 #include "alkonlinequotesprofile.h"
-#include "alkwebview.h"
 #include "alkwebpage.h"
+#include "alkwebview.h"
 
 #include <QPointer>
 

@@ -13,8 +13,8 @@
 #include <alkimia/alknewstuffentry.h>
 
 #include <QList>
-#include <QStringList>
 #include <QObject>
+#include <QStringList>
 
 /**
  * Platform independent wrapper for the new stuff engine

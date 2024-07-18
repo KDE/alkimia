@@ -12,30 +12,30 @@
 #include "alknewstuffwidget.h"
 #include "alkonlinequote.h"
 #include "alkonlinequotesmodel.h"
+#include "alkonlinequotesource.h"
 #include "alkonlinequotesprofile.h"
 #include "alkonlinequotesprofilemanager.h"
-#include "alkonlinequotesource.h"
 #include "alkonlinequoteuploaddialog.h"
 #include "alkwebpage.h"
 #include "alkwebview.h"
 
 #include <QCheckBox>
 #include <QDesktopServices>
-#include <QTreeWidget>
 #include <QKeyEvent>
 #include <QSortFilterProxyModel>
 #include <QTreeView>
+#include <QTreeWidget>
 #include <QTreeWidgetItem>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    #include <QIcon>
-    #include <KIconLoader>
-    #include <KMessageWidget>
-    #define KIcon QIcon
+#include <KIconLoader>
+#include <KMessageWidget>
+#include <QIcon>
+#define KIcon QIcon
 #else
-    #include <KComponentData>
-    #include <KIcon>
-    #include <KIconLoader>
+#include <KComponentData>
+#include <KIcon>
+#include <KIconLoader>
 #endif
 
 #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
