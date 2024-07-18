@@ -93,9 +93,9 @@ Q_SIGNALS:
      */
    void updateAvailable(const QString &profile, const QString &name);
 
-   /**
-    * emit that the sources from this profile has been changed
-    */
+    /**
+     * emit that the sources from this profile has been changed
+     */
     void sourcesChanged();
 
 private:

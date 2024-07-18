@@ -42,7 +42,7 @@ public:
 
     AlkNewStuffEntryList installedEntries() const;
 
-   /**
+    /**
      * Reload installed entries
      */
     void reload();

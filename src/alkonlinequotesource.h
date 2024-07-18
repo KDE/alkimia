@@ -16,11 +16,11 @@
 class AlkOnlineQuotesProfile;
 
 /**
-  * @author Thomas Baumgart & Ace Jones
-  *
-  * This is a helper class to store information about an online source
-  * for stock prices or currency exchange rates.
-  */
+ * @author Thomas Baumgart & Ace Jones
+ *
+ * This is a helper class to store information about an online source
+ * for stock prices or currency exchange rates.
+ */
 class ALK_EXPORT AlkOnlineQuoteSource
 {
 public:

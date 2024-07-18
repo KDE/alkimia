@@ -33,10 +33,10 @@ public:
 };
 
 /**
-  * Helper function to convert an mpq_class object into
-  * its internal QString representation. Mainly used for
-  * debugging.
-  */
+ * Helper function to convert an mpq_class object into
+ * its internal QString representation. Mainly used for
+ * debugging.
+ */
 static QString mpqToString(const mpq_class &val)
 {
     char *p = 0;

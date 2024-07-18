@@ -18,8 +18,8 @@
 class AlkWebPage;
 
 /**
-* The DownloadEngine class provides a general interface for
-* the supported implementation for downloading page content
+ * The DownloadEngine class provides a general interface for
+ * the supported implementation for downloading page content
  */
 class ALK_EXPORT AlkDownloadEngine : public QObject
 {
