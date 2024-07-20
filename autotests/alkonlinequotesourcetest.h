@@ -25,6 +25,7 @@ private Q_SLOTS:
     void assignOperator();
     void testReadWriteRemove();
     void testRename();
+    void testReference();
 };
 
 #endif // ALKONLINEQUOTESOURCETEST_H

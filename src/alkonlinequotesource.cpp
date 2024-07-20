@@ -135,12 +135,12 @@ AlkOnlineQuoteSource::~AlkOnlineQuoteSource()
     delete d;
 }
 
-AlkOnlineQuoteSource AlkOnlineQuoteSource::asReference()
+AlkOnlineQuoteSource AlkOnlineQuoteSource::asReference() const
 {
     return AlkOnlineQuoteSource(referenceName(), d->m_profile);
 }
 
-bool AlkOnlineQuoteSource::isReference()
+bool AlkOnlineQuoteSource::isReference() const
 {
     return !d->m_referenceId.isEmpty();
 }
@@ -407,6 +407,9 @@ void AlkOnlineQuoteSource::setDefaultId(const QString &defaultId)
 
 bool AlkOnlineQuoteSource::requiresTwoIdentifier() const
 {
+    if (isReference())
+        return asReference().url().contains("%2");
+
     return url().contains("%2");
 }
 

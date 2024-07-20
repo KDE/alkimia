@@ -83,7 +83,7 @@ public:
      *
      * @return referenced quote source or empty source otherwise
      */
-    AlkOnlineQuoteSource asReference();
+    AlkOnlineQuoteSource asReference() const;
 
     /**
      * Return state if this source is a reference
@@ -91,7 +91,7 @@ public:
      * @return true the current source is a reference
      * @return false the current source is not a reference
      */
-    bool isReference();
+    bool isReference() const;
     bool isEmpty();
     bool isValid();
 

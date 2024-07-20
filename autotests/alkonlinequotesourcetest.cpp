@@ -35,6 +35,7 @@ void AlkOnlineQuoteSourceTest::emptyCtor()
     QCOMPARE(m->dateRegex(), emptyString);
     QCOMPARE(m->dateFormat(), emptyString);
     QCOMPARE(m->isGHNS(), false);
+    QCOMPARE(m->isReference(), false);
     delete m;
 }
 
@@ -126,4 +127,26 @@ void AlkOnlineQuoteSourceTest::testRename()
 
     // cleanup
     m1.remove();
+}
+
+// TODO: this does not work as a real GHNS source is required
+void AlkOnlineQuoteSourceTest::testReference()
+{
+    AlkOnlineQuotesProfile profile("test", AlkOnlineQuotesProfile::Type::Alkimia5);
+    AlkOnlineQuoteSource m1 = AlkOnlineQuoteSource::defaultCurrencyQuoteSource("test-currency");
+    m1.setProfile(&profile);
+    m1.setGHNS(true);
+    m1.write();
+    QVERIFY(!m1.isReference());
+
+    AlkOnlineQuoteSource m2("test-currency.new", &profile);
+    m2.setGHNS(false);
+    m2.setReferenceName(m1.name());
+    m2.write();
+    QVERIFY(m1.name() != m2.name());
+    QCOMPARE(m2.isReference(), false);
+
+    // cleanup
+    m1.remove();
+    m2.remove();
 }
