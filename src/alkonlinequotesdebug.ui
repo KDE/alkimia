@@ -52,10 +52,10 @@
         <item>
          <widget class="AlkPushButton" name="m_showButton">
           <property name="toolTip">
-           <string>Show the selected source entry in a web browser</string>
+           <string>Display the response of a query of the selected source entry in a web browser</string>
           </property>
           <property name="whatsThis">
-           <string>Use this to show the selected online source entry</string>
+           <string>Use this option to display the response to a query from the selected online source.</string>
           </property>
           <property name="text">
            <string>Show Page</string>
