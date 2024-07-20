@@ -41,7 +41,7 @@ AlkOnlineQuotesProfile::Private::Private(AlkOnlineQuotesProfile *p)
 #ifdef ENABLE_FINANCEQUOTE
     setupFinanceQuoteScriptPath();
 #endif
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     connect(m_engine, SIGNAL(updatesAvailable(AlkNewStuffEntryList)), this,
             SLOT(slotUpdatesAvailable(AlkNewStuffEntryList)));
 #else
@@ -89,7 +89,7 @@ const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesNative()
     QStringList groups = kconfig->groupList();
 
     QStringList::Iterator it;
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     QRegExp onlineQuoteSource(QString("^Online-Quote-Source-(.*)$"));
 
     // get rid of all 'non online quote source' entries
@@ -311,7 +311,7 @@ QString AlkOnlineQuotesProfile::Private::homeRootPath()
 
 QString AlkOnlineQuotesProfile::Private::configPath()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     if (m_type == Type::KMyMoney5)
         return QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
     else if(m_type == Type::Alkimia5 || m_type == Type::Skrooge5 || m_type == Type::Test)

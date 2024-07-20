@@ -3,7 +3,7 @@
 
 #include <QtTest/QtTest>
 
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 #define QTRY_LOOP_IMPL(expr, timeoutValue, step) \
     if (!(expr)) { \
         QTest::qWait(0); \

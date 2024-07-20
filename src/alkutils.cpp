@@ -8,7 +8,7 @@
 
 #include "alkutils.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QDir>
 #include <QStandardPaths>
 

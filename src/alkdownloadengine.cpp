@@ -17,7 +17,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <klocalizedstring.h>
 #else
 #include <KGlobal>
@@ -59,7 +59,7 @@ public:
 
 public Q_SLOTS:
     void downloadUrlDoneQt(QNetworkReply *reply);
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0) || defined(ALKIMIA_WEBKIT) || defined(ALKIMIA_WEBENGINE)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0) || defined(ALKIMIA_WEBKIT) || defined(ALKIMIA_WEBENGINE)
     void slotFinishedJavaScriptEngine(bool ok);
 #endif
     void slotLoadStarted();
@@ -117,7 +117,7 @@ bool AlkDownloadEngine::Private::downloadUrlQt(const QUrl &url)
     m_url = url;
     QNetworkRequest request;
     request.setUrl(url);
-#if QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy);
 #endif
     request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
@@ -137,7 +137,7 @@ bool AlkDownloadEngine::Private::downloadUrlQt(const QUrl &url)
     if (result == Result::Redirect) {
         QNetworkRequest req;
         req.setUrl(m_url);
-#if QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         req.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy);
 #endif
         req.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);

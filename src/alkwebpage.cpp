@@ -134,7 +134,7 @@ public:
         : p(parent)
         , networkAccessManager(new QNetworkAccessManager)
     {
-#if QT_VERSION >= QT_VERSION_CHECK(5,9,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 9, 0)
         // see https://community.kde.org/Policies/API_to_Avoid#QNetworkAccessManager
         networkAccessManager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
 #endif

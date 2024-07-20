@@ -156,11 +156,11 @@ int AlkFinanceQuoteProcess::exitCode() const
 
 const QStringList AlkFinanceQuoteProcess::getSourceList() const
 {
-    #if QT_VERSION < QT_VERSION_CHECK(5,14,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     QStringList raw = d->m_string.split('\r', QString::SkipEmptyParts);
-    #else
+#else
     QStringList raw = d->m_string.split('\r', Qt::SkipEmptyParts);
-    #endif
+#endif
     QStringList sources;
     QStringList::iterator it;
     for (it = raw.begin(); it != raw.end(); ++it) {

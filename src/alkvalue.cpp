@@ -143,7 +143,7 @@ AlkValue::AlkValue(const QString &str, const QChar &decimalSymbol)
 
     // take care of mixed prices of the form "5 8/16" as well
     // as own internal string representation
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     static QRegularExpression regExp(QLatin1String("^((\\d+)\\s+|-)?(\\d+/\\d+)"));
     //                                                 +-#2-+        +---#3----+
     //                                                +-----#1-----+

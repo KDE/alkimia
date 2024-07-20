@@ -275,7 +275,7 @@ void AlkOnlineQuotePrivateTest::testDateRangeInUrls()
 
 void AlkOnlineQuotePrivateTest::testGetSubTree()
 {
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     QSKIP("not implemented yet", SkipSingle);
 #else
     QFile f(":/alkonlinequoteprivatetest-2.json");
@@ -317,7 +317,7 @@ void AlkOnlineQuotePrivateTest::testGetSubTree()
 
 void AlkOnlineQuotePrivateTest::testParseQuoteJson()
 {
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     QSKIP("not implemented yet", SkipSingle);
 #else
     AlkOnlineQuote::Private &p = d_ptr();

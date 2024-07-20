@@ -75,7 +75,7 @@ public:
 
             m_format = m_format.toLower();
 
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
             QRegExp formatrex("([mdy]+)(\\W+)([mdy]+)(\\W+)([mdy]+)", Qt::CaseInsensitive);
             if (formatrex.indexIn(m_format) == -1) {
                 return setError(AlkDateFormat::InvalidFormatString, m_format);
