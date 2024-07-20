@@ -31,7 +31,7 @@ void AlkOnlineQuoteSourceTest::emptyCtor()
     QCOMPARE(m->idSelector(), AlkOnlineQuoteSource::Symbol);
     QCOMPARE(m->priceDecimalSeparator(), AlkOnlineQuoteSource::Legacy);
     QCOMPARE(m->priceRegex(), emptyString);
-    QCOMPARE(m->dataFormat(), AlkOnlineQuoteSource::HTML);
+    QVERIFY(m->dataFormat() == AlkOnlineQuoteSource::HTML);
     QCOMPARE(m->dateRegex(), emptyString);
     QCOMPARE(m->dateFormat(), emptyString);
     QCOMPARE(m->isGHNS(), false);
@@ -89,7 +89,7 @@ void AlkOnlineQuoteSourceTest::testReadWriteRemove()
     QCOMPARE(m1.idSelector(), m2.idSelector());
     QCOMPARE(m1.priceDecimalSeparator(), m2.priceDecimalSeparator());
     QCOMPARE(m1.priceRegex(), m2.priceRegex());
-    QCOMPARE(m1.dataFormat(), m2.dataFormat());
+    QVERIFY(m1.dataFormat() == m2.dataFormat());
     QCOMPARE(m1.dateRegex(), m2.dateRegex());
     QCOMPARE(m1.dateFormat(), m2.dateFormat());
     QCOMPARE(m1.isGHNS(), m2.isGHNS());
@@ -116,7 +116,7 @@ void AlkOnlineQuoteSourceTest::testRename()
     QCOMPARE(m1.idSelector(), m2.idSelector());
     QCOMPARE(m1.priceDecimalSeparator(), m2.priceDecimalSeparator());
     QCOMPARE(m1.priceRegex(), m2.priceRegex());
-    QCOMPARE(m1.dataFormat(), m2.dataFormat());
+    QVERIFY(m1.dataFormat() == m2.dataFormat());
     QCOMPARE(m1.dateRegex(), m2.dateRegex());
     QCOMPARE(m1.dateFormat(), m2.dateFormat());
     QCOMPARE(m1.isGHNS(), m2.isGHNS());

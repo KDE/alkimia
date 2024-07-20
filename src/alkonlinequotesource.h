@@ -188,4 +188,11 @@ inline void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second) // k
   swap(first.d, second.d);
 }
 
+/**
+ * Returns the specified data format as text
+ * @param format data format for which the text is to be returned
+ * @return data format as text
+ */
+ALK_EXPORT QString toString(AlkOnlineQuoteSource::DataFormat format);
+
 #endif // ALKONLINEQUOTESOURCE_H

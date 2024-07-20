@@ -12,6 +12,8 @@
 #include "alkonlinequotesprofile.h"
 #include "alktestdefs.h"
 
+#include <klocalizedstring.h>
+
 /**
  * Key to identifying "Finance::Quote" sources
  */
@@ -197,6 +199,9 @@ QString AlkOnlineQuoteSource::dateRegex() const
 
 AlkOnlineQuoteSource::DataFormat AlkOnlineQuoteSource::dataFormat() const
 {
+    if (isReference())
+        return asReference().dataFormat();
+
     return d->m_dataFormat;
 }
 
@@ -431,4 +436,20 @@ AlkOnlineQuoteSource::Private::Private(const Private *other)
     , m_storageChanged(other->m_storageChanged)
     , m_readOnly(other->m_readOnly)
 {
+}
+
+QString toString(AlkOnlineQuoteSource::DataFormat format)
+{
+    switch(format) {
+    case AlkOnlineQuoteSource::StrippedHTML:
+        return i18nc("@item:inlistbox Stock", "Stripped HTML");
+    case AlkOnlineQuoteSource::DataFormat::HTML:
+        return i18nc("@item:inlistbox Stock", "HTML");
+    case AlkOnlineQuoteSource::DataFormat::CSV:
+        return i18nc("@item:inlistbox Stock", "CSV");
+    case AlkOnlineQuoteSource::DataFormat::CSS:
+        return i18nc("@item:inlistbox Stock", "CSS");
+    default:
+        return QString();
+    }
 }

@@ -35,7 +35,7 @@ int AlkOnlineQuotesModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
 
-    return 3;
+    return 4;
 }
 
 int AlkOnlineQuotesModel::rowCount(const QModelIndex &parent) const
@@ -56,6 +56,8 @@ QVariant AlkOnlineQuotesModel::data(const QModelIndex &index, int role) const
         case Qt::DisplayRole:
         case Qt::EditRole:
             switch(index.column()) {
+            case DataFormat:
+                return toString(AlkOnlineQuoteSource(_sourceNames.at(index.row()), _profile).dataFormat());
             case Name:
                 return _sourceNames.at(index.row());
             case Source:
@@ -99,6 +101,7 @@ QVariant AlkOnlineQuotesModel::headerData(int section, Qt::Orientation orientati
 {
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
         switch(section) {
+        case DataFormat: return i18n("Format");
         case Name: return i18n("Name");
         case Source: return i18n("Source");
         case ReferenceTo: return i18n("Reference to");

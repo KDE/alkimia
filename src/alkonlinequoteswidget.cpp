@@ -250,11 +250,11 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
     connect(m_editPriceDecimalSeparator, SIGNAL(currentIndexChanged(int)), this, SLOT(slotEntryChanged()));
     connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
 
-    m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "Stripped HTML"), AlkOnlineQuoteSource::DataFormat::StrippedHTML);
-    m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "HTML"), AlkOnlineQuoteSource::DataFormat::HTML);
-    m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "CSV"), AlkOnlineQuoteSource::DataFormat::CSV);
+    m_editDataFormat->addItem(toString(AlkOnlineQuoteSource::DataFormat::StrippedHTML), AlkOnlineQuoteSource::DataFormat::StrippedHTML);
+    m_editDataFormat->addItem(toString(AlkOnlineQuoteSource::DataFormat::HTML), AlkOnlineQuoteSource::DataFormat::HTML);
+    m_editDataFormat->addItem(toString(AlkOnlineQuoteSource::DataFormat::CSV), AlkOnlineQuoteSource::DataFormat::CSV);
 #ifdef BUILD_WITH_WEBKIT
-    m_editDataFormat->addItem(i18nc("@item:inlistbox Stock", "CSS"), AlkOnlineQuoteSource::DataFormat::CSS);
+    m_editDataFormat->addItem(toString(AlkOnlineQuoteSource::DataFormat::CSS), AlkOnlineQuoteSource::DataFormat::CSS);
 #endif
     connect(m_editDataFormat, SIGNAL(currentIndexChanged(int)), this, SLOT(slotEntryChanged()));
 

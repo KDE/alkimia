@@ -20,6 +20,7 @@ public:
     enum Columns {
         Name,
         Source,
+        DataFormat,
         ReferenceTo
     };
 
