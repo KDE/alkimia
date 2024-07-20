@@ -93,6 +93,7 @@ public:
     KMessageWidget* m_infoMessage;
 #endif
     AlkOnlineQuotesModel *m_model;
+    AlkOnlineQuotesWidget *m_p;
 
     Private(bool showProfiles, bool showUpload, QWidget *parent);
     ~Private();
@@ -117,6 +118,7 @@ public Q_SLOTS:
     void slotLogQuote(const QString &id, const QString &symbol, const QDate &date, double price);
     void slotLogQuotes(const QString &id, const QString &symbol, const AlkDatePriceMap &prices);
     void slotInstallEntries();
+    void slotResetQuotesList();
     void slotUploadEntry();
     void slotShowButton();
 
@@ -155,6 +157,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_infoMessage(nullptr)
 #endif
     , m_model(nullptr)
+    , m_p(dynamic_cast<AlkOnlineQuotesWidget*>(parent))
 {
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     static KComponentData alk(TRANSLATION_DOMAIN);
@@ -242,6 +245,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     connect(m_acceptButton, SIGNAL(clicked()), this, SLOT(slotAcceptEntry()));
     connect(m_addReferenceButton, SIGNAL(clicked()), this, SLOT(slotAddReferenceButton()));
     connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
+    connect(m_resetButton, SIGNAL(clicked()), this, SLOT(slotResetQuotesList()));
     connect(m_checkButton, SIGNAL(clicked()), this, SLOT(slotCheckEntry()));
     connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
     connect(m_duplicateButton, SIGNAL(clicked()), this, SLOT(slotDuplicateEntry()));
@@ -299,6 +303,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 
     m_uploadButton->setVisible(false);
     m_acceptButton->setEnabled(false);
+    m_resetButton->setVisible(m_showProfiles);
     slotLoadProfile();
 }
 
@@ -756,6 +761,11 @@ void AlkOnlineQuotesWidget::Private::slotInstallEntries()
         m_profile->reload();
         loadQuotesList();
     }
+}
+
+void AlkOnlineQuotesWidget::Private::slotResetQuotesList()
+{
+    m_p->resetConfig();
 }
 
 void AlkOnlineQuotesWidget::Private::slotUploadEntry()

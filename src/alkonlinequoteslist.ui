@@ -117,6 +117,22 @@
            </widget>
           </item>
           <item>
+           <widget class="AlkPushButton" name="m_resetButton">
+            <property name="toolTip">
+             <string>Reset changes to local sources that were made after the last selection of this profile</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to reset changes to local sources that were made after the last selection of this profile.</string>
+            </property>
+            <property name="text">
+             <string>Reset</string>
+            </property>
+            <property name="icon">
+             <iconset theme="edit-reset"/>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
