@@ -33,11 +33,17 @@
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="AlkPushButton" name="m_checkButton">
+          <property name="toolTip">
+           <string>Check the selected source entry</string>
+          </property>
+          <property name="whatsThis">
+           <string>Use this to check the selected online source entry</string>
+          </property>
           <property name="text">
            <string>Check Source</string>
           </property>
           <property name="icon">
-           <iconset theme="check-constraint">
+           <iconset theme="document-edit-verify">
             <normaloff/>
            </iconset>
           </property>
@@ -45,8 +51,17 @@
         </item>
         <item>
          <widget class="AlkPushButton" name="m_showButton">
+          <property name="toolTip">
+           <string>Show the selected source entry in a web browser</string>
+          </property>
+          <property name="whatsThis">
+           <string>Use this to show the selected online source entry</string>
+          </property>
           <property name="text">
            <string>Show Page</string>
+          </property>
+          <property name="icon">
+           <iconset theme="applications-internet"/>
           </property>
          </widget>
         </item>

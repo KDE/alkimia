@@ -44,15 +44,35 @@
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <widget class="AlkPushButton" name="m_newButton">
+            <property name="toolTip">
+             <string>Create a new source entry for online quotes</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to create a new entry for online quotes.</string>
+            </property>
             <property name="text">
              <string comment="@action create new quote source">New</string>
+            </property>
+            <property name="icon">
+             <iconset theme="document-new"/>
             </property>
            </widget>
           </item>
           <item>
            <widget class="AlkPushButton" name="m_deleteButton">
+            <property name="toolTip">
+             <string>Delete the selected source entry</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to delete the selected online source entry</string>
+            </property>
             <property name="text">
              <string>Delete</string>
+            </property>
+            <property name="icon">
+             <iconset theme="edit-delete">
+              <normaloff/>
+             </iconset>
             </property>
            </widget>
           </item>

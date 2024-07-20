@@ -46,7 +46,6 @@
 #define initLocale() KGlobal::locale()
 #endif
 
-#include <KGuiItem>
 #include <KMessageBox>
 
 #include <ui_alkonlinequotedetails.h>
@@ -193,48 +192,10 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
 
     loadProfiles();
 
-    // TODO move to ui file
-    KGuiItem acceptButtonItem(i18nc("Accepts the entered data and stores it", "&Accept"),
-                              "dialog-ok",
-                              i18n("Accepts the entered data and stores it"),
-                              i18n("Use this to accept the modified data."));
-
-    KGuiItem deleteButtenItem(i18n("&Delete"),
-                              "edit-delete",
-                              i18n("Delete the selected source entry"),
-                              i18n("Use this to delete the selected online source entry"));
-
-    KGuiItem checkButtonItem(i18nc("Check the selected source entry", "&Check Source"),
-                             "document-edit-verify",
-                             i18n("Check the selected source entry"),
-                             i18n("Use this to check the selected online source entry"));
-
-    KGuiItem showButtonItem(i18nc("Show the selected source entry in a web browser", "&Show page"),
-                            "applications-internet",
-                            i18n("Show the selected source entry in a web browser"),
-                            i18n("Use this to show the selected online source entry"));
-
-    KGuiItem newButtenItem(i18nc("Create a new source entry for online quotes", "&New..."),
-                           "document-new",
-                           i18n("Create a new source entry for online quotes"),
-                           i18n("Use this to create a new entry for online quotes"));
-
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    KGuiItem::assign(m_acceptButton, acceptButtonItem);
-    KGuiItem::assign(m_deleteButton, deleteButtenItem);
-    KGuiItem::assign(m_checkButton, checkButtonItem);
-    KGuiItem::assign(m_showButton, showButtonItem);
-    KGuiItem::assign(m_newButton, newButtenItem);
-
     m_infoMessage = new KMessageWidget(onlineQuotesGroupBox);
     groupBoxLayout->insertWidget(0, m_infoMessage);
     m_infoMessage->hide();
-#else
-    m_acceptButton->setGuiItem(acceptButtonItem);
-    m_deleteButton->setGuiItem(deleteButtenItem);
-    m_checkButton->setGuiItem(checkButtonItem);
-    m_showButton->setGuiItem(showButtonItem);
-    m_newButton->setGuiItem(newButtenItem);
 #endif
 
     connect(m_newProfile, SIGNAL(clicked()), this, SLOT(slotNewProfile()));

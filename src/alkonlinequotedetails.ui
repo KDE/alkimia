@@ -270,8 +270,19 @@
           </property>
           <item>
            <widget class="AlkPushButton" name="m_acceptButton">
+            <property name="toolTip">
+             <string>Accepts the entered data and stores it</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to accept the modified data.</string>
+            </property>
             <property name="text">
              <string comment="@action update quotes from online quote source">Accept</string>
+            </property>
+            <property name="icon">
+             <iconset theme="dialog-ok">
+              <normaloff/>
+             </iconset>
             </property>
            </widget>
           </item>
