@@ -114,6 +114,12 @@
           </item>
           <item>
            <widget class="AlkPushButton" name="m_installButton">
+            <property name="toolTip">
+             <string>Install online quote source from the KDE Store</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to install an online quote source from the KDE Store.</string>
+            </property>
             <property name="text">
              <string>Install</string>
             </property>
@@ -126,6 +132,12 @@
           </item>
           <item>
            <widget class="AlkPushButton" name="m_uploadButton">
+            <property name="toolTip">
+             <string>Upload modified remote online quote source to the KDE Store</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to upload a modified online quote source to the KDE Store.</string>
+            </property>
             <property name="text">
              <string>Upload</string>
             </property>
