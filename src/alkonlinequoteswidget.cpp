@@ -50,7 +50,7 @@
 #include <KMessageBox>
 
 #include <ui_alkonlinequotedetails.h>
-#include <ui_alkonlinequotes.h>
+#include <ui_alkonlinequoteslist.h>
 #include <ui_alkonlinequotesdebug.h>
 #include <ui_alkonlinequotesprofiledetails.h>
 #include <ui_alkonlinequotesprofiles.h>
@@ -69,7 +69,7 @@ class AlkOnlineQuotesWidget::Private
     , public Ui::AlkOnlineQuotesDebugWidget
     , public Ui::AlkOnlineQuotesProfileDetailsWidget
     , public Ui::AlkOnlineQuotesProfilesWidget
-    , public Ui::AlkOnlineQuotesWidget
+    , public Ui::AlkOnlineQuotesListWidget
 {
     Q_OBJECT
 public:
@@ -163,7 +163,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     Ui::AlkOnlineQuotesDebugWidget::setupUi(parent);
     Ui::AlkOnlineQuotesProfileDetailsWidget::setupUi(parent);
     Ui::AlkOnlineQuotesProfilesWidget::setupUi(parent);
-    Ui::AlkOnlineQuotesWidget::setupUi(parent);
+    Ui::AlkOnlineQuotesListWidget::setupUi(parent);
 
     if (!QString(BUILD_KEY).isEmpty())
         m_buildKey->setText(QString("<small>alkimia version: %1</small>").arg(BUILD_KEY));

@@ -127,7 +127,7 @@ endif()
 
 set(alkimia_UI
     alkonlinequotedetails.ui
-    alkonlinequotes.ui
+    alkonlinequoteslist.ui
     alkonlinequotesdebug.ui
     alkonlinequotesprofiledetails.ui
     alkonlinequotesprofiles.ui
