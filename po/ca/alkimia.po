@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-14 01:42+0000\n"
+"POT-Creation-Date: 2024-07-21 01:47+0000\n"
 "PO-Revision-Date: 2024-07-13 08:45+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -181,12 +181,14 @@ msgstr "S'ha excedit el temps d'espera en recuperar l'URL per a %1"
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfileDetailsWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesDebugWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteUploadDialog)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesListWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteDetailsWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfilesWidget)
-#: alkonlinequotedetails.ui:20 alkonlinequotes.ui:20 alkonlinequotes.ui:32
-#: alkonlinequotesdebug.ui:20 alkonlinequotesprofile.ui:20
-#: alkonlinequotesprofile.ui:32 alkonlinequotesprofiledetails.ui:20
-#: alkonlinequotesprofiles.ui:20 alkonlinequoteuploaddialog.ui:20
+#: alkonlinequotedetails.ui:20 alkonlinequotesdebug.ui:20
+#: alkonlinequoteslist.ui:20 alkonlinequoteslist.ui:32
+#: alkonlinequotesprofile.ui:20 alkonlinequotesprofile.ui:32
+#: alkonlinequotesprofiledetails.ui:20 alkonlinequotesprofiles.ui:20
+#: alkonlinequoteuploaddialog.ui:20
 #, kde-format
 msgid "Online Quotes"
 msgstr "Cotitzacions en línia"
@@ -378,50 +380,182 @@ msgstr "Data"
 msgid "The type of data expected to downloaded and processed."
 msgstr "El tipus de dades esperat a baixar i processar."
 
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_acceptButton)
+#: alkonlinequotedetails.ui:274
+#, kde-format
+msgid "Accepts the entered data and stores it"
+msgstr "Accepta les dades introduïdes i les desa"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_acceptButton)
+#: alkonlinequotedetails.ui:277
+#, kde-format
+msgid "Use this to accept the modified data."
+msgstr "Useu això per a acceptar les dades modificades."
+
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #. i18n: ectx: property (text), widget (AlkPushButton, m_acceptButton)
-#: alkonlinequotedetails.ui:274 alkonlinequotesprofile.ui:312
+#: alkonlinequotedetails.ui:280 alkonlinequotesprofile.ui:312
 #, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
 msgstr "Accepta"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
-#: alkonlinequotedetails.ui:281
+#: alkonlinequotedetails.ui:292
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
 msgstr "Cancel·la"
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
-#: alkonlinequotedetails.ui:309
+#: alkonlinequotedetails.ui:320
 #, kde-format
 msgid "build_key"
 msgstr "build_key"
 
+#. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
+#: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
+#, kde-format
+msgid "Debugging"
+msgstr "Depuració"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:37
+#, kde-format
+msgid "Check the selected source entry"
+msgstr "Comprova l'entrada de la font seleccionada"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:40
+#, kde-format
+msgid "Use this to check the selected online source entry"
+msgstr "Useu això per a comprovar l'entrada de la font en línia seleccionada"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:43 alkonlinequotesprofile.ui:402
+#, kde-format
+msgid "Check Source"
+msgstr "Comprova la font"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:55
+#, fuzzy, kde-format
+#| msgid "Show the selected source entry in a web browser"
+msgid ""
+"Display the response of a query of the selected source entry in a web browser"
+msgstr "Mostra l'entrada de la font seleccionada en un navegador web"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:58
+#, fuzzy, kde-format
+#| msgid "Use this to delete the selected online source entry"
+msgid ""
+"Use this option to display the response to a query from the selected online "
+"source."
+msgstr "Useu això per a suprimir l'entrada de la font en línia seleccionada"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
+#, kde-format
+msgid "Show Page"
+msgstr "Mostra la pàgina"
+
+#. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
+#: alkonlinequotesdebug.ui:89
+#, kde-format
+msgid "End date"
+msgstr "Data final"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequotesdebug.ui:96 alkonlinequotesprofile.ui:381
+#, kde-format
+msgid "Two Symbols"
+msgstr "Dos símbols"
+
+#. i18n: ectx: property (text), widget (QLabel, m_startDateLabel)
+#: alkonlinequotesdebug.ui:112
+#, kde-format
+msgid "Start date"
+msgstr "Data d'inici"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotesdebug.ui:122 alkonlinequotesprofile.ui:367
+#, kde-format
+msgid "One Symbol"
+msgstr "Un símbol"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotesdebug.ui:129
+#, kde-format
+msgid "Return last price state"
+msgstr "Retorna l'estat del darrer preu"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
+#: alkonlinequotesdebug.ui:137
+#, kde-format
+msgid "Off"
+msgstr "Inactiu"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
+#: alkonlinequotesdebug.ui:142
+#, kde-format
+msgid "Always"
+msgstr "Sempre"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
+#: alkonlinequotesdebug.ui:147
+#, kde-format
+msgid "Always when today"
+msgstr "Carrega si és d'avui"
+
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
-#: alkonlinequotes.ui:29 alkonlinequotesprofile.ui:29
+#: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
 #, kde-format
 msgid "<html><head/><body><p>online price quotes</p></body></html>"
 msgstr "<html><head/><body><p>cotització en línia dels preus</p></body></html>"
 
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteslist.ui:48
+#, kde-format
+msgid "Create a new source entry for online quotes"
+msgstr "Crea una entrada de font nova per a les cotitzacions en línia"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteslist.ui:51
+#, fuzzy, kde-format
+#| msgid "Use this to create a new entry for online quotes"
+msgid "Use this to create a new entry for online quotes."
+msgstr "Useu això per a crear una entrada nova per a les cotitzacions en línia"
+
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
-#: alkonlinequotes.ui:48 alkonlinequotesprofile.ui:54
+#: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
 #, kde-format
 msgctxt "@action create new quote source"
 msgid "New"
 msgstr "Nova"
 
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteslist.ui:64
+#, kde-format
+msgid "Delete the selected source entry"
+msgstr "Suprimeix l'entrada de la font seleccionada"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteslist.ui:67
+#, kde-format
+msgid "Use this to delete the selected online source entry"
+msgstr "Useu això per a suprimir l'entrada de la font en línia seleccionada"
+
 #. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
 #. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
-#: alkonlinequotes.ui:55 alkonlinequotesprofile.ui:61
+#: alkonlinequoteslist.ui:70 alkonlinequotesprofile.ui:61
 #: alkonlinequotesprofiles.ui:62
 #, kde-format
 msgid "Delete"
 msgstr "Suprimeix"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequotes.ui:62 alkonlinequotesprofile.ui:68
+#: alkonlinequoteslist.ui:82 alkonlinequotesprofile.ui:68
 #, kde-format
 msgid ""
 "Create a duplicate of the currently selected source entry under a different "
@@ -430,19 +564,19 @@ msgstr ""
 "Creeu un duplicat de l'entrada de la font seleccionada sota un nom diferent."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequotes.ui:65 alkonlinequotesprofile.ui:71
+#: alkonlinequoteslist.ui:85 alkonlinequotesprofile.ui:71
 #, kde-format
 msgid "Use this to create a duplicate of an entry for an online source"
 msgstr "Useu-ho per a crear un duplicat d'una entrada per a una font en línia"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequotes.ui:68 alkonlinequotesprofile.ui:74
+#: alkonlinequoteslist.ui:88 alkonlinequotesprofile.ui:74
 #, kde-format
 msgid "Duplicate"
 msgstr "Duplica"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
-#: alkonlinequotes.ui:80
+#: alkonlinequoteslist.ui:100
 #, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
@@ -452,7 +586,7 @@ msgstr ""
 "cotitzacions en línia remota"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
-#: alkonlinequotes.ui:83
+#: alkonlinequoteslist.ui:103
 #, kde-format
 msgid ""
 "Use this to create a new local online quote source that links to a remote "
@@ -465,88 +599,69 @@ msgstr ""
 "cotització o preu."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
-#: alkonlinequotes.ui:86
+#: alkonlinequoteslist.ui:106
 #, kde-format
 msgid "Add reference"
 msgstr "Afegeix una referència"
 
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteslist.ui:118
+#, kde-format
+msgid "Install online quote source from the KDE Store"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteslist.ui:121
+#, kde-format
+msgid "Use this to install an online quote source from the KDE Store."
+msgstr ""
+
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
-#: alkonlinequotes.ui:98 alkonlinequotesprofile.ui:85
+#: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
 #, kde-format
 msgid "Install"
 msgstr "Instal·la"
 
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequoteslist.ui:136
+#, kde-format
+msgid "Upload modified remote online quote source to the KDE Store"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequoteslist.ui:139
+#, fuzzy, kde-format
+#| msgid "Use this to show the selected online source entry"
+msgid "Use this to upload a modified online quote source to the KDE Store."
+msgstr "Useu això per a mostrar l'entrada de la font en línia seleccionada"
+
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
-#: alkonlinequotes.ui:110
+#: alkonlinequoteslist.ui:142
 #, kde-format
 msgid "Upload"
 msgstr "Puja"
 
-#. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
-#: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:154
 #, kde-format
-msgid "Debugging"
-msgstr "Depuració"
+msgid ""
+"Reset changes to local sources that were made after the last selection of "
+"this profile"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
-#: alkonlinequotesdebug.ui:37 alkonlinequotesprofile.ui:402
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:157
 #, kde-format
-msgid "Check Source"
-msgstr "Comprova la font"
+msgid ""
+"Use this to reset changes to local sources that were made after the last "
+"selection of this profile."
+msgstr ""
 
-#. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
-#: alkonlinequotesdebug.ui:49 alkonlinequotesprofile.ui:413
+#. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:160
 #, kde-format
-msgid "Show Page"
-msgstr "Mostra la pàgina"
-
-#. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
-#: alkonlinequotesdebug.ui:74
-#, kde-format
-msgid "End date"
-msgstr "Data final"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: alkonlinequotesdebug.ui:81 alkonlinequotesprofile.ui:381
-#, kde-format
-msgid "Two Symbols"
-msgstr "Dos símbols"
-
-#. i18n: ectx: property (text), widget (QLabel, m_startDateLabel)
-#: alkonlinequotesdebug.ui:97
-#, kde-format
-msgid "Start date"
-msgstr "Data d'inici"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequotesdebug.ui:107 alkonlinequotesprofile.ui:367
-#, kde-format
-msgid "One Symbol"
-msgstr "Un símbol"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequotesdebug.ui:114
-#, kde-format
-msgid "Return last price state"
-msgstr "Retorna l'estat del darrer preu"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
-#: alkonlinequotesdebug.ui:122
-#, kde-format
-msgid "Off"
-msgstr "Inactiu"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
-#: alkonlinequotesdebug.ui:127
-#, kde-format
-msgid "Always"
-msgstr "Sempre"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
-#: alkonlinequotesdebug.ui:132
-#, kde-format
-msgid "Always when today"
-msgstr "Carrega si és d'avui"
+msgid "Reset"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
@@ -676,171 +791,92 @@ msgstr "Perfils de l'aplicació"
 msgid "New"
 msgstr "Nou"
 
-#: alkonlinequoteswidget.cpp:194
-#, kde-format
-msgctxt "Accepts the entered data and stores it"
-msgid "&Accept"
-msgstr "&Accepta"
-
-#: alkonlinequoteswidget.cpp:196
-#, kde-format
-msgid "Accepts the entered data and stores it"
-msgstr "Accepta les dades introduïdes i les desa"
-
-#: alkonlinequoteswidget.cpp:197
-#, kde-format
-msgid "Use this to accept the modified data."
-msgstr "Useu això per a acceptar les dades modificades."
-
-#: alkonlinequoteswidget.cpp:199
-#, kde-format
-msgid "&Delete"
-msgstr "Su&primeix"
-
-#: alkonlinequoteswidget.cpp:201
-#, kde-format
-msgid "Delete the selected source entry"
-msgstr "Suprimeix l'entrada de la font seleccionada"
-
-#: alkonlinequoteswidget.cpp:202
-#, kde-format
-msgid "Use this to delete the selected online source entry"
-msgstr "Useu això per a suprimir l'entrada de la font en línia seleccionada"
-
-#: alkonlinequoteswidget.cpp:204
-#, kde-format
-msgctxt "Check the selected source entry"
-msgid "&Check Source"
-msgstr "&Comprova la font"
-
-#: alkonlinequoteswidget.cpp:206
-#, kde-format
-msgid "Check the selected source entry"
-msgstr "Comprova l'entrada de la font seleccionada"
-
-#: alkonlinequoteswidget.cpp:207
-#, kde-format
-msgid "Use this to check the selected online source entry"
-msgstr "Useu això per a comprovar l'entrada de la font en línia seleccionada"
-
-#: alkonlinequoteswidget.cpp:209
-#, kde-format
-msgctxt "Show the selected source entry in a web browser"
-msgid "&Show page"
-msgstr "Mo&stra la pàgina"
-
-#: alkonlinequoteswidget.cpp:211
-#, kde-format
-msgid "Show the selected source entry in a web browser"
-msgstr "Mostra l'entrada de la font seleccionada en un navegador web"
-
-#: alkonlinequoteswidget.cpp:212
-#, kde-format
-msgid "Use this to show the selected online source entry"
-msgstr "Useu això per a mostrar l'entrada de la font en línia seleccionada"
-
-#: alkonlinequoteswidget.cpp:214
-#, kde-format
-msgctxt "Create a new source entry for online quotes"
-msgid "&New..."
-msgstr "&Nova..."
-
-#: alkonlinequoteswidget.cpp:216
-#, kde-format
-msgid "Create a new source entry for online quotes"
-msgstr "Crea una entrada de font nova per a les cotitzacions en línia"
-
-#: alkonlinequoteswidget.cpp:217
-#, kde-format
-msgid "Use this to create a new entry for online quotes"
-msgstr "Useu això per a crear una entrada nova per a les cotitzacions en línia"
-
-#: alkonlinequoteswidget.cpp:274
+#: alkonlinequoteswidget.cpp:239
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Símbol"
 
-#: alkonlinequoteswidget.cpp:275
+#: alkonlinequoteswidget.cpp:240
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Número d'identificació"
 
-#: alkonlinequoteswidget.cpp:276
+#: alkonlinequoteswidget.cpp:241
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nom"
 
-#: alkonlinequoteswidget.cpp:285
+#: alkonlinequoteswidget.cpp:250
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "HTML netejat"
 
-#: alkonlinequoteswidget.cpp:286
+#: alkonlinequoteswidget.cpp:251
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:287
+#: alkonlinequoteswidget.cpp:252
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:289
+#: alkonlinequoteswidget.cpp:254
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequoteswidget.cpp:293
+#: alkonlinequoteswidget.cpp:258
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Predeterminat"
 
-#: alkonlinequoteswidget.cpp:294
+#: alkonlinequoteswidget.cpp:259
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "Javascript"
 
-#: alkonlinequoteswidget.cpp:551
+#: alkonlinequoteswidget.cpp:517
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Segur que voleu suprimir aquesta cotització en línia?"
 
-#: alkonlinequoteswidget.cpp:552
+#: alkonlinequoteswidget.cpp:518
 #, kde-format
 msgid "Delete online quote"
 msgstr "Suprimeix la cotització en línia"
 
-#: alkonlinequoteswidget.cpp:571
+#: alkonlinequoteswidget.cpp:537
 #, kde-format
 msgid ".copy"
 msgstr ".copia"
 
-#: alkonlinequoteswidget.cpp:602
+#: alkonlinequoteswidget.cpp:568
 #, kde-format
 msgid ".reference"
 msgstr ".referència"
 
-#: alkonlinequoteswidget.cpp:618 alkonlinequoteswidget.cpp:620
+#: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
 #, kde-format
 msgid "New Quote Source"
 msgstr "Font nova de cotitzacions"
 
-#: alkonlinequoteswidget.cpp:630
+#: alkonlinequoteswidget.cpp:596
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "La <b>font nova de cotitzacions</b> ja existeix."
 
-#: alkonlinequoteswidget.cpp:772
+#: alkonlinequoteswidget.cpp:743
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Finestra de resultats en HTML de la cotització en línia"
@@ -953,6 +989,25 @@ msgstr "Obre l'inspector en una finestra nova"
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspecciona l'element"
+
+#~ msgctxt "Accepts the entered data and stores it"
+#~ msgid "&Accept"
+#~ msgstr "&Accepta"
+
+#~ msgid "&Delete"
+#~ msgstr "Su&primeix"
+
+#~ msgctxt "Check the selected source entry"
+#~ msgid "&Check Source"
+#~ msgstr "&Comprova la font"
+
+#~ msgctxt "Show the selected source entry in a web browser"
+#~ msgid "&Show page"
+#~ msgstr "Mo&stra la pàgina"
+
+#~ msgctxt "Create a new source entry for online quotes"
+#~ msgid "&New..."
+#~ msgstr "&Nova..."
 
 #~ msgid "Failed to open downloaded file"
 #~ msgstr "Ha fallat l'obertura del fitxer baixat"
