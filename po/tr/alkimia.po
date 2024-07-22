@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-21 01:47+0000\n"
-"PO-Revision-Date: 2024-07-13 09:09+0300\n"
+"PO-Revision-Date: 2024-07-21 19:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -430,20 +430,21 @@ msgstr "Kaynağı Denetle"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, fuzzy, kde-format
-#| msgid "Show the selected source entry in a web browser"
+#, kde-format
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "Seçili kaynak girdisini bir web tarayıcısında göster"
+msgstr ""
+"Bir web tarayıcısında seçili kaynak girdisi sorgusunun yanıtını görüntüle"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr "Seçili çevrimiçi kaynak girdisini silmek için bunu kullanın"
+msgstr ""
+"Seçilmiş olan çevrimiçi kur kaynağına yapılan bir sorgunun sonucunu "
+"görüntülemek için bu seçeneği kullanın."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -513,10 +514,9 @@ msgstr "Çevrimiçi kurlar için yeni bir kaynak girdisi oluştur"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a new entry for online quotes."
-msgstr "Çevrimiçi kurlar için yeni bir girdi oluşturmak için bunu kullanın"
+msgstr "Çevrimiçi kurlar için yeni bir girdi oluşturmak üzere bunu kullanın."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -598,13 +598,13 @@ msgstr "Başvuru Ekle"
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr ""
+msgstr "Çevrimiçi kur kaynağını KDE Store’dan indir"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
-msgstr ""
+msgstr "KDE Store’dan bir çevrimiçi kur kaynağını indirmek için bunu kullanın."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -616,14 +616,15 @@ msgstr "Kur"
 #: alkonlinequoteslist.ui:136
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
-msgstr ""
+msgstr "Değiştirilmiş çevrimiçi kur kaynağını KDE Store’a yükle"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, fuzzy, kde-format
-#| msgid "Use this to show the selected online source entry"
+#, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "Seçili çevrimiçi kaynak girdisini göstermek için bunu kullanın"
+msgstr ""
+"KDE Store’a bir değiştirilmiş çevrimiçi kur kaynağını yüklemek için bunu "
+"kullanın."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -638,6 +639,8 @@ msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
 msgstr ""
+"Bu profilin son değişikliğinden sonra yerel kaynaklara yapılan "
+"değişiklikleri sıfırla"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -646,12 +649,14 @@ msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
 msgstr ""
+"Bu profilin son seçilişinden sonra yerel kaynaklara yapılan değişiklikleri "
+"sıfırlamak için bunu kullanın."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Sıfırla"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
