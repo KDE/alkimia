@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-21 01:47+0000\n"
-"PO-Revision-Date: 2024-05-05 20:02+0200\n"
+"PO-Revision-Date: 2024-07-14 20:40+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -481,25 +481,25 @@ msgstr "Un simbolo"
 #: alkonlinequotesdebug.ui:129
 #, kde-format
 msgid "Return last price state"
-msgstr ""
+msgstr "Stato restituzione ultimo prezzo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:137
 #, kde-format
 msgid "Off"
-msgstr ""
+msgstr "Spento"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:142
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:147
 #, kde-format
 msgid "Always when today"
-msgstr ""
+msgstr "Sempre se oggi"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
@@ -570,12 +570,13 @@ msgstr "Duplica"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:100
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "Crea una nuova fonte per le quotazioni in linea"
+msgstr ""
+"Crea una nuova fonte locale in linea come riferimento a una fonte della "
+"quotazione in linea remota"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:103
@@ -585,12 +586,16 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"Usa questa opzione per creare una nuova fonte della quotazione in linea "
+"locale collegata a una fonte della quotazione in linea remota. Gli attributi "
+"della fonte in linea remota sono quindi utilizzati per formulare la "
+"richiesta di un prezzo o una quotazione."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:106
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Aggiungi riferimento"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:118
@@ -684,7 +689,7 @@ msgstr "Fonte"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Riferimento a"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -851,7 +856,7 @@ msgstr ".copy"
 #: alkonlinequoteswidget.cpp:568
 #, kde-format
 msgid ".reference"
-msgstr ""
+msgstr ".reference"
 
 #: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
 #, kde-format

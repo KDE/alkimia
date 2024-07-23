@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-21 01:47+0000\n"
-"PO-Revision-Date: 2024-07-13 08:45+0200\n"
+"PO-Revision-Date: 2024-07-21 09:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -440,20 +440,22 @@ msgstr "Comprova la font"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, fuzzy, kde-format
-#| msgid "Show the selected source entry in a web browser"
+#, kde-format
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "Mostra l'entrada de la font seleccionada en un navegador web"
+msgstr ""
+"Mostra la resposta d'una consulta de l'entrada de la font seleccionada en un "
+"navegador web"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr "Utilitzeu-la per a suprimir l'entrada de la font en línia seleccionada"
+msgstr ""
+"Utilitzeu-la per a mostrar la resposta d'una consulta de la font en línia "
+"seleccionada."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -523,11 +525,9 @@ msgstr "Crea una entrada de font nova per a les cotitzacions en línia"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a new entry for online quotes."
-msgstr ""
-"Utilitzeu-la per a crear una entrada nova per a les cotitzacions en línia"
+msgstr "Utilitzeu-la per a crear una entrada nova de cotitzacions en línia."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -612,13 +612,15 @@ msgstr "Afig una referència"
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr ""
+msgstr "Instal·la una font de cotitzacions en línia des de la KDE Store"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
 msgstr ""
+"Utilitzeu-la per a instal·lar una font de cotitzacions en línia des de la "
+"KDE Store."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -630,14 +632,15 @@ msgstr "Instal·la"
 #: alkonlinequoteslist.ui:136
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
-msgstr ""
+msgstr "Puja la font modificada de cotitzacions en línia remota a la KDE Store"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, fuzzy, kde-format
-#| msgid "Use this to show the selected online source entry"
+#, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "Utilitzeu-la per a mostrar l'entrada de la font en línia seleccionada"
+msgstr ""
+"Utilitzeu-la per a pujar una font modificada de cotitzacions en línia remota "
+"a la KDE Store."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -652,6 +655,8 @@ msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
 msgstr ""
+"Restablix els canvis a les fonts locals que s'han efectuat després de "
+"l'última selecció d'este perfil"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -660,12 +665,14 @@ msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
 msgstr ""
+"Utilitzeu-la per a restabir els canvis a les fonts locals que s'han efectuat "
+"després de l'última selecció d'este perfil."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Restablix"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
@@ -993,22 +1000,3 @@ msgstr "Obri l'inspector en una finestra nova"
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspecciona l'element"
-
-#~ msgctxt "Accepts the entered data and stores it"
-#~ msgid "&Accept"
-#~ msgstr "&Accepta"
-
-#~ msgid "&Delete"
-#~ msgstr "Sup&rimix"
-
-#~ msgctxt "Check the selected source entry"
-#~ msgid "&Check Source"
-#~ msgstr "&Comprova la font"
-
-#~ msgctxt "Show the selected source entry in a web browser"
-#~ msgid "&Show page"
-#~ msgstr "Mo&stra la pàgina"
-
-#~ msgctxt "Create a new source entry for online quotes"
-#~ msgid "&New..."
-#~ msgstr "&Nova…"

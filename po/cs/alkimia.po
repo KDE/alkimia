@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-21 01:47+0000\n"
-"PO-Revision-Date: 2024-07-15 15:34+0200\n"
+"PO-Revision-Date: 2024-07-22 16:58+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -624,7 +624,7 @@ msgstr ""
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Obnovit"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
@@ -940,18 +940,3 @@ msgstr "Otevřít inspektor v novém okně"
 #, kde-format
 msgid "Inspect element"
 msgstr "Prozkoumat prvek"
-
-#~ msgctxt "Accepts the entered data and stores it"
-#~ msgid "&Accept"
-#~ msgstr "&Přijmout"
-
-#~ msgid "&Delete"
-#~ msgstr "&Smazat"
-
-#~ msgctxt "Show the selected source entry in a web browser"
-#~ msgid "&Show page"
-#~ msgstr "Zobrazit &stránku"
-
-#~ msgctxt "Create a new source entry for online quotes"
-#~ msgid "&New..."
-#~ msgstr "&Nový..."
