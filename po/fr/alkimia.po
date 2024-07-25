@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-21 01:47+0000\n"
-"PO-Revision-Date: 2024-05-08 18:07+0200\n"
+"PO-Revision-Date: 2024-07-22 10:08+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -448,20 +448,22 @@ msgstr "Vérifier la source"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, fuzzy, kde-format
-#| msgid "Show the selected source entry in a web browser"
+#, kde-format
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "Afficher l'entrée de la source sélectionnée dans un navigateur Web"
+msgstr ""
+"Afficher la réponse à une requête pour l'entrée source sélectionnée dans un "
+"navigateur Internet"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr "Utiliser cette option pour supprimer la source en ligne sélectionnée"
+msgstr ""
+"Utiliser cette option pour afficher la réponse à la requête provenant de la "
+"source en ligne sélectionnée."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -497,25 +499,25 @@ msgstr "Un symbole"
 #: alkonlinequotesdebug.ui:129
 #, kde-format
 msgid "Return last price state"
-msgstr ""
+msgstr "Retourner l'état du dernier prix"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:137
 #, kde-format
 msgid "Off"
-msgstr ""
+msgstr "Désactivé"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:142
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Toujours"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_returnLastPriceStateComboBox)
 #: alkonlinequotesdebug.ui:147
 #, kde-format
 msgid "Always when today"
-msgstr ""
+msgstr "Toujours lorsque aujourd'hui"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
@@ -531,11 +533,9 @@ msgstr "Créer une nouvelle source de cotations en ligne"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a new entry for online quotes."
-msgstr ""
-"Utilisez ce bouton pour créer une nouvelle source de cotations en ligne"
+msgstr "Utiliser ceci pour créer une entrée de cotations en ligne."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -588,12 +588,13 @@ msgstr "Dupliquer"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:100
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "Créer une nouvelle source de cotations en ligne"
+msgstr ""
+"Crée une nouvelle source locale en ligne comme référence à une source "
+"distante de cotations en ligne"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:103
@@ -603,24 +604,30 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"Utilisez ceci pour créer une nouvelle source locale de cotations en ligne "
+"renvoyant vers une source distante source de cotations en ligne. Les "
+"attributs de la source distante de cotations en ligne sont ensuite utilisés "
+"pour une demande de prix ou de cotations."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:106
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "Ajouter une référence"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr ""
+msgstr "Installer la source de devis en ligne à partir de la boutique de KDE"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
 msgstr ""
+"Utiliser ceci pour installer une source de cotations en ligne à partir de la "
+"boutique de KDE."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -633,13 +640,16 @@ msgstr "Installer"
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
 msgstr ""
+"Envoyer la source de cotations en ligne à distance modifiée dans la boutique "
+"de KDE"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, fuzzy, kde-format
-#| msgid "Use this to show the selected online source entry"
+#, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "Utiliser cette option pour afficher la source en ligne sélectionnée"
+msgstr ""
+"Utiliser ceci pour envoyer une source de cotations en ligne modifiée vers la "
+"boutique de KDE."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -654,6 +664,8 @@ msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
 msgstr ""
+"Réinitialiser les modifications apportées aux sources locales réalisées "
+"après la dernière sélection de ce profil."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -662,12 +674,14 @@ msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
 msgstr ""
+"Utiliser ceci pour réinitialiser les modifications apportées aux sources "
+"locales réalisées après la dernière sélection de ce profil."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Réinitialisation"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
@@ -702,7 +716,7 @@ msgstr "Source"
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "Référence vers"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -783,7 +797,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Sélectionnez, ajoutez ou modifiez un profil "
 "d'application, l'emplacement où charger et enregistrer les profils, par ex. "
-"KMyMoney ou Skrooge.</p></body></html>"
+"KMyMoney ou SKrooge.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequotesprofiles.ui:29
@@ -869,7 +883,7 @@ msgstr ".copy"
 #: alkonlinequoteswidget.cpp:568
 #, kde-format
 msgid ".reference"
-msgstr ""
+msgstr ".reference"
 
 #: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
 #, kde-format

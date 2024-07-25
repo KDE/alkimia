@@ -423,20 +423,18 @@ msgstr "检查来源"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, fuzzy, kde-format
-#| msgid "Show the selected source entry in a web browser"
+#, kde-format
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "在网页浏览器中显示选中的源项"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr "用它来删除选中的在线源项"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -506,10 +504,9 @@ msgstr "为在线报价新建一个来源项"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a new entry for online quotes."
-msgstr "用它为在线报价新建一个来源项"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -607,10 +604,9 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, fuzzy, kde-format
-#| msgid "Use this to show the selected online source entry"
+#, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "用它来显示选中的在线源项"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -954,22 +950,3 @@ msgstr ""
 #, kde-format
 msgid "Inspect element"
 msgstr ""
-
-#~ msgctxt "Accepts the entered data and stores it"
-#~ msgid "&Accept"
-#~ msgstr "接受(&A)"
-
-#~ msgid "&Delete"
-#~ msgstr "删除(&D)"
-
-#~ msgctxt "Check the selected source entry"
-#~ msgid "&Check Source"
-#~ msgstr "检查来源(%C)"
-
-#~ msgctxt "Show the selected source entry in a web browser"
-#~ msgid "&Show page"
-#~ msgstr "显示页面(&S)"
-
-#~ msgctxt "Create a new source entry for online quotes"
-#~ msgid "&New..."
-#~ msgstr "新建(&N)..."
