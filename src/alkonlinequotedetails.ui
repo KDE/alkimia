@@ -373,6 +373,22 @@
    <header location="global">alkpushbutton.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>m_editURL</tabstop>
+  <tabstop>m_editDownloadType</tabstop>
+  <tabstop>m_editDataFormat</tabstop>
+  <tabstop>m_editIdentifier</tabstop>
+  <tabstop>m_editIdSelector</tabstop>
+  <tabstop>m_editPrice</tabstop>
+  <tabstop>m_editPriceDecimalSeparator</tabstop>
+  <tabstop>m_editDate</tabstop>
+  <tabstop>m_editDateFormat</tabstop>
+  <tabstop>m_editDefaultId</tabstop>
+  <tabstop>m_ghnsSource</tabstop>
+  <tabstop>m_acceptButton</tabstop>
+  <tabstop>m_cancelButton</tabstop>
+  <tabstop>m_copyButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

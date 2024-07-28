@@ -446,6 +446,22 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource(const QModelIndex &inde
     m_addReferenceButton->setEnabled(m_currentItem.isGHNS());
     m_editDataFormat->setEnabled(enabled);
 
+    // tab order seems to get messed up when enabling widgets
+    // easy solution: setup the tab order again
+    QWidget::setTabOrder(m_editURL, m_editDownloadType);
+    QWidget::setTabOrder(m_editDownloadType, m_editDataFormat);
+    QWidget::setTabOrder(m_editDataFormat, m_editIdentifier);
+    QWidget::setTabOrder(m_editIdentifier, m_editIdSelector);
+    QWidget::setTabOrder(m_editIdSelector, m_editPrice);
+    QWidget::setTabOrder(m_editPrice, m_editPriceDecimalSeparator);
+    QWidget::setTabOrder(m_editPriceDecimalSeparator, m_editDate);
+    QWidget::setTabOrder(m_editDate, m_editDateFormat);
+    QWidget::setTabOrder(m_editDateFormat, m_editDefaultId);
+    QWidget::setTabOrder(m_editDefaultId, m_ghnsSource);
+    QWidget::setTabOrder(m_ghnsSource, m_acceptButton);
+    QWidget::setTabOrder(m_acceptButton, m_cancelButton);
+    QWidget::setTabOrder(m_cancelButton, m_copyButton);
+
     m_disableUpdate = false;
 
     updateButtonState();
