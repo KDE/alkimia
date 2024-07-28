@@ -20,6 +20,7 @@
 #include "alkwebview.h"
 
 #include <QCheckBox>
+#include <QClipboard>
 #include <QDesktopServices>
 #include <QKeyEvent>
 #include <QSortFilterProxyModel>
@@ -106,6 +107,7 @@ public Q_SLOTS:
     void slotDeleteEntry();
     void slotDuplicateEntry();
     void slotAcceptEntry();
+    void slotCopySettingsToClipboard();
     void slotAddReferenceButton();
     void slotLoadQuoteSource(const QModelIndex &index = QModelIndex());
     void slotEntryChanged();
@@ -204,6 +206,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
 
     connect(m_cancelButton, SIGNAL(clicked()), this, SLOT(slotLoadQuoteSource()));
     connect(m_acceptButton, SIGNAL(clicked()), this, SLOT(slotAcceptEntry()));
+    connect(m_copyButton, SIGNAL(clicked()), this, SLOT(slotCopySettingsToClipboard()));
     connect(m_addReferenceButton, SIGNAL(clicked()), this, SLOT(slotAddReferenceButton()));
     connect(m_newButton, SIGNAL(clicked()), this, SLOT(slotNewEntry()));
     connect(m_resetButton, SIGNAL(clicked()), this, SLOT(slotResetQuotesList()));
@@ -560,12 +563,39 @@ void AlkOnlineQuotesWidget::Private::slotAcceptEntry()
     updateButtonState();
 }
 
+void AlkOnlineQuotesWidget::Private::slotCopySettingsToClipboard()
+{
+    QClipboard* clipboard = QApplication::clipboard();
+
+    QStringList settings;
+    settings << i18nc("@title %1 is version info", "Online quote settings generated with Alkimia %1").arg(BUILD_KEY);
+    settings << QString();
+
+    settings << i18nc("@info online quote setting", "URL: %1").arg(m_editURL->text());
+    settings << i18nc("@info online quote setting", "Download mode: %1").arg(m_editDownloadType->currentText());
+    settings << i18nc("@info online quote setting", "Data format: %1").arg(m_editDataFormat->currentText());
+    settings << i18nc("@info online quote setting", "Identifier: %1").arg(m_editIdentifier->text());
+    settings << i18nc("@info online quote setting", "Select by: %1").arg(m_editIdSelector->currentText());
+    settings << i18nc("@info online quote setting", "Price: %1").arg(m_editPrice->text());
+    settings << i18nc("@info online quote setting", "Price decimal separator: %1").arg(m_editPriceDecimalSeparator->currentText());
+    settings << i18nc("@info online quote setting", "Date: %1").arg(m_editDate->text());
+    settings << i18nc("@info online quote setting", "Date format: %1").arg(m_editDateFormat->text());
+    settings << i18nc("@info online quote setting", "Default identifier: %1").arg(m_editDefaultId->text());
+    settings << i18nc("@info online quote setting", "Remote source: %1")
+                    .arg(m_ghnsSource->isChecked() ? i18nc("@item:intext checkbox setting", "checked") : i18nc("@item:intext checkbox setting", "not checked"));
+
+    // force a final NL character on the last line
+    settings << QString();
+
+    clipboard->setText(settings.join(QLatin1String("\n")));
+}
+
 void AlkOnlineQuotesWidget::Private::slotAddReferenceButton()
 {
     if (!m_quoteSourceList->currentIndex().isValid())
         return;
 
-    QString newNameBase = m_currentItem.name() + i18n(".reference");
+    QString newNameBase = m_currentItem.name() + i18nc("@item:valuesuffix to name for a quote source reference", ".reference");
     int index = 1;
     QString newName = newNameBase;
     while(m_profile->quoteSources().contains(newName)) {

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>584</width>
-    <height>1462</height>
+    <height>577</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -281,8 +281,7 @@
             </property>
             <property name="icon">
              <iconset theme="dialog-ok">
-              <normaloff/>
-             </iconset>
+              <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
           </item>
@@ -293,6 +292,23 @@
             </property>
             <property name="icon">
              <iconset theme="dialog-cancel">
+              <normaloff>.</normaloff>.</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="AlkPushButton" name="m_copyButton">
+            <property name="toolTip">
+             <string>Copies the details as text to the clipboard.</string>
+            </property>
+            <property name="whatsThis">
+             <string>Use this to copy the details as text to the clipboard to e.g. paste it in an email.</string>
+            </property>
+            <property name="text">
+             <string comment="@action copy details to clipboard">Copy</string>
+            </property>
+            <property name="icon">
+             <iconset theme="edit-copy">
               <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
