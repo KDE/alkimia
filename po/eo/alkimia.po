@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-21 01:47+0000\n"
-"PO-Revision-Date: 2024-07-16 21:47+0200\n"
+"PO-Revision-Date: 2024-07-27 16:22+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -427,20 +427,19 @@ msgstr "Kontroli Fonton"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, fuzzy, kde-format
-#| msgid "Show the selected source entry in a web browser"
+#, kde-format
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "Montri la elektitan fontan eniron en TTT-legilo"
+msgstr ""
+"Montri la respondon al alpeto de la elektita fonta enskribo en TTT-legilo"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr "Uzi ĉi tion por forigi la elektitan interretan fontan eron"
+msgstr "Uzu ĉi tion por montri la alpet-respondon el la elektita enreta fonto."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -510,10 +509,9 @@ msgstr "Krei novan fontan eron por interretaj citaĵoj"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a new entry for online quotes."
-msgstr "Uzi ĉi tion por krei novan eron por interretaj citaĵoj"
+msgstr "Uzu ĉi tion por krei novan enskribon por interretaj citaĵoj."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -612,10 +610,9 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, fuzzy, kde-format
-#| msgid "Use this to show the selected online source entry"
+#, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "Uzi ĉi tion por montri la elektitan interretan fontan eniron"
+msgstr "Uzu ĉi tion por alŝuti modifitan enretan citaĵfonton al la KDE Store."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -643,7 +640,7 @@ msgstr ""
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Repravalorizi"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
@@ -969,22 +966,3 @@ msgstr "Malfermi inspektiston en nova fenestro"
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspekti elementon"
-
-#~ msgctxt "Accepts the entered data and stores it"
-#~ msgid "&Accept"
-#~ msgstr "&Konsentu"
-
-#~ msgid "&Delete"
-#~ msgstr "&Forigi"
-
-#~ msgctxt "Check the selected source entry"
-#~ msgid "&Check Source"
-#~ msgstr "&Kontroli Fonton"
-
-#~ msgctxt "Show the selected source entry in a web browser"
-#~ msgid "&Show page"
-#~ msgstr "&Montri paĝon"
-
-#~ msgctxt "Create a new source entry for online quotes"
-#~ msgid "&New..."
-#~ msgstr "&Nova..."

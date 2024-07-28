@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-21 01:47+0000\n"
-"PO-Revision-Date: 2024-07-14 20:40+0200\n"
+"PO-Revision-Date: 2024-07-24 23:57+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -432,20 +432,21 @@ msgstr "Controlla fonte"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, fuzzy, kde-format
-#| msgid "Show the selected source entry in a web browser"
+#, kde-format
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "Mostra la fonte selezionata in un browser web"
+msgstr ""
+"Mostra la risposta di una ricerca della fonte selezionata in un browser web"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr "Premi qui per eliminare la voce della fonte in linea selezionata"
+msgstr ""
+"Usa questa opzione per visualizzare la risposta di una ricerca dalla fonte "
+"in linea selezionata."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -515,10 +516,9 @@ msgstr "Crea una nuova fonte per le quotazioni in linea"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a new entry for online quotes."
-msgstr "Premi qui per creare una nuova voce per le quotazioni in linea"
+msgstr "Premi qui per creare una nuova voce per le quotazioni in linea."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -601,13 +601,15 @@ msgstr "Aggiungi riferimento"
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr ""
+msgstr "Installa la fonte della quotazione in linea dal KDE Store"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
 msgstr ""
+"Usa questo comando per installare una fonte della quotazione in linea dal "
+"KDE Store."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -620,13 +622,15 @@ msgstr "Installa"
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
 msgstr ""
+"Carica la fonte della quotazione in linea remota modificata nello KDE Store"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, fuzzy, kde-format
-#| msgid "Use this to show the selected online source entry"
+#, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "Premi qui per mostrare la fonte in linea selezionata"
+msgstr ""
+"Usa questo comando per caricare una fonte della quotazione in linea "
+"modificata nello KDE Store."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -641,6 +645,8 @@ msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
 msgstr ""
+"Reimposta le modifiche alle fonti locali fatte dopo l'ultima selezione di "
+"questo profilo"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -649,12 +655,14 @@ msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
 msgstr ""
+"Usa questo comando per reimpostare le modifiche alle fonti locali fatte dopo "
+"l'ultima selezione di questo profilo."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Reimposta"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
