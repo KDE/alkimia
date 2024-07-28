@@ -94,7 +94,7 @@ public:
     AlkOnlineQuotesModel *m_model;
     AlkOnlineQuotesWidget *m_p;
 
-    Private(bool showProfiles, bool showUpload, QWidget *parent);
+    Private(bool showProfiles, bool showUpload, AlkOnlineQuotesWidget *parent);
     ~Private();
 
 public Q_SLOTS:
@@ -133,7 +133,7 @@ public:
     void updateButtonState();
 };
 
-AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWidget *parent)
+AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkOnlineQuotesWidget *parent)
     : QWidget(parent)
     , m_quoteInEditing(false)
     , m_profile(nullptr)
@@ -156,7 +156,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, QWid
     , m_infoMessage(nullptr)
 #endif
     , m_model(nullptr)
-    , m_p(dynamic_cast<AlkOnlineQuotesWidget*>(parent))
+    , m_p(parent)
 {
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     static KComponentData alk(TRANSLATION_DOMAIN);
