@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-21 01:47+0000\n"
+"POT-Creation-Date: 2024-07-29 01:50+0000\n"
 "PO-Revision-Date: 2024-07-22 16:58+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -375,14 +375,35 @@ msgid "Accept"
 msgstr "Přijmout"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
-#: alkonlinequotedetails.ui:292
+#: alkonlinequotedetails.ui:291
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
 msgstr "Zrušit"
 
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:302
+#, kde-format
+msgid "Copies the details as text to the clipboard."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:305
+#, kde-format
+msgid ""
+"Use this to copy the details as text to the clipboard to e.g. paste it in an "
+"email."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:308
+#, kde-format
+msgctxt "@action copy details to clipboard"
+msgid "Copy"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
-#: alkonlinequotedetails.ui:320
+#: alkonlinequotedetails.ui:336
 #, kde-format
 msgid "build_key"
 msgstr ""
@@ -749,92 +770,187 @@ msgstr ""
 msgid "New"
 msgstr "Nový"
 
-#: alkonlinequoteswidget.cpp:239
+#: alkonlinequoteswidget.cpp:242
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Symbol"
 
-#: alkonlinequoteswidget.cpp:240
+#: alkonlinequoteswidget.cpp:243
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Číslo identifikátoru"
 
-#: alkonlinequoteswidget.cpp:241
+#: alkonlinequoteswidget.cpp:244
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Název"
 
-#: alkonlinequoteswidget.cpp:250
+#: alkonlinequoteswidget.cpp:253
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:251
+#: alkonlinequoteswidget.cpp:254
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequoteswidget.cpp:252
+#: alkonlinequoteswidget.cpp:255
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequoteswidget.cpp:254
+#: alkonlinequoteswidget.cpp:257
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequoteswidget.cpp:258
+#: alkonlinequoteswidget.cpp:261
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Výchozí"
 
-#: alkonlinequoteswidget.cpp:259
+#: alkonlinequoteswidget.cpp:262
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:517
+#: alkonlinequoteswidget.cpp:536
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:518
+#: alkonlinequoteswidget.cpp:537
 #, kde-format
 msgid "Delete online quote"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:537
+#: alkonlinequoteswidget.cpp:556
 #, kde-format
 msgid ".copy"
 msgstr ".kopie"
 
-#: alkonlinequoteswidget.cpp:568
+#: alkonlinequoteswidget.cpp:587
 #, kde-format
-msgid ".reference"
+msgctxt "@title %1 is version info"
+msgid "Online quote settings generated with Alkimia %1"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:584 alkonlinequoteswidget.cpp:586
+#: alkonlinequoteswidget.cpp:590
+#, fuzzy, kde-format
+#| msgid "URL found: %1..."
+msgctxt "@info online quote setting"
+msgid "URL: %1"
+msgstr "URL nalezena: %1..."
+
+#: alkonlinequoteswidget.cpp:591
+#, fuzzy, kde-format
+#| msgid "Download mode"
+msgctxt "@info online quote setting"
+msgid "Download mode: %1"
+msgstr "Režim stahování"
+
+#: alkonlinequoteswidget.cpp:592
+#, fuzzy, kde-format
+#| msgid "Data Format"
+msgctxt "@info online quote setting"
+msgid "Data format: %1"
+msgstr "Formát dat"
+
+#: alkonlinequoteswidget.cpp:593
+#, fuzzy, kde-format
+#| msgid "Identifier"
+msgctxt "@info online quote setting"
+msgid "Identifier: %1"
+msgstr "Identifikátor"
+
+#: alkonlinequoteswidget.cpp:594
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Select by: %1"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:595
+#, fuzzy, kde-format
+#| msgid "Price"
+msgctxt "@info online quote setting"
+msgid "Price: %1"
+msgstr "Cena"
+
+#: alkonlinequoteswidget.cpp:596
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Price decimal separator: %1"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:597
+#, fuzzy, kde-format
+#| msgid "Date found: '%1'"
+msgctxt "@info online quote setting"
+msgid "Date: %1"
+msgstr "Datum nalezeno: '%1'"
+
+#: alkonlinequoteswidget.cpp:598
+#, fuzzy, kde-format
+#| msgid "Date Format"
+msgctxt "@info online quote setting"
+msgid "Date format: %1"
+msgstr "Formát data"
+
+#: alkonlinequoteswidget.cpp:599
+#, fuzzy, kde-format
+#| msgid "Default Identifier"
+msgctxt "@info online quote setting"
+msgid "Default identifier: %1"
+msgstr "Výchozí identifikátor"
+
+#: alkonlinequoteswidget.cpp:600
+#, fuzzy, kde-format
+#| msgid "Remote source"
+msgctxt "@info online quote setting"
+msgid "Remote source: %1"
+msgstr "Odstranit zdroj"
+
+#: alkonlinequoteswidget.cpp:601
+#, kde-format
+msgctxt "@item:intext checkbox setting"
+msgid "checked"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:601
+#, kde-format
+msgctxt "@item:intext checkbox setting"
+msgid "not checked"
+msgstr ""
+
+#: alkonlinequoteswidget.cpp:614
+#, fuzzy, kde-format
+#| msgid "Add reference"
+msgctxt "@item:valuesuffix to name for a quote source reference"
+msgid ".reference"
+msgstr "Přidat odkaz"
+
+#: alkonlinequoteswidget.cpp:630 alkonlinequoteswidget.cpp:632
 #, kde-format
 msgid "New Quote Source"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:596
+#: alkonlinequoteswidget.cpp:642
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:743
+#: alkonlinequoteswidget.cpp:789
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr ""
