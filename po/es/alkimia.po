@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-29 01:50+0000\n"
-"PO-Revision-Date: 2024-07-22 00:56+0200\n"
+"PO-Revision-Date: 2024-07-29 13:39+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -412,7 +412,7 @@ msgstr "Cancelar"
 #: alkonlinequotedetails.ui:302
 #, kde-format
 msgid "Copies the details as text to the clipboard."
-msgstr ""
+msgstr "Copia los detalles como texto en el portapapeles."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:305
@@ -421,13 +421,15 @@ msgid ""
 "Use this to copy the details as text to the clipboard to e.g. paste it in an "
 "email."
 msgstr ""
+"Use esto para copiar los detalles como texto en el portapapeles para, por "
+"ejemplo, pegarlo en un mensaje de correo electrónico."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:308
 #, kde-format
 msgctxt "@action copy details to clipboard"
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
 #: alkonlinequotedetails.ui:336
@@ -894,100 +896,88 @@ msgstr ".copy"
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
-msgstr ""
+msgstr "Ajustes de cotizaciones en línea generados con Alkimia %1"
 
 #: alkonlinequoteswidget.cpp:590
-#, fuzzy, kde-format
-#| msgid "URL found: %1..."
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "URL: %1"
-msgstr "URL encontrado: %1..."
+msgstr "URL: %1"
 
 #: alkonlinequoteswidget.cpp:591
-#, fuzzy, kde-format
-#| msgid "Download mode"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
-msgstr "Modo de descarga"
+msgstr "Modo de descarga: %1"
 
 #: alkonlinequoteswidget.cpp:592
-#, fuzzy, kde-format
-#| msgid "Data Format"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
-msgstr "Formato de datos"
+msgstr "Formato de datos: %1"
 
 #: alkonlinequoteswidget.cpp:593
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
-msgstr "Identificador"
+msgstr "Identificador: %1"
 
 #: alkonlinequoteswidget.cpp:594
-#, fuzzy, kde-format
-#| msgid "Selected by"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
-msgstr "Seleccionar por"
+msgstr "Seleccionar por: %1"
 
 #: alkonlinequoteswidget.cpp:595
-#, fuzzy, kde-format
-#| msgid "Price"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Price: %1"
-msgstr "Precio"
+msgstr "Precio: %1"
 
 #: alkonlinequoteswidget.cpp:596
-#, fuzzy, kde-format
-#| msgid "Price decimal separator"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
-msgstr "Separador decimal de precios"
+msgstr "Separador decimal de precios: %1"
 
 #: alkonlinequoteswidget.cpp:597
-#, fuzzy, kde-format
-#| msgid "Date found: '%1'"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Date: %1"
-msgstr "Fecha encontrada: «%1»"
+msgstr "Fecha: %1"
 
 #: alkonlinequoteswidget.cpp:598
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
-msgstr "Formato de fechas"
+msgstr "Formato de fechas: %1"
 
 #: alkonlinequoteswidget.cpp:599
-#, fuzzy, kde-format
-#| msgid "Default Identifier"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
-msgstr "Identificador predeterminado"
+msgstr "Identificador predeterminado: %1"
 
 #: alkonlinequoteswidget.cpp:600
-#, fuzzy, kde-format
-#| msgid "Remote source"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
-msgstr "Fuente remota"
+msgstr "Fuente remota: %1"
 
 #: alkonlinequoteswidget.cpp:601
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
-msgstr ""
+msgstr "marcado"
 
 #: alkonlinequoteswidget.cpp:601
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
-msgstr ""
+msgstr "sin marcar"
 
 #: alkonlinequoteswidget.cpp:614
-#, fuzzy, kde-format
-#| msgid ".reference"
+#, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
 msgstr ".referencia"

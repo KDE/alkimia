@@ -856,11 +856,10 @@ msgid "Online quote settings generated with Alkimia %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:590
-#, fuzzy, kde-format
-#| msgid "URL found: %1..."
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "URL: %1"
-msgstr "找到网址： %1..."
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:591
 #, kde-format
@@ -869,11 +868,10 @@ msgid "Download mode: %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:592
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
-msgstr "日期格式"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:593
 #, kde-format
@@ -888,11 +886,10 @@ msgid "Select by: %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:595
-#, fuzzy, kde-format
-#| msgid "Price"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Price: %1"
-msgstr "价格"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:596
 #, kde-format
@@ -901,18 +898,16 @@ msgid "Price decimal separator: %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:597
-#, fuzzy, kde-format
-#| msgid "Date found: '%1'"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Date: %1"
-msgstr "已找到日期：'%1'"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:598
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
-msgstr "日期格式"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:599
 #, kde-format
@@ -921,11 +916,10 @@ msgid "Default identifier: %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:600
-#, fuzzy, kde-format
-#| msgid "New Quote Source"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
-msgstr "新报价来源"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:601
 #, kde-format
