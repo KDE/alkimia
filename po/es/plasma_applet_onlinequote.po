@@ -1,6 +1,6 @@
 # Spanish translations for alkimia-plasma-onlinequote.po package.
 # Copyright (C) 2019 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the alkimia package.
 #
 # Automatically generated, 2019.
 # Eloy Cuadra <ecuadra@eloihr.net>, 2019.
