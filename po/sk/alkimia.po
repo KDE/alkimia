@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-29 01:50+0000\n"
+"POT-Creation-Date: 2024-08-10 01:55+0000\n"
 "PO-Revision-Date: 2023-12-04 09:37+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -676,20 +676,52 @@ msgstr ""
 msgid "Local"
 msgstr "Lokálne"
 
-#: alkonlinequotesmodel.cpp:102
+#: alkonlinequotesmodel.cpp:104
+#, fuzzy, kde-format
+#| msgid "Data Format"
+msgid "Format"
+msgstr "Dátový formát"
+
+#: alkonlinequotesmodel.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Názov"
 
-#: alkonlinequotesmodel.cpp:103
+#: alkonlinequotesmodel.cpp:106
 #, kde-format
 msgid "Source"
 msgstr "Zdroj"
 
-#: alkonlinequotesmodel.cpp:104
+#: alkonlinequotesmodel.cpp:107
 #, kde-format
 msgid "Reference to"
 msgstr ""
+
+#: alkonlinequotesource.cpp:445
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Stripped HTML"
+msgstr ""
+
+#: alkonlinequotesource.cpp:447
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "HTML"
+msgstr "HTML"
+
+#: alkonlinequotesource.cpp:449
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSV"
+msgstr "CSV"
+
+#: alkonlinequotesource.cpp:451
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox Stock"
+#| msgid "CSV"
+msgctxt "@item:inlistbox Stock"
+msgid "CSS"
+msgstr "CSV"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -796,32 +828,6 @@ msgstr ""
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Názov"
-
-#: alkonlinequoteswidget.cpp:253
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "Stripped HTML"
-msgstr ""
-
-#: alkonlinequoteswidget.cpp:254
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "HTML"
-msgstr "HTML"
-
-#: alkonlinequoteswidget.cpp:255
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "CSV"
-msgstr "CSV"
-
-#: alkonlinequoteswidget.cpp:257
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox Stock"
-#| msgid "CSV"
-msgctxt "@item:inlistbox Stock"
-msgid "CSS"
-msgstr "CSV"
 
 #: alkonlinequoteswidget.cpp:261
 #, kde-format

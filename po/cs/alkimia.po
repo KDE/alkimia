@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-29 01:50+0000\n"
+"POT-Creation-Date: 2024-08-10 01:55+0000\n"
 "PO-Revision-Date: 2024-07-22 16:58+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -667,21 +667,51 @@ msgstr ""
 msgid "Local"
 msgstr "Místní"
 
+#: alkonlinequotesmodel.cpp:104
+#, fuzzy, kde-format
+#| msgid "Data Format"
+msgid "Format"
+msgstr "Formát dat"
+
 # Tohle vypadá na název vlastnosti. Jméno bycvh nechal pro lidi a zvířata.
-#: alkonlinequotesmodel.cpp:102
+#: alkonlinequotesmodel.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Název"
 
-#: alkonlinequotesmodel.cpp:103
+#: alkonlinequotesmodel.cpp:106
 #, kde-format
 msgid "Source"
 msgstr "Zdroj"
 
-#: alkonlinequotesmodel.cpp:104
+#: alkonlinequotesmodel.cpp:107
 #, kde-format
 msgid "Reference to"
 msgstr "Odkaz na"
+
+#: alkonlinequotesource.cpp:445
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Stripped HTML"
+msgstr ""
+
+#: alkonlinequotesource.cpp:447
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "HTML"
+msgstr "HTML"
+
+#: alkonlinequotesource.cpp:449
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSV"
+msgstr "CSV"
+
+#: alkonlinequotesource.cpp:451
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSS"
+msgstr "CSS"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -787,30 +817,6 @@ msgstr "Číslo identifikátoru"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Název"
-
-#: alkonlinequoteswidget.cpp:253
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "Stripped HTML"
-msgstr ""
-
-#: alkonlinequoteswidget.cpp:254
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "HTML"
-msgstr "HTML"
-
-#: alkonlinequoteswidget.cpp:255
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "CSV"
-msgstr "CSV"
-
-#: alkonlinequoteswidget.cpp:257
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "CSS"
-msgstr "CSS"
 
 #: alkonlinequoteswidget.cpp:261
 #, kde-format

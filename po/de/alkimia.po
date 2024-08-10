@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-29 01:50+0000\n"
+"POT-Creation-Date: 2024-08-10 01:55+0000\n"
 "PO-Revision-Date: 2024-06-12 22:27+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -711,19 +711,49 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Lokal"
 
-#: alkonlinequotesmodel.cpp:102
+#: alkonlinequotesmodel.cpp:104
+#, fuzzy, kde-format
+#| msgid "Date Format"
+msgid "Format"
+msgstr "Datumsformat"
+
+#: alkonlinequotesmodel.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Name"
 
-#: alkonlinequotesmodel.cpp:103
+#: alkonlinequotesmodel.cpp:106
 #, kde-format
 msgid "Source"
 msgstr "Quelle"
 
-#: alkonlinequotesmodel.cpp:104
+#: alkonlinequotesmodel.cpp:107
 #, kde-format
 msgid "Reference to"
+msgstr ""
+
+#: alkonlinequotesource.cpp:445
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Stripped HTML"
+msgstr ""
+
+#: alkonlinequotesource.cpp:447
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "HTML"
+msgstr ""
+
+#: alkonlinequotesource.cpp:449
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSV"
+msgstr ""
+
+#: alkonlinequotesource.cpp:451
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSS"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
@@ -837,30 +867,6 @@ msgstr ""
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Name"
-
-#: alkonlinequoteswidget.cpp:253
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "Stripped HTML"
-msgstr ""
-
-#: alkonlinequoteswidget.cpp:254
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "HTML"
-msgstr ""
-
-#: alkonlinequoteswidget.cpp:255
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "CSV"
-msgstr ""
-
-#: alkonlinequoteswidget.cpp:257
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "CSS"
-msgstr ""
 
 #: alkonlinequoteswidget.cpp:261
 #, kde-format

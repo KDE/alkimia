@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-29 01:50+0000\n"
+"POT-Creation-Date: 2024-08-10 01:55+0000\n"
 "PO-Revision-Date: 2024-07-24 23:57+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -705,20 +705,50 @@ msgstr "Finanza::Quotazione"
 msgid "Local"
 msgstr "Locale"
 
-#: alkonlinequotesmodel.cpp:102
+#: alkonlinequotesmodel.cpp:104
+#, fuzzy, kde-format
+#| msgid "Data Format"
+msgid "Format"
+msgstr "Formato dati"
+
+#: alkonlinequotesmodel.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Nome"
 
-#: alkonlinequotesmodel.cpp:103
+#: alkonlinequotesmodel.cpp:106
 #, kde-format
 msgid "Source"
 msgstr "Fonte"
 
-#: alkonlinequotesmodel.cpp:104
+#: alkonlinequotesmodel.cpp:107
 #, kde-format
 msgid "Reference to"
 msgstr "Riferimento a"
+
+#: alkonlinequotesource.cpp:445
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Stripped HTML"
+msgstr "Stripped HTML"
+
+#: alkonlinequotesource.cpp:447
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "HTML"
+msgstr "HTML"
+
+#: alkonlinequotesource.cpp:449
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSV"
+msgstr "CSV"
+
+#: alkonlinequotesource.cpp:451
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSS"
+msgstr "CSS"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -830,30 +860,6 @@ msgstr "Numero identificativo"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nome"
-
-#: alkonlinequoteswidget.cpp:253
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "Stripped HTML"
-msgstr "Stripped HTML"
-
-#: alkonlinequoteswidget.cpp:254
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "HTML"
-msgstr "HTML"
-
-#: alkonlinequoteswidget.cpp:255
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "CSV"
-msgstr "CSV"
-
-#: alkonlinequoteswidget.cpp:257
-#, kde-format
-msgctxt "@item:inlistbox Stock"
-msgid "CSS"
-msgstr "CSS"
 
 #: alkonlinequoteswidget.cpp:261
 #, kde-format
