@@ -133,6 +133,7 @@ public:
     QStringList doubleSymbol() const;
     QString expandedUrl() const;
     void updateButtonState();
+    void setDefaultSource(QLineEdit* editWidget, const QString& sourceDefaultValue, const QString& defaultValue);
 };
 
 AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkOnlineQuotesWidget *parent)
@@ -516,17 +517,24 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
 
     if (source.requiresTwoIdentifier()) {
         m_checkSymbol->setEnabled(false);
-        m_checkSymbol->setText("");
+        m_checkSymbol->setText(QString());
         m_checkSymbol2->setEnabled(true);
-        m_checkSymbol2->setText(!source.defaultId().isEmpty() ? source.defaultId() : "BTC GBP");
+        setDefaultSource(m_checkSymbol2, source.defaultId(), "BTC GBP");
     } else {
         m_checkSymbol->setEnabled(true);
-        m_checkSymbol->setText(!source.defaultId().isEmpty() ? source.defaultId() : "ORCL");
+        setDefaultSource(m_checkSymbol, source.defaultId(), "ORCL");
         m_checkSymbol2->setEnabled(false);
-        m_checkSymbol2->setText("");
+        m_checkSymbol2->setText(QString());
     }
 }
 
+void AlkOnlineQuotesWidget::Private::setDefaultSource(QLineEdit* editWidget, const QString& sourceDefaultValue, const QString& defaultValue)
+{
+    QString currentValue = editWidget->text();
+    if (currentValue.isEmpty()) {
+        editWidget->setText(!sourceDefaultValue.isEmpty() ? sourceDefaultValue : defaultValue);
+    }
+}
 void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
 {
     if (!m_quoteSourceList->currentIndex().isValid())
