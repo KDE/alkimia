@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2024-08-11 01:50+0000\n"
 "PO-Revision-Date: 2024-07-27 16:22+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -819,165 +819,165 @@ msgstr "Aplikaj Profiloj"
 msgid "New"
 msgstr "Nova"
 
-#: alkonlinequoteswidget.cpp:242
+#: alkonlinequoteswidget.cpp:243
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Simbolo"
 
-#: alkonlinequoteswidget.cpp:243
+#: alkonlinequoteswidget.cpp:244
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Identiga nombro"
 
-#: alkonlinequoteswidget.cpp:244
+#: alkonlinequoteswidget.cpp:245
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nomo"
 
-#: alkonlinequoteswidget.cpp:261
+#: alkonlinequoteswidget.cpp:262
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Defaŭlta"
 
-#: alkonlinequoteswidget.cpp:262
+#: alkonlinequoteswidget.cpp:263
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "Javascript"
 
-#: alkonlinequoteswidget.cpp:536
+#: alkonlinequoteswidget.cpp:544
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Ĉu vi certas forigi ĉi tiun retan citaĵon?"
 
-#: alkonlinequoteswidget.cpp:537
+#: alkonlinequoteswidget.cpp:545
 #, kde-format
 msgid "Delete online quote"
 msgstr "Forigi interretan citaĵon"
 
-#: alkonlinequoteswidget.cpp:556
+#: alkonlinequoteswidget.cpp:564
 #, kde-format
 msgid ".copy"
 msgstr ".kopio"
 
-#: alkonlinequoteswidget.cpp:587
+#: alkonlinequoteswidget.cpp:595
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:590
+#: alkonlinequoteswidget.cpp:598
 #, fuzzy, kde-format
 #| msgid "URL found: %1..."
 msgctxt "@info online quote setting"
 msgid "URL: %1"
 msgstr "URL trovita: %1..."
 
-#: alkonlinequoteswidget.cpp:591
+#: alkonlinequoteswidget.cpp:599
 #, fuzzy, kde-format
 #| msgid "Download mode"
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
 msgstr "Elŝuta reĝimo"
 
-#: alkonlinequoteswidget.cpp:592
+#: alkonlinequoteswidget.cpp:600
 #, fuzzy, kde-format
 #| msgid "Data Format"
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
 msgstr "Formato de Datumoj"
 
-#: alkonlinequoteswidget.cpp:593
+#: alkonlinequoteswidget.cpp:601
 #, fuzzy, kde-format
 #| msgid "Identifier"
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
 msgstr "Identigilo"
 
-#: alkonlinequoteswidget.cpp:594
+#: alkonlinequoteswidget.cpp:602
 #, fuzzy, kde-format
 #| msgid "Selected by"
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
 msgstr "Elektita de"
 
-#: alkonlinequoteswidget.cpp:595
+#: alkonlinequoteswidget.cpp:603
 #, fuzzy, kde-format
 #| msgid "Price"
 msgctxt "@info online quote setting"
 msgid "Price: %1"
 msgstr "Prezo"
 
-#: alkonlinequoteswidget.cpp:596
+#: alkonlinequoteswidget.cpp:604
 #, fuzzy, kde-format
 #| msgid "Price decimal separator"
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
 msgstr "Dekuma apartigilo de prezo"
 
-#: alkonlinequoteswidget.cpp:597
+#: alkonlinequoteswidget.cpp:605
 #, fuzzy, kde-format
 #| msgid "Date found: '%1'"
 msgctxt "@info online quote setting"
 msgid "Date: %1"
 msgstr "Trovita dato: '%1'"
 
-#: alkonlinequoteswidget.cpp:598
+#: alkonlinequoteswidget.cpp:606
 #, fuzzy, kde-format
 #| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
 msgstr "Datoformato"
 
-#: alkonlinequoteswidget.cpp:599
+#: alkonlinequoteswidget.cpp:607
 #, fuzzy, kde-format
 #| msgid "Default Identifier"
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
 msgstr "Defaŭlta identigilo"
 
-#: alkonlinequoteswidget.cpp:600
+#: alkonlinequoteswidget.cpp:608
 #, fuzzy, kde-format
 #| msgid "Remote source"
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
 msgstr "Fora fonto"
 
-#: alkonlinequoteswidget.cpp:601
+#: alkonlinequoteswidget.cpp:609
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:601
+#: alkonlinequoteswidget.cpp:609
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:614
+#: alkonlinequoteswidget.cpp:622
 #, fuzzy, kde-format
 #| msgid ".reference"
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
 msgstr ".reference"
 
-#: alkonlinequoteswidget.cpp:630 alkonlinequoteswidget.cpp:632
+#: alkonlinequoteswidget.cpp:638 alkonlinequoteswidget.cpp:640
 #, kde-format
 msgid "New Quote Source"
 msgstr "Nova Citfonto"
 
-#: alkonlinequoteswidget.cpp:642
+#: alkonlinequoteswidget.cpp:650
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Nova Citfonto</b> jam ekzistas."
 
-#: alkonlinequoteswidget.cpp:789
+#: alkonlinequoteswidget.cpp:797
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Interreta Citaĵo HTML Rezulta Fenestro"
