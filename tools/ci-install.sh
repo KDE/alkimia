@@ -112,6 +112,7 @@ case "$ci_distro" in
             glibc-locale-base
             # xvfb-run does not have added all required tools
             openbox
+            procps # ps
             psmisc # killall
             shadow # useradd
             sharutils # uuencode
