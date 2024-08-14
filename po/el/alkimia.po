@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 01:50+0000\n"
+"POT-Creation-Date: 2024-08-14 01:47+0000\n"
 "PO-Revision-Date: 2023-01-03 16:00+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -27,146 +27,146 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: alkonlinequote_p.cpp:137
+#: alkonlinequote_p.cpp:136
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "Η πηγή <placeholder>%1</placeholder> δεν υπάρχει."
 
-#: alkonlinequote_p.cpp:188
+#: alkonlinequote_p.cpp:187
 #, kde-format
 msgid "Cannot resolve input date."
 msgstr ""
 
-#: alkonlinequote_p.cpp:202
+#: alkonlinequote_p.cpp:201
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "Αδυναμία προσκόμισης url για το %1"
 
-#: alkonlinequote_p.cpp:212 alkonlinequote_p.cpp:214
+#: alkonlinequote_p.cpp:210 alkonlinequote_p.cpp:212
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "Έχει γίνει ανακατεύθυνση στο URL, δείτε αν υπάρχει ενημέρωση του URL της "
 "μετοχής"
 
-#: alkonlinequote_p.cpp:238
+#: alkonlinequote_p.cpp:236
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Προσκόμιση URL %1..."
 
-#: alkonlinequote_p.cpp:287
+#: alkonlinequote_p.cpp:285
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Γίνεται εκτέλεση της %1..."
 
-#: alkonlinequote_p.cpp:304 alkonlinequote_p.cpp:364
+#: alkonlinequote_p.cpp:302 alkonlinequote_p.cpp:362
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Αδυναμία εκτέλεσης: %1"
 
-#: alkonlinequote_p.cpp:325
+#: alkonlinequote_p.cpp:323
 #, kde-format
 msgid "URL found: %1..."
 msgstr "Βρέθηκε URL: %1..."
 
-#: alkonlinequote_p.cpp:356
+#: alkonlinequote_p.cpp:354
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Εκτέλεση %1 %2 %3..."
 
-#: alkonlinequote_p.cpp:414
+#: alkonlinequote_p.cpp:411
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Βρέθηκε τιμή: '%1' (%2)"
 
-#: alkonlinequote_p.cpp:417
+#: alkonlinequote_p.cpp:414
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:422
+#: alkonlinequote_p.cpp:419
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Αδυναμία ανάλυσης τιμής για το '%1'"
 
-#: alkonlinequote_p.cpp:432
+#: alkonlinequote_p.cpp:429
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Βρέθηκε ημερομηνία: '%1'"
 
-#: alkonlinequote_p.cpp:438
+#: alkonlinequote_p.cpp:435
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Βρέθηκε μορφή ημερομηνίας: '%1' -> '%2'"
 
-#: alkonlinequote_p.cpp:441
+#: alkonlinequote_p.cpp:438
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Αδυναμία ανάλυσης ημερομηνίας '%1' με χρήση της μορφής '%2': %3"
 
-#: alkonlinequote_p.cpp:445 alkonlinequote_p.cpp:455
+#: alkonlinequote_p.cpp:442 alkonlinequote_p.cpp:452
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Χρήση τρέχουσας ημερομηνίας για το '%1'"
 
-#: alkonlinequote_p.cpp:449
+#: alkonlinequote_p.cpp:446
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Η ανάλυση της ημερομηνίας έχει απενεργοποιηθεί για το '%1'"
 
-#: alkonlinequote_p.cpp:452
+#: alkonlinequote_p.cpp:449
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Αδυναμία ανάλυσης ημερομηνίας για το '%1'"
 
-#: alkonlinequote_p.cpp:509 alkonlinequote_p.cpp:535 alkonlinequote_p.cpp:573
+#: alkonlinequote_p.cpp:506 alkonlinequote_p.cpp:532 alkonlinequote_p.cpp:570
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Βρέθηκε σύμβολο: '%1'"
 
-#: alkonlinequote_p.cpp:512 alkonlinequote_p.cpp:538 alkonlinequote_p.cpp:576
+#: alkonlinequote_p.cpp:509 alkonlinequote_p.cpp:535 alkonlinequote_p.cpp:573
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Αδυναμία ανάλυσης συμβόλου για το %1"
 
-#: alkonlinequote_p.cpp:626
+#: alkonlinequote_p.cpp:623
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
 
-#: alkonlinequote_p.cpp:653
+#: alkonlinequote_p.cpp:650
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date column '%1' in quote data"
 msgstr "Αδυναμία ενημέρωσης τιμής για το %1 (κενά δεδομένα προσφοράς)"
 
-#: alkonlinequote_p.cpp:659
+#: alkonlinequote_p.cpp:656
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Αδυναμία ενημέρωσης τιμής για το %1 (κενά δεδομένα προσφοράς)"
 
-#: alkonlinequote_p.cpp:680
+#: alkonlinequote_p.cpp:677
 #, fuzzy, kde-format
 #| msgid "Unable to parse date '%1' using format '%2': %3"
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Αδυναμία ανάλυσης ημερομηνίας '%1' με χρήση της μορφής '%2': %3"
 
-#: alkonlinequote_p.cpp:710
+#: alkonlinequote_p.cpp:707
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Αδυναμία ενημέρωσης τιμής για το %1 (κενά δεδομένα προσφοράς)"
 
-#: alkonlinequote_p.cpp:741
+#: alkonlinequote_p.cpp:738
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Αδυναμία ενημέρωσης τιμής για το %1 (κενά δεδομένα προσφοράς)"
 
-#: alkonlinequote_p.cpp:759
+#: alkonlinequote_p.cpp:756
 #, fuzzy, kde-format
 #| msgid "Unable to fetch url for %1"
 msgid "Timeout exceeded on fetching url for %1"
