@@ -4,7 +4,7 @@ if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
-project(alkimia VERSION 8.1.72)
+project(alkimia VERSION 8.1.74)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
