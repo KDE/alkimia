@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 01:47+0000\n"
-"PO-Revision-Date: 2024-07-22 16:58+0200\n"
+"PO-Revision-Date: 2024-08-08 10:07+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -385,7 +385,7 @@ msgstr "Zrušit"
 #: alkonlinequotedetails.ui:302
 #, kde-format
 msgid "Copies the details as text to the clipboard."
-msgstr ""
+msgstr "Zkopíruje podrobnosti jako text do schránky."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:305
@@ -394,13 +394,15 @@ msgid ""
 "Use this to copy the details as text to the clipboard to e.g. paste it in an "
 "email."
 msgstr ""
+"Použijte toto pro zkopírování podrobností do schránky jako text např. pro "
+"vložení do e-mailu."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:308
 #, kde-format
 msgctxt "@action copy details to clipboard"
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovat"
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
 #: alkonlinequotedetails.ui:336
@@ -668,10 +670,9 @@ msgid "Local"
 msgstr "Místní"
 
 #: alkonlinequotesmodel.cpp:104
-#, fuzzy, kde-format
-#| msgid "Data Format"
+#, kde-format
 msgid "Format"
-msgstr "Formát dat"
+msgstr "Formát"
 
 # Tohle vypadá na název vlastnosti. Jméno bycvh nechal pro lidi a zvířata.
 #: alkonlinequotesmodel.cpp:105
@@ -852,98 +853,88 @@ msgid "Online quote settings generated with Alkimia %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:598
-#, fuzzy, kde-format
-#| msgid "URL found: %1..."
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "URL: %1"
-msgstr "URL nalezena: %1..."
+msgstr "URL: %1"
 
 #: alkonlinequoteswidget.cpp:599
-#, fuzzy, kde-format
-#| msgid "Download mode"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
-msgstr "Režim stahování"
+msgstr "Režim stahování: %1"
 
 #: alkonlinequoteswidget.cpp:600
-#, fuzzy, kde-format
-#| msgid "Data Format"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
-msgstr "Formát dat"
+msgstr "Formát dat: %1"
 
 #: alkonlinequoteswidget.cpp:601
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
-msgstr "Identifikátor"
+msgstr "Identifikátor: %1"
 
 #: alkonlinequoteswidget.cpp:602
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
-msgstr ""
+msgstr "Vybrat podle: %1"
 
 #: alkonlinequoteswidget.cpp:603
-#, fuzzy, kde-format
-#| msgid "Price"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Price: %1"
-msgstr "Cena"
+msgstr "Cena: %1"
 
 #: alkonlinequoteswidget.cpp:604
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
-msgstr ""
+msgstr "Oddělovač desetinných míst ceny: %1"
 
 #: alkonlinequoteswidget.cpp:605
-#, fuzzy, kde-format
-#| msgid "Date found: '%1'"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Date: %1"
-msgstr "Datum nalezeno: '%1'"
+msgstr "Datum: %1"
 
 #: alkonlinequoteswidget.cpp:606
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
-msgstr "Formát data"
+msgstr "Formát data: %1"
 
 #: alkonlinequoteswidget.cpp:607
-#, fuzzy, kde-format
-#| msgid "Default Identifier"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
-msgstr "Výchozí identifikátor"
+msgstr "Výchozí identifikátor: %1"
 
 #: alkonlinequoteswidget.cpp:608
-#, fuzzy, kde-format
-#| msgid "Remote source"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
-msgstr "Odstranit zdroj"
+msgstr "Odstranit zdroj: %1"
 
 #: alkonlinequoteswidget.cpp:609
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
-msgstr ""
+msgstr "zkontrolováno"
 
 #: alkonlinequoteswidget.cpp:609
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
-msgstr ""
+msgstr "nekontrolováno"
 
 #: alkonlinequoteswidget.cpp:622
-#, fuzzy, kde-format
-#| msgid "Add reference"
+#, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
-msgstr "Přidat odkaz"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:638 alkonlinequoteswidget.cpp:640
 #, kde-format
