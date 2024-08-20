@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 01:47+0000\n"
-"PO-Revision-Date: 2024-07-29 17:31+0200\n"
+"PO-Revision-Date: 2024-08-19 15:13+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -709,10 +709,9 @@ msgid "Local"
 msgstr "Local"
 
 #: alkonlinequotesmodel.cpp:104
-#, fuzzy, kde-format
-#| msgid "Data Format"
+#, kde-format
 msgid "Format"
-msgstr "Formato dos datos"
+msgstr "Formato"
 
 #: alkonlinequotesmodel.cpp:105
 #, kde-format
