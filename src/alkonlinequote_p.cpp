@@ -193,6 +193,8 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
         // if we've truly found 2 symbols delimited this way...
         if (splitrx.indexIn(m_symbol) != -1) {
             url = KUrl(m_source.url().arg(splitrx.cap(1), splitrx.cap(2)));
+            m_symbols[0] = splitrx.cap(1);
+            m_symbols[1] = splitrx.cap(2);
         } else {
             alkDebug() << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
         }
@@ -202,6 +204,8 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
         // if we've truly found 2 symbols delimited this way...
         if (match.hasMatch()) {
             url = KUrl(m_source.url().arg(match.captured(1), match.captured(2)));
+            m_symbols = match.capturedTexts();
+            m_symbols.takeFirst();
         } else {
             alkDebug() << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
         }
@@ -222,6 +226,40 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
     m_downloader.setAcceptedLanguage(m_acceptLanguage);
 
     return true;
+}
+
+bool AlkOnlineQuote::Private::launch(const QString &symbol, const QString &id, const QString &source)
+{
+    bool result = false;
+#ifdef ENABLE_FINANCEQUOTE
+    if (AlkOnlineQuoteSource::isFinanceQuote(source) ||
+            m_profile->type() == AlkOnlineQuotesProfile::Type::Script) {
+        result = launchFinanceQuote(symbol, id, source);
+    } else
+#endif
+    if (!initSource(source))
+        return false;
+
+    if (m_source.downloadType() == AlkOnlineQuoteSource::Javascript) {
+        result = launchWithJavaScriptSupport(symbol, id, AlkDownloadEngine::JavaScriptEngine);
+    } else if (m_source.dataFormat() == AlkOnlineQuoteSource::CSS) {
+        result = launchWithJavaScriptSupport(symbol, id, AlkDownloadEngine::JavaScriptEngineCSS);
+    } else {
+        result = launchNative(symbol, id);
+    }
+    if (!result && m_source.requiresTwoIdentifier() && m_reverseLaunchEnabled) {
+        m_reverseLaunch = true;
+        QString newSymbol(QString("%1 %2").arg(m_symbols[1], m_symbols[0]));
+        if (m_source.downloadType() == AlkOnlineQuoteSource::Javascript) {
+            result = launchWithJavaScriptSupport(newSymbol, id, AlkDownloadEngine::JavaScriptEngine);
+        } else if (m_source.dataFormat() == AlkOnlineQuoteSource::CSS) {
+            result = launchWithJavaScriptSupport(newSymbol, id, AlkDownloadEngine::JavaScriptEngineCSS);
+        } else {
+            result = launchNative(newSymbol, id);
+        }
+        m_reverseLaunch = false;
+    }
+    return result;
 }
 
 void AlkOnlineQuote::Private::slotLoadError(const QUrl &, const QString &)
@@ -435,6 +473,8 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr, AlkOnlineQuot
         bool ok;
         m_price = pricestr.toDouble(&ok);
         if (ok) {
+            if (m_reverseLaunch)
+                m_price = 1.0 / m_price;
             alkDebug() << "Price" << pricestr;
             Q_EMIT m_p->status(i18n("Price found: '%1' (%2)", pricestr, m_price));
         } else {
@@ -711,6 +751,11 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
             priceValue.replace(QLatin1Char(','), QLatin1Char('.'));
 
         AlkValue price = AlkValue(priceValue, decimalSeparator);
+        if (price == AlkValue(0))
+            continue;
+        if (m_reverseLaunch)
+            price = AlkValue(1.0) / price;
+
         if (lastDate.isNull() || lastDate <= date) {
             lastPrice = price;
             lastDate = date;
@@ -852,6 +897,8 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
     for (int i = 0; i < count; i++) {
         int dateValue = dateList.at(i);
         double priceValue = priceList.at(i);
+        if (priceValue == 0.0)
+            continue;
         QDate date = dateFormat.convertString(QString("%1").arg(dateValue), false);
         if (!date.isValid()) {
             m_errors |= Errors::DateFormat;
@@ -864,7 +911,10 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
         if (!m_endDate.isNull() && date > m_endDate)
             continue;
 
-        prices[date] = AlkValue(priceValue);
+        AlkValue price = AlkValue(priceValue);
+        if (m_reverseLaunch)
+            price = AlkValue(1.0) / price;
+        prices[date] = price;
     }
 
     if (prices.isEmpty()) {

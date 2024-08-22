@@ -45,6 +45,7 @@ public:
     AlkOnlineQuoteProcess m_filter;
     QString m_quoteData;
     QString m_symbol;
+    QStringList m_symbols;
     QString m_id;
     QDate m_startDate;
     QDate m_endDate;
@@ -61,6 +62,8 @@ public:
     int m_timeout;
     bool m_useSingleQuoteSignal{false};
     LastPriceState m_alwaysReturnLastPrice{AlwaysWhenToday};
+    bool m_reverseLaunchEnabled{true};
+    bool m_reverseLaunch{false};
 
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
     static int dbgArea();
@@ -79,6 +82,7 @@ public:
     bool applyDateRange(QUrl &url);
     bool initSource(const QString &_source);
     bool initLaunch(const QString &_symbol, const QString &_id);
+    bool launch(const QString &symbol, const QString &id, const QString &source);
     bool launchWithJavaScriptSupport(const QString &_symbol, const QString &_id, AlkDownloadEngine::Type type);
     bool launchNative(const QString &_symbol, const QString &_id);
     bool launchFinanceQuote(const QString& _symbol, const QString& _id, const QString& _source);

@@ -168,6 +168,24 @@ public:
      */
     bool useSingleQuoteSignal();
 
+    /**
+     * Returns the status whether a search with swapped symbols should
+     * be performed after a query for a symbol returned nothing.
+     * @return current state
+     */
+    bool enableReverseLaunch();
+
+    /**
+     * Set the status whether a search with swapped symbole should be
+     * performed after a query for a symbol returned nothing.
+     * @param state Enable or disable search with swapped symbols
+     */
+    void setEnableReverseLaunch(bool state);
+
+    /**
+     * Provides the currently used online source.
+     * @return online quote source
+     */
     const AlkOnlineQuoteSource &source() const;
 
 public Q_SLOTS:
