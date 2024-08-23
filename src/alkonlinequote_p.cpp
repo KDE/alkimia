@@ -372,7 +372,7 @@ bool AlkOnlineQuote::Private::parsePrice(const QString &_pricestr, AlkOnlineQuot
     bool result = true;
     // not made static due to QRegExp
     const Regex nonDigitChar("\\D");
-    const Regex validChars("^\\s*([0-9,.\\s]*[0-9,.])");
+    const Regex validChars("^\\s*([0-9,.\\s]*[0-9,.]([eE][\\-0-9]*)?)");
 
     if (validChars.hasRegexMatch(_pricestr)) {
         // Remove all non-digits from the price string except the last one, and

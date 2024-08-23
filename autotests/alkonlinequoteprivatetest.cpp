@@ -104,6 +104,11 @@ void AlkOnlineQuotePrivateTest::testParsePrice()
     QVERIFY(p.parsePrice("12345675", AlkOnlineQuoteSource::Comma));
     QCOMPARE(p.m_price, 12345675.0);
     QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
+
+    p.m_errors = AlkOnlineQuote::Errors::Success;
+    QVERIFY(p.parsePrice("1.8247e-5", AlkOnlineQuoteSource::Period));
+    QCOMPARE(p.m_price, 1.8247e-5);
+    QVERIFY(errors() & AlkOnlineQuote::Errors::Success);
 }
 
 class SingleQuoteReceiver : public QObject
