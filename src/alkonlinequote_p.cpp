@@ -79,48 +79,66 @@ AlkOnlineQuote::Private::~Private()
         delete m_profile;
 }
 
+QString replaceVariableInUrl(const QString &urlStr, const QStringList &pattern, const QString &replace)
+{
+    QString result = urlStr;
+    for (const QString &p: pattern) {
+        int n = p.length();
+        int i = result.indexOf(p);
+        if (i != -1) {
+            result.replace(i, n, replace);
+            return result;
+        }
+    }
+    return result;
+}
+
+QString replaceStartAndEndDateTime(const QString &urlStr, const QStringList &pattern, const QDateTime &startDate, const QDateTime &endDate)
+{
+    qint64 startUnixTime = startDate.toMSecsSinceEpoch() / 1000;
+    qint64 endUnixTime = endDate.toMSecsSinceEpoch() / 1000;
+
+    alkDebug() << startUnixTime << endUnixTime;
+
+    QString startNumber = QString::number(startUnixTime);
+    QString endNumber = QString::number(endUnixTime);
+
+    alkDebug()
+       << "apply date range from" << QString("%1 (%2)").arg(startDate.toString(Qt::ISODate), startNumber)
+       << "to" << QString("%1 (%2)").arg(endDate.toString(Qt::ISODate), endNumber)
+       << "to pattern" << pattern;
+
+    QString result(urlStr);
+    result = replaceVariableInUrl(result, pattern, startNumber);
+    result = replaceVariableInUrl(result, pattern, endNumber);
+    return result;
+}
+
 bool AlkOnlineQuote::Private::applyDateRange(QUrl &url)
 {
     QString urlStr(url.toEncoded());
-    int i = -1;
-    int j = -1;
+    QStringList patternUTC = { "%25utc", "%utc" };
+    QStringList pattern = { "%25unix", "%unix", "%25u", "%u" };
+
     if (m_startDate.isValid() && m_endDate.isValid()) {
-        QDateTime startDate = QDateTime(m_startDate, QTime(), Qt::LocalTime);
-        QDateTime endDate = QDateTime(m_endDate, QTime(23,59,59, 999), Qt::LocalTime);
-        qint64 startUnixTime = startDate.toMSecsSinceEpoch() / 1000;
-        qint64 endUnixTime = endDate.toMSecsSinceEpoch() / 1000;
+        QDateTime startDateLocal = QDateTime(m_startDate, QTime(), Qt::LocalTime);
+        QDateTime endDateLocal = QDateTime(m_endDate, QTime(23,59,59, 999), Qt::LocalTime);
 
-        alkDebug() << startUnixTime << endUnixTime;
 
-        QString startNumber = QString::number(startUnixTime);
-        QString endNumber = QString::number(endUnixTime);
+        QDateTime startDateUTC = QDateTime(m_startDate, QTime(), Qt::UTC);
+        QDateTime endDateUTC = QDateTime(m_endDate, QTime(23,59,59, 999), Qt::UTC);
 
-        alkDebug() << startNumber << endNumber;
-
-        i = urlStr.indexOf(QLatin1String("%25unix"));
-        if (i != -1)
-            urlStr.replace(i, 7, startNumber);
-        else {
-            i = urlStr.indexOf(QLatin1String("%unix"));
-            if (i != -1)
-                urlStr.replace(i, 5, startNumber);
-        }
-
-        j = urlStr.indexOf(QLatin1String("%25unix"));
-        if (j != -1)
-            urlStr.replace(j, 7, endNumber);
-        else {
-            j = urlStr.indexOf(QLatin1String("%unix"));
-            if (j != -1)
-                urlStr.replace(j, 5, endNumber);
-        }
+        urlStr = replaceStartAndEndDateTime(urlStr, patternUTC, startDateUTC, endDateUTC);
+        urlStr = replaceStartAndEndDateTime(urlStr, pattern, startDateLocal, endDateLocal);
+        pattern << patternUTC;
     }
 
     alkDebug() << urlStr;
 
-    // return error if only one or more than two placeholders are present
-    if (urlStr.contains(QLatin1String("%25unix")) || urlStr.contains(QLatin1String("%unix")) || (i != -1 && j == -1)) {
-        return false;
+    // Returns an error if one of the searched patterns is still present in the url
+    for (QString &p: pattern) {
+        if (urlStr.contains(p))
+            return false;
     }
 
     url = QUrl::fromEncoded(urlStr.toLocal8Bit());

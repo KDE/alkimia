@@ -25,7 +25,7 @@ private Q_SLOTS:
     void testParseQuoteCSVSingleLine();
     void testParseQuoteCSVMultipleLines();
     void testParseQuoteCSVDateRange();
-    void testDateRangeInCSVUrls();
+    void testDateRangeInUrls();
     void testParseQuoteJson();
 };
 
