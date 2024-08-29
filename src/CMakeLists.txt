@@ -34,6 +34,11 @@ set(alkimia_INTERNAL_HEADERS
 set(alkimia_INTERNAL_UI
 )
 
+# Avoid linking to dllexported QDebug function
+if(WIN32)
+    set_source_files_properties(alknewstuffwidget.cpp PROPERTIES COMPILE_DEFINITIONS ALK_STATIC_DEFINE)
+endif()
+
 ki18n_wrap_ui(alkimia_INTERNAL_SRCS ${alkimia_INTERNAL_UI} )
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
 

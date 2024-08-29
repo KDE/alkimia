@@ -79,6 +79,7 @@ bool AlkNewStuffWidget::showInstallDialog(QWidget *parent)
     knsWrapper->trigger();
     loop->exec();
     delete loop;
+    alkDebug() << "changed entries" << *entries;
     bool result = !entries->isEmpty();
     delete entries;
     return result;
@@ -97,6 +98,7 @@ bool AlkNewStuffWidget::showInstallDialog(QWidget *parent)
     QEventLoop loop;
     connect(knsWrapper, &KNS3::QtQuickDialogWrapper::closed, &loop, &QEventLoop::quit);
     loop.exec();
+    alkDebug() << "changed entries" << knsWrapper->changedEntries();
     return !knsWrapper->changedEntries().empty();
 #endif
 }
