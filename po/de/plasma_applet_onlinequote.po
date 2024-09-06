@@ -4,7 +4,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: alkimia\n"
+"Project-Id-Version: plasma_applet_onlinequote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
 "PO-Revision-Date: 2019-06-24 14:57+0200\n"
