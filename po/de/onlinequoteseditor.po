@@ -4,7 +4,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2019, 2020, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: alkimia\n"
+"Project-Id-Version: onlinequoteseditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-11 02:47+0000\n"
 "PO-Revision-Date: 2021-05-11 04:23+0200\n"
