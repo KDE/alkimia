@@ -48,7 +48,7 @@ function start_kde_session() {
 
 function stop_kde_session() {
     if test "$ci_host" = native; then
-        ${start_kde_session}_shutdown
+        ${start_kde_session}_shutdown || true
         kill -s 9 $DBUS_SESSION_BUS_PID
     else
         $wrapper $start_kde_session --terminate
