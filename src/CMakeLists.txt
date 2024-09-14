@@ -76,6 +76,7 @@ set(ALKIMIA_LIB_SOVERSION "${alkimia_VERSION_MAJOR}")
 
 set(alkimia_LIB_SRCS
     alkcompany.cpp
+    alkdom.cpp
     alkdownloadengine.cpp
     alkenvironment.cpp
     alknewstuffengine.cpp
@@ -99,6 +100,7 @@ set(alkimia_LIB_SRCS
 
 set(alkimia_LIB_HEADERS
     alkcompany.h
+    alkdom.h
     alkenvironment.h
     alknewstuffengine.h
     alknewstuffentry.h
