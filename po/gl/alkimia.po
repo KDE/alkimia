@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 01:47+0000\n"
-"PO-Revision-Date: 2024-08-19 15:13+0200\n"
+"PO-Revision-Date: 2024-09-22 00:37+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -187,6 +187,7 @@ msgstr "Superouse a espera máxima ao obter o URL de %1"
 msgid "Online Quotes"
 msgstr "Cotizacións de Internet"
 
+# skip-rule: trasno-list_reverse
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequotedetails.ui:26 alkonlinequotesprofile.ui:116
 #, kde-format
@@ -209,11 +210,11 @@ msgstr ""
 "pode probar no foro de KMyMoney en </span><a href=\"https://forum.kde.org/"
 "viewforum.php?f=69\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></a> ou na <span "
-"style=\" font-style:italic;\">lista de persoas usuarias en </span><a href="
-"\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; text-"
-"decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></a><span "
-"style=\" font-style:italic;\"> para ver que configuracións funcionan para "
-"outras persoas usuarias do seu país.</span></p></body></html>"
+"style=\" font-style:italic;\">lista de correo de persoas usuarias en </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\"> para ver que configuracións funcionan "
+"para outras persoas usuarias do seu país.</span></p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequotedetails.ui:29 alkonlinequotesprofile.ui:119
@@ -377,7 +378,7 @@ msgstr "O tipo de datos que se espera descargar e procesar."
 #: alkonlinequotedetails.ui:274
 #, kde-format
 msgid "Accepts the entered data and stores it"
-msgstr "Acepta os datos inseridos e almacénaos"
+msgstr "Acepta os datos inseridos e almacénaos."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_acceptButton)
 #: alkonlinequotedetails.ui:277
@@ -439,7 +440,7 @@ msgstr "Depuración"
 #: alkonlinequotesdebug.ui:37
 #, kde-format
 msgid "Check the selected source entry"
-msgstr "Comprobar a fonte escollida"
+msgstr "Comprobar a fonte escollida."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_checkButton)
 #: alkonlinequotesdebug.ui:40
@@ -536,7 +537,7 @@ msgstr ""
 #: alkonlinequoteslist.ui:48
 #, kde-format
 msgid "Create a new source entry for online quotes"
-msgstr "Crear unha nova entrada de fonte de cotizacións de Internet"
+msgstr "Crear unha nova entrada de fonte de cotizacións de Internet."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
@@ -555,7 +556,7 @@ msgstr "Novo"
 #: alkonlinequoteslist.ui:64
 #, kde-format
 msgid "Delete the selected source entry"
-msgstr "Eliminar a fonte escollida"
+msgstr "Eliminar a fonte escollida."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_deleteButton)
 #: alkonlinequoteslist.ui:67
@@ -1067,14 +1068,14 @@ msgid ""
 "tab)."
 msgstr ""
 "Para enviar o paquete xerado á tenda de Internet, copie a ruta do ficheiro "
-"xerado no portapapeis, acceda á tenda que se menciona embaixo e peque o URL "
+"xerado no portapapeis, acceda á tenda que se menciona embaixo e pegue o URL "
 "copiado no paquete correspondente (consulte a lapela de <b>ficheiros</b>)."
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr "Crear o paquete para enviar"
+msgstr "Crear o paquete para enviar."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
