@@ -8,13 +8,25 @@
 
 #include "alknewstuffengine.h"
 
+#include "alkdebug.h"
+
 #include <QApplication>
 #include <QObject>
-#include "alkdebug.h"
+#include <QTimer>
 
 class TestReceiver : public QObject
 {
     Q_OBJECT
+public:
+    QEventLoop &_loop;
+
+    TestReceiver(QEventLoop &loop)
+        : _loop(loop)
+    {
+        QTimer::singleShot(10000, this, SLOT(quitWithError()));
+        connect(this, SIGNAL(finished()), this, SLOT(quit()));
+    }
+
 Q_SIGNALS:
     void finished();
 
@@ -26,6 +38,17 @@ public Q_SLOTS:
         }
         Q_EMIT finished();
     }
+
+    void quitWithError()
+    {
+        alkDebug() << "Timeout received - exit with error";
+        _loop.exit(1);
+    }
+
+    void quit()
+    {
+        _loop.exit(0);
+    }
 };
 
 int main(int argc, char *argv[])
@@ -34,21 +57,19 @@ int main(int argc, char *argv[])
 
     QString configFile = QString("%1/%2").arg(KNSRC_DIR, "alkimia-quotes.knsrc");
 
-    TestReceiver receiver;
-    AlkNewStuffEngine engine(&receiver);
     QEventLoop loop;
+    TestReceiver receiver(loop);
+    AlkNewStuffEngine engine(&receiver);
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QObject::connect(&engine, &AlkNewStuffEngine::updatesAvailable, &receiver, &TestReceiver::updatesAvailable);
-    QObject::connect(&receiver, &TestReceiver::finished, &loop, &QEventLoop::quit);
 #else
     QObject::connect(&engine, SIGNAL(updatesAvailable(const AlkNewStuffEntryList &)), &receiver, SLOT(updatesAvailable(const AlkNewStuffEntryList &)));
-    QObject::connect(&receiver, SIGNAL(finished()), &loop, SLOT(quit()));
 #endif
     engine.init(configFile);
     engine.checkForUpdates();
 
-    loop.exec();
+    return loop.exec();
 }
 
 #include "alknewstuffenginetest.moc"
