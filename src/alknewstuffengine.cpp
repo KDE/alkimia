@@ -12,6 +12,7 @@
 #include "alkdebug.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <KNSCore/Cache>
 #include <KNSCore/EngineBase>
 #include <KNSCore/Provider>
 #include <KNSCore/ResultsStream>
@@ -37,6 +38,7 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QPointer<KNSCore::EngineBase> m_engine;
     #define KNS3 KNSCore
+    QSharedPointer<KNSCore::Cache> m_cache;
     bool m_providersLoaded{false};
     bool m_wantUpdates{false};
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
@@ -82,6 +84,10 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
     bool state = false;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     m_engine = new KNSCore::EngineBase(this);
+    state = m_engine->init(configFile);
+    if (!state)
+        return false;
+    m_cache = m_engine->cache();
     connect(m_engine, &KNSCore::EngineBase::signalProvidersLoaded, this, [this]()
     {
         alkDebug() << "providers loaded";
@@ -150,12 +156,9 @@ void AlkNewStuffEngine::Private::checkForUpdates()
 const AlkNewStuffEntryList AlkNewStuffEngine::Private::installedEntries()
 {
     AlkNewStuffEntryList result;
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-    alkDebug() << "FIXME Qt6:";
-#else
     if (m_cache)
         toAlkEntryList(result, m_cache->registry());
-#endif
+
     alkDebug() << result;
     return result;
 }

@@ -43,9 +43,9 @@ public:
 
 typedef QList<AlkNewStuffEntry> AlkNewStuffEntryList;
 
-const char *toString(AlkNewStuffEntry::Status status);
+ALK_EXPORT const char *toString(AlkNewStuffEntry::Status status);
 
-QDebug operator<<(QDebug out, const AlkNewStuffEntry &entry);
-QDebug operator<<(QDebug out, const AlkNewStuffEntryList &entries);
+ALK_EXPORT QDebug operator<<(QDebug out, const AlkNewStuffEntry &entry);
+ALK_EXPORT QDebug operator<<(QDebug out, const AlkNewStuffEntryList &entries);
 
 #endif // ALKNEWSTUFFENTRY_H

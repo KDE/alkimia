@@ -12,13 +12,19 @@
 #include "alkdebug.h"
 #include "alknewstuffentry.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <KNSCore/Entry>
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <knscore/entryinternal.h>
 #else
 #include <knewstuff3/entry.h>
 #endif
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+ALK_EXPORT QDebug operator<<(QDebug out, const KNSCore::Entry::List &entries);
+ALK_EXPORT AlkNewStuffEntry toAlkEntry(const KNSCore::Entry &entry);
+ALK_EXPORT void toAlkEntryList(AlkNewStuffEntryList &result, const KNSCore::Entry::List &entries);
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 ALK_EXPORT QDebug operator<<(QDebug out, const KNSCore::EntryInternal &entry);
 ALK_EXPORT QDebug operator<<(QDebug out, const KNSCore::EntryInternal::List &entries);
 ALK_EXPORT AlkNewStuffEntry toAlkEntry(const KNSCore::EntryInternal &entry);
