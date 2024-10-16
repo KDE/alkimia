@@ -162,6 +162,7 @@ case "$ci_distro" in
                     "doxygen"
                     "gmp-devel"
                     "kf6-extra-cmake-modules"
+                    "qt6qmlimport(org.kde.newstuff)"
                 )
                 ;;
             (kf5*-native)
