@@ -108,6 +108,10 @@ AlkOnlineQuoteSource AlkOnlineQuoteSource::testQuoteSource(const QString& name, 
         type = QLatin1String("&type=csv");
         priceRegexString = QLatin1String("value");
         dateRegexString = QLatin1String("date");
+    } else if (format == JSON) {
+        type = QLatin1String("&type=json");
+        priceRegexString = QLatin1String("value");
+        dateRegexString = QLatin1String("date");
     } else {
         return AlkOnlineQuoteSource();
     }
@@ -449,6 +453,8 @@ QString toString(AlkOnlineQuoteSource::DataFormat format)
         return i18nc("@item:inlistbox Stock", "CSV");
     case AlkOnlineQuoteSource::DataFormat::CSS:
         return i18nc("@item:inlistbox Stock", "CSS");
+    case AlkOnlineQuoteSource::DataFormat::JSON:
+        return i18nc("@item:inlistbox Stock", "JSON");
     default:
         return QString();
     }

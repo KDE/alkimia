@@ -52,6 +52,9 @@ using Regex = QRegularExpression;
 
 #ifndef I18N_NOOP
 #include <KLazyLocalizedString>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #endif
 
 AlkOnlineQuote::Private::Private(AlkOnlineQuote *parent)
@@ -721,6 +724,143 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
 }
 
 /**
+ * Parse quote data in json format
+ *
+ * @param quotedata quote data to parse
+ * @return true parsing successful
+ * @return false parsing unsuccessful
+ */
+bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
+{
+    QString dateHierachy(m_source.dateRegex());
+    QString priceHierachy(m_source.priceRegex());
+    auto jsonDoc = QJsonDocument::fromJson(quotedata.toLocal8Bit());
+
+    if (jsonDoc.isNull()) {
+        m_errors |= Errors::Source;
+        alkDebug() << "Failed to create JSON doc";
+    } else if (!jsonDoc.isObject()) {
+        m_errors |= Errors::Source;
+        alkDebug() << "JSON is not an object";
+    }
+
+    QJsonObject json = jsonDoc.object();
+
+    if (json.isEmpty()) {
+        m_errors |= Errors::Source;
+        alkDebug() << "JSON object is empty.";
+    }
+
+    if (m_errors != Errors::Success) {
+        Q_EMIT m_p->error(i18n("Json file with invalid content found for '%1", m_symbol));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+
+    QJsonObject o = json;
+    QJsonObject o1;
+    QJsonArray a;
+    QString s;
+
+    // extract dates
+    QList<int> dateList;
+    QStringList keyList = dateHierachy.split(":");
+    QString key = keyList.takeFirst();
+    while (!o.isEmpty()) {
+        if (o.contains(key) && o[key].isObject()) {
+            o = o[key].toObject();
+            key = keyList.takeFirst();
+        } else if (o.contains(key) && o[key].isArray()) {
+            a = o[key].toArray();
+            // requested level has been reached
+            if (keyList.size() == 0) {
+                for (const auto &b : qAsConst(a)) {
+                    if (b.toInt())
+                        dateList.append(b.toInt());
+                }
+                break;
+            } else {
+                key = keyList.takeFirst();
+                for (const auto &b : qAsConst(a)) {
+                    if (b.isObject())
+                        o = b.toObject();
+                }
+            }
+        } else if (o.contains(key) && o[key].isString())
+            s = o[key].toString();
+    }
+
+    // extract prices
+    o = json;
+    QList<double> priceList;
+    keyList = priceHierachy.split(":");
+    key = keyList.takeFirst();
+    while (!o.isEmpty()) {
+        if (o.contains(key) && o[key].isObject()) {
+            o = o[key].toObject();
+            key = keyList.takeFirst();
+        } else if (o.contains(key) && o[key].isArray()) {
+            a = o[key].toArray();
+            // requested level has been reached
+            if (keyList.size() == 0) {
+                for (const auto &b : qAsConst(a)) {
+                    if (b.toDouble())
+                        priceList.append(b.toDouble());
+                    else if (b.isNull())
+                        priceList.append(0.0);
+                }
+                break;
+            } else {
+                key = keyList.takeFirst();
+                for (const auto &b : qAsConst(a)) {
+                    if (b.isObject())
+                        o = b.toObject();
+                }
+            }
+        } else if (o.contains(key) && o[key].isString())
+            s = o[key].toString();
+    }
+
+    AlkDatePriceMap prices;
+    AlkDateFormat dateFormat(m_source.dateFormat());
+    int count = std::min(dateList.size(), priceList.size());
+    for (int i = 0; i < count; i++) {
+        int dateValue = dateList.at(i);
+        double priceValue = priceList.at(i);
+        QDate date = dateFormat.convertString(QString("%1").arg(dateValue), false);
+        if (!date.isValid()) {
+            m_errors |= Errors::DateFormat;
+            Q_EMIT m_p->error(i18n("Unable to convert date '%1' with '%2' in quote data", dateValue, m_source.dateFormat()));
+            Q_EMIT m_p->failed(m_id, m_symbol);
+            return false;
+        }
+        if (!m_startDate.isNull() && date < m_startDate)
+            continue;
+        if (!m_endDate.isNull() && date > m_endDate)
+            continue;
+
+        prices[date] = AlkValue(priceValue);
+    }
+
+    if (prices.isEmpty()) {
+        m_errors |= Errors::Price;
+        Q_EMIT m_p->error(i18n("Unable to find date/price pairs in quote data"));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+
+    if (m_useSingleQuoteSignal) {
+        for (auto &key : prices.keys()) {
+            Q_EMIT m_p->quote(m_id, m_symbol, key, prices[key].toDouble());
+        }
+    } else {
+        Q_EMIT m_p->quotes(m_id, m_symbol, prices);
+    }
+
+    return true;
+}
+
+/**
  * Parse quote data according to currently selected web price quote source
  *
  * @param _quotedata quote data to parse
@@ -746,6 +886,8 @@ bool AlkOnlineQuote::Private::slotParseQuote(const QString &quotedata)
         return parseQuoteHTML(quotedata);
     case AlkOnlineQuoteSource::CSV:
         return parseQuoteCSV(quotedata);
+    case AlkOnlineQuoteSource::JSON:
+        return parseQuoteJson(quotedata);
     default:
         return false;
     }

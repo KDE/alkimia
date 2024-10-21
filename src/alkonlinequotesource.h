@@ -11,6 +11,7 @@
 
 #include <alkimia/alkonlinequotesprofile.h>
 
+#include <QMetaType>
 #include <QString>
 
 class AlkOnlineQuotesProfile;
@@ -38,6 +39,7 @@ public:
         HTML,
         CSV,
         CSS,
+        JSON,
     };
 
     /**
@@ -181,6 +183,7 @@ protected:
     class Private;
     Private *d;
 };
+Q_DECLARE_METATYPE(AlkOnlineQuoteSource::DataFormat)
 
 inline void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second) // krazy:exclude=inline
 {

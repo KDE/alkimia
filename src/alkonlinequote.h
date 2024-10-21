@@ -63,6 +63,8 @@ public:
         Errors(Type type);
         Errors& operator|=(Type t);
         bool operator &(Type t) const;
+        bool operator ==(Type t) const;
+        bool operator !=(Type t) const;
 
     protected:
         QList<Type> m_type;

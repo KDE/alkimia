@@ -257,6 +257,7 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
 #ifdef BUILD_WITH_WEBKIT
     m_editDataFormat->addItem(toString(AlkOnlineQuoteSource::DataFormat::CSS), AlkOnlineQuoteSource::DataFormat::CSS);
 #endif
+    m_editDataFormat->addItem(toString(AlkOnlineQuoteSource::DataFormat::JSON), AlkOnlineQuoteSource::DataFormat::JSON);
     connect(m_editDataFormat, SIGNAL(currentIndexChanged(int)), this, SLOT(slotEntryChanged()));
 
     m_editDownloadType->addItem(i18nc("@item:inlistbox Stock", "Default"), AlkOnlineQuoteSource::DownloadType::Default);
@@ -417,7 +418,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource(const QModelIndex &inde
         m_editIdSelector->setCurrentIndex(source.idSelector());
         m_editPriceDecimalSeparator->setCurrentIndex(source.priceDecimalSeparator());
         m_editPrice->setText(source.priceRegex());
-        m_editDataFormat->setCurrentIndex(source.dataFormat());
+        m_editDataFormat->setCurrentIndex(m_editDataFormat->findData(source.dataFormat()));
         m_editDate->setText(source.dateRegex());
         m_editDateFormat->setText(source.dateFormat());
         m_editDefaultId->setText(source.defaultId());
@@ -481,7 +482,7 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
                     (m_editURL->text() != m_currentItem.url()
                     || m_editIdentifier->text() != m_currentItem.idRegex()
                     || m_editIdSelector->currentIndex() != static_cast<int>(m_currentItem.idSelector())
-                    || m_editDataFormat->currentIndex() != static_cast<int>(m_currentItem.dataFormat())
+                    || m_editDataFormat->currentIndex() != m_editDataFormat->findData(m_currentItem.dataFormat())
                     || m_editDate->text() != m_currentItem.dateRegex()
                     || m_editDateFormat->text() != m_currentItem.dateFormat()
                     || m_editDefaultId->text() != m_currentItem.defaultId()
@@ -509,11 +510,11 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
     if (source.isReference())
         source = source.asReference();
 
-    bool isCSVSource = source.dataFormat() == AlkOnlineQuoteSource::CSV;
-    m_startDateLabel->setVisible(isCSVSource);
-    m_endDateLabel->setVisible(isCSVSource);
-    m_startDateEdit->setVisible(isCSVSource);
-    m_endDateEdit->setVisible(isCSVSource);
+    bool hasDateRange = source.dataFormat() == AlkOnlineQuoteSource::CSV || source.dataFormat() == AlkOnlineQuoteSource::JSON;
+    m_startDateLabel->setVisible(hasDateRange);
+    m_endDateLabel->setVisible(hasDateRange);
+    m_startDateEdit->setVisible(hasDateRange);
+    m_endDateEdit->setVisible(hasDateRange);
 
     if (source.requiresTwoIdentifier()) {
         m_checkSymbol->setEnabled(false);
@@ -573,7 +574,7 @@ void AlkOnlineQuotesWidget::Private::slotAcceptEntry()
     m_currentItem.setUrl(m_editURL->text());
     m_currentItem.setIdRegex(m_editIdentifier->text());
     m_currentItem.setIdSelector(static_cast<AlkOnlineQuoteSource::IdSelector>(m_editIdSelector->currentIndex()));
-    m_currentItem.setDataFormat(static_cast<AlkOnlineQuoteSource::DataFormat>(m_editDataFormat->currentIndex()));
+    m_currentItem.setDataFormat(m_editDataFormat->currentData().value<AlkOnlineQuoteSource::DataFormat>());
     m_currentItem.setDateRegex(m_editDate->text());
     m_currentItem.setDateFormat(m_editDateFormat->text());
     m_currentItem.setDefaultId(m_editDefaultId->text());
@@ -717,7 +718,7 @@ void AlkOnlineQuotesWidget::Private::slotCheckEntry()
     AlkOnlineQuoteSource source(m_currentItem);
     if (source.isReference())
         source = source.asReference();
-    if (source.dataFormat() == AlkOnlineQuoteSource::CSV) {
+    if (source.dataFormat() == AlkOnlineQuoteSource::CSV || source.dataFormat() == AlkOnlineQuoteSource::JSON) {
         quote.setDateRange(m_startDateEdit->date(), m_endDateEdit->date());
     } else {
         quote.setDateRange(QDate(), QDate());

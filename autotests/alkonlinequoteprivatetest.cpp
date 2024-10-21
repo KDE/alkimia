@@ -128,7 +128,8 @@ Q_SIGNALS:
 public Q_SLOTS:
     void quote(QString id, QString symbol, QDate date, double price)
     {
-        alkDebug() << "comparing quote" << id << symbol;
+        alkDebug() << "comparing quote"
+                   << "with id" << id << "and symbol" << symbol;
         QCOMPARE(date, _date);
         QCOMPARE(price, _price);
         Q_EMIT finished();
@@ -164,7 +165,8 @@ Q_SIGNALS:
 public Q_SLOTS:
     void quotes(const QString& id, const QString& symbol, const AlkDatePriceMap& prices)
     {
-        alkDebug() << "comparing" << prices.size() << "quotes" << id << symbol;
+        alkDebug() << "comparing" << prices.size() << "quotes"
+                   << "with id" << id << "and symbol" << symbol;
         QCOMPARE(prices.size(), _prices.size());
         QCOMPARE(prices.keys(), _prices.keys());
         for (auto &date: prices.keys()) {
@@ -237,6 +239,27 @@ void AlkOnlineQuotePrivateTest::testDateRangeInCSVUrls()
 
     url.setUrl("http://unknown.host/path?start=%unix");
     QVERIFY(!p.applyDateRange(url));
+}
+
+void AlkOnlineQuotePrivateTest::testParseQuoteJson()
+{
+    AlkOnlineQuote::Private &p = d_ptr();
+
+    AlkOnlineQuoteSource source("test", "", "", AlkOnlineQuoteSource::Symbol, "chart:result:indicators:quote:open", "chart:result:timestamp", "%u", AlkOnlineQuoteSource::JSON);
+    p.m_source = source;
+    p.m_startDate = QDate::fromString("21-10-2024", "dd-MM-yyyy");
+    p.m_endDate = QDate::fromString("25-10-2024", "dd-MM-yyyy");
+
+    QFile f(":/alkonlinequoteprivatetest.json");
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    QString quotedata = f.readAll();
+
+    AlkDatePriceMap map;
+    map[QDate::fromString("23-10-2024", "dd-MM-yyyy")] = 61807.7109375;
+    map[QDate::fromString("24-10-2024", "dd-MM-yyyy")] = 61798.4375;
+    MultipleQuotesReceiver multiReceiver(map);
+    connect(this, SIGNAL(quotes(QString,QString,AlkDatePriceMap)), &multiReceiver, SLOT(quotes(QString,QString,AlkDatePriceMap)));
+    QVERIFY(p.parseQuoteJson(quotedata));
 }
 
 #include "alkonlinequoteprivatetest.moc"

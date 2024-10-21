@@ -88,6 +88,7 @@ public:
     bool parseQuoteHTML(const QString &quotedata);
     void parseQuoteCSS(AlkWebPage *page);
     bool parseQuoteCSV(const QString &quotedata);
+    bool parseQuoteJson(const QString &quotedata);
     bool processDownloadedPage(const KUrl &url, const QByteArray &page);
     bool processLocalScript(const KUrl& url);
 

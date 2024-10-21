@@ -191,6 +191,8 @@ public:
                     m_dataFormat = AlkOnlineQuoteSource::DataFormat::CSV;
                 else if (value == "CSS")
                     m_dataFormat = AlkOnlineQuoteSource::DataFormat::CSS;
+                else if (value == "JSON")
+                    m_dataFormat = AlkOnlineQuoteSource::DataFormat::JSON;
             }
         }
 
@@ -217,6 +219,8 @@ public:
             out << "mode=CSV\n";
         else if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::CSS)
             out << "mode=CSS\n";
+        else if (m_dataFormat == AlkOnlineQuoteSource::DataFormat::JSON)
+            out << "mode=JSON\n";
         if (m_downloadType == AlkOnlineQuoteSource::Default)
             out << "downloadtype=Default\n";
         else if (m_downloadType == AlkOnlineQuoteSource::Javascript)
