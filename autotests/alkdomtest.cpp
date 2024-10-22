@@ -38,6 +38,6 @@ void AlkDomTest::testCreateDocument()
              "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- comment for 'Tag' element -->\n<Tag key=\"value\">\n<!--\n    comment for 'SubTag' element\n    "
              "second line comment\n-->\n<SubTag subkey=\"value\" />\n</Tag>\n");
     QCOMPARE(doc.toString(true),
-             "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- comment for 'Tag' element -->\n<Tag key=\"value\">\n<!-- comment for 'SubTag' element "
-             "-->\n<SubTag subkey=\"value\" />\n</Tag>");
+             "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n <!-- comment for 'Tag' element -->\n <Tag key=\"value\">\n"
+             "  <!--\n      comment for 'SubTag' element\n      second line comment\n  -->\n  <SubTag subkey=\"value\" />\n </Tag>\n");
 }
