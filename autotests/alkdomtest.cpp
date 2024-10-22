@@ -26,11 +26,18 @@ void AlkDomTest::testCreateDocument()
     AlkDomDocument doc;
 
     AlkDomElement el = doc.createElement("Tag");
+    el.setComment("comment for 'Tag' element");
     el.setAttribute("key", "value");
     AlkDomElement el2 = doc.createElement("SubTag");
+    el2.setComment("comment for 'SubTag' element\nsecond line comment");
     el2.setAttribute("subkey", "value");
     el.appendChild(el2);
     doc.appendChild(el);
 
-    QCOMPARE(doc.toString(false), "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Tag key=\"value\">\n<SubTag subkey=\"value\" />\n</Tag>\n");
+    QCOMPARE(doc.toString(false),
+             "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- comment for 'Tag' element -->\n<Tag key=\"value\">\n<!--\n    comment for 'SubTag' element\n    "
+             "second line comment\n-->\n<SubTag subkey=\"value\" />\n</Tag>\n");
+    QCOMPARE(doc.toString(true),
+             "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- comment for 'Tag' element -->\n<Tag key=\"value\">\n<!-- comment for 'SubTag' element "
+             "-->\n<SubTag subkey=\"value\" />\n</Tag>");
 }

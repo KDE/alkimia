@@ -17,6 +17,11 @@ AlkDomElement::~AlkDomElement()
 {
 }
 
+void AlkDomElement::setComment(const QString &comment)
+{
+    m_comment = comment;
+}
+
 void AlkDomElement::setAttribute(const QString &name, const QString &value)
 {
     m_attributes.append(QString("%1=\"%2\"").arg(name, value));
@@ -35,23 +40,32 @@ void AlkDomElement::appendChild(const AlkDomElement &element)
 QString AlkDomElement::toString(bool withIndentation, int level) const
 {
     QString prefix = withIndentation ? QString(level, ' ') : QString();
+    QString s;
+    if (!m_comment.isEmpty()) {
+        if (m_comment.contains("\n")) {
+            QStringList lines = m_comment.split("\n");
+            QString delimiter = QString("\n%1    ").arg(prefix);
+            s.append(QString("%1<!--%2%3\n%1-->\n").arg(prefix, delimiter, lines.join(delimiter)));
+        } else
+            s.append(QString("%1<!-- %2 -->\n").arg(prefix, m_comment));
+    }
+
     QStringList attributes(m_attributes);
     attributes.sort();
     if (m_childs.size() > 0) {
-        QString s = !m_tag.isEmpty()
-            ? attributes.size() > 0 ? QString("%1<%2 %3>\n").arg(prefix, m_tag, attributes.join(" ")) : QString("%1<%2>\n").arg(prefix, m_tag)
-            : "";
+        s.append(!m_tag.isEmpty()
+                     ? attributes.size() > 0 ? QString("%1<%2 %3>\n").arg(prefix, m_tag, attributes.join(" ")) : QString("%1<%2>\n").arg(prefix, m_tag)
+                     : "");
         for (const AlkDomElement &child : m_childs) {
             s += child.toString(withIndentation, level + 1);
         }
         s += !m_tag.isEmpty() ? QString("%1</%2>\n").arg(prefix, m_tag) : "";
-        return s;
     } else {
-        QString s = !m_tag.isEmpty()
-            ? attributes.size() > 0 ? QString("%1<%2 %3 />\n").arg(prefix, m_tag, attributes.join(" ")) : QString("%1<%2 />\n").arg(prefix, m_tag)
-            : "";
-        return s;
+        s.append(!m_tag.isEmpty()
+                     ? attributes.size() > 0 ? QString("%1<%2 %3 />\n").arg(prefix, m_tag, attributes.join(" ")) : QString("%1<%2 />\n").arg(prefix, m_tag)
+                     : "");
     }
+    return s;
 }
 
 AlkDomDocument::AlkDomDocument(const QString &type)

@@ -27,9 +27,10 @@ class AlkDomDocument;
 class ALK_EXPORT AlkDomElement
 {
 public:
-    AlkDomElement(const QString &tag = QString());
+    explicit AlkDomElement(const QString &tag = QString());
     virtual ~AlkDomElement();
 
+    void setComment(const QString &comment);
     void setAttribute(const QString &name, const QString &value);
     void setAttribute(const QString &name, double value);
     void appendChild(const AlkDomElement &element);
@@ -37,6 +38,7 @@ public:
 
 protected:
     QString m_tag;
+    QString m_comment;
     QStringList m_attributes;
     QList<AlkDomElement> m_childs;
 };
@@ -50,7 +52,7 @@ class ALK_EXPORT AlkDomDocument : public AlkDomElement
 {
 public:
     AlkDomDocument(const QString &type = QString());
-    virtual ~AlkDomDocument();
+    virtual ~AlkDomDocument() override;
 
     AlkDomElement createElement(const QString &name);
     QString toString(bool withIndentation = true, int level = 0) const override;
