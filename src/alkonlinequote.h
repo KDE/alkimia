@@ -65,6 +65,7 @@ public:
         bool operator &(Type t) const;
         bool operator ==(Type t) const;
         bool operator !=(Type t) const;
+        bool isEmpty() const;
 
     protected:
         QList<Type> m_type;

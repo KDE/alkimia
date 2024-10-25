@@ -751,7 +751,7 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
         alkDebug() << "JSON object is empty.";
     }
 
-    if (m_errors != Errors::Success) {
+    if (!m_errors.isEmpty() && m_errors != Errors::None && m_errors != Errors::Success) {
         Q_EMIT m_p->error(i18n("Json file with invalid content found for '%1", m_symbol));
         Q_EMIT m_p->failed(m_id, m_symbol);
         return false;

@@ -46,6 +46,11 @@ bool AlkOnlineQuote::Errors::operator !=(Type t) const
     return m_type.size() != 1 || !m_type.contains(t);
 }
 
+bool AlkOnlineQuote::Errors::isEmpty() const
+{
+    return m_type.size() == 0;
+}
+
 AlkOnlineQuote::AlkOnlineQuote(AlkOnlineQuotesProfile *profile, QObject *_parent)
     : QObject(_parent)
     , d(new Private(this))
