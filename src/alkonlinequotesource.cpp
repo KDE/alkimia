@@ -422,6 +422,11 @@ bool AlkOnlineQuoteSource::requiresTwoIdentifier() const
     return url().contains("%2");
 }
 
+bool AlkOnlineQuoteSource::supportsDateRange() const
+{
+    return d->m_dataFormat == CSV || d->m_dataFormat == JSON;
+}
+
 AlkOnlineQuoteSource::Private::Private(const Private *other)
     : m_referenceId(other->m_referenceId)
     , m_name(other->m_name)

@@ -174,6 +174,15 @@ public:
      * @return true required two identifier
      */
     bool requiresTwoIdentifier() const;
+
+    /**
+     * Return state if this source supports a date range
+     * @return true source supports a date range
+     * @return false source does not support a date range
+     * @since 8.1.90
+     */
+    bool supportsDateRange() const;
+
     QString ghnsWriteFileName() const;
     void setProfile(AlkOnlineQuotesProfile *profile);
     AlkOnlineQuotesProfile *profile();
