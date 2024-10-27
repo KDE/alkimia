@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 01:51+0000\n"
+"POT-Creation-Date: 2024-10-27 01:57+0000\n"
 "PO-Revision-Date: 2022-04-20 15:59+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -161,7 +161,7 @@ msgstr "Não foi possível actualizar o preço de %1 (dados da cotação em bran
 
 #: alkonlinequote_p.cpp:755
 #, kde-format
-msgid "Json file with invalid content found for '%1"
+msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
 #: alkonlinequote_p.cpp:878

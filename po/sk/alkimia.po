@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 01:51+0000\n"
+"POT-Creation-Date: 2024-10-27 01:57+0000\n"
 "PO-Revision-Date: 2023-12-04 09:37+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -159,7 +159,7 @@ msgstr "Nemožno aktualizovať cenu pre %1 (prázdne dáta cenovej ponuky)"
 
 #: alkonlinequote_p.cpp:755
 #, kde-format
-msgid "Json file with invalid content found for '%1"
+msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
 #: alkonlinequote_p.cpp:878

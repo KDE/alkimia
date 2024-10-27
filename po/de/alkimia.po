@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 01:51+0000\n"
+"POT-Creation-Date: 2024-10-27 01:57+0000\n"
 "PO-Revision-Date: 2024-06-12 22:27+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -165,7 +165,7 @@ msgstr "Preis für %1 kann nicht aktualisiert werden (leere Kursnotizdaten)"
 
 #: alkonlinequote_p.cpp:755
 #, kde-format
-msgid "Json file with invalid content found for '%1"
+msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
 #: alkonlinequote_p.cpp:878

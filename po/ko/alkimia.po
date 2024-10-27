@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 01:51+0000\n"
+"POT-Creation-Date: 2024-10-27 01:57+0000\n"
 "PO-Revision-Date: 2024-02-10 00:34+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -159,7 +159,7 @@ msgstr "시세 데이터에서 날짜/금액 쌍을 찾을 수 없음"
 
 #: alkonlinequote_p.cpp:755
 #, kde-format
-msgid "Json file with invalid content found for '%1"
+msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
 #: alkonlinequote_p.cpp:878

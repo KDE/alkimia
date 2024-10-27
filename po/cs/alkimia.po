@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 01:51+0000\n"
+"POT-Creation-Date: 2024-10-27 01:57+0000\n"
 "PO-Revision-Date: 2024-08-08 10:07+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -157,7 +157,7 @@ msgstr ""
 
 #: alkonlinequote_p.cpp:755
 #, kde-format
-msgid "Json file with invalid content found for '%1"
+msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
 #: alkonlinequote_p.cpp:878
