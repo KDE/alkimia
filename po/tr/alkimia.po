@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 01:57+0000\n"
-"PO-Revision-Date: 2024-10-26 13:06+0300\n"
+"PO-Revision-Date: 2024-10-27 14:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -160,8 +160,7 @@ msgid "Unable to find date/price pairs in quote data"
 msgstr "Kur verisinde tarih/fiyat eşleri bulunamıyor"
 
 #: alkonlinequote_p.cpp:755
-#, fuzzy, kde-format
-#| msgid "Json file with invalid content found for '%1"
+#, kde-format
 msgid "Json file with invalid content found for '%1'"
 msgstr "“%1” için geçersiz içerik içeren JSON dosyası bulundu"
 

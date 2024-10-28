@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 01:57+0000\n"
-"PO-Revision-Date: 2024-10-26 09:07+0300\n"
+"PO-Revision-Date: 2024-10-27 12:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -162,10 +162,9 @@ msgid "Unable to find date/price pairs in quote data"
 msgstr "Не вдалося знайти пари дата/курс у даних щодо курсів"
 
 #: alkonlinequote_p.cpp:755
-#, fuzzy, kde-format
-#| msgid "Json file with invalid content found for '%1"
+#, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr "Знайдено файл JSON з некоректним вмістом для «%1"
+msgstr "Знайдено файл JSON з некоректним вмістом для «%1»"
 
 #: alkonlinequote_p.cpp:878
 #, kde-format

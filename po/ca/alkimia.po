@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 01:57+0000\n"
-"PO-Revision-Date: 2024-10-26 11:07+0200\n"
+"PO-Revision-Date: 2024-10-27 09:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -167,8 +167,7 @@ msgstr ""
 "No s'han pogut trobar les parelles data/preu en les dades de cotització"
 
 #: alkonlinequote_p.cpp:755
-#, fuzzy, kde-format
-#| msgid "Json file with invalid content found for '%1"
+#, kde-format
 msgid "Json file with invalid content found for '%1'"
 msgstr "S'ha trobat un fitxer Json amb contingut no vàlid per a «%1»"
 

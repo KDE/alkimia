@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 01:57+0000\n"
-"PO-Revision-Date: 2024-10-26 12:09+0200\n"
+"PO-Revision-Date: 2024-10-27 16:19+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -158,10 +158,9 @@ msgid "Unable to find date/price pairs in quote data"
 msgstr "Kan de datum/koerswaarde niet niet vinden in koersgegevens"
 
 #: alkonlinequote_p.cpp:755
-#, fuzzy, kde-format
-#| msgid "Json file with invalid content found for '%1"
+#, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr "Json-bestand met ongeldige inhoud gevonden voor '%1"
+msgstr "Json-bestand met ongeldige inhoud gevonden voor '%1'"
 
 #: alkonlinequote_p.cpp:878
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 01:57+0000\n"
-"PO-Revision-Date: 2024-08-13 12:11+0200\n"
+"PO-Revision-Date: 2024-10-26 20:42+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -168,7 +168,7 @@ msgstr "No se han encontrado parejas fecha/precio en los datos de cotización"
 #: alkonlinequote_p.cpp:755
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr ""
+msgstr "Se ha encontrado un archivo Json con contenido no válido para «%1»"
 
 #: alkonlinequote_p.cpp:878
 #, kde-format
@@ -769,7 +769,7 @@ msgstr "CSS"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
