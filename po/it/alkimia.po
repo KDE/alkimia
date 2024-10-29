@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 01:57+0000\n"
-"PO-Revision-Date: 2024-08-11 19:49+0200\n"
+"PO-Revision-Date: 2024-10-28 12:17+0100\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -162,7 +162,7 @@ msgstr "Impossibile trovare le coppie data/prezzo nei dati di quotazione"
 #: alkonlinequote_p.cpp:755
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr ""
+msgstr "Trovato file Json con contenuto non valido per «%1»"
 
 #: alkonlinequote_p.cpp:878
 #, kde-format
@@ -760,7 +760,7 @@ msgstr "CSS"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
