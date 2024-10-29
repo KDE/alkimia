@@ -260,6 +260,17 @@ void AlkOnlineQuotePrivateTest::testDateRangeInUrls()
 
     QVERIFY(urlStr.contains(QString(QLatin1String("start=%1")).arg(startTimeUTC)));
     QVERIFY(urlStr.contains(QString(QLatin1String("end=%1")).arg(endTimeUTC)));
+
+    // end date limit
+    p.m_endDate = QDate::currentDate();
+    endDate = QDateTime(p.m_endDate, QTime(23,59, 59, 999), Qt::LocalTime);
+    endTimeUnix = endDate.toMSecsSinceEpoch() / 1000;
+
+    url.setUrl("http://unknown.host/path?start=%u&end=%u");
+    QVERIFY(p.applyDateRange(url));
+    urlStr = url.toEncoded();
+
+    QVERIFY(!urlStr.contains(QString(QLatin1String("end=%1")).arg(endTimeUnix)));
 }
 
 void AlkOnlineQuotePrivateTest::testParseQuoteJson()

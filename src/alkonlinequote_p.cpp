@@ -128,6 +128,13 @@ bool AlkOnlineQuote::Private::applyDateRange(QUrl &url)
         QDateTime startDateUTC = QDateTime(m_startDate, QTime(), Qt::UTC);
         QDateTime endDateUTC = QDateTime(m_endDate, QTime(23,59,59, 999), Qt::UTC);
 
+        // do not ask for times in the future
+        if (endDateLocal > QDateTime::currentDateTime())
+                endDateLocal = QDateTime::currentDateTime();
+
+        if (endDateUTC > QDateTime::currentDateTimeUtc())
+                endDateUTC = QDateTime::currentDateTimeUtc();
+
         urlStr = replaceStartAndEndDateTime(urlStr, patternUTC, startDateUTC, endDateUTC);
         urlStr = replaceStartAndEndDateTime(urlStr, pattern, startDateLocal, endDateLocal);
         pattern << patternUTC;
