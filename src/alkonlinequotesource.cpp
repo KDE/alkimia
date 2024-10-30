@@ -90,6 +90,7 @@ AlkOnlineQuoteSource AlkOnlineQuoteSource::testQuoteSource(const QString& name, 
     QString type;
     QString priceRegexString;
     QString dateRegexString;
+    QString dateFormatRegex(QLatin1String("%d/%m/%y"));
 
     urlString.append(QLatin1String("a=%1"));
     if (twoSymbols) {
@@ -110,8 +111,9 @@ AlkOnlineQuoteSource AlkOnlineQuoteSource::testQuoteSource(const QString& name, 
         dateRegexString = QLatin1String("date");
     } else if (format == JSON) {
         type = QLatin1String("&type=json");
-        priceRegexString = QLatin1String("value");
-        dateRegexString = QLatin1String("date");
+        priceRegexString = QLatin1String("chart:result:indicators:quote:open");
+        dateRegexString = QLatin1String("chart:result:timestamp");
+        dateFormatRegex = QLatin1String("%u");
     } else {
         return AlkOnlineQuoteSource();
     }
@@ -129,7 +131,7 @@ AlkOnlineQuoteSource AlkOnlineQuoteSource::testQuoteSource(const QString& name, 
                                 AlkOnlineQuoteSource::Symbol,
                                 priceRegexString,
                                 dateRegexString,
-                                "%d/%m/%y",
+                                dateFormatRegex,
                                 format,
                                 AlkOnlineQuoteSource::Period,
                                 downloadType

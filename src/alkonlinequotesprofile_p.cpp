@@ -216,6 +216,20 @@ AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::quoteSourcesTesting
     source2.setDownloadType(AlkOnlineQuoteSource::Javascript);
     result[source2.name()] = source2;
 
+    AlkOnlineQuoteSource source4(AlkOnlineQuoteSource::testQuoteSource(
+                                     "Alkimia:Test:1:Default:JSON", false,
+                                     AlkOnlineQuoteSource::Default, AlkOnlineQuoteSource::JSON));
+    source4.setProfile(m_p);
+    source4.setDownloadType(AlkOnlineQuoteSource::Default);
+    result[source4.name()] = source4;
+
+    AlkOnlineQuoteSource source5(AlkOnlineQuoteSource::testQuoteSource(
+                                     "Alkimia:Test:2:Default:JSON", true,
+                                     AlkOnlineQuoteSource::Default, AlkOnlineQuoteSource::JSON));
+    source5.setProfile(m_p);
+    source5.setDownloadType(AlkOnlineQuoteSource::Default);
+    result[source5.name()] = source5;
+
     return result;
 }
 
