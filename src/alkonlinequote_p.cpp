@@ -856,8 +856,14 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
                         o = b.toObject();
                 }
             }
-        } else if (o.contains(key) && o[key].isString())
+        } else if (o.contains(key) && o[key].isString()) {
             s = o[key].toString();
+        } else {
+            m_errors |= Errors::DatePattern;
+            Q_EMIT m_p->error(i18n("Unable to find '%1' from date pattern '%2' in quote data", key, m_source.dateRegex()));
+            Q_EMIT m_p->failed(m_id, m_symbol);
+            return false;
+        }
     }
 
     // extract prices
@@ -887,8 +893,14 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
                         o = b.toObject();
                 }
             }
-        } else if (o.contains(key) && o[key].isString())
+        } else if (o.contains(key) && o[key].isString()) {
             s = o[key].toString();
+        } else {
+            m_errors |= Errors::PricePattern;
+            Q_EMIT m_p->error(i18n("Unable to find '%1' from price pattern '%2' in quote data", key, m_source.priceRegex()));
+            Q_EMIT m_p->failed(m_id, m_symbol);
+            return false;
+        }
     }
 
     AlkDatePriceMap prices;
