@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 01:48+0000\n"
+"POT-Creation-Date: 2024-10-31 01:50+0000\n"
 "PO-Revision-Date: 2024-05-06 09:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -145,12 +145,12 @@ msgstr "無法在報價資料中找到日期欄位 '%1'"
 msgid "Unable to find price column '%1' in quote data"
 msgstr "無法在報價資料中找到價格欄位 '%1'"
 
-#: alkonlinequote_p.cpp:745 alkonlinequote_p.cpp:905
+#: alkonlinequote_p.cpp:745 alkonlinequote_p.cpp:917
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "無法在報價資料中用 '%2' 轉換日期 '%1'"
 
-#: alkonlinequote_p.cpp:780 alkonlinequote_p.cpp:922
+#: alkonlinequote_p.cpp:780 alkonlinequote_p.cpp:934
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "無法在報價資料中找到日期/價格對"
@@ -160,12 +160,24 @@ msgstr "無法在報價資料中找到日期/價格對"
 msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:953
+#: alkonlinequote_p.cpp:863
+#, fuzzy, kde-format
+#| msgid "Unable to find date column '%1' in quote data"
+msgid "Unable to find '%1' from date pattern '%2' in quote data"
+msgstr "無法在報價資料中找到日期欄位 '%1'"
+
+#: alkonlinequote_p.cpp:900
+#, fuzzy, kde-format
+#| msgid "Unable to find price column '%1' in quote data"
+msgid "Unable to find '%1' from price pattern '%2' in quote data"
+msgstr "無法在報價資料中找到價格欄位 '%1'"
+
+#: alkonlinequote_p.cpp:965
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "無法更新 %1 的價格（空白的報價資料）"
 
-#: alkonlinequote_p.cpp:973
+#: alkonlinequote_p.cpp:985
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "為 %1 抓取網址時逾時"
@@ -707,31 +719,31 @@ msgstr "來源"
 msgid "Reference to"
 msgstr ""
 
-#: alkonlinequotesource.cpp:454
+#: alkonlinequotesource.cpp:456
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "已整理的 HTML"
 
-#: alkonlinequotesource.cpp:456
+#: alkonlinequotesource.cpp:458
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequotesource.cpp:458
+#: alkonlinequotesource.cpp:460
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequotesource.cpp:460
+#: alkonlinequotesource.cpp:462
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequotesource.cpp:462
+#: alkonlinequotesource.cpp:464
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"

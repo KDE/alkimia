@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 01:48+0000\n"
+"POT-Creation-Date: 2024-10-31 01:50+0000\n"
 "PO-Revision-Date: 2024-08-10 13:21+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -150,12 +150,12 @@ msgstr "Nie można było znaleźć kolumny daty '%1' w danych o cenach"
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Nie można było znaleźć kolumny ceny '%1' w danych o cenach"
 
-#: alkonlinequote_p.cpp:745 alkonlinequote_p.cpp:905
+#: alkonlinequote_p.cpp:745 alkonlinequote_p.cpp:917
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Nie można przekształcić daty '%1' przy użyciu '%2' w danych o wycenie"
 
-#: alkonlinequote_p.cpp:780 alkonlinequote_p.cpp:922
+#: alkonlinequote_p.cpp:780 alkonlinequote_p.cpp:934
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Nie można było znaleźć par data/cena w danych o cenach"
@@ -165,12 +165,24 @@ msgstr "Nie można było znaleźć par data/cena w danych o cenach"
 msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:953
+#: alkonlinequote_p.cpp:863
+#, fuzzy, kde-format
+#| msgid "Unable to find date column '%1' in quote data"
+msgid "Unable to find '%1' from date pattern '%2' in quote data"
+msgstr "Nie można było znaleźć kolumny daty '%1' w danych o cenach"
+
+#: alkonlinequote_p.cpp:900
+#, fuzzy, kde-format
+#| msgid "Unable to find price column '%1' in quote data"
+msgid "Unable to find '%1' from price pattern '%2' in quote data"
+msgstr "Nie można było znaleźć kolumny ceny '%1' w danych o cenach"
+
+#: alkonlinequote_p.cpp:965
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Nie można uaktualnić ceny dla %1 (puste zapytanie)"
 
-#: alkonlinequote_p.cpp:973
+#: alkonlinequote_p.cpp:985
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Upłynął czas na pobranie adresu URL dla %1"
@@ -724,31 +736,31 @@ msgstr "Źródło"
 msgid "Reference to"
 msgstr "Odniesienie do"
 
-#: alkonlinequotesource.cpp:454
+#: alkonlinequotesource.cpp:456
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "Oczyszczony HTML"
 
-#: alkonlinequotesource.cpp:456
+#: alkonlinequotesource.cpp:458
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequotesource.cpp:458
+#: alkonlinequotesource.cpp:460
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequotesource.cpp:460
+#: alkonlinequotesource.cpp:462
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequotesource.cpp:462
+#: alkonlinequotesource.cpp:464
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"

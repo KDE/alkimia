@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 01:48+0000\n"
+"POT-Creation-Date: 2024-10-31 01:50+0000\n"
 "PO-Revision-Date: 2023-09-24 02:24-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -149,13 +149,13 @@ msgstr "Não foi possível atualizar o preço de %1 (dados da cotação em branc
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Não foi possível atualizar o preço de %1 (dados da cotação em branco)"
 
-#: alkonlinequote_p.cpp:745 alkonlinequote_p.cpp:905
+#: alkonlinequote_p.cpp:745 alkonlinequote_p.cpp:917
 #, fuzzy, kde-format
 #| msgid "Unable to parse date '%1' using format '%2': %3"
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Não foi possível analisar a data '%1' usando o formato '%2': %3"
 
-#: alkonlinequote_p.cpp:780 alkonlinequote_p.cpp:922
+#: alkonlinequote_p.cpp:780 alkonlinequote_p.cpp:934
 #, fuzzy, kde-format
 #| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
@@ -166,12 +166,24 @@ msgstr "Não foi possível atualizar o preço de %1 (dados da cotação em branc
 msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:953
+#: alkonlinequote_p.cpp:863
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
+msgid "Unable to find '%1' from date pattern '%2' in quote data"
+msgstr "Não foi possível atualizar o preço de %1 (dados da cotação em branco)"
+
+#: alkonlinequote_p.cpp:900
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
+msgid "Unable to find '%1' from price pattern '%2' in quote data"
+msgstr "Não foi possível atualizar o preço de %1 (dados da cotação em branco)"
+
+#: alkonlinequote_p.cpp:965
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Não foi possível atualizar o preço de %1 (dados da cotação em branco)"
 
-#: alkonlinequote_p.cpp:973
+#: alkonlinequote_p.cpp:985
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Tempo limite excedido ao buscar URL para %1"
@@ -723,31 +735,31 @@ msgstr "Fonte"
 msgid "Reference to"
 msgstr ""
 
-#: alkonlinequotesource.cpp:454
+#: alkonlinequotesource.cpp:456
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequotesource.cpp:456
+#: alkonlinequotesource.cpp:458
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr ""
 
-#: alkonlinequotesource.cpp:458
+#: alkonlinequotesource.cpp:460
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr ""
 
-#: alkonlinequotesource.cpp:460
+#: alkonlinequotesource.cpp:462
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr ""
 
-#: alkonlinequotesource.cpp:462
+#: alkonlinequotesource.cpp:464
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
