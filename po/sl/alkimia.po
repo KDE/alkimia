@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-31 01:50+0000\n"
-"PO-Revision-Date: 2024-10-27 06:54+0100\n"
+"PO-Revision-Date: 2024-10-31 08:08+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -162,19 +162,17 @@ msgstr "Ni mogoče najti parov datum/cena v podatkih o navedbi"
 #: alkonlinequote_p.cpp:825
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr "najdena je bila datoteka Json z neveljavno vsebino za '%1'"
+msgstr "Najdena je bila datoteka Json z neveljavno vsebino za '%1'"
 
 #: alkonlinequote_p.cpp:863
-#, fuzzy, kde-format
-#| msgid "Unable to find date column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Ni mogoče najti stolpca datuma '%1' v podatkih navedbe"
+msgstr "Ni mogoče najti '%1' iz vzorca datuma '%2' v podatkih navedbe"
 
 #: alkonlinequote_p.cpp:900
-#, fuzzy, kde-format
-#| msgid "Unable to find price column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Ni mogoče najti stolpca cene '%1' v podatkih navedbe"
+msgstr "Ni mogoče najti '%1' iz cenovnega vzorca '%2' v podatkih navedbe"
 
 #: alkonlinequote_p.cpp:965
 #, kde-format

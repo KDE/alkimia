@@ -165,16 +165,14 @@ msgid "Json file with invalid content found for '%1'"
 msgstr "“%1” için geçersiz içerik içeren JSON dosyası bulundu"
 
 #: alkonlinequote_p.cpp:863
-#, fuzzy, kde-format
-#| msgid "Unable to find date column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Kur verisinde “%1” tarih sütunu bulunamıyor"
+msgstr "Kur verisinin “%2” tarih dizgisinde “%1” bulunamıyor"
 
 #: alkonlinequote_p.cpp:900
-#, fuzzy, kde-format
-#| msgid "Unable to find price column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Kur verisinde “%1” fiyat sütunu bulunamıyor"
+msgstr "Kur verisinin “%2” fiyat dizgisinde “%1” bulunamıyor"
 
 #: alkonlinequote_p.cpp:965
 #, kde-format
@@ -1118,25 +1116,3 @@ msgstr "Denetçiyi yeni pencerede aç"
 #, kde-format
 msgid "Inspect element"
 msgstr "Ögeyi Denetle"
-
-#~ msgctxt "Accepts the entered data and stores it"
-#~ msgid "&Accept"
-#~ msgstr "&Kabul Et"
-
-#~ msgid "&Delete"
-#~ msgstr "&Sil"
-
-#~ msgctxt "Check the selected source entry"
-#~ msgid "&Check Source"
-#~ msgstr "K&aynağı Denetle"
-
-#~ msgctxt "Show the selected source entry in a web browser"
-#~ msgid "&Show page"
-#~ msgstr "Sa&yfayı göster"
-
-#~ msgctxt "Create a new source entry for online quotes"
-#~ msgid "&New..."
-#~ msgstr "&Yeni…"
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "İndirilen dosya açılamadı"

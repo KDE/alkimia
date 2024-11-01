@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-31 01:50+0000\n"
-"PO-Revision-Date: 2024-10-27 12:54+0200\n"
+"PO-Revision-Date: 2024-10-31 17:40+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -167,16 +167,14 @@ msgid "Json file with invalid content found for '%1'"
 msgstr "Знайдено файл JSON з некоректним вмістом для «%1»"
 
 #: alkonlinequote_p.cpp:863
-#, fuzzy, kde-format
-#| msgid "Unable to find date column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Не вдалося знайти стовпчик дат «%1» у даних щодо курсів"
+msgstr "Не вдалося знайти «%1» на основі взірця дати «%2» у даних чека"
 
 #: alkonlinequote_p.cpp:900
-#, fuzzy, kde-format
-#| msgid "Unable to find price column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Не вдалося знайти стовпчик ціни «%1» у даних щодо курсів"
+msgstr "Не вдалося знайти «%1» за взірцем ціни «%2» у даних чека"
 
 #: alkonlinequote_p.cpp:965
 #, kde-format

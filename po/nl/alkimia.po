@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-31 01:50+0000\n"
-"PO-Revision-Date: 2024-10-27 16:19+0100\n"
+"PO-Revision-Date: 2024-10-31 13:31+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -163,16 +163,14 @@ msgid "Json file with invalid content found for '%1'"
 msgstr "Json-bestand met ongeldige inhoud gevonden voor '%1'"
 
 #: alkonlinequote_p.cpp:863
-#, fuzzy, kde-format
-#| msgid "Unable to find date column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Kan de kolom '%1' met datum in koersgegevens niet vinden"
+msgstr "Kan '%1' in het datumpatroon '%2' in koersgegevens niet vinden"
 
 #: alkonlinequote_p.cpp:900
-#, fuzzy, kde-format
-#| msgid "Unable to find price column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Kan de koerswaarde in de kolom '%1' in koersgegevens niet vinden"
+msgstr "Kan de '%1' in het koerspatroon '%2' niet vinden"
 
 #: alkonlinequote_p.cpp:965
 #, kde-format
