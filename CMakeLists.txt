@@ -150,7 +150,11 @@ else()
 
     # setup KDE Frameworks components
     if(BUILD_APPLETS)
-        set(PLASMA_COMPONENT Package Plasma)
+        if(QT_MAJOR_VERSION GREATER_EQUAL 6)
+            find_package(Plasma)
+        else()
+            set(PLASMA_COMPONENT Package Plasma)
+        endif()
     endif()
     if(QT_MAJOR_VERSION GREATER_EQUAL 6)
         set(QT_DBUS_LIB Qt${QT_MAJOR_VERSION}::DBus)
