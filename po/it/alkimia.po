@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-31 01:50+0000\n"
-"PO-Revision-Date: 2024-10-28 12:17+0100\n"
+"PO-Revision-Date: 2024-11-01 01:18+0100\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -165,16 +165,16 @@ msgid "Json file with invalid content found for '%1'"
 msgstr "Trovato file Json con contenuto non valido per «%1»"
 
 #: alkonlinequote_p.cpp:863
-#, fuzzy, kde-format
-#| msgid "Unable to find date column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Impossibile trovare la colonna della data «%1» nei dati di quotazione"
+msgstr ""
+"Impossibile trovare «%1» dal modello di data «%2» nei dati di quotazione"
 
 #: alkonlinequote_p.cpp:900
-#, fuzzy, kde-format
-#| msgid "Unable to find price column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Impossibile trovare la colonna del prezzo «%1» nei dati di quotazione"
+msgstr ""
+"Impossibile trovare «%1» dal modello di prezzo «%2» nei dati di quotazione"
 
 #: alkonlinequote_p.cpp:965
 #, kde-format
