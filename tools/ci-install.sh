@@ -60,9 +60,11 @@ case "$ci_distro" in
         case "$repo_name" in
             (*Leap*)
                 devel_tools_building_repo_name=$(. /etc/os-release; echo $VERSION_ID)
+                gccv=10
                 ;;
             (*Tumbleweed*)
                 devel_tools_building_repo_name=openSUSE_Factory
+                gccv=12
                 ;;
         esac
         repos=(
@@ -82,7 +84,8 @@ case "$ci_distro" in
             (kf6-native)
                 repos=(
                     "${repos[@]}"
-                    https://download.opensuse.org/repositories/KDE:/Unstable:/Frameworks/openSUSE_Factory/KDE:Unstable:Frameworks.repo
+                    https://download.opensuse.org/repositories/KDE:/Frameworks/${repo_name}/KDE:Frameworks.repo
+                    #https://download.opensuse.org/repositories/KDE:/Qt6/${repo_name}/KDE:Qt67.repo
                 )
                 ;;
 
@@ -142,7 +145,9 @@ case "$ci_distro" in
                 )
                 packages=(
                     "${packages[@]}"
+                    gcc${gccv}-c++
                     kinit
+                    "cmake(Plasma)"
                     "cmake(KF6Completion)"
                     "cmake(KF6Config)"
                     "cmake(KF6CoreAddons)"
@@ -157,8 +162,9 @@ case "$ci_distro" in
                     "cmake(Qt6Core)"
                     "cmake(Qt6DBus)"
                     "cmake(Qt6Qml)"
-                    "cmake(Qt6Test)"
+                    "cmake(Qt6WebEngineWidgets)"
                     "cmake(Qt6Widgets)"
+                    "cmake(Qt6Test)"
                     "doxygen"
                     "gmp-devel"
                     "kf6-extra-cmake-modules"
@@ -274,6 +280,7 @@ esac
 if [ "$ci_in_docker" = "yes" ] && [ -z `getent passwd | grep ^user` ]; then
     useradd -m user
     passwd -ud user
+    mkdir -p /etc/sudoers.d
     echo "user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nopasswd
     chmod 0440 /etc/sudoers.d/nopasswd
 fi

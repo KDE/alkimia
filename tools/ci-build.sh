@@ -328,7 +328,7 @@ fi
 # settings for build variants
 case "$ci_variant" in
     (kf6*)
-        cmake_options+=" -DBUILD_APPLETS=1 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1 -DBUILD_WITH_QT6=1 -DBUILD_WITH_QTNETWORK=1"
+        cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1 -DBUILD_WITH_QT6=1 -DBUILD_WITH_QTNETWORK=1 -DCMAKE_CXX_COMPILER=g++-12"
         cmake_suffix="kf6"
         export QT_LOGGING_RULES="*=true;kf.kio.workers.http.debug=false;qt.text.*.debug=false"
         export QT_FORCE_STDERR_LOGGING=1
