@@ -73,7 +73,11 @@ void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
         QWebEngineView::contextMenuEvent(event);
         return;
     }
+#if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
+    QMenu *menu = createStandardContextMenu();
+#else
     QMenu *menu = page()->createStandardContextMenu();
+#endif
     const QList<QAction *> actions = menu->actions();
     auto inspectElement = std::find(actions.cbegin(), actions.cend(), page()->action(QWebEnginePage::InspectElement));
     if (inspectElement == actions.cend()) {
@@ -83,9 +87,9 @@ void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
 
         QAction *action = new QAction(menu);
         action->setText(i18n("Open inspector in new window"));
-        connect(action, &QAction::triggered, []() {
+        connect(action, &QAction::triggered, [this]() {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
-            QDesktopServices::openUrl(QString("http://localhost:%1/devtools/page/%2").arg(webInspectorPort, page()->devToolsId()));
+            QDesktopServices::openUrl(QString("http://localhost:%1/devtools/page/%2").arg(s_webInspectorPort).arg(page()->devToolsId()));
 #else
             QDesktopServices::openUrl(QString("http://localhost:%1").arg(s_webInspectorPort));
 #endif
