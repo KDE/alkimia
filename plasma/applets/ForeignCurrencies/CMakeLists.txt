@@ -1,4 +1,4 @@
-set(APPLET_NAME org.wincak.foreigncurrencies2)
+set(APPLET_NAME org.wincak.foreigncurrencies2${QT_MAJOR_VERSION})
 
 plasma_install_package(. ${APPLET_NAME})
 

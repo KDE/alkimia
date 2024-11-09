@@ -10,20 +10,26 @@ if(QT_MAJOR_VERSION GREATER_EQUAL 5)
     endif()
 endif()
 
-set(IMPORTS_DIR ${CMAKE_BINARY_DIR}/bin/org/kde/alkimia)
+# Qt6
+if(NOT QML_INSTALL_DIR)
+    set(QML_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/qml)
+endif()
+
+set(IMPORTS_DIR ${CMAKE_BINARY_DIR}/bin/org/kde/alkimia${ALKIMIA_LIB_SUFFIX})
 if(WIN32)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${IMPORTS_DIR})
 else()
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${IMPORTS_DIR})
 endif()
 
-configure_file(qmldir ${IMPORTS_DIR}/qmldir)
+configure_file(qmldir.cmake ${IMPORTS_DIR}/qmldir)
 add_library(qmlalkimia qmlalkimiaplugin.cpp)
 target_link_libraries(qmlalkimia ${QT_QML_LIB} alkimia)
+set_target_properties(qmlalkimia PROPERTIES OUTPUT_NAME qmlalkimia${ALKIMIA_LIB_SUFFIX})
 
 install(TARGETS qmlalkimia
-    RUNTIME DESTINATION ${QML_INSTALL_DIR}/org/kde/alkimia
-    LIBRARY DESTINATION ${QML_INSTALL_DIR}/org/kde/alkimia)
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/alkimia)
+    RUNTIME DESTINATION ${QML_INSTALL_DIR}/org/kde/alkimia${ALKIMIA_LIB_SUFFIX}
+    LIBRARY DESTINATION ${QML_INSTALL_DIR}/org/kde/alkimia${ALKIMIA_LIB_SUFFIX})
+install(FILES ${IMPORTS_DIR}/qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/alkimia${ALKIMIA_LIB_SUFFIX})
 
 # run qml file with
