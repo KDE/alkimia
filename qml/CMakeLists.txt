@@ -12,7 +12,7 @@ endif()
 
 # Qt6
 if(NOT QML_INSTALL_DIR)
-    set(QML_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/qml)
+    set(QML_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/qt${QT_MAJOR_VERSION}/qml)
 endif()
 
 set(IMPORTS_DIR ${CMAKE_BINARY_DIR}/bin/org/kde/alkimia${ALKIMIA_LIB_SUFFIX})
