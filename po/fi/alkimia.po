@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-31 01:50+0000\n"
+"POT-Creation-Date: 2024-11-10 01:59+0000\n"
 "PO-Revision-Date: 2019-02-28 15:29+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1093,12 +1093,12 @@ msgstr ""
 msgid "Package edit url:"
 msgstr ""
 
-#: alkwebview.cpp:85
+#: alkwebview.cpp:89
 #, kde-format
 msgid "Open inspector in new window"
 msgstr ""
 
-#: alkwebview.cpp:97
+#: alkwebview.cpp:101
 #, kde-format
 msgid "Inspect element"
 msgstr ""

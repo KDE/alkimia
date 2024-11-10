@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-31 01:50+0000\n"
-"PO-Revision-Date: 2024-09-22 00:37+0200\n"
+"POT-Creation-Date: 2024-11-10 01:59+0000\n"
+"PO-Revision-Date: 2024-11-09 16:40+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -163,19 +163,21 @@ msgstr ""
 #: alkonlinequote_p.cpp:825
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr ""
+msgstr "Atopouse un ficheiro JSON para «%1» con contido non válido."
 
 #: alkonlinequote_p.cpp:863
-#, fuzzy, kde-format
-#| msgid "Unable to find date column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Non é posíbel atopar a columna de data «%1» nos datos de cotización."
+msgstr ""
+"Non é posíbel atopar «%1» mediante o padrón de data «%2» nos datos de "
+"cotización."
 
 #: alkonlinequote_p.cpp:900
-#, fuzzy, kde-format
-#| msgid "Unable to find price column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Non é posíbel atopar a columna de prezo «%1» nos datos de cotización."
+msgstr ""
+"Non é posíbel atopar «%1» mediante o padrón de prezo «%2» nos datos de "
+"cotización."
 
 #: alkonlinequote_p.cpp:965
 #, kde-format
@@ -774,7 +776,7 @@ msgstr "CSS"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -1118,12 +1120,12 @@ msgstr "O paquete creouse en:"
 msgid "Package edit url:"
 msgstr "URL de edición do paquete:"
 
-#: alkwebview.cpp:85
+#: alkwebview.cpp:89
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Abrir o inspector nunha nova xanela"
 
-#: alkwebview.cpp:97
+#: alkwebview.cpp:101
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspeccionar o elemento"
