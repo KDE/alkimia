@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-10 01:59+0000\n"
-"PO-Revision-Date: 2024-08-11 09:09+0200\n"
+"PO-Revision-Date: 2024-11-23 16:23+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -162,19 +162,17 @@ msgstr "Kan inte hitta datum- och kurspar i kursinformation"
 #: alkonlinequote_p.cpp:825
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr ""
+msgstr "Json-fil med ogiltigt innehåll hittades för '%1'"
 
 #: alkonlinequote_p.cpp:863
-#, fuzzy, kde-format
-#| msgid "Unable to find date column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Kan inte hitta datumkolumn '%1' i kursinformation"
+msgstr "Kan inte hitta '%1' från datummönstret '%2' i kursinformation"
 
 #: alkonlinequote_p.cpp:900
-#, fuzzy, kde-format
-#| msgid "Unable to find price column '%1' in quote data"
+#, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Kan inte hitta kurskolumn '%1' i kursinformation"
+msgstr "Kan inte hitta '%1' från kursmönstret '%2' i kursinformation"
 
 #: alkonlinequote_p.cpp:965
 #, kde-format
@@ -766,7 +764,7 @@ msgstr "CSS"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
