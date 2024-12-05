@@ -193,8 +193,9 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
         // if we've truly found 2 symbols delimited this way...
         if (splitrx.indexIn(m_symbol) != -1) {
             url = KUrl(m_source.url().arg(splitrx.cap(1), splitrx.cap(2)));
-            m_symbols[0] = splitrx.cap(1);
-            m_symbols[1] = splitrx.cap(2);
+            m_symbols.clear();
+            m_symbols.append(splitrx.cap(1));
+            m_symbols.append(splitrx.cap(2));
         } else {
             alkDebug() << QString("AlkOnlineQuote::Private::initLaunch() did not find 2 symbols in '%1'").arg(m_symbol);
         }
@@ -802,6 +803,7 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
  */
 bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QString dateHierachy(m_source.dateRegex());
     QString priceHierachy(m_source.priceRegex());
     auto jsonDoc = QJsonDocument::fromJson(quotedata.toLocal8Bit());
@@ -945,6 +947,9 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
     }
 
     return true;
+#else
+    return false;
+#endif
 }
 
 /**
