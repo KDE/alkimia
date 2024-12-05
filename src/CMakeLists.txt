@@ -22,6 +22,7 @@ set(alkimia_INTERNAL_SRCS
 
 set(alkimia_INTERNAL_HEADERS
     alkapplication.h
+    alkcombobox.h
     alkdateformat.h
     alkdebug.h
     alkexception.h

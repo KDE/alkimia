@@ -137,7 +137,7 @@
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="KComboBox" name="m_editIdSelector">
+           <widget class="AlkComboBox" name="m_editIdSelector">
             <property name="toolTip">
              <string>How to select the identifier</string>
             </property>
@@ -168,7 +168,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="KComboBox" name="m_editDownloadType"/>
+           <widget class="AlkComboBox" name="m_editDownloadType"/>
           </item>
           <item row="0" column="3">
            <widget class="QLabel" name="m_urlCheckLabel">
@@ -178,7 +178,7 @@
            </widget>
           </item>
           <item row="8" column="1">
-           <widget class="KComboBox" name="m_editPriceDecimalSeparator">
+           <widget class="AlkComboBox" name="m_editPriceDecimalSeparator">
             <item>
              <property name="text">
               <string comment="1">Period (.)</string>
@@ -255,7 +255,7 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="KComboBox" name="m_editDataFormat">
+           <widget class="AlkComboBox" name="m_editDataFormat">
             <property name="toolTip">
              <string>The type of data expected to downloaded and processed.</string>
             </property>
@@ -358,9 +358,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
+   <class>AlkComboBox</class>
+   <extends>KComboBox</extends>
+   <header>alkcombobox.h</header>
   </customwidget>
   <customwidget>
    <class>KLineEdit</class>
