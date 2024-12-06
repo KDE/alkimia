@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-10 01:59+0000\n"
+"POT-Creation-Date: 2024-12-06 01:50+0000\n"
 "PO-Revision-Date: 2024-05-06 09:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -32,152 +32,152 @@ msgstr "mail@kisaragi-hiu.com"
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "來源 <placeholder>%1</placeholder> 不存在。"
 
-#: alkonlinequote_p.cpp:219
+#: alkonlinequote_p.cpp:220
 #, kde-format
 msgid "Cannot resolve input date."
 msgstr "無法剖析輸入日期。"
 
-#: alkonlinequote_p.cpp:267
+#: alkonlinequote_p.cpp:268
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "無法為 %1 抓取網址"
 
-#: alkonlinequote_p.cpp:276 alkonlinequote_p.cpp:278
+#: alkonlinequote_p.cpp:277 alkonlinequote_p.cpp:279
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr "網址已被重新導向；請檢查線上報價網址的更新"
 
-#: alkonlinequote_p.cpp:302
+#: alkonlinequote_p.cpp:303
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "抓取網址 %1 中..."
 
-#: alkonlinequote_p.cpp:351
+#: alkonlinequote_p.cpp:352
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "執行 %1 中..."
 
-#: alkonlinequote_p.cpp:368 alkonlinequote_p.cpp:428
+#: alkonlinequote_p.cpp:369 alkonlinequote_p.cpp:429
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "無法啟動：%1"
 
-#: alkonlinequote_p.cpp:389
+#: alkonlinequote_p.cpp:390
 #, kde-format
 msgid "URL found: %1..."
 msgstr "找到網址：%1..."
 
-#: alkonlinequote_p.cpp:420
+#: alkonlinequote_p.cpp:421
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "執行 %1 %2 %3 中..."
 
-#: alkonlinequote_p.cpp:479
+#: alkonlinequote_p.cpp:480
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "找到價格：'%1' (%2)"
 
-#: alkonlinequote_p.cpp:482
+#: alkonlinequote_p.cpp:483
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "價格 '%1' 無法為 '%2' 轉換為數字"
 
-#: alkonlinequote_p.cpp:487
+#: alkonlinequote_p.cpp:488
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "無法剖析 '%1' 的價格"
 
-#: alkonlinequote_p.cpp:497
+#: alkonlinequote_p.cpp:498
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "找到日期：'%1'"
 
-#: alkonlinequote_p.cpp:503
+#: alkonlinequote_p.cpp:504
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "找到日期格式：'%1' → '%2'"
 
-#: alkonlinequote_p.cpp:506
+#: alkonlinequote_p.cpp:507
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "無法使用格式 '%2' 剖析日期 '%1'：%3"
 
-#: alkonlinequote_p.cpp:510 alkonlinequote_p.cpp:520
+#: alkonlinequote_p.cpp:511 alkonlinequote_p.cpp:521
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "為 '%1' 使用目前的日期"
 
-#: alkonlinequote_p.cpp:514
+#: alkonlinequote_p.cpp:515
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "已為 '%1' 停用日期剖析"
 
-#: alkonlinequote_p.cpp:517
+#: alkonlinequote_p.cpp:518
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "無法剖析 '%1' 的日期"
 
-#: alkonlinequote_p.cpp:574 alkonlinequote_p.cpp:600 alkonlinequote_p.cpp:638
+#: alkonlinequote_p.cpp:575 alkonlinequote_p.cpp:601 alkonlinequote_p.cpp:639
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "找到符號：'%1'"
 
-#: alkonlinequote_p.cpp:577 alkonlinequote_p.cpp:603 alkonlinequote_p.cpp:641
+#: alkonlinequote_p.cpp:578 alkonlinequote_p.cpp:604 alkonlinequote_p.cpp:642
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "無法剖析 %1 的符號"
 
-#: alkonlinequote_p.cpp:691
+#: alkonlinequote_p.cpp:692
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr "無法在報價資料的第一行（標頭行）中偵測到欄位分隔符。"
 
-#: alkonlinequote_p.cpp:718
+#: alkonlinequote_p.cpp:719
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "無法在報價資料中找到日期欄位 '%1'"
 
-#: alkonlinequote_p.cpp:724
+#: alkonlinequote_p.cpp:725
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "無法在報價資料中找到價格欄位 '%1'"
 
-#: alkonlinequote_p.cpp:745 alkonlinequote_p.cpp:917
+#: alkonlinequote_p.cpp:746 alkonlinequote_p.cpp:919
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "無法在報價資料中用 '%2' 轉換日期 '%1'"
 
-#: alkonlinequote_p.cpp:780 alkonlinequote_p.cpp:934
+#: alkonlinequote_p.cpp:781 alkonlinequote_p.cpp:936
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "無法在報價資料中找到日期/價格對"
 
-#: alkonlinequote_p.cpp:825
+#: alkonlinequote_p.cpp:827
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:863
+#: alkonlinequote_p.cpp:865
 #, fuzzy, kde-format
 #| msgid "Unable to find date column '%1' in quote data"
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
 msgstr "無法在報價資料中找到日期欄位 '%1'"
 
-#: alkonlinequote_p.cpp:900
+#: alkonlinequote_p.cpp:902
 #, fuzzy, kde-format
 #| msgid "Unable to find price column '%1' in quote data"
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
 msgstr "無法在報價資料中找到價格欄位 '%1'"
 
-#: alkonlinequote_p.cpp:965
+#: alkonlinequote_p.cpp:970
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "無法更新 %1 的價格（空白的報價資料）"
 
-#: alkonlinequote_p.cpp:985
+#: alkonlinequote_p.cpp:990
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "為 %1 抓取網址時逾時"
@@ -295,6 +295,7 @@ msgid "Price decimal separator"
 msgstr "價格小數點符號"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
+#. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editIdSelector)
 #: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
@@ -324,21 +325,21 @@ msgstr ""
 "輸入要抓取股票報價的網址。<b>%1</b> 會被替換為正在報價的證券的符號。對於貨幣"
 "轉換，<b>%2</b> 會被替換為要報價的貨幣而 <b>%1</b> 則會替換為報價基底的貨幣。"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:184
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
 msgstr "點 (.)"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:189
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
 msgstr "逗號 (,)"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, m_editPriceDecimalSeparator)
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:194
 #, kde-format
 msgid "Legacy"
@@ -374,7 +375,7 @@ msgstr "已知為這個線上報價來源會正常運作的識別子"
 msgid "Date"
 msgstr "日期"
 
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editDataFormat)
+#. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editDataFormat)
 #: alkonlinequotedetails.ui:260
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
