@@ -91,6 +91,7 @@ void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
 #if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
             QDesktopServices::openUrl(QString("http://localhost:%1/devtools/page/%2").arg(s_webInspectorPort).arg(page()->devToolsId()));
 #else
+            Q_UNUSED(this)
             QDesktopServices::openUrl(QString("http://localhost:%1").arg(s_webInspectorPort));
 #endif
         });
