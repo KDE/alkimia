@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-06 01:50+0000\n"
+"POT-Creation-Date: 2024-12-07 01:51+0000\n"
 "PO-Revision-Date: 2024-07-07 06:31+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1116,7 +1116,7 @@ msgstr "პაკეტის ჩასწორების ბმული:"
 msgid "Open inspector in new window"
 msgstr "ინსპექტორის გახსნა ახალ ფანჯარაში"
 
-#: alkwebview.cpp:101
+#: alkwebview.cpp:102
 #, kde-format
 msgid "Inspect element"
 msgstr "ელემენტის ინსპექტირება"

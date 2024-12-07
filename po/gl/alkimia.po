@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-06 01:50+0000\n"
+"POT-Creation-Date: 2024-12-07 01:51+0000\n"
 "PO-Revision-Date: 2024-11-09 16:40+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -1126,7 +1126,7 @@ msgstr "URL de edición do paquete:"
 msgid "Open inspector in new window"
 msgstr "Abrir o inspector nunha nova xanela"
 
-#: alkwebview.cpp:101
+#: alkwebview.cpp:102
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspeccionar o elemento"
