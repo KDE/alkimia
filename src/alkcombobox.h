@@ -11,12 +11,12 @@
 
 #include <QtGlobal>
 
-#include "kcombobox.h"
-class AlkComboBox : public KComboBox
+#include <QComboBox>
+class AlkComboBox : public QComboBox
 {
 public:
     AlkComboBox(QWidget *parent)
-        : KComboBox(parent)
+        : QComboBox(parent)
     {
     }
 
