@@ -359,7 +359,7 @@
  <customwidgets>
   <customwidget>
    <class>AlkComboBox</class>
-   <extends>KComboBox</extends>
+   <extends>QComboBox</extends>
    <header>alkcombobox.h</header>
   </customwidget>
   <customwidget>

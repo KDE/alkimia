@@ -192,7 +192,11 @@ protected:
     class Private;
     Private *d;
 };
+
 Q_DECLARE_METATYPE(AlkOnlineQuoteSource::DataFormat)
+Q_DECLARE_METATYPE(AlkOnlineQuoteSource::DecimalSeparator)
+Q_DECLARE_METATYPE(AlkOnlineQuoteSource::DownloadType)
+Q_DECLARE_METATYPE(AlkOnlineQuoteSource::IdSelector)
 
 inline void swap(AlkOnlineQuoteSource& first, AlkOnlineQuoteSource& second) // krazy:exclude=inline
 {
