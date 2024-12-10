@@ -249,9 +249,19 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
     connect(m_editDateFormat, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
     connect(m_editDefaultId, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
 
+    // TODO
+    // During the string freeze, these combo box entries cannot be moved from the UI file.
+    // However, to ensure that the list box entries are always defined in the source code,
+    // this should be done afterwards.
+#if 1
     m_editPriceDecimalSeparator->setItemData(0, AlkOnlineQuoteSource::DecimalSeparator::Period);
     m_editPriceDecimalSeparator->setItemData(1, AlkOnlineQuoteSource::DecimalSeparator::Comma);
     m_editPriceDecimalSeparator->setItemData(2, AlkOnlineQuoteSource::DecimalSeparator::Legacy);
+#else
+    // m_editPriceDecimalSeparator->addItem(i18nc("@item:inlistbox Stock", "Legacy"), AlkOnlineQuoteSource::DecimalSeparator::Legacy);
+    // m_editPriceDecimalSeparator->addItem(i18nc("@item:inlistbox Stock", "Period (.)"), AlkOnlineQuoteSource::DecimalSeparator::Period);
+    // m_editPriceDecimalSeparator->addItem(i18nc("@item:inlistbox Stock", "Comma (,)"), AlkOnlineQuoteSource::DecimalSeparator::Comma);
+#endif
     connect(m_editPriceDecimalSeparator, SIGNAL(currentIndexChanged(int)), this, SLOT(slotEntryChanged()));
     connect(m_editPrice, SIGNAL(textChanged(QString)), this, SLOT(slotEntryChanged()));
 
