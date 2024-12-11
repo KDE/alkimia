@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-07 01:51+0000\n"
+"POT-Creation-Date: 2024-12-11 01:49+0000\n"
 "PO-Revision-Date: 2024-02-10 00:34+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -865,144 +865,144 @@ msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "이름"
 
-#: alkonlinequoteswidget.cpp:263
+#: alkonlinequoteswidget.cpp:277
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:264
+#: alkonlinequoteswidget.cpp:278
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:545
+#: alkonlinequoteswidget.cpp:559
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "이 온라인 시세를 삭제하시겠습니까?"
 
-#: alkonlinequoteswidget.cpp:546
+#: alkonlinequoteswidget.cpp:560
 #, kde-format
 msgid "Delete online quote"
 msgstr "온라인 시세 삭제"
 
-#: alkonlinequoteswidget.cpp:565
+#: alkonlinequoteswidget.cpp:579
 #, kde-format
 msgid ".copy"
 msgstr ".복사"
 
-#: alkonlinequoteswidget.cpp:596
+#: alkonlinequoteswidget.cpp:610
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:599
+#: alkonlinequoteswidget.cpp:613
 #, fuzzy, kde-format
 #| msgid "URL found: %1..."
 msgctxt "@info online quote setting"
 msgid "URL: %1"
 msgstr "검색된 URL: %1..."
 
-#: alkonlinequoteswidget.cpp:600
+#: alkonlinequoteswidget.cpp:614
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:601
+#: alkonlinequoteswidget.cpp:615
 #, fuzzy, kde-format
 #| msgid "Data Format"
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
 msgstr "데이터 형식"
 
-#: alkonlinequoteswidget.cpp:602
+#: alkonlinequoteswidget.cpp:616
 #, fuzzy, kde-format
 #| msgid "Identifier"
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
 msgstr "식별자"
 
-#: alkonlinequoteswidget.cpp:603
+#: alkonlinequoteswidget.cpp:617
 #, fuzzy, kde-format
 #| msgid "Selected by"
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
 msgstr "선택 기준"
 
-#: alkonlinequoteswidget.cpp:604
+#: alkonlinequoteswidget.cpp:618
 #, fuzzy, kde-format
 #| msgid "Price"
 msgctxt "@info online quote setting"
 msgid "Price: %1"
 msgstr "금액"
 
-#: alkonlinequoteswidget.cpp:605
+#: alkonlinequoteswidget.cpp:619
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:606
+#: alkonlinequoteswidget.cpp:620
 #, fuzzy, kde-format
 #| msgid "Date found: '%1'"
 msgctxt "@info online quote setting"
 msgid "Date: %1"
 msgstr "검색된 날짜: '%1'"
 
-#: alkonlinequoteswidget.cpp:607
+#: alkonlinequoteswidget.cpp:621
 #, fuzzy, kde-format
 #| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
 msgstr "날짜 형식"
 
-#: alkonlinequoteswidget.cpp:608
+#: alkonlinequoteswidget.cpp:622
 #, fuzzy, kde-format
 #| msgid "Default Identifier"
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
 msgstr "기본 식별자"
 
-#: alkonlinequoteswidget.cpp:609
+#: alkonlinequoteswidget.cpp:623
 #, fuzzy, kde-format
 #| msgid "Remote source"
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
 msgstr "원격 원본"
 
-#: alkonlinequoteswidget.cpp:610
+#: alkonlinequoteswidget.cpp:624
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:610
+#: alkonlinequoteswidget.cpp:624
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:623
+#: alkonlinequoteswidget.cpp:637
 #, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
 msgstr ""
 
-#: alkonlinequoteswidget.cpp:639 alkonlinequoteswidget.cpp:641
+#: alkonlinequoteswidget.cpp:653 alkonlinequoteswidget.cpp:655
 #, kde-format
 msgid "New Quote Source"
 msgstr "새로운 시세 원본"
 
-#: alkonlinequoteswidget.cpp:651
+#: alkonlinequoteswidget.cpp:665
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>새 시세 원본</b>이 이미 존재합니다."
 
-#: alkonlinequoteswidget.cpp:798
+#: alkonlinequoteswidget.cpp:812
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "온라인 시세 HTML 결과 창"
