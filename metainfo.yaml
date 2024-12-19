@@ -1,0 +1,15 @@
+maintainer: tbaumgart
+fancyname: Alkimia API
+description: Alkimia API documentation
+platforms:
+  - name: Linux
+  - name: Windows
+  - name: macOS
+release: true
+public_lib: true
+public_source_dirs:
+  - src
+public_example_dirs:
+logo: logo.png
+irc: kmymoney
+mailinglist: kmymoney-devel
