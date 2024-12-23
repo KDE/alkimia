@@ -43,6 +43,8 @@ endif()
 ki18n_wrap_ui(alkimia_INTERNAL_SRCS ${alkimia_INTERNAL_UI} )
 add_library(alkimia-internal STATIC ${alkimia_INTERNAL_SRCS} ${alkimia_INTERNAL_HEADERS})
 
+set_target_properties(alkimia-internal PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
 if(MINGW)
     # On Windows we need undecorated symbols for class AlkValue
     set_source_files_properties(
