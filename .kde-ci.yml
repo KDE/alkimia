@@ -1,5 +1,5 @@
 Dependencies:
-- 'on': ['@all']
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
     'frameworks/extra-cmake-modules': '@stable'
     'frameworks/kcompletion': '@stable'
@@ -11,9 +11,27 @@ Dependencies:
     'frameworks/knewstuff': '@stable'
     'frameworks/ktextwidgets': '@stable'
     'frameworks/kxmlgui': '@stable'
-- 'on': ['Linux', 'FreeBSD']
+
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
   'require':
     'plasma/libplasma': '@stable'
+
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+  'require':
+    'frameworks/extra-cmake-modules': '@latest-kf6'
+    'frameworks/kcompletion': '@latest-kf6'
+    'frameworks/kconfig': '@latest-kf6'
+    'frameworks/kcoreaddons': '@latest-kf6'
+    'frameworks/ki18n': '@latest-kf6'
+    'frameworks/kiconthemes': '@latest-kf6'
+    'frameworks/kio': '@latest-kf6'
+    'frameworks/knewstuff': '@latest-kf6'
+    'frameworks/ktextwidgets': '@latest-kf6'
+    'frameworks/kxmlgui': '@latest-kf6'
+
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
+  'require':
+    'plasma/libplasma': '@latest-kf6'
 
 Options:
   cmake-options: '-DBUILD_WITH_WEBENGINE=ON'

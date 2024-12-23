@@ -5,6 +5,9 @@ include:
       - /gitlab-templates/linux.yml
       - /gitlab-templates/freebsd.yml
       - /gitlab-templates/windows.yml
+      - /gitlab-templates/linux-qt6.yml
+      - /gitlab-templates/freebsd-qt6.yml
+      - /gitlab-templates/windows-qt6.yml
 
 
 # https://bugs.kde.org/show_bug.cgi?id=456002
