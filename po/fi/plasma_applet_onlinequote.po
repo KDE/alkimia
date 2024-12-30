@@ -1,0 +1,48 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+# Tommi Nieminen <translator@legisign.org>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-08-30 07:39+0200\n"
+"PO-Revision-Date: 2024-12-11 21:10+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ConfigWidget)
+#: configwidget.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Kyselyikkuna"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configwidget.ui:25
+#, kde-format
+msgid "Symbol"
+msgstr "Symboli"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configwidget.ui:32
+#, kde-format
+msgid "Interval[min]"
+msgstr "Aikaväli [min]"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: configwidget.ui:42
+#, kde-format
+msgid "Online Quote"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configwidget.ui:65
+#, kde-format
+msgid "Profile"
+msgstr "Profiili"

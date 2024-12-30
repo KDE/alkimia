@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the alkimia package.
-# Tommi Nieminen <translator@legisign.org>, 2019.
+# Tommi Nieminen <translator@legisign.org>, 2019, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-01 02:29+0000\n"
-"PO-Revision-Date: 2019-02-28 15:29+0200\n"
+"PO-Revision-Date: 2024-12-11 21:09+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,11 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: alkonlinequote.cpp:181
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
-msgstr ""
+msgstr "Lähdettä <placeholder>%1</placeholder> ei ole olemassa."
 
 #: alkonlinequote.cpp:215 alkonlinequote.cpp:229
 #, kde-format
@@ -29,23 +30,23 @@ msgstr ""
 #: alkonlinequote.cpp:237 alkonlinequote.cpp:656
 #, kde-format
 msgid "Symbol found: '%1'"
-msgstr ""
+msgstr "Symboli löytynyt: ”%1”"
 
 #: alkonlinequote.cpp:240 alkonlinequote.cpp:659
 #, kde-format
 msgid "Unable to parse symbol for %1"
-msgstr ""
+msgstr "Symbolia ei voida jäsentää: %1"
 
 #: alkonlinequote.cpp:263
 #, kde-format
 msgid "Fetching URL %1..."
-msgstr ""
+msgstr "Noudetaan verkko-osoitetta %1…"
 
 #: alkonlinequote.cpp:324
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
-msgstr "Suoritetaan: %1…"
+msgstr "Suoritetaan %1…"
 
 #: alkonlinequote.cpp:336 alkonlinequote.cpp:544
 #, kde-format
@@ -81,7 +82,7 @@ msgstr "Hinta löytyi: ”%1” (%2)"
 #: alkonlinequote.cpp:579
 #, kde-format
 msgid "Unable to parse price for '%1'"
-msgstr ""
+msgstr "Hintaa ei voida jäsentää: ”%1”"
 
 #: alkonlinequote.cpp:588
 #, kde-format
@@ -101,17 +102,17 @@ msgstr "Päiväystä ”%1” ei voi jäsentää muodolla ”%2”: %3"
 #: alkonlinequote.cpp:601 alkonlinequote.cpp:611
 #, kde-format
 msgid "Using current date for '%1'"
-msgstr ""
+msgstr "Käytetään nykyistä päivämäärää: ”%1”"
 
 #: alkonlinequote.cpp:605
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
-msgstr ""
+msgstr "Päivämäärän jäsentäminen on poistettu käytöstä: ”%1”"
 
 #: alkonlinequote.cpp:608
 #, kde-format
 msgid "Unable to parse date for '%1'"
-msgstr ""
+msgstr "Päivämäärää ei voida jäsentää: ”%1”"
 
 #: alkonlinequote.cpp:685
 #, kde-format
@@ -121,7 +122,7 @@ msgstr ""
 #: alkonlinequote.cpp:694
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr ""
+msgstr "Verkko-osoitteen noutamisen aikakatkaisu: %1"
 
 #: alkonlinequoteswidget.cpp:135
 #, kde-format
@@ -179,12 +180,12 @@ msgstr "Näytä &sivu"
 #: alkonlinequoteswidget.cpp:152
 #, kde-format
 msgid "Show the selected source entry in a web browser"
-msgstr ""
+msgstr "Näytä valittu lähdetietue verkkoselaimessa"
 
 #: alkonlinequoteswidget.cpp:153
 #, kde-format
 msgid "Use this to show the selected online source entry"
-msgstr ""
+msgstr "Tällä voi näyttää valitun verkkolähdetietueen"
 
 #: alkonlinequoteswidget.cpp:155
 #, kde-format
@@ -205,13 +206,12 @@ msgstr ""
 #: alkonlinequoteswidget.cpp:186
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: alkonlinequoteswidget.cpp:186
-#, fuzzy, kde-format
-#| msgid "GHNS Source"
+#, kde-format
 msgid "Source"
-msgstr "GHNS-lähde"
+msgstr "Lähde"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequoteswidget.cpp:242 alkonlinequoteswidget.ui:379
@@ -227,7 +227,7 @@ msgstr ""
 #: alkonlinequoteswidget.cpp:245
 #, kde-format
 msgid "local"
-msgstr ""
+msgstr "paikallinen"
 
 #: alkonlinequoteswidget.cpp:399 alkonlinequoteswidget.cpp:474
 #, kde-format
@@ -334,13 +334,13 @@ msgstr "Uusi"
 msgid ""
 "Create a duplicate of the currently selected source entry under a different "
 "name."
-msgstr ""
+msgstr "Monista valittu lähdetietue eri nimelle"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:221
 #, kde-format
 msgid "Use this to create a duplicate of an entry for an online source"
-msgstr ""
+msgstr "Tällä voi luoda verkkolähdetietueesta kaksoiskappaleen"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteswidget.ui:224
@@ -448,7 +448,7 @@ msgstr "Ladatusta tiedosta hinnan erottava säännöllinen lauseke"
 #: alkonlinequoteswidget.ui:362 alkonlinequoteswidget.ui:369
 #, kde-format
 msgid "Regular Expression to extract the date from the downloaded data"
-msgstr ""
+msgstr "Säännöllinen lauseke päivämäärän irrottamiseksi ladatusta tiedosta"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
 #: alkonlinequoteswidget.ui:395
