@@ -111,6 +111,7 @@
     <p xml:lang="en-GB">Multiple applications can be supported via profiles.</p>
     <p xml:lang="eo">Multoblaj aplikoj povas esti subtenataj per profiloj.</p>
     <p xml:lang="es">Se pueden usar múltiples aplicaciones mediante perfiles.</p>
+    <p xml:lang="fi">Profiilien avulla voi tukea useita sovelluksia.</p>
     <p xml:lang="fr">Plusieurs applications peuvent être prises en charge grâce des profils.</p>
     <p xml:lang="gl">Permite varias aplicacións mediante perfís.</p>
     <p xml:lang="ia">Applicationes multiple pote esser supportate via profilos. </p>
