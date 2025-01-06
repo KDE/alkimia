@@ -198,10 +198,10 @@ target_include_directories(alkimia
 target_link_libraries(alkimia
     PRIVATE
     alkimia-internal
-    Qt${QT_MAJOR_VERSION}::Core
     PUBLIC
     ${MP_LIBRARIES}
     ${QT_BROWSER_LIB}
+    Qt${QT_MAJOR_VERSION}::Core
 )
 
 if(QT_MAJOR_VERSION GREATER_EQUAL 5 AND MSVC AND BUILD_WITH_WEBKIT)
