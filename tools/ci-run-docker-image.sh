@@ -3,18 +3,21 @@
 # @author Ralf Habacker <ralf.habacker@freenet.de>
 #
 
-#
-: "${image:=opensuse/leap:15.6}"
+# the docker image to use
+: "${ci_image:=opensuse/leap:15.6}"
+
+# the distribution to use
+: "${ci_distro:=}"
 
 # enter source dir
 # cd ~/src/alkimia
 
 case "$ci_distro" in
-    (*leap)
-        image=opensuse/leap:15.6
+    (opensuse-leap|opensuse-leap-15.6)
+        ci_image=opensuse/leap:15.6
         ;;
-    (*tumbleweed)
-        image=opensuse/tumbleweed
+    (opensuse-tumbleweed)
+        ci_image=opensuse/tumbleweed
         ;;
 esac
 
@@ -39,15 +42,16 @@ ci_variant=kf4 tools/ci-build.sh
 EOF
 
 options=
+shopts="export ci_parallel=$ci_parallel; export ci_distro=$ci_distro; export ci_variant=$ci_variant;"
 if [ "$1" == "--use-host-display" ]; then
     options="-v $HOME/.Xauthority:/root/.Xauthority:rw --env=DISPLAY --net=host"
-    shopts="export DISPLAY=$DISPLAY"
+    shopts="export DISPLAY=$DISPLAY;"
 fi
 
-sudo docker pull $image
+sudo docker pull $ci_image
 sudo docker run \
     -v $PWD:/mnt \
     $options \
-    -it $image \
-    /bin/bash -c "cd /mnt; $shopts export ci_distro=$ci_distro; export ci_variant=$ci_variant; tools/ci-install.sh; tools/ci-build.sh; bash"
+    -it $ci_image \
+    /bin/bash -c "cd /mnt; $shopts tools/ci-install.sh; tools/ci-build.sh; bash"
 
