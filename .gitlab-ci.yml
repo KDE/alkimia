@@ -36,8 +36,8 @@ image: opensuse/leap:15.5
 
 distro kf6 tumbleweed:
   extends: .unix-build
-  when: manual
-  image: opensuse/tumbleweed
+  #when: manual
+  image: rhabacker/suse_tumbleweed_kf6_qt68
   #only:
   #  - merge_requests
   variables:
