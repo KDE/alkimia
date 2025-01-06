@@ -309,7 +309,7 @@ if [ "$ci_in_docker" = "yes" ] && [ -n `getent passwd | grep ^user` ]; then
 fi
 
 # common cmake options
-cmake_options="-DBUILD_WITH_QTNETWORK=1"
+cmake_options=
 
 # check if webserver is enabled
 if [ "$ci_webserver" = yes ]; then
@@ -331,7 +331,7 @@ fi
 # settings for build variants
 case "$ci_variant" in
     (kf6*)
-        cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1 -DBUILD_WITH_QT6=1 -DBUILD_WITH_QTNETWORK=1 -DCMAKE_CXX_COMPILER=g++-12"
+        cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1 -DBUILD_WITH_QT6=1 -DCMAKE_CXX_COMPILER=g++-12"
         cmake_suffix="kf6"
         export QT_LOGGING_RULES="*=true;kf.kio.workers.http.debug=false;qt.text.*.debug=false"
         export QT_FORCE_STDERR_LOGGING=1
@@ -381,7 +381,7 @@ case "$ci_host" in
 esac
 
 # custom settings
-cmake_options+=" -DBUILD_WITH_QTNETWORK=1 -DBUILD_WITH_KIO=1"
+cmake_options+=""
 case "$ci_variant" in
     (kf[56])
         cmake_options+=" -DBUILD_WITH_WEBKIT=0 -DBUILD_WITH_WEBENGINE=0"

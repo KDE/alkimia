@@ -84,16 +84,14 @@ ecm_add_test(
     TEST_NAME alkonlinequoteprivatetest
 )
 
-if(BUILD_WITH_QTNETWORK)
-    ecm_add_test(
-        alkdownloadenginetest.cpp
-        alkdownloadenginetest.h
-        COMPILER_FLAGS -DUSE_QTNETWORK
-        ENV ${TEST_ENV}
-        LINK_LIBRARIES ${TEST_LIB}
-        TEST_NAME alkdownloadengine-qt-test
-    )
-endif()
+ecm_add_test(
+    alkdownloadenginetest.cpp
+    alkdownloadenginetest.h
+    COMPILER_FLAGS -DUSE_QTNETWORK
+    ENV ${TEST_ENV}
+    LINK_LIBRARIES ${TEST_LIB}
+    TEST_NAME alkdownloadengine-qt-test
+)
 
 if(BUILD_WITH_WEBKIT)
     ecm_add_test(

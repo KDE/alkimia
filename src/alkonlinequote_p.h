@@ -24,9 +24,7 @@
 #else
 #include <KUrl>
 #endif
-#ifdef BUILD_WITH_QTNETWORK
 class QNetworkReply;
-#endif
 
 #include <QApplication>
 #include <QByteArray>

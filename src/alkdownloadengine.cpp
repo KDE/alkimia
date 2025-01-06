@@ -14,10 +14,8 @@
 
 #include <QEventLoop>
 #include <QTimer>
-#ifdef BUILD_WITH_QTNETWORK
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#endif
 
 #if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <klocalizedstring.h>
@@ -43,9 +41,7 @@ public:
     Type m_type{DefaultEngine};
     int m_timeout{-1};
     QUrl m_url;
-#ifdef BUILD_WITH_QTNETWORK
     bool downloadUrlQt(const QUrl& url);
-#endif
     bool downloadUrlWithJavaScriptEngine(const QUrl &url);
     AlkWebPage *m_webPage{nullptr};
     bool m_webPageCreated{false};
@@ -62,9 +58,7 @@ public:
     }
 
 public Q_SLOTS:
-#ifdef BUILD_WITH_QTNETWORK
     void downloadUrlDoneQt(QNetworkReply *reply);
-#endif
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0) || defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
     void slotFinishedJavaScriptEngine(bool ok);
 #endif
@@ -91,7 +85,6 @@ void AlkDownloadEngine::Private::slotLoadRedirectedTo(const QUrl &url)
     m_url = url;
 }
 
-#ifdef BUILD_WITH_QTNETWORK
 void AlkDownloadEngine::Private::downloadUrlDoneQt(QNetworkReply *reply)
 {
     Result result = Result::NoError;
@@ -156,7 +149,6 @@ bool AlkDownloadEngine::Private::downloadUrlQt(const QUrl &url)
     }
     return result == Result::NoError;
 }
-#endif
 
 #if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
 void AlkDownloadEngine::Private::slotFinishedJavaScriptEngine(bool ok)
@@ -241,10 +233,8 @@ bool AlkDownloadEngine::downloadUrl(const QUrl &url, Type type)
     d->m_type = type;
     switch(type) {
     case DefaultEngine:
-#ifdef BUILD_WITH_QTNETWORK
     case QtEngine:
         return d->downloadUrlQt(url);
-#endif
     case JavaScriptEngine:
 #if defined(BUILD_WITH_WEBKIT)
     case WebKitEngine:
