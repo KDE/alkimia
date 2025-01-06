@@ -5,6 +5,9 @@
 #
 # SPDX-License-Identifier: MIT
 
+# add timestamps
+export PS4='[$(date "+%T.%3N")]'" $PS4"
+
 set -euo pipefail
 set -x
 
@@ -255,13 +258,13 @@ init_cross_runtime() {
 # See ci-install.sh
 : "${ci_host:=native}"
 
+# ci_parallel:
+# A number of parallel jobs, passed to make -j
+: "${ci_parallel:=1}"
+
 # ci_in_docker:
 # flags to indicate that we are running in docker
 : "${ci_in_docker:=auto}"
-
-# ci_jobs:
-# number of jobs
-: "${ci_jobs:=5}"
 
 # ci_runtime:
 # One of static, shared; used for windows cross builds
@@ -406,7 +409,7 @@ fi
 # configure and build
 if test "$ci_build" = yes; then
     $cmake_configure -- -S ${srcdir} -B ${builddir} $cmake_options
-    $cmake --build ${builddir} -j$ci_jobs
+    $cmake --build ${builddir} -j$ci_parallel
 fi
 
 # run tests
@@ -419,7 +422,7 @@ if test "$ci_test" = yes; then
     start_webserver
 
     # run tests
-    ctest --test-dir ${builddir} --output-on-failure --timeout 60 --parallel $ci_jobs -VV
+    ctest --test-dir ${builddir} --timeout 60 --parallel $ci_parallel -VV
 
     # show screenshot in case of errors
     if test $? -ne 0; then
