@@ -13,9 +13,13 @@ include:
 # https://bugs.kde.org/show_bug.cgi?id=456002
 image: opensuse/leap:15.5
 
+# custom builds
+
 .unix-host-build:
   stage: build
   interruptible: true
+  variables:
+    ci_parallel: "16"
   before_script:
     - ./tools/ci-install.sh
   script:
@@ -25,6 +29,10 @@ image: opensuse/leap:15.5
   extends: .unix-host-build
   variables:
     ci_webserver: "yes"
+
+.unix-leap-build:
+  extends: .unix-build
+  image: rhabacker/suse_leap_kf5_qt515
 
 distro kf6 tumbleweed:
   extends: .unix-build
@@ -65,7 +73,7 @@ distro kf5 tumbleweed mingw64:
     ci_host: "mingw64"
 
 distro kf5 leap:
-  extends: .unix-build
+  extends: .unix-leap-build
   #when: manual
   #only:
   #  - merge_requests
@@ -73,7 +81,7 @@ distro kf5 leap:
     ci_variant: "kf5"
 
 distro kf5 leap mingw32:
-  extends: .unix-host-build
+  extends: .unix-leap-build
   when: manual
   #only:
   #  - merge_requests
@@ -82,7 +90,7 @@ distro kf5 leap mingw32:
     ci_host: "mingw32"
 
 distro kf5 leap mingw64:
-  extends: .unix-host-build
+  extends: .unix-leap-build
   when: manual
   #only:
   #  - merge_requests
@@ -91,7 +99,7 @@ distro kf5 leap mingw64:
     ci_host: "mingw64"
 
 distro kf5 leap webengine:
-  extends: .unix-build
+  extends: .unix-leap-build
   # when: manual
   #only:
   #  - merge_requests
@@ -99,7 +107,7 @@ distro kf5 leap webengine:
     ci_variant: "kf5-webengine"
 
 distro kf5 leap webkit:
-  extends: .unix-build
+  extends: .unix-leap-build
   # when: manual
   #only:
   #  - merge_requests
