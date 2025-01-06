@@ -289,7 +289,10 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
 
 AlkOnlineQuotesWidget::Private::~Private()
 {
-    m_webPageDialog->deleteLater();
+    // only call deleteLater if we have created the dialog
+    if (m_webPageDialog) {
+        m_webPageDialog->deleteLater();
+    }
     delete m_webView->webPage();
     delete m_webView;
     delete m_model;
