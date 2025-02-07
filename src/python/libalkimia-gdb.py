@@ -10,17 +10,12 @@ class AlkValuePrinter(gdb.ValuePrinter):
 
     def __init__(self, val):
         self.val = val
-        d = val['d']['d']
-        self.members = [('*d', d.dereference())]
 
     def to_string(self):
         return call_method(self.val, "toDouble")
 
     def display_hint(self):
-        return 'double'
-
-    def children(self):
-        return iter(self.members)
+        return 'string'
 
 class MPQClassPrinter(gdb.ValuePrinter):
     "Print an mpq_class value"
