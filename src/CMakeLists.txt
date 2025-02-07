@@ -338,3 +338,4 @@ if(DOXYGEN_FOUND)
     add_custom_target(libalkimia_apidoc ${DOXYGEN} ${CMAKE_CURRENT_BINARY_DIR}/libalkimia.doxygen)
 endif(DOXYGEN_FOUND)
 
+add_subdirectory(python)
