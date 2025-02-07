@@ -241,7 +241,7 @@ endif()
 
 install(TARGETS ${alkimia_export_targets}
     EXPORT  alkimiaTargets
-    ${INSTALL_TARGETS_DEFAULT_ARGS}
+    ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 if(QT_MAJOR_VERSION LESS 5)
