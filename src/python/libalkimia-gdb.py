@@ -36,9 +36,13 @@ class MPQClassPrinter(gdb.ValuePrinter):
     def display_hint(self):
         return 'string'
 
-_alkvalue_pretty_printers = gdb.printing.RegexpCollectionPrettyPrinter("Alkimia")
-gdb.printing.register_pretty_printer(None, _alkvalue_pretty_printers)
+try:
+    _alkvalue_pretty_printers = gdb.printing.RegexpCollectionPrettyPrinter("Alkimia")
+    gdb.printing.register_pretty_printer(None, _alkvalue_pretty_printers)
 
-_alkvalue_pretty_printers.add_printer('AlkValue', '^AlkValue$', AlkValuePrinter)
-_alkvalue_pretty_printers.add_printer('mpq_class', '^mpq_class', MPQClassPrinter)
-gdb.write("installed pretty printer for Alkimia\n")
+    _alkvalue_pretty_printers.add_printer('AlkValue', '^AlkValue$', AlkValuePrinter)
+    _alkvalue_pretty_printers.add_printer('mpq_class', '^mpq_class', MPQClassPrinter)
+    gdb.write("installed pretty printer for Alkimia\n")
+except:
+    gdb.write("pretty printer for Alkimia already installed\n")
+
