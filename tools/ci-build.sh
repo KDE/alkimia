@@ -113,6 +113,9 @@ function init_docker() {
 print("loading gdb event handler")
 python
 
+# for pretty printer
+gdb.execute("set auto-load safe-path /")
+
 def stop_handler (event):
     print ("event type: stop")
     gdb.execute("set pagination off")
