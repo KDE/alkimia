@@ -161,16 +161,14 @@ msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
 #: alkonlinequote_p.cpp:865
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
+msgstr ""
 
 #: alkonlinequote_p.cpp:902
-#, fuzzy, kde-format
-#| msgid "Unable to update price for %1 (empty quote data)"
+#, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
+msgstr ""
 
 #: alkonlinequote_p.cpp:970
 #, kde-format
