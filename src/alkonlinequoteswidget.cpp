@@ -94,6 +94,7 @@ public:
 #endif
     AlkOnlineQuotesModel *m_model;
     AlkOnlineQuotesWidget *m_p;
+    AlkOnlineQuote m_quote;
 
     Private(bool showProfiles, bool showUpload, AlkOnlineQuotesWidget *parent);
     ~Private();
@@ -284,6 +285,14 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
     m_returnLastPriceStateComboBox->addItem(i18nc("@item:inlistbox Stock", "Off"), AlkOnlineQuote::LastPriceState::Off);
     m_returnLastPriceStateComboBox->addItem(i18nc("@item:inlistbox Stock", "Always"), AlkOnlineQuote::LastPriceState::Always);
     m_returnLastPriceStateComboBox->addItem(i18nc("@item:inlistbox Stock", "Always when today"), AlkOnlineQuote::LastPriceState::AlwaysWhenToday);
+    m_returnLastPriceStateComboBox->setData<AlkOnlineQuote::LastPriceState>(m_quote.returnLastPriceState());
+
+    connect(&m_quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
+    connect(&m_quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));
+    connect(&m_quote, SIGNAL(failed(QString, QString)), this, SLOT(slotLogFailed(QString, QString)));
+    connect(&m_quote, SIGNAL(quote(QString, QString, QDate, double)), this, SLOT(slotLogQuote(QString, QString, QDate, double)));
+    connect(&m_quote, SIGNAL(quotes(QString, QString, AlkDatePriceMap)), this, SLOT(slotLogQuotes(QString, QString, AlkDatePriceMap)));
+
     m_uploadButton->setVisible(false);
     m_acceptButton->setEnabled(false);
     m_resetButton->setVisible(m_showProfiles);
@@ -720,36 +729,29 @@ void AlkOnlineQuotesWidget::Private::setupIcons(const AlkOnlineQuote::Errors &er
 
 void AlkOnlineQuotesWidget::Private::slotCheckEntry()
 {
-    AlkOnlineQuote quote(m_profile);
+    m_quote.setProfile(m_profile);
     m_logWindow->setVisible(true);
     m_logWindow->clear();
     clearIcons();
-    quote.setAcceptLanguage(m_acceptLanguage);
-
-    connect(&quote, SIGNAL(status(QString)), this, SLOT(slotLogStatus(QString)));
-    connect(&quote, SIGNAL(error(QString)), this, SLOT(slotLogError(QString)));
-    connect(&quote, SIGNAL(failed(QString,QString)), this, SLOT(slotLogFailed(QString,QString)));
-    connect(&quote, SIGNAL(quote(QString,QString,QDate,double)), this,
-            SLOT(slotLogQuote(QString,QString,QDate,double)));
-    connect(&quote, SIGNAL(quotes(QString,QString,AlkDatePriceMap)), this,
-            SLOT(slotLogQuotes(QString,QString,AlkDatePriceMap)));
+    m_quote.setAcceptLanguage(m_acceptLanguage);
+    m_quote.setReturnLastPriceState(m_returnLastPriceStateComboBox->currentData().value<AlkOnlineQuote::LastPriceState>());
     initIcons();
 
     AlkOnlineQuoteSource source(m_currentItem);
     if (source.isReference())
         source = source.asReference();
     if (source.dataFormat() == AlkOnlineQuoteSource::CSV || source.dataFormat() == AlkOnlineQuoteSource::JSON) {
-        quote.setDateRange(m_startDateEdit->date(), m_endDateEdit->date());
+        m_quote.setDateRange(m_startDateEdit->date(), m_endDateEdit->date());
     } else {
-        quote.setDateRange(QDate(), QDate());
+        m_quote.setDateRange(QDate(), QDate());
     }
-    quote.setReturnLastPriceState(static_cast<AlkOnlineQuote::LastPriceState>(m_returnLastPriceStateComboBox->currentIndex()));
+
     if (source.requiresTwoIdentifier()) {
-        quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), source.name());
+        m_quote.launch(m_checkSymbol2->text(), m_checkSymbol2->text(), source.name());
     } else {
-        quote.launch(m_checkSymbol->text(), m_checkSymbol->text(), source.name());
+        m_quote.launch(m_checkSymbol->text(), m_checkSymbol->text(), source.name());
     }
-    setupIcons(quote.errors());
+    setupIcons(m_quote.errors());
 }
 
 void AlkOnlineQuotesWidget::Private::slotLogStatus(const QString &s)
