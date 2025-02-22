@@ -131,23 +131,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QComboBox" name="m_returnLastPriceStateComboBox">
-        <item>
-         <property name="text">
-          <string>Off</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Always</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Always when today</string>
-         </property>
-        </item>
-       </widget>
+       <widget class="AlkComboBox" name="m_returnLastPriceStateComboBox"/>
       </item>
      </layout>
     </widget>
@@ -175,6 +159,11 @@
    <class>AlkPushButton</class>
    <extends>QPushButton</extends>
    <header>alkpushbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>AlkComboBox</class>
+   <extends>QComboBox</extends>
+   <header>alkcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

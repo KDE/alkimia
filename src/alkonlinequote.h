@@ -239,4 +239,6 @@ protected:
     friend class AlkOnlineQuotePrivateTest;
 };
 
+Q_DECLARE_METATYPE(AlkOnlineQuote::LastPriceState)
+
 #endif // ALKONLINEQUOTE_H

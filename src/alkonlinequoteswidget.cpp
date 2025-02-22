@@ -281,6 +281,9 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
     connect(m_ghnsSource, SIGNAL(toggled(bool)), this, SLOT(slotEntryChanged()));
     connect(m_showButton, SIGNAL(clicked()), this, SLOT(slotShowButton()));
 
+    m_returnLastPriceStateComboBox->addItem(i18nc("@item:inlistbox Stock", "Off"), AlkOnlineQuote::LastPriceState::Off);
+    m_returnLastPriceStateComboBox->addItem(i18nc("@item:inlistbox Stock", "Always"), AlkOnlineQuote::LastPriceState::Always);
+    m_returnLastPriceStateComboBox->addItem(i18nc("@item:inlistbox Stock", "Always when today"), AlkOnlineQuote::LastPriceState::AlwaysWhenToday);
     m_uploadButton->setVisible(false);
     m_acceptButton->setEnabled(false);
     m_resetButton->setVisible(m_showProfiles);
