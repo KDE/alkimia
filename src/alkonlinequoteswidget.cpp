@@ -293,6 +293,8 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
     connect(&m_quote, SIGNAL(quote(QString, QString, QDate, double)), this, SLOT(slotLogQuote(QString, QString, QDate, double)));
     connect(&m_quote, SIGNAL(quotes(QString, QString, AlkDatePriceMap)), this, SLOT(slotLogQuotes(QString, QString, AlkDatePriceMap)));
 
+    m_reverseSearchStateCheckBox->setChecked(m_quote.enableReverseLaunch());
+
     m_uploadButton->setVisible(false);
     m_acceptButton->setEnabled(false);
     m_resetButton->setVisible(m_showProfiles);
@@ -550,11 +552,13 @@ void AlkOnlineQuotesWidget::Private::updateButtonState()
         m_checkSymbol->setText(QString());
         m_checkSymbol2->setEnabled(true);
         setDefaultSource(m_checkSymbol2, source.defaultId(), "BTC GBP");
+        m_reverseSearchStateCheckBox->setVisible(true);
     } else {
         m_checkSymbol->setEnabled(true);
         setDefaultSource(m_checkSymbol, source.defaultId(), "ORCL");
         m_checkSymbol2->setEnabled(false);
         m_checkSymbol2->setText(QString());
+        m_reverseSearchStateCheckBox->setVisible(false);
     }
 }
 
@@ -735,6 +739,7 @@ void AlkOnlineQuotesWidget::Private::slotCheckEntry()
     clearIcons();
     m_quote.setAcceptLanguage(m_acceptLanguage);
     m_quote.setReturnLastPriceState(m_returnLastPriceStateComboBox->currentData().value<AlkOnlineQuote::LastPriceState>());
+    m_quote.setEnableReverseLaunch(m_reverseSearchStateCheckBox->checkState() == Qt::Checked);
     initIcons();
 
     AlkOnlineQuoteSource source(m_currentItem);

@@ -181,6 +181,7 @@ public:
      * Set the status whether a search with swapped symbole should be
      * performed after a query for a symbol returned nothing.
      * @param state Enable or disable search with swapped symbols
+     * @note The reverse search is enabled by default
      */
     void setEnableReverseLaunch(bool state);
 
