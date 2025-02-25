@@ -586,6 +586,8 @@ void AlkOnlineQuotesWidget::Private::slotDeleteEntry()
 
     // keep this order to avoid deleting the wrong current item
     m_quoteSourceList->model()->removeRow(m_quoteSourceList->currentIndex().row());
+    // select next entry
+    slotLoadQuoteSource(m_quoteSourceList->currentIndex());
     updateButtonState();
 }
 
