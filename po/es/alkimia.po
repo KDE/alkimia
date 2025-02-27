@@ -1,5 +1,5 @@
 # Spanish translations for alkimia.po package.
-# Copyright (C) 2018 This_file_is_part_of_KDE
+# Copyright (C) 2018-2025 This_file_is_part_of_KDE
 # This file is distributed under the same license as the alkimia package.
 #
 # Automatically generated, 2018.
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-26 01:56+0000\n"
-"PO-Revision-Date: 2025-02-15 04:31+0100\n"
+"PO-Revision-Date: 2025-02-27 00:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -42,7 +42,7 @@ msgstr "No se puede resolver la fecha de entrada."
 #: alkonlinequote_p.cpp:268
 #, kde-format
 msgid "Unable to fetch url for %1"
-msgstr "No se ha podido extraer el URL para %1"
+msgstr "No se ha podido extraer la URL para %1"
 
 #: alkonlinequote_p.cpp:277 alkonlinequote_p.cpp:279
 #, kde-format
@@ -54,13 +54,13 @@ msgstr ""
 #: alkonlinequote_p.cpp:303
 #, kde-format
 msgid "Fetching URL %1..."
-msgstr "Extrayendo URL %1..."
+msgstr "Extrayendo URL %1…"
 
 #: alkonlinequote_p.cpp:352
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
-msgstr "Ejecutando %1..."
+msgstr "Ejecutando %1…"
 
 #: alkonlinequote_p.cpp:369 alkonlinequote_p.cpp:429
 #, kde-format
@@ -70,13 +70,13 @@ msgstr "No se ha podido lanzar: %1"
 #: alkonlinequote_p.cpp:390
 #, kde-format
 msgid "URL found: %1..."
-msgstr "URL encontrado: %1..."
+msgstr "URL encontrada: %1…"
 
 #: alkonlinequote_p.cpp:421
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
-msgstr "Ejecutando %1 %2 %3..."
+msgstr "Ejecutando %1 %2 %3…"
 
 #: alkonlinequote_p.cpp:480
 #, kde-format
@@ -540,7 +540,7 @@ msgstr "Devolver el estado del último precio"
 #: alkonlinequotesdebug.ui:139
 #, kde-format
 msgid "Enable reverse search"
-msgstr ""
+msgstr "Activar búsqueda inversa"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
@@ -897,22 +897,19 @@ msgid "Javascript"
 msgstr "Javascript"
 
 #: alkonlinequoteswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "Off"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
 msgstr "Desactivado"
 
 #: alkonlinequoteswidget.cpp:286
-#, fuzzy, kde-format
-#| msgid "Always"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
 msgstr "Siempre"
 
 #: alkonlinequoteswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "Always when today"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
 msgstr "Siempre que sea hoy"
