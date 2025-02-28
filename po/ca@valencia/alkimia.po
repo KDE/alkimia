@@ -1,16 +1,16 @@
 # Translation of alkimia.po to Catalan (Valencian)
-# Copyright (C) 2018-2024 This_file_is_part_of_KDE
+# Copyright (C) 2018-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2018, 2020, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-26 01:56+0000\n"
-"PO-Revision-Date: 2024-10-31 11:06+0100\n"
+"PO-Revision-Date: 2025-02-26 12:55+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -540,7 +540,7 @@ msgstr "Retorna l'estat de l'últim preu"
 #: alkonlinequotesdebug.ui:139
 #, kde-format
 msgid "Enable reverse search"
-msgstr ""
+msgstr "Activa la busca inversa"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
@@ -899,25 +899,22 @@ msgid "Javascript"
 msgstr "Javascript"
 
 #: alkonlinequoteswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "Off"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
 msgstr "Inactiu"
 
 #: alkonlinequoteswidget.cpp:286
-#, fuzzy, kde-format
-#| msgid "Always"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
 msgstr "Sempre"
 
 #: alkonlinequoteswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "Always when today"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
-msgstr "Carrega si és d'hui"
+msgstr "Sempre si és d'hui"
 
 #: alkonlinequoteswidget.cpp:578
 #, kde-format
