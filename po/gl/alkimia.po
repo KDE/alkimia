@@ -662,7 +662,7 @@ msgstr ""
 #, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
 msgstr ""
-"Use isto para enviar a fonte de cotizacións por Internet modificada á tenda "
+"Use isto para subir a fonte de cotizacións por Internet modificada á tenda "
 "de KDE."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
@@ -1081,8 +1081,8 @@ msgid ""
 "users."
 msgstr ""
 "Este diálogo permítelle crear un paquete para unha fonte de cotizacións por "
-"Internet, que pode enviar á tenda de Internet que Alkimia usa para "
-"compartilo con outras persoas."
+"Internet, que pode subir á tenda de Internet que Alkimia usa para compartilo "
+"con outras persoas."
 
 #. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
 #: alkonlinequoteuploaddialog.ui:133
@@ -1099,7 +1099,7 @@ msgid ""
 "paste the copied url into the corresponding package (see the <b>files</b> "
 "tab)."
 msgstr ""
-"Para enviar o paquete xerado á tenda de Internet, copie a ruta do ficheiro "
+"Para subir o paquete xerado á tenda de Internet, copie a ruta do ficheiro "
 "xerado no portapapeis, acceda á tenda que se menciona embaixo e pegue o URL "
 "copiado no paquete correspondente (consulte a lapela de <b>ficheiros</b>)."
 
@@ -1107,7 +1107,7 @@ msgstr ""
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr "Crear o paquete para enviar."
+msgstr "Crear o paquete para subir."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
