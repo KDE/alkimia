@@ -15,7 +15,7 @@ include:
 
 
 # https://bugs.kde.org/show_bug.cgi?id=456002
-image: opensuse/leap:15.5
+image: opensuse/leap:15.6
 
 # custom builds
 
