@@ -273,8 +273,53 @@ void AlkOnlineQuotePrivateTest::testDateRangeInUrls()
     QVERIFY(!urlStr.contains(QString(QLatin1String("end=%1")).arg(endTimeUnix)));
 }
 
+void AlkOnlineQuotePrivateTest::testGetSubTree()
+{
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+    QSKIP("not implemented yet", SkipSingle);
+#else
+    QFile f(":/alkonlinequoteprivatetest-2.json");
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    QString quotedata = f.readAll();
+
+    auto jsonDoc = QJsonDocument::fromJson(quotedata.toLocal8Bit());
+
+    QVERIFY(!jsonDoc.isNull());
+    QVERIFY(jsonDoc.isObject());
+
+    QVariantMap treeData = jsonDoc.object().toVariantMap();
+
+    QVariant period;
+    QString errorKey;
+
+    QString path = "chart:unknown";
+    bool result = AlkOnlineQuote::Private::getSubTree(treeData, path, period, errorKey);
+    QCOMPARE(result, false);
+
+    path = "chart:result:0:meta:currentTradingPeriod:regular";
+    result = AlkOnlineQuote::Private::getSubTree(treeData, path, period, errorKey);
+    QCOMPARE(result, true);
+    QVariantMap map = period.value<QVariantMap>();
+    QCOMPARE(map["timezone"].toString(), QString("EST"));
+    QCOMPARE(map["start"].toInt(), 1740148200);
+    QCOMPARE(map["end"].toInt(), 1740171600);
+
+    // compatibility support
+    path = "chart:result:meta:currentTradingPeriod:regular";
+    result = AlkOnlineQuote::Private::getSubTree(treeData, path, period, errorKey);
+    QCOMPARE(result, true);
+    map = period.value<QVariantMap>();
+    QCOMPARE(map["timezone"].toString(), QString("EST"));
+    QCOMPARE(map["start"].toInt(), 1740148200);
+    QCOMPARE(map["end"].toInt(), 1740171600);
+#endif
+}
+
 void AlkOnlineQuotePrivateTest::testParseQuoteJson()
 {
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
+    QSKIP("not implemented yet", SkipSingle);
+#else
     AlkOnlineQuote::Private &p = d_ptr();
 
     AlkOnlineQuoteSource source("test", "", "", AlkOnlineQuoteSource::Symbol, "chart:result:indicators:quote:open", "chart:result:timestamp", "%u", AlkOnlineQuoteSource::JSON);
@@ -292,6 +337,11 @@ void AlkOnlineQuotePrivateTest::testParseQuoteJson()
     MultipleQuotesReceiver multiReceiver(map);
     connect(this, SIGNAL(quotes(QString,QString,AlkDatePriceMap)), &multiReceiver, SLOT(quotes(QString,QString,AlkDatePriceMap)));
     QVERIFY(p.parseQuoteJson(quotedata));
+
+    AlkOnlineQuoteSource source2("test", "", "", AlkOnlineQuoteSource::Symbol, "chart:result:0:indicators:quote:open", "chart:result:0:timestamp", "%u", AlkOnlineQuoteSource::JSON);
+    p.m_source = source;
+    QVERIFY(p.parseQuoteJson(quotedata));
+#endif
 }
 
 #include "alkonlinequoteprivatetest.moc"

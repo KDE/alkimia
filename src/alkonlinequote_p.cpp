@@ -241,6 +241,15 @@ bool AlkOnlineQuote::Private::launch(const QString &symbol, const QString &id, c
     if (!initSource(source))
         return false;
 
+    // stock
+    if (!m_source.requiresTwoIdentifier()
+            && m_alwaysReturnLastPrice == LastPriceState::AlwaysWhenToday
+            && m_startDate == m_endDate
+            && m_startDate.dayOfWeek() >= Qt::Saturday) {
+        m_startDate = m_startDate.addDays(Qt::Friday - m_endDate.dayOfWeek());
+        Q_EMIT m_p->status(i18n("Start date moved to before the weekend"));
+    }
+
     if (m_source.downloadType() == AlkOnlineQuoteSource::Javascript) {
         result = launchWithJavaScriptSupport(symbol, id, AlkDownloadEngine::JavaScriptEngine);
     } else if (m_source.dataFormat() == AlkOnlineQuoteSource::CSS) {
@@ -794,6 +803,48 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
     return true;
 }
 
+bool AlkOnlineQuote::Private::getSubTree(const QVariantMap &data, const QString &path, QVariant &resultData, QString &errorKey)
+{
+    QVariantMap m = data;
+    QVariantList l;
+    QStringList keyList = path.split(":");
+    QString key = keyList.takeFirst();
+
+    while (!m.isEmpty() && keyList.size() > 0) {
+        if (m.contains(key) && (static_cast<QMetaType::Type>(m[key].userType()) == QMetaType::QVariantMap)) {
+            m = m[key].value<QVariantMap>();
+            key = keyList.takeFirst();
+        } else if (static_cast<QMetaType::Type>(m[key].userType()) == QMetaType::QVariantList) {
+            l = m[key].value<QVariantList>();
+            key = keyList.takeFirst();
+            // check for index
+            bool ok = false;
+            int index = key.toInt(&ok);
+            if (ok) {
+                if (index >= l.size()) {
+                    errorKey = key;
+                    return false;
+                }
+                key = keyList.takeFirst();
+            } else {
+                index = 0;
+            }
+            m = l.at(index).value<QVariantMap>();
+        } else {
+            errorKey = key;
+            return false;
+        }
+    }
+
+    if (m.isEmpty() || !m.contains(key)) {
+        errorKey = key;
+        return false;
+    }
+
+    resultData = m[key];
+    return true;
+}
+
 /**
  * Parse quote data in json format
  *
@@ -804,8 +855,6 @@ bool AlkOnlineQuote::Private::parseQuoteCSV(const QString &quotedata)
 bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    QString dateHierachy(m_source.dateRegex());
-    QString priceHierachy(m_source.priceRegex());
     auto jsonDoc = QJsonDocument::fromJson(quotedata.toLocal8Bit());
 
     if (jsonDoc.isNull()) {
@@ -816,9 +865,9 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
         alkDebug() << "JSON is not an object";
     }
 
-    QJsonObject json = jsonDoc.object();
+    QVariantMap treeData = jsonDoc.object().toVariantMap();
 
-    if (json.isEmpty()) {
+    if (treeData.isEmpty()) {
         m_errors |= Errors::Source;
         alkDebug() << "JSON object is empty.";
     }
@@ -829,80 +878,34 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
         return false;
     }
 
-    QJsonObject o = json;
-    QJsonObject o1;
-    QJsonArray a;
-    QString s;
-
     // extract dates
+    QString datePath(m_source.dateRegex());
+    QVariant data;
+    QString errorKey;
+    if (!getSubTree(treeData, datePath, data, errorKey)) {
+        m_errors |= Errors::DatePattern;
+        Q_EMIT m_p->error(i18n("Unable to find '%1' from date pattern '%2' in quote data", errorKey, datePath));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+
     QList<int> dateList;
-    QStringList keyList = dateHierachy.split(":");
-    QString key = keyList.takeFirst();
-    while (!o.isEmpty()) {
-        if (o.contains(key) && o[key].isObject()) {
-            o = o[key].toObject();
-            key = keyList.takeFirst();
-        } else if (o.contains(key) && o[key].isArray()) {
-            a = o[key].toArray();
-            // requested level has been reached
-            if (keyList.size() == 0) {
-                for (const auto &b : qAsConst(a)) {
-                    if (b.toInt())
-                        dateList.append(b.toInt());
-                }
-                break;
-            } else {
-                key = keyList.takeFirst();
-                for (const auto &b : qAsConst(a)) {
-                    if (b.isObject())
-                        o = b.toObject();
-                }
-            }
-        } else if (o.contains(key) && o[key].isString()) {
-            s = o[key].toString();
-        } else {
-            m_errors |= Errors::DatePattern;
-            Q_EMIT m_p->error(i18n("Unable to find '%1' from date pattern '%2' in quote data", key, m_source.dateRegex()));
-            Q_EMIT m_p->failed(m_id, m_symbol);
-            return false;
-        }
+    for(const auto &v : data.value<QVariantList>()) {
+        dateList.append(v.toInt());
     }
 
     // extract prices
-    o = json;
+    QString pricePath(m_source.priceRegex());
+    if (!getSubTree(treeData, pricePath, data, errorKey)) {
+        m_errors |= Errors::PricePattern;
+        Q_EMIT m_p->error(i18n("Unable to find '%1' from price pattern '%2' in quote data", errorKey, pricePath));
+        Q_EMIT m_p->failed(m_id, m_symbol);
+        return false;
+    }
+
     QList<double> priceList;
-    keyList = priceHierachy.split(":");
-    key = keyList.takeFirst();
-    while (!o.isEmpty()) {
-        if (o.contains(key) && o[key].isObject()) {
-            o = o[key].toObject();
-            key = keyList.takeFirst();
-        } else if (o.contains(key) && o[key].isArray()) {
-            a = o[key].toArray();
-            // requested level has been reached
-            if (keyList.size() == 0) {
-                for (const auto &b : qAsConst(a)) {
-                    if (b.toDouble())
-                        priceList.append(b.toDouble());
-                    else if (b.isNull())
-                        priceList.append(0.0);
-                }
-                break;
-            } else {
-                key = keyList.takeFirst();
-                for (const auto &b : qAsConst(a)) {
-                    if (b.isObject())
-                        o = b.toObject();
-                }
-            }
-        } else if (o.contains(key) && o[key].isString()) {
-            s = o[key].toString();
-        } else {
-            m_errors |= Errors::PricePattern;
-            Q_EMIT m_p->error(i18n("Unable to find '%1' from price pattern '%2' in quote data", key, m_source.priceRegex()));
-            Q_EMIT m_p->failed(m_id, m_symbol);
-            return false;
-        }
+    for(const auto &v : data.value<QVariantList>()) {
+        priceList.append(v.toDouble());
     }
 
     AlkDatePriceMap prices;

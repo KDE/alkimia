@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>alkonlinequoteprivatetest.data</file>
         <file>alkonlinequoteprivatetest.json</file>
+        <file>alkonlinequoteprivatetest-2.json</file>
     </qresource>
 </RCC>

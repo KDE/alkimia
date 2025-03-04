@@ -15,6 +15,7 @@
 
 #include <QDateTime>
 #include <QMap>
+#include <QMetaType>
 #include <QObject>
 #include <QString>
 

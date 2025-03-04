@@ -1,0 +1,105 @@
+{
+  "chart": {
+    "result": [
+      {
+        "meta": {
+          "currency": "USD",
+          "symbol": "ORCL",
+          "exchangeName": "NYQ",
+          "fullExchangeName": "NYSE",
+          "instrumentType": "EQUITY",
+          "firstTradeDate": 511021800,
+          "regularMarketTime": 1740171602,
+          "hasPrePostMarketData": true,
+          "gmtoffset": -18000,
+          "timezone": "EST",
+          "exchangeTimezoneName": "America/New_York",
+          "regularMarketPrice": 167.81,
+          "fiftyTwoWeekHigh": 198.31,
+          "fiftyTwoWeekLow": 109.79,
+          "regularMarketDayHigh": 176.83,
+          "regularMarketDayLow": 167.56,
+          "regularMarketVolume": 8242002,
+          "longName": "Oracle Corporation",
+          "shortName": "Oracle Corporation",
+          "chartPreviousClose": 176,
+          "priceHint": 2,
+          "currentTradingPeriod": {
+            "pre": {
+              "timezone": "EST",
+              "end": 1740148200,
+              "start": 1740128400,
+              "gmtoffset": -18000
+            },
+            "regular": {
+              "timezone": "EST",
+              "end": 1740171600,
+              "start": 1740148200,
+              "gmtoffset": -18000
+            },
+            "post": {
+              "timezone": "EST",
+              "end": 1740186000,
+              "start": 1740171600,
+              "gmtoffset": -18000
+            }
+          },
+          "dataGranularity": "1d",
+          "range": "",
+          "validRanges": [
+            "1d",
+            "5d",
+            "1mo",
+            "3mo",
+            "6mo",
+            "1y",
+            "2y",
+            "5y",
+            "10y",
+            "ytd",
+            "max"
+          ]
+        },
+        "timestamp": [
+          1740061800,
+          1740148200
+        ],
+        "indicators": {
+          "quote": [
+            {
+              "close": [
+                176,
+                167.80999755859375
+              ],
+              "volume": [
+                8737000,
+                9695400
+              ],
+              "low": [
+                174.42999267578125,
+                167.5500030517578
+              ],
+              "open": [
+                179.80999755859375,
+                176.1199951171875
+              ],
+              "high": [
+                180.27000427246094,
+                176.8800048828125
+              ]
+            }
+          ],
+          "adjclose": [
+            {
+              "adjclose": [
+                176,
+                167.80999755859375
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "error": null
+  }
+}
