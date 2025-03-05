@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-26 01:56+0000\n"
+"POT-Creation-Date: 2025-03-05 02:24+0000\n"
 "PO-Revision-Date: 2024-07-07 06:31+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -38,99 +38,104 @@ msgstr "წყარო <placeholder>%1</placeholder> არ არსებო�
 msgid "Cannot resolve input date."
 msgstr "შეყვანის თარიღის ამოხსნა შეუძლებელია."
 
-#: alkonlinequote_p.cpp:268
+#: alkonlinequote_p.cpp:250
+#, kde-format
+msgid "Start date moved to before the weekend"
+msgstr ""
+
+#: alkonlinequote_p.cpp:277
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "%1-სთვის URL-ის გამოთხოვის შეცდომა"
 
-#: alkonlinequote_p.cpp:277 alkonlinequote_p.cpp:279
+#: alkonlinequote_p.cpp:286 alkonlinequote_p.cpp:288
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr "URL გადამისამართებულია. შეამოწმეთ, ონლაინ კვოტის URL-ი ხომ არ განახლდა"
 
-#: alkonlinequote_p.cpp:303
+#: alkonlinequote_p.cpp:312
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "URL %1-ის გამოთხოვა..."
 
-#: alkonlinequote_p.cpp:352
+#: alkonlinequote_p.cpp:361
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "%1-ის შესრულება..."
 
-#: alkonlinequote_p.cpp:369 alkonlinequote_p.cpp:429
+#: alkonlinequote_p.cpp:378 alkonlinequote_p.cpp:438
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "გაშვების შედომა: %1"
 
-#: alkonlinequote_p.cpp:390
+#: alkonlinequote_p.cpp:399
 #, kde-format
 msgid "URL found: %1..."
 msgstr "ნაპოვნია URL: %1..."
 
-#: alkonlinequote_p.cpp:421
+#: alkonlinequote_p.cpp:430
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "შესრულება %1 %2 %3..."
 
-#: alkonlinequote_p.cpp:480
+#: alkonlinequote_p.cpp:489
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "ნაპოვნია ფასი: '%1' (%2)"
 
-#: alkonlinequote_p.cpp:483
+#: alkonlinequote_p.cpp:492
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "ფასის '%1' '%2'-სთვის რიცხვში გადაყვანა შეუძლებელია"
 
-#: alkonlinequote_p.cpp:488
+#: alkonlinequote_p.cpp:497
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "%1-ის ფასის დამუშავების შეცდომა"
 
-#: alkonlinequote_p.cpp:498
+#: alkonlinequote_p.cpp:507
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "ნაპოვნია მონაცემები: '%1'"
 
-#: alkonlinequote_p.cpp:504
+#: alkonlinequote_p.cpp:513
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "ნაპოვნია მონაცემების ფორმატი: '%1' -> '%2'"
 
-#: alkonlinequote_p.cpp:507
+#: alkonlinequote_p.cpp:516
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "მონაცემების '%1' ფორმატით '%2' დამუშავების შეცდომა: %3"
 
-#: alkonlinequote_p.cpp:511 alkonlinequote_p.cpp:521
+#: alkonlinequote_p.cpp:520 alkonlinequote_p.cpp:530
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "%1-სთვის მიმდინარე თარიღი გამოიყენება"
 
-#: alkonlinequote_p.cpp:515
+#: alkonlinequote_p.cpp:524
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "%1-სთვის მონაცემების დამუშავება გამორთულია"
 
-#: alkonlinequote_p.cpp:518
+#: alkonlinequote_p.cpp:527
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "%1-ის თარიღის დამუშავების შეცდომა"
 
-#: alkonlinequote_p.cpp:575 alkonlinequote_p.cpp:601 alkonlinequote_p.cpp:639
+#: alkonlinequote_p.cpp:584 alkonlinequote_p.cpp:610 alkonlinequote_p.cpp:648
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "ნაპოვნია სიმბოლო: '%1'"
 
-#: alkonlinequote_p.cpp:578 alkonlinequote_p.cpp:604 alkonlinequote_p.cpp:642
+#: alkonlinequote_p.cpp:587 alkonlinequote_p.cpp:613 alkonlinequote_p.cpp:651
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "%1-სთვის სიმბოლოს დამუშავების შეცდომა"
 
-#: alkonlinequote_p.cpp:692
+#: alkonlinequote_p.cpp:701
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -138,50 +143,50 @@ msgstr ""
 "ფასის მონაცემების პირველ ხაზზე(თავსართის ხაზი) ველის გამყოფის დადგენა "
 "შეუძლებელია."
 
-#: alkonlinequote_p.cpp:719
+#: alkonlinequote_p.cpp:728
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "ფასის მონაცემებში თარიღის სვეტი '%1' აღმოჩენილი არაა"
 
-#: alkonlinequote_p.cpp:725
+#: alkonlinequote_p.cpp:734
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "ფასის მონაცემებში ფასის სვეტი '%1' აღმოჩენილი არაა"
 
-#: alkonlinequote_p.cpp:746 alkonlinequote_p.cpp:919
+#: alkonlinequote_p.cpp:755 alkonlinequote_p.cpp:922
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "კვოტის მონაცემებში თარიღის '%1' '%2'-ით გადაყვანა შეუძლებელია"
 
-#: alkonlinequote_p.cpp:781 alkonlinequote_p.cpp:936
+#: alkonlinequote_p.cpp:790 alkonlinequote_p.cpp:939
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "ფასის მონაცემებში თარიღი/ფასის წყვილები ვერ ვიპოვე"
 
-#: alkonlinequote_p.cpp:827
+#: alkonlinequote_p.cpp:876
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
-#: alkonlinequote_p.cpp:865
+#: alkonlinequote_p.cpp:887
 #, fuzzy, kde-format
 #| msgid "Unable to find date column '%1' in quote data"
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
 msgstr "ფასის მონაცემებში თარიღის სვეტი '%1' აღმოჩენილი არაა"
 
-#: alkonlinequote_p.cpp:902
+#: alkonlinequote_p.cpp:901
 #, fuzzy, kde-format
 #| msgid "Unable to find price column '%1' in quote data"
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
 msgstr "ფასის მონაცემებში ფასის სვეტი '%1' აღმოჩენილი არაა"
 
-#: alkonlinequote_p.cpp:970
+#: alkonlinequote_p.cpp:973
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr ""
 "%1-ის ფასის განახლების დამუშავების სშეცდომა (კვოტის მონაცემები ცარიელია)"
 
-#: alkonlinequote_p.cpp:990
+#: alkonlinequote_p.cpp:993
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "%1-სთვის URL-ის გამოთხოვის მოლოდინის ვადა გადაცილებულია"
