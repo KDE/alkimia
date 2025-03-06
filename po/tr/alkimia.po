@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2025-02-26 11:10+0300\n"
+"PO-Revision-Date: 2025-03-05 12:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -41,7 +41,7 @@ msgstr "Girilen tarih çözülemiyor."
 #: alkonlinequote_p.cpp:250
 #, kde-format
 msgid "Start date moved to before the weekend"
-msgstr ""
+msgstr "Başlangıç tarihi hafta sonundan önceye alındı"
 
 #: alkonlinequote_p.cpp:277
 #, kde-format
