@@ -18,12 +18,12 @@ include:
 # ... ERROR sftpnotary.util The process exited with 1
 # ... DEBUG sftpnotary.util stderr: ... onlinequoteseditor5.app: a sealed resource is missing or invalid
 craft_macos_arm64:
-  except:
-    - master
+ - if: $CI_COMMIT_BRANCH =~ /master/
+   when: manual
 
 craft_macos_x86_64:
-  except:
-    - master
+ - if: $CI_COMMIT_BRANCH =~ /master/
+   when: manual
 
 # https://bugs.kde.org/show_bug.cgi?id=456002
 image: opensuse/leap:15.6
