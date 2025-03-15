@@ -12,8 +12,8 @@ Convenience functions for adding tests.
 ::
 
   ecm_add_tests(<sources>
-      COMPILER_FLAGS <flag> [<flag> [...]]
-      ENV <list>
+      [COMPILE_DEFINITIONS <definition> [<definition> [...]]] # Since 6.13.0
+      [ENV <list>]  # Since 6.13.0
       LINK_LIBRARIES <library> [<library> [...]]
       [NAME_PREFIX <prefix>]
       [GUI]
@@ -23,11 +23,12 @@ Convenience functions for adding tests.
   )
 
 A convenience function for adding multiple tests, each consisting of a
-single source file. For each file in <sources>, an executable target will be
-created (the name of which will be the basename of the source file). This
-will be linked against the libraries given with ``LINK_LIBRARIES``. Each
-executable will be added as a test with the same name and can have an
-environment provided by ``ENV``.
+single source file. For each file in <sources>, an executable target is
+created (whose name is the base name of the source file) with the compiler
+definitions passed with ``COMPILE_DEFINITIONS``. This will be linked
+against the libraries given with ``LINK_LIBRARIES``. Each executable will
+be added as a test with the same name and can have an environment provided
+by ``ENV``.
 
 If ``NAME_PREFIX`` is given, this prefix will be prepended to the test names, but
 not the target names. As a result, it will not prevent clashes between tests
@@ -61,9 +62,9 @@ generator expressions. Since 5.111.
 
   ecm_add_test(
       <sources>
-      COMPILER_FLAGS <flag> [<flag> [...]]
+      [COMPILE_DEFINITIONS <definition> [<definition> [...]]] # Since 6.13.0
+      [ENV <list>]  # Since 6.13.0
       LINK_LIBRARIES <library> [<library> [...]]
-      ENV <list>
       [TEST_NAME <name>]
       [NAME_PREFIX <prefix>]
       [GUI]
@@ -92,7 +93,7 @@ function(ecm_add_test)
   # TARGET_NAME_VAR and TEST_NAME_VAR are undocumented args used by
   # ecm_add_tests
   set(oneValueArgs TEST_NAME NAME_PREFIX TARGET_NAME_VAR TEST_NAME_VAR WORKING_DIRECTORY)
-  set(multiValueArgs COMPILER_FLAGS ENV LINK_LIBRARIES)
+  set(multiValueArgs COMPILE_DEFINITIONS ENV LINK_LIBRARIES)
   cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
   set(_sources ${ARG_UNPARSED_ARGUMENTS})
   list(LENGTH _sources _sourceCount)
@@ -124,17 +125,24 @@ function(ecm_add_test)
       set_property(TEST ${_testname} PROPERTY ENVIRONMENT ${ARG_ENV})
   endif()
   target_link_libraries(${_targetname} ${ARG_LINK_LIBRARIES})
-  target_compile_definitions(${_targetname} PRIVATE -DQT_FORCE_ASSERTS ${ARG_COMPILER_FLAGS})
+  target_compile_definitions(${_targetname} PRIVATE -DQT_FORCE_ASSERTS ${ARG_COMPILE_DEFINITIONS})
   ecm_mark_as_test(${_targetname})
   if (CMAKE_LIBRARY_OUTPUT_DIRECTORY)
-    if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
-       # https://stackoverflow.com/questions/59862894/how-do-i-make-a-list-in-cmake-with-the-semicolon-value
-       set(PATHSEP "\\\;") # Don't want cmake to treat it like a list
-    else() # e.g. Linux
-      set(PATHSEP ":")
+    set(_plugin_path ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
+    if (DEFINED ENV{QT_PLUGIN_PATH})
+      if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
+        # https://stackoverflow.com/questions/59862894/how-do-i-make-a-list-in-cmake-with-the-semicolon-value
+        set(PATHSEP "\\\;") # Don't want cmake to treat it like a list
+      else() # e.g. Linux
+        set(PATHSEP ":")
+      endif()
+      set(_plugin_path "${_plugin_path}${PATHSEP}$ENV{QT_PLUGIN_PATH}")
     endif()
-    set(_plugin_path "$ENV{QT_PLUGIN_PATH}")
-    set_property(TEST ${_testname} PROPERTY ENVIRONMENT "QT_PLUGIN_PATH=${CMAKE_LIBRARY_OUTPUT_DIRECTORY}${PATHSEP}${_plugin_path}")
+    list(APPEND ARG_ENV "QT_PLUGIN_PATH=${_plugin_path}")
+  endif()
+  if (ARG_ENV)
+    list(JOIN ARG_ENV ";" env)
+    set_property(TEST ${_testname} PROPERTY ENVIRONMENT "${env}")
   endif()
   if (ARG_TARGET_NAME_VAR)
     set(${ARG_TARGET_NAME_VAR} "${_targetname}" PARENT_SCOPE)
@@ -147,7 +155,7 @@ endfunction()
 function(ecm_add_tests)
   set(options GUI)
   set(oneValueArgs NAME_PREFIX TARGET_NAMES_VAR TEST_NAMES_VAR WORKING_DIRECTORY)
-  set(multiValueArgs COMPILER_FLAGS ENV LINK_LIBRARIES)
+  set(multiValueArgs COMPILE_DEFINITIONS ENV LINK_LIBRARIES)
   cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
   if(ARG_GUI)
     set(_exe_type GUI)
@@ -163,7 +171,7 @@ function(ecm_add_tests)
   foreach(_test_source ${ARG_UNPARSED_ARGUMENTS})
     ecm_add_test(${_test_source}
       NAME_PREFIX ${ARG_NAME_PREFIX}
-      COMPILER_FLAGS ${ARG_COMPILER_FLAGS}
+      COMPILE_DEFINITIONS ${ARG_COMPILE_DEFINITIONS}
       ENV ${ARG_ENV}
       LINK_LIBRARIES ${ARG_LINK_LIBRARIES}
       TARGET_NAME_VAR target_name
