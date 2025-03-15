@@ -87,7 +87,7 @@ ecm_add_test(
 ecm_add_test(
     alkdownloadenginetest.cpp
     alkdownloadenginetest.h
-    COMPILER_FLAGS -DUSE_QTNETWORK
+    COMPILE_DEFINITIONS -DUSE_QTNETWORK
     ENV ${TEST_ENV}
     LINK_LIBRARIES ${TEST_LIB}
     TEST_NAME alkdownloadengine-qt-test
@@ -97,7 +97,7 @@ if(BUILD_WITH_WEBKIT)
     ecm_add_test(
         alkdownloadenginetest.cpp
         alkdownloadenginetest.h
-        COMPILER_FLAGS -DUSE_WEBKIT
+        COMPILE_DEFINITIONS -DUSE_WEBKIT
         ENV ${TEST_ENV}
         LINK_LIBRARIES ${TEST_LIB}
         TEST_NAME alkdownloadengine-webkit-test
@@ -108,7 +108,7 @@ if(BUILD_WITH_WEBENGINE)
     ecm_add_test(
         alkdownloadenginetest.cpp
         alkdownloadenginetest.h
-        COMPILER_FLAGS -DUSE_WEBENGINE
+        COMPILE_DEFINITIONS -DUSE_WEBENGINE
         ENV ${TEST_ENV}
         LINK_LIBRARIES ${TEST_LIB}
         TEST_NAME alkdownloadengine-webengine-test
