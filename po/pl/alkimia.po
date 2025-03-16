@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
-# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2024-11-23 13:13+0100\n"
+"PO-Revision-Date: 2025-03-15 10:04+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,7 +41,7 @@ msgstr "Nie można rozpoznać wpisanej daty."
 #: alkonlinequote_p.cpp:250
 #, kde-format
 msgid "Start date moved to before the weekend"
-msgstr ""
+msgstr "Przesunięto datę początkową przed weekendem"
 
 #: alkonlinequote_p.cpp:277
 #, kde-format
@@ -533,7 +533,7 @@ msgstr "Zwróć stan ostatniej ceny"
 #: alkonlinequotesdebug.ui:139
 #, kde-format
 msgid "Enable reverse search"
-msgstr ""
+msgstr "Włącz wyszukiwanie wstecz"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
@@ -880,22 +880,19 @@ msgid "Javascript"
 msgstr "Javascript"
 
 #: alkonlinequoteswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "Off"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
 msgstr "Wył."
 
 #: alkonlinequoteswidget.cpp:286
-#, fuzzy, kde-format
-#| msgid "Always"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
 msgstr "Zawsze"
 
 #: alkonlinequoteswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "Always when today"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
 msgstr "Zawsze, gdy dzisiaj"
