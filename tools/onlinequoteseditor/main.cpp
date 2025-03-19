@@ -18,6 +18,7 @@
 #include <KMenu>
 #endif
 
+#include <QApplication>
 #include <QMenuBar>
 
 #if defined(Q_OS_WIN)
@@ -40,6 +41,8 @@ int main(int argc, char **argv)
                        "Editor for online price quotes used by finance applications",
                        AlkAboutData::License_GPL,
                        "(C) 2018-2024 Ralf Habacker");
+
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("onlinequoteseditor5")));
 
 #if defined(Q_OS_WIN)
     QNetworkProxyFactory::setUseSystemConfiguration(true);
