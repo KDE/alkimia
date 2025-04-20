@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2025-03-06 09:25+0100\n"
+"PO-Revision-Date: 2025-04-18 15:56+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -44,7 +44,7 @@ msgstr "Impossible de résoudre la date d'entrée."
 #: alkonlinequote_p.cpp:250
 #, kde-format
 msgid "Start date moved to before the weekend"
-msgstr "La date de début a été déplacée avant le week-end."
+msgstr "La date de début a été déplacée avant la fin de semaine."
 
 #: alkonlinequote_p.cpp:277
 #, kde-format
@@ -870,7 +870,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Sélectionnez, ajoutez ou modifiez un profil "
 "d'application, l'emplacement où charger et enregistrer les profils, par ex. "
-"KMyMoney ou SKrooge.</p></body></html>"
+"KMyMoney ou Skrooge.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequotesprofiles.ui:29
