@@ -847,18 +847,16 @@ msgid "Javascript"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "Off"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
-msgstr "Vypnuto"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:286
-#, fuzzy, kde-format
-#| msgid "Always"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
-msgstr "Vždy"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:287
 #, kde-format
