@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the alkimia package.
+# This file is distributed under the same license as the PACKAGE package.
 #
 # Stefan Asserhäll <stefan.asserhall@gmail.com>, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 02:00+0000\n"
-"PO-Revision-Date: 2020-09-20 07:54+0200\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2020-09-24 07:31+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -45,7 +45,7 @@ msgstr "Profilinformation"
 #: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
-msgstr "Direktkurseditor"
+msgstr "Direktkurser"
 
 #: mainwindow.cpp:105
 #, kde-format
@@ -60,12 +60,12 @@ msgstr "Kursinformation"
 #: mainwindow.cpp:119
 #, kde-format
 msgid "Browser"
-msgstr "Webbläsare"
+msgstr "Bläddrare"
 
 #: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
-msgstr "Uppdatering av '%1' tillgänglig i profilen '%2'"
+msgstr "Uppdatering av '%1' tillgänglig i profil '%2'"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
 #: mainwindow.ui:14

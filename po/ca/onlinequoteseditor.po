@@ -4,13 +4,12 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 02:00+0000\n"
-"PO-Revision-Date: 2020-09-20 09:43+0100\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2020-09-19 20:10+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -48,7 +47,7 @@ msgstr "Detalls del perfil"
 #: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
-msgstr "Editor de cotitzacions en línia"
+msgstr "Cotitzacions en línia"
 
 #: mainwindow.cpp:105
 #, kde-format
@@ -58,7 +57,7 @@ msgstr "Depuració"
 #: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
-msgstr "Detalls de la cotització"
+msgstr "Detalls de les cotitzacions"
 
 #: mainwindow.cpp:119
 #, kde-format

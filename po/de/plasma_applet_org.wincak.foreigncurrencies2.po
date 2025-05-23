@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the alkimia package.
-#
 # Ralf Habacker <ralf.habacker@freenet.de>, 2019.
 # Burkhard Lück <lueck@hube-lueck.de>, 2019.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.wincak.foreigncurrencies2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2019-10-07 07:19+0200\n"
+"POT-Creation-Date: 2021-02-15 09:30+0100\n"
+"PO-Revision-Date: 2021-03-02 11:12+0100\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"

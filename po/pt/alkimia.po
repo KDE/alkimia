@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2022-04-20 15:59+0100\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2020-06-06 15:41+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-POFile-SpellExtra: min Online OnlineQuotesEditor Habacker\n"
 "X-POFile-SpellExtra: onlinequoteseditor nbsp kmymoney Ralf GHNS skrooge\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-POFile-SpellExtra: Quote Finance\n"
+"X-POFile-SpellExtra: Finance Quote\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -49,8 +49,6 @@ msgstr "Não é possível obter um URL de %1"
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
-"O URL foi redireccionado; consulte uma actualização do URL da cotação "
-"'online'"
 
 #: alkonlinequote_p.cpp:312
 #, kde-format
@@ -661,7 +659,7 @@ msgstr "Use isto para mostrar o item da fonte seleccionado"
 #: alkonlinequoteslist.ui:142
 #, kde-format
 msgid "Upload"
-msgstr ""
+msgstr "Enviar"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:154
@@ -720,7 +718,7 @@ msgstr "Nome"
 #: alkonlinequotesmodel.cpp:106
 #, kde-format
 msgid "Source"
-msgstr "Fonte"
+msgstr "Origem"
 
 #: alkonlinequotesmodel.cpp:107
 #, kde-format
@@ -1132,6 +1130,9 @@ msgstr ""
 msgid "Inspect element"
 msgstr ""
 
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Não foi possível abrir o ficheiro transferido"
+
 #~ msgctxt "Accepts the entered data and stores it"
 #~ msgid "&Accept"
 #~ msgstr "&Aceitar"
@@ -1151,8 +1152,5 @@ msgstr ""
 #~ msgid "&New..."
 #~ msgstr "&Nova..."
 
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Não foi possível abrir o ficheiro transferido"
-
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
-#~ msgstr "Expressão regular para extrair o símbolo dos dados transferidos"
+#~ msgstr "Expressão regular para extrair o símbolo dos dados obtidos"

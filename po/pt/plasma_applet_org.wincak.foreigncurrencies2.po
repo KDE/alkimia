@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: plasma_applet_org\n"
+"Project-Id-Version: alkimia-plasma-foreign-currencies\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2019-02-25 00:55+0000\n"
+"POT-Creation-Date: 2021-02-15 09:30+0100\n"
+"PO-Revision-Date: 2019-02-14 11:33+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -15,7 +15,7 @@ msgstr ""
 #: contents/config/config.qml:6
 #, kde-format
 msgid "General"
-msgstr "Geral"
+msgstr ""
 
 #: contents/ui/config/ConfigGeneral.qml:38
 #: contents/ui/config/ConfigGeneral.qml:149
@@ -26,7 +26,7 @@ msgstr "Adicionar um Par de Moedas"
 #: contents/ui/config/ConfigGeneral.qml:55
 #, kde-format
 msgid "Paste currency pair symbol here"
-msgstr "Colar aqui o símbolo do par de moedas"
+msgstr "Cole aqui os símbolos do par de moedas"
 
 #: contents/ui/config/ConfigGeneral.qml:67
 #, kde-format

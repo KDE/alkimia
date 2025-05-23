@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 02:00+0000\n"
-"PO-Revision-Date: 2024-01-27 05:11+0100\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2022-10-14 10:02+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -46,7 +46,7 @@ msgstr "პროფილის დეტალები"
 #: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
-msgstr "ონლაინ კვოტები"
+msgstr "ონლაინ კოტები"
 
 #: mainwindow.cpp:105
 #, kde-format
@@ -56,7 +56,7 @@ msgstr "გამართვა"
 #: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
-msgstr "კვოტის დეტალები"
+msgstr "კოტის დეტალები"
 
 #: mainwindow.cpp:119
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "ხელმისაწვდომია %1-ის განახლ�
 #: mainwindow.ui:14
 #, kde-format
 msgid "Online Quotes Editor"
-msgstr "ონლაინ კვოტების რედაქტორი"
+msgstr "ონლაინ კოტების რედაქტორი"
 
 #. i18n: ectx: property (title), widget (QMenu, menuFile)
 #: mainwindow.ui:30
@@ -84,4 +84,4 @@ msgstr "ფაილი"
 #: mainwindow.ui:42
 #, kde-format
 msgid "Quit"
-msgstr "დატოვება"
+msgstr "გამოსვლა"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
 "PO-Revision-Date: 2023-11-10 14:32+0300\n"
 "Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -153,21 +153,25 @@ msgstr ""
 
 #: alkonlinequote_p.cpp:728
 #, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date column '%1' in quote data"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
 
 #: alkonlinequote_p.cpp:734
 #, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
 
 #: alkonlinequote_p.cpp:755 alkonlinequote_p.cpp:922
 #, fuzzy, kde-format
+#| msgid "Unable to parse date '%1' using format '%2': %3"
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Невозможно обработать дату «%1» с помощью формата «%2»: %3"
 
 #: alkonlinequote_p.cpp:790 alkonlinequote_p.cpp:939
 #, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
 
@@ -178,11 +182,13 @@ msgstr ""
 
 #: alkonlinequote_p.cpp:887
 #, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
 
 #: alkonlinequote_p.cpp:901
 #, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
 msgstr "Не удалось обновить курс «%1» (пустая дата)"
 
@@ -255,6 +261,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:52
 #, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgid "Remote source"
 msgstr "Новый источник котировок"
 
@@ -267,6 +274,7 @@ msgstr "Регулярное выражение для извлечения це
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
 #, fuzzy, kde-format
+#| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
 msgstr "Регулярное выражение для получения даты из полученных данных"
 
@@ -318,6 +326,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:156
 #, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Data Format"
 msgstr "Формат дат"
 
@@ -702,11 +711,13 @@ msgstr "Finance::Quote"
 
 #: alkonlinequotesmodel.cpp:24
 #, fuzzy, kde-format
+#| msgid "local"
 msgid "Local"
 msgstr "локальный"
 
 #: alkonlinequotesmodel.cpp:104
 #, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Format"
 msgstr "Формат дат"
 
@@ -848,6 +859,7 @@ msgstr "Создать"
 
 #: alkonlinequoteswidget.cpp:244
 #, fuzzy, kde-format
+#| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Код"
@@ -860,6 +872,7 @@ msgstr ""
 
 #: alkonlinequoteswidget.cpp:246
 #, fuzzy, kde-format
+#| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Имя"
@@ -930,6 +943,7 @@ msgstr ""
 
 #: alkonlinequoteswidget.cpp:636
 #, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
 msgstr "Формат дат"
@@ -981,6 +995,7 @@ msgstr ""
 
 #: alkonlinequoteswidget.cpp:644
 #, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
 msgstr "Новый источник котировок"
@@ -1123,6 +1138,9 @@ msgstr ""
 msgid "Inspect element"
 msgstr ""
 
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Не удалось открыть загруженный файл"
+
 #~ msgctxt "Accepts the entered data and stores it"
 #~ msgid "&Accept"
 #~ msgstr "&Принять"
@@ -1141,9 +1159,6 @@ msgstr ""
 #~ msgctxt "Create a new source entry for online quotes"
 #~ msgid "&New..."
 #~ msgstr "&Добавить..."
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Не удалось открыть загруженный файл"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr ""

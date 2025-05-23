@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onlinequoteseditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 02:00+0000\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
 "PO-Revision-Date: 2021-05-11 04:24+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -83,3 +83,9 @@ msgstr "Datei"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#~ msgid "Editor for online price quotes used by finance applications"
+#~ msgstr "Editor für Online-Kursnotizen für Finanz-Anwendungen"
+
+#~ msgid "(C) 2018-2019 Ralf Habacker"
+#~ msgstr "(C) 2018-2019 Ralf Habacker"

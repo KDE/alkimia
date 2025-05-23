@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2025-04-26 10:25+0200\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2023-09-26 05:21+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,17 +16,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Temuri Doghonadze"
+msgstr ""
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "Temuri.doghonadze@gmail.com"
+msgstr ""
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "წყარო <placeholder>%1</placeholder> არ არსებო�
 #: alkonlinequote_p.cpp:220
 #, kde-format
 msgid "Cannot resolve input date."
-msgstr "შეყვანის თარიღის ამოხსნა შეუძლებელია."
+msgstr ""
 
 #: alkonlinequote_p.cpp:250
 #, kde-format
@@ -88,7 +88,7 @@ msgstr "ნაპოვნია ფასი: '%1' (%2)"
 #: alkonlinequote_p.cpp:492
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
-msgstr "ფასის '%1' '%2'-სთვის რიცხვში გადაყვანა შეუძლებელია"
+msgstr ""
 
 #: alkonlinequote_p.cpp:497
 #, kde-format
@@ -140,28 +140,33 @@ msgstr "%1-სთვის სიმბოლოს დამუშავებ�
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
-"ფასის მონაცემების პირველ ხაზზე(თავსართის ხაზი) ველის გამყოფის დადგენა "
-"შეუძლებელია."
 
 #: alkonlinequote_p.cpp:728
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date column '%1' in quote data"
-msgstr "ფასის მონაცემებში თარიღის სვეტი '%1' აღმოჩენილი არაა"
+msgstr ""
+"%1-ის ფასის განახლების დამუშავების სშეცდომა (კვოტის მონაცემები ცარიელია)"
 
 #: alkonlinequote_p.cpp:734
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find price column '%1' in quote data"
-msgstr "ფასის მონაცემებში ფასის სვეტი '%1' აღმოჩენილი არაა"
+msgstr ""
+"%1-ის ფასის განახლების დამუშავების სშეცდომა (კვოტის მონაცემები ცარიელია)"
 
 #: alkonlinequote_p.cpp:755 alkonlinequote_p.cpp:922
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to parse date '%1' using format '%2': %3"
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "კვოტის მონაცემებში თარიღის '%1' '%2'-ით გადაყვანა შეუძლებელია"
+msgstr "მონაცემების '%1' ფორმატით '%2' დამუშავების შეცდომა: %3"
 
 #: alkonlinequote_p.cpp:790 alkonlinequote_p.cpp:939
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
-msgstr "ფასის მონაცემებში თარიღი/ფასის წყვილები ვერ ვიპოვე"
+msgstr ""
+"%1-ის ფასის განახლების დამუშავების სშეცდომა (კვოტის მონაცემები ცარიელია)"
 
 #: alkonlinequote_p.cpp:876
 #, kde-format
@@ -169,14 +174,18 @@ msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
 #: alkonlinequote_p.cpp:887
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "კვოტის მონაცემებში '%1' თარიღის ნიმუშიდან '%2' ვერ ვიპოვე"
+msgstr ""
+"%1-ის ფასის განახლების დამუშავების სშეცდომა (კვოტის მონაცემები ცარიელია)"
 
 #: alkonlinequote_p.cpp:901
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "კვოტის მონაცემებში '%1' ვერ ვიპოვე ფასის ნიმუშიდან '%2'"
+msgstr ""
+"%1-ის ფასის განახლების დამუშავების სშეცდომა (კვოტის მონაცემები ცარიელია)"
 
 #: alkonlinequote_p.cpp:973
 #, kde-format
@@ -187,7 +196,7 @@ msgstr ""
 #: alkonlinequote_p.cpp:993
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "%1-სთვის URL-ის გამოთხოვის მოლოდინის ვადა გადაცილებულია"
+msgstr "%1-სთვის URL-ის გამოთხოვის ვადა გადაცილებულია"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
@@ -245,13 +254,14 @@ msgstr "დეტალები"
 #: alkonlinequotedetails.ui:42
 #, kde-format
 msgid "Download mode"
-msgstr "გადმოწერის რეჟიმი"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgid "Remote source"
-msgstr "დაშორებული წყარო"
+msgstr "კვოტის ახალი წყარო"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:66 alkonlinequotesprofile.ui:220
@@ -261,10 +271,10 @@ msgstr "გადმოწერილი მონაცემებიდა�
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr ""
-"გადმოწერილი მონაცემებიდან იდენტიფიკატორის გამოსაღები რეგულარული გამოსახულება"
+msgstr "გადმოწერილი მონაცემებიდან თარიღის გამოსაღები რეგულარული გამოსახულება"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
@@ -278,7 +288,7 @@ msgstr "გადმოწერილი მონაცემებიდა�
 #: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
 #, kde-format
 msgid "Identifier"
-msgstr "იდენტიფიკატორი"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
@@ -290,32 +300,33 @@ msgstr "ფასი"
 #: alkonlinequotedetails.ui:107
 #, kde-format
 msgid "Default Identifier"
-msgstr "ნაგულისხმევი იდენტიფიკატორი"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
 #: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
 #, kde-format
 msgid "Selected by"
-msgstr "არჩეულია"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequotedetails.ui:135
 #, kde-format
 msgid "Price decimal separator"
-msgstr "ფასის წილადის გამყოფი"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
 #. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editIdSelector)
 #: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
-msgstr "როგორ ავირჩიოთ იდენტიფიკატორი"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Data Format"
-msgstr "მონაცემების ფორმატი"
+msgstr "თარიღის ფორმატი"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
@@ -342,26 +353,26 @@ msgstr ""
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
-msgstr "წერტილი (.)"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:189
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
-msgstr "მძიმე (,)"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:194
 #, kde-format
 msgid "Legacy"
-msgstr "მემკვიდრეობითი"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:209 alkonlinequotesprofile.ui:189
 #, kde-format
 msgid "Options"
-msgstr "მორგება"
+msgstr "გამართვა"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: alkonlinequotedetails.ui:223 alkonlinequotesprofile.ui:179
@@ -379,7 +390,7 @@ msgstr "ბმული"
 #: alkonlinequotedetails.ui:243
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr "იდენტიფიკატორი, რომელიც ვიცით, რომ ამ ონლაინ ფასების წყაროსთან მუშაობს"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequotedetails.ui:250 alkonlinequotesprofile.ui:169
@@ -391,7 +402,7 @@ msgstr "თარიღი"
 #: alkonlinequotedetails.ui:260
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr "გადმოსაწერად და დასამუშავებლად მოსალოდნელი მონაცემების ტიპი."
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_acceptButton)
 #: alkonlinequotedetails.ui:274
@@ -411,14 +422,14 @@ msgstr "შეცვლილი მონაცემების მისა�
 #, kde-format
 msgctxt "@action update quotes from online quote source"
 msgid "Accept"
-msgstr "თანხმობა"
+msgstr "დასტური"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
 #: alkonlinequotedetails.ui:291
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr "გაუქმება"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:302
@@ -439,13 +450,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action copy details to clipboard"
 msgid "Copy"
-msgstr "კოპირება"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
 #: alkonlinequotedetails.ui:336
 #, kde-format
 msgid "build_key"
-msgstr "build_key"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
 #: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
@@ -473,20 +484,20 @@ msgstr "წყაროს შემოწმება"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show the selected source entry in a web browser"
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "მონიშნული წყარო ჩანაწერის პასუხის ბრაუზერში ჩვენება"
+msgstr "მონიშნული წყაროს ჩანაწერის ბრაუზერში ჩვენება"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to delete the selected online source entry"
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr ""
-"გამოიყენეთ ეს მონიშნული ინტერნეტ-წყაროსთვის გაგზავნილი მოთხოვნის პასუხის "
-"სანახავად."
+msgstr "გამოიყენეთ ეს მონიშნული წყაროს ჩანაწერის წასაშლელად"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -498,7 +509,7 @@ msgstr "გვერდის ჩვენება"
 #: alkonlinequotesdebug.ui:89
 #, kde-format
 msgid "End date"
-msgstr "დასასრულის თარიღი"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequotesdebug.ui:96 alkonlinequotesprofile.ui:381
@@ -510,7 +521,7 @@ msgstr "ორი სიმბოლო"
 #: alkonlinequotesdebug.ui:112
 #, kde-format
 msgid "Start date"
-msgstr "საწყისი თარიღი"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotesdebug.ui:122 alkonlinequotesprofile.ui:367
@@ -544,9 +555,10 @@ msgstr "ონლაინ კვოტებისთვის ახალი 
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to create a new entry for online quotes"
 msgid "Use this to create a new entry for online quotes."
-msgstr "გამოიყენეთ ეს ონლაინ კვოტებისთვის ახალი წყაროს ჩანაწერის შეაქმნელად."
+msgstr "გამოიყენეთ ეს ონლაინ კვოტებისთვის ახალი წყაროს ჩანაწერის შეაქმნელად"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -597,13 +609,12 @@ msgstr "დუბლიკაცია"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create a new source entry for online quotes"
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr ""
-"შექმნის ახალ ლოკალურ ინტერნეტ-წყაროს, როგორც მიმართვას დაშორებულ ინტერნეტ-"
-"კვოტის წყაროსთან"
+msgstr "ონლაინ კვოტებისთვის ახალი წყაროს ჩანაწერის შექმნა"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:103
@@ -618,7 +629,7 @@ msgstr ""
 #: alkonlinequoteslist.ui:106
 #, kde-format
 msgid "Add reference"
-msgstr "მიმართვის დამატება"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:118
@@ -646,15 +657,16 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to show the selected online source entry"
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "გამოიყენეთ ეს შეცვლილი კვოტის წყაროს KDE-ის მაღაზიაში ასატვირთად."
+msgstr "გამიყენეთ მონიშნული ონლაინ წყაროს ჩანაწერის საჩვენებლად"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
 #, kde-format
 msgid "Upload"
-msgstr "ატვირთვა"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:154
@@ -676,17 +688,17 @@ msgstr ""
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr "ჩამოყრა"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
 msgid "Remote unpublished"
-msgstr "დაშორებული გამოუქვეყნებელი"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:21
 #, kde-format
 msgid "Remote"
-msgstr "დაშორებული"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:23
 #, kde-format
@@ -694,14 +706,16 @@ msgid "Finance::Quote"
 msgstr "ფინანსები::კვოტა"
 
 #: alkonlinequotesmodel.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "local"
 msgid "Local"
 msgstr "ლოკალური"
 
 #: alkonlinequotesmodel.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Format"
-msgstr "ფორმატი"
+msgstr "თარიღის ფორმატი"
 
 #: alkonlinequotesmodel.cpp:105
 #, kde-format
@@ -716,37 +730,37 @@ msgstr "წყარო"
 #: alkonlinequotesmodel.cpp:107
 #, kde-format
 msgid "Reference to"
-msgstr "მიმართავს"
+msgstr ""
 
 #: alkonlinequotesource.cpp:456
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr "შეკვეცილი HTML"
+msgstr ""
 
 #: alkonlinequotesource.cpp:458
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr "HTML"
+msgstr ""
 
 #: alkonlinequotesource.cpp:460
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 #: alkonlinequotesource.cpp:462
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
-msgstr "CSS"
+msgstr ""
 
 #: alkonlinequotesource.cpp:464
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -841,7 +855,8 @@ msgid "New"
 msgstr "ახალი"
 
 #: alkonlinequoteswidget.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "სიმბოლო"
@@ -850,10 +865,11 @@ msgstr "სიმბოლო"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr "საიდენტიფიკაციო ნომერი"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:246
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "სახელი"
@@ -862,31 +878,31 @@ msgstr "სახელი"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
-msgstr "ნაგულისხმევი"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:279
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
-msgstr "Javascript"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
-msgstr "გამორთ"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:286
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
-msgstr "ყოველთვის"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
-msgstr "ყოველთვის, როცა დღეს"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:578
 #, kde-format
@@ -910,88 +926,94 @@ msgid "Online quote settings generated with Alkimia %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:634
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "URL found: %1..."
 msgctxt "@info online quote setting"
 msgid "URL: %1"
-msgstr "მისამართი: %1"
+msgstr "ნაპოვნია URL: %1..."
 
 #: alkonlinequoteswidget.cpp:635
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
-msgstr "გადმოწერის რეჟიმი: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:636
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
-msgstr "მონაცემების ფორმატი: %1"
+msgstr "თარიღის ფორმატი"
 
 #: alkonlinequoteswidget.cpp:637
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
-msgstr "იდენტიფიკატორი: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:638
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
-msgstr "არჩეულია ვის მიერ: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:639
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Price"
 msgctxt "@info online quote setting"
 msgid "Price: %1"
-msgstr "ფასი: %1"
+msgstr "ფასი"
 
 #: alkonlinequoteswidget.cpp:640
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
-msgstr "ფასის წილადის გამყოფი: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:641
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date found: '%1'"
 msgctxt "@info online quote setting"
 msgid "Date: %1"
-msgstr "თარიღი: %1"
+msgstr "ნაპოვნია მონაცემები: '%1'"
 
 #: alkonlinequoteswidget.cpp:642
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
-msgstr "თარიღის ფორმატი: %1"
+msgstr "თარიღის ფორმატი"
 
 #: alkonlinequoteswidget.cpp:643
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
-msgstr "ნაგულისხმევი იდენტიფიკატორი: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:644
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
-msgstr "დაშორებული წყარო: %1"
+msgstr "კვოტის ახალი წყარო"
 
 #: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
-msgstr "ჩართულია"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
-msgstr "შემოწმებული არაა"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:658
 #, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
-msgstr ".reference"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:674 alkonlinequoteswidget.cpp:676
 #, kde-format
@@ -1002,7 +1024,7 @@ msgstr "კვოტის ახალი წყარო"
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
-msgstr "<b>ახალი კვოტის წყარო</b> უკვე არსებობს."
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:827
 #, kde-format
@@ -1011,46 +1033,48 @@ msgstr "ონლაინ კვოტის HTML შედეგის ფა�
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: alkonlinequoteuploaddialog.ui:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete online quote"
 msgid "Upload online quote"
-msgstr "ონლაინ კვოტის ატვირთვა"
+msgstr "ონლაინ კვოტის წაშლა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
 #, kde-format
 msgid "Version to create:"
-msgstr "ვერსიის შექმნა:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
 #: alkonlinequoteuploaddialog.ui:61
 #, kde-format
 msgid "Copy path to clipboard"
-msgstr "ბილიკის ბაფერში კოპირება"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
 #: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
 #, kde-format
 msgid "TextLabel"
-msgstr "ტექსტური ჭდე"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
 #: alkonlinequoteuploaddialog.ui:88
 #, kde-format
 msgid "Enter store and close dialog"
-msgstr "მაღაზიაში შესვლა და დიალოგის დახურვა"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Online Quotes"
 msgid "Online quote source:"
-msgstr "ონლაინ კვოტების წყარო:"
+msgstr "ონლაინ კვოტები"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
 #, kde-format
 msgid "Close dialog"
-msgstr "ფანჯრის დახურვა"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_0)
 #: alkonlinequoteuploaddialog.ui:123
@@ -1060,15 +1084,12 @@ msgid ""
 "you can then upload to the online store used by alkimia to share with other "
 "users."
 msgstr ""
-"ეს დიალოგის საშუალებას გაძლევთ, შექმნათ პაკეტი ონლაინ კვოტის წყაროსთვის, "
-"რომელიც შემდეგ შეგიძლიათ ონლაინ მაღაზიაში ატვირთოთ, რომელსაც alkimia სხვა "
-"მომხმარებლებთან გასაზიარებლად იყენებს."
 
 #. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
 #: alkonlinequoteuploaddialog.ui:133
 #, kde-format
 msgid "Failed to create package at:"
-msgstr "პაკეტის შექმნის შეცდომა მისამართე:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: alkonlinequoteuploaddialog.ui:153
@@ -1079,43 +1100,43 @@ msgid ""
 "paste the copied url into the corresponding package (see the <b>files</b> "
 "tab)."
 msgstr ""
-"იმისთვის, რომ ატვირთოთ გენერირებული პაკეტი ონლაინ მაღაზიაში, დააკოპირეთ "
-"გენერირებული ფაილის ბილიკი ბუფერში, შედით ქვემოთ აღწერილ მაღაზიაში და ჩასვით "
-"დაკოპირებული ბმული შესაბამის პაკეტში (იხილეთ ჩანართი <b>ფაილები</b>)."
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr "ასატვირთი პაკეტის შექმნა"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
 #, kde-format
 msgid "Create package"
-msgstr "პაკეტის შექმნა"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
 #: alkonlinequoteuploaddialog.ui:197
 #, kde-format
 msgid "Package has been created at:"
-msgstr "პაკეტი შეიქმნა მისამართზე:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequoteuploaddialog.ui:210
 #, kde-format
 msgid "Package edit url:"
-msgstr "პაკეტის ჩასწორების ბმული:"
+msgstr ""
 
 #: alkwebview.cpp:89
 #, kde-format
 msgid "Open inspector in new window"
-msgstr "ინსპექტორის გახსნა ახალ ფანჯარაში"
+msgstr ""
 
 #: alkwebview.cpp:102
 #, kde-format
 msgid "Inspect element"
-msgstr "ელემენტის ინსპექტირება"
+msgstr ""
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "გადმოწერილი ფაილის გახსნის პრობლემა"
 
 #~ msgctxt "Accepts the entered data and stores it"
 #~ msgid "&Accept"
@@ -1135,9 +1156,6 @@ msgstr "ელემენტის ინსპექტირება"
 #~ msgctxt "Create a new source entry for online quotes"
 #~ msgid "&New..."
 #~ msgstr "&ახალი..."
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "გადმოწერილი ფაილის გახსნის პრობლემა"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "გადმოწერილი მონაცემებიდან სიმბოლოს მისაღები რეგულარული გამოსახულება"

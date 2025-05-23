@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the alkimia package.
+# This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2018, 2020, 2022, 2023, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# Stefan Asserhäll <stefan.asserhall@gmail.com>, 2018, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2025-04-06 14:37+0200\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2023-09-29 20:07+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Stefan Asserhäll"
+msgstr ""
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "stefan.asserhall@gmail.com"
+msgstr ""
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
@@ -35,12 +35,12 @@ msgstr "Källan <placeholder>%1</placeholder> finns inte."
 #: alkonlinequote_p.cpp:220
 #, kde-format
 msgid "Cannot resolve input date."
-msgstr "Kan inte tolka inmatningsdatum."
+msgstr ""
 
 #: alkonlinequote_p.cpp:250
 #, kde-format
 msgid "Start date moved to before the weekend"
-msgstr "Startdatum flyttat före veckohelgen"
+msgstr ""
 
 #: alkonlinequote_p.cpp:277
 #, kde-format
@@ -89,7 +89,7 @@ msgstr "Kurs hittades: '%1' (%2)"
 #: alkonlinequote_p.cpp:492
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
-msgstr "Kursen '%1' kan inte konverteras till ett tal för '%2'"
+msgstr ""
 
 #: alkonlinequote_p.cpp:497
 #, kde-format
@@ -141,43 +141,47 @@ msgstr "Kan inte tolka symbol för %1"
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
-"Kan inte upptäcka fältavgränsare på första raden (rubrikraden) i "
-"kursinformation."
 
 #: alkonlinequote_p.cpp:728
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date column '%1' in quote data"
-msgstr "Kan inte hitta datumkolumn '%1' i kursinformation"
+msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
 
 #: alkonlinequote_p.cpp:734
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find price column '%1' in quote data"
-msgstr "Kan inte hitta kurskolumn '%1' i kursinformation"
+msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
 
 #: alkonlinequote_p.cpp:755 alkonlinequote_p.cpp:922
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to parse date '%1' using format '%2'"
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "Kan inte konvertera datumet '%1' med användning av '%2' i kursdata"
+msgstr "Kan inte tolka datumet '%1' med användning av formatet '%2'"
 
 #: alkonlinequote_p.cpp:790 alkonlinequote_p.cpp:939
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
-msgstr "Kan inte hitta datum- och kurspar i kursinformation"
+msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
 
 #: alkonlinequote_p.cpp:876
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr "Json-fil med ogiltigt innehåll hittades för '%1'"
+msgstr ""
 
 #: alkonlinequote_p.cpp:887
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Kan inte hitta '%1' från datummönstret '%2' i kursinformation"
+msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
 
 #: alkonlinequote_p.cpp:901
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Kan inte hitta '%1' från kursmönstret '%2' i kursinformation"
+msgstr "Kan inte uppdatera kurs för %1 (tom kursinformation)"
 
 #: alkonlinequote_p.cpp:973
 #, kde-format
@@ -245,13 +249,14 @@ msgstr "Detaljinformation"
 #: alkonlinequotedetails.ui:42
 #, kde-format
 msgid "Download mode"
-msgstr "Nerladdningsmetod"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgid "Remote source"
-msgstr "Nätkälla"
+msgstr "Ny kurskälla"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:66 alkonlinequotesprofile.ui:220
@@ -261,9 +266,10 @@ msgstr "Reguljärt uttryck för att extrahera kursen från nerladdad data"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "Reguljärt uttryck för att extrahera identifieraren från nerladdad data"
+msgstr "Reguljärt uttryck för att extrahera datum från nerladdad data"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
@@ -277,7 +283,7 @@ msgstr "Reguljärt uttryck för att extrahera datum från nerladdad data"
 #: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
 #, kde-format
 msgid "Identifier"
-msgstr "Identifierare"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
@@ -289,32 +295,33 @@ msgstr "Kurs"
 #: alkonlinequotedetails.ui:107
 #, kde-format
 msgid "Default Identifier"
-msgstr "Standardidentifierare"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
 #: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
 #, kde-format
 msgid "Selected by"
-msgstr "Vald av"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequotedetails.ui:135
 #, kde-format
 msgid "Price decimal separator"
-msgstr "Kursens decimaltecken"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
 #. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editIdSelector)
 #: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
-msgstr "Hur identifieraren väljs"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Data Format"
-msgstr "Dataformat"
+msgstr "Datumformat"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
@@ -341,20 +348,20 @@ msgstr ""
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
-msgstr "Punkt (.)"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:189
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
-msgstr "Kommatecken (,)"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:194
 #, kde-format
 msgid "Legacy"
-msgstr "Föråldrad"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:209 alkonlinequotesprofile.ui:189
@@ -378,7 +385,7 @@ msgstr "Webbadress"
 #: alkonlinequotedetails.ui:243
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr "En identifierare som är känd för att fungera för nätkurskällan"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequotedetails.ui:250 alkonlinequotesprofile.ui:169
@@ -390,7 +397,7 @@ msgstr "Datum"
 #: alkonlinequotedetails.ui:260
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr "Typ av data som förväntas laddas ner och behandlas."
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_acceptButton)
 #: alkonlinequotedetails.ui:274
@@ -417,13 +424,13 @@ msgstr "Acceptera"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:302
 #, kde-format
 msgid "Copies the details as text to the clipboard."
-msgstr "Kopierar informationen som text till klippbordet."
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:305
@@ -432,21 +439,19 @@ msgid ""
 "Use this to copy the details as text to the clipboard to e.g. paste it in an "
 "email."
 msgstr ""
-"Använd för att kopiera informationen som text till klippbordet, för att t."
-"ex. klistra in den i e-post"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:308
 #, kde-format
 msgctxt "@action copy details to clipboard"
 msgid "Copy"
-msgstr "Kopiera"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
 #: alkonlinequotedetails.ui:336
 #, kde-format
 msgid "build_key"
-msgstr "byggnyckel"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
 #: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
@@ -474,20 +479,20 @@ msgstr "Kontrollera källa"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show the selected source entry in a web browser"
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "Visa svaret på en fråga om den valda källans post i en webbläsare"
+msgstr "Visa den valda källans post i en webbläsare"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to delete the selected online source entry"
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr ""
-"Använd alternativet för att visa svaret på en fråga från den valda "
-"direktkällan."
+msgstr "Använd det här för att ta bort den markerade direktkällan"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -499,7 +504,7 @@ msgstr "Visa sida"
 #: alkonlinequotesdebug.ui:89
 #, kde-format
 msgid "End date"
-msgstr "Slutdatum"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequotesdebug.ui:96 alkonlinequotesprofile.ui:381
@@ -511,7 +516,7 @@ msgstr "Två symboler"
 #: alkonlinequotesdebug.ui:112
 #, kde-format
 msgid "Start date"
-msgstr "Startdatum"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotesdebug.ui:122 alkonlinequotesprofile.ui:367
@@ -523,13 +528,13 @@ msgstr "En symbol"
 #: alkonlinequotesdebug.ui:129
 #, kde-format
 msgid "Return last price state"
-msgstr "Returnera senaste kurstillstånd"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_reverseSearchStateCheckBox)
 #: alkonlinequotesdebug.ui:139
 #, kde-format
 msgid "Enable reverse search"
-msgstr "Aktivera omvänd sökning"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
@@ -545,9 +550,10 @@ msgstr "Skapa en ny källa för direktkurser"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to create a new entry for online quotes"
 msgid "Use this to create a new entry for online quotes."
-msgstr "Använd det här för att skapa en ny post för direktkurser."
+msgstr "Använd det här för att skapa en ny post för direktkurser"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -596,17 +602,16 @@ msgstr "Använd det här för att skapa en dubblett av en post för en direktkä
 #: alkonlinequoteslist.ui:88 alkonlinequotesprofile.ui:74
 #, kde-format
 msgid "Duplicate"
-msgstr "Duplicera"
+msgstr "Dubblett"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create a new source entry for online quotes"
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr ""
-"Skapar en ny lokal källa som referens till en fjärransluten nätkälla för "
-"direktkurser"
+msgstr "Skapa en ny källa för direktkurser"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:103
@@ -616,28 +621,24 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
-"Använd för att skapa en ny lokal kurskälla som länkar till en fjärransluten "
-"kurskälla på nätet. Egenskaperna för den fjärranslutna kurskällan används "
-"sedan för en pris- eller kursförfrågan."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:106
 #, kde-format
 msgid "Add reference"
-msgstr "Lägg till referens"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr "Installera direktkälla för kurser från KDE:s butik"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
 msgstr ""
-"Använd det här för att installera en direktkälla för kurser från KDE:s butik."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -649,15 +650,14 @@ msgstr "Installera"
 #: alkonlinequoteslist.ui:136
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
-msgstr "Ladda upp en ändrad direktkälla för kurser till KDE:s butik"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to show the selected online source entry"
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr ""
-"Använd det här för att ladda upp en ändrad direktkälla för kurser till KDE:s "
-"butik."
+msgstr "Använd det här för att visa den valda direktkällans post"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -672,7 +672,6 @@ msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
 msgstr ""
-"Återställ ändringar av lokala källor gjorda efter senaste valet av profilen"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -681,24 +680,22 @@ msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
 msgstr ""
-"Använd det här för att återställa ändringar av lokala källor som gjordes "
-"efter det senaste valet av profilen."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr "Återställ"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
 msgid "Remote unpublished"
-msgstr "Opublicerad på nätet"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:21
 #, kde-format
 msgid "Remote"
-msgstr "På nätet"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:23
 #, kde-format
@@ -706,14 +703,16 @@ msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
 #: alkonlinequotesmodel.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "local"
 msgid "Local"
-msgstr "Lokal"
+msgstr "lokal"
 
 #: alkonlinequotesmodel.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Format"
-msgstr "Format"
+msgstr "Datumformat"
 
 #: alkonlinequotesmodel.cpp:105
 #, kde-format
@@ -728,37 +727,37 @@ msgstr "Källa"
 #: alkonlinequotesmodel.cpp:107
 #, kde-format
 msgid "Reference to"
-msgstr "Referens till"
+msgstr ""
 
 #: alkonlinequotesource.cpp:456
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr "Avskalad HTML"
+msgstr ""
 
 #: alkonlinequotesource.cpp:458
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr "HTML"
+msgstr ""
 
 #: alkonlinequotesource.cpp:460
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 #: alkonlinequotesource.cpp:462
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
-msgstr "CSS"
+msgstr ""
 
 #: alkonlinequotesource.cpp:464
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -853,7 +852,8 @@ msgid "New"
 msgstr "Ny"
 
 #: alkonlinequoteswidget.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Symbol"
@@ -862,10 +862,11 @@ msgstr "Symbol"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr "Identifikationsnummer"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:246
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Namn"
@@ -874,31 +875,31 @@ msgstr "Namn"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
-msgstr "Förval"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:279
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
-msgstr "Javascript"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
-msgstr "Av"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:286
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
-msgstr "Alltid"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
-msgstr "Alltid om idag"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:578
 #, kde-format
@@ -919,91 +920,97 @@ msgstr ".kopia"
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
-msgstr "Inställning av direktkurs genererad med Alkimia %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:634
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "URL found: %1..."
 msgctxt "@info online quote setting"
 msgid "URL: %1"
-msgstr "Webbadress: %1"
+msgstr "Webbadress hittades: %1..."
 
 #: alkonlinequoteswidget.cpp:635
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
-msgstr "Nerladdningsmetod: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:636
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
-msgstr "Dataformat: %1"
+msgstr "Datumformat"
 
 #: alkonlinequoteswidget.cpp:637
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
-msgstr "Identifierare: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:638
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
-msgstr "Vald av: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:639
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Price"
 msgctxt "@info online quote setting"
 msgid "Price: %1"
-msgstr "Kurs: %1"
+msgstr "Kurs"
 
 #: alkonlinequoteswidget.cpp:640
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
-msgstr "Kursens decimaltecken: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:641
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date found: '%1'"
 msgctxt "@info online quote setting"
 msgid "Date: %1"
-msgstr "Datum: %1"
+msgstr "Datum hittades: '%1'"
 
 #: alkonlinequoteswidget.cpp:642
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
-msgstr "Datumformat: %1"
+msgstr "Datumformat"
 
 #: alkonlinequoteswidget.cpp:643
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
-msgstr "Standardidentifierare: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:644
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
-msgstr "Nätkälla: %1"
+msgstr "Ny kurskälla"
 
 #: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
-msgstr "kontrollerad"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
-msgstr "inte kontrollerad"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:658
 #, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
-msgstr ".referens"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:674 alkonlinequoteswidget.cpp:676
 #, kde-format
@@ -1014,7 +1021,7 @@ msgstr "Ny kurskälla"
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
-msgstr "<b>Ny kurskälla</b> finns redan."
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:827
 #, kde-format
@@ -1023,46 +1030,48 @@ msgstr "HTML-resultatfönster för direktkurs"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: alkonlinequoteuploaddialog.ui:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete online quote"
 msgid "Upload online quote"
-msgstr "Ladda upp direktkurs"
+msgstr "Ta bort direktkurs"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
 #, kde-format
 msgid "Version to create:"
-msgstr "Version att skapa:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
 #: alkonlinequoteuploaddialog.ui:61
 #, kde-format
 msgid "Copy path to clipboard"
-msgstr "Kopiera sökväg till klippbordet"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
 #: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
 #, kde-format
 msgid "TextLabel"
-msgstr "Textetikett"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
 #: alkonlinequoteuploaddialog.ui:88
 #, kde-format
 msgid "Enter store and close dialog"
-msgstr "Gå till lagring och stäng dialogruta"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Online Quotes"
 msgid "Online quote source:"
-msgstr "Källa för direktkurser:"
+msgstr "Direktkurser"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
 #, kde-format
 msgid "Close dialog"
-msgstr "Stäng dialogruta"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_0)
 #: alkonlinequoteuploaddialog.ui:123
@@ -1072,15 +1081,12 @@ msgid ""
 "you can then upload to the online store used by alkimia to share with other "
 "users."
 msgstr ""
-"Dialogrutan låter dig skapa ett paket för en direktkurskälla, som sedan kan "
-"laddas upp till nätbutiken som används av alkimia för att dela med andra "
-"användare."
 
 #. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
 #: alkonlinequoteuploaddialog.ui:133
 #, kde-format
 msgid "Failed to create package at:"
-msgstr "Misslyckades skapa paket i:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: alkonlinequoteuploaddialog.ui:153
@@ -1091,44 +1097,43 @@ msgid ""
 "paste the copied url into the corresponding package (see the <b>files</b> "
 "tab)."
 msgstr ""
-"För att ladda upp det genererade paketet till nätbutiken, kopiera den "
-"genererade filens sökväg till klippbordet, logga in på butiken som nämns "
-"nedan och klistra in den kopierade webbadressen i motsvarande paket (se "
-"fliken <b>filer</b>)."
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr "Skapa paket för uppladdning"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
 #, kde-format
 msgid "Create package"
-msgstr "Skapa paket"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
 #: alkonlinequoteuploaddialog.ui:197
 #, kde-format
 msgid "Package has been created at:"
-msgstr "Paket har skapats i:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequoteuploaddialog.ui:210
 #, kde-format
 msgid "Package edit url:"
-msgstr "Webbadress för paketredigering:"
+msgstr ""
 
 #: alkwebview.cpp:89
 #, kde-format
 msgid "Open inspector in new window"
-msgstr "Öppna inspektör i nytt fönster"
+msgstr ""
 
 #: alkwebview.cpp:102
 #, kde-format
 msgid "Inspect element"
-msgstr "Inspektera element"
+msgstr ""
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Misslyckades öppna nerladdningsfil"
 
 #~ msgctxt "Accepts the entered data and stores it"
 #~ msgid "&Accept"
@@ -1148,9 +1153,6 @@ msgstr "Inspektera element"
 #~ msgctxt "Create a new source entry for online quotes"
 #~ msgid "&New..."
 #~ msgstr "&Ny..."
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Misslyckades öppna nerladdningsfil"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Reguljärt uttryck för att extrahera symbolen från nerladdad data"

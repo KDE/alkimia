@@ -1,14 +1,14 @@
 # Translation of onlinequoteseditor.po to Brazilian Portuguese
-# Copyright (C) 2019 This file is copyright:
+# Copyright (C) 2019-2020 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
 #
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2019, 2020.
-# André Marcelo Alvarenga <alvarenga@kde.org>, 2019.
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 02:00+0000\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
 "PO-Revision-Date: 2020-09-21 09:41-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -86,3 +86,10 @@ msgstr "Arquivo"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgid "Editor for online price quotes used by finance applications"
+#~ msgstr ""
+#~ "Editor de cotações de preços online usado por aplicativos financeiros"
+
+#~ msgid "(C) 2018-2019 Ralf Habacker"
+#~ msgstr "(C) 2018-2019 Ralf Habacker"

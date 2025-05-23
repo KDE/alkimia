@@ -1,13 +1,15 @@
-# Copyright (C) 2024 This file is copyright:
+# Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the alkimia package.
 #
-# SPDX-FileCopyrightText: 2020, 2022, 2023, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020.
+# Martin Srebotnjak <miles@filmsi.net>, 2022.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2025-03-05 06:36+0100\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2023-09-24 08:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Matjaž Jeran"
+msgstr ""
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "matjaz.jeran@amis.net"
+msgstr ""
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
@@ -36,12 +38,12 @@ msgstr "Vir <placeholder>%1</placeholder> ne obstaja."
 #: alkonlinequote_p.cpp:220
 #, kde-format
 msgid "Cannot resolve input date."
-msgstr "Ni mogoče razrešiti vhodnega datuma."
+msgstr ""
 
 #: alkonlinequote_p.cpp:250
 #, kde-format
 msgid "Start date moved to before the weekend"
-msgstr "Začetni datum je premaknjen pred konec tedna"
+msgstr ""
 
 #: alkonlinequote_p.cpp:277
 #, kde-format
@@ -51,8 +53,7 @@ msgstr "Ni bilo mogoče pridobiti spletnega naslova za %1"
 #: alkonlinequote_p.cpp:286 alkonlinequote_p.cpp:288
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
-msgstr ""
-"Spletni naslov je bil preusmerjen; preverite in osvežite sklic na spletu"
+msgstr "URL je bil preusmerjen; preverite posodobitev URL-ja spletne ponudbe"
 
 #: alkonlinequote_p.cpp:312
 #, kde-format
@@ -89,7 +90,7 @@ msgstr "Najdena cena: '%1' (%2)"
 #: alkonlinequote_p.cpp:492
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
-msgstr "Cene '%1' ni mogoče pretvoriti v število za '%2'"
+msgstr ""
 
 #: alkonlinequote_p.cpp:497
 #, kde-format
@@ -141,43 +142,47 @@ msgstr "Ni mogoče razčleniti simbola za %1"
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
-"Ni mogoče zaznati ločila polja v prvi vrstici (vrstici glave) podatkov o "
-"navedbi."
 
 #: alkonlinequote_p.cpp:728
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date column '%1' in quote data"
-msgstr "Ni mogoče najti stolpca datuma '%1' v podatkih navedbe"
+msgstr "Ni mogoče posodobiti cene za %1 (prazni podatki navedbe)"
 
 #: alkonlinequote_p.cpp:734
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find price column '%1' in quote data"
-msgstr "Ni mogoče najti stolpca cene '%1' v podatkih navedbe"
+msgstr "Ni mogoče posodobiti cene za %1 (prazni podatki navedbe)"
 
 #: alkonlinequote_p.cpp:755 alkonlinequote_p.cpp:922
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to parse date '%1' using format '%2': %3"
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "Ni mogoče razčleniti datuma '%1' z obliko '%2' v podatkih navedbe"
+msgstr "Ni mogoče razčleniti datuma '%1' z obliko '%2': %3"
 
 #: alkonlinequote_p.cpp:790 alkonlinequote_p.cpp:939
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
-msgstr "Ni mogoče najti parov datum/cena v podatkih o navedbi"
+msgstr "Ni mogoče posodobiti cene za %1 (prazni podatki navedbe)"
 
 #: alkonlinequote_p.cpp:876
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr "Najdena je bila datoteka Json z neveljavno vsebino za '%1'"
+msgstr ""
 
 #: alkonlinequote_p.cpp:887
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "Ni mogoče najti '%1' iz vzorca datuma '%2' v podatkih navedbe"
+msgstr "Ni mogoče posodobiti cene za %1 (prazni podatki navedbe)"
 
 #: alkonlinequote_p.cpp:901
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "Ni mogoče najti '%1' iz cenovnega vzorca '%2' v podatkih navedbe"
+msgstr "Ni mogoče posodobiti cene za %1 (prazni podatki navedbe)"
 
 #: alkonlinequote_p.cpp:973
 #, kde-format
@@ -187,7 +192,7 @@ msgstr "Ni mogoče posodobiti cene za %1 (prazni podatki navedbe)"
 #: alkonlinequote_p.cpp:993
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
-msgstr "Potekel je čas za pridobitev spletnega naslova %1"
+msgstr "Pretečen čas za pridobitev spletnega naslova za %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
@@ -245,13 +250,14 @@ msgstr "Podrobnosti"
 #: alkonlinequotedetails.ui:42
 #, kde-format
 msgid "Download mode"
-msgstr "Način prenosa sem"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgid "Remote source"
-msgstr "Oddaljen vir"
+msgstr "Vir nove spletne navedbe"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:66 alkonlinequotesprofile.ui:220
@@ -261,9 +267,10 @@ msgstr "Regularni izraz za pridobivanje cene iz prenesenih podatkov"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "Regularni izraz za pridobivanje določilnika iz prenesenih podatkov"
+msgstr "Regularni izraz za pridobivanje datuma iz prenesenih podatkov"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
@@ -277,7 +284,7 @@ msgstr "Regularni izraz za pridobivanje datuma iz prenesenih podatkov"
 #: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
 #, kde-format
 msgid "Identifier"
-msgstr "Določilnik"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
@@ -289,32 +296,33 @@ msgstr "Cena"
 #: alkonlinequotedetails.ui:107
 #, kde-format
 msgid "Default Identifier"
-msgstr "Privzeti določilnik"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
 #: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
 #, kde-format
 msgid "Selected by"
-msgstr "Izbrano z"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequotedetails.ui:135
 #, kde-format
 msgid "Price decimal separator"
-msgstr "Decimalni ločilnik cene"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
 #. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editIdSelector)
 #: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
-msgstr "Kako izbrati določilnik"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Data Format"
-msgstr "Format podatkov"
+msgstr "Format datuma"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
@@ -331,7 +339,7 @@ msgid ""
 "conversions, <b>%2</b> will be replaced with the currency to be quoted and "
 "<b>%1</b> with the currency the quote is based on."
 msgstr ""
-"Vnesite spletni naslov, od koder boste prejeli navedbe delnic. <b>%1</b> bo "
+"Vnesite spletni naslov, od koder boste prejeli kotacije delnic. <b>%1</b> bo "
 "nadomeščen s simbolom za vrednostni papir. Pri valutnih pretvorbah bo <b>%2</"
 "b> nadomeščena z valuto navedbe in <b>%1</b> z valuto, na kateri je ponudba "
 "osnovana."
@@ -341,20 +349,20 @@ msgstr ""
 #, kde-format
 msgctxt "1"
 msgid "Period (.)"
-msgstr "Pika(.)"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:189
 #, kde-format
 msgctxt "2"
 msgid "Comma (,)"
-msgstr "Vejica(,)"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
 #: alkonlinequotedetails.ui:194
 #, kde-format
 msgid "Legacy"
-msgstr "Zapuščina"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: alkonlinequotedetails.ui:209 alkonlinequotesprofile.ui:189
@@ -378,7 +386,7 @@ msgstr "Spletni naslov"
 #: alkonlinequotedetails.ui:243
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr "Določilnik, za katerega je znano, da deluje za ta spletni vir"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequotedetails.ui:250 alkonlinequotesprofile.ui:169
@@ -390,7 +398,7 @@ msgstr "Datum"
 #: alkonlinequotedetails.ui:260
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr "Vrsta podatkov, za katere se pričakuje, da bodo preneseni in obdelani."
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_acceptButton)
 #: alkonlinequotedetails.ui:274
@@ -417,13 +425,13 @@ msgstr "Sprejmi"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr "Prekliči"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:302
 #, kde-format
 msgid "Copies the details as text to the clipboard."
-msgstr "Kopira podrobnosti kot besedilo na odlagališče."
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:305
@@ -432,21 +440,19 @@ msgid ""
 "Use this to copy the details as text to the clipboard to e.g. paste it in an "
 "email."
 msgstr ""
-"Uporabi to za kopiranje podrobnosti kot besedila na odlagališče za npr. "
-"lepljenje v e-poštno sporočilo."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:308
 #, kde-format
 msgctxt "@action copy details to clipboard"
 msgid "Copy"
-msgstr "Kopiraj"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
 #: alkonlinequotedetails.ui:336
 #, kde-format
 msgid "build_key"
-msgstr "build_key"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
 #: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
@@ -474,21 +480,20 @@ msgstr "Preveri vir"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show the selected source entry in a web browser"
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr ""
-"Prikaži odgovor na poizvedbo izbranega izvornega vnosa v spletnem brskalniku"
+msgstr "Prikaži izbrani vhodni vir v spletnem brskalniku"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to delete the selected online source entry"
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr ""
-"Uporabi to možnost za prikaz odgovora na poizvedbo iz izbranega spletnega "
-"vira."
+msgstr "Uporabi to za brisanje izbranega vnosa spletnega vira"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -500,7 +505,7 @@ msgstr "Prikaži stran"
 #: alkonlinequotesdebug.ui:89
 #, kde-format
 msgid "End date"
-msgstr "Končni datum"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequotesdebug.ui:96 alkonlinequotesprofile.ui:381
@@ -512,7 +517,7 @@ msgstr "Dva simbola"
 #: alkonlinequotesdebug.ui:112
 #, kde-format
 msgid "Start date"
-msgstr "Začetni datum"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotesdebug.ui:122 alkonlinequotesprofile.ui:367
@@ -524,13 +529,13 @@ msgstr "En simbol"
 #: alkonlinequotesdebug.ui:129
 #, kde-format
 msgid "Return last price state"
-msgstr "Povrni zadnje stanje cene"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_reverseSearchStateCheckBox)
 #: alkonlinequotesdebug.ui:139
 #, kde-format
 msgid "Enable reverse search"
-msgstr "Omogoči vzvratno iskanje"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
@@ -546,9 +551,10 @@ msgstr "Ustvari nov vnos vira spletne ponudbe"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to create a new entry for online quotes"
 msgid "Use this to create a new entry for online quotes."
-msgstr "S tem ustvarite nov vnos spletne ponudbe."
+msgstr "S tem ustvarite nov vnos spletne ponudbe"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -599,12 +605,12 @@ msgstr "Dvojnik"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create a new source entry for online quotes"
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr ""
-"Ustvari nov lokalni spletni vir kot referenco na oddaljeni spletni vir navedb"
+msgstr "Ustvari nov vnos vira spletne ponudbe"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:103
@@ -614,27 +620,24 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
-"Uporabite to za ustvarjanje novega lokalnega spletnega vira navedb, ki je "
-"povezan z oddaljenim spletnim virom navedb. Atributi vira oddaljenega "
-"spletnega tečaja se nato uporabijo za zahtevo po ceni ali navedbi."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:106
 #, kde-format
 msgid "Add reference"
-msgstr "Dodaj referenco"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr "Namesti spletni vir ponudb iz skladišča KDE"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
-msgstr "Uporabi to za namestitev spletnega vira ponudb iz sladišča KDE."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -646,20 +649,20 @@ msgstr "Namesti"
 #: alkonlinequoteslist.ui:136
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
-msgstr "Prenesi spremenjen vir oddaljenih spletnih ponudb v skladišče KDE"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to show the selected online source entry"
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr ""
-"Uporabi to za prenos spremenjenega spletnega vira ponudbe v skladišče KDE."
+msgstr "Uporabi to za prikaz izbranega vnosa spletnega vira"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
 #, kde-format
 msgid "Upload"
-msgstr "Prenesi"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:154
@@ -668,8 +671,6 @@ msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
 msgstr ""
-"Ponastavi spremembe lokalnih virov, ki so bile narejene po zadnji izbiri "
-"tega profila"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -678,24 +679,22 @@ msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
 msgstr ""
-"Uporabi to za ponastavitev sprememb lokalnih virov, ki so bile narejene po "
-"zadnji izbiri tega profila."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr "Ponovno nastavi"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
 msgid "Remote unpublished"
-msgstr "Oddaljeno neobjavljeno"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:21
 #, kde-format
 msgid "Remote"
-msgstr "Oddaljen"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:23
 #, kde-format
@@ -703,14 +702,16 @@ msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
 #: alkonlinequotesmodel.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "local"
 msgid "Local"
-msgstr "Lokalni"
+msgstr "lokalno"
 
 #: alkonlinequotesmodel.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Format"
-msgstr "Format"
+msgstr "Format datuma"
 
 #: alkonlinequotesmodel.cpp:105
 #, kde-format
@@ -725,37 +726,37 @@ msgstr "Vir"
 #: alkonlinequotesmodel.cpp:107
 #, kde-format
 msgid "Reference to"
-msgstr "Referenca na"
+msgstr ""
 
 #: alkonlinequotesource.cpp:456
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr "Oluščen HTML"
+msgstr ""
 
 #: alkonlinequotesource.cpp:458
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr "HTML"
+msgstr ""
 
 #: alkonlinequotesource.cpp:460
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 #: alkonlinequotesource.cpp:462
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
-msgstr "CSS"
+msgstr ""
 
 #: alkonlinequotesource.cpp:464
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -850,7 +851,8 @@ msgid "New"
 msgstr "Nov"
 
 #: alkonlinequoteswidget.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Simbol"
@@ -859,10 +861,11 @@ msgstr "Simbol"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr "Identifikacijska številka"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:246
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Ime"
@@ -871,31 +874,31 @@ msgstr "Ime"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
-msgstr "Privzeto"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:279
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
-msgstr "Javascript"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
-msgstr "Izklop"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:286
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
-msgstr "Vedno"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
-msgstr "Vedno kadar danes"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:578
 #, kde-format
@@ -916,91 +919,97 @@ msgstr ".kopiraj"
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
-msgstr "Nastavitve spletne navedbe generirane z Alikimio %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:634
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "URL found: %1..."
 msgctxt "@info online quote setting"
 msgid "URL: %1"
-msgstr "URL: %1"
+msgstr "Najden spletni naslov: %1..."
 
 #: alkonlinequoteswidget.cpp:635
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
-msgstr "Način prenosa sem: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:636
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
-msgstr "Format podatkov: %1"
+msgstr "Format datuma"
 
 #: alkonlinequoteswidget.cpp:637
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
-msgstr "Določilnik: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:638
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
-msgstr "Izbrano z: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:639
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Price"
 msgctxt "@info online quote setting"
 msgid "Price: %1"
-msgstr "Cena: %1"
+msgstr "Cena"
 
 #: alkonlinequoteswidget.cpp:640
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
-msgstr "Decimalni ločilnik cene: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:641
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date found: '%1'"
 msgctxt "@info online quote setting"
 msgid "Date: %1"
-msgstr "Datum: %1"
+msgstr "Najden datum: '%1'"
 
 #: alkonlinequoteswidget.cpp:642
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
-msgstr "Format datuma: %1"
+msgstr "Format datuma"
 
 #: alkonlinequoteswidget.cpp:643
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
-msgstr "Privzeti določilnik: %1"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:644
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
-msgstr "Oddaljeni vir: %1"
+msgstr "Vir nove spletne navedbe"
 
 #: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
-msgstr "preverjeno"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
-msgstr "nepreverjeno"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:658
 #, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
-msgstr ".reference"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:674 alkonlinequoteswidget.cpp:676
 #, kde-format
@@ -1011,7 +1020,7 @@ msgstr "Vir nove spletne navedbe"
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
-msgstr "<b>Novi vir navedb</b> že obstaja."
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:827
 #, kde-format
@@ -1020,46 +1029,48 @@ msgstr "Okno rezultatov spletnih navedb v HTML"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: alkonlinequoteuploaddialog.ui:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete online quote"
 msgid "Upload online quote"
-msgstr "Prenesi spletno navedbo tja"
+msgstr "Izbriši spletno navedbo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
 #, kde-format
 msgid "Version to create:"
-msgstr "Različica za kreiranje:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
 #: alkonlinequoteuploaddialog.ui:61
 #, kde-format
 msgid "Copy path to clipboard"
-msgstr "Kopiraj pot na odložišče"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
 #: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
 #, kde-format
 msgid "TextLabel"
-msgstr "BesedilnaOznaka"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
 #: alkonlinequoteuploaddialog.ui:88
 #, kde-format
 msgid "Enter store and close dialog"
-msgstr "Vnesite skladišče in zapri dialog"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Online Quotes"
 msgid "Online quote source:"
-msgstr "Vir spletne navedbe:"
+msgstr "Spletne navedbe"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
 #, kde-format
 msgid "Close dialog"
-msgstr "Zapri dialog"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_0)
 #: alkonlinequoteuploaddialog.ui:123
@@ -1069,15 +1080,12 @@ msgid ""
 "you can then upload to the online store used by alkimia to share with other "
 "users."
 msgstr ""
-"To pogovorno okno vam omogoča, da ustvarite paket za spletni vir navedb, ki "
-"ga lahko nato naložite v spletno trgovino, ki jo uporablja alkimia, da ga "
-"delite z drugimi uporabniki."
 
 #. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
 #: alkonlinequoteuploaddialog.ui:133
 #, kde-format
 msgid "Failed to create package at:"
-msgstr "Paketa ni bilo mogoče ustvariti na:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: alkonlinequoteuploaddialog.ui:153
@@ -1088,43 +1096,43 @@ msgid ""
 "paste the copied url into the corresponding package (see the <b>files</b> "
 "tab)."
 msgstr ""
-"Za prenos ustvarjenega paketa v spletno trgovino kopirajte pot do ustvarjene "
-"datoteke v odložišče, se prijavite v spodaj omenjeno trgovino in prilepite "
-"kopirani url v ustrezen paket (glejte zavihek <b>datoteke</b>) ."
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr "Ustvari paket za prenos"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
 #, kde-format
 msgid "Create package"
-msgstr "Ustvari paket"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
 #: alkonlinequoteuploaddialog.ui:197
 #, kde-format
 msgid "Package has been created at:"
-msgstr "Paket je bil ustvarjen ob:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequoteuploaddialog.ui:210
 #, kde-format
 msgid "Package edit url:"
-msgstr "URL za urejanje paketa:"
+msgstr ""
 
 #: alkwebview.cpp:89
 #, kde-format
 msgid "Open inspector in new window"
-msgstr "Odpri pregledovalnika v novem oknu"
+msgstr ""
 
 #: alkwebview.cpp:102
 #, kde-format
 msgid "Inspect element"
-msgstr "Preglej element"
+msgstr ""
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Naložene datoteke ni bilo mogoče odpreti"
 
 #~ msgctxt "Accepts the entered data and stores it"
 #~ msgid "&Accept"
@@ -1144,9 +1152,6 @@ msgstr "Preglej element"
 #~ msgctxt "Create a new source entry for online quotes"
 #~ msgid "&New..."
 #~ msgstr "Nov..."
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Naložene datoteke ni bilo mogoče odpreti"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Regularni izraz za pridobivanje simbola iz prenesenih podatkov"

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the alkimia package.
+# This file is distributed under the same license as the PACKAGE package.
 #
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 02:00+0000\n"
-"PO-Revision-Date: 2020-09-21 23:34+0200\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2020-09-19 09:48+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -60,7 +60,7 @@ msgstr "Details van koersen"
 #: mainwindow.cpp:119
 #, kde-format
 msgid "Browser"
-msgstr "Bladerprogramma"
+msgstr "Browser"
 
 #: mainwindow.cpp:174
 #, kde-format

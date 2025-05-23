@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
 "PO-Revision-Date: 2024-06-12 22:27+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -22,12 +22,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Deutsches KDE-Übersetzungsteam"
+msgstr ""
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-i18n-de@kde.org"
+msgstr ""
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
@@ -1146,6 +1146,9 @@ msgstr ""
 msgid "Inspect element"
 msgstr ""
 
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Heruntergeladene Datei kann nicht geöffnet werden"
+
 #~ msgctxt "Accepts the entered data and stores it"
 #~ msgid "&Accept"
 #~ msgstr "&Annehmen"
@@ -1165,16 +1168,7 @@ msgstr ""
 #~ msgid "&New..."
 #~ msgstr "&Neu ..."
 
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Heruntergeladene Datei kann nicht geöffnet werden"
-
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr ""
 #~ "Regulärer Ausdruck um das Symbol aus den heruntergeladenen Daten zu "
 #~ "extrahieren"
-
-#~ msgid "Dialog"
-#~ msgstr "Dialog"
-
-#~ msgid "(C) 2018 Ralf Habacker"
-#~ msgstr "(C) 2018 Ralf Habacker"

@@ -1,19 +1,19 @@
 # translation of onlinequoteseditor.po to Slovak
-# Roman Paholik <wizzardsk@gmail.com>, 2019, 2022.
+# Roman Paholík <wizzardsk@gmail.com>, 2019.
 # Matej Mrenica <matejm98mthw@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: onlinequoteseditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 02:00+0000\n"
-"PO-Revision-Date: 2022-04-07 17:49+0200\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
-"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2020-09-19 10:44+0200\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 20.08.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -29,7 +29,7 @@ msgstr "wizzardsk@gmail.com"
 #: main.cpp:60
 #, kde-format
 msgid "&About %1"
-msgstr "O %1"
+msgstr "&O aplikácii %1"
 
 #: mainwindow.cpp:90
 #, kde-format
@@ -39,12 +39,12 @@ msgstr "Profily"
 #: mainwindow.cpp:95
 #, kde-format
 msgid "Profile details"
-msgstr "Podrobnosti profilu"
+msgstr "Detaily profilu"
 
 #: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
-msgstr "Online citáty"
+msgstr "Úvodzovky"
 
 #: mainwindow.cpp:105
 #, kde-format
@@ -54,7 +54,7 @@ msgstr "Ladenie"
 #: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
-msgstr "Podrobnosti citátu"
+msgstr "Detaily citácie"
 
 #: mainwindow.cpp:119
 #, kde-format

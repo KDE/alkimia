@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
-# This file is distributed under the same license as the alkimia package.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2019, 2020, 2022, 2023.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2019, 2020, 2022.
 # Geraldo Simiao <geraldosimiao@fedoraproject.org>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: alkimia\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
 "PO-Revision-Date: 2023-09-24 02:24-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -266,9 +266,10 @@ msgstr "Expressão regular para extrair o preço dos dados obtidos"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr "Expressão regular para extrair o identificador dos dados obtidos"
+msgstr "Expressão regular para extrair a data dos dados obtidos"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
@@ -282,7 +283,7 @@ msgstr "Expressão regular para extrair a data dos dados obtidos"
 #: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
 #, kde-format
 msgid "Identifier"
-msgstr "Identificador"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
@@ -292,16 +293,15 @@ msgstr "Preço"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequotedetails.ui:107
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgid "Default Identifier"
-msgstr "Identificador"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
 #: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
 #, kde-format
 msgid "Selected by"
-msgstr "Selecionado por"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequotedetails.ui:135
@@ -314,7 +314,7 @@ msgstr ""
 #: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
-msgstr "Como selecionar o identificador"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:156
@@ -853,7 +853,8 @@ msgid "New"
 msgstr "Novo"
 
 #: alkonlinequoteswidget.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Símbolo"
@@ -862,10 +863,11 @@ msgstr "Símbolo"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr "Número de identificação"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:246
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nome"
@@ -942,18 +944,16 @@ msgid "Data format: %1"
 msgstr "Formato de data"
 
 #: alkonlinequoteswidget.cpp:637
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
-msgstr "Identificador"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:638
-#, fuzzy, kde-format
-#| msgid "Selected by"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
-msgstr "Selecionado por"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:639
 #, fuzzy, kde-format
@@ -983,11 +983,10 @@ msgid "Date format: %1"
 msgstr "Formato de data"
 
 #: alkonlinequoteswidget.cpp:643
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
-msgstr "Identificador"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:644
 #, fuzzy, kde-format
@@ -1134,6 +1133,9 @@ msgstr ""
 msgid "Inspect element"
 msgstr ""
 
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Falha ao abrir o arquivo baixado"
+
 #~ msgctxt "Accepts the entered data and stores it"
 #~ msgid "&Accept"
 #~ msgstr "&Aceitar"
@@ -1152,9 +1154,6 @@ msgstr ""
 #~ msgctxt "Create a new source entry for online quotes"
 #~ msgid "&New..."
 #~ msgstr "&Novo..."
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Falha ao abrir o arquivo baixado"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Expressão regular para extrair o símbolo dos dados obtidos"

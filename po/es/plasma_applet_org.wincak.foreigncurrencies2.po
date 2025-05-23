@@ -1,15 +1,16 @@
 # Spanish translations for plasma_applet_org.wincak.foreigncurrencies2.po package.
 # Copyright (C) 2019 This_file_is_part_of_KDE
-# This file is distributed under the same license as the alkimia package.
+# This file is distributed under the same license as the PACKAGE package.
 #
+# Eloy Cuadra <ecuadra@eloihr.net>, %Y.
 # Automatically generated, 2019.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2019.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2019, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2019-09-29 11:34+0200\n"
+"POT-Creation-Date: 2021-02-15 09:30+0100\n"
+"PO-Revision-Date: 2021-02-16 00:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.1\n"
+"X-Generator: Lokalize 20.12.2\n"
 
 #: contents/config/config.qml:6
 #, kde-format

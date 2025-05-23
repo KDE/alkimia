@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2024-04-22 17:06\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2024-03-30 19:46\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/alkimia/alkimia.pot\n"
-"X-Crowdin-File-ID: 10154\n"
+"X-Crowdin-File: /kf5-stable/messages/alkimia/alkimia.pot\n"
+"X-Crowdin-File-ID: 10164\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -141,24 +141,28 @@ msgid ""
 msgstr ""
 
 #: alkonlinequote_p.cpp:728
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date column '%1' in quote data"
-msgstr ""
+msgstr "无法更新 %1 的价格信息 (报表数据为空)"
 
 #: alkonlinequote_p.cpp:734
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find price column '%1' in quote data"
-msgstr ""
+msgstr "无法更新 %1 的价格信息 (报表数据为空)"
 
 #: alkonlinequote_p.cpp:755 alkonlinequote_p.cpp:922
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to parse date '%1' using format '%2': %3"
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr ""
+msgstr "无法使用格式 '%1' 解析日期 '%2': %3"
 
 #: alkonlinequote_p.cpp:790 alkonlinequote_p.cpp:939
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find date/price pairs in quote data"
-msgstr ""
+msgstr "无法更新 %1 的价格信息 (报表数据为空)"
 
 #: alkonlinequote_p.cpp:876
 #, kde-format
@@ -166,14 +170,16 @@ msgid "Json file with invalid content found for '%1'"
 msgstr ""
 
 #: alkonlinequote_p.cpp:887
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr ""
+msgstr "无法更新 %1 的价格信息 (报表数据为空)"
 
 #: alkonlinequote_p.cpp:901
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unable to update price for %1 (empty quote data)"
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr ""
+msgstr "无法更新 %1 的价格信息 (报表数据为空)"
 
 #: alkonlinequote_p.cpp:973
 #, kde-format
@@ -243,9 +249,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotedetails.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgid "Remote source"
-msgstr ""
+msgstr "新报价来源"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
 #: alkonlinequotedetails.ui:66 alkonlinequotesprofile.ui:220
@@ -255,9 +262,10 @@ msgstr "从下载数据中提取价格用的正则表达式"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
 #: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Regular Expression to extract the date from the downloaded data"
 msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr ""
+msgstr "用于从下载数据中提取日期的正则表达式"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
@@ -306,9 +314,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Data Format"
-msgstr ""
+msgstr "日期格式"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
@@ -465,18 +474,20 @@ msgstr "检查来源"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show the selected source entry in a web browser"
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr ""
+msgstr "在网页浏览器中显示选中的源项"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to delete the selected online source entry"
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr ""
+msgstr "用它来删除选中的在线源项"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -534,9 +545,10 @@ msgstr "为在线报价新建一个来源项"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to create a new entry for online quotes"
 msgid "Use this to create a new entry for online quotes."
-msgstr ""
+msgstr "用它为在线报价新建一个来源项"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -587,11 +599,12 @@ msgstr "制作副本"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create a new source entry for online quotes"
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr ""
+msgstr "为在线报价新建一个来源项"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:103
@@ -634,9 +647,10 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use this to show the selected online source entry"
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr ""
+msgstr "用它来显示选中的在线源项"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -682,14 +696,16 @@ msgid "Finance::Quote"
 msgstr "Finance::Quote"
 
 #: alkonlinequotesmodel.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "local"
 msgid "Local"
-msgstr ""
+msgstr "本地"
 
 #: alkonlinequotesmodel.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Format"
-msgstr ""
+msgstr "日期格式"
 
 #: alkonlinequotesmodel.cpp:105
 #, kde-format
@@ -825,7 +841,8 @@ msgid "New"
 msgstr "新建"
 
 #: alkonlinequoteswidget.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "代号"
@@ -837,7 +854,8 @@ msgid "Identification number"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:246
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "姓名"
@@ -894,10 +912,11 @@ msgid "Online quote settings generated with Alkimia %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:634
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "URL found: %1..."
 msgctxt "@info online quote setting"
 msgid "URL: %1"
-msgstr ""
+msgstr "找到网址： %1..."
 
 #: alkonlinequoteswidget.cpp:635
 #, kde-format
@@ -906,10 +925,11 @@ msgid "Download mode: %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:636
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
-msgstr ""
+msgstr "日期格式"
 
 #: alkonlinequoteswidget.cpp:637
 #, kde-format
@@ -924,10 +944,11 @@ msgid "Select by: %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:639
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Price"
 msgctxt "@info online quote setting"
 msgid "Price: %1"
-msgstr ""
+msgstr "价格"
 
 #: alkonlinequoteswidget.cpp:640
 #, kde-format
@@ -936,16 +957,18 @@ msgid "Price decimal separator: %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:641
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date found: '%1'"
 msgctxt "@info online quote setting"
 msgid "Date: %1"
-msgstr ""
+msgstr "已找到日期：'%1'"
 
 #: alkonlinequoteswidget.cpp:642
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
-msgstr ""
+msgstr "日期格式"
 
 #: alkonlinequoteswidget.cpp:643
 #, kde-format
@@ -954,10 +977,11 @@ msgid "Default identifier: %1"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:644
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Quote Source"
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
-msgstr ""
+msgstr "新报价来源"
 
 #: alkonlinequoteswidget.cpp:645
 #, kde-format
@@ -995,9 +1019,10 @@ msgstr "在线报价 HTML 结果窗口"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: alkonlinequoteuploaddialog.ui:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete online quote"
 msgid "Upload online quote"
-msgstr ""
+msgstr "删除在线报价"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
@@ -1026,9 +1051,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Online Quotes"
 msgid "Online quote source:"
-msgstr ""
+msgstr "在线报价"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
@@ -1094,3 +1120,28 @@ msgstr ""
 #, kde-format
 msgid "Inspect element"
 msgstr ""
+
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "无法打开已下载的文件"
+
+#~ msgctxt "Accepts the entered data and stores it"
+#~ msgid "&Accept"
+#~ msgstr "接受(&A)"
+
+#~ msgid "&Delete"
+#~ msgstr "删除(&D)"
+
+#~ msgctxt "Check the selected source entry"
+#~ msgid "&Check Source"
+#~ msgstr "检查来源(%C)"
+
+#~ msgctxt "Show the selected source entry in a web browser"
+#~ msgid "&Show page"
+#~ msgstr "显示页面(&S)"
+
+#~ msgctxt "Create a new source entry for online quotes"
+#~ msgid "&New..."
+#~ msgstr "新建(&N)..."
+
+#~ msgid "Regular Expression to extract the symbol from the downloaded data"
+#~ msgstr "从下载数据中提取代号用的正则表达式"

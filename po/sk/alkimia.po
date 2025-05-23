@@ -1,18 +1,18 @@
 # translation of alkimia.po to Slovak
-# SPDX-FileCopyrightText: 2018, 2022, 2023 Roman Paholik <wizzardsk@gmail.com>
+# Roman Paholík <wizzardsk@gmail.com>, 2019, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
-"PO-Revision-Date: 2023-12-04 09:37+0100\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"PO-Revision-Date: 2021-11-18 17:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 21.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -204,7 +204,7 @@ msgstr ""
 #: alkonlinequoteuploaddialog.ui:20
 #, kde-format
 msgid "Online Quotes"
-msgstr "Úvodzovky"
+msgstr "Online ponuky"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequotedetails.ui:26 alkonlinequotesprofile.ui:116
@@ -267,7 +267,7 @@ msgstr "Regulárny výraz na extrahovanie dátumu zo stiahnutých dát"
 #: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
 #, kde-format
 msgid "Identifier"
-msgstr "Identifikátor"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
@@ -302,9 +302,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Date Format"
 msgid "Data Format"
-msgstr "Dátový formát"
+msgstr "Formát dátumu"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
 #: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
@@ -407,7 +408,7 @@ msgstr "Prijať"
 #, kde-format
 msgctxt "@action cancel actual changes"
 msgid "Cancel"
-msgstr "Zrušiť"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:302
@@ -574,10 +575,9 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteslist.ui:85 alkonlinequotesprofile.ui:71
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a duplicate of an entry for an online source"
-msgstr "Použiť na vytvorenie novej položky pre online cenové ponuky"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
 #: alkonlinequoteslist.ui:88 alkonlinequotesprofile.ui:74
@@ -643,7 +643,7 @@ msgstr ""
 #: alkonlinequoteslist.ui:142
 #, kde-format
 msgid "Upload"
-msgstr "Nahrať"
+msgstr "Odoslať"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:154
@@ -675,7 +675,7 @@ msgstr ""
 #: alkonlinequotesmodel.cpp:21
 #, kde-format
 msgid "Remote"
-msgstr "Vzdialené"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:23
 #, kde-format
@@ -683,15 +683,16 @@ msgid "Finance::Quote"
 msgstr ""
 
 #: alkonlinequotesmodel.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "local"
 msgid "Local"
-msgstr "Lokálne"
+msgstr "lokálne"
 
 #: alkonlinequotesmodel.cpp:104
 #, fuzzy, kde-format
-#| msgid "Data Format"
+#| msgid "Date Format"
 msgid "Format"
-msgstr "Dátový formát"
+msgstr "Formát dátumu"
 
 #: alkonlinequotesmodel.cpp:105
 #, kde-format
@@ -718,21 +719,19 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr "HTML"
+msgstr ""
 
 #: alkonlinequotesource.cpp:460
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 #: alkonlinequotesource.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox Stock"
-#| msgid "CSV"
+#, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
-msgstr "CSV"
+msgstr ""
 
 #: alkonlinequotesource.cpp:464
 #, kde-format
@@ -829,7 +828,8 @@ msgid "New"
 msgstr "Nové"
 
 #: alkonlinequoteswidget.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Symbol"
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Symbol"
@@ -841,7 +841,8 @@ msgid "Identification number"
 msgstr ""
 
 #: alkonlinequoteswidget.cpp:246
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Name"
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Názov"
@@ -911,17 +912,16 @@ msgstr ""
 
 #: alkonlinequoteswidget.cpp:636
 #, fuzzy, kde-format
-#| msgid "Data Format"
+#| msgid "Date Format"
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
-msgstr "Dátový formát"
+msgstr "Formát dátumu"
 
 #: alkonlinequoteswidget.cpp:637
-#, fuzzy, kde-format
-#| msgid "Identifier"
+#, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
-msgstr "Identifikátor"
+msgstr ""
 
 #: alkonlinequoteswidget.cpp:638
 #, kde-format
@@ -1008,7 +1008,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Online Quotes"
 msgid "Upload online quote"
-msgstr "Úvodzovky"
+msgstr "Online ponuky"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
@@ -1040,7 +1040,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Online Quotes"
 msgid "Online quote source:"
-msgstr "Úvodzovky"
+msgstr "Online ponuky"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
@@ -1107,12 +1107,15 @@ msgstr ""
 msgid "Inspect element"
 msgstr ""
 
+#~ msgid "Failed to open downloaded file"
+#~ msgstr "Zlyhalo otvorenie stiahnutého súboru"
+
 #~ msgctxt "Accepts the entered data and stores it"
 #~ msgid "&Accept"
 #~ msgstr "&Akceptovať"
 
 #~ msgid "&Delete"
-#~ msgstr "Vymazať"
+#~ msgstr "O&dstrániť"
 
 #~ msgctxt "Show the selected source entry in a web browser"
 #~ msgid "&Show page"
@@ -1121,9 +1124,6 @@ msgstr ""
 #~ msgctxt "Create a new source entry for online quotes"
 #~ msgid "&New..."
 #~ msgstr "&Nový..."
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "Zlyhalo otvorenie stiahnutého súboru"
 
 #~ msgid "Regular Expression to extract the symbol from the downloaded data"
 #~ msgstr "Regulárny výraz na extrahovanie symbolu zo stiahnutých dát"
