@@ -59,6 +59,7 @@ distro kf6 tumbleweed:
   #  - merge_requests
   variables:
     ci_variant: "kf6"
+    ci_cmake_options: "-DCMAKE_CXX_COMPILER=g++-14"
 
 distro kf5 tumbleweed:
   extends: .unix-build
