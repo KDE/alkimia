@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-11 02:47+0000\n"
+"POT-Creation-Date: 2025-05-23 03:30+0000\n"
 "PO-Revision-Date: 2021-01-09 11:37+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -29,42 +29,42 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: main.cpp:74
+#: main.cpp:60
 #, kde-format
 msgid "&About %1"
 msgstr "&Om %1"
 
-#: mainwindow.cpp:84
+#: mainwindow.cpp:90
 #, kde-format
 msgid "Profiles"
 msgstr "Profilar"
 
-#: mainwindow.cpp:89
+#: mainwindow.cpp:95
 #, kde-format
 msgid "Profile details"
 msgstr "Profildetaljar"
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
 msgstr ""
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:105
 #, kde-format
 msgid "Debug"
 msgstr "Feilsøking"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
 msgstr ""
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Browser"
 msgstr "Nettlesar"
 
-#: mainwindow.cpp:168
+#: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
 msgstr ""
