@@ -403,7 +403,7 @@ msgstr "Data"
 #: alkonlinequotedetails.ui:260
 #, kde-format
 msgid "The type of data expected to downloaded and processed."
-msgstr "El tipus de dades esperat a baixar i processar."
+msgstr "El tipus de dades esperat que es baixarà i processarà."
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_acceptButton)
 #: alkonlinequotedetails.ui:274
@@ -436,7 +436,7 @@ msgstr "Cancel·la"
 #: alkonlinequotedetails.ui:302
 #, kde-format
 msgid "Copies the details as text to the clipboard."
-msgstr "Copia els detalls com a text en el porta-retalls."
+msgstr "Copia els detalls com a text a dins del porta-retalls."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:305
@@ -445,8 +445,8 @@ msgid ""
 "Use this to copy the details as text to the clipboard to e.g. paste it in an "
 "email."
 msgstr ""
-"Utilitzeu açò per a copiar els detalls com a text en el porta-retalls, p. "
-"ex., per a apegar-ho en un correu electrònic."
+"Utilitzeu açò per a copiar els detalls com a text a dins del porta-retalls, "
+"p. ex., per a apegar-ho en un correu electrònic."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:308
@@ -940,7 +940,7 @@ msgstr ".copia"
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
-msgstr "Paràmetres de cotització en línia generats per l'Alkimia %1"
+msgstr "Paràmetres de cotització en línia generats per Alkimia %1"
 
 #: alkonlinequoteswidget.cpp:634
 #, kde-format
@@ -1058,7 +1058,7 @@ msgstr "Versió a crear:"
 #: alkonlinequoteuploaddialog.ui:61
 #, kde-format
 msgid "Copy path to clipboard"
-msgstr "Copia el camí cap al porta-retalls"
+msgstr "Copia el camí a dins del porta-retalls"
 
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
@@ -1094,7 +1094,7 @@ msgid ""
 "users."
 msgstr ""
 "Este diàleg permet crear un paquet per a una font de cotització en línia, "
-"que després podreu pujar a la botiga en línia utilitzada per l'Alkimia per a "
+"que després podreu pujar a la botiga en línia utilitzada per Alkimia per a "
 "compartir amb altres usuaris."
 
 #. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
