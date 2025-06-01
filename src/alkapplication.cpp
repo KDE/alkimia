@@ -100,7 +100,7 @@ AlkApplication::AlkApplication(int argc, char** argv)
     d()->_argc = argc;
     d()->_argv = argv;
     for (int i = 0; i < argc; i++)
-        d()->_args.append(argv[i]);
+        d()->_args.append(QString::fromUtf8(argv[i]));
 }
 
 QStringList AlkApplication::arguments()

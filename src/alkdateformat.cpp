@@ -9,6 +9,8 @@
 
 #include "alkdateformat.h"
 
+#include <KLocalizedString>
+
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 #include <KCalendarSystem>
 #include <KGlobal>
@@ -34,25 +36,25 @@ public:
                 m_errorMessage.clear();
                 break;
             case AlkDateFormat::InvalidFormatString:
-                m_errorMessage = QString("Invalid format string '%1'").arg(arg1);
+                m_errorMessage = i18nc("@info AlkDateFormat info", "Invalid format string '%1'").arg(arg1);
                 break;
             case AlkDateFormat::InvalidFormatCharacter:
-                m_errorMessage = QString("Invalid format character '%1'").arg(arg1);
+                m_errorMessage = i18nc("@info AlkDateFormat info", "Invalid format character '%1'").arg(arg1);
                 break;
             case AlkDateFormat::InvalidDate:
-                m_errorMessage = QString("Invalid date '%1'").arg(arg1);
+                m_errorMessage = i18nc("@info AlkDateFormat info", "Invalid date '%1'").arg(arg1);
                 break;
             case AlkDateFormat::InvalidDay:
-                m_errorMessage = QString("Invalid day entry: %1").arg(arg1);
+                m_errorMessage = i18nc("@info AlkDateFormat info", "Invalid day entry: %1").arg(arg1);
                 break;
             case AlkDateFormat::InvalidMonth:
-                m_errorMessage = QString("Invalid month entry: %1").arg(arg1);
+                m_errorMessage = i18nc("@info AlkDateFormat info", "Invalid month entry: %1").arg(arg1);
                 break;
             case AlkDateFormat::InvalidYear:
-                m_errorMessage = QString("Invalid year entry: %1").arg(arg1);
+                m_errorMessage = i18nc("@info AlkDateFormat info", "Invalid year entry: %1").arg(arg1);
                 break;
             case AlkDateFormat::InvalidYearLength:
-                m_errorMessage = QString("Length of year (%1) does not match expected length (%2).").arg(arg1, arg2);
+                m_errorMessage = i18nc("@info AlkDateFormat info", "Length of year (%1) does not match expected length (%2).").arg(arg1, arg2);
                 break;
         }
         return QDate();
