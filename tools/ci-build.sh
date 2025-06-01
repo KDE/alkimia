@@ -285,6 +285,10 @@ init_cross_runtime() {
 # if yes, run simple webserver for testing
 : "${ci_webserver:=yes}"
 
+# ci_cmake_options:
+# empty if not set
+: "${ci_cmake_options:=}"
+
 # host name for testing
 test_host=dev.kmymoney.org
 
@@ -312,7 +316,7 @@ if [ "$ci_in_docker" = "yes" ] && [ -n `getent passwd | grep ^user` ]; then
 fi
 
 # common cmake options
-cmake_options=
+cmake_options=$ci_cmake_options
 
 # check if webserver is enabled
 if [ "$ci_webserver" = yes ]; then
@@ -334,7 +338,7 @@ fi
 # settings for build variants
 case "$ci_variant" in
     (kf6*)
-        cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1 -DBUILD_WITH_QT6=1 -DCMAKE_CXX_COMPILER=g++-12"
+        cmake_options+=" -DBUILD_APPLETS=0 -DBUILD_TESTING=1 -DENABLE_CLIENT_PACKAGE_TEST=1 -DBUILD_WITH_QT6=1"
         cmake_suffix="kf6"
         export QT_LOGGING_RULES="*=true;kf.kio.workers.http.debug=false;qt.text.*.debug=false"
         export QT_FORCE_STDERR_LOGGING=1

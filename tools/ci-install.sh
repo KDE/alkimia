@@ -67,7 +67,7 @@ case "$ci_distro" in
                 ;;
             (*Tumbleweed*)
                 devel_tools_building_repo_name=openSUSE_Factory
-                gccv=12
+                gccv=14
                 ;;
         esac
         repos=(
