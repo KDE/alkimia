@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 02:24+0000\n"
+"POT-Creation-Date: 2025-06-02 01:58+0000\n"
 "PO-Revision-Date: 2025-04-18 15:56+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -30,6 +30,48 @@ msgid "Your emails"
 msgstr ""
 "geoffray.levasseurbrandin@numericable.fr, kde@macolu.org, xavier.besnard@kde."
 "org"
+
+#: alkdateformat.cpp:39
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid format string '%1'"
+msgstr ""
+
+#: alkdateformat.cpp:42
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid format character '%1'"
+msgstr ""
+
+#: alkdateformat.cpp:45
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid date '%1'"
+msgstr ""
+
+#: alkdateformat.cpp:48
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid day entry: %1"
+msgstr ""
+
+#: alkdateformat.cpp:51
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid month entry: %1"
+msgstr ""
+
+#: alkdateformat.cpp:54
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid year entry: %1"
+msgstr ""
+
+#: alkdateformat.cpp:57
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Length of year (%1) does not match expected length (%2)."
+msgstr ""
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
