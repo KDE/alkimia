@@ -63,7 +63,7 @@ distro kf6 tumbleweed:
 
 distro kf5 tumbleweed:
   extends: .unix-build
-  #when: manual
+  when: manual
   image: opensuse/tumbleweed
   #only:
   #  - merge_requests
