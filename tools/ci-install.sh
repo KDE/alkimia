@@ -63,17 +63,16 @@ case "$ci_distro" in
         case "$repo_name" in
             (*Leap*)
                 devel_tools_building_repo_name=$(. /etc/os-release; echo $VERSION_ID)
+                repos=(
+                    "${repos[@]}"
+                    https://download.opensuse.org/repositories/devel:/tools:/building/$devel_tools_building_repo_name/devel:tools:building.repo
+                )
                 gccv=10
                 ;;
             (*Tumbleweed*)
-                devel_tools_building_repo_name=openSUSE_Factory
                 gccv=14
                 ;;
         esac
-        repos=(
-            "${repos[@]}"
-            https://download.opensuse.org/repositories/devel:/tools:/building/$devel_tools_building_repo_name/devel:tools:building.repo
-        )
         case "$ci_variant-$ci_host" in
             (*-mingw*)
                 bits=$(echo $ci_host | sed 's,mingw,,g')
