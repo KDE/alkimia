@@ -1,15 +1,15 @@
 # Spanish translations for alkimia.po package.
-# Copyright (C) 2018-2025 This_file_is_part_of_KDE
+# Copyright (C) 2018-2025 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
-#
 # Automatically generated, 2018.
+#
 # SPDX-FileCopyrightText: 2018, 2019, 2020, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-02 01:58+0000\n"
-"PO-Revision-Date: 2025-03-06 20:01+0100\n"
+"PO-Revision-Date: 2025-06-02 20:07+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -33,43 +33,43 @@ msgstr "ecuadra@eloihr.net"
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format string '%1'"
-msgstr ""
+msgstr "Formato no válido de cadena «%1»"
 
 #: alkdateformat.cpp:42
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format character '%1'"
-msgstr ""
+msgstr "Formato no válido de carácter «%1»"
 
 #: alkdateformat.cpp:45
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid date '%1'"
-msgstr ""
+msgstr "Fecha no válida «%1»"
 
 #: alkdateformat.cpp:48
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid day entry: %1"
-msgstr ""
+msgstr "Entrada de día no válida: %1"
 
 #: alkdateformat.cpp:51
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid month entry: %1"
-msgstr ""
+msgstr "Entrada de mes no válida: %1"
 
 #: alkdateformat.cpp:54
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid year entry: %1"
-msgstr ""
+msgstr "Entrada de año no válida: %1"
 
 #: alkdateformat.cpp:57
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Length of year (%1) does not match expected length (%2)."
-msgstr ""
+msgstr "La longitud del año (%1) no coincide con la esperada (%2)."
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
@@ -1190,34 +1190,3 @@ msgstr "Abrir el inspector en una ventana nueva"
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspeccionar elemento"
-
-#~ msgctxt "Accepts the entered data and stores it"
-#~ msgid "&Accept"
-#~ msgstr "&Aceptar"
-
-#~ msgid "&Delete"
-#~ msgstr "&Borrar"
-
-#~ msgctxt "Check the selected source entry"
-#~ msgid "&Check Source"
-#~ msgstr "&Comprobar fuente"
-
-#~ msgctxt "Show the selected source entry in a web browser"
-#~ msgid "&Show page"
-#~ msgstr "&Mostrar página"
-
-#~ msgctxt "Create a new source entry for online quotes"
-#~ msgid "&New..."
-#~ msgstr "&Nueva..."
-
-#~ msgid "Failed to open downloaded file"
-#~ msgstr "No se ha podido abrir el archivo descargado"
-
-#~ msgid "Regular Expression to extract the symbol from the downloaded data"
-#~ msgstr "Expresión regular para extraer el símbolo de los datos descargados"
-
-#~ msgid "Dialog"
-#~ msgstr "Diálogo"
-
-#~ msgid "Interval[min]"
-#~ msgstr "Intervalo [min]"
