@@ -191,7 +191,10 @@ case "$ci_distro" in
                 packages=(
                     "${packages[@]}"
                     doxygen
+                    "$prefix-dbus-1"
                     "$prefix-extra-cmake-modules"
+                    "$prefix-kinit"
+                    "$prefix-kded"
                     "$prefix-gmp-devel"
                     "$prefix(cmake:KF5Completion)"
                     "$prefix(cmake:KF5Config)"
