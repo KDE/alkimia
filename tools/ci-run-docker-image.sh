@@ -42,7 +42,7 @@ ci_variant=kf4 tools/ci-build.sh
 EOF
 
 options=
-shopts="export ci_parallel=$ci_parallel; export ci_distro=$ci_distro; export ci_variant=$ci_variant;"
+shopts="export ci_parallel=$ci_parallel; export ci_distro=$ci_distro; export ci_variant=$ci_variant; export ci_host=$ci_host;"
 if [ "$1" == "--use-host-display" ]; then
     options="-v $HOME/.Xauthority:/root/.Xauthority:rw --env=DISPLAY --net=host"
     shopts="export DISPLAY=$DISPLAY;"
