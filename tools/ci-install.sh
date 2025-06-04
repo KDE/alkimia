@@ -32,6 +32,9 @@ set -x
 # if yes, install simple webserver
 : "${ci_webserver:=yes}"
 
+# print used command line
+set +x; env | awk 'BEGIN { s = "" } $1 ~ /^ci_/ { s=s " " $0} END { print s " " SCRIPT }' SCRIPT=$0; set -x
+
 # setup install command; use sudo outside of docker
 # found on https://stackoverflow.com/questions/23513045
 case $(cat /proc/1/sched  | head -n 1 | cut -d' ' -f1) in

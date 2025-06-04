@@ -289,6 +289,9 @@ init_cross_runtime() {
 # empty if not set
 : "${ci_cmake_options:=}"
 
+# print used command line
+set +x; env | awk 'BEGIN { s = "" } $1 ~ /^ci_/ { s=s " " $0} END { print s " " SCRIPT }' SCRIPT=$0; set -x
+
 # host name for testing
 test_host=dev.kmymoney.org
 
