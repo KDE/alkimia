@@ -192,7 +192,7 @@ endif()
 target_include_directories(alkimia
     INTERFACE
         ${MP_INCLUDE_DIR}
-        $<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/alkimia/${ALKIMIA_INCLUDE_SUFFIX}>
+        $<INSTALL_INTERFACE:include/alkimia/${ALKIMIA_INCLUDE_SUFFIX}>
 )
 
 target_link_libraries(alkimia
