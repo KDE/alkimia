@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-02 01:58+0000\n"
-"PO-Revision-Date: 2025-04-06 21:08+0200\n"
+"PO-Revision-Date: 2025-06-11 00:14+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -32,43 +32,43 @@ msgstr "kde@peremen.name"
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format string '%1'"
-msgstr ""
+msgstr "잘못된 형식 지정 문자열 '%1'"
 
 #: alkdateformat.cpp:42
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format character '%1'"
-msgstr ""
+msgstr "잘못된 형식 지정 문자 '%1'"
 
 #: alkdateformat.cpp:45
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid date '%1'"
-msgstr ""
+msgstr "잘못된 날짜 '%1'"
 
 #: alkdateformat.cpp:48
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid day entry: %1"
-msgstr ""
+msgstr "잘못된 날짜 항목: %1"
 
 #: alkdateformat.cpp:51
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid month entry: %1"
-msgstr ""
+msgstr "잘못된 월 항목: %1"
 
 #: alkdateformat.cpp:54
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid year entry: %1"
-msgstr ""
+msgstr "잘못된 연도 항목: %1"
 
 #: alkdateformat.cpp:57
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Length of year (%1) does not match expected length (%2)."
-msgstr ""
+msgstr "연도의 길이(%1)가 예상한 길이(%2)와 일치하지 않습니다."
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
