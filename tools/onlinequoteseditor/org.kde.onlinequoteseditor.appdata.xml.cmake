@@ -18,6 +18,7 @@
   <name xml:lang="it">Editor delle quotazioni in linea</name>
   <name xml:lang="ka">ონლაინ კოტების რედაქტორი</name>
   <name xml:lang="ko">온라인 시세 편집기</name>
+  <name xml:lang="nb">Endring av kurser fra nettet</name>
   <name xml:lang="nl">Bewerker voor Online koersen</name>
   <name xml:lang="pl">Edytor wycen z sieci</name>
   <name xml:lang="pt-BR">Editor de cotações online</name>
@@ -44,6 +45,7 @@
   <summary xml:lang="it">Editor delle quotazioni in linea usato delle applicazioni finanziarie</summary>
   <summary xml:lang="ka">ფინანსური აპლიკაციების მიერ გამოყენებული ონლაინ ფასების კოტების რედაქტორი</summary>
   <summary xml:lang="ko">재무 앱에서 사용하는 온라인 가격 시세 편집기</summary>
+  <summary xml:lang="nb">Verktøy for å endre kurser fra nettet</summary>
   <summary xml:lang="nl">Bewerker voor online koersen gebruikt door financiële toepassingen</summary>
   <summary xml:lang="pl">Edytor dla wycen z sieci używanych przez aplikacje finansowe</summary>
   <summary xml:lang="pt-BR">Editor de cotações de preços online usado por aplicativos de finanças</summary>
@@ -70,6 +72,7 @@
     <p xml:lang="it">Editor delle quotazioni in linea è un'interfaccia utente grafica per la modifica e il controllo delle quotazioni in linea. È possibile aggiungere le fonti di quotazioni disponibili in rete dal negozio di KDE, crearle localmente, modificarle e verificarne la corretta esecuzione.</p>
     <p xml:lang="ka">ონლაინ კვოტების რედაქტორი გრაფიკული ინტერფეისია ონლაინ კვოტების შესამოწმებლად და ჩასასწორებლად. ხელმისაწვდომი ონლაინ კვოტების წყაროები KDE-ის მაღაზიიდან შეგიძლიათ დაამატოთ, ლოკალურად შექმნათ და ჩაასწოროთ.</p>
     <p xml:lang="ko">온라인 시세 편집기는 온라인 시세를 편집하고 확인하는 그래픽 사용자 인터페이스 앱입니다. 사용 가능한 온라인 시세 정보는 KDE 스토어에서 추가, 로컬에서 생성, 정확한 실행을 위해서 편집 및 확인할 수 있습니다.</p>
+    <p xml:lang="nb">Verktøy for å endre kurser er et grafisk brukergrensesnitt for å endre og sjekke kurser på nettet. Tilgjengelige nettbaserte kurskilder kan legges til fra KDE-burikke, lages lokalt , endres eller sjekket for korrekt kjøring.</p>
     <p xml:lang="nl">Bewerker voor Online koersen is een grafische gebruikersinterfacetoepassing voor bewerken en controleren van online koersen. Beschikbare online koersbronnen kunnen toegevoegd worden uit de KDE-store, lokaal aangemaakt, bewerkt en gecontroleerd voor het juiste gebruik.</p>
     <p xml:lang="pl">Edytor wycen z sieci jest nakładką graficzną do zmiany i sprawdzania wycen z sieci. Źródła wycen można dodać ze Sklepu KDE, utworzyć lokalnie, dostosować i sprawdzić poprawność ich działania.</p>
     <p xml:lang="pt-BR">Online Quotes Editor é um aplicativo de interface gráfica para edição e verificação de cotações online. Fontes de cotações online disponíveis podem ser adicionadas na loja do KDE, criadas localmente, editadas e verificadas quanto à execução correta.</p>
@@ -94,6 +97,7 @@
     <p xml:lang="it">L'interfaccia è suddivisa in finestre secondarie personalizzabili per profili, dettagli del profilo, quotazioni in linea assegnate, attributi di quotazione, debug e browser, consentendo una configurazione flessibile dell'interfaccia.</p>
     <p xml:lang="ka">ინტერფეისი იყოფა მორგებად ქვეფანჯრებზე პროფილებისთვის, პროფილის დეტალებისთვის მინიჭებული ონლაინ კვოტებისთვის გამართვისთვის და ბრაუზერისთვის, რომელიც ინტერფეისს გაცილებით მორგებადს ხდის.</p>
     <p xml:lang="ko">인터페이스는 프로필, 프로필 정보, 할당된 온라인 시세, 종목 속성, 디버그, 브라우저 등 사용자 정의 가능한 하위 창으로 나뉘어 있으며 인터페이스를 유연하게 설정할 수 있습니다.</p>
+    <p xml:lang="nb">Grensesnittet er delt i </p>
     <p xml:lang="nl">Het interface is opgedeeld in aanpasbare subvensters voor profielen, profieldetails, toegekende online koersen, attributen van koersen, debug en browser, waarmee een flexibele interfaceopzet wordt geboden.</p>
     <p xml:lang="pl">Interfejs jest podzielony na dostosowywalne podokna dla profili, szczegółów profili, przypisanych wycen z sieci, właściwości wycen, diagnostyki oraz przeglądarki, która umożliwia łatwe ustawienie.</p>
     <p xml:lang="pt-BR">A interface é dividida em subjanelas personalizáveis para perfis, detalhes de perfil, cotações online atribuídas, atributos de cotações, depuração e navegador, permitindo uma configuração de interface flexível.</p>
@@ -119,6 +123,7 @@
     <p xml:lang="it">È possibile supportare più applicazioni tramite profili.</p>
     <p xml:lang="ka">მხარდაჭერილი აპლიკაციების დამატება პროფილებით შეგიძლიათ.</p>
     <p xml:lang="ko">프로필을 사용하여 여러 앱을 지원합니다.</p>
+    <p xml:lang="nb">Flere programmer kan støttes via profiler.</p>
     <p xml:lang="nl">Meerdere toepassingen kunnen ondersteund worden via profielen.</p>
     <p xml:lang="pl">Możliwość obsługi wielu aplikacji poprzez profile.</p>
     <p xml:lang="pt-BR">Múltiplos aplicativos podem ser suportados através de perfis.</p>
@@ -143,6 +148,7 @@
     <p xml:lang="it">Le applicazioni finanziarie che non contengono la propria interfaccia utente per la modifica delle fonti di quotazione in linea possono chiamare a questo scopo l'editor delle quotazioni in linea.</p>
     <p xml:lang="ka">ფინანსური აპლიკაციები, რომლებსაც თავის ონლაინ კვოტების წყაროების ჩასასწორებლად ინტერფეისი არ გააჩნია, სურვილის შემთხვევაში ონლაინ რედაქტორს გამოიძახებენ.</p>
     <p xml:lang="ko">자체 온라인 종목 원본 편집 인터페이스가 없는 재무 앱에서 온라인 시세 편집기를 이 목적으로 호출할 수 있습니다.</p>
+    <p xml:lang="nb">Finansprogrammer so ikke inneholder egne brukergrensesnitt for å endre på nettbaserte kurskilder kan bruke verktøyet for å endre kurser fra nettet til dette formålet</p>
     <p xml:lang="nl">Financiële toepassingen die geen eigen gebruikersinterface voor bewerken van online koersbronnen kunnen de online koersenbewerker voor dit doel aanroepen.</p>
     <p xml:lang="pl">Aplikacje finansowe, które nie posiadają swoich własnych interfejsów do zmiany źródeł wycen z sieci mogą w tym celu wywołać edytor wycen z sieci.</p>
     <p xml:lang="pt-BR">Os aplicativos financeiros que não contêm sua própria interface de usuário para edição de fontes de cotação online podem chamar o editor de cotação online para essa finalidade.</p>
