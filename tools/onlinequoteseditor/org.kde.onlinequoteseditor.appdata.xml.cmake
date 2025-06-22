@@ -181,6 +181,7 @@
   </provides>
   <project_group>KDE</project_group>
   <releases>
+    <release version="8.2.0" date="2025-06-21"/>
     <release version="8.1.1" date="2022-05-03"/>
   </releases>
 </component>
