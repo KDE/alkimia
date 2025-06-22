@@ -1,6 +1,5 @@
 # Translation of plasma_applet_onlinequote to Norwegian Bokmål
 #
-# SPDX-FileCopyrightText: 2025 Kjetil Sørlund <translate@sorlund.no>
 #
 msgid ""
 msgstr ""
