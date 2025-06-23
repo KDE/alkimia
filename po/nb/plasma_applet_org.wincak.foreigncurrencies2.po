@@ -1,6 +1,5 @@
 # Translation of plasma_applet_org.wincak.foreigncurrencies2 to Norwegian Bokmål
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"

@@ -1,13 +1,12 @@
 # Translation of alkimia to Norwegian Bokmål
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-23 03:30+0000\n"
-"PO-Revision-Date: 2025-06-11 12:46+0200\n"
-"Last-Translator: Kjetil Sørlund <translate@sorlund.no>\n"
+"PO-Revision-Date: 2025-06-22 11:16+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
@@ -834,9 +833,9 @@ msgid ""
 "<html><head/><body><p>Select, add or delete an application profile, where to "
 "load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
 msgstr ""
-"<html><head/><body>Velg, legg til eller slett en programprofil, angi hvor "
-"profiler skal lastes fra, lagres til , f.eks. kmymony eller skrooge.<p></p></"
-"body>"
+"<html><head/><body><p>Velg, legg til eller slett en programprofil, angi hvor "
+"profiler skal lastes fra, lagres til , f.eks. kmymony eller skrooge.</p></"
+"body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequotesprofiles.ui:29

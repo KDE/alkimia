@@ -1,6 +1,5 @@
 # Translation of onlinequoteseditor to Norwegian Bokmål
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
