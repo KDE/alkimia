@@ -26,6 +26,7 @@ private Q_SLOTS:
     void testReadWriteRemove();
     void testRename();
     void testReference();
+    void testNullProfile();
 };
 
 #endif // ALKONLINEQUOTESOURCETEST_H

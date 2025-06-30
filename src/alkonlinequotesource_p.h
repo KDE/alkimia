@@ -40,6 +40,8 @@ public:
 
     bool read()
     {
+        if (!m_profile)
+            return false;
         auto kconfig = m_profile->kConfig();
         if (!kconfig)
             return false;
@@ -80,6 +82,8 @@ public:
 
     bool write()
     {
+        if (!m_profile)
+            return false;
         auto kconfig = m_profile->kConfig();
         if (!kconfig)
             return false;
@@ -112,6 +116,8 @@ public:
 
     bool remove()
     {
+        if (!m_profile)
+            return false;
         auto kconfig = m_profile->kConfig();
         if (!kconfig)
             return false;
@@ -122,6 +128,8 @@ public:
 
     QString ghnsReadFilePath()
     {
+        if (!m_profile)
+            return QString();
         QString file = m_profile->GHNSFilePath(m_name);
         if (!file.isEmpty())
             return file;
@@ -130,6 +138,8 @@ public:
 
     QString ghnsWriteFilePath()
     {
+        if (!m_profile)
+            return QString();
         QString file = m_profile->GHNSFilePath(m_name);
         if (!file.isEmpty())
             return file;

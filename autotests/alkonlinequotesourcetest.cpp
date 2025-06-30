@@ -150,3 +150,14 @@ void AlkOnlineQuoteSourceTest::testReference()
     m1.remove();
     m2.remove();
 }
+
+void AlkOnlineQuoteSourceTest::testNullProfile()
+{
+    AlkOnlineQuoteSource m0("test", nullptr);
+    QString empty;
+    m0.setReferenceName(empty);
+    QCOMPARE(m0.referenceName(), empty);
+    m0.rename("test2");
+    QCOMPARE(m0.name(), "test2");
+    m0.remove();
+}
