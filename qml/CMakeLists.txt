@@ -2,7 +2,7 @@ if(QT_MAJOR_VERSION GREATER_EQUAL 5)
     set_package_properties(Qt${QT_MAJOR_VERSION}Qml PROPERTIES  URL "git://gitorious.org/qt/qtdeclarative.git"
         DESCRIPTION "QML support for Alkimia"
         TYPE OPTIONAL
-        PURPOSE "Allows to use Alkimiain QML code"
+        PURPOSE "Allows to use Alkimia QML code"
     )
     if(NOT Qt${QT_MAJOR_VERSION}Qml_FOUND)
         message(STATUS "Qt${QT_MAJOR_VERSION}Qml not found, qml imports will not be built.")
