@@ -165,7 +165,7 @@ bool AlkOnlineQuoteSource::isValid()
 
 QString AlkOnlineQuoteSource::referenceName() const
 {
-    return d->m_profile->GHNSName(d->m_referenceId);
+    return d->m_profile ? d->m_profile->GHNSName(d->m_referenceId) : QString();
 }
 
 QString AlkOnlineQuoteSource::name() const
@@ -235,7 +235,8 @@ QString AlkOnlineQuoteSource::financeQuoteName() const
 
 void AlkOnlineQuoteSource::setReferenceName(const QString &name)
 {
-    d->m_referenceId = d->m_profile->GHNSId(name);
+    if (d->m_profile)
+        d->m_referenceId = d->m_profile->GHNSId(name);
 }
 
 void AlkOnlineQuoteSource::setName(const QString &name)
@@ -356,7 +357,7 @@ AlkOnlineQuotesProfile *AlkOnlineQuoteSource::profile() const
 
 bool AlkOnlineQuoteSource::read()
 {
-    if (d->m_profile->hasGHNSSupport()) {
+    if (d->m_profile && d->m_profile->hasGHNSSupport()) {
         if (d->readFromGHNSFile()) {
             return true;
         }
@@ -389,7 +390,7 @@ bool AlkOnlineQuoteSource::write()
 
 void AlkOnlineQuoteSource::rename(const QString &name)
 {
-    if (d->m_profile->type() != AlkOnlineQuotesProfile::Type::None) {
+    if (d->m_profile && d->m_profile->type() != AlkOnlineQuotesProfile::Type::None) {
         remove();
         d->m_name = name;
         write();
@@ -399,9 +400,9 @@ void AlkOnlineQuoteSource::rename(const QString &name)
 
 void AlkOnlineQuoteSource::remove()
 {
-    if (d->m_profile->hasGHNSSupport() && d->m_isGHNSSource) {
+    if (d->m_profile && d->m_profile->hasGHNSSupport() && d->m_isGHNSSource) {
         d->removeGHNSFile();
-    } else if (d->m_profile->type() != AlkOnlineQuotesProfile::Type::None) {
+    } else if (d->m_profile && d->m_profile->type() != AlkOnlineQuotesProfile::Type::None) {
         d->remove();
     }
 }
