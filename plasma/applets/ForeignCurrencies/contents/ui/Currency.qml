@@ -41,7 +41,7 @@ Item {
         anchors.top: parent.top;
         anchors.bottom: parent.bottom;
         anchors.right: parent.right;
-        anchors.left: currency.right;
+        anchors.left: currencyLabel.right;
         }
 
     AlkOnlineQuote {
