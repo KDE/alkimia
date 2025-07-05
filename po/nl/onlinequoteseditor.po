@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2020-09-19 09:48+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -67,23 +67,14 @@ msgstr "Browser"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Item voor bijwerken beschikbaar voor '%1' in profile '%2'"
 
-#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
-#: mainwindow.ui:14
-#, kde-format
-msgid "Online Quotes Editor"
-msgstr "Bewerker voor Online koersen"
+#~ msgid "Online Quotes Editor"
+#~ msgstr "Bewerker voor Online koersen"
 
-#. i18n: ectx: property (title), widget (QMenu, menuFile)
-#: mainwindow.ui:30
-#, kde-format
-msgid "File"
-msgstr "Bestand"
+#~ msgid "File"
+#~ msgstr "Bestand"
 
-#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
-#: mainwindow.ui:42
-#, kde-format
-msgid "Quit"
-msgstr "Afsluiten"
+#~ msgid "Quit"
+#~ msgstr "Afsluiten"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "Bewerker voor online koersen gebruikt door financiële toepassingen"

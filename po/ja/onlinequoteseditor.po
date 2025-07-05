@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2019-03-02 16:12-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -62,22 +62,4 @@ msgstr ""
 #: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
-msgstr ""
-
-#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
-#: mainwindow.ui:14
-#, kde-format
-msgid "Online Quotes Editor"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QMenu, menuFile)
-#: mainwindow.ui:30
-#, kde-format
-msgid "File"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
-#: mainwindow.ui:42
-#, kde-format
-msgid "Quit"
 msgstr ""

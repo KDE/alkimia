@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2022-10-14 10:02+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -68,20 +68,11 @@ msgstr "ბრაუზერი"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "ხელმისაწვდომია %1-ის განახლება, პროფილში %2"
 
-#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
-#: mainwindow.ui:14
-#, kde-format
-msgid "Online Quotes Editor"
-msgstr "ონლაინ კოტების რედაქტორი"
+#~ msgid "Online Quotes Editor"
+#~ msgstr "ონლაინ კოტების რედაქტორი"
 
-#. i18n: ectx: property (title), widget (QMenu, menuFile)
-#: mainwindow.ui:30
-#, kde-format
-msgid "File"
-msgstr "ფაილი"
+#~ msgid "File"
+#~ msgstr "ფაილი"
 
-#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
-#: mainwindow.ui:42
-#, kde-format
-msgid "Quit"
-msgstr "გამოსვლა"
+#~ msgid "Quit"
+#~ msgstr "გამოსვლა"

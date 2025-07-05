@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onlinequoteseditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2020-09-19 10:44+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -66,23 +66,14 @@ msgstr "Prehliadač"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Aktualizácia pre '%1' dostupná v profile '%2'"
 
-#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
-#: mainwindow.ui:14
-#, kde-format
-msgid "Online Quotes Editor"
-msgstr "Editor online ponúk"
+#~ msgid "Online Quotes Editor"
+#~ msgstr "Editor online ponúk"
 
-#. i18n: ectx: property (title), widget (QMenu, menuFile)
-#: mainwindow.ui:30
-#, kde-format
-msgid "File"
-msgstr "Súbor"
+#~ msgid "File"
+#~ msgstr "Súbor"
 
-#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
-#: mainwindow.ui:42
-#, kde-format
-msgid "Quit"
-msgstr "Ukončiť"
+#~ msgid "Quit"
+#~ msgstr "Ukončiť"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "Editor pre online cenové ponuky používané finančnými aplikáciami"

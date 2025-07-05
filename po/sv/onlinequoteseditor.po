@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2020-09-24 07:31+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -67,23 +67,14 @@ msgstr "Bläddrare"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Uppdatering av '%1' tillgänglig i profil '%2'"
 
-#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
-#: mainwindow.ui:14
-#, kde-format
-msgid "Online Quotes Editor"
-msgstr "Direktkurseditor"
+#~ msgid "Online Quotes Editor"
+#~ msgstr "Direktkurseditor"
 
-#. i18n: ectx: property (title), widget (QMenu, menuFile)
-#: mainwindow.ui:30
-#, kde-format
-msgid "File"
-msgstr "Arkiv"
+#~ msgid "File"
+#~ msgstr "Arkiv"
 
-#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
-#: mainwindow.ui:42
-#, kde-format
-msgid "Quit"
-msgstr "Avsluta"
+#~ msgid "Quit"
+#~ msgstr "Avsluta"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "Editor för direktkurser använd av ekonomiprogram"

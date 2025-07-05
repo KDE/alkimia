@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2024-08-08 10:07+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -191,479 +191,6 @@ msgstr "Nelze aktualizovat cenu %1 (prázdná data)"
 msgid "Timeout exceeded on fetching url for %1"
 msgstr ""
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
-#. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
-#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfileDetailsWidget)
-#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesDebugWidget)
-#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteUploadDialog)
-#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesListWidget)
-#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteDetailsWidget)
-#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfilesWidget)
-#: alkonlinequotedetails.ui:20 alkonlinequotesdebug.ui:20
-#: alkonlinequoteslist.ui:20 alkonlinequoteslist.ui:32
-#: alkonlinequotesprofile.ui:20 alkonlinequotesprofile.ui:32
-#: alkonlinequotesprofiledetails.ui:20 alkonlinequotesprofiles.ui:20
-#: alkonlinequoteuploaddialog.ui:20
-#, kde-format
-msgid "Online Quotes"
-msgstr "Online ceny"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
-#: alkonlinequotedetails.ui:26 alkonlinequotesprofile.ui:116
-#, kde-format
-msgid ""
-"<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
-"expressions which can be used to parse the data returned from the URL "
-"entered above. The symbol, price, and date must be found in the quote data "
-"to be usable. You may also try the KMyMoney forum at </span><a href="
-"\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
-"a>  or the <span style=\" font-style:italic;\">user's mailinglist at </"
-"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
-"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
-"a><span style=\" font-style:italic;\"> to find what settings work for other "
-"users in your country.</span></p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: alkonlinequotedetails.ui:29 alkonlinequotesprofile.ui:119
-#, kde-format
-msgid "Details"
-msgstr "Podrobnosti"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: alkonlinequotedetails.ui:42
-#, kde-format
-msgid "Download mode"
-msgstr "Režim stahování"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotedetails.ui:52
-#, kde-format
-msgid "Remote source"
-msgstr "Odstranit zdroj"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
-#: alkonlinequotedetails.ui:66 alkonlinequotesprofile.ui:220
-#, kde-format
-msgid "Regular Expression to extract the price from the downloaded data"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
-#: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
-#, kde-format
-msgid "Regular Expression to extract the identifier from the downloaded data"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
-#: alkonlinequotedetails.ui:80 alkonlinequotedetails.ui:202
-#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
-#, kde-format
-msgid "Regular Expression to extract the date from the downloaded data"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
-#, kde-format
-msgid "Identifier"
-msgstr "Identifikátor"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
-#, kde-format
-msgid "Price"
-msgstr "Cena"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: alkonlinequotedetails.ui:107
-#, kde-format
-msgid "Default Identifier"
-msgstr "Výchozí identifikátor"
-
-#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
-#: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
-#, kde-format
-msgid "Selected by"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: alkonlinequotedetails.ui:135
-#, kde-format
-msgid "Price decimal separator"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
-#. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editIdSelector)
-#: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
-#, kde-format
-msgid "How to select the identifier"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequotedetails.ui:156
-#, kde-format
-msgid "Data Format"
-msgstr "Formát dat"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
-#, kde-format
-msgid "URL to be used to download the quote"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
-#: alkonlinequotedetails.ui:166 alkonlinequotesprofile.ui:199
-#, no-c-format, kde-format
-msgid ""
-"Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
-"replaced with the symbol for the security being quoted. For currency "
-"conversions, <b>%2</b> will be replaced with the currency to be quoted and "
-"<b>%1</b> with the currency the quote is based on."
-msgstr ""
-"Zadejte URL, kde můžete získat online ceny. <b>%1</b> se nahradí symbolem "
-"cenného papíru. Pokud si přejete získat směnný kurs měny, potom platí, že "
-"získaná cena je vyjádření <b>%2</b> v <b>%1</b>."
-
-#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
-#: alkonlinequotedetails.ui:184
-#, kde-format
-msgctxt "1"
-msgid "Period (.)"
-msgstr "Tečka (.)"
-
-#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
-#: alkonlinequotedetails.ui:189
-#, kde-format
-msgctxt "2"
-msgid "Comma (,)"
-msgstr "Čárka (,)"
-
-#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
-#: alkonlinequotedetails.ui:194
-#, kde-format
-msgid "Legacy"
-msgstr "Zastaralé"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequotedetails.ui:209 alkonlinequotesprofile.ui:189
-#, kde-format
-msgid "Options"
-msgstr "Možnosti"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: alkonlinequotedetails.ui:223 alkonlinequotesprofile.ui:179
-#, kde-format
-msgid "Date Format"
-msgstr "Formát data"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: alkonlinequotedetails.ui:233 alkonlinequotesprofile.ui:132
-#, kde-format
-msgid "URL"
-msgstr "URL"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
-#: alkonlinequotedetails.ui:243
-#, kde-format
-msgid "An identifier that is known to work for this online quote source"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: alkonlinequotedetails.ui:250 alkonlinequotesprofile.ui:169
-#, kde-format
-msgid "Date"
-msgstr "Datum"
-
-#. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editDataFormat)
-#: alkonlinequotedetails.ui:260
-#, kde-format
-msgid "The type of data expected to downloaded and processed."
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_acceptButton)
-#: alkonlinequotedetails.ui:274
-#, kde-format
-msgid "Accepts the entered data and stores it"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_acceptButton)
-#: alkonlinequotedetails.ui:277
-#, kde-format
-msgid "Use this to accept the modified data."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
-#. i18n: ectx: property (text), widget (AlkPushButton, m_acceptButton)
-#: alkonlinequotedetails.ui:280 alkonlinequotesprofile.ui:312
-#, kde-format
-msgctxt "@action update quotes from online quote source"
-msgid "Accept"
-msgstr "Přijmout"
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
-#: alkonlinequotedetails.ui:291
-#, kde-format
-msgctxt "@action cancel actual changes"
-msgid "Cancel"
-msgstr "Zrušit"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_copyButton)
-#: alkonlinequotedetails.ui:302
-#, kde-format
-msgid "Copies the details as text to the clipboard."
-msgstr "Zkopíruje podrobnosti jako text do schránky."
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
-#: alkonlinequotedetails.ui:305
-#, kde-format
-msgid ""
-"Use this to copy the details as text to the clipboard to e.g. paste it in an "
-"email."
-msgstr ""
-"Použijte toto pro zkopírování podrobností do schránky jako text např. pro "
-"vložení do e-mailu."
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
-#: alkonlinequotedetails.ui:308
-#, kde-format
-msgctxt "@action copy details to clipboard"
-msgid "Copy"
-msgstr "Kopírovat"
-
-#. i18n: ectx: property (text), widget (QLabel, m_buildKey)
-#: alkonlinequotedetails.ui:336
-#, kde-format
-msgid "build_key"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
-#: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
-#, kde-format
-msgid "Debugging"
-msgstr "Ladění"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_checkButton)
-#: alkonlinequotesdebug.ui:37
-#, kde-format
-msgid "Check the selected source entry"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_checkButton)
-#: alkonlinequotesdebug.ui:40
-#, kde-format
-msgid "Use this to check the selected online source entry"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
-#: alkonlinequotesdebug.ui:43 alkonlinequotesprofile.ui:402
-#, kde-format
-msgid "Check Source"
-msgstr "Zkontrolovat zdroj"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
-#: alkonlinequotesdebug.ui:55
-#, kde-format
-msgid ""
-"Display the response of a query of the selected source entry in a web browser"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
-#: alkonlinequotesdebug.ui:58
-#, kde-format
-msgid ""
-"Use this option to display the response to a query from the selected online "
-"source."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
-#: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
-#, kde-format
-msgid "Show Page"
-msgstr "Zobrazit stránku"
-
-#. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
-#: alkonlinequotesdebug.ui:89
-#, kde-format
-msgid "End date"
-msgstr "Datum ukončení"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: alkonlinequotesdebug.ui:96 alkonlinequotesprofile.ui:381
-#, kde-format
-msgid "Two Symbols"
-msgstr "Dva symboly"
-
-#. i18n: ectx: property (text), widget (QLabel, m_startDateLabel)
-#: alkonlinequotesdebug.ui:112
-#, kde-format
-msgid "Start date"
-msgstr "Počáteční datum"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequotesdebug.ui:122 alkonlinequotesprofile.ui:367
-#, kde-format
-msgid "One Symbol"
-msgstr "Jeden symbol"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: alkonlinequotesdebug.ui:129
-#, kde-format
-msgid "Return last price state"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_reverseSearchStateCheckBox)
-#: alkonlinequotesdebug.ui:139
-#, kde-format
-msgid "Enable reverse search"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
-#: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
-#, kde-format
-msgid "<html><head/><body><p>online price quotes</p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_newButton)
-#: alkonlinequoteslist.ui:48
-#, kde-format
-msgid "Create a new source entry for online quotes"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
-#: alkonlinequoteslist.ui:51
-#, kde-format
-msgid "Use this to create a new entry for online quotes."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
-#: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
-#, kde-format
-msgctxt "@action create new quote source"
-msgid "New"
-msgstr "Vytvořit"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_deleteButton)
-#: alkonlinequoteslist.ui:64
-#, kde-format
-msgid "Delete the selected source entry"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_deleteButton)
-#: alkonlinequoteslist.ui:67
-#, kde-format
-msgid "Use this to delete the selected online source entry"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
-#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
-#: alkonlinequoteslist.ui:70 alkonlinequotesprofile.ui:61
-#: alkonlinequotesprofiles.ui:62
-#, kde-format
-msgid "Delete"
-msgstr "Smazat"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequoteslist.ui:82 alkonlinequotesprofile.ui:68
-#, kde-format
-msgid ""
-"Create a duplicate of the currently selected source entry under a different "
-"name."
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequoteslist.ui:85 alkonlinequotesprofile.ui:71
-#, kde-format
-msgid "Use this to create a duplicate of an entry for an online source"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
-#: alkonlinequoteslist.ui:88 alkonlinequotesprofile.ui:74
-#, kde-format
-msgid "Duplicate"
-msgstr "Duplikovat"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
-#: alkonlinequoteslist.ui:100
-#, kde-format
-msgid ""
-"Creates a new local online source as reference to a remote online quote "
-"source"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
-#: alkonlinequoteslist.ui:103
-#, kde-format
-msgid ""
-"Use this to create a new local online quote source that links to a remote "
-"online quote source. The attributes of the remote online course source are "
-"then used for a price or quote request."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
-#: alkonlinequoteslist.ui:106
-#, kde-format
-msgid "Add reference"
-msgstr "Přidat odkaz"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
-#: alkonlinequoteslist.ui:118
-#, kde-format
-msgid "Install online quote source from the KDE Store"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
-#: alkonlinequoteslist.ui:121
-#, kde-format
-msgid "Use this to install an online quote source from the KDE Store."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
-#: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
-#, kde-format
-msgid "Install"
-msgstr "Instalovat"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_uploadButton)
-#: alkonlinequoteslist.ui:136
-#, kde-format
-msgid "Upload modified remote online quote source to the KDE Store"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
-#: alkonlinequoteslist.ui:139
-#, kde-format
-msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
-#: alkonlinequoteslist.ui:142
-#, kde-format
-msgid "Upload"
-msgstr "Odeslat"
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
-#: alkonlinequoteslist.ui:154
-#, kde-format
-msgid ""
-"Reset changes to local sources that were made after the last selection of "
-"this profile"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
-#: alkonlinequoteslist.ui:157
-#, kde-format
-msgid ""
-"Use this to reset changes to local sources that were made after the last "
-"selection of this profile."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
-#: alkonlinequoteslist.ui:160
-#, kde-format
-msgid "Reset"
-msgstr "Obnovit"
-
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
 msgid "Remote unpublished"
@@ -734,93 +261,6 @@ msgstr "CSS"
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
 msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
-#: alkonlinequotesprofile.ui:244
-#, kde-format
-msgid "GHNS Source"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
-#: alkonlinequotesprofile.ui:260
-#, kde-format
-msgid ""
-"<p>For easier processing of the data returned by the online source, KMyMoney "
-"usually strips unused parts before it is parsed with the regular "
-"expressions. If matching of the fields relies on those items, then use this "
-"option to turn stripping off.</p>\n"
-"\n"
-"<p>The following items are usually removed by stripping:\n"
-"\n"
-"<ul>\n"
-"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
-"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
-"<li>duplicate whitespace</li>\n"
-"</ul>\n"
-"</p>"
-msgstr ""
-"<p>Pro snazší zpracování dat z online zdroje aplikace KMyMoney obvykle "
-"odstraňuje nepoužité části před tím, než jsou analyzovány regulárními "
-"výrazy. Pokud párování polí závisí na těchto položkách, můžete odstraňování "
-"přebytečných částí vypnout.</p>\n"
-"\n"
-"<p>Obvykle jsou odstraňovány následující položky:\n"
-"\n"
-"<ul>\n"
-"<li>HTML značky jako jsou <b>&lt;tag&gt;</b></li> <li>Znaky kódované "
-"ampersandy, jako například <b>&amp;nbsp;</b></li> <li>Duplikátní mezery</li> "
-"</ul> </p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
-#: alkonlinequotesprofile.ui:263
-#, kde-format
-msgid "Skip HTML stripping"
-msgstr "Neodstraňovat HTML"
-
-#. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
-#: alkonlinequotesprofiledetails.ui:26
-#, kde-format
-msgid "Profile details"
-msgstr "Podrobnosti profilu"
-
-#. i18n: ectx: property (text), widget (QLabel, m_configLabel)
-#: alkonlinequotesprofiledetails.ui:35
-#, kde-format
-msgid "Config file"
-msgstr "Soubor nastavení"
-
-#. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
-#: alkonlinequotesprofiledetails.ui:42
-#, kde-format
-msgid "GHNS config file"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
-#: alkonlinequotesprofiledetails.ui:49
-#, kde-format
-msgid "GHNS data path"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
-#: alkonlinequotesprofiles.ui:26 alkonlinequoteuploaddialog.ui:26
-#, kde-format
-msgid ""
-"<html><head/><body><p>Select, add or delete an application profile, where to "
-"load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
-#: alkonlinequotesprofiles.ui:29
-#, kde-format
-msgid "Application Profiles"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_newProfile)
-#: alkonlinequotesprofiles.ui:48
-#, kde-format
-msgid "New"
-msgstr "Nový"
 
 #: alkonlinequoteswidget.cpp:244
 #, kde-format
@@ -991,100 +431,6 @@ msgstr ""
 msgid "Online Quote HTML Result Window"
 msgstr ""
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: alkonlinequoteuploaddialog.ui:29
-#, fuzzy, kde-format
-#| msgid "Online Quotes"
-msgid "Upload online quote"
-msgstr "Online ceny"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: alkonlinequoteuploaddialog.ui:38
-#, kde-format
-msgid "Version to create:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
-#: alkonlinequoteuploaddialog.ui:61
-#, kde-format
-msgid "Copy path to clipboard"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
-#. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
-#: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
-#, kde-format
-msgid "TextLabel"
-msgstr "Textový štítek"
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
-#: alkonlinequoteuploaddialog.ui:88
-#, kde-format
-msgid "Enter store and close dialog"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: alkonlinequoteuploaddialog.ui:99
-#, fuzzy, kde-format
-#| msgid "Online Quotes"
-msgid "Online quote source:"
-msgstr "Online ceny"
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
-#: alkonlinequoteuploaddialog.ui:109
-#, kde-format
-msgid "Close dialog"
-msgstr "Zavřít dialog"
-
-#. i18n: ectx: property (text), widget (QLabel, label_0)
-#: alkonlinequoteuploaddialog.ui:123
-#, kde-format
-msgid ""
-"This dialog allows you to create a package for an online quote source, which "
-"you can then upload to the online store used by alkimia to share with other "
-"users."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
-#: alkonlinequoteuploaddialog.ui:133
-#, kde-format
-msgid "Failed to create package at:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_1)
-#: alkonlinequoteuploaddialog.ui:153
-#, kde-format
-msgid ""
-"To upload the generated package to the online store, copy the path of the "
-"generated file into the clipboard, log in to the store mentioned below and "
-"paste the copied url into the corresponding package (see the <b>files</b> "
-"tab)."
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
-#: alkonlinequoteuploaddialog.ui:183
-#, kde-format
-msgid "Create package for uploading"
-msgstr "Vytvořit balíček pro odeslání"
-
-#. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
-#: alkonlinequoteuploaddialog.ui:186
-#, kde-format
-msgid "Create package"
-msgstr "Vytvořit balíček"
-
-#. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
-#: alkonlinequoteuploaddialog.ui:197
-#, kde-format
-msgid "Package has been created at:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: alkonlinequoteuploaddialog.ui:210
-#, kde-format
-msgid "Package edit url:"
-msgstr ""
-
 #: alkwebview.cpp:89
 #, kde-format
 msgid "Open inspector in new window"
@@ -1094,6 +440,189 @@ msgstr "Otevřít inspektor v novém okně"
 #, kde-format
 msgid "Inspect element"
 msgstr "Prozkoumat prvek"
+
+#~ msgid "Online Quotes"
+#~ msgstr "Online ceny"
+
+#~ msgid "Details"
+#~ msgstr "Podrobnosti"
+
+#~ msgid "Download mode"
+#~ msgstr "Režim stahování"
+
+#~ msgid "Remote source"
+#~ msgstr "Odstranit zdroj"
+
+#~ msgid "Identifier"
+#~ msgstr "Identifikátor"
+
+#~ msgid "Price"
+#~ msgstr "Cena"
+
+#~ msgid "Default Identifier"
+#~ msgstr "Výchozí identifikátor"
+
+#~ msgid "Data Format"
+#~ msgstr "Formát dat"
+
+#~ msgid ""
+#~ "Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
+#~ "replaced with the symbol for the security being quoted. For currency "
+#~ "conversions, <b>%2</b> will be replaced with the currency to be quoted "
+#~ "and <b>%1</b> with the currency the quote is based on."
+#~ msgstr ""
+#~ "Zadejte URL, kde můžete získat online ceny. <b>%1</b> se nahradí symbolem "
+#~ "cenného papíru. Pokud si přejete získat směnný kurs měny, potom platí, že "
+#~ "získaná cena je vyjádření <b>%2</b> v <b>%1</b>."
+
+#~ msgctxt "1"
+#~ msgid "Period (.)"
+#~ msgstr "Tečka (.)"
+
+#~ msgctxt "2"
+#~ msgid "Comma (,)"
+#~ msgstr "Čárka (,)"
+
+#~ msgid "Legacy"
+#~ msgstr "Zastaralé"
+
+#~ msgid "Options"
+#~ msgstr "Možnosti"
+
+#~ msgid "Date Format"
+#~ msgstr "Formát data"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgctxt "@action update quotes from online quote source"
+#~ msgid "Accept"
+#~ msgstr "Přijmout"
+
+#~ msgctxt "@action cancel actual changes"
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgid "Copies the details as text to the clipboard."
+#~ msgstr "Zkopíruje podrobnosti jako text do schránky."
+
+#~ msgid ""
+#~ "Use this to copy the details as text to the clipboard to e.g. paste it in "
+#~ "an email."
+#~ msgstr ""
+#~ "Použijte toto pro zkopírování podrobností do schránky jako text např. pro "
+#~ "vložení do e-mailu."
+
+#~ msgctxt "@action copy details to clipboard"
+#~ msgid "Copy"
+#~ msgstr "Kopírovat"
+
+#~ msgid "Debugging"
+#~ msgstr "Ladění"
+
+#~ msgid "Check Source"
+#~ msgstr "Zkontrolovat zdroj"
+
+#~ msgid "Show Page"
+#~ msgstr "Zobrazit stránku"
+
+#~ msgid "End date"
+#~ msgstr "Datum ukončení"
+
+#~ msgid "Two Symbols"
+#~ msgstr "Dva symboly"
+
+#~ msgid "Start date"
+#~ msgstr "Počáteční datum"
+
+#~ msgid "One Symbol"
+#~ msgstr "Jeden symbol"
+
+#~ msgctxt "@action create new quote source"
+#~ msgid "New"
+#~ msgstr "Vytvořit"
+
+#~ msgid "Delete"
+#~ msgstr "Smazat"
+
+#~ msgid "Duplicate"
+#~ msgstr "Duplikovat"
+
+#~ msgid "Add reference"
+#~ msgstr "Přidat odkaz"
+
+#~ msgid "Install"
+#~ msgstr "Instalovat"
+
+#~ msgid "Upload"
+#~ msgstr "Odeslat"
+
+#~ msgid "Reset"
+#~ msgstr "Obnovit"
+
+#~ msgid ""
+#~ "<p>For easier processing of the data returned by the online source, "
+#~ "KMyMoney usually strips unused parts before it is parsed with the regular "
+#~ "expressions. If matching of the fields relies on those items, then use "
+#~ "this option to turn stripping off.</p>\n"
+#~ "\n"
+#~ "<p>The following items are usually removed by stripping:\n"
+#~ "\n"
+#~ "<ul>\n"
+#~ "<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
+#~ "<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
+#~ "<li>duplicate whitespace</li>\n"
+#~ "</ul>\n"
+#~ "</p>"
+#~ msgstr ""
+#~ "<p>Pro snazší zpracování dat z online zdroje aplikace KMyMoney obvykle "
+#~ "odstraňuje nepoužité části před tím, než jsou analyzovány regulárními "
+#~ "výrazy. Pokud párování polí závisí na těchto položkách, můžete "
+#~ "odstraňování přebytečných částí vypnout.</p>\n"
+#~ "\n"
+#~ "<p>Obvykle jsou odstraňovány následující položky:\n"
+#~ "\n"
+#~ "<ul>\n"
+#~ "<li>HTML značky jako jsou <b>&lt;tag&gt;</b></li> <li>Znaky kódované "
+#~ "ampersandy, jako například <b>&amp;nbsp;</b></li> <li>Duplikátní mezery</"
+#~ "li> </ul> </p>"
+
+#~ msgid "Skip HTML stripping"
+#~ msgstr "Neodstraňovat HTML"
+
+#~ msgid "Profile details"
+#~ msgstr "Podrobnosti profilu"
+
+#~ msgid "Config file"
+#~ msgstr "Soubor nastavení"
+
+#~ msgid "New"
+#~ msgstr "Nový"
+
+#, fuzzy
+#~| msgid "Online Quotes"
+#~ msgid "Upload online quote"
+#~ msgstr "Online ceny"
+
+#~ msgid "TextLabel"
+#~ msgstr "Textový štítek"
+
+#, fuzzy
+#~| msgid "Online Quotes"
+#~ msgid "Online quote source:"
+#~ msgstr "Online ceny"
+
+#~ msgid "Close dialog"
+#~ msgstr "Zavřít dialog"
+
+#~ msgid "Create package for uploading"
+#~ msgstr "Vytvořit balíček pro odeslání"
+
+#~ msgid "Create package"
+#~ msgstr "Vytvořit balíček"
 
 #~ msgid "Failed to open downloaded file"
 #~ msgstr "Nelze otevřít stažený soubor"

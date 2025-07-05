@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 03:30+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2020-10-28 19:22+0100\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -67,23 +67,14 @@ msgstr "Navigator"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Actualisation per '%1' disponibile in profilo '%2'"
 
-#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
-#: mainwindow.ui:14
-#, kde-format
-msgid "Online Quotes Editor"
-msgstr "Editor de citationes in linea"
+#~ msgid "Online Quotes Editor"
+#~ msgstr "Editor de citationes in linea"
 
-#. i18n: ectx: property (title), widget (QMenu, menuFile)
-#: mainwindow.ui:30
-#, kde-format
-msgid "File"
-msgstr "File"
+#~ msgid "File"
+#~ msgstr "File"
 
-#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
-#: mainwindow.ui:42
-#, kde-format
-msgid "Quit"
-msgstr "Quita"
+#~ msgid "Quit"
+#~ msgstr "Quita"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr ""
