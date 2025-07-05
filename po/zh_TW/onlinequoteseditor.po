@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onlinequoteseditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-12-30 17:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -68,14 +68,23 @@ msgstr "瀏覽器"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "設定檔 '%2' 中對於 '%1' 有可用的更新"
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "線上報價編輯器"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "線上報價編輯器"
 
-#~ msgid "File"
-#~ msgstr "檔案"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "檔案"
 
-#~ msgid "Quit"
-#~ msgstr "離開"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "離開"
 
 #~ msgid "(C) 2018-2019 Ralf Habacker"
 #~ msgstr "(C) 2018-2019 Ralf Habacker"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2024-03-30 19:46\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -67,11 +67,20 @@ msgstr "浏览"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "“%1”的更新在方案“%2”中可用"
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "在线报价编辑器"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "在线报价编辑器"
 
-#~ msgid "File"
-#~ msgstr "文件"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "文件"
 
-#~ msgid "Quit"
-#~ msgstr "退出"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "退出"

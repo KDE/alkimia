@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-04-30 10:33+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -67,14 +67,23 @@ msgstr "Navegador"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Hai unha actualización para «%1» dispoñíbel no perfil «%2»"
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "Editor de cotizacións de Internet"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Editor de cotizacións de Internet"
 
-#~ msgid "File"
-#~ msgstr "Ficheiro"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Ficheiro"
 
-#~ msgid "Quit"
-#~ msgstr "Saír"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Saír"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "Editor de cotizacións de Internet usado por aplicacións financeiras"

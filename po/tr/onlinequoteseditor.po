@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-06-08 18:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -67,11 +67,20 @@ msgstr "Tarayıcı"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "'%2' profilinde '%1' için güncellemeler kullanılabilir"
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "Çevrimiçi Kurlar Düzenleyicisi"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Çevrimiçi Kurlar Düzenleyicisi"
 
-#~ msgid "File"
-#~ msgstr "Dosya"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Dosya"
 
-#~ msgid "Quit"
-#~ msgstr "Çık"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Çık"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-09-26 10:57+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -68,11 +68,20 @@ msgstr "Brskalnik"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Posodobi za '%1' na voljo v profilu '%2'"
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "Urejevalnik spletnih navedb"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Urejevalnik spletnih navedb"
 
-#~ msgid "File"
-#~ msgstr "Datoteka"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Datoteka"
 
-#~ msgid "Quit"
-#~ msgstr "Zapusti"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Zapusti"

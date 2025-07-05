@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onlinequoteseditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2021-05-11 04:24+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -66,14 +66,23 @@ msgstr "Browser"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Aktualisierung für „%1“ im Profil „%2“ verfügbar"
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "Editor für Online-Kursnotizen"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Editor für Online-Kursnotizen"
 
-#~ msgid "File"
-#~ msgstr "Datei"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Datei"
 
-#~ msgid "Quit"
-#~ msgstr "Beenden"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Beenden"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "Editor für Online-Kursnotizen für Finanz-Anwendungen"

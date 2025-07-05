@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-10-04 20:22+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -68,14 +68,23 @@ msgstr "탐색기"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "프로필 '%2'의 '%1' 업데이트 사용 가능"
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "온라인 시세 편집기"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "온라인 시세 편집기"
 
-#~ msgid "File"
-#~ msgstr "파일"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "파일"
 
-#~ msgid "Quit"
-#~ msgstr "끝내기"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "끝내기"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "재무 프로그램에서 사용하는 온라인 가격 시세 편집기"

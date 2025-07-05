@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-11-15 09:17+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -67,14 +67,23 @@ msgstr "Przeglądarka"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Dostępne uaktualnienie '%1' w profilu '%2'"
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "Edytor wycen z sieci"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Edytor wycen z sieci"
 
-#~ msgid "File"
-#~ msgstr "Plik"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Plik"
 
-#~ msgid "Quit"
-#~ msgstr "Zakończ"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Zakończ"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "Edytor dla wycen z sieci używanych przez aplikacje finansowe"

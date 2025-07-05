@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2025-06-11 00:14+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -187,6 +187,494 @@ msgstr "%1의 금액을 업데이트할 수 없음(빈 시세 데이터)"
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "%1의 URL을 가져오는 중에 시간 제한 초과됨"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
+#. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfileDetailsWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesDebugWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteUploadDialog)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesListWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteDetailsWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfilesWidget)
+#: alkonlinequotedetails.ui:20 alkonlinequotesdebug.ui:20
+#: alkonlinequoteslist.ui:20 alkonlinequoteslist.ui:32
+#: alkonlinequotesprofile.ui:20 alkonlinequotesprofile.ui:32
+#: alkonlinequotesprofiledetails.ui:20 alkonlinequotesprofiles.ui:20
+#: alkonlinequoteuploaddialog.ui:20
+#, kde-format
+msgid "Online Quotes"
+msgstr "온라인 시세"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequotedetails.ui:26 alkonlinequotesprofile.ui:116
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
+"expressions which can be used to parse the data returned from the URL "
+"entered above. The symbol, price, and date must be found in the quote data "
+"to be usable. You may also try the KMyMoney forum at </span><a href="
+"\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
+"a>  or the <span style=\" font-style:italic;\">user's mailinglist at </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\"> to find what settings work for other "
+"users in your country.</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">위에 입력한 URL에"
+"서 반환된 데이터를 해석하는 데 사용할 정규 표현식을 입력하십시오. 시세 데이터"
+"를 사용하려면 코드, 금액, 날짜가 포함되어 있어야 합니다. </span><a href="
+"\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
+"a><span style=\" font-style:italic;\">에 있는 KMyMoney 포럼을 사용하거나</"
+"span> 사용자 메일링 리스트인 <a href=\"mailto:kmymoney@kde.org\"><span style="
+"\" font-style:italic; text-decoration: underline; color:#2980b9;"
+"\">kmymoney@kde.org</span></a><span style=\" font-style:italic;\">에서 해당 "
+"국가의 다른 사용자가 사용하고 있는 설정을 찾을 수도 있습니다.</span></p></"
+"body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequotedetails.ui:29 alkonlinequotesprofile.ui:119
+#, kde-format
+msgid "Details"
+msgstr "자세한 정보"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: alkonlinequotedetails.ui:42
+#, kde-format
+msgid "Download mode"
+msgstr "다운로드 모드"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequotedetails.ui:52
+#, kde-format
+msgid "Remote source"
+msgstr "원격 원본"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
+#: alkonlinequotedetails.ui:66 alkonlinequotesprofile.ui:220
+#, kde-format
+msgid "Regular Expression to extract the price from the downloaded data"
+msgstr "다운로드한 데이터에서 금액을 추출하는 정규 표현식"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
+#: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
+#, kde-format
+msgid "Regular Expression to extract the identifier from the downloaded data"
+msgstr "다운로드한 데이터에서 식별자를 추출하는 정규 표현식"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#: alkonlinequotedetails.ui:80 alkonlinequotedetails.ui:202
+#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr "다운로드한 데이터에서 날짜를 추출하는 정규 표현식"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
+#, kde-format
+msgid "Identifier"
+msgstr "식별자"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
+#, kde-format
+msgid "Price"
+msgstr "금액"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: alkonlinequotedetails.ui:107
+#, kde-format
+msgid "Default Identifier"
+msgstr "기본 식별자"
+
+#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
+#: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
+#, kde-format
+msgid "Selected by"
+msgstr "선택 기준"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequotedetails.ui:135
+#, kde-format
+msgid "Price decimal separator"
+msgstr "금액 소수 구분자"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
+#. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editIdSelector)
+#: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
+#, kde-format
+msgid "How to select the identifier"
+msgstr "식별자를 선택하는 방법"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotedetails.ui:156
+#, kde-format
+msgid "Data Format"
+msgstr "데이터 형식"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
+#: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
+#, kde-format
+msgid "URL to be used to download the quote"
+msgstr "시세 다운로드에 사용할 URL"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
+#: alkonlinequotedetails.ui:166 alkonlinequotesprofile.ui:199
+#, no-c-format, kde-format
+msgid ""
+"Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
+"replaced with the symbol for the security being quoted. For currency "
+"conversions, <b>%2</b> will be replaced with the currency to be quoted and "
+"<b>%1</b> with the currency the quote is based on."
+msgstr ""
+"주식 시세를 가져올 URL을 입력하십시오. <b>%1</b> 문자열은 조회하는 종목 코드"
+"로 대체됩니다. 통화 환산의 경우, <b>%2</b>는 시세 대상 통화로, <b>%1</b>는 시"
+"세 기준 통화로 대체됩니다."
+
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:184
+#, kde-format
+msgctxt "1"
+msgid "Period (.)"
+msgstr "마침표(.)"
+
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:189
+#, kde-format
+msgctxt "2"
+msgid "Comma (,)"
+msgstr "쉼표(,)"
+
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:194
+#, kde-format
+msgid "Legacy"
+msgstr "레거시"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotedetails.ui:209 alkonlinequotesprofile.ui:189
+#, kde-format
+msgid "Options"
+msgstr "옵션"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequotedetails.ui:223 alkonlinequotesprofile.ui:179
+#, kde-format
+msgid "Date Format"
+msgstr "날짜 형식"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequotedetails.ui:233 alkonlinequotesprofile.ui:132
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
+#: alkonlinequotedetails.ui:243
+#, kde-format
+msgid "An identifier that is known to work for this online quote source"
+msgstr "이 온라인 시세 원본에서 사용할 수 있는 식별자"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequotedetails.ui:250 alkonlinequotesprofile.ui:169
+#, kde-format
+msgid "Date"
+msgstr "날짜"
+
+#. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editDataFormat)
+#: alkonlinequotedetails.ui:260
+#, kde-format
+msgid "The type of data expected to downloaded and processed."
+msgstr "다운로드하고 처리할 데이터의 예상되는 형식입니다."
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_acceptButton)
+#: alkonlinequotedetails.ui:274
+#, kde-format
+msgid "Accepts the entered data and stores it"
+msgstr "입력한 데이터를 수락하고 저장합니다"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_acceptButton)
+#: alkonlinequotedetails.ui:277
+#, kde-format
+msgid "Use this to accept the modified data."
+msgstr "이 옵션을 사용하여 수정된 데이터를 수락합니다."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_acceptButton)
+#: alkonlinequotedetails.ui:280 alkonlinequotesprofile.ui:312
+#, kde-format
+msgctxt "@action update quotes from online quote source"
+msgid "Accept"
+msgstr "수락"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
+#: alkonlinequotedetails.ui:291
+#, kde-format
+msgctxt "@action cancel actual changes"
+msgid "Cancel"
+msgstr "취소"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:302
+#, kde-format
+msgid "Copies the details as text to the clipboard."
+msgstr "자세한 정보를 클립보드에 텍스트로 복사합니다."
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:305
+#, kde-format
+msgid ""
+"Use this to copy the details as text to the clipboard to e.g. paste it in an "
+"email."
+msgstr ""
+"이메일 등에 붙여넣기 위해서 자세한 정보를 클립보드에 텍스트로 복사하려면 사용"
+"하십시오."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:308
+#, kde-format
+msgctxt "@action copy details to clipboard"
+msgid "Copy"
+msgstr "복사"
+
+#. i18n: ectx: property (text), widget (QLabel, m_buildKey)
+#: alkonlinequotedetails.ui:336
+#, kde-format
+msgid "build_key"
+msgstr "build_key"
+
+#. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
+#: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
+#, kde-format
+msgid "Debugging"
+msgstr "디버깅"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:37
+#, kde-format
+msgid "Check the selected source entry"
+msgstr "선택한 원본 항목 확인"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:40
+#, kde-format
+msgid "Use this to check the selected online source entry"
+msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 확인합니다."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:43 alkonlinequotesprofile.ui:402
+#, kde-format
+msgid "Check Source"
+msgstr "원본 확인"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:55
+#, kde-format
+msgid ""
+"Display the response of a query of the selected source entry in a web browser"
+msgstr "선택한 원본 항목에 대한 질의의 응답을 웹 브라우저에 표시"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:58
+#, kde-format
+msgid ""
+"Use this option to display the response to a query from the selected online "
+"source."
+msgstr "이 옵션을 사용하면 선택한 온라인 원본에서 질의의 응답을 표시합니다."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
+#, kde-format
+msgid "Show Page"
+msgstr "페이지 표시"
+
+#. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
+#: alkonlinequotesdebug.ui:89
+#, kde-format
+msgid "End date"
+msgstr "종료 날짜"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequotesdebug.ui:96 alkonlinequotesprofile.ui:381
+#, kde-format
+msgid "Two Symbols"
+msgstr "종목 2개"
+
+#. i18n: ectx: property (text), widget (QLabel, m_startDateLabel)
+#: alkonlinequotesdebug.ui:112
+#, kde-format
+msgid "Start date"
+msgstr "시작 날짜"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotesdebug.ui:122 alkonlinequotesprofile.ui:367
+#, kde-format
+msgid "One Symbol"
+msgstr "종목 1개"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotesdebug.ui:129
+#, kde-format
+msgid "Return last price state"
+msgstr "마지막 금액 상태 반환"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_reverseSearchStateCheckBox)
+#: alkonlinequotesdebug.ui:139
+#, kde-format
+msgid "Enable reverse search"
+msgstr "역방향 검색 사용"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
+#: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
+#, kde-format
+msgid "<html><head/><body><p>online price quotes</p></body></html>"
+msgstr "<html><head/><body><p>온라인 금액 시세</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteslist.ui:48
+#, kde-format
+msgid "Create a new source entry for online quotes"
+msgstr "새로운 온라인 시세 항목 만들기"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteslist.ui:51
+#, kde-format
+msgid "Use this to create a new entry for online quotes."
+msgstr "이 옵션을 사용하여 새로운 온라인 시세 항목을 만듭니다."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
+#, kde-format
+msgctxt "@action create new quote source"
+msgid "New"
+msgstr "새로 만들기"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteslist.ui:64
+#, kde-format
+msgid "Delete the selected source entry"
+msgstr "선택한 원본 항목 삭제"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteslist.ui:67
+#, kde-format
+msgid "Use this to delete the selected online source entry"
+msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 삭제합니다"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
+#: alkonlinequoteslist.ui:70 alkonlinequotesprofile.ui:61
+#: alkonlinequotesprofiles.ui:62
+#, kde-format
+msgid "Delete"
+msgstr "삭제"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteslist.ui:82 alkonlinequotesprofile.ui:68
+#, kde-format
+msgid ""
+"Create a duplicate of the currently selected source entry under a different "
+"name."
+msgstr "현재 선택한 원본 항목의 복사본을 다른 이름으로 만듭니다."
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteslist.ui:85 alkonlinequotesprofile.ui:71
+#, kde-format
+msgid "Use this to create a duplicate of an entry for an online source"
+msgstr "이 항목을 사용하여 온라인 원본에 대한 항목의 복사본을 만듭니다"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteslist.ui:88 alkonlinequotesprofile.ui:74
+#, kde-format
+msgid "Duplicate"
+msgstr "복제"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
+#: alkonlinequoteslist.ui:100
+#, kde-format
+msgid ""
+"Creates a new local online source as reference to a remote online quote "
+"source"
+msgstr "원격 온라인 시세 원본을 참조하는 새 로컬 온라인 원본 만들기"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
+#: alkonlinequoteslist.ui:103
+#, kde-format
+msgid ""
+"Use this to create a new local online quote source that links to a remote "
+"online quote source. The attributes of the remote online course source are "
+"then used for a price or quote request."
+msgstr ""
+"원격 온라인 시세 원본으로 연결하는 새 로컬 온라인 시세 원본을 생성합니다. 원"
+"격 온라인 원본의 속성을 시세나 매매 요청에 사용합니다."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
+#: alkonlinequoteslist.ui:106
+#, kde-format
+msgid "Add reference"
+msgstr "참조 추가"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteslist.ui:118
+#, kde-format
+msgid "Install online quote source from the KDE Store"
+msgstr "KDE 스토어에서 온라인 시세 원본 설치"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteslist.ui:121
+#, kde-format
+msgid "Use this to install an online quote source from the KDE Store."
+msgstr "KDE 스토어에서 온라인 시세 원본을 설치합니다."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
+#, kde-format
+msgid "Install"
+msgstr "설치"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequoteslist.ui:136
+#, kde-format
+msgid "Upload modified remote online quote source to the KDE Store"
+msgstr "수정된 온라인 시세 원본을 KDE 스토어에 업로드"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequoteslist.ui:139
+#, kde-format
+msgid "Use this to upload a modified online quote source to the KDE Store."
+msgstr "수정된 온라인 시세 원본을 KDE 스토어에 업로드합니다."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequoteslist.ui:142
+#, kde-format
+msgid "Upload"
+msgstr "업로드"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:154
+#, kde-format
+msgid ""
+"Reset changes to local sources that were made after the last selection of "
+"this profile"
+msgstr "이 프로필을 마지막으로 선택한 후 로컬 원본에 가해진 변경 사항 초기화"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:157
+#, kde-format
+msgid ""
+"Use this to reset changes to local sources that were made after the last "
+"selection of this profile."
+msgstr ""
+"이 프로필을 마지막으로 선택한 후 로컬 원본에 가해진 변경 사항 초기화하려면 선"
+"택하십시오."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:160
+#, kde-format
+msgid "Reset"
+msgstr "초기화"
+
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
 msgid "Remote unpublished"
@@ -256,6 +744,97 @@ msgstr "CSS"
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
 msgstr "JSON"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequotesprofile.ui:244
+#, kde-format
+msgid "GHNS Source"
+msgstr "GHNS 소스"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
+#: alkonlinequotesprofile.ui:260
+#, kde-format
+msgid ""
+"<p>For easier processing of the data returned by the online source, KMyMoney "
+"usually strips unused parts before it is parsed with the regular "
+"expressions. If matching of the fields relies on those items, then use this "
+"option to turn stripping off.</p>\n"
+"\n"
+"<p>The following items are usually removed by stripping:\n"
+"\n"
+"<ul>\n"
+"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
+"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
+"<li>duplicate whitespace</li>\n"
+"</ul>\n"
+"</p>"
+msgstr ""
+"<p>KMyMoney는 온라인 소스에서 반환된 데이터를 보다 쉽게 처리할 수 있도록 정"
+"규 표현식으로 해석하기 전에 사용되지 않는 부분을 잘라냅니다. 만약 필드 일치 "
+"시 해당 부분을 사용한다면 이 옵션을 사용하여 잘라내기 기능을 비활성화하십시"
+"오.</p>\n"
+"\n"
+"<p>잘라내기 기능에서는 대개 다음 항목을 삭제합니다:\n"
+"\n"
+"<ul>\n"
+"<li>HTML 태그(예:<b>&lt;tag&gt;</b></li>)\n"
+"<li>& 인코딩된 문자(예:<b>&amp;nbsp;</b></li>)\n"
+"<li>중복된 공백</li>\n"
+"</ul>\n"
+"</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
+#: alkonlinequotesprofile.ui:263
+#, kde-format
+msgid "Skip HTML stripping"
+msgstr "HTML 태그 제거 건너뛰기"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
+#: alkonlinequotesprofiledetails.ui:26
+#, kde-format
+msgid "Profile details"
+msgstr "프로필 자세한 정보"
+
+#. i18n: ectx: property (text), widget (QLabel, m_configLabel)
+#: alkonlinequotesprofiledetails.ui:35
+#, kde-format
+msgid "Config file"
+msgstr "설정 파일"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
+#: alkonlinequotesprofiledetails.ui:42
+#, kde-format
+msgid "GHNS config file"
+msgstr "GHNS 설정 파일"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
+#: alkonlinequotesprofiledetails.ui:49
+#, kde-format
+msgid "GHNS data path"
+msgstr "GHNS 데이터 경로"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequotesprofiles.ui:26 alkonlinequoteuploaddialog.ui:26
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select, add or delete an application profile, where to "
+"load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Kmymoney 또는 Skrooge와 같은 앱에서 사용하는 프로필을 "
+"선택, 추가 또는 삭제합니다.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequotesprofiles.ui:29
+#, kde-format
+msgid "Application Profiles"
+msgstr "앱 프로필"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newProfile)
+#: alkonlinequotesprofiles.ui:48
+#, kde-format
+msgid "New"
+msgstr "새로 만들기"
 
 #: alkonlinequoteswidget.cpp:244
 #, kde-format
@@ -426,6 +1005,103 @@ msgstr "<b>새 시세 원본</b>이 이미 존재합니다."
 msgid "Online Quote HTML Result Window"
 msgstr "온라인 시세 HTML 결과 창"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: alkonlinequoteuploaddialog.ui:29
+#, kde-format
+msgid "Upload online quote"
+msgstr "온라인 시세 업로드"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequoteuploaddialog.ui:38
+#, kde-format
+msgid "Version to create:"
+msgstr "생성할 버전:"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
+#: alkonlinequoteuploaddialog.ui:61
+#, kde-format
+msgid "Copy path to clipboard"
+msgstr "클립보드에 경로 복사"
+
+#. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
+#. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
+#: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
+#, kde-format
+msgid "TextLabel"
+msgstr "텍스트 레이블"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
+#: alkonlinequoteuploaddialog.ui:88
+#, kde-format
+msgid "Enter store and close dialog"
+msgstr "스토어에 들어가고 대화 상자 닫기"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequoteuploaddialog.ui:99
+#, kde-format
+msgid "Online quote source:"
+msgstr "온라인 시세 원본:"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
+#: alkonlinequoteuploaddialog.ui:109
+#, kde-format
+msgid "Close dialog"
+msgstr "대화 상자 닫기"
+
+#. i18n: ectx: property (text), widget (QLabel, label_0)
+#: alkonlinequoteuploaddialog.ui:123
+#, kde-format
+msgid ""
+"This dialog allows you to create a package for an online quote source, which "
+"you can then upload to the online store used by alkimia to share with other "
+"users."
+msgstr ""
+"이 대화 상자에서는 온라인 시세 원본의 패키지를 만들 수 있습니다. 해당 패키지"
+"는 Alkimia 온라인 스토어에 업로드하여 다른 사용자와 공유할 수 있습니다."
+
+#. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
+#: alkonlinequoteuploaddialog.ui:133
+#, kde-format
+msgid "Failed to create package at:"
+msgstr "다음 위치에 패키지를 만들 수 없음:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: alkonlinequoteuploaddialog.ui:153
+#, kde-format
+msgid ""
+"To upload the generated package to the online store, copy the path of the "
+"generated file into the clipboard, log in to the store mentioned below and "
+"paste the copied url into the corresponding package (see the <b>files</b> "
+"tab)."
+msgstr ""
+"생성된 패키지를 온라인 스토어에 업로드하려면, 생성된 파일의 경로를 클립보드"
+"에 복사하고, 아래의 스토어에 로그인한 다음 복사된 URL을 해당 패키지에 붙여넣"
+"으십시오(<b>파일</b> 탭 참조)."
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
+#: alkonlinequoteuploaddialog.ui:183
+#, kde-format
+msgid "Create package for uploading"
+msgstr "업로드할 패키지 만들기"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
+#: alkonlinequoteuploaddialog.ui:186
+#, kde-format
+msgid "Create package"
+msgstr "패키지 만들기"
+
+#. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
+#: alkonlinequoteuploaddialog.ui:197
+#, kde-format
+msgid "Package has been created at:"
+msgstr "패키지 생성 일시:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: alkonlinequoteuploaddialog.ui:210
+#, kde-format
+msgid "Package edit url:"
+msgstr "패키지 편집 URL:"
+
 #: alkwebview.cpp:89
 #, kde-format
 msgid "Open inspector in new window"
@@ -435,389 +1111,6 @@ msgstr "새 창으로 요소 검사 도구 열기"
 #, kde-format
 msgid "Inspect element"
 msgstr "요소 검사"
-
-#~ msgid "Online Quotes"
-#~ msgstr "온라인 시세"
-
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
-#~ "expressions which can be used to parse the data returned from the URL "
-#~ "entered above. The symbol, price, and date must be found in the quote "
-#~ "data to be usable. You may also try the KMyMoney forum at </span><a href="
-#~ "\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-"
-#~ "decoration: underline; color:#2980b9;\">https://forum.kde.org/viewforum."
-#~ "php?f=69</span></a>  or the <span style=\" font-style:italic;\">user's "
-#~ "mailinglist at </span><a href=\"mailto:kmymoney@kde.org\"><span style=\" "
-#~ "font-style:italic; text-decoration: underline; color:#2980b9;"
-#~ "\">kmymoney@kde.org</span></a><span style=\" font-style:italic;\"> to "
-#~ "find what settings work for other users in your country.</span></p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-style:italic;\">위에 입력한 URL"
-#~ "에서 반환된 데이터를 해석하는 데 사용할 정규 표현식을 입력하십시오. 시세 "
-#~ "데이터를 사용하려면 코드, 금액, 날짜가 포함되어 있어야 합니다. </span><a "
-#~ "href=\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-"
-#~ "decoration: underline; color:#2980b9;\">https://forum.kde.org/viewforum."
-#~ "php?f=69</span></a><span style=\" font-style:italic;\">에 있는 KMyMoney 포"
-#~ "럼을 사용하거나</span> 사용자 메일링 리스트인 <a href=\"mailto:"
-#~ "kmymoney@kde.org\"><span style=\" font-style:italic; text-decoration: "
-#~ "underline; color:#2980b9;\">kmymoney@kde.org</span></a><span style=\" "
-#~ "font-style:italic;\">에서 해당 국가의 다른 사용자가 사용하고 있는 설정을 "
-#~ "찾을 수도 있습니다.</span></p></body></html>"
-
-#~ msgid "Details"
-#~ msgstr "자세한 정보"
-
-#~ msgid "Download mode"
-#~ msgstr "다운로드 모드"
-
-#~ msgid "Remote source"
-#~ msgstr "원격 원본"
-
-#~ msgid "Regular Expression to extract the price from the downloaded data"
-#~ msgstr "다운로드한 데이터에서 금액을 추출하는 정규 표현식"
-
-#~ msgid ""
-#~ "Regular Expression to extract the identifier from the downloaded data"
-#~ msgstr "다운로드한 데이터에서 식별자를 추출하는 정규 표현식"
-
-#~ msgid "Regular Expression to extract the date from the downloaded data"
-#~ msgstr "다운로드한 데이터에서 날짜를 추출하는 정규 표현식"
-
-#~ msgid "Identifier"
-#~ msgstr "식별자"
-
-#~ msgid "Price"
-#~ msgstr "금액"
-
-#~ msgid "Default Identifier"
-#~ msgstr "기본 식별자"
-
-#~ msgid "Selected by"
-#~ msgstr "선택 기준"
-
-#~ msgid "Price decimal separator"
-#~ msgstr "금액 소수 구분자"
-
-#~ msgid "How to select the identifier"
-#~ msgstr "식별자를 선택하는 방법"
-
-#~ msgid "Data Format"
-#~ msgstr "데이터 형식"
-
-#~ msgid "URL to be used to download the quote"
-#~ msgstr "시세 다운로드에 사용할 URL"
-
-#~ msgid ""
-#~ "Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
-#~ "replaced with the symbol for the security being quoted. For currency "
-#~ "conversions, <b>%2</b> will be replaced with the currency to be quoted "
-#~ "and <b>%1</b> with the currency the quote is based on."
-#~ msgstr ""
-#~ "주식 시세를 가져올 URL을 입력하십시오. <b>%1</b> 문자열은 조회하는 종목 코"
-#~ "드로 대체됩니다. 통화 환산의 경우, <b>%2</b>는 시세 대상 통화로, <b>%1</b>"
-#~ "는 시세 기준 통화로 대체됩니다."
-
-#~ msgctxt "1"
-#~ msgid "Period (.)"
-#~ msgstr "마침표(.)"
-
-#~ msgctxt "2"
-#~ msgid "Comma (,)"
-#~ msgstr "쉼표(,)"
-
-#~ msgid "Legacy"
-#~ msgstr "레거시"
-
-#~ msgid "Options"
-#~ msgstr "옵션"
-
-#~ msgid "Date Format"
-#~ msgstr "날짜 형식"
-
-#~ msgid "URL"
-#~ msgstr "URL"
-
-#~ msgid "An identifier that is known to work for this online quote source"
-#~ msgstr "이 온라인 시세 원본에서 사용할 수 있는 식별자"
-
-#~ msgid "Date"
-#~ msgstr "날짜"
-
-#~ msgid "The type of data expected to downloaded and processed."
-#~ msgstr "다운로드하고 처리할 데이터의 예상되는 형식입니다."
-
-#~ msgid "Accepts the entered data and stores it"
-#~ msgstr "입력한 데이터를 수락하고 저장합니다"
-
-#~ msgid "Use this to accept the modified data."
-#~ msgstr "이 옵션을 사용하여 수정된 데이터를 수락합니다."
-
-#~ msgctxt "@action update quotes from online quote source"
-#~ msgid "Accept"
-#~ msgstr "수락"
-
-#~ msgctxt "@action cancel actual changes"
-#~ msgid "Cancel"
-#~ msgstr "취소"
-
-#~ msgid "Copies the details as text to the clipboard."
-#~ msgstr "자세한 정보를 클립보드에 텍스트로 복사합니다."
-
-#~ msgid ""
-#~ "Use this to copy the details as text to the clipboard to e.g. paste it in "
-#~ "an email."
-#~ msgstr ""
-#~ "이메일 등에 붙여넣기 위해서 자세한 정보를 클립보드에 텍스트로 복사하려면 "
-#~ "사용하십시오."
-
-#~ msgctxt "@action copy details to clipboard"
-#~ msgid "Copy"
-#~ msgstr "복사"
-
-#~ msgid "build_key"
-#~ msgstr "build_key"
-
-#~ msgid "Debugging"
-#~ msgstr "디버깅"
-
-#~ msgid "Check the selected source entry"
-#~ msgstr "선택한 원본 항목 확인"
-
-#~ msgid "Use this to check the selected online source entry"
-#~ msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 확인합니다."
-
-#~ msgid "Check Source"
-#~ msgstr "원본 확인"
-
-#~ msgid ""
-#~ "Display the response of a query of the selected source entry in a web "
-#~ "browser"
-#~ msgstr "선택한 원본 항목에 대한 질의의 응답을 웹 브라우저에 표시"
-
-#~ msgid ""
-#~ "Use this option to display the response to a query from the selected "
-#~ "online source."
-#~ msgstr "이 옵션을 사용하면 선택한 온라인 원본에서 질의의 응답을 표시합니다."
-
-#~ msgid "Show Page"
-#~ msgstr "페이지 표시"
-
-#~ msgid "End date"
-#~ msgstr "종료 날짜"
-
-#~ msgid "Two Symbols"
-#~ msgstr "종목 2개"
-
-#~ msgid "Start date"
-#~ msgstr "시작 날짜"
-
-#~ msgid "One Symbol"
-#~ msgstr "종목 1개"
-
-#~ msgid "Return last price state"
-#~ msgstr "마지막 금액 상태 반환"
-
-#~ msgid "Enable reverse search"
-#~ msgstr "역방향 검색 사용"
-
-#~ msgid "<html><head/><body><p>online price quotes</p></body></html>"
-#~ msgstr "<html><head/><body><p>온라인 금액 시세</p></body></html>"
-
-#~ msgid "Create a new source entry for online quotes"
-#~ msgstr "새로운 온라인 시세 항목 만들기"
-
-#~ msgid "Use this to create a new entry for online quotes."
-#~ msgstr "이 옵션을 사용하여 새로운 온라인 시세 항목을 만듭니다."
-
-#~ msgctxt "@action create new quote source"
-#~ msgid "New"
-#~ msgstr "새로 만들기"
-
-#~ msgid "Delete the selected source entry"
-#~ msgstr "선택한 원본 항목 삭제"
-
-#~ msgid "Use this to delete the selected online source entry"
-#~ msgstr "이 옵션을 사용하여 선택한 온라인 원본 항목을 삭제합니다"
-
-#~ msgid "Delete"
-#~ msgstr "삭제"
-
-#~ msgid ""
-#~ "Create a duplicate of the currently selected source entry under a "
-#~ "different name."
-#~ msgstr "현재 선택한 원본 항목의 복사본을 다른 이름으로 만듭니다."
-
-#~ msgid "Use this to create a duplicate of an entry for an online source"
-#~ msgstr "이 항목을 사용하여 온라인 원본에 대한 항목의 복사본을 만듭니다"
-
-#~ msgid "Duplicate"
-#~ msgstr "복제"
-
-#~ msgid ""
-#~ "Creates a new local online source as reference to a remote online quote "
-#~ "source"
-#~ msgstr "원격 온라인 시세 원본을 참조하는 새 로컬 온라인 원본 만들기"
-
-#~ msgid ""
-#~ "Use this to create a new local online quote source that links to a remote "
-#~ "online quote source. The attributes of the remote online course source "
-#~ "are then used for a price or quote request."
-#~ msgstr ""
-#~ "원격 온라인 시세 원본으로 연결하는 새 로컬 온라인 시세 원본을 생성합니다. "
-#~ "원격 온라인 원본의 속성을 시세나 매매 요청에 사용합니다."
-
-#~ msgid "Add reference"
-#~ msgstr "참조 추가"
-
-#~ msgid "Install online quote source from the KDE Store"
-#~ msgstr "KDE 스토어에서 온라인 시세 원본 설치"
-
-#~ msgid "Use this to install an online quote source from the KDE Store."
-#~ msgstr "KDE 스토어에서 온라인 시세 원본을 설치합니다."
-
-#~ msgid "Install"
-#~ msgstr "설치"
-
-#~ msgid "Upload modified remote online quote source to the KDE Store"
-#~ msgstr "수정된 온라인 시세 원본을 KDE 스토어에 업로드"
-
-#~ msgid "Use this to upload a modified online quote source to the KDE Store."
-#~ msgstr "수정된 온라인 시세 원본을 KDE 스토어에 업로드합니다."
-
-#~ msgid "Upload"
-#~ msgstr "업로드"
-
-#~ msgid ""
-#~ "Reset changes to local sources that were made after the last selection of "
-#~ "this profile"
-#~ msgstr ""
-#~ "이 프로필을 마지막으로 선택한 후 로컬 원본에 가해진 변경 사항 초기화"
-
-#~ msgid ""
-#~ "Use this to reset changes to local sources that were made after the last "
-#~ "selection of this profile."
-#~ msgstr ""
-#~ "이 프로필을 마지막으로 선택한 후 로컬 원본에 가해진 변경 사항 초기화하려"
-#~ "면 선택하십시오."
-
-#~ msgid "Reset"
-#~ msgstr "초기화"
-
-#~ msgid "GHNS Source"
-#~ msgstr "GHNS 소스"
-
-#~ msgid ""
-#~ "<p>For easier processing of the data returned by the online source, "
-#~ "KMyMoney usually strips unused parts before it is parsed with the regular "
-#~ "expressions. If matching of the fields relies on those items, then use "
-#~ "this option to turn stripping off.</p>\n"
-#~ "\n"
-#~ "<p>The following items are usually removed by stripping:\n"
-#~ "\n"
-#~ "<ul>\n"
-#~ "<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
-#~ "<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
-#~ "<li>duplicate whitespace</li>\n"
-#~ "</ul>\n"
-#~ "</p>"
-#~ msgstr ""
-#~ "<p>KMyMoney는 온라인 소스에서 반환된 데이터를 보다 쉽게 처리할 수 있도록 "
-#~ "정규 표현식으로 해석하기 전에 사용되지 않는 부분을 잘라냅니다. 만약 필드 "
-#~ "일치 시 해당 부분을 사용한다면 이 옵션을 사용하여 잘라내기 기능을 비활성화"
-#~ "하십시오.</p>\n"
-#~ "\n"
-#~ "<p>잘라내기 기능에서는 대개 다음 항목을 삭제합니다:\n"
-#~ "\n"
-#~ "<ul>\n"
-#~ "<li>HTML 태그(예:<b>&lt;tag&gt;</b></li>)\n"
-#~ "<li>& 인코딩된 문자(예:<b>&amp;nbsp;</b></li>)\n"
-#~ "<li>중복된 공백</li>\n"
-#~ "</ul>\n"
-#~ "</p>"
-
-#~ msgid "Skip HTML stripping"
-#~ msgstr "HTML 태그 제거 건너뛰기"
-
-#~ msgid "Profile details"
-#~ msgstr "프로필 자세한 정보"
-
-#~ msgid "Config file"
-#~ msgstr "설정 파일"
-
-#~ msgid "GHNS config file"
-#~ msgstr "GHNS 설정 파일"
-
-#~ msgid "GHNS data path"
-#~ msgstr "GHNS 데이터 경로"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Select, add or delete an application profile, where "
-#~ "to load profiles from and save into eg. kmymoney or skrooge.</p></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Kmymoney 또는 Skrooge와 같은 앱에서 사용하는 프로필"
-#~ "을 선택, 추가 또는 삭제합니다.</p></body></html>"
-
-#~ msgid "Application Profiles"
-#~ msgstr "앱 프로필"
-
-#~ msgid "New"
-#~ msgstr "새로 만들기"
-
-#~ msgid "Upload online quote"
-#~ msgstr "온라인 시세 업로드"
-
-#~ msgid "Version to create:"
-#~ msgstr "생성할 버전:"
-
-#~ msgid "Copy path to clipboard"
-#~ msgstr "클립보드에 경로 복사"
-
-#~ msgid "TextLabel"
-#~ msgstr "텍스트 레이블"
-
-#~ msgid "Enter store and close dialog"
-#~ msgstr "스토어에 들어가고 대화 상자 닫기"
-
-#~ msgid "Online quote source:"
-#~ msgstr "온라인 시세 원본:"
-
-#~ msgid "Close dialog"
-#~ msgstr "대화 상자 닫기"
-
-#~ msgid ""
-#~ "This dialog allows you to create a package for an online quote source, "
-#~ "which you can then upload to the online store used by alkimia to share "
-#~ "with other users."
-#~ msgstr ""
-#~ "이 대화 상자에서는 온라인 시세 원본의 패키지를 만들 수 있습니다. 해당 패키"
-#~ "지는 Alkimia 온라인 스토어에 업로드하여 다른 사용자와 공유할 수 있습니다."
-
-#~ msgid "Failed to create package at:"
-#~ msgstr "다음 위치에 패키지를 만들 수 없음:"
-
-#~ msgid ""
-#~ "To upload the generated package to the online store, copy the path of the "
-#~ "generated file into the clipboard, log in to the store mentioned below "
-#~ "and paste the copied url into the corresponding package (see the "
-#~ "<b>files</b> tab)."
-#~ msgstr ""
-#~ "생성된 패키지를 온라인 스토어에 업로드하려면, 생성된 파일의 경로를 클립보"
-#~ "드에 복사하고, 아래의 스토어에 로그인한 다음 복사된 URL을 해당 패키지에 붙"
-#~ "여넣으십시오(<b>파일</b> 탭 참조)."
-
-#~ msgid "Create package for uploading"
-#~ msgstr "업로드할 패키지 만들기"
-
-#~ msgid "Create package"
-#~ msgstr "패키지 만들기"
-
-#~ msgid "Package has been created at:"
-#~ msgstr "패키지 생성 일시:"
-
-#~ msgid "Package edit url:"
-#~ msgstr "패키지 편집 URL:"
 
 #~ msgid "Failed to open downloaded file"
 #~ msgstr "다운로드한 파일을 열 수 없음"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-10-11 00:04+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -68,14 +68,23 @@ msgstr "Sirvija"
 msgid "Update for '%1' available in profile '%2'"
 msgstr "Saadaval on uuendus elemendile \"%1\" profiilis \"%2\""
 
-#~ msgid "Online Quotes Editor"
-#~ msgstr "Võrgukursside redaktor"
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Võrgukursside redaktor"
 
-#~ msgid "File"
-#~ msgstr "Fail"
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Fail"
 
-#~ msgid "Quit"
-#~ msgstr "Välju"
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Välju"
 
 #~ msgid "Editor for online price quotes used by finance applications"
 #~ msgstr "Finantsrakenduste võrgukursside hinna redaktor"
