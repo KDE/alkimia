@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 05:54+0000\n"
+"POT-Creation-Date: 2025-07-10 03:26+0000\n"
 "PO-Revision-Date: 2021-11-18 17:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -716,31 +716,31 @@ msgstr "Zdroj"
 msgid "Reference to"
 msgstr ""
 
-#: alkonlinequotesource.cpp:456
+#: alkonlinequotesource.cpp:457
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr ""
 
-#: alkonlinequotesource.cpp:458
+#: alkonlinequotesource.cpp:459
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr ""
 
-#: alkonlinequotesource.cpp:460
+#: alkonlinequotesource.cpp:461
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr ""
 
-#: alkonlinequotesource.cpp:462
+#: alkonlinequotesource.cpp:463
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr ""
 
-#: alkonlinequotesource.cpp:464
+#: alkonlinequotesource.cpp:465
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
