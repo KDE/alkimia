@@ -32,128 +32,128 @@ image: opensuse/leap:15.6
 
 # custom builds
 
-.unix-host-build:
-  stage: build
-  interruptible: true
-  variables:
-    ci_parallel: "16"
-  before_script:
-    - ./tools/ci-install.sh
-  script:
-    - runuser -u user ./tools/ci-build.sh
-
-.unix-build:
-  extends: .unix-host-build
-  variables:
-    ci_webserver: "yes"
-
-.unix-leap-build:
-  extends: .unix-build
-  image: rhabacker/suse_leap_kf5_qt515
-
-distro kf6 tumbleweed:
-  extends: .unix-build
-  #when: manual
-  image: rhabacker/suse_tumbleweed_kf6_qt68
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf6"
-    ci_cmake_options: "-DCMAKE_CXX_COMPILER=g++-14"
-
-distro kf5 tumbleweed:
-  extends: .unix-build
-  when: manual
-  image: opensuse/tumbleweed
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf5"
-
-distro kf5 tumbleweed mingw32:
-  extends: .unix-host-build
-  when: manual
-  image: opensuse/tumbleweed
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf5"
-    ci_host: "mingw32"
-
-distro kf5 tumbleweed mingw64:
-  extends: .unix-host-build
-  when: manual
-  image: opensuse/tumbleweed
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf5"
-    ci_host: "mingw64"
-
-distro kf5 leap:
-  extends: .unix-leap-build
-  #when: manual
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf5"
-
-distro kf5 leap mingw32:
-  extends: .unix-leap-build
-  when: manual
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf5"
-    ci_host: "mingw32"
-
-distro kf5 leap mingw64:
-  extends: .unix-leap-build
-  when: manual
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf5"
-    ci_host: "mingw64"
-
-distro kf5 leap webengine:
-  extends: .unix-leap-build
-  # when: manual
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf5-webengine"
-
-distro kf5 leap webkit:
-  extends: .unix-leap-build
-  # when: manual
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf5-webkit"
-
-distro kf4 leap:
-  extends: .unix-build
-  when: manual
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf4"
-
-distro kf4 leap mingw32:
-  extends: .unix-host-build
-  when: manual
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf4"
-    ci_host: "mingw32"
-
-distro kf4 leap mingw64:
-  extends: .unix-host-build
-  when: manual
-  #only:
-  #  - merge_requests
-  variables:
-    ci_variant: "kf4"
-    ci_host: "mingw64"
+# .unix-host-build:
+#   stage: build
+#   interruptible: true
+#   variables:
+#     ci_parallel: "16"
+#   before_script:
+#     - ./tools/ci-install.sh
+#   script:
+#     - runuser -u user ./tools/ci-build.sh
+#
+# .unix-build:
+#   extends: .unix-host-build
+#   variables:
+#     ci_webserver: "yes"
+#
+# .unix-leap-build:
+#   extends: .unix-build
+#   image: rhabacker/suse_leap_kf5_qt515
+#
+# distro kf6 tumbleweed:
+#   extends: .unix-build
+#   #when: manual
+#   image: rhabacker/suse_tumbleweed_kf6_qt68
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf6"
+#     ci_cmake_options: "-DCMAKE_CXX_COMPILER=g++-14"
+#
+# distro kf5 tumbleweed:
+#   extends: .unix-build
+#   when: manual
+#   image: opensuse/tumbleweed
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf5"
+#
+# distro kf5 tumbleweed mingw32:
+#   extends: .unix-host-build
+#   when: manual
+#   image: opensuse/tumbleweed
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf5"
+#     ci_host: "mingw32"
+#
+# distro kf5 tumbleweed mingw64:
+#   extends: .unix-host-build
+#   when: manual
+#   image: opensuse/tumbleweed
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf5"
+#     ci_host: "mingw64"
+#
+# distro kf5 leap:
+#   extends: .unix-leap-build
+#   #when: manual
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf5"
+#
+# distro kf5 leap mingw32:
+#   extends: .unix-leap-build
+#   when: manual
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf5"
+#     ci_host: "mingw32"
+#
+# distro kf5 leap mingw64:
+#   extends: .unix-leap-build
+#   when: manual
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf5"
+#     ci_host: "mingw64"
+#
+# distro kf5 leap webengine:
+#   extends: .unix-leap-build
+#   # when: manual
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf5-webengine"
+#
+# distro kf5 leap webkit:
+#   extends: .unix-leap-build
+#   # when: manual
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf5-webkit"
+#
+# distro kf4 leap:
+#   extends: .unix-build
+#   when: manual
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf4"
+#
+# distro kf4 leap mingw32:
+#   extends: .unix-host-build
+#   when: manual
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf4"
+#     ci_host: "mingw32"
+#
+# distro kf4 leap mingw64:
+#   extends: .unix-host-build
+#   when: manual
+#   #only:
+#   #  - merge_requests
+#   variables:
+#     ci_variant: "kf4"
+#     ci_host: "mingw64"
