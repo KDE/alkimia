@@ -2,30 +2,15 @@
 include:
   - project: sysadmin/ci-utilities
     file:
+      - /gitlab-templates/json-validation.yml
       - /gitlab-templates/linux.yml
-      - /gitlab-templates/freebsd.yml
-      - /gitlab-templates/windows.yml
-      - /gitlab-templates/linux-qt6.yml
       - /gitlab-templates/freebsd-qt6.yml
       - /gitlab-templates/windows-qt6.yml
-      - /gitlab-templates/craft-appimage.yml
-      - /gitlab-templates/craft-windows-x86-64.yml
-      - /gitlab-templates/craft-macos-arm64.yml
-      - /gitlab-templates/craft-macos-x86-64.yml
-
-# macos installs currently only on demand since they are failing
-# running ['codesign', '--verify', '--verbose', '--strict', '--deep', PosixPath('/Users/gitlab/ws/builds/t1_Sat4Gr/0/office/alkimia/macos-64-clang/build/extragear/alkimia/archive/Applications/KDE/onlinequoteseditor5.app')] ...
-# ... ERROR sftpnotary.util The process exited with 1
-# ... DEBUG sftpnotary.util stderr: ... onlinequoteseditor5.app: a sealed resource is missing or invalid
-craft_macos_arm64:
-  rules:
-    - if: $CI_COMMIT_BRANCH =~ /master/
-      when: manual
-
-craft_macos_x86_64:
-  rules:
-    - if: $CI_COMMIT_BRANCH =~ /master/
-      when: manual
+      - /gitlab-templates/linux-qt6.yml
+      - /gitlab-templates/craft-appimage-qt6.yml
+      - /gitlab-templates/craft-windows-x86-64-qt6.yml
+#      - /gitlab-templates/craft-macos-arm64.yml
+#      - /gitlab-templates/craft-macos-x86-64.yml
 
 # https://bugs.kde.org/show_bug.cgi?id=456002
 image: opensuse/leap:15.6
