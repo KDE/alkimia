@@ -231,6 +231,12 @@ Q_SIGNALS:
     void status(QString s);
     void error(QString s);
 
+    /**
+     * The date range used for retrieving data has changed.
+     * This may be the case if date restrictions have become known.
+     */
+    void dataRangeChanged(const QDate &from, const QDate &to);
+
 private:
     class Private;
     Private *const d;
