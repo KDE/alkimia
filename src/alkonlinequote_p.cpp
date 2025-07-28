@@ -241,13 +241,12 @@ bool AlkOnlineQuote::Private::launch(const QString &symbol, const QString &id, c
     if (!initSource(source))
         return false;
 
-    // stock
-    if (!m_source.requiresTwoIdentifier()
-            && m_alwaysReturnLastPrice == LastPriceState::AlwaysWhenToday
+    if (m_alwaysReturnLastPrice == LastPriceState::AlwaysWhenToday
             && m_startDate == m_endDate
             && m_startDate.dayOfWeek() >= Qt::Saturday) {
         m_startDate = m_startDate.addDays(Qt::Friday - m_endDate.dayOfWeek());
         Q_EMIT m_p->status(i18n("Start date moved to before the weekend"));
+        Q_EMIT m_p->dataRangeChanged(m_startDate, m_endDate);
     }
 
     if (m_source.downloadType() == AlkOnlineQuoteSource::Javascript) {
