@@ -118,12 +118,14 @@ public:
     QDate convertStringUnix(const QString& _in)
     {
         bool ok;
-        quint64 unixTime = _in.toUInt(&ok);
+        qlonglong unixTime = _in.toLongLong(&ok);
         if (!ok) {
             return setError(AlkDateFormat::InvalidDate, _in);
         }
         if (m_format.startsWith(QLatin1String("%ud"))) {
             unixTime *= 86400; // times seconds per day
+        } else if (m_format.startsWith(QLatin1String("%um"))) {
+            return QDateTime::fromMSecsSinceEpoch(unixTime).date();
         }
         return QDateTime::fromMSecsSinceEpoch(unixTime * 1000).date();
     }

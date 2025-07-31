@@ -61,6 +61,11 @@ void AlkDateFormatTest::testDateFormatKMyMoney()
     QCOMPARE(format.convertString("19847", false), QDate(2024, 5, 4));
     QCOMPARE(format.convertString("ABC", false), QDate());
     QCOMPARE(format.convertString("-1234", false), QDate());
+
+    format = AlkDateFormat("%um");
+    QCOMPARE(format.convertString("1753875094117", false), QDate(2025, 7, 30));
+    QCOMPARE(format.convertString("ABC", false), QDate());
+    QCOMPARE(format.convertString("-1234", false), QDate(1970, 1, 1));
 }
 
 void AlkDateFormatTest::testDateFormatSkrooge()
