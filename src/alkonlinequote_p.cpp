@@ -888,9 +888,9 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
         return false;
     }
 
-    QList<int> dateList;
+    QList<qlonglong> dateList;
     for(const auto &v : data.value<QVariantList>()) {
-        dateList.append(v.toInt());
+        dateList.append(v.toLongLong());
     }
 
     // extract prices
@@ -911,7 +911,7 @@ bool AlkOnlineQuote::Private::parseQuoteJson(const QString &quotedata)
     AlkDateFormat dateFormat(m_source.dateFormat());
     int count = std::min(dateList.size(), priceList.size());
     for (int i = 0; i < count; i++) {
-        int dateValue = dateList.at(i);
+        qlonglong dateValue = dateList.at(i);
         double priceValue = priceList.at(i);
         if (priceValue == 0.0)
             continue;
