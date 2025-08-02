@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-10 03:26+0000\n"
+"POT-Creation-Date: 2025-07-30 03:24+0000\n"
 "PO-Revision-Date: 2025-06-22 11:16+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -38,106 +38,106 @@ msgstr "Kilden <placeholder>%1</placeholder> eksisterer ikke."
 msgid "Cannot resolve input date."
 msgstr "Kan ikke løse inndatoen."
 
-#: alkonlinequote_p.cpp:250
+#: alkonlinequote_p.cpp:248
 #, kde-format
 msgid "Start date moved to before the weekend"
 msgstr "Startdatoen er endret til før helgen"
 
-#: alkonlinequote_p.cpp:277
+#: alkonlinequote_p.cpp:276
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "Kan ikke hente nettadresse for %1"
 
-#: alkonlinequote_p.cpp:286 alkonlinequote_p.cpp:288
+#: alkonlinequote_p.cpp:285 alkonlinequote_p.cpp:287
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "Nettadressen har blitt videresendt; se etter en oppdatert nettadresse for "
 "nettkursene"
 
-#: alkonlinequote_p.cpp:312
+#: alkonlinequote_p.cpp:311
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Henter nettadresse %1…"
 
-#: alkonlinequote_p.cpp:361
+#: alkonlinequote_p.cpp:360
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Starter %1…"
 
-#: alkonlinequote_p.cpp:378 alkonlinequote_p.cpp:438
+#: alkonlinequote_p.cpp:377 alkonlinequote_p.cpp:437
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Kan ikke starte: %1"
 
-#: alkonlinequote_p.cpp:399
+#: alkonlinequote_p.cpp:398
 #, kde-format
 msgid "URL found: %1..."
 msgstr "Nettadressen er funnet: %1…"
 
-#: alkonlinequote_p.cpp:430
+#: alkonlinequote_p.cpp:429
 #, kde-format
 msgctxt "Executing 'script' 'online source' 'investment symbol' "
 msgid "Executing %1 %2 %3..."
 msgstr "Starter %1 %2 %3…"
 
-#: alkonlinequote_p.cpp:489
+#: alkonlinequote_p.cpp:488
 #, kde-format
 msgid "Price found: '%1' (%2)"
 msgstr "Kurs funnet: «%1» (%2)"
 
-#: alkonlinequote_p.cpp:492
+#: alkonlinequote_p.cpp:491
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
 msgstr "Kursen «%1» kan ikke konverteres til et tall for «%2»"
 
-#: alkonlinequote_p.cpp:497
+#: alkonlinequote_p.cpp:496
 #, kde-format
 msgid "Unable to parse price for '%1'"
 msgstr "Kan ikke tyde kursen for «%1»"
 
-#: alkonlinequote_p.cpp:507
+#: alkonlinequote_p.cpp:506
 #, kde-format
 msgid "Date found: '%1'"
 msgstr "Dato funnet «%1»"
 
-#: alkonlinequote_p.cpp:513
+#: alkonlinequote_p.cpp:512
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
 msgstr "Datoformat funnet: «%1» → «%2»"
 
-#: alkonlinequote_p.cpp:516
+#: alkonlinequote_p.cpp:515
 #, kde-format
 msgid "Unable to parse date '%1' using format '%2': %3"
 msgstr "Kan ikke tyde datoen «%1» ved å bruke formatet «%2»: %3"
 
-#: alkonlinequote_p.cpp:520 alkonlinequote_p.cpp:530
+#: alkonlinequote_p.cpp:519 alkonlinequote_p.cpp:529
 #, kde-format
 msgid "Using current date for '%1'"
 msgstr "Bruker gjeldende dato for «%1»"
 
-#: alkonlinequote_p.cpp:524
+#: alkonlinequote_p.cpp:523
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
 msgstr "Tyding av dato er slått av for «%1»"
 
-#: alkonlinequote_p.cpp:527
+#: alkonlinequote_p.cpp:526
 #, kde-format
 msgid "Unable to parse date for '%1'"
 msgstr "Kan ikke tyde datoen for «%1»"
 
-#: alkonlinequote_p.cpp:584 alkonlinequote_p.cpp:610 alkonlinequote_p.cpp:648
+#: alkonlinequote_p.cpp:583 alkonlinequote_p.cpp:609 alkonlinequote_p.cpp:647
 #, kde-format
 msgid "Symbol found: '%1'"
 msgstr "Symbol funnet: «%1»"
 
-#: alkonlinequote_p.cpp:587 alkonlinequote_p.cpp:613 alkonlinequote_p.cpp:651
+#: alkonlinequote_p.cpp:586 alkonlinequote_p.cpp:612 alkonlinequote_p.cpp:650
 #, kde-format
 msgid "Unable to parse symbol for %1"
 msgstr "Kan ikke tyde symbolet for %1"
 
-#: alkonlinequote_p.cpp:701
+#: alkonlinequote_p.cpp:700
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
@@ -145,47 +145,47 @@ msgstr ""
 "Kjenner ikke igjen feltskilletegnet i første linje (topplinjen) i "
 "kursdataene."
 
-#: alkonlinequote_p.cpp:728
+#: alkonlinequote_p.cpp:727
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
 msgstr "Kan ikke finne datokolonne «%1» i kursdataene"
 
-#: alkonlinequote_p.cpp:734
+#: alkonlinequote_p.cpp:733
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
 msgstr "Kan ikke finne kurskolonnen «%1» i kursdataene"
 
-#: alkonlinequote_p.cpp:755 alkonlinequote_p.cpp:922
+#: alkonlinequote_p.cpp:754 alkonlinequote_p.cpp:921
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
 msgstr "Kan ikke konvertere datoen «%1» med «%2» i kursdataene"
 
-#: alkonlinequote_p.cpp:790 alkonlinequote_p.cpp:939
+#: alkonlinequote_p.cpp:789 alkonlinequote_p.cpp:938
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
 msgstr "Kan ikke finne dato/kurs-par i kursdataene"
 
-#: alkonlinequote_p.cpp:876
+#: alkonlinequote_p.cpp:875
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
 msgstr "Json-file med ugyldig innhold er funnet for «%1»"
 
-#: alkonlinequote_p.cpp:887
+#: alkonlinequote_p.cpp:886
 #, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
 msgstr "Kan ikke finne «%1» fra datomønsteret «%2» i kursdatene"
 
-#: alkonlinequote_p.cpp:901
+#: alkonlinequote_p.cpp:900
 #, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
 msgstr "Kan ikke finne «%1» fra kursmønsteret «%2» i kursdatene"
 
-#: alkonlinequote_p.cpp:973
+#: alkonlinequote_p.cpp:972
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
 msgstr "Kan ikke oppdatere kursene for %1 (tomme kursdata)"
 
-#: alkonlinequote_p.cpp:993
+#: alkonlinequote_p.cpp:992
 #, kde-format
 msgid "Timeout exceeded on fetching url for %1"
 msgstr "Henting av nettadressen for %1 løp ut på tid"
