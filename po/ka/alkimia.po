@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 02:02+0000\n"
-"PO-Revision-Date: 2025-04-26 10:25+0200\n"
+"PO-Revision-Date: 2025-08-09 08:33+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -32,43 +32,43 @@ msgstr "Temuri.doghonadze@gmail.com"
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format string '%1'"
-msgstr ""
+msgstr "არასწორი ფორმატის სტრიქონი '%1'"
 
 #: alkdateformat.cpp:42
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format character '%1'"
-msgstr ""
+msgstr "არასწორი ფორმატის სიმბოლო '%1'"
 
 #: alkdateformat.cpp:45
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid date '%1'"
-msgstr ""
+msgstr "არასწორი თარიღი '%1'"
 
 #: alkdateformat.cpp:48
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid day entry: %1"
-msgstr ""
+msgstr "არასწორი დღის ჩანაწერი: %1"
 
 #: alkdateformat.cpp:51
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid month entry: %1"
-msgstr ""
+msgstr "არასწორი თვის ჩანაწერი: %1"
 
 #: alkdateformat.cpp:54
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid year entry: %1"
-msgstr ""
+msgstr "არასწორი წლის ჩანაწერი: %1"
 
 #: alkdateformat.cpp:57
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Length of year (%1) does not match expected length (%2)."
-msgstr ""
+msgstr "წლის სიგრძე (%1) არ ემთხვევა მოსალოდნელ სიგრძეს (%2)."
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "შეყვანის თარიღის ამოხსნა შ
 #: alkonlinequote_p.cpp:248
 #, kde-format
 msgid "Start date moved to before the weekend"
-msgstr ""
+msgstr "დაწყების თარიღი გადატანილია შაბათკვირამდე"
 
 #: alkonlinequote_p.cpp:276
 #, kde-format
@@ -208,7 +208,7 @@ msgstr "ფასის მონაცემებში თარიღი/ფ
 #: alkonlinequote_p.cpp:875
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr ""
+msgstr "აღმოჩენილია JSON ფაილი არასწორი შემცველობით '%1'-სთვის"
 
 #: alkonlinequote_p.cpp:886
 #, kde-format
@@ -466,7 +466,7 @@ msgstr "გაუქმება"
 #: alkonlinequotedetails.ui:302
 #, kde-format
 msgid "Copies the details as text to the clipboard."
-msgstr ""
+msgstr "აკოპირებს დეტალებს ტექსტის სახით ბუფერში."
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:305
@@ -475,6 +475,8 @@ msgid ""
 "Use this to copy the details as text to the clipboard to e.g. paste it in an "
 "email."
 msgstr ""
+"გამოიყენეთ ეს, რომ დააკოპიროთ დეტალები ტექსტის სახით ბუფერში, რომ, "
+"მაგალითად, ის ელფოსტაში ჩასვათ."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:308
@@ -564,13 +566,13 @@ msgstr "1 სიმბოლო"
 #: alkonlinequotesdebug.ui:129
 #, kde-format
 msgid "Return last price state"
-msgstr ""
+msgstr "ბოლო ფასის მდგომარეობის დაბრუნება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_reverseSearchStateCheckBox)
 #: alkonlinequotesdebug.ui:139
 #, kde-format
 msgid "Enable reverse search"
-msgstr ""
+msgstr "უკუღმა ძებნის ჩართვა"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
@@ -655,6 +657,9 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"გამოიყენეთ ეს, რომ შექმნათ ახალი ლოკალური ინტერნეტ-კვოტის წყარო, რომელიც "
+"დაშორებულ კვოტის წყაროზეა მიბმული. დაშორებული ინტერნეტ-კურსის წყაროს "
+"ატრიბუტები გამოყენებული იქნება ფასის, ან კვოტის გამოსათხოვად."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:106
@@ -666,13 +671,13 @@ msgstr "მიმართვის დამატება"
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr ""
+msgstr "ინტერნეტ-კვოტის წყაროს დაყენება KDE-ის მაღაზიიდან"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
-msgstr ""
+msgstr "გამოიყენეთ ეს ინტერნეტ-კვოტის წყაროს KDE-ის მაღაზიიდან დასაყენებლად."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -684,7 +689,7 @@ msgstr "ჩადგმა"
 #: alkonlinequoteslist.ui:136
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
-msgstr ""
+msgstr "ატვირთეთ შეცვლილი დაშორებული ინტერნეტ-კვოტის წყარო KDE-ის მაღაზიაში"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
@@ -705,6 +710,8 @@ msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
 msgstr ""
+"ამ პროფილის ბოლო არჩევის შემდეგ ლოკალურ წყაროებში შეტანილი ცვლილებების "
+"ჩამოყრა"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -713,6 +720,8 @@ msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
 msgstr ""
+"გამოიყენეთ ეს, რომ ჩამოყაროთ ცვლილებები ლოკალურ წყაროებში, რომელიც ამ "
+"პროფილის ბოლო არჩევის შემდეგ იქნა შეტანილი."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
@@ -949,7 +958,7 @@ msgstr ".კოპირება"
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
-msgstr ""
+msgstr "ინტერნეტ-კვოტის პარამეტრები გენერირებულია Alkimia %1-ით"
 
 #: alkonlinequoteswidget.cpp:634
 #, kde-format
