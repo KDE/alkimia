@@ -4,4 +4,4 @@ build*/
 *~
 *.kdev4
 ci-build*/
-
+compile_commands.json
