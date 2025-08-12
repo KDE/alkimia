@@ -13,6 +13,7 @@
   <name xml:lang="es">Editor de cotizaciones en línea</name>
   <name xml:lang="fr">Éditeur de cotations en ligne</name>
   <name xml:lang="gl">Editor de cotizacións de Internet</name>
+  <name xml:lang="he">עורך הצעות מחיר מקוונות</name>
   <name xml:lang="ia">Editor de citationes in linea</name>
   <name xml:lang="id">Editor Kutipan Online</name>
   <name xml:lang="it">Editor delle quotazioni in linea</name>
@@ -42,6 +43,7 @@
   <summary xml:lang="es">Editor de cotizaciones de precios en línea usado por aplicaciones de finanzas</summary>
   <summary xml:lang="fr">Éditeur pour les cotations en ligne utilisées par les applications financières</summary>
   <summary xml:lang="gl">Editor de cotizacións de Internet usado por aplicacións financeiras</summary>
+  <summary xml:lang="he">עורך הצעות מחיר מקוונות שיישומים כלכליים משתמשים בהן</summary>
   <summary xml:lang="ia">Editor per citationes de prcio in linea usate per applicationes de financia</summary>
   <summary xml:lang="id">Editor untuk kutipan harga online yang digunakan oleh aplikasi keuangan</summary>
   <summary xml:lang="it">Editor delle quotazioni in linea usato delle applicazioni finanziarie</summary>
@@ -70,6 +72,7 @@
     <p xml:lang="es">El editor de cotizaciones en línea es una aplicación con interfaz gráfica para editar y comprobar cotizaciones en línea. Puede añadir las fuentes disponibles de cotizaciones en línea desde la tienda de KDE, creadas localmente, modificadas y comprobadas para que se ejecuten correctamente.</p>
     <p xml:lang="fr">L'éditeur de cotations en ligne est une application avec une interface utilisateur graphique permettant d'éditer et de vérifier des cotations en ligne. Les sources de cotations disponibles en ligne peuvent être ajoutées à partir de la boutique de KDE, créées localement, modifiées et vérifiées pour une exécution correcte.</p>
     <p xml:lang="gl">O editor de cotizacións de Internet é unha aplicación gráfica para editar e comprobar cotizacións de Internet. Pódense engadir fontes de cotizacións de Internet dispoñíbeis na tenda de KDE, creadas localmente, editadas e comprobadas para unha execución correcta.</p>
+    <p xml:lang="he">עורך הצעות המחיר המקוונות הוא יישום ממשק גרפי לעריכת ובדיקת הצעות מחיר מקוונות. אפשר להוסיף מקורות הצעות מחיר מקוונים זמינים מחנות KDE, מכאלו שנוצרו מקומית, שנערכו ונבדקו שהפעילות שלהם נכונה.</p>
     <p xml:lang="ia">Editor de Citationes in Linea es un application de interfacie de usator pro modificar e verificar citationes in linea. Fontes de citation disponibile in linea pote esser addite ab le magazin de KDE, create  localmente, modificate e verificate per un correcte execution.</p>
     <p xml:lang="id">Online Quotes Editor adalah aplikasi antarmuka pengguna grafis untuk mengedit dan memeriksa kutipan online. Sumber kutipan online yang tersedia dapat ditambahkan dari toko KDE store, dibuat secara lokal, diedit dan diperiksa untuk eksekusi yang benar.</p>
     <p xml:lang="it">Editor delle quotazioni in linea è un'interfaccia utente grafica per la modifica e il controllo delle quotazioni in linea. È possibile aggiungere le fonti di quotazioni disponibili in rete dal negozio di KDE, crearle localmente, modificarle e verificarne la corretta esecuzione.</p>
@@ -96,6 +99,7 @@
     <p xml:lang="es">La interfaz está dividida en subventanas personalizables para perfiles, detalles de los perfiles, cotizaciones en línea asignadas, atributos de las cotizaciones, depuración de datos y navegación, que permiten una configuración flexible de la interfaz.</p>
     <p xml:lang="fr">L'interface est divisée en sous-fenêtres personnalisables pour les profils, les détails du profil, les cotations attribuées en ligne, les attributs de cotations, le débogage et le navigateur, permettant une configuration flexible de l'interface.</p>
     <p xml:lang="gl">A interface divídese en xanelas aniñadas personalizábeis para perfís, detalles de perfís, cotizacións de Internet asignadas, atributos de cotizacións, depuración e navegador, o que dá flexibilidade para a configuración da interface.</p>
+    <p xml:lang="he">הממשק מחולק לתת־חלונות עם יכולות התאמה לפרופילים, פרטי פרופילים, הצעות מחיר מוקצות, מאפייני הצעות מחיר, ניפוי שגיאות ודפדפן, מה שמאפשר גמישות בהרכבת התצוגה.</p>
     <p xml:lang="ia">Le interfacie es dividite in sub-fenestras personalisabile per profilos, detalios de profilo, citationes assignate in linea, attributos de citationes, cribrar(debug), e navigar ,permittente un configuration de interfacie flexibile.  </p>
     <p xml:lang="id">Antarmuka dibagi menjadi sub-jendela yang dapat disesuaikan untuk profil, detail profil, kutipan online yang ditetapkan, atribut kutipan, debug, dan browser, memungkinkan pengaturan antarmuka yang fleksibel.</p>
     <p xml:lang="it">L'interfaccia è suddivisa in finestre secondarie personalizzabili per profili, dettagli del profilo, quotazioni in linea assegnate, attributi di quotazione, debug e browser, consentendo una configurazione flessibile dell'interfaccia.</p>
@@ -123,6 +127,7 @@
     <p xml:lang="fi">Profiilien avulla voi tukea useita sovelluksia.</p>
     <p xml:lang="fr">Plusieurs applications peuvent être prises en charge grâce des profils.</p>
     <p xml:lang="gl">Permite varias aplicacións mediante perfís.</p>
+    <p xml:lang="he">אפשר לתמוך במגוון יישומים דרך פרופילים.</p>
     <p xml:lang="ia">Applicationes multiple pote esser supportate via profilos. </p>
     <p xml:lang="id">Beberapa aplikasi dapat didukung melalui profil.</p>
     <p xml:lang="it">È possibile supportare più applicazioni tramite profili.</p>
@@ -149,6 +154,7 @@
     <p xml:lang="es">Las aplicaciones de finanzas que no contienen su propia interfaz para editar fuentes de cotizaciones en línea pueden llamar al editor de cotizaciones en línea para este propósito.</p>
     <p xml:lang="fr">Les applications financières ne possédant pas leur propre interface utilisateur pour modifier les sources de cotations en ligne peuvent appeler l'éditeur de cotation en ligne à cette fin.</p>
     <p xml:lang="gl">As aplicacións financeiras que non teñen unha interface de persoa usuaria de seu para editar fontes de cotizacións de Internet poden chamar ao editor de cotizacións de Internet para esa fin.</p>
+    <p xml:lang="he">יישומים כלכליים שלא מכילים ממשק משתמש משלהם לעריכת מקורות הצעות מחיר מקוונות יכולים לקרוא לעורך הצעות המחיר המקוונות לשם כך.</p>
     <p xml:lang="ia">Applicationes finantiari que non contine lor proprie interfacie de usator per modificar fontes de citation in linea pote appellar le editor de citation in linea pro iste proposito.</p>
     <p xml:lang="id">Aplikasi keuangan yang tidak memiliki antarmuka pengguna sendiri untuk mengedit sumber kutipan online dapat menghubungi editor kutipan online untuk tujuan ini.</p>
     <p xml:lang="it">Le applicazioni finanziarie che non contengono la propria interfaccia utente per la modifica delle fonti di quotazione in linea possono chiamare a questo scopo l'editor delle quotazioni in linea.</p>
