@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 02:02+0000\n"
-"PO-Revision-Date: 2025-08-10 14:40+0300\n"
+"PO-Revision-Date: 2025-08-14 13:54+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -93,7 +93,7 @@ msgstr "לא ניתן למשוך את הכתובת עבור %1"
 #: alkonlinequote_p.cpp:285 alkonlinequote_p.cpp:287
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
-msgstr "הכתובת הופנתה, כדאי לבדוק אם כתובת הצעת המחיר המקוונת התעדכנה"
+msgstr "הכתובת הופנתה, כדאי לבדוק אם כתובת שער ההמרה המקוון התעדכן"
 
 #: alkonlinequote_p.cpp:311
 #, kde-format
@@ -182,28 +182,28 @@ msgstr "לא ניתן לפענח את הסימול עבור %1"
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
 msgstr ""
-"לא ניתן לזהות את המפריד בין השדות בשורה הראשונה (שורת הכותרת) של נתוני הצעת "
-"המחיר."
+"לא ניתן לזהות את המפריד בין השדות בשורה הראשונה (שורת הכותרת) של נתוני שער "
+"ההמרה."
 
 #: alkonlinequote_p.cpp:727
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr "לא ניתן למצוא את עמודת התאריך ‚%1’ בנתוני הצעת המחיר"
+msgstr "לא ניתן למצוא את עמודת התאריך ‚%1’ בנתוני שער ההמרה"
 
 #: alkonlinequote_p.cpp:733
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr "לא ניתן למצוא את עמודת המחיר ‚%1’ בנתוני הצעת המחיר"
+msgstr "לא ניתן למצוא את עמודת המחיר ‚%1’ בנתוני שער ההמרה"
 
 #: alkonlinequote_p.cpp:754 alkonlinequote_p.cpp:921
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr "לא ניתן להמיר את התאריך ‚%1’ ב־‚%2’ בנתוני הצעת המחיר"
+msgstr "לא ניתן להמיר את התאריך ‚%1’ ב־‚%2’ בנתוני שער ההמרה"
 
 #: alkonlinequote_p.cpp:789 alkonlinequote_p.cpp:938
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr "לא ניתן למצוא צמדי תאריך/מחיר בנתוני הצעת המחיר"
+msgstr "לא ניתן למצוא צמדי תאריך/מחיר בנתוני שער ההמרה"
 
 #: alkonlinequote_p.cpp:875
 #, kde-format
@@ -213,17 +213,17 @@ msgstr "נמצא קובץ Json עם תוכן שגוי עבור ‚%1’"
 #: alkonlinequote_p.cpp:886
 #, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr "לא ניתן למצוא ‚%1’ מתבנית התאריך ‚%2’ בנתוני הצעת המחיר"
+msgstr "לא ניתן למצוא ‚%1’ מתבנית התאריך ‚%2’ בנתוני שער ההמרה"
 
 #: alkonlinequote_p.cpp:900
 #, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr "לא ניתן למצוא ‚%1’ מתבנית המחיר ‚%2’ בנתוני הצעת המחיר"
+msgstr "לא ניתן למצוא ‚%1’ מתבנית המחיר ‚%2’ בנתוני שער ההמרה"
 
 #: alkonlinequote_p.cpp:972
 #, kde-format
 msgid "Unable to update price for %1 (empty quote data)"
-msgstr "לא ניתן לעדכן את המחיר עבור %1 (נתוני הצעת מחיר ריקים)"
+msgstr "לא ניתן לעדכן את המחיר עבור %1 (נתוני שער המרה ריקים)"
 
 #: alkonlinequote_p.cpp:992
 #, kde-format
@@ -245,7 +245,7 @@ msgstr "תם הזמן שהוקצה למשיכת הכתובת עבור %1"
 #: alkonlinequoteuploaddialog.ui:20
 #, kde-format
 msgid "Online Quotes"
-msgstr "הצעות מחיר מקוונות"
+msgstr "שערי המרה מקוונים"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
 #: alkonlinequotedetails.ui:26 alkonlinequotesprofile.ui:116
@@ -265,7 +265,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p><span style=\" font-style:italic;\">נא למלא ביטויים "
 "רגולריים שאפשר להשתמש בהם כדי לפענח את הנתונים שהוחזרו מהכתובת שסופקה לעיל. "
-"הסימול, המחיר והתאריך חייבים להיות בנתוני הצעת המחיר כדי שהם יהיו שימושיים. "
+"הסימול, המחיר והתאריך חייבים להיות בנתוני שער ההמרה כדי שהם יהיו שימושיים. "
 "אפשר לנסות גם את פורום KMyMoney בכתובת </span><a href=\"https://forum.kde."
 "org/viewforum.php?f=69\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></a>  או את <span "
@@ -360,7 +360,7 @@ msgstr "תבנית נתונים"
 #: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
 #, kde-format
 msgid "URL to be used to download the quote"
-msgstr "כתובת לשימוש להורדת הצעת המחיר"
+msgstr "כתובת לשימוש להורדת שער ההמרה"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
 #: alkonlinequotedetails.ui:166 alkonlinequotesprofile.ui:199
@@ -371,7 +371,7 @@ msgid ""
 "conversions, <b>%2</b> will be replaced with the currency to be quoted and "
 "<b>%1</b> with the currency the quote is based on."
 msgstr ""
-"נא למלא את הכתובת ממנה יתקבלו מחירי המניות. <b>%1</b> יוחלף בסימול לנכס "
+"נא למלא את הכתובת ממנה יתקבלו שערי המניות. <b>%1</b> יוחלף בסימול לנכס "
 "הכלכלי שהמחיר שלו מתקבל. להמרת מטבעות <b>%2</b> יוחלף בסימול המטבע לקבלת "
 "המחיר שלו ו־<b>%1</b> במטבע שהמחיר מבוסס עליו."
 
@@ -417,7 +417,7 @@ msgstr "כתובת"
 #: alkonlinequotedetails.ui:243
 #, kde-format
 msgid "An identifier that is known to work for this online quote source"
-msgstr "מזהה שידוע שעובד עבור מקור הצעות המחיר המקוון הזה"
+msgstr "מזהה שידוע שעובד עבור מקור שערי ההמרה המקוון הזה"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: alkonlinequotedetails.ui:250 alkonlinequotesprofile.ui:169
@@ -573,19 +573,19 @@ msgstr "הפעלת חיפוש הפוך"
 #: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
 #, kde-format
 msgid "<html><head/><body><p>online price quotes</p></body></html>"
-msgstr "<html><head/><body><p>הצעות מחיר מקוונות</p></body></html>"
+msgstr "<html><head/><body><p>שערי המרה מקוונים</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:48
 #, kde-format
 msgid "Create a new source entry for online quotes"
-msgstr "יצירת רשומת מקור חדשה להצעות מחיר מקוונות"
+msgstr "יצירת רשומת מקור חדשה לשערי המרה מקוונים"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
 #, kde-format
 msgid "Use this to create a new entry for online quotes."
-msgstr "אפשר להשתמש בזה כדי ליצור רשומה חדשה להצעות מחיר מקוונות."
+msgstr "אפשר להשתמש בזה כדי ליצור רשומה חדשה לשערי המרה מקוונים."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -640,7 +640,7 @@ msgstr "שכפול"
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "יצירת מקור מקוון מקומי כהפניה למקור הצעות מחיר מקוון"
+msgstr "יצירת מקור מקוון מקומי כהפניה למקור שער המרה מקוון"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:103
@@ -650,8 +650,9 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
-"אפשר להשתמש בזה כדי ליצור מקור הצעות מחיר מקוון מקומי חדש שמקשר למקור הצעות "
-"מחיר מקוון מרוחק. המאפיינים של "
+"אפשר להשתמש בזה כדי ליצור מקור שערי המרה מקוון מקומי חדש שמקשר למקור שער "
+"המרה מקוון מרוחק. המאפיינים של מקור שערי ההמרה המקוון המרוחק משמש למחיר או "
+"לבקשת שער המרה."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:106
@@ -663,13 +664,13 @@ msgstr "הוספת סימוכין"
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr "התקנת מקור הצעות מחיר מקוון מחנות KDE"
+msgstr "התקנת מקור שערי המרה מקוון מחנות KDE"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
-msgstr "אפשר להשתמש בזה כדי להתקין מקור הצעות מחיר מקוון מחנות KDE."
+msgstr "אפשר להשתמש בזה כדי להתקין מקור שערי המרה מקוון מחנות KDE."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -681,13 +682,13 @@ msgstr "התקנה"
 #: alkonlinequoteslist.ui:136
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
-msgstr "העלאת מקור הצעות מחיר מקוון מרוחק עם שינויים לחנות KDE"
+msgstr "העלאת מקור שערי המרה מקוון מרוחק עם שינויים לחנות KDE"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
 #, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "אפשר להשתמש בזה כדי להעלות מקור הצעות מחיר מקוון עם שינויים לחנות KDE."
+msgstr "אפשר להשתמש בזה כדי להעלות מקור שערי המרה מקוון עם שינויים לחנות KDE."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -932,12 +933,12 @@ msgstr "תמיד כאשר היום"
 #: alkonlinequoteswidget.cpp:578
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
-msgstr "למחוק את הצעת המחיר המקוונת הזאת?"
+msgstr "למחוק את שער ההמרה המקוון הזה?"
 
 #: alkonlinequoteswidget.cpp:579
 #, kde-format
 msgid "Delete online quote"
-msgstr "למחוק הצעת מחיר מקוונת"
+msgstr "למחוק שער המרה מקוון"
 
 #: alkonlinequoteswidget.cpp:600
 #, kde-format
@@ -948,7 +949,7 @@ msgstr ".עותק"
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
-msgstr "הגדרות הצעת המחיר המקוונת נוצרו עם Alkimia %1"
+msgstr "הגדרות שער ההמרה המקוון נוצרו עם Alkimia %1"
 
 #: alkonlinequoteswidget.cpp:634
 #, kde-format
@@ -1037,24 +1038,24 @@ msgstr ".סימוכין"
 #: alkonlinequoteswidget.cpp:674 alkonlinequoteswidget.cpp:676
 #, kde-format
 msgid "New Quote Source"
-msgstr "מקור הצעות מחיר חדש"
+msgstr "מקור שער המרה חדש"
 
 #: alkonlinequoteswidget.cpp:686
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
-msgstr "<b>מקור הצעות מחיר חדש</b> כבר קיים."
+msgstr "<b>מקור שער המרה חדש</b> כבר קיים."
 
 #: alkonlinequoteswidget.cpp:827
 #, kde-format
 msgid "Online Quote HTML Result Window"
-msgstr "חלון תוצאות הצעת מחיר מקוונת ב־HTML"
+msgstr "חלון תוצאות שער המרה מקוון ב־HTML"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: alkonlinequoteuploaddialog.ui:29
 #, kde-format
 msgid "Upload online quote"
-msgstr "העלאת הצעת מחיר מקוונת"
+msgstr "העלאת שער המרה מקוון"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
@@ -1085,7 +1086,7 @@ msgstr "כניסה לחנות וסגירת החלונית"
 #: alkonlinequoteuploaddialog.ui:99
 #, kde-format
 msgid "Online quote source:"
-msgstr "מקור הצעות מחיר מקוונות:"
+msgstr "מקור שערי המרה מקוונים:"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
@@ -1101,7 +1102,7 @@ msgid ""
 "you can then upload to the online store used by alkimia to share with other "
 "users."
 msgstr ""
-"החלונית הזאת מאפשרת לך ליצור חבילה למקור הצעות מחיר מקוון, אותו ניתן להעלות "
+"החלונית הזאת מאפשרת לך ליצור חבילה למקור שערי המרה מקוון, אותו ניתן להעלות "
 "לחנות המקוונת שבה משתמשת alkimia כדי לשתף עם משתמשים אחרים."
 
 #. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
