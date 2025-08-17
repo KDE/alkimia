@@ -23,7 +23,7 @@ include(CMakeDependentOption)
 cmake_dependent_option(BUILD_APPLETS "Build plasma applets" ON "NOT WIN32" OFF)
 
 if(WIN32)
-    set(ENABLE_FINANCEQUOTE_DEFAULT 0)
+    set(ENABLE_FINANCEQUOTE_DEFAULT 1)
 else()
     set(ENABLE_FINANCEQUOTE_DEFAULT 1)
 endif()
