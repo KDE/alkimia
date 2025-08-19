@@ -1,0 +1,89 @@
+# Translation for onlinequoteseditor.po to Euskaera/Basque (eu).
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+# KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>.
+#
+# Translators:
+# SPDX-FileCopyrightText: 2025 Iñigo Salvador Azurmendi <xalba@ni.eus>
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-03-20 02:00+0000\n"
+"PO-Revision-Date: 2025-08-18 18:26+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 25.08.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Iñigo Salvador Azurmendi"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xalba@ni.eus"
+
+#: main.cpp:60
+#, kde-format
+msgid "&About %1"
+msgstr "%1(e)(r)i &buruz"
+
+#: mainwindow.cpp:90
+#, kde-format
+msgid "Profiles"
+msgstr "Profilak"
+
+#: mainwindow.cpp:95
+#, kde-format
+msgid "Profile details"
+msgstr "Profilaren xehetasunak"
+
+#: mainwindow.cpp:100
+#, kde-format
+msgid "Online quotes"
+msgstr "Lerroko kotizazioak"
+
+#: mainwindow.cpp:105
+#, kde-format
+msgid "Debug"
+msgstr "Araztu"
+
+#: mainwindow.cpp:110
+#, kde-format
+msgid "Quote details"
+msgstr "Kotizazioaren xehetasunak"
+
+#: mainwindow.cpp:119
+#, kde-format
+msgid "Browser"
+msgstr "Arakatzailea"
+
+#: mainwindow.cpp:174
+#, kde-format
+msgid "Update for '%1' available in profile '%2'"
+msgstr "'%1'(e)(r)ako eguneratzea erabilgarri '%2' profilean"
+
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "Lerroko kotizazioen editorea"
+
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "Fitxategia"
+
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "Irten"
