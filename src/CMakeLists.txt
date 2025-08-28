@@ -256,7 +256,7 @@ else()
     if(NOT KDE_INSTALL_KNSRCDIR)
         set(KDE_INSTALL_KNSRCDIR "share/knsrcfiles")
     endif()
-    set(APPDATA_INSTALL_DIR ${SHARE_INSTALL_DIR})
+    set(APPDATA_INSTALL_DIR ${KDE_INSTALL_DATADIR})
     set(FQ_LOCAL_INSTALL_PATH ${CMAKE_BINARY_DIR}/share/alkimia${ALKIMIA_PATH_SUFFIX}/misc)
 endif()
 
