@@ -67,6 +67,7 @@
     <p xml:lang="en-GB">Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>
     <p xml:lang="eo">Online Quotes Editor estas grafikuzantinterfaca aplikaĵo por redakti kaj kontroli interretajn citaĵojn. Disponeblaj interretaj citaĵofontoj povas esti aldonitaj de la KDE-butiko, kreitaj loke, redaktitaj kaj kontrolitaj por ĝusta efektivigo.</p>
     <p xml:lang="es">El editor de cotizaciones en línea es una aplicación con interfaz gráfica para editar y comprobar cotizaciones en línea. Puede añadir las fuentes disponibles de cotizaciones en línea desde la tienda de KDE, creadas localmente, modificadas y comprobadas para que se ejecuten correctamente.</p>
+    <p xml:lang="eu">Lerroko kotizazioen editorea lerroko kotizazioak editatzeko eta egiaztatzeko erabiltzaile-interfaze grafiko bat da. Lerroko kotizazio-iturri erabilgarriak KDE biltegitik gehitu daitezke, lokalki sortu, editatu eta exekuzio zuzenerako egiazta daitezke.</p>
     <p xml:lang="fr">L'éditeur de cotations en ligne est une application avec une interface utilisateur graphique permettant d'éditer et de vérifier des cotations en ligne. Les sources de cotations disponibles en ligne peuvent être ajoutées à partir de la boutique de KDE, créées localement, modifiées et vérifiées pour une exécution correcte.</p>
     <p xml:lang="gl">O editor de cotizacións de Internet é unha aplicación gráfica para editar e comprobar cotizacións de Internet. Pódense engadir fontes de cotizacións de Internet dispoñíbeis na tenda de KDE, creadas localmente, editadas e comprobadas para unha execución correcta.</p>
     <p xml:lang="ia">Editor de Citationes in Linea es un application de interfacie de usator pro modificar e verificar citationes in linea. Fontes de citation disponibile in linea pote esser addite ab le magazin de KDE, create  localmente, modificate e verificate per un correcte execution.</p>
@@ -92,6 +93,7 @@
     <p xml:lang="en-GB">The interface is divided into customisable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
     <p xml:lang="eo">La interfaco estas dividita en agordeblajn subfenestrojn por profiloj, profildetaloj, asignitaj interretaj citaĵoj, citaĵo-atributoj, sencimigo kaj retumilo, ebligante flekseblan interfacagordon.</p>
     <p xml:lang="es">La interfaz está dividida en subventanas personalizables para perfiles, detalles de los perfiles, cotizaciones en línea asignadas, atributos de las cotizaciones, depuración de datos y navegación, que permiten una configuración flexible de la interfaz.</p>
+    <p xml:lang="eu">Interfazea neurrira ipin daitezkeen azpi-leihoetan banatuta dago, profilak, profilen xehetasunak, esleitutako lerroko kotizazioak, kotizazio atributuak, araztea, eta arakatzailea, interfaze-ezarpen malguetarako aukera eskainiz.</p>
     <p xml:lang="fr">L'interface est divisée en sous-fenêtres personnalisables pour les profils, les détails du profil, les cotations attribuées en ligne, les attributs de cotations, le débogage et le navigateur, permettant une configuration flexible de l'interface.</p>
     <p xml:lang="gl">A interface divídese en xanelas aniñadas personalizábeis para perfís, detalles de perfís, cotizacións de Internet asignadas, atributos de cotizacións, depuración e navegador, o que dá flexibilidade para a configuración da interface.</p>
     <p xml:lang="ia">Le interfacie esdividite in sub-fenestras personalisabile per profilos, detalios de profilo, citationes assignate in linea, attributos de citationes, cribrar(debug), e navigar,permittente un configuration de interfacie flexibile.  </p>
@@ -117,6 +119,7 @@
     <p xml:lang="en-GB">Multiple applications can be supported via profiles.</p>
     <p xml:lang="eo">Multoblaj aplikoj povas esti subtenataj per profiloj.</p>
     <p xml:lang="es">Se pueden usar múltiples aplicaciones mediante perfiles.</p>
+    <p xml:lang="eu">Profilen bidez hainbat aplikazio onar daitezke.</p>
     <p xml:lang="fi">Profiilien avulla voi tukea useita sovelluksia.</p>
     <p xml:lang="fr">Plusieurs applications peuvent être prises en charge grâce des profils.</p>
     <p xml:lang="gl">Permite varias aplicacións mediante perfís.</p>
@@ -143,6 +146,7 @@
     <p xml:lang="en-GB">Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p>
     <p xml:lang="eo">Financaj aplikaĵoj, kiuj ne enhavas propran uzantinterfacon por redaktado de interretaj citaĵofontoj, povas alvoki la interretan citaĵoredaktilon por ĉi tiu celo.</p>
     <p xml:lang="es">Las aplicaciones de finanzas que no contienen su propia interfaz para editar fuentes de cotizaciones en línea pueden llamar al editor de cotizaciones en línea para este propósito.</p>
+    <p xml:lang="eu">Lerroko kotizazio-iturriak editatzeko erabiltzaile-interfazerik ez duten finantza-aplikazioek helburu horretarako lerroko kotizazio editorea deitu dezakete.</p>
     <p xml:lang="fr">Les applications financières ne possédant pas leur propre interface utilisateur pour modifier les sources de cotations en ligne peuvent appeler l'éditeur de cotation en ligne à cette fin.</p>
     <p xml:lang="gl">As aplicacións financeiras que non teñen unha interface de persoa usuaria de seu para editar fontes de cotizacións de Internet poden chamar ao editor de cotizacións de Internet para esa fin.</p>
     <p xml:lang="ia">Applicationes finantiari que non contine lor proprie interfacie de usator per modificar fontes de citation in linea pote appellar le editor de citation in linea pro iste proposito.</p>
