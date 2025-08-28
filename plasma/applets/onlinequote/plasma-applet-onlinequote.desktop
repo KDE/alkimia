@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Online Quote
+Name[ar]=عرض الأسعار على النت
 Name[ca]=Cotització en línia
 Name[ca@valencia]=Cotització en línia
 Name[de]=Online-Kursnotizen
@@ -33,6 +34,7 @@ Name[x-test]=xxOnline Quotexx
 Name[zh_CN]=在线报价
 Name[zh_TW]=線上報價
 Comment=Plasma applet for an online quote
+Comment[ar]=تطبيق بلازما للحصول على عرض أسعار عبر الإنترنت
 Comment[ca]=Miniaplicació del Plasma per a una cotització en línia
 Comment[ca@valencia]=Miniaplicació de Plasma per a una cotització en línia
 Comment[de]=Plasma-Miniprogramm für Online-Kursnotizen
