@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Foreign Currencies
+Name[ar]=العملات الأجنبية
 Name[ca]=Divises estrangeres
 Name[ca@valencia]=Divises estrangeres
 Name[cs]=Cizí měny
@@ -35,6 +36,7 @@ Name[x-test]=xxForeign Currenciesxx
 Name[zh_CN]=外币
 Name[zh_TW]=外幣
 Comment=Plasmoid showing current foreign currencies prices
+Comment[ar]=بلازمويد يعرض أسعار العملات الأجنبية الحالية
 Comment[ca]=Plasmoide que mostra els preus actuals de les divises estrangeres
 Comment[ca@valencia]=Plasmoide que mostra els preus actuals de les divises estrangeres
 Comment[es]=Plasmoide para mostrar los precios actuales de monedas extranjeras
