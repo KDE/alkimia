@@ -1,0 +1,87 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-03-20 02:00+0000\n"
+"PO-Revision-Date: 2025-08-27 17:56+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "زايد السعيدي"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zayed.alsaidi@gmail.com"
+
+#: main.cpp:60
+#, kde-format
+msgid "&About %1"
+msgstr "&عن %1"
+
+#: mainwindow.cpp:90
+#, kde-format
+msgid "Profiles"
+msgstr "التّشكيلات"
+
+#: mainwindow.cpp:95
+#, kde-format
+msgid "Profile details"
+msgstr "تفاصيل التشكيلة"
+
+#: mainwindow.cpp:100
+#, kde-format
+msgid "Online quotes"
+msgstr "عروض الأسعار عبر الإنترنت"
+
+#: mainwindow.cpp:105
+#, kde-format
+msgid "Debug"
+msgstr "نقّح"
+
+#: mainwindow.cpp:110
+#, kde-format
+msgid "Quote details"
+msgstr "تفاصيل عرض الأسعار"
+
+#: mainwindow.cpp:119
+#, kde-format
+msgid "Browser"
+msgstr "المتصفّح"
+
+#: mainwindow.cpp:174
+#, kde-format
+msgid "Update for '%1' available in profile '%2'"
+msgstr "يوجد تحديث لـ'%1' في التشكيلة '%2'"
+
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
+#: mainwindow.ui:14
+#, kde-format
+msgid "Online Quotes Editor"
+msgstr "محرر عروض الأسعار عبر الإنترنت"
+
+#. i18n: ectx: property (title), widget (QMenu, menuFile)
+#: mainwindow.ui:30
+#, kde-format
+msgid "File"
+msgstr "ملف"
+
+#. i18n: ectx: property (text), widget (QStatusBar, statusBar)
+#: mainwindow.ui:42
+#, kde-format
+msgid "Quit"
+msgstr "أنهِ"

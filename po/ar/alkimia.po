@@ -1,0 +1,1159 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the alkimia package.
+# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alkimia\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-07-29 02:02+0000\n"
+"PO-Revision-Date: 2025-08-27 17:53+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "زايد السعيدي"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zayed.alsaidi@gmail.com"
+
+#: alkdateformat.cpp:39
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid format string '%1'"
+msgstr "سلسلة تنسيق غير صالحة '%1'"
+
+#: alkdateformat.cpp:42
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid format character '%1'"
+msgstr "حرف تنسيق غير صالح '%1'"
+
+#: alkdateformat.cpp:45
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid date '%1'"
+msgstr "تاريخ غير صالح '%1'"
+
+#: alkdateformat.cpp:48
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid day entry: %1"
+msgstr "إدخال يوم غير صالح: %1"
+
+#: alkdateformat.cpp:51
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid month entry: %1"
+msgstr "إدخال شهر غير صالح: %1"
+
+#: alkdateformat.cpp:54
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Invalid year entry: %1"
+msgstr "إدخال سنة غير صالحة: %1"
+
+#: alkdateformat.cpp:57
+#, kde-format
+msgctxt "@info AlkDateFormat info"
+msgid "Length of year (%1) does not match expected length (%2)."
+msgstr "طول السنة (%1) لا يتطابق مع الطول المتوقع (%2)."
+
+#: alkonlinequote_p.cpp:164
+#, kde-format
+msgid "Source <placeholder>%1</placeholder> does not exist."
+msgstr "المصدر <placeholder>%1</placeholder> غير موجود."
+
+#: alkonlinequote_p.cpp:220
+#, kde-format
+msgid "Cannot resolve input date."
+msgstr "تعذّر تحليل تاريخ الإدخال."
+
+#: alkonlinequote_p.cpp:248
+#, kde-format
+msgid "Start date moved to before the weekend"
+msgstr "نُقل تاريخ البداية إلى ما قبل عطلة نهاية الأسبوع"
+
+#: alkonlinequote_p.cpp:276
+#, kde-format
+msgid "Unable to fetch url for %1"
+msgstr "تعذّر جلب عنوان لـ %1"
+
+#: alkonlinequote_p.cpp:285 alkonlinequote_p.cpp:287
+#, kde-format
+msgid "The URL has been redirected; check an update of the online quote URL"
+msgstr "أُعيد توجيه عنوان؛ تحقق من تحديث عنوان  عرض الأسعار عبر الإنترنت"
+
+#: alkonlinequote_p.cpp:311
+#, kde-format
+msgid "Fetching URL %1..."
+msgstr "يجلب عنوان %1..."
+
+#: alkonlinequote_p.cpp:360
+#, kde-format
+msgctxt "The process x is executing"
+msgid "Executing %1..."
+msgstr "ينفّذ %1..."
+
+#: alkonlinequote_p.cpp:377 alkonlinequote_p.cpp:437
+#, kde-format
+msgid "Unable to launch: %1"
+msgstr "تعذّر تشغيل: %1"
+
+#: alkonlinequote_p.cpp:398
+#, kde-format
+msgid "URL found: %1..."
+msgstr "عثر على رابط: %1..."
+
+#: alkonlinequote_p.cpp:429
+#, kde-format
+msgctxt "Executing 'script' 'online source' 'investment symbol' "
+msgid "Executing %1 %2 %3..."
+msgstr "ينفّذ %1 %2 %3..."
+
+#: alkonlinequote_p.cpp:488
+#, kde-format
+msgid "Price found: '%1' (%2)"
+msgstr "وُجد السعر: '%1' (%2)"
+
+#: alkonlinequote_p.cpp:491
+#, kde-format
+msgid "Price '%1' cannot be converted to a number for '%2'"
+msgstr "لا يمكن تحويل السعر '%1' إلى رقم لـ '%2'"
+
+#: alkonlinequote_p.cpp:496
+#, kde-format
+msgid "Unable to parse price for '%1'"
+msgstr "تعذّر تحليل السعر لـ '%1'"
+
+#: alkonlinequote_p.cpp:506
+#, kde-format
+msgid "Date found: '%1'"
+msgstr "وُجد التاريخ: '%1'"
+
+#: alkonlinequote_p.cpp:512
+#, kde-format
+msgid "Date format found: '%1' -> '%2'"
+msgstr "وُجد تنسيق التاريخ: '%1' -> '%2'"
+
+#: alkonlinequote_p.cpp:515
+#, kde-format
+msgid "Unable to parse date '%1' using format '%2': %3"
+msgstr "تعذّر تحليل التاريخ '%1' باستخدام التنسيق '%2': %3"
+
+#: alkonlinequote_p.cpp:519 alkonlinequote_p.cpp:529
+#, kde-format
+msgid "Using current date for '%1'"
+msgstr "يستخدم التاريخ الحالي لـ '%1'"
+
+#: alkonlinequote_p.cpp:523
+#, kde-format
+msgid "Parsing date is disabled for '%1'"
+msgstr "تحليل التاريخ معطّل لـ '%1'"
+
+#: alkonlinequote_p.cpp:526
+#, kde-format
+msgid "Unable to parse date for '%1'"
+msgstr "تعذّر تحليل التاريخ لـ '%1'"
+
+#: alkonlinequote_p.cpp:583 alkonlinequote_p.cpp:609 alkonlinequote_p.cpp:647
+#, kde-format
+msgid "Symbol found: '%1'"
+msgstr "وُجد الرمز: '%1'"
+
+#: alkonlinequote_p.cpp:586 alkonlinequote_p.cpp:612 alkonlinequote_p.cpp:650
+#, kde-format
+msgid "Unable to parse symbol for %1"
+msgstr "تعذّر تحليل الرمز لـ %1"
+
+#: alkonlinequote_p.cpp:700
+#, kde-format
+msgid ""
+"Unable to detect field delimiter in first line (header line) of quote data."
+msgstr "تعذّر اكتشاف محدد الحقل في السطر الأول (سطر الرأس) لبيانات عرض السعر."
+
+#: alkonlinequote_p.cpp:727
+#, kde-format
+msgid "Unable to find date column '%1' in quote data"
+msgstr "تعذّر العثور على عمود التاريخ '%1' في بيانات عرض السعر"
+
+#: alkonlinequote_p.cpp:733
+#, kde-format
+msgid "Unable to find price column '%1' in quote data"
+msgstr "تعذّر العثور على عمود السعر '%1' في بيانات عرض السعر"
+
+#: alkonlinequote_p.cpp:754 alkonlinequote_p.cpp:921
+#, kde-format
+msgid "Unable to convert date '%1' with '%2' in quote data"
+msgstr "تعذّر تحويل التاريخ '%1' باستخدام '%2' في بيانات عرض السعر"
+
+#: alkonlinequote_p.cpp:789 alkonlinequote_p.cpp:938
+#, kde-format
+msgid "Unable to find date/price pairs in quote data"
+msgstr "تعذّر العثور على أزواج التاريخ/السعر في بيانات عرض السعر"
+
+#: alkonlinequote_p.cpp:875
+#, kde-format
+msgid "Json file with invalid content found for '%1'"
+msgstr "وُجد ملف Json بمحتوى غير صالح لـ '%1'"
+
+#: alkonlinequote_p.cpp:886
+#, kde-format
+msgid "Unable to find '%1' from date pattern '%2' in quote data"
+msgstr "تعذّر العثور على '%1' من نمط التاريخ '%2' في بيانات عرض السعر"
+
+#: alkonlinequote_p.cpp:900
+#, kde-format
+msgid "Unable to find '%1' from price pattern '%2' in quote data"
+msgstr "تعذّر العثور على '%1' من نمط السعر '%2' في بيانات عرض السعر"
+
+#: alkonlinequote_p.cpp:972
+#, kde-format
+msgid "Unable to update price for %1 (empty quote data)"
+msgstr "تعذّر تحديث السعر لـ %1 (بيانات عرض السعر فارغة)"
+
+#: alkonlinequote_p.cpp:992
+#, kde-format
+msgid "Timeout exceeded on fetching url for %1"
+msgstr "تجاوز المهلة في جلب عنوان URL لـ %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesWidget)
+#. i18n: ectx: property (title), widget (QGroupBox, onlineQuotesGroupBox)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfileDetailsWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesDebugWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteUploadDialog)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesListWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuoteDetailsWidget)
+#. i18n: ectx: property (windowTitle), widget (QWidget, AlkOnlineQuotesProfilesWidget)
+#: alkonlinequotedetails.ui:20 alkonlinequotesdebug.ui:20
+#: alkonlinequoteslist.ui:20 alkonlinequoteslist.ui:32
+#: alkonlinequotesprofile.ui:20 alkonlinequotesprofile.ui:32
+#: alkonlinequotesprofiledetails.ui:20 alkonlinequotesprofiles.ui:20
+#: alkonlinequoteuploaddialog.ui:20
+#, kde-format
+msgid "Online Quotes"
+msgstr "عروض الأسعار عبر الإنترنت"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequotedetails.ui:26 alkonlinequotesprofile.ui:116
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Enter regular "
+"expressions which can be used to parse the data returned from the URL "
+"entered above. The symbol, price, and date must be found in the quote data "
+"to be usable. You may also try the KMyMoney forum at </span><a href="
+"\"https://forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
+"a>  or the <span style=\" font-style:italic;\">user's mailinglist at </"
+"span><a href=\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; "
+"text-decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></"
+"a><span style=\" font-style:italic;\"> to find what settings work for other "
+"users in your country.</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">أدخل تعابير منتظمة "
+"يمكن استخدامها لتحليل البيانات المرتجعة من عنوان URL المدخل أعلاه. يجب "
+"العثور على الرمز والسعر والتاريخ في بيانات الاقتباس لتكون قابلة للاستخدام. "
+"يمكنك أيضًا تجربة منتدى KMyMoney على </span><a href=\"https://forum.kde.org/"
+"viewforum.php?f=69\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></a>  أو <span "
+"style=\" font-style:italic;\">قائمة البريد للمستخدمين على </span><a href="
+"\"mailto:kmymoney@kde.org\"><span style=\" font-style:italic; text-"
+"decoration: underline; color:#2980b9;\">kmymoney@kde.org</span></a><span "
+"style=\" font-style:italic;\"> لمعرفة الإعدادات التي تعمل لمستخدمين آخرين في "
+"بلدك.</span></p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: alkonlinequotedetails.ui:29 alkonlinequotesprofile.ui:119
+#, kde-format
+msgid "Details"
+msgstr "التفاصيل"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: alkonlinequotedetails.ui:42
+#, kde-format
+msgid "Download mode"
+msgstr "وضع التحميل"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequotedetails.ui:52
+#, kde-format
+msgid "Remote source"
+msgstr "مصدر بعيد"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editPrice)
+#: alkonlinequotedetails.ui:66 alkonlinequotesprofile.ui:220
+#, kde-format
+msgid "Regular Expression to extract the price from the downloaded data"
+msgstr "تعبير منتظم لاستخراج السعر من البيانات المحملة"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editIdentifier)
+#: alkonlinequotedetails.ui:73 alkonlinequotesprofile.ui:206
+#, kde-format
+msgid "Regular Expression to extract the identifier from the downloaded data"
+msgstr "تعبير منتظم لاستخراج المعرف من البيانات المحملة"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDate)
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDateFormat)
+#: alkonlinequotedetails.ui:80 alkonlinequotedetails.ui:202
+#: alkonlinequotesprofile.ui:227 alkonlinequotesprofile.ui:234
+#, kde-format
+msgid "Regular Expression to extract the date from the downloaded data"
+msgstr "تعبير منتظم لاستخراج التاريخ من البيانات المحملة"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: alkonlinequotedetails.ui:87 alkonlinequotesprofile.ui:142
+#, kde-format
+msgid "Identifier"
+msgstr "المُعِّرف"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: alkonlinequotedetails.ui:97 alkonlinequotesprofile.ui:159
+#, kde-format
+msgid "Price"
+msgstr "السعر"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: alkonlinequotedetails.ui:107
+#, kde-format
+msgid "Default Identifier"
+msgstr "المُعِّرف المبدئي"
+
+#. i18n: ectx: property (text), widget (QLabel, m_editIdSelectorLabel)
+#: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
+#, kde-format
+msgid "Selected by"
+msgstr "محدد بواسطة"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequotedetails.ui:135
+#, kde-format
+msgid "Price decimal separator"
+msgstr "فاصل الكسور العشرية للسعر"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, m_editIdSelector)
+#. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editIdSelector)
+#: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
+#, kde-format
+msgid "How to select the identifier"
+msgstr "كيفية تحديد المعرف"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotedetails.ui:156
+#, kde-format
+msgid "Data Format"
+msgstr "تنسيق البيانات"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editURL)
+#: alkonlinequotedetails.ui:163 alkonlinequotesprofile.ui:196
+#, kde-format
+msgid "URL to be used to download the quote"
+msgstr "عنوان المستخدم لتحميل عرض السعر"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, m_editURL)
+#: alkonlinequotedetails.ui:166 alkonlinequotesprofile.ui:199
+#, no-c-format, kde-format
+msgid ""
+"Enter the URL from which stock quotes will be fetched.  <b>%1</b> will be "
+"replaced with the symbol for the security being quoted. For currency "
+"conversions, <b>%2</b> will be replaced with the currency to be quoted and "
+"<b>%1</b> with the currency the quote is based on."
+msgstr ""
+"أدخل عنوان الذي سيجلب قيمة الأسهم منه. سيستبدل ب<b>%1</b>  رمز للأوراق "
+"المالية. لتحويلات العملات، سيستبدل بـ <b>%2</b> العملة المطلوب معرفة سعرها و "
+"بـ<b>%1</b> العملة التي يعتمد عليها عرض السعر."
+
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:184
+#, kde-format
+msgctxt "1"
+msgid "Period (.)"
+msgstr "نقطة (.)"
+
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:189
+#, kde-format
+msgctxt "2"
+msgid "Comma (,)"
+msgstr "فاصلة (,)"
+
+#. i18n: ectx: property (text), item, widget (AlkComboBox, m_editPriceDecimalSeparator)
+#: alkonlinequotedetails.ui:194
+#, kde-format
+msgid "Legacy"
+msgstr "قديم"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotedetails.ui:209 alkonlinequotesprofile.ui:189
+#, kde-format
+msgid "Options"
+msgstr "خيارات"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: alkonlinequotedetails.ui:223 alkonlinequotesprofile.ui:179
+#, kde-format
+msgid "Date Format"
+msgstr "نسق التّاريخ"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: alkonlinequotedetails.ui:233 alkonlinequotesprofile.ui:132
+#, kde-format
+msgid "URL"
+msgstr "العنوان"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, m_editDefaultId)
+#: alkonlinequotedetails.ui:243
+#, kde-format
+msgid "An identifier that is known to work for this online quote source"
+msgstr "معرف معروف بأنه يعمل مع مصدر عرض السعر عبر الإنترنت هذا"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: alkonlinequotedetails.ui:250 alkonlinequotesprofile.ui:169
+#, kde-format
+msgid "Date"
+msgstr "التاريخ"
+
+#. i18n: ectx: property (toolTip), widget (AlkComboBox, m_editDataFormat)
+#: alkonlinequotedetails.ui:260
+#, kde-format
+msgid "The type of data expected to downloaded and processed."
+msgstr "نوع البيانات المتوقع تحميلها ومعالجتها."
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_acceptButton)
+#: alkonlinequotedetails.ui:274
+#, kde-format
+msgid "Accepts the entered data and stores it"
+msgstr "يقبل البيانات المدخلة ويخزنها"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_acceptButton)
+#: alkonlinequotedetails.ui:277
+#, kde-format
+msgid "Use this to accept the modified data."
+msgstr "استخدم هذا لقبول البيانات المعدلة."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_acceptButton)
+#: alkonlinequotedetails.ui:280 alkonlinequotesprofile.ui:312
+#, kde-format
+msgctxt "@action update quotes from online quote source"
+msgid "Accept"
+msgstr "اقبل"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_cancelButton)
+#: alkonlinequotedetails.ui:291
+#, kde-format
+msgctxt "@action cancel actual changes"
+msgid "Cancel"
+msgstr "ألغِ"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:302
+#, kde-format
+msgid "Copies the details as text to the clipboard."
+msgstr "ينسخ التفاصيل كنص إلى الحافظة."
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:305
+#, kde-format
+msgid ""
+"Use this to copy the details as text to the clipboard to e.g. paste it in an "
+"email."
+msgstr ""
+"استخدم هذا لنسخ التفاصيل كنص إلى الحافظة للصقه على سبيل المثال في بريد "
+"إلكتروني."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
+#: alkonlinequotedetails.ui:308
+#, kde-format
+msgctxt "@action copy details to clipboard"
+msgid "Copy"
+msgstr "انسخ"
+
+#. i18n: ectx: property (text), widget (QLabel, m_buildKey)
+#: alkonlinequotedetails.ui:336
+#, kde-format
+msgid "build_key"
+msgstr "مفتاح_البناء"
+
+#. i18n: ectx: property (title), widget (QGroupBox, debugGroupBox)
+#: alkonlinequotesdebug.ui:26 alkonlinequotesprofile.ui:352
+#, kde-format
+msgid "Debugging"
+msgstr "التّنقيح"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:37
+#, kde-format
+msgid "Check the selected source entry"
+msgstr "تحقق من إدخال المصدر المحدد"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:40
+#, kde-format
+msgid "Use this to check the selected online source entry"
+msgstr "استخدم هذا للتحقق من إدخال المصدر عبر الإنترنت المحدد"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_checkButton)
+#: alkonlinequotesdebug.ui:43 alkonlinequotesprofile.ui:402
+#, kde-format
+msgid "Check Source"
+msgstr "تحقق من المصدر"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:55
+#, kde-format
+msgid ""
+"Display the response of a query of the selected source entry in a web browser"
+msgstr "اعرض استجابة استعلام إدخال المصدر المحدد في متصفح الويب"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:58
+#, kde-format
+msgid ""
+"Use this option to display the response to a query from the selected online "
+"source."
+msgstr ""
+"استخدم هذا الخيار لعرض الاستجابة لاستعلام من المصدر عبر الإنترنت المحدد."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
+#: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
+#, kde-format
+msgid "Show Page"
+msgstr "أظهر الصفحة"
+
+#. i18n: ectx: property (text), widget (QLabel, m_endDateLabel)
+#: alkonlinequotesdebug.ui:89
+#, kde-format
+msgid "End date"
+msgstr "تاريخ الانتهاء"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequotesdebug.ui:96 alkonlinequotesprofile.ui:381
+#, kde-format
+msgid "Two Symbols"
+msgstr "رمزان"
+
+#. i18n: ectx: property (text), widget (QLabel, m_startDateLabel)
+#: alkonlinequotesdebug.ui:112
+#, kde-format
+msgid "Start date"
+msgstr "تاريخ البدء"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequotesdebug.ui:122 alkonlinequotesprofile.ui:367
+#, kde-format
+msgid "One Symbol"
+msgstr "رمز واحد"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: alkonlinequotesdebug.ui:129
+#, kde-format
+msgid "Return last price state"
+msgstr "أرجع حالة آخر سعر"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_reverseSearchStateCheckBox)
+#: alkonlinequotesdebug.ui:139
+#, kde-format
+msgid "Enable reverse search"
+msgstr "فعّل البحث العكسي"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, onlineQuotesGroupBox)
+#: alkonlinequoteslist.ui:29 alkonlinequotesprofile.ui:29
+#, kde-format
+msgid "<html><head/><body><p>online price quotes</p></body></html>"
+msgstr "<html><head/><body><p>عروض الأسعار عبر الإنترنت</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteslist.ui:48
+#, kde-format
+msgid "Create a new source entry for online quotes"
+msgstr "أنشئ إدخال مصدر جديد لعرض السعر عبر الإنترنت"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteslist.ui:51
+#, kde-format
+msgid "Use this to create a new entry for online quotes."
+msgstr "استخدم هذا لإنشاء إدخال جديد لعرض السعر عبر الإنترنت."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
+#: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
+#, kde-format
+msgctxt "@action create new quote source"
+msgid "New"
+msgstr "جديد"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteslist.ui:64
+#, kde-format
+msgid "Delete the selected source entry"
+msgstr "احذف إدخال المصدر المحدد"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_deleteButton)
+#: alkonlinequoteslist.ui:67
+#, kde-format
+msgid "Use this to delete the selected online source entry"
+msgstr "استخدم هذا لحذف إدخال المصدر عبر الإنترنت المحدد"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteButton)
+#. i18n: ectx: property (text), widget (AlkPushButton, m_deleteProfile)
+#: alkonlinequoteslist.ui:70 alkonlinequotesprofile.ui:61
+#: alkonlinequotesprofiles.ui:62
+#, kde-format
+msgid "Delete"
+msgstr "احذف"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteslist.ui:82 alkonlinequotesprofile.ui:68
+#, kde-format
+msgid ""
+"Create a duplicate of the currently selected source entry under a different "
+"name."
+msgstr "أنشئ نسخة مكررة من إدخال المصدر المحدد حاليًا تحت اسم مختلف."
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteslist.ui:85 alkonlinequotesprofile.ui:71
+#, kde-format
+msgid "Use this to create a duplicate of an entry for an online source"
+msgstr "استخدم هذا لإنشاء نسخة مكررة من إدخال لمصدر عبر الإنترنت"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_duplicateButton)
+#: alkonlinequoteslist.ui:88 alkonlinequotesprofile.ui:74
+#, kde-format
+msgid "Duplicate"
+msgstr "كرّر"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
+#: alkonlinequoteslist.ui:100
+#, kde-format
+msgid ""
+"Creates a new local online source as reference to a remote online quote "
+"source"
+msgstr ""
+"ينشئ مصدرًا محليًا جديدًا عبر الإنترنت كمرجع لمصدر عرض السعر بعيد عبر الإنترنت"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
+#: alkonlinequoteslist.ui:103
+#, kde-format
+msgid ""
+"Use this to create a new local online quote source that links to a remote "
+"online quote source. The attributes of the remote online course source are "
+"then used for a price or quote request."
+msgstr ""
+"استخدم هذا لإنشاء مصدر اقتباس محلي جديد عبر الإنترنت يرتبط بمصدر عرض السعر "
+"بعيد عبر الإنترنت. ثم تُستخدم سمات مصدر الدورة التدريبية البعيدة عبر الإنترنت "
+"لطلب سعر أو عرض السعر."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
+#: alkonlinequoteslist.ui:106
+#, kde-format
+msgid "Add reference"
+msgstr "أضف مرجعًا"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteslist.ui:118
+#, kde-format
+msgid "Install online quote source from the KDE Store"
+msgstr "ثبّت مصدر اقتباس عبر الإنترنت من متجر كيدي"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteslist.ui:121
+#, kde-format
+msgid "Use this to install an online quote source from the KDE Store."
+msgstr "استخدِم هذا لتثبيت مصدر أسعار عبر الإنترنت من متجر كيدي."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
+#: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
+#, kde-format
+msgid "Install"
+msgstr "ثبّت"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequoteslist.ui:136
+#, kde-format
+msgid "Upload modified remote online quote source to the KDE Store"
+msgstr "ارفع عرض أسعار عن بعد معدَّل إلى متجر كيدي"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequoteslist.ui:139
+#, kde-format
+msgid "Use this to upload a modified online quote source to the KDE Store."
+msgstr "استخدِم هذا لرفع عرض أسعار عبر الإنترنت معدَّل إلى متجر كيدي."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
+#: alkonlinequoteslist.ui:142
+#, kde-format
+msgid "Upload"
+msgstr "ارفع"
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:154
+#, kde-format
+msgid ""
+"Reset changes to local sources that were made after the last selection of "
+"this profile"
+msgstr ""
+"أعِد تعيين التغييرات على المصادر المحلية التي أُجرِيت بعد آخر اختيار لهذا "
+"التشكيلة"
+
+#. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:157
+#, kde-format
+msgid ""
+"Use this to reset changes to local sources that were made after the last "
+"selection of this profile."
+msgstr ""
+"استخدِم هذا لإعادة تعيين التغييرات على المصادر المحلية التي أُجرِيت بعد آخر "
+"اختيار لهذه التشكيلة."
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
+#: alkonlinequoteslist.ui:160
+#, kde-format
+msgid "Reset"
+msgstr "صفّر"
+
+#: alkonlinequotesmodel.cpp:19
+#, kde-format
+msgid "Remote unpublished"
+msgstr "عن بعد غير منشور"
+
+#: alkonlinequotesmodel.cpp:21
+#, kde-format
+msgid "Remote"
+msgstr "البعيد"
+
+#: alkonlinequotesmodel.cpp:23
+#, kde-format
+msgid "Finance::Quote"
+msgstr "Finance::Quote"
+
+#: alkonlinequotesmodel.cpp:24
+#, kde-format
+msgid "Local"
+msgstr "المحليّة"
+
+#: alkonlinequotesmodel.cpp:104
+#, kde-format
+msgid "Format"
+msgstr "التنسيق"
+
+#: alkonlinequotesmodel.cpp:105
+#, kde-format
+msgid "Name"
+msgstr "الاسم"
+
+#: alkonlinequotesmodel.cpp:106
+#, kde-format
+msgid "Source"
+msgstr "المصدر"
+
+#: alkonlinequotesmodel.cpp:107
+#, kde-format
+msgid "Reference to"
+msgstr "مرجع إلى"
+
+#: alkonlinequotesource.cpp:457
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Stripped HTML"
+msgstr "HTML مُجرَّد"
+
+#: alkonlinequotesource.cpp:459
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "HTML"
+msgstr "HTML"
+
+#: alkonlinequotesource.cpp:461
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSV"
+msgstr "CSV"
+
+#: alkonlinequotesource.cpp:463
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "CSS"
+msgstr "أوراق الأنماط المتتالية"
+
+#: alkonlinequotesource.cpp:465
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "JSON"
+msgstr "جسون"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
+#: alkonlinequotesprofile.ui:244
+#, kde-format
+msgid "GHNS Source"
+msgstr "مصدر GHNS"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_skipStripping)
+#: alkonlinequotesprofile.ui:260
+#, kde-format
+msgid ""
+"<p>For easier processing of the data returned by the online source, KMyMoney "
+"usually strips unused parts before it is parsed with the regular "
+"expressions. If matching of the fields relies on those items, then use this "
+"option to turn stripping off.</p>\n"
+"\n"
+"<p>The following items are usually removed by stripping:\n"
+"\n"
+"<ul>\n"
+"<li>HTML tags such as <b>&lt;tag&gt;</b></li>\n"
+"<li>& encoded characters such as <b>&amp;nbsp;</b></li>\n"
+"<li>duplicate whitespace</li>\n"
+"</ul>\n"
+"</p>"
+msgstr ""
+"<p>لمعالجة أسهل للبيانات المُرجَعة من المصدر عبر الإنترنت، عادةً ما يُجرد "
+"KMyMoney الأجزاء غير المستخدمة قبل تحليلها بالتعبيرات النمطية. إذا كان تطابق "
+"الحقول يعتمد على تلك العناصر، فاستخدِم هذا الخيار لإيقاف التجريد.</p> \n"
+"\n"
+"<p>عادةً ما تُزال العناصر التالية بعملية التجريد:\n"
+"\n"
+"<ul>\n"
+"<li>وسوم HTML مثل <b>&lt;tag&gt;</b></li>\n"
+"<li>الحروف المشفرة بـ & مثل <b>&amp;nbsp;</b></li>\n"
+"<li>المسافات البيضاء المكررة</li>\n"
+"</ul>\n"
+"</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_skipStripping)
+#: alkonlinequotesprofile.ui:263
+#, kde-format
+msgid "Skip HTML stripping"
+msgstr "تخطَّ تجريد HTML"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profileDetailsBox)
+#: alkonlinequotesprofiledetails.ui:26
+#, kde-format
+msgid "Profile details"
+msgstr "تفاصيل التشكيلة"
+
+#. i18n: ectx: property (text), widget (QLabel, m_configLabel)
+#: alkonlinequotesprofiledetails.ui:35
+#, kde-format
+msgid "Config file"
+msgstr "ملف الإعدادات"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSConfigLabel)
+#: alkonlinequotesprofiledetails.ui:42
+#, kde-format
+msgid "GHNS config file"
+msgstr "ملف إعدادات GHNS"
+
+#. i18n: ectx: property (text), widget (QLabel, m_GHNSDataLabel)
+#: alkonlinequotesprofiledetails.ui:49
+#, kde-format
+msgid "GHNS data path"
+msgstr "مسار بيانات GHNS"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequotesprofiles.ui:26 alkonlinequoteuploaddialog.ui:26
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select, add or delete an application profile, where to "
+"load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>اختر ملفًا شخصيًا للتطبيق أو أضِفه أو احذِفه، وحدد من أين "
+"تُحمَّل الملفات الشخصية وأين تُحفَظ، مثل kmymoney أو skrooge.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
+#: alkonlinequotesprofiles.ui:29
+#, kde-format
+msgid "Application Profiles"
+msgstr "تشكيلات التطبيق"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_newProfile)
+#: alkonlinequotesprofiles.ui:48
+#, kde-format
+msgid "New"
+msgstr "جديد"
+
+#: alkonlinequoteswidget.cpp:244
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Symbol"
+msgstr "الرمز"
+
+#: alkonlinequoteswidget.cpp:245
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Identification number"
+msgstr "رقم التعريف"
+
+#: alkonlinequoteswidget.cpp:246
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Name"
+msgstr "الاسم"
+
+#: alkonlinequoteswidget.cpp:278
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Default"
+msgstr "المبدئيّ"
+
+#: alkonlinequoteswidget.cpp:279
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Javascript"
+msgstr "جافاسكربت"
+
+#: alkonlinequoteswidget.cpp:285
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Off"
+msgstr "مغلق"
+
+#: alkonlinequoteswidget.cpp:286
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Always"
+msgstr "دائمًا"
+
+#: alkonlinequoteswidget.cpp:287
+#, kde-format
+msgctxt "@item:inlistbox Stock"
+msgid "Always when today"
+msgstr "دائمًا عندما يكون اليوم"
+
+#: alkonlinequoteswidget.cpp:578
+#, kde-format
+msgid "Are you sure to delete this online quote ?"
+msgstr "هل أنت متأكد من حذف عرض الأسعار هذا؟"
+
+#: alkonlinequoteswidget.cpp:579
+#, kde-format
+msgid "Delete online quote"
+msgstr "احذف عرض الأسعار عبر الإنترنت"
+
+#: alkonlinequoteswidget.cpp:600
+#, kde-format
+msgid ".copy"
+msgstr ".نسخة"
+
+#: alkonlinequoteswidget.cpp:631
+#, kde-format
+msgctxt "@title %1 is version info"
+msgid "Online quote settings generated with Alkimia %1"
+msgstr "إعدادات عرض الأسعار عبر الإنترنت المُنْتَجَة باستخدام الكيمياء %1"
+
+#: alkonlinequoteswidget.cpp:634
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "URL: %1"
+msgstr "العنوان: %1"
+
+#: alkonlinequoteswidget.cpp:635
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Download mode: %1"
+msgstr "وضع التحميل: %1"
+
+#: alkonlinequoteswidget.cpp:636
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Data format: %1"
+msgstr "تنسيق البيانات: %1"
+
+#: alkonlinequoteswidget.cpp:637
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Identifier: %1"
+msgstr "المعرف: %1"
+
+#: alkonlinequoteswidget.cpp:638
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Select by: %1"
+msgstr "اختر بواسطة: %1"
+
+#: alkonlinequoteswidget.cpp:639
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Price: %1"
+msgstr "السعر: %1"
+
+#: alkonlinequoteswidget.cpp:640
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Price decimal separator: %1"
+msgstr "فاصل الكسور العشرية للسعر: %1"
+
+#: alkonlinequoteswidget.cpp:641
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Date: %1"
+msgstr "التاريخ: %1"
+
+#: alkonlinequoteswidget.cpp:642
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Date format: %1"
+msgstr "نسق التّاريخ: %1"
+
+#: alkonlinequoteswidget.cpp:643
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Default identifier: %1"
+msgstr "المُعِّرف المبدئي: %1"
+
+#: alkonlinequoteswidget.cpp:644
+#, kde-format
+msgctxt "@info online quote setting"
+msgid "Remote source: %1"
+msgstr "المصدر البعيد: %1"
+
+#: alkonlinequoteswidget.cpp:645
+#, kde-format
+msgctxt "@item:intext checkbox setting"
+msgid "checked"
+msgstr "مُفعَّل"
+
+#: alkonlinequoteswidget.cpp:645
+#, kde-format
+msgctxt "@item:intext checkbox setting"
+msgid "not checked"
+msgstr "غير مُفعَّل"
+
+#: alkonlinequoteswidget.cpp:658
+#, kde-format
+msgctxt "@item:valuesuffix to name for a quote source reference"
+msgid ".reference"
+msgstr ".المرجع"
+
+#: alkonlinequoteswidget.cpp:674 alkonlinequoteswidget.cpp:676
+#, kde-format
+msgid "New Quote Source"
+msgstr "عرض أسعار جديد"
+
+#: alkonlinequoteswidget.cpp:686
+#, kde-format
+msgctxt "@info Detail that only one new entry can exist at any time"
+msgid "<b>New Quote Source</b> already exists."
+msgstr "<b>مصدر عرض أسعار جديد</b> موجود فعلًا."
+
+#: alkonlinequoteswidget.cpp:827
+#, kde-format
+msgid "Online Quote HTML Result Window"
+msgstr "نافذة نتائج HTML لعرض لأسعار عبر الإنترنت"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: alkonlinequoteuploaddialog.ui:29
+#, kde-format
+msgid "Upload online quote"
+msgstr "ارفع عرض الأسعار عبر الإنترنت"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: alkonlinequoteuploaddialog.ui:38
+#, kde-format
+msgid "Version to create:"
+msgstr "الإصدار المطلوب إنشاؤه:"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
+#: alkonlinequoteuploaddialog.ui:61
+#, kde-format
+msgid "Copy path to clipboard"
+msgstr "انسخ المسار إلى الحافظة"
+
+#. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
+#. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
+#: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
+#, kde-format
+msgid "TextLabel"
+msgstr "لصيقة نصّيّة"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
+#: alkonlinequoteuploaddialog.ui:88
+#, kde-format
+msgid "Enter store and close dialog"
+msgstr "ادخُل المتجر وأغلِق الحوار"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: alkonlinequoteuploaddialog.ui:99
+#, kde-format
+msgid "Online quote source:"
+msgstr "مصدر عرض الأسعار عبر الإنترنت:"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
+#: alkonlinequoteuploaddialog.ui:109
+#, kde-format
+msgid "Close dialog"
+msgstr "أغلِق الحوار"
+
+#. i18n: ectx: property (text), widget (QLabel, label_0)
+#: alkonlinequoteuploaddialog.ui:123
+#, kde-format
+msgid ""
+"This dialog allows you to create a package for an online quote source, which "
+"you can then upload to the online store used by alkimia to share with other "
+"users."
+msgstr ""
+"يسمح لك هذا الحوار بإنشاء حزمة لمصدر أسعار عبر الإنترنت، والتي يمكنك بعد ذلك "
+"تحميلها إلى المتجر عبر الإنترنت الذي يستخدمه الكيمياء للمشاركة مع مستخدمين "
+"آخرين."
+
+#. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
+#: alkonlinequoteuploaddialog.ui:133
+#, kde-format
+msgid "Failed to create package at:"
+msgstr "فشل إنشاء الحزمة في:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: alkonlinequoteuploaddialog.ui:153
+#, kde-format
+msgid ""
+"To upload the generated package to the online store, copy the path of the "
+"generated file into the clipboard, log in to the store mentioned below and "
+"paste the copied url into the corresponding package (see the <b>files</b> "
+"tab)."
+msgstr ""
+"لتحميل الحزمة المُنْتَجَة إلى المتجر عبر الإنترنت، انسخ مسار الملف المُنْتَج إلى "
+"الحافظة، ثم سجّل الدخول إلى المتجر المذكور أدناه والصق الرابط الذي نسخته في "
+"الحزمة المقابلة (انظر علامة التبويب <b>الملفات</b>)."
+
+#. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
+#: alkonlinequoteuploaddialog.ui:183
+#, kde-format
+msgid "Create package for uploading"
+msgstr "أنشِئ حزمة للتحميل"
+
+#. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
+#: alkonlinequoteuploaddialog.ui:186
+#, kde-format
+msgid "Create package"
+msgstr "أنشِئ حزمة"
+
+#. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
+#: alkonlinequoteuploaddialog.ui:197
+#, kde-format
+msgid "Package has been created at:"
+msgstr "وُلِدَت الحزمة في:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: alkonlinequoteuploaddialog.ui:210
+#, kde-format
+msgid "Package edit url:"
+msgstr "رابط تحرير الحزمة:"
+
+#: alkwebview.cpp:89
+#, kde-format
+msgid "Open inspector in new window"
+msgstr "افتح المفتش في نافذة جديدة"
+
+#: alkwebview.cpp:102
+#, kde-format
+msgid "Inspect element"
+msgstr "افحص العنصر"
