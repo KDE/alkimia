@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Online Quotes Editor</name>
+  <name xml:lang="ar">محرر عروض الأسعار عبر الإنترنت</name>
   <name xml:lang="ca">Editor de cotitzacions en línia</name>
   <name xml:lang="ca-valencia">Editor de cotitzacions en línia</name>
   <name xml:lang="de">Editor für Online-Kursnotizen</name>
@@ -32,6 +33,7 @@
   <name xml:lang="zh-CN">在线报价编辑器</name>
   <name xml:lang="zh-TW">線上報價編輯器</name>
   <summary>Editor for online price quotes used by finance applications</summary>
+  <summary xml:lang="ar">محرر عروض الأسعار عبر الإنترنت المستخدمة في تطبيقات التمويل</summary>
   <summary xml:lang="ca">Editor per a la cotització en línia dels preus usat per les aplicacions financeres</summary>
   <summary xml:lang="ca-valencia">Editor per a la cotització en línia dels preus utilitzat per les aplicacions financeres</summary>
   <summary xml:lang="de">Editor für Online-Kursnotizen für Finanz-Anwendungen</summary>
@@ -61,6 +63,7 @@
   <summary xml:lang="zh-TW">金融應用程式所用的線上報價的編輯器</summary>
   <description>
     <p>Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>
+    <p xml:lang="ar">محرر عروض الأسعار عبر الإنترنت هو تطبيق واجهة مستخدم رسومية لتحرير الاقتباسات عبر الإنترنت والتحقق منها. يمكن إضافة مصادر الاقتباسات المتاحة عبر الإنترنت من متجر كيدي، أو إنشاؤها محليًا، أو تحريرها، والتحقق من تنفيذها بشكل صحيح.</p>
     <p xml:lang="ca">L'editor de cotitzacions en línia és una aplicació d'interfície d'usuari gràfica per a editar i comprovar les cotitzacions en línia. Les fonts de cotització en línia disponibles es poden afegir des de la botiga KDE, creades localment, editades i verificades per a una execució correcta.</p>
     <p xml:lang="ca-valencia">L'editor de cotitzacions en línia és una aplicació d'interfície d'usuari gràfica per a editar i comprovar les cotitzacions en línia. Les fonts de cotització en línia disponibles es poden afegir des de la botiga KDE, creades localment, editades i verificades per a una execució correcta.</p>
     <p xml:lang="el">Ο επεξεργαστής επιγραμμικών τιμών είναι μια εφαρμογή γραφικού περιβάλλοντος για επεξεργασία και έλεγχο επιγραμμικών τιμών μετοχών. Διαθέσιμες πηγές τιμών μετοχών υπάρχουν στο KDE store, δημιουργούνται τοπικά, γίνονται αντικείμενο επεξεργασίας και ελέγχου για σωστή εκτέλεση.</p>
@@ -87,6 +90,7 @@
     <p xml:lang="zh-CN">在线报价编辑器是用于编辑和检查在线报价的图形用户界面应用程序。 可用的在线报价来源可以从 KDE 商店添加，本地创建，编辑并检查是否正确执行。</p>
     <p xml:lang="zh-TW">「線上報價編輯器」是用來編輯或檢查線上報價的圖形介面應用程式。可用的線上報價來源可以從 KDE store 加入或在本地建立，並且可以編輯它們或檢查執行是否正確。</p>
     <p>The interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
+    <p xml:lang="ar">تُقسّم الواجهة إلى نوافذ فرعية قابلة للتخصيص للملفات الشخصية، وتفاصيل الملف الشخصي، وعروض الأسعار المعينة عبر الإنترنت، وسمات عروض الأسعار، والتقيح، والمتصفح، مما يسمح بإعداد واجهة مرنة.</p>
     <p xml:lang="ca">La interfície es divideix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, i això permet la configuració flexible de la interfície.</p>
     <p xml:lang="ca-valencia">La interfície es dividix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, i açò permet la configuració flexible de la interfície.</p>
     <p xml:lang="el">Το περιβάλλον χρήστη διαιρείται σε προσαρμόσιμα υπο-παράθυρα για προφίλ, λεπτομέρειες προφίλ, καταχώρηση επιγραμμικών προσφορών, ιδιότητες προσφορών, αποσφαλμάτωση και περιηγητή ιστού για άνετη ρύθμιση του περιβάλλοντος.</p>
@@ -113,6 +117,7 @@
     <p xml:lang="zh-CN">接口分为可自定义的子窗口，用于配置个人资料，分配在线报价，引用属性，调试和浏览器，允许灵活设置接口。</p>
     <p xml:lang="zh-TW">介面中分割為可自訂的子視窗，提供設定檔、設定檔詳細資料、指派的線上報價、報價屬性、除錯，以及瀏覽器的子視窗，提供彈性化的介面設定。</p>
     <p>Multiple applications can be supported via profiles.</p>
+    <p xml:lang="ar">يمكن دعم تطبيقات متعددة عبر الملفات الشخصية.</p>
     <p xml:lang="ca">Poden funcionar aplicacions múltiples a través dels perfils.</p>
     <p xml:lang="ca-valencia">A través dels perfils s'admeten múltiples aplicacions.</p>
     <p xml:lang="el">Πολλαπλές εφαρμογές υποστηρίζονται με τα προφίλ.</p>
@@ -140,6 +145,7 @@
     <p xml:lang="zh-CN">可以通过个人资料支持多个应用程序。</p>
     <p xml:lang="zh-TW">透過設定檔可以支援多個應用程式。</p>
     <p>Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p>
+    <p xml:lang="ar">يمكن للتطبيقات المالية التي لا تحتوي على واجهة مستخدم خاصة بها لتحرير مصادر عروض الأسعار عبر الإنترنت استدعاء محرر عروض الأسعار عبر الإنترنت لهذا الغرض.</p>
     <p xml:lang="ca">Les aplicacions financeres que no tenen la seva pròpia interfície d'usuari per a editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a aquest propòsit.</p>
     <p xml:lang="ca-valencia">Les aplicacions financeres que no tenen la seua pròpia interfície d'usuari per a editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a este propòsit.</p>
     <p xml:lang="el">Οι χρηματοοικονομικές εφαρμογές που δεν έχουν δικό τους περιβάλλον χρήστη για επεξεργασία επιγραμμικών τιμών μπορούν να καλούν τον επεξεργαστή.</p>
