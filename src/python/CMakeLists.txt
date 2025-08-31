@@ -14,7 +14,7 @@ if(WIN32)
 else()
     set(_version ${PROJECT_VERSION})
     set(_gdb_libname ${_prefix}${_name}${_suffix}.${_version}-gdb.py)
-    set(_gdb_libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
+    set(_gdb_libdir ${CMAKE_INSTALL_FULL_LIBDIR})
     set(_gdb_install_dir ${CMAKE_INSTALL_DATADIR}/gdb/auto-load/${_gdb_libdir})
 endif()
 
