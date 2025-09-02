@@ -349,7 +349,7 @@ msgstr "Identificador predeterminat"
 #: alkonlinequotedetails.ui:114 alkonlinequotesprofile.ui:152
 #, kde-format
 msgid "Selected by"
-msgstr "Seleccionat per"
+msgstr "Triat per"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequotedetails.ui:135
@@ -900,9 +900,9 @@ msgid ""
 "<html><head/><body><p>Select, add or delete an application profile, where to "
 "load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Seleccioneu, afegiu o suprimiu un perfil de "
-"l'aplicació, des d'on podreu carregar els perfils i guardar-los, p. ex., "
-"dins de kmymoney o skrooge.</p></body></html>"
+"<html><head/><body><p>Trieu, afegiu o suprimiu un perfil de l'aplicació, des "
+"d'on podreu carregar els perfils i guardar-los, p. ex., dins de kmymoney o "
+"skrooge.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequotesprofiles.ui:29
@@ -1013,7 +1013,7 @@ msgstr "Identificador: %1"
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
-msgstr "Selecciona per: %1"
+msgstr "Tria per: %1"
 
 #: alkonlinequoteswidget.cpp:639
 #, kde-format
