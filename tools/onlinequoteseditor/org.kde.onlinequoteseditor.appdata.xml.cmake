@@ -32,7 +32,6 @@
   <name xml:lang="sv">Direktkurseditor</name>
   <name xml:lang="tr">Çevrimiçi Kurlar Düzenleyicisi</name>
   <name xml:lang="uk">Редактор інтернет-курсів</name>
-  <name xml:lang="x-test">xxOnline Quotes Editorxx</name>
   <name xml:lang="zh-CN">在线报价编辑器</name>
   <name xml:lang="zh-TW">線上報價編輯器</name>
   <summary>Editor for online price quotes used by finance applications</summary>
@@ -63,7 +62,6 @@
   <summary xml:lang="sv">Editor för direktkurser använd av ekonomiprogram</summary>
   <summary xml:lang="tr">Finans uygulamaları tarafından kullanılan çevrimiçi kurları düzenleyici</summary>
   <summary xml:lang="uk">Редактор для джерел курсів цін у інтернеті, який використовується фінансовими програмами</summary>
-  <summary xml:lang="x-test">xxEditor for online price quotes used by finance applicationsxx</summary>
   <summary xml:lang="zh-CN">金融应用程序使用的在线价格报价编辑器</summary>
   <summary xml:lang="zh-TW">金融應用程式所用的線上報價的編輯器</summary>
   <description>
@@ -93,7 +91,6 @@
     <p xml:lang="sv">Direktkurseditor är ett grafiskt användargränssnitt för att redigera och kontrollera kurser på nätet. Tillgängliga källor för kurser kan läggas till från KDE:s butik, skapas lokalt, redigeras och kontrolleras så att de kör korrekt.</p>
     <p xml:lang="tr">Çevrimiçi Kur Düzenleyicisi, çevrimiçi kurları düzenlemek ve denetlemek için kullanılan bir uygulamadır. Çevrimiçi kur kaynakları KDE mağazasından indirilebilir, yerel olarak oluşturulabilir ve doğru yürütme için denetlenebilir.</p>
     <p xml:lang="uk">«Редактор інтернет-курсів» — програма із графічним інтерфейсом для редагування та отримання даних інтернет-курсів. Доступні джерела інтернет-курсів можна додавати з крамниці KDE, створювати локально, редагувати та перевіряти на правильність функціонування.</p>
-    <p xml:lang="x-test">xxOnline Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.xx</p>
     <p xml:lang="zh-CN">在线报价编辑器是用于编辑和检查在线报价的图形用户界面应用程序。 可用的在线报价来源可以从 KDE 商店添加，本地创建，编辑并检查是否正确执行。</p>
     <p xml:lang="zh-TW">「線上報價編輯器」是用來編輯或檢查線上報價的圖形介面應用程式。可用的線上報價來源可以從 KDE store 加入或在本地建立，並且可以編輯它們或檢查執行是否正確。</p>
     <p>The interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
@@ -122,7 +119,6 @@
     <p xml:lang="sv">Gränssnittet är uppdelat i anpassningsbara delfönster för profiler, profilinformation, tilldelade direktkurser, kursegenskaper, felsökning, och webbläsare, vilket tillåter flexibel gränssnittsinställning.</p>
     <p xml:lang="tr">Arabirim; esnek bir arabirim kurulumu için profiller, profil ayrıntıları, atanmış çevrimiçi kurlar, alıntı öznitelikleri, hata ayıklama ve tarayıcı için özelleştirilebilir alt pencerelere ayrılmıştır.</p>
     <p xml:lang="uk">Інтерфейс програми поділено на придатні до налаштовування підвікна для профілів, параметрів профілів, призначених інтернет-курсів, атрибутів курсів, діагностики та панель навігації. Усе це уможливлює гнучке налаштовування інтерфейсу.</p>
-    <p xml:lang="x-test">xxThe interface is divided into customizable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.xx</p>
     <p xml:lang="zh-CN">接口分为可自定义的子窗口，用于配置个人资料，分配在线报价，引用属性，调试和浏览器，允许灵活设置接口。</p>
     <p xml:lang="zh-TW">介面中分割為可自訂的子視窗，提供設定檔、設定檔詳細資料、指派的線上報價、報價屬性、除錯，以及瀏覽器的子視窗，提供彈性化的介面設定。</p>
     <p>Multiple applications can be supported via profiles.</p>
@@ -152,7 +148,6 @@
     <p xml:lang="sv">Flera program kan stödjas via profiler.</p>
     <p xml:lang="tr">Profiller yardımı ile birden çok uygulama desteklenebilir.</p>
     <p xml:lang="uk">Передбачено можливість підтримки декількох програм із різними профілями.</p>
-    <p xml:lang="x-test">xxMultiple applications can be supported via profiles.xx</p>
     <p xml:lang="zh-CN">可以通过个人资料支持多个应用程序。</p>
     <p xml:lang="zh-TW">透過設定檔可以支援多個應用程式。</p>
     <p>Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p>
@@ -181,7 +176,6 @@
     <p xml:lang="sv">Ekonomiprogram som inte har sitt egna användargränssnitt för att redigera kurskällor på nätet kan anropa direktkurseditorn i detta syfte.</p>
     <p xml:lang="tr">Çevrimiçi kurları düzenlemek için bir arabirim sunmayan finansal uygulamalar bunun için bu uygulamayı kullanabilirler.</p>
     <p xml:lang="uk">Фінансові програми, у яких немає власного інтерфейсу для редагування джерел інтернет-курсів, можуть викликати з цією метою «Редактор інтернет-курсів».</p>
-    <p xml:lang="x-test">xxFinancial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.xx</p>
     <p xml:lang="zh-CN">没有自己的用户界面来编辑在线报价来源的财务应用程序可以为此目的拨打在线报价编辑器。</p>
     <p xml:lang="zh-TW">沒有自己的線上報價來源編輯介面的金融應用程式可以呼叫這個程式來進行線上報價編輯。</p>
   </description>
