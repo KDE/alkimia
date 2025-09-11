@@ -37,6 +37,12 @@
 #include <QNetworkProxyFactory>
 #endif
 
+void checkAndSetVisible(QAction *action, bool state)
+{
+    if (action)
+        action->setVisible(state);
+}
+
 int main(int argc, char **argv)
 {
     KAboutData about(QStringLiteral("onlinequoteseditor"),
@@ -68,11 +74,11 @@ int main(int argc, char **argv)
     QString appName = about.programName();
 #endif
     helpMenu.menu();
-    helpMenu.action(KHelpMenu::menuHelpContents)->setVisible(false);
-    helpMenu.action(KHelpMenu::menuReportBug)->setVisible(false);
-    helpMenu.action(KHelpMenu::menuSwitchLanguage)->setVisible(true);
-    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", appName));
-    w.menuBar()->addMenu((QMenu*)helpMenu.menu());
+    checkAndSetVisible(helpMenu.action(KHelpMenu::menuHelpContents), false);
+    checkAndSetVisible(helpMenu.action(KHelpMenu::menuReportBug), false);
+    checkAndSetVisible(helpMenu.action(KHelpMenu::menuSwitchLanguage), true);
+    helpMenu.action(KHelpMenu::menuAboutApp)->setText(i18n("&About %1", about.displayName()));
+    w.menuBar()->addMenu(static_cast<QMenu*>(helpMenu.menu()));
 
     w.show();
     return app.exec();
