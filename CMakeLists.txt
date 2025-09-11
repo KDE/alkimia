@@ -4,7 +4,7 @@ if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
-project(alkimia VERSION 8.1.2)
+project(alkimia VERSION 8.1.3)
 
 option(BUILD_QT4 "Build for Qt4" OFF)
 option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
