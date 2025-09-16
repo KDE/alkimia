@@ -1,4 +1,4 @@
-# Try to find the MPIR librairies
+# Try to find the MPIR libraries
 #  MPIR_FOUND - system has MPIR lib
 #  MPIR_INCLUDE_DIR - the MPIR include directory
 #  MPIR_LIBRARIES - Libraries needed to use MPIR

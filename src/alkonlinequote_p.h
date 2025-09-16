@@ -99,7 +99,7 @@ public:
      * The hierarchy of the specified tree can consist of instances of QVariantMap or QVariantList, which are
      * identified via corresponding parts of the path specified with \o path, with a key for QVariantMap
      * and an index for QVariantList. If no index is specified, the first entry is used.
-     * See the examples for a hierachy setup as:
+     * See the examples for a hierarchy setup as:
      *  \code{.cpp}
      *     QVariantMap["key1"]->QVariantMap["key2"]->QVariantMap["key3"]  -> path = "key1:key2:key3"
      *     QVariantMap["key1"]->QVariantList[n]->QVariantMap["key2"] -> path = "key1:<0..n-1>:key2" or "key1:key2" for the use of the first entry for compatibility reasons
