@@ -159,7 +159,7 @@ if(ENABLE_CLIENT_PACKAGE_TEST)
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     )
 
-    # install dbus in local directoy for client build/install test
+    # install dbus in local directory for client build/install test
     add_test(
         NAME test-install-local
         COMMAND ${CMAKE_MAKE_PROGRAM} install DESTDIR=${TEMP_INSTALL_DIR}

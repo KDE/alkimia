@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 # Script that compiles Transcript property maps from text to binary format.
-# Binary format greately speeds up loading of property maps at runtime.
+# Binary format greatly speeds up loading of property maps at runtime.
 # http://techbase.kde.org/Localization/Concepts/Transcript
 #
 # Usage:

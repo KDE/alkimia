@@ -118,7 +118,7 @@ public:
      * Set timeout for fetching online quotes
      * If the timeout is != -1, a request to retrieve online quotes will be aborted
      * if the time set with this function has been exceeded.
-     * @param newTimeout timeout in millseconds
+     * @param newTimeout timeout in milliseconds
      */
     void setTimeout(int newTimeout);
 
@@ -179,7 +179,7 @@ public:
     bool enableReverseLaunch();
 
     /**
-     * Set the status whether a search with swapped symbole should be
+     * Set the status whether a search with swapped symbols should be
      * performed after a query for a symbol returned nothing.
      * @param state Enable or disable search with swapped symbols
      * @note The reverse search is enabled by default

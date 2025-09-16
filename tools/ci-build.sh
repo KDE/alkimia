@@ -165,7 +165,7 @@ function cmake-kf6() {
 ## initialize support to run cross compiled executables
 ##
 # syntax: init_wine <path1> [<path2> ... [<pathn>]]
-# @param  path1..n  pathes for adding to wine executable search path
+# @param  path1..n  paths to append to the wine executable search path
 #
 # The function exits the shell script in case of errors
 #

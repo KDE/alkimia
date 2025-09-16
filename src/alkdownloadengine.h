@@ -59,7 +59,7 @@ public:
      * @param url Url to download
      * @param type Type of engine to use for downloading
      * @param timeout Timeout for fetching the content [msec]
-     * @return true - fetching succeded
+     * @return true - fetching succeeded
      * @return false - fetching failed
      */
     bool downloadUrl(const QUrl &url, Type type);
@@ -88,7 +88,7 @@ public:
 Q_SIGNALS:
     /**
      * Emitted in case of of errors
-     * @param url The url from which the error has been recognzied
+     * @param url The url from which the error has been recognized
      * @param message Error message
      */
     void error(const QUrl &url, const QString &message);
