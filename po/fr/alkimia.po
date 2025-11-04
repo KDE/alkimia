@@ -1124,7 +1124,7 @@ msgstr "TextLabel"
 #: alkonlinequoteuploaddialog.ui:88
 #, kde-format
 msgid "Enter store and close dialog"
-msgstr "Saisissez la boutique et fermez la boîte de dialogue"
+msgstr "Saisissez la boutique et fermez la boite de dialogue"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
@@ -1136,7 +1136,7 @@ msgstr "Source des déclarations en ligne :"
 #: alkonlinequoteuploaddialog.ui:109
 #, kde-format
 msgid "Close dialog"
-msgstr "Fermer la boîte de dialogue"
+msgstr "Fermer la boite de dialogue"
 
 #. i18n: ectx: property (text), widget (QLabel, label_0)
 #: alkonlinequoteuploaddialog.ui:123
@@ -1146,7 +1146,7 @@ msgid ""
 "you can then upload to the online store used by alkimia to share with other "
 "users."
 msgstr ""
-"Cette boîte de dialogue vous permet de créer un paquet pour une source de "
+"Cette boite de dialogue vous permet de créer un paquet pour une source de "
 "déclarations en ligne, que vous pouvez ensuite envoyer vers la boutique en "
 "ligne utilisée par Alkimia pour y être partagé avec d'autres utilisateurs."
 
