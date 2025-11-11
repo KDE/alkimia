@@ -1,86 +1,86 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
-# Vit Pelcak <vit@pelcak.org>, 2019, 2021.
 #
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2021-03-23 09:57+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
-"Language: cs\n"
+"PO-Revision-Date: 2025-11-10 14:29+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "kde-l10n-he@kde.org"
 
 #: main.cpp:60
 #, kde-format
 msgid "&About %1"
-msgstr "O &aplikaci '%1'"
+msgstr "&על %1"
 
 #: mainwindow.cpp:90
 #, kde-format
 msgid "Profiles"
-msgstr "Profily"
+msgstr "פרופילים"
 
 #: mainwindow.cpp:95
 #, kde-format
 msgid "Profile details"
-msgstr "Podrobnosti profilu"
+msgstr "פרטי פרופיל"
 
 #: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
-msgstr ""
+msgstr "הצעות מחיר מקוונות"
 
 #: mainwindow.cpp:105
 #, kde-format
 msgid "Debug"
-msgstr "Ladění"
+msgstr "ניפוי שגיאות"
 
 #: mainwindow.cpp:110
 #, kde-format
 msgid "Quote details"
-msgstr ""
+msgstr "פרטי שער המרה"
 
 #: mainwindow.cpp:119
 #, kde-format
 msgid "Browser"
-msgstr "Prohlížeč"
+msgstr "דפדפן"
 
 #: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
-msgstr "Aktualizace pro '%1'  v profilu '%2'"
+msgstr "יש עדכון עבור ‚%1’ בפרופיל ‚%2’"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
 #: mainwindow.ui:14
 #, kde-format
 msgid "Online Quotes Editor"
-msgstr ""
+msgstr "עורך הצעות מחיר מקוונות"
 
 #. i18n: ectx: property (title), widget (QMenu, menuFile)
 #: mainwindow.ui:30
 #, kde-format
 msgid "File"
-msgstr "Soubor"
+msgstr "קובץ"
 
 #. i18n: ectx: property (text), widget (QStatusBar, statusBar)
 #: mainwindow.ui:42
 #, kde-format
 msgid "Quit"
-msgstr "Ukončit"
+msgstr "יציאה"
