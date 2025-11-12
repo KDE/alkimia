@@ -59,6 +59,7 @@ Comment[sl]=Plazmoid, ki prikazuje trenutne tečajnice tujih valut
 Comment[sv]=Plasmoid som visar aktuella utländska valutakurser
 Comment[tr]=Geçerli yabancı para birimleri kurlarını gösteren Plasmoid
 Comment[uk]=Плазмоїд для показу курсів іноземних валют.
+Comment[zh_CN]=显示当前外币价格的Plasma 小程序
 Comment[zh_TW]=顯示目前外幣價格的 Plasma 小元件
 Type=Service
 Icon=applications-internet
