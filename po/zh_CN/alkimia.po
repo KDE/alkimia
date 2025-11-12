@@ -20,54 +20,54 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "KDE 中国,  Tyson Tan, Zhou Wenqing, Eric Zhao"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-china@kde.org, tds00@qq.com, , zhaojiale20060708@outlook.com"
 
 #: alkdateformat.cpp:39
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format string '%1'"
-msgstr ""
+msgstr "无效的格式字符串 '%1'"
 
 #: alkdateformat.cpp:42
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format character '%1'"
-msgstr ""
+msgstr "无效的格式字符 '%1'"
 
 #: alkdateformat.cpp:45
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid date '%1'"
-msgstr ""
+msgstr "无效的日期 '%1'"
 
 #: alkdateformat.cpp:48
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid day entry: %1"
-msgstr ""
+msgstr "无效的日期输入：%1  "
 
 #: alkdateformat.cpp:51
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid month entry: %1"
-msgstr ""
+msgstr "无效的月份输入：%1"
 
 #: alkdateformat.cpp:54
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid year entry: %1"
-msgstr ""
+msgstr "无效的年份输入：%1  "
 
 #: alkdateformat.cpp:57
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Length of year (%1) does not match expected length (%2)."
-msgstr ""
+msgstr "年份长度 (%1) 与预期长度 (%2) 不一致"
 
 #: alkonlinequote_p.cpp:164
 #, kde-format
@@ -77,12 +77,12 @@ msgstr "源 <placeholder>%1</placeholder> 不存在。"
 #: alkonlinequote_p.cpp:220
 #, kde-format
 msgid "Cannot resolve input date."
-msgstr ""
+msgstr "无法解析输入日期。"
 
 #: alkonlinequote_p.cpp:248
 #, kde-format
 msgid "Start date moved to before the weekend"
-msgstr ""
+msgstr "起始日期已调整至周末之前"
 
 #: alkonlinequote_p.cpp:276
 #, kde-format
@@ -129,7 +129,7 @@ msgstr "已找到价格信息：“%1”(%2)"
 #: alkonlinequote_p.cpp:491
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
-msgstr ""
+msgstr "价格 '%1' 无法转换为针对 '%2' 的数字"
 
 #: alkonlinequote_p.cpp:496
 #, kde-format
@@ -180,42 +180,42 @@ msgstr "无法解析 %1 代号"
 #, kde-format
 msgid ""
 "Unable to detect field delimiter in first line (header line) of quote data."
-msgstr ""
+msgstr "无法检测到报价数据首行 (标题行) 中的字段分隔符"
 
 #: alkonlinequote_p.cpp:727
 #, kde-format
 msgid "Unable to find date column '%1' in quote data"
-msgstr ""
+msgstr "无法在报价数据中找到日期列 '%1'"
 
 #: alkonlinequote_p.cpp:733
 #, kde-format
 msgid "Unable to find price column '%1' in quote data"
-msgstr ""
+msgstr "无法在报价数据中找到价格列 '%1'"
 
 #: alkonlinequote_p.cpp:754 alkonlinequote_p.cpp:921
 #, kde-format
 msgid "Unable to convert date '%1' with '%2' in quote data"
-msgstr ""
+msgstr "无法在报价数据中使用 '%2' 转换日期 '%1'"
 
 #: alkonlinequote_p.cpp:789 alkonlinequote_p.cpp:938
 #, kde-format
 msgid "Unable to find date/price pairs in quote data"
-msgstr ""
+msgstr "无法在报价数据中找到日期/价格对"
 
 #: alkonlinequote_p.cpp:875
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr ""
+msgstr "针对 '%1' 发现包含无效内容的 JSON 文件"
 
 #: alkonlinequote_p.cpp:886
 #, kde-format
 msgid "Unable to find '%1' from date pattern '%2' in quote data"
-msgstr ""
+msgstr "无法在报价数据中根据日期模式 '%2' 找到 '%1'"
 
 #: alkonlinequote_p.cpp:900
 #, kde-format
 msgid "Unable to find '%1' from price pattern '%2' in quote data"
-msgstr ""
+msgstr "无法在报价数据中根据价格模式 '%2' 找到 '%1'"
 
 #: alkonlinequote_p.cpp:972
 #, kde-format
