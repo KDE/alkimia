@@ -650,19 +650,19 @@ msgstr ""
 #: alkonlinequoteslist.ui:106
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "添加参考"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr ""
+msgstr "从 KDE Store 安装在线引用源"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
-msgstr ""
+msgstr "使用此功能从 KDE Store 安装在线引用源。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -674,19 +674,19 @@ msgstr "安装"
 #: alkonlinequoteslist.ui:136
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
-msgstr ""
+msgstr "上传已修改的远程在线引用源至 KDE Store "
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
 #, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr ""
+msgstr "使用此功能上传在线引用源至 KDE Store 。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
 #, kde-format
 msgid "Upload"
-msgstr ""
+msgstr "上传"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:154
@@ -694,7 +694,7 @@ msgstr ""
 msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
-msgstr ""
+msgstr "重置在上次选择此配置文件后对本地引用源所做的更改。"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -702,23 +702,23 @@ msgstr ""
 msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
-msgstr ""
+msgstr "使用此功能重置在上次选择此配置文件后对本地引用源所做的更改。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
 msgid "Remote unpublished"
-msgstr ""
+msgstr "远程未发布"
 
 #: alkonlinequotesmodel.cpp:21
 #, kde-format
 msgid "Remote"
-msgstr ""
+msgstr "远程"
 
 #: alkonlinequotesmodel.cpp:23
 #, kde-format
@@ -728,12 +728,12 @@ msgstr "Finance::Quote"
 #: alkonlinequotesmodel.cpp:24
 #, kde-format
 msgid "Local"
-msgstr ""
+msgstr "本地"
 
 #: alkonlinequotesmodel.cpp:104
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "格式"
 
 #: alkonlinequotesmodel.cpp:105
 #, kde-format
@@ -748,37 +748,37 @@ msgstr "来源"
 #: alkonlinequotesmodel.cpp:107
 #, kde-format
 msgid "Reference to"
-msgstr ""
+msgstr "引用至"
 
 #: alkonlinequotesource.cpp:457
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
-msgstr ""
+msgstr "精简后的 HTML"
 
 #: alkonlinequotesource.cpp:459
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: alkonlinequotesource.cpp:461
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: alkonlinequotesource.cpp:463
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
-msgstr ""
+msgstr "CSS"
 
 #: alkonlinequotesource.cpp:465
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
