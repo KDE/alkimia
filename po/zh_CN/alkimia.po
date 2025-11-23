@@ -855,6 +855,8 @@ msgid ""
 "<html><head/><body><p>Select, add or delete an application profile, where to "
 "load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>选择、添加或删除应用程序配置文件，并指定从何处加载配置"
+"文件以及保存到何处，例如 KMymoney 或 Skrooge。</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
 #: alkonlinequotesprofiles.ui:29
@@ -878,7 +880,7 @@ msgstr "代号"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
-msgstr ""
+msgstr "识别号码"
 
 #: alkonlinequoteswidget.cpp:246
 #, kde-format
@@ -890,25 +892,25 @@ msgstr "姓名"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
-msgstr ""
+msgstr "默认"
 
 #: alkonlinequoteswidget.cpp:279
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
-msgstr ""
+msgstr "JavaScript"
 
 #: alkonlinequoteswidget.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
-msgstr ""
+msgstr "关闭"
 
 #: alkonlinequoteswidget.cpp:286
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
-msgstr ""
+msgstr "总是"
 
 #: alkonlinequoteswidget.cpp:287
 #, kde-format
