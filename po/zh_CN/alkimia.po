@@ -916,7 +916,7 @@ msgstr "总是"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
-msgstr ""
+msgstr "今日始终"
 
 #: alkonlinequoteswidget.cpp:578
 #, kde-format
@@ -931,7 +931,7 @@ msgstr "删除在线报价"
 #: alkonlinequoteswidget.cpp:600
 #, kde-format
 msgid ".copy"
-msgstr ""
+msgstr ".copy"
 
 #: alkonlinequoteswidget.cpp:631
 #, kde-format
