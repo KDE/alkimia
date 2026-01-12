@@ -1144,7 +1144,7 @@ msgstr ""
 #: alkonlinequoteuploaddialog.ui:133
 #, kde-format
 msgid "Failed to create package at:"
-msgstr "No s'ha pogut crear el paquet a:"
+msgstr "Ha fallat mentre es creava el paquet a:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: alkonlinequoteuploaddialog.ui:153
