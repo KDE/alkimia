@@ -1032,7 +1032,7 @@ msgstr "新报价来源"
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
-msgstr ""
+msgstr "<b>新报价源</b>已经存在。"
 
 #: alkonlinequoteswidget.cpp:827
 #, kde-format
@@ -1043,44 +1043,44 @@ msgstr "在线报价 HTML 结果窗口"
 #: alkonlinequoteuploaddialog.ui:29
 #, kde-format
 msgid "Upload online quote"
-msgstr ""
+msgstr "上传在线报价"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: alkonlinequoteuploaddialog.ui:38
 #, kde-format
 msgid "Version to create:"
-msgstr ""
+msgstr "要创建的版本："
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyToClipboardButton)
 #: alkonlinequoteuploaddialog.ui:61
 #, kde-format
 msgid "Copy path to clipboard"
-msgstr ""
+msgstr "复制路径到剪贴板"
 
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageEditUrl)
 #. i18n: ectx: property (text), widget (QLabel, m_storePackageUrl)
 #: alkonlinequoteuploaddialog.ui:72 alkonlinequoteuploaddialog.ui:256
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "文本标签"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_enterStoreButtonAndClose)
 #: alkonlinequoteuploaddialog.ui:88
 #, kde-format
 msgid "Enter store and close dialog"
-msgstr ""
+msgstr "进入商店并关闭对话框"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequoteuploaddialog.ui:99
 #, kde-format
 msgid "Online quote source:"
-msgstr ""
+msgstr "在线报价源："
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_closeButton)
 #: alkonlinequoteuploaddialog.ui:109
 #, kde-format
 msgid "Close dialog"
-msgstr ""
+msgstr "关闭对话框"
 
 #. i18n: ectx: property (text), widget (QLabel, label_0)
 #: alkonlinequoteuploaddialog.ui:123
@@ -1090,12 +1090,14 @@ msgid ""
 "you can then upload to the online store used by alkimia to share with other "
 "users."
 msgstr ""
+"此对话框允许您为在线报价源创建软件包，之后您可将该数据包上传至 alkimia 所使用"
+"的在线商店与其他用户共享。"
 
 #. i18n: ectx: property (text), widget (QLabel, m_failedLabel)
 #: alkonlinequoteuploaddialog.ui:133
 #, kde-format
 msgid "Failed to create package at:"
-msgstr ""
+msgstr "创建软件包失败："
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: alkonlinequoteuploaddialog.ui:153
@@ -1106,37 +1108,39 @@ msgid ""
 "paste the copied url into the corresponding package (see the <b>files</b> "
 "tab)."
 msgstr ""
+"要将生成的软件包上传至在线商店，请将生成文件的路径复制到剪贴板，登录下方列出"
+"的商店，并将复制的 URL 粘贴到相应的软件包中 (参见 <b>文件</b> 标签页) 。"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:183
 #, kde-format
 msgid "Create package for uploading"
-msgstr ""
+msgstr "创建要上传的软件包"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_createButton)
 #: alkonlinequoteuploaddialog.ui:186
 #, kde-format
 msgid "Create package"
-msgstr ""
+msgstr "创建软件包"
 
 #. i18n: ectx: property (text), widget (QLabel, m_packageLabel)
 #: alkonlinequoteuploaddialog.ui:197
 #, kde-format
 msgid "Package has been created at:"
-msgstr ""
+msgstr "软件包已创建于："
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: alkonlinequoteuploaddialog.ui:210
 #, kde-format
 msgid "Package edit url:"
-msgstr ""
+msgstr "软件包编辑 URL："
 
 #: alkwebview.cpp:89
 #, kde-format
 msgid "Open inspector in new window"
-msgstr ""
+msgstr "在新建窗口中打开查看器"
 
 #: alkwebview.cpp:102
 #, kde-format
 msgid "Inspect element"
-msgstr ""
+msgstr "检查元素"
