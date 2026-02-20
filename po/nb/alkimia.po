@@ -5,15 +5,15 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2025-06-22 11:16+0200\n"
-"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"PO-Revision-Date: 2026-02-18 23:35+0100\n"
+"Last-Translator: Kjetil Sorlund <translate@sorlund.no>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.12.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -32,13 +32,13 @@ msgstr "translate@sorlund.no"
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format string '%1'"
-msgstr "Ugyldig formattering av strengen «%1»"
+msgstr "Ugyldig formatering av strengen «%1»"
 
 #: alkdateformat.cpp:42
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format character '%1'"
-msgstr "Ugyldig formattering av tegnet «%1»"
+msgstr "Ugyldig formatering av tegnet «%1»"
 
 #: alkdateformat.cpp:45
 #, kde-format
@@ -267,7 +267,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Skriv regulære "
 "uttrykk som kan brukes for å tyde data som blir returnert fra nettadressen "
-"over. Symbolet, kursen og datoen ma kunne finnes i kursdatene for å værre "
+"over. Symbolet, kursen og datoen må kunne finnes i kursdatene for å være "
 "brukbare. Du kan også bruke KMyMoney-forumet på </span><a href=\"https://"
 "forum.kde.org/viewforum.php?f=69\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">https://forum.kde.org/viewforum.php?f=69</span></"
@@ -351,7 +351,7 @@ msgstr "Desimalsymbolet for kursen"
 #: alkonlinequotedetails.ui:142 alkonlinequotesprofile.ui:213
 #, kde-format
 msgid "How to select the identifier"
-msgstr "Hvoran velge identifikatoren"
+msgstr "Hvordan velge identifikatoren"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: alkonlinequotedetails.ui:156
@@ -445,7 +445,7 @@ msgstr "Godtar inntastet data og lagrer det"
 #: alkonlinequotedetails.ui:277
 #, kde-format
 msgid "Use this to accept the modified data."
-msgstr "Bruk dette for å godta de endrere dataene."
+msgstr "Bruk dette for å godta de endrede dataene."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_updateButton)
 #. i18n: ectx: property (text), widget (AlkPushButton, m_acceptButton)
@@ -658,7 +658,7 @@ msgid ""
 "then used for a price or quote request."
 msgstr ""
 "Bruk denne for å lage en ny lokal kilde for kurser som lenker til en ekstern "
-"nettbasert kurskilde. Egenskapenen for en eksterne kurskilden blir deretter "
+"nettbasert kurskilde. Egenskapene for en eksterne kurskilden blir deretter "
 "brukt for en kursforespørsel."
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
@@ -876,7 +876,7 @@ msgid ""
 "load profiles from and save into eg. kmymoney or skrooge.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Velg, legg til eller slett en programprofil, angi hvor "
-"profiler skal lastes fra, lagres til , f.eks. kmymony eller skrooge.</p></"
+"profiler skal lastes fra, lagres til , f.eks. kmymoney eller skrooge.</p></"
 "body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, profilesGroupBox)
@@ -1132,7 +1132,7 @@ msgid ""
 msgstr ""
 "For å laste opp en genererte pakken til nettbutikken må du kopiere stien til "
 "den genererte filen til utklippstavlen, logge inn på butikken nevnt under og "
-"lime inn den kopierte nettadresssen i den tilhørende pakken (se <b>filer</b>-"
+"lime inn den kopierte nettadressen i den tilhørende pakken (se <b>filer</b>-"
 "fanen)."
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_createButton)
