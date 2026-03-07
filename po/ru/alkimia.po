@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-02-26 20:13+0200\n"
+"PO-Revision-Date: 2026-03-06 14:08+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -141,7 +141,7 @@ msgstr "Найден курс: «%1» (%2)"
 #: alkonlinequote_p.cpp:491
 #, kde-format
 msgid "Price '%1' cannot be converted to a number for '%2'"
-msgstr ""
+msgstr "Курс «%1» не может быть преобразован в число для «%2»"
 
 #: alkonlinequote_p.cpp:496
 #, kde-format
