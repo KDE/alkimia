@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2023-06-08 18:57+0300\n"
+"PO-Revision-Date: 2026-03-09 21:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -45,7 +45,7 @@ msgstr "Profil ayrıntıları"
 #: mainwindow.cpp:100
 #, kde-format
 msgid "Online quotes"
-msgstr "Çevrimiçi kurlar"
+msgstr "Çevrim içi kurlar"
 
 #: mainwindow.cpp:105
 #, kde-format
@@ -65,13 +65,13 @@ msgstr "Tarayıcı"
 #: mainwindow.cpp:174
 #, kde-format
 msgid "Update for '%1' available in profile '%2'"
-msgstr "'%2' profilinde '%1' için güncellemeler kullanılabilir"
+msgstr "“%2” profilinde “%1” için güncellemeler kullanılabilir"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, MainWindow)
 #: mainwindow.ui:14
 #, kde-format
 msgid "Online Quotes Editor"
-msgstr "Çevrimiçi Kurlar Düzenleyicisi"
+msgstr "Çevrim İçi Kurlar Düzenleyicisi"
 
 #. i18n: ectx: property (title), widget (QMenu, menuFile)
 #: mainwindow.ui:30
