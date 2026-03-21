@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the alkimia package.
 #
-# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2025-08-14 13:54+0300\n"
+"PO-Revision-Date: 2026-03-20 08:13+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -160,7 +160,7 @@ msgstr "נעשה שימוש בתאריך הנוכחי עבור ‚%1’"
 #: alkonlinequote_p.cpp:523
 #, kde-format
 msgid "Parsing date is disabled for '%1'"
-msgstr "תאריך הפענוח מושבת עבור ‚%1’"
+msgstr "תאריך הפיענוח מושבת עבור ‚%1’"
 
 #: alkonlinequote_p.cpp:526
 #, kde-format
@@ -816,7 +816,7 @@ msgid ""
 "</p>"
 msgstr ""
 "<p>לעיבוד פשוט יותר של הנתונים שהוחזרו על ידי המקור המקוון, KMyMoney בדרך "
-"כלל מפשט את החלקים שאינם בשימוש לפני הפענוח עם ביטויים רגולריים. אם התאמת "
+"כלל מפשט את החלקים שאינם בשימוש לפני הפיענוח עם ביטויים רגולריים. אם התאמת "
 "השדות מסתמך על הפריטים האלה, אז יש להשתמש באפשרות הזאת כדי לכבות את ההפשטה.</"
 "p>\n"
 "\n"
