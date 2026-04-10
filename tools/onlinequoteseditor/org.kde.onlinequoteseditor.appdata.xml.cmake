@@ -89,6 +89,7 @@
     <p xml:lang="pt">O Editor de Cotações Online é uma aplicação gráfica para editar e consultar cotações 'online'. Poderá adicionar fontes adicionais a partir da loja do KDE, criadas a nível local, assim como editar ou consultar outra para uma execução correcta.</p>
     <p xml:lang="pt-BR">Online Quotes Editor é um aplicativo de interface gráfica para edição e verificação de cotações online. Fontes de cotações online disponíveis podem ser adicionadas na loja do KDE, criadas localmente, editadas e verificadas quanto à execução correta.</p>
     <p xml:lang="ru">Приложение «Online Quotes Editor» предоставляет графический интерфейс для редактирования и проверки онлайн-котировок. Доступные источники котировок можно добавлять из магазина KDE, создавать локально, редактировать и проверять на корректность выполнения.</p>
+    <p xml:lang="sk">Editor online kurzov je aplikácia s grafickým používateľským rozhraním na úpravu a kontrolu online kurzov. Dostupné zdroje online kurzov je možné pridať z KDE obchodu, vytvoriť lokálne, upraviť a skontrolovať správne vykonanie.</p>
     <p xml:lang="sl">Urejevalnik spletnih kotacij je program z grafičnim uporabniškim vmesnikom za urejanje in preverjanje spletnih kotacij. Razpoložljive vire spletnih kotacij lahko dodate iz trgovine KDE, jih ustvarite krajevno ter urejate in preverjate pravilno izvajanje.</p>
     <p xml:lang="sv">Direktkurseditor är ett grafiskt användargränssnitt för att redigera och kontrollera kurser på nätet. Tillgängliga källor för kurser kan läggas till från KDE:s butik, skapas lokalt, redigeras och kontrolleras så att de kör korrekt.</p>
     <p xml:lang="tr">Çevrim içi Kur Düzenleyicisi, çevrim içi kurları düzenlemek ve denetlemek için kullanılan bir uygulamadır. Çevrim içi kur kaynakları KDE mağazasından indirilebilir, yerel olarak oluşturulabilir ve doğru yürütme için denetlenebilir.</p>
@@ -118,6 +119,7 @@
     <p xml:lang="pt">A interface está dividido em sub-janelas personalizadas para os perfis, detalhes dos perfis, cotações 'online' atribuídas, atributos das cotações, depuração e navegador, permitindo uma configuração flexível da interface.</p>
     <p xml:lang="pt-BR">A interface é dividida em subjanelas personalizáveis para perfis, detalhes de perfil, cotações online atribuídas, atributos de cotações, depuração e navegador, permitindo uma configuração de interface flexível.</p>
     <p xml:lang="ru">Интерфейс разделён на настраиваемые подокна для профилей, сведений о профиле, назначенных онлайн-котировок, атрибутов котировок, отладки и браузера, что позволяет гибко настраивать интерфейс.</p>
+    <p xml:lang="sk">Rozhranie je rozdelené na prispôsobiteľné podokná pre profily, detaily profilov, priradené online kurzy, atribúty kurzov, ladenie a prehliadač, čo umožňuje flexibilné nastavenie rozhrania.</p>
     <p xml:lang="sl">Vmesnik je razdeljen na prilagodljiva podokna za profile, podrobnosti profila, dodeljene spletne kotacije, atribute kotacij, odpravljanje napak in brskalnik, kar omogoča prilagodljivo nastavitev vmesnika.</p>
     <p xml:lang="sv">Gränssnittet är uppdelat i anpassningsbara delfönster för profiler, profilinformation, tilldelade direktkurser, kursegenskaper, felsökning, och webbläsare, vilket tillåter flexibel gränssnittsinställning.</p>
     <p xml:lang="tr">Arabirim; esnek bir arabirim kurulumu için profiller, profil ayrıntıları, atanmış çevrim içi kurlar, alıntı öznitelikleri, hata ayıklama ve tarayıcı için özelleştirilebilir alt pencerelere ayrılmıştır.</p>
@@ -148,6 +150,7 @@
     <p xml:lang="pt">Poderá ter suporte para várias aplicações através dos perfis.</p>
     <p xml:lang="pt-BR">Múltiplos aplicativos podem ser suportados através de perfis.</p>
     <p xml:lang="ru">Поддержка нескольких приложений через профили.</p>
+    <p xml:lang="sk">Pomocou profilov je možné podporovať viacero aplikácií.</p>
     <p xml:lang="sl">Več aplikacij je mogoče podpreti prek profilov.</p>
     <p xml:lang="sv">Flera program kan stödjas via profiler.</p>
     <p xml:lang="tr">Profiller yardımı ile birden çok uygulama desteklenebilir.</p>
@@ -177,6 +180,7 @@
     <p xml:lang="pt">As aplicações financeiras que não possuam a sua própria interface de utilizador para editar as fontes de cotações 'online' poderão invocar o editor de cotações 'online' para esse fim.</p>
     <p xml:lang="pt-BR">Os aplicativos financeiros que não contêm sua própria interface de usuário para edição de fontes de cotação online podem chamar o editor de cotação online para essa finalidade.</p>
     <p xml:lang="ru">Финансовые приложения, не имеющие собственного интерфейса для редактирования источников онлайн-котировок, могут для этой цели вызывать редактор онлайн-котировок.</p>
+    <p xml:lang="sk">Finančné aplikácie, ktoré neobsahujú vlastné používateľské rozhranie na úpravu zdrojov online kurzov, môžu na tento účel zavolať editor online kurzov.</p>
     <p xml:lang="sl">Finančne aplikacije, ki ne vsebujejo lastnega uporabniškega vmesnika za urejanje virov spletnih kotacij, lahko v ta namen pokličejo urejevalnik spletnih kotacij.</p>
     <p xml:lang="sv">Ekonomiprogram som inte har sitt egna användargränssnitt för att redigera kurskällor på nätet kan anropa direktkurseditorn i detta syfte.</p>
     <p xml:lang="tr">Çevrim içi kurları düzenlemek için bir arabirim sunmayan finansal uygulamalar bunun için bu uygulamayı kullanabilirler.</p>
