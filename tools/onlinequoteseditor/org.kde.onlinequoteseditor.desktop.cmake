@@ -35,6 +35,7 @@ Name[sk]=Editor online ponúk
 Name[sl]=Urejevalnik spletnih navedb
 Name[sv]=Direktkurseditor
 Name[tr]=Çevrim İçi Kurlar Düzenleyicisi
+Name[ug]=توردىكى باھا قويۇش تەھرىرلىگۈچ
 Name[uk]=Редактор інтернет-курсів
 Name[zh_CN]=在线报价编辑器
 Name[zh_TW]=線上報價編輯器
