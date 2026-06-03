@@ -31,6 +31,7 @@
   <name xml:lang="sl">Urejevalnik spletnih kotacij</name>
   <name xml:lang="sv">Direktkurseditor</name>
   <name xml:lang="tr">Çevrim İçi Kurlar Düzenleyicisi</name>
+  <name xml:lang="ug">توردىكى باھا قويۇش تەھرىرلىگۈچ</name>
   <name xml:lang="uk">Редактор інтернет-курсів</name>
   <name xml:lang="zh-CN">在线报价编辑器</name>
   <name xml:lang="zh-TW">線上報價編輯器</name>
