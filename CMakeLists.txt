@@ -183,6 +183,10 @@ else()
 
     if(CMAKE_COMPILER_IS_GNUCC)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
+        # TODO: remove once Qt6 fixes qrangemodel_impl.h using qDebug in template body without declaration
+        if(QT_MAJOR_VERSION EQUAL 6)
+            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
+        endif()
     endif()
 
     set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}-${alkimia_VERSION_MAJOR}.${alkimia_VERSION_MINOR}")
