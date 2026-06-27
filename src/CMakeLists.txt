@@ -181,6 +181,7 @@ target_link_libraries(alkimia PRIVATE
     KF${QT_MAJOR_VERSION}::WidgetsAddons
     PUBLIC
     KF${QT_MAJOR_VERSION}::ConfigCore
+    KF${QT_MAJOR_VERSION}::CoreAddons
 )
 
 add_definitions(-DTRANSLATION_DOMAIN=\"alkimia\")
