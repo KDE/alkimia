@@ -11,10 +11,11 @@
 
 #include <alkimia/alk_export.h>
 
-#include <QDBusArgument>
 #include <QMetaType>
 #include <QObject>
 #include <QString>
+
+class QDBusArgument;
 
 class ALK_EXPORT AlkCompany : public QObject
 {
