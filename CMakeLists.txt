@@ -163,9 +163,8 @@ else()
         set(KF_PRIVATE_COMPONENTS)
     endif()
 
-    set(KF_PUBLIC_COMPONENTS Config)
+    set(KF_PUBLIC_COMPONENTS Config CoreAddons)
     list(APPEND KF_PRIVATE_COMPONENTS
-        CoreAddons
         Completion
         I18n
         ${KF_NETWORK_COMPONENT}
