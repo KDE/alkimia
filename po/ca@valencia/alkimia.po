@@ -150,7 +150,7 @@ msgstr "Data trobada: «%1»"
 #: alkonlinequote_p.cpp:512
 #, kde-format
 msgid "Date format found: '%1' -> '%2'"
-msgstr "Format de la data trobat: «%1» -> «%2»"
+msgstr "Format de la data trobat: «%1» → «%2»"
 
 #: alkonlinequote_p.cpp:515
 #, kde-format
