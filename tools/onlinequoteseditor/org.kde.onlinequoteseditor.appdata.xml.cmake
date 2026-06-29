@@ -7,6 +7,7 @@
   <name xml:lang="ar">محرر عروض الأسعار عبر الإنترنت</name>
   <name xml:lang="ca">Editor de cotitzacions en línia</name>
   <name xml:lang="ca-valencia">Editor de cotitzacions en línia</name>
+  <name xml:lang="cs">Editor online nabídek</name>
   <name xml:lang="de">Editor für Online-Kursnotizen</name>
   <name xml:lang="el">Επεξεργαστής επιγραμμικών τιμών</name>
   <name xml:lang="en-GB">Online Quotes Editor</name>
@@ -36,6 +37,7 @@
   <summary xml:lang="ar">محرر عروض الأسعار عبر الإنترنت المستخدمة في تطبيقات التمويل</summary>
   <summary xml:lang="ca">Editor per a la cotització en línia dels preus usat per les aplicacions financeres</summary>
   <summary xml:lang="ca-valencia">Editor per a la cotització en línia dels preus utilitzat per les aplicacions financeres</summary>
+  <summary xml:lang="cs">Editor pro online cenové nabídky používaný ve finančních aplikacích</summary>
   <summary xml:lang="de">Editor für Online-Kursnotizen für Finanz-Anwendungen</summary>
   <summary xml:lang="el">Επεξεργαστής για επιγραμμικές τιμές μετοχών που χρησιμοποιούν οι χρηματοοικονομικές εφαρμογές</summary>
   <summary xml:lang="en-GB">Editor for online price quotes used by finance applications</summary>
@@ -66,6 +68,7 @@
     <p xml:lang="ar">محرر عروض الأسعار عبر الإنترنت هو تطبيق واجهة مستخدم رسومية لتحرير الاقتباسات عبر الإنترنت والتحقق منها. يمكن إضافة مصادر الاقتباسات المتاحة عبر الإنترنت من متجر كيدي، أو إنشاؤها محليًا، أو تحريرها، والتحقق من تنفيذها بشكل صحيح.</p>
     <p xml:lang="ca">L'editor de cotitzacions en línia és una aplicació d'interfície d'usuari gràfica per a editar i comprovar les cotitzacions en línia. Les fonts de cotització en línia disponibles es poden afegir des de la botiga KDE, creades localment, editades i verificades per a una execució correcta.</p>
     <p xml:lang="ca-valencia">L'editor de cotitzacions en línia és una aplicació d'interfície d'usuari gràfica per a editar i comprovar les cotitzacions en línia. Les fonts de cotització en línia disponibles es poden afegir des de la botiga KDE, creades localment, editades i verificades per a una execució correcta.</p>
+    <p xml:lang="cs">Editor online nabídek je aplikace s grafickým uživatelským rozhraním určená k úpravám a kontrole online nabídek. Dostupné zdroje online nabídek lze přidat z obchodu KDE, vytvořit lokálně, upravit a zkontrolovat, zda se správně provedou.</p>
     <p xml:lang="el">Ο επεξεργαστής επιγραμμικών τιμών είναι μια εφαρμογή γραφικού περιβάλλοντος για επεξεργασία και έλεγχο επιγραμμικών τιμών μετοχών. Διαθέσιμες πηγές τιμών μετοχών υπάρχουν στο KDE store, δημιουργούνται τοπικά, γίνονται αντικείμενο επεξεργασίας και ελέγχου για σωστή εκτέλεση.</p>
     <p xml:lang="en-GB">Online Quotes Editor is a graphical user interface application for editing and checking online quotes. Available online quote sources can be added from the KDE store, created locally, edited and checked for correct execution.</p>
     <p xml:lang="eo">Online Quotes Editor estas grafikuzantinterfaca aplikaĵo por redakti kaj kontroli interretajn citaĵojn. Disponeblaj interretaj citaĵofontoj povas esti aldonitaj de la KDE-butiko, kreitaj loke, redaktitaj kaj kontrolitaj por ĝusta efektivigo.</p>
@@ -94,6 +97,7 @@
     <p xml:lang="ar">تُقسّم الواجهة إلى نوافذ فرعية قابلة للتخصيص للملفات الشخصية، وتفاصيل الملف الشخصي، وعروض الأسعار المعينة عبر الإنترنت، وسمات عروض الأسعار، والتقيح، والمتصفح، مما يسمح بإعداد واجهة مرنة.</p>
     <p xml:lang="ca">La interfície es divideix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, i això permet la configuració flexible de la interfície.</p>
     <p xml:lang="ca-valencia">La interfície es dividix en subfinestres personalitzables per a perfils, detalls de perfil, cotitzacions assignades en línia, atributs de les cotitzacions, depuració i navegador, i açò permet la configuració flexible de la interfície.</p>
+    <p xml:lang="cs">Rozhraní je rozděleno na přizpůsobitelná dílčí okna pro profily, podrobnosti profilů, přiřazené online nabídky, atributy nabídek, ladění a prohlížeč, což umožňuje flexibilní nastavení rozhraní.</p>
     <p xml:lang="el">Το περιβάλλον χρήστη διαιρείται σε προσαρμόσιμα υπο-παράθυρα για προφίλ, λεπτομέρειες προφίλ, καταχώρηση επιγραμμικών προσφορών, ιδιότητες προσφορών, αποσφαλμάτωση και περιηγητή ιστού για άνετη ρύθμιση του περιβάλλοντος.</p>
     <p xml:lang="en-GB">The interface is divided into customisable sub-windows for profiles, profile details, assigned online quotes, quote attributes, debug, and browser, allowing for flexible interface setup.</p>
     <p xml:lang="eo">La interfaco estas dividita en agordeblajn subfenestrojn por profiloj, profildetaloj, asignitaj interretaj citaĵoj, citaĵo-atributoj, sencimigo kaj retumilo, ebligante flekseblan interfacagordon.</p>
@@ -122,6 +126,7 @@
     <p xml:lang="ar">يمكن دعم تطبيقات متعددة عبر الملفات الشخصية.</p>
     <p xml:lang="ca">Poden funcionar aplicacions múltiples a través dels perfils.</p>
     <p xml:lang="ca-valencia">A través dels perfils s'admeten múltiples aplicacions.</p>
+    <p xml:lang="cs">Více aplikací lze podporovat prostřednictvím profilů.</p>
     <p xml:lang="el">Πολλαπλές εφαρμογές υποστηρίζονται με τα προφίλ.</p>
     <p xml:lang="en-GB">Multiple applications can be supported via profiles.</p>
     <p xml:lang="eo">Multoblaj aplikoj povas esti subtenataj per profiloj.</p>
@@ -151,6 +156,7 @@
     <p xml:lang="ar">يمكن للتطبيقات المالية التي لا تحتوي على واجهة مستخدم خاصة بها لتحرير مصادر عروض الأسعار عبر الإنترنت استدعاء محرر عروض الأسعار عبر الإنترنت لهذا الغرض.</p>
     <p xml:lang="ca">Les aplicacions financeres que no tenen la seva pròpia interfície d'usuari per a editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a aquest propòsit.</p>
     <p xml:lang="ca-valencia">Les aplicacions financeres que no tenen la seua pròpia interfície d'usuari per a editar fonts de cotitzacions en línia poden invocar l'editor de cotitzacions en línia per a este propòsit.</p>
+    <p xml:lang="cs">Finanční aplikace, které nemají vlastní uživatelské rozhraní pro úpravy zdrojů online nabídek, mohou za tímto účelem vyvolat editor online nabídek.</p>
     <p xml:lang="el">Οι χρηματοοικονομικές εφαρμογές που δεν έχουν δικό τους περιβάλλον χρήστη για επεξεργασία επιγραμμικών τιμών μπορούν να καλούν τον επεξεργαστή.</p>
     <p xml:lang="en-GB">Financial applications that do not contain their own user interface for editing online quote sources can call the online quote editor for this purpose.</p>
     <p xml:lang="eo">Financaj aplikaĵoj, kiuj ne enhavas propran uzantinterfacon por redaktado de interretaj citaĵofontoj, povas alvoki la interretan citaĵoredaktilon por ĉi tiu celo.</p>
