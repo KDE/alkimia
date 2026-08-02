@@ -1,5 +1,6 @@
 # Translation of plasma_applet_org.wincak.foreigncurrencies2 to Norwegian Bokmål
 #
+# Kjetil Sørlund <translate@sorlund.no>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
