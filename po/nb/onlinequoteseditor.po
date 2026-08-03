@@ -1,5 +1,6 @@
 # Translation of onlinequoteseditor to Norwegian Bokmål
 #
+# Kjetil Sørlund <translate@sorlund.no>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
