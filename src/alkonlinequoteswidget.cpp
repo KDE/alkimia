@@ -165,11 +165,20 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     static KComponentData alk(TRANSLATION_DOMAIN);
 #endif
-    Ui::AlkOnlineQuoteDetailsWidget::setupUi(parent);
-    Ui::AlkOnlineQuotesDebugWidget::setupUi(parent);
-    Ui::AlkOnlineQuotesProfileDetailsWidget::setupUi(parent);
-    Ui::AlkOnlineQuotesProfilesWidget::setupUi(parent);
-    Ui::AlkOnlineQuotesListWidget::setupUi(parent);
+    auto *details = new QWidget(parent);
+    Ui::AlkOnlineQuoteDetailsWidget::setupUi(details);
+
+    auto *debug = new QWidget(parent);
+    Ui::AlkOnlineQuotesDebugWidget::setupUi(debug);
+
+    auto *profileDetails = new QWidget(parent);
+    Ui::AlkOnlineQuotesProfileDetailsWidget::setupUi(profileDetails);
+
+    auto *profiles = new QWidget(parent);
+    Ui::AlkOnlineQuotesProfilesWidget::setupUi(profiles);
+
+    auto *list = new QWidget(parent);
+    Ui::AlkOnlineQuotesListWidget::setupUi(list);
 
     if (!QString(BUILD_KEY).isEmpty())
         m_buildKey->setText(QString("<small>alkimia version: %1</small>").arg(BUILD_KEY));
