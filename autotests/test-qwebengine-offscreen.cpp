@@ -5,6 +5,7 @@
 
 #include "alktestdefs.h"
 
+#include "alkdebug.h"
 #include "../3rdparty/qtwebengine/tests/auto/util/util.h"
 #include "test.h"
 
@@ -40,7 +41,7 @@ void TestQWebEngineOffScreen::toHtml()
     CallbackSpy<QString> spy;
     page.toHtml(spy.ref());
     QString html = spy.waitForResult();
-    qDebug() << html;
+    alkDebug() << html;
     QVERIFY(html.contains(TEST_LAUNCH_JAVASCRIPT_EXPECTED));
 }
 
