@@ -9,6 +9,8 @@
 
 #include "alkfinancequoteprocess.h"
 
+#include "alkdebug.h"
+
 #include <QMap>
 #include <QString>
 #include <QtDebug>
@@ -106,7 +108,7 @@ void AlkFinanceQuoteProcess::testLaunch(const QString& scriptPath)
 {
     clearProgram();
 
-    qDebug() << "running perl" << scriptPath << "-t";
+    alkDebug() << "running perl" << scriptPath << "-t";
 
     *this << "perl" << scriptPath << "-t";
     setOutputChannelMode(KProcess::OnlyStdoutChannel);
@@ -120,7 +122,7 @@ void AlkFinanceQuoteProcess::launch(const QString &scriptPath)
 {
     clearProgram();
 
-    qDebug() << "running" << "perl" << scriptPath << "-l";
+    alkDebug() << "running" << "perl" << scriptPath << "-l";
 
     *this << "perl" << scriptPath << "-l";
     setOutputChannelMode(KProcess::OnlyStdoutChannel);
