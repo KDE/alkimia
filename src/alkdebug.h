@@ -16,8 +16,7 @@
 
 #include <QtDebug>
 
-// we do not want to support qDebug
-#undef qDebug
+// do not cover qDebug-style functional calls
 QDebug _alkDebug(const char *file, int line, const char *func);
 #define alkDebug() _alkDebug(__FILE__, __LINE__, Q_FUNC_INFO)
 
