@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 16:18+0000\n"
+"POT-Creation-Date: 2026-08-18 03:40+0000\n"
 "PO-Revision-Date: 2026-04-01 18:57+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -839,171 +839,171 @@ msgstr "Aplikačné profily"
 msgid "New"
 msgstr "Nové"
 
-#: alkonlinequoteswidget.cpp:244
+#: alkonlinequoteswidget.cpp:253
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Symbol"
 
-#: alkonlinequoteswidget.cpp:245
+#: alkonlinequoteswidget.cpp:254
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Identifikačné číslo"
 
-#: alkonlinequoteswidget.cpp:246
+#: alkonlinequoteswidget.cpp:255
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Názov"
 
-#: alkonlinequoteswidget.cpp:278
+#: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Predvolené"
 
-#: alkonlinequoteswidget.cpp:279
+#: alkonlinequoteswidget.cpp:288
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "Javascript"
 
-#: alkonlinequoteswidget.cpp:285
+#: alkonlinequoteswidget.cpp:294
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
 msgstr "Vypnuté"
 
-#: alkonlinequoteswidget.cpp:286
+#: alkonlinequoteswidget.cpp:295
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
 msgstr "Vždy"
 
-#: alkonlinequoteswidget.cpp:287
+#: alkonlinequoteswidget.cpp:296
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
 msgstr "Vždy keď dnes"
 
-#: alkonlinequoteswidget.cpp:578
+#: alkonlinequoteswidget.cpp:587
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Ste si istý, že chcete vymazať tento online kurz?"
 
-#: alkonlinequoteswidget.cpp:579
+#: alkonlinequoteswidget.cpp:588
 #, kde-format
 msgid "Delete online quote"
 msgstr "Vymazať online kurz"
 
-#: alkonlinequoteswidget.cpp:600
+#: alkonlinequoteswidget.cpp:609
 #, kde-format
 msgid ".copy"
 msgstr ".copy"
 
-#: alkonlinequoteswidget.cpp:631
+#: alkonlinequoteswidget.cpp:640
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
 msgstr "Nastavenia online kurzov vygenerované s Alkimia %1"
 
-#: alkonlinequoteswidget.cpp:634
+#: alkonlinequoteswidget.cpp:643
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "URL: %1"
 msgstr "URL: %1"
 
-#: alkonlinequoteswidget.cpp:635
+#: alkonlinequoteswidget.cpp:644
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
 msgstr "Režim sťahovania: %1"
 
-#: alkonlinequoteswidget.cpp:636
+#: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
 msgstr "Formát dát: %1"
 
-#: alkonlinequoteswidget.cpp:637
+#: alkonlinequoteswidget.cpp:646
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
 msgstr "Identifikátor: %1"
 
-#: alkonlinequoteswidget.cpp:638
+#: alkonlinequoteswidget.cpp:647
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
 msgstr "Vybrať podľa: %1"
 
-#: alkonlinequoteswidget.cpp:639
+#: alkonlinequoteswidget.cpp:648
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price: %1"
 msgstr "Cena: %1"
 
-#: alkonlinequoteswidget.cpp:640
+#: alkonlinequoteswidget.cpp:649
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
 msgstr "Desatinný oddeľovač ceny: %1"
 
-#: alkonlinequoteswidget.cpp:641
+#: alkonlinequoteswidget.cpp:650
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Date: %1"
 msgstr "Nájdený dátum: '%1'"
 
-#: alkonlinequoteswidget.cpp:642
+#: alkonlinequoteswidget.cpp:651
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
 msgstr "Formát dátumu: %1"
 
-#: alkonlinequoteswidget.cpp:643
+#: alkonlinequoteswidget.cpp:652
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
 msgstr "Predvolený identifikátor: %1"
 
-#: alkonlinequoteswidget.cpp:644
+#: alkonlinequoteswidget.cpp:653
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
 msgstr "Vzdialený zdroj: %1"
 
-#: alkonlinequoteswidget.cpp:645
+#: alkonlinequoteswidget.cpp:654
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
 msgstr "zaškrtnuté"
 
-#: alkonlinequoteswidget.cpp:645
+#: alkonlinequoteswidget.cpp:654
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
 msgstr "nezaškrtnuté"
 
-#: alkonlinequoteswidget.cpp:658
+#: alkonlinequoteswidget.cpp:667
 #, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
 msgstr ".reference"
 
-#: alkonlinequoteswidget.cpp:674 alkonlinequoteswidget.cpp:676
+#: alkonlinequoteswidget.cpp:683 alkonlinequoteswidget.cpp:685
 #, kde-format
 msgid "New Quote Source"
 msgstr "Pridať zdroj cenovej ponuky"
 
-#: alkonlinequoteswidget.cpp:686
+#: alkonlinequoteswidget.cpp:695
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "<b>Nový zdroj kurzov</b> už existuje."
 
-#: alkonlinequoteswidget.cpp:827
+#: alkonlinequoteswidget.cpp:836
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Okno výsledkov HTML online kurzov"

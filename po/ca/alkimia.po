@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 16:18+0000\n"
+"POT-Creation-Date: 2026-08-18 03:40+0000\n"
 "PO-Revision-Date: 2025-07-06 10:49+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -870,171 +870,171 @@ msgstr "Perfils de l'aplicació"
 msgid "New"
 msgstr "Nou"
 
-#: alkonlinequoteswidget.cpp:244
+#: alkonlinequoteswidget.cpp:253
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Symbol"
 msgstr "Símbol"
 
-#: alkonlinequoteswidget.cpp:245
+#: alkonlinequoteswidget.cpp:254
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Identification number"
 msgstr "Número d'identificació"
 
-#: alkonlinequoteswidget.cpp:246
+#: alkonlinequoteswidget.cpp:255
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Name"
 msgstr "Nom"
 
-#: alkonlinequoteswidget.cpp:278
+#: alkonlinequoteswidget.cpp:287
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Default"
 msgstr "Predeterminat"
 
-#: alkonlinequoteswidget.cpp:279
+#: alkonlinequoteswidget.cpp:288
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Javascript"
 msgstr "Javascript"
 
-#: alkonlinequoteswidget.cpp:285
+#: alkonlinequoteswidget.cpp:294
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Off"
 msgstr "Inactiu"
 
-#: alkonlinequoteswidget.cpp:286
+#: alkonlinequoteswidget.cpp:295
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always"
 msgstr "Sempre"
 
-#: alkonlinequoteswidget.cpp:287
+#: alkonlinequoteswidget.cpp:296
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
 msgstr "Sempre si és d'avui"
 
-#: alkonlinequoteswidget.cpp:578
+#: alkonlinequoteswidget.cpp:587
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Segur que voleu suprimir aquesta cotització en línia?"
 
-#: alkonlinequoteswidget.cpp:579
+#: alkonlinequoteswidget.cpp:588
 #, kde-format
 msgid "Delete online quote"
 msgstr "Suprimeix la cotització en línia"
 
-#: alkonlinequoteswidget.cpp:600
+#: alkonlinequoteswidget.cpp:609
 #, kde-format
 msgid ".copy"
 msgstr ".copia"
 
-#: alkonlinequoteswidget.cpp:631
+#: alkonlinequoteswidget.cpp:640
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
 msgstr "Paràmetres de cotització en línia generats per l'Alkimia %1"
 
-#: alkonlinequoteswidget.cpp:634
+#: alkonlinequoteswidget.cpp:643
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "URL: %1"
 msgstr "URL: %1"
 
-#: alkonlinequoteswidget.cpp:635
+#: alkonlinequoteswidget.cpp:644
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
 msgstr "Mode de baixada: %1"
 
-#: alkonlinequoteswidget.cpp:636
+#: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
 msgstr "Format de les dades: %1"
 
-#: alkonlinequoteswidget.cpp:637
+#: alkonlinequoteswidget.cpp:646
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
 msgstr "Identificador: %1"
 
-#: alkonlinequoteswidget.cpp:638
+#: alkonlinequoteswidget.cpp:647
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
 msgstr "Selecciona per: %1"
 
-#: alkonlinequoteswidget.cpp:639
+#: alkonlinequoteswidget.cpp:648
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price: %1"
 msgstr "Preu: %1"
 
-#: alkonlinequoteswidget.cpp:640
+#: alkonlinequoteswidget.cpp:649
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
 msgstr "Separador decimal del preu: %1"
 
-#: alkonlinequoteswidget.cpp:641
+#: alkonlinequoteswidget.cpp:650
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Date: %1"
 msgstr "Data: %1"
 
-#: alkonlinequoteswidget.cpp:642
+#: alkonlinequoteswidget.cpp:651
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
 msgstr "Format de la data: %1"
 
-#: alkonlinequoteswidget.cpp:643
+#: alkonlinequoteswidget.cpp:652
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
 msgstr "Identificador predeterminat: %1"
 
-#: alkonlinequoteswidget.cpp:644
+#: alkonlinequoteswidget.cpp:653
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
 msgstr "Font remota: %1"
 
-#: alkonlinequoteswidget.cpp:645
+#: alkonlinequoteswidget.cpp:654
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
 msgstr "marcat"
 
-#: alkonlinequoteswidget.cpp:645
+#: alkonlinequoteswidget.cpp:654
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
 msgstr "no marcat"
 
-#: alkonlinequoteswidget.cpp:658
+#: alkonlinequoteswidget.cpp:667
 #, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
 msgstr ".referència"
 
-#: alkonlinequoteswidget.cpp:674 alkonlinequoteswidget.cpp:676
+#: alkonlinequoteswidget.cpp:683 alkonlinequoteswidget.cpp:685
 #, kde-format
 msgid "New Quote Source"
 msgstr "Font nova de cotitzacions"
 
-#: alkonlinequoteswidget.cpp:686
+#: alkonlinequoteswidget.cpp:695
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "La <b>font nova de cotitzacions</b> ja existeix."
 
-#: alkonlinequoteswidget.cpp:827
+#: alkonlinequoteswidget.cpp:836
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Finestra de resultats en HTML de la cotització en línia"
