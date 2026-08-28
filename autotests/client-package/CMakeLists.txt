@@ -18,6 +18,6 @@ if(NOT LibAlkimia${ALKIMIA_PATH_SUFFIX}_VERSION OR NOT CHECK_VERSION OR NOT LibA
     message(FATAL_ERROR "version mismatch actual '${LibAlkimia${ALKIMIA_PATH_SUFFIX}_VERSION}' expected '${CHECK_VERSION}'")
 endif()
 
-add_executable(mytest test.cpp)
-target_link_libraries(mytest Alkimia::alkimia)
-install(TARGETS mytest DESTINATION bin)
+add_executable(test-alkonlinequotesource test-alkonlinequotesource.cpp)
+target_link_libraries(test-alkonlinequotesource Alkimia::alkimia)
+install(TARGETS test-alkonlinequotesource DESTINATION bin)
