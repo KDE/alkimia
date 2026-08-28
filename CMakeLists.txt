@@ -5,6 +5,10 @@ cmake_minimum_required(VERSION 3.16.0)
 set(POLICIES
     CMP0071 # Let AUTOMOC and AUTOUIC process GENERATED files, cmake version 3.10
     CMP0177 # install() DESTINATION paths are normalized, cmake version 3.31
+    CMP0156 # De-duplicate libraries on link lines based onlinker capabilities, cmake version 3.29
+    CMP0179 # De-duplication of static libraries on link lines keeps first occurrence, cmake version 3.29
+    CMP0181 # Link command-line fragment variables are parsed and re-quoted, cmake version 4.0
+    CMP0200 # Location and configuration selection for imported targets is more consistent, cmake version 4.2
 )
 foreach(P ${POLICIES})
     if(POLICY ${P})
