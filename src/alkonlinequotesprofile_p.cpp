@@ -249,7 +249,7 @@ const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::Private::defaultQuoteS
         AlkOnlineQuoteSource source(AlkOnlineQuoteSource::defaultCurrencyQuoteSource("Alkimia Currency"));
         source.setProfile(m_p);
         result[source.name()] = source;
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBKIT) || defined(ALKIMIA_WEBENGINE)
         AlkOnlineQuoteSource source2(AlkOnlineQuoteSource::defaultCurrencyQuoteSource("Alkimia Currency (Javascript)"));
         source2.setProfile(m_p);
         source2.setDownloadType(AlkOnlineQuoteSource::Javascript);

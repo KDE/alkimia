@@ -15,7 +15,7 @@
 
 class QUrl;
 
-#if defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBENGINE)
 
 #include <QWebEnginePage>
 
@@ -51,7 +51,7 @@ private:
     bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override;
 };
 
-#elif defined(BUILD_WITH_WEBKIT)
+#elif defined(ALKIMIA_WEBKIT)
 
 #include <QWebPage>
 

@@ -59,7 +59,7 @@ public:
 
 public Q_SLOTS:
     void downloadUrlDoneQt(QNetworkReply *reply);
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0) || defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0) || defined(ALKIMIA_WEBKIT) || defined(ALKIMIA_WEBENGINE)
     void slotFinishedJavaScriptEngine(bool ok);
 #endif
     void slotLoadStarted();
@@ -150,7 +150,7 @@ bool AlkDownloadEngine::Private::downloadUrlQt(const QUrl &url)
     return result == Result::NoError;
 }
 
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBKIT) || defined(ALKIMIA_WEBENGINE)
 void AlkDownloadEngine::Private::slotFinishedJavaScriptEngine(bool ok)
 {
     Result result = Result::NoError;
@@ -236,11 +236,11 @@ bool AlkDownloadEngine::downloadUrl(const QUrl &url, Type type)
     case QtEngine:
         return d->downloadUrlQt(url);
     case JavaScriptEngine:
-#if defined(BUILD_WITH_WEBKIT)
+#if defined(ALKIMIA_WEBKIT)
     case WebKitEngine:
     case JavaScriptEngineCSS:
         return d->downloadUrlWithJavaScriptEngine(url);
-#elif defined(BUILD_WITH_WEBENGINE)
+#elif defined(ALKIMIA_WEBENGINE)
     case WebEngine:
         return d->downloadUrlWithJavaScriptEngine(url);
 #endif

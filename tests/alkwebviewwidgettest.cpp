@@ -28,11 +28,12 @@ public:
 
     AlkWebViewTestDialog()
     {
-#ifdef BUILD_WITH_WEBENGINE
+#if defined(ALKIMIA_WEBENGINE)
         AlkWebView::setWebInspectorEnabled(true);
 #endif
         view = new AlkWebView;
-#ifdef BUILD_WITH_WEBKIT
+
+#if defined(ALKIMIA_WEBKIT)
         view->setWebInspectorEnabled(true);
 #endif
 

@@ -10,7 +10,7 @@
 
 #include "alkwebview.h"
 
-#if defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBENGINE)
 #include "../3rdparty/qtwebengine/tests/auto/util/util.h"
 
 #include <klocalizedstring.h>
@@ -99,7 +99,7 @@ bool AlkWebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Naviga
 
 #include "alkwebpage.moc"
 
-#elif defined(BUILD_WITH_WEBKIT)
+#elif defined(ALKIMIA_WEBKIT)
 #include <QWebFrame>
 #include <QWebElement>
 #include <QWebInspector>

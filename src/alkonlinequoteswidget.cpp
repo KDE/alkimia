@@ -185,13 +185,13 @@ AlkOnlineQuotesWidget::Private::Private(bool showProfiles, bool showUpload, AlkO
     else
         m_buildKey->setText(QString());
 
-#ifdef BUILD_WITH_WEBENGINE
+#if defined(ALKIMIA_WEBENGINE)
     AlkWebView::setWebInspectorEnabled(true);
 #endif
     initLocale();
     m_webView = new AlkWebView;
     m_webView->setWebPage(new AlkWebPage);
-#ifdef BUILD_WITH_WEBKIT
+#if defined(ALKIMIA_WEBKIT)
     m_webView->setWebInspectorEnabled(true);
 #endif
     AlkOnlineQuotesProfileManager::instance().setWebView(m_webView);

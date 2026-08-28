@@ -49,7 +49,7 @@ void AlkWebPageTest::testRedirected()
     QCOMPARE(spyLoadFinished.takeFirst().at(0).toBool(), true);
     QVERIFY(spyLoadStarted.count() >= 1);
 
-#if defined(BUILD_WITH_WEBENGINE) && QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+#if defined(ALKIMIA_WEBENGINE) && QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QCOMPARE(spyLoadRedirected.count(), 1);
     QCOMPARE(spyLoadRedirected.takeFirst().at(0).toUrl(), QUrl(url));
 #else

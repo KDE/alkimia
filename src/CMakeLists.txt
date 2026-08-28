@@ -195,6 +195,13 @@ target_include_directories(alkimia
         $<INSTALL_INTERFACE:include/alkimia/${ALKIMIA_INCLUDE_SUFFIX}>
 )
 
+if(ALKIMIA_WEB_BACKEND_DEFINE)
+    target_compile_definitions(alkimia
+        PUBLIC
+            ${ALKIMIA_WEB_BACKEND_DEFINE}
+    )
+endif()
+
 target_link_libraries(alkimia
     PRIVATE
     alkimia-internal

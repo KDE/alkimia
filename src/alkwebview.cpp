@@ -15,7 +15,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-#if defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBENGINE)
 #include <klocalizedstring.h>
 
 #include <QContextMenuEvent>
@@ -104,7 +104,7 @@ void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
     menu->popup(event->globalPos());
 }
 
-#elif defined(BUILD_WITH_WEBKIT)
+#elif defined(ALKIMIA_WEBKIT)
 #include <QPointer>
 #include <QWebInspector>
 #include <QWebView>

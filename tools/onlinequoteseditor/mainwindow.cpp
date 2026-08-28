@@ -40,7 +40,7 @@ public:
 
 void MainWindow::slotLoadRedirectedTo(const QUrl &url)
 {
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBKIT) || defined(ALKIMIA_WEBENGINE)
     d->urlLine->setText(url.toString());
 #else
     Q_UNUSED(url)
@@ -121,7 +121,7 @@ MainWindow::MainWindow(QWidget *parent)
     AlkWebView *webView = manager.webView();
 
     QHBoxLayout *hLayout = new QHBoxLayout;
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBKIT) || defined(ALKIMIA_WEBENGINE)
     // setup url line
     d->urlLine = new QLineEdit;
     connect(d->urlLine, SIGNAL(editingFinished()), this, SLOT(slotEditingFinished()));

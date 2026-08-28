@@ -11,7 +11,7 @@
 
 #include <alkimia/alk_export.h>
 
-#if defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBENGINE)
 
 #include <QWebEngineView>
 
@@ -43,7 +43,7 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 };
 
-#elif defined(BUILD_WITH_WEBKIT)
+#elif defined(ALKIMIA_WEBKIT)
 
 #include <QWebView>
 

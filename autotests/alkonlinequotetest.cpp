@@ -160,7 +160,7 @@ void AlkOnlineQuoteTest::testLaunch()
 
 void AlkOnlineQuoteTest::testLaunchWithJavaScriptSupport()
 {
-#if defined(BUILD_WITH_WEBKIT) || defined(BUILD_WITH_WEBENGINE)
+#if defined(ALKIMIA_WEBKIT) || defined(ALKIMIA_WEBENGINE)
     AlkOnlineQuote quote(m_profile);
     quote.setTimeout(20000);
     convertertest::AlkQuoteReceiver receiver(&quote);

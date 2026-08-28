@@ -21,3 +21,7 @@ endif()
 add_executable(test-alkonlinequotesource test-alkonlinequotesource.cpp)
 target_link_libraries(test-alkonlinequotesource Alkimia::alkimia)
 install(TARGETS test-alkonlinequotesource DESTINATION bin)
+
+add_executable(test-alkwebview test-alkwebview.cpp)
+target_link_libraries(test-alkwebview Alkimia::alkimia)
+install(TARGETS test-alkwebview DESTINATION bin)
