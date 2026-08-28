@@ -1,11 +1,17 @@
 # The CMake version we require (must be first)
 cmake_minimum_required(VERSION 3.16.0)
-if(POLICY CMP0071)
-    cmake_policy(SET CMP0071 NEW)
-endif()
-if(POLICY CMP0177)
-  cmake_policy(SET CMP0177 NEW)
-endif()
+
+# setup policies
+set(POLICIES
+    CMP0071 # Let AUTOMOC and AUTOUIC process GENERATED files, cmake version 3.10
+    CMP0177 # install() DESTINATION paths are normalized, cmake version 3.31
+)
+foreach(P ${POLICIES})
+    if(POLICY ${P})
+        cmake_policy(SET ${P} NEW)
+        message(STATUS "cmake policy ${P} set to NEW")
+    endif()
+endforeach()
 
 project(alkimia VERSION 8.2.70)
 
