@@ -25,8 +25,8 @@ set -x
 : "${ci_distro_variant:=leap}"
 
 # ci_variant:
-# One of kf5, kf4
-: "${ci_variant:=kf5}"
+# One of kf6, kf5, kf4
+: "${ci_variant:=kf6}"
 
 # ci_webserver:
 # if yes, install simple webserver
@@ -70,7 +70,7 @@ case "$ci_distro" in
                     "${repos[@]}"
                     https://download.opensuse.org/repositories/devel:/tools:/building/$devel_tools_building_repo_name/devel:tools:building.repo
                 )
-                gccv=10
+                gccv=13
                 ;;
             (*Tumbleweed*)
                 gccv=14

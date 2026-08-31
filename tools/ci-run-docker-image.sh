@@ -4,16 +4,22 @@
 #
 
 # the docker image to use
-: "${ci_image:=opensuse/leap:15.6}"
+: "${ci_image:=opensuse/leap:16.0}"
 
 # the distribution to use
 : "${ci_distro:=}"
+
+# the build variant to use
+: "${ci_variant:=kf6}"
 
 # enter source dir
 # cd ~/src/alkimia
 
 case "$ci_distro" in
-    (opensuse-leap|opensuse-leap-15.6)
+    (opensuse-leap|opensuse-leap-16.0)
+        ci_image=opensuse/leap:16.0
+        ;;
+    (opensuse-leap-15.6)
         ci_image=opensuse/leap:15.6
         ;;
     (opensuse-tumbleweed)
