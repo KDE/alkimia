@@ -311,7 +311,7 @@ include_directories(
 add_subdirectory(src)
 add_subdirectory(qml)
 
-if(BUILD_APPLETS)
+if(BUILD_APPLETS AND Plasma_FOUND)
     add_subdirectory(plasma/applets)
 endif()
 
