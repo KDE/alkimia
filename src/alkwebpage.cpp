@@ -41,7 +41,7 @@ public:
     Private& operator=(const Private& right) = delete;
 };
 
-AlkWebPage::AlkWebPage(QWidget *parent)
+AlkWebPage::AlkWebPage(QObject *parent)
   : QWebEnginePage(parent)
   , d(new Private(this))
 {

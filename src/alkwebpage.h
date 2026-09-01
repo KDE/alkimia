@@ -30,7 +30,7 @@ class ALK_EXPORT AlkWebPage : public QWebEnginePage
 {
     Q_OBJECT
 public:
-    explicit AlkWebPage(QWidget *parent = nullptr);
+    explicit AlkWebPage(QObject *parent = nullptr);
     virtual ~AlkWebPage();
 
     void load(const QUrl &url, const QString &acceptLanguage);
