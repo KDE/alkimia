@@ -35,8 +35,10 @@ public:
 
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
+
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
+
     /// Set timeout [ms] for AlkWebPage::toHtml()
     void setTimeout(int timeout = -1);
     int timeout();
@@ -72,8 +74,10 @@ public:
     void load(const QUrl &url, const QString &acceptLanguage);
     void setHtml(const QString &data);
     QString toHtml();
+
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
+
     void setTimeout(int timeout = -1) { Q_UNUSED(timeout) }
     int timeout() { return -1; }
 
@@ -105,8 +109,10 @@ public:
 
     void load(const QUrl &url, const QString &acceptLanguage);
     void setUrl(const QUrl &url);
+
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
+
     void setTimeout(int timeout = -1) { Q_UNUSED(timeout) }
     int timeout() { return -1; }
 

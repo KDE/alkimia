@@ -31,10 +31,12 @@ public:
     virtual ~AlkWebView();
 
     void load(const QUrl &url);
+
     static void setWebInspectorEnabled(bool state);
     static bool webInspectorEnabled();
-    AlkWebPage *webPage();
+
     void setWebPage(AlkWebPage *webPage);
+    AlkWebPage *webPage();
 
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);
@@ -64,8 +66,9 @@ public:
 
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
-    AlkWebPage *webPage();
+
     void setWebPage(AlkWebPage *webPage);
+    AlkWebPage *webPage();
 
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);
@@ -93,10 +96,12 @@ public:
     void load(const QUrl &url);
     void setHtml(const QString &data, const QUrl &baseUrl);
     void setUrl(const QUrl &url);
+
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
-    AlkWebPage *webPage();
+
     void setWebPage(AlkWebPage *webPage);
+    AlkWebPage *webPage();
 
 Q_SIGNALS:
     void loadStarted();

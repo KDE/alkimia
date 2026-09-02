@@ -57,14 +57,14 @@ bool AlkWebView::webInspectorEnabled()
     return s_webInspectorEnabled;
 }
 
-AlkWebPage *AlkWebView::webPage()
-{
-    return dynamic_cast<AlkWebPage*>(page());
-}
-
 void AlkWebView::setWebPage(AlkWebPage *webPage)
 {
     setPage(dynamic_cast<QWebEnginePage*>(webPage));
+}
+
+AlkWebPage *AlkWebView::webPage()
+{
+    return dynamic_cast<AlkWebPage*>(page());
 }
 
 void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
@@ -139,14 +139,14 @@ bool AlkWebView::webInspectorEnabled()
     return page()->settings()->testAttribute(QWebSettings::DeveloperExtrasEnabled);
 }
 
-AlkWebPage *AlkWebView::webPage()
-{
-    return dynamic_cast<AlkWebPage*>(page());
-}
-
 void AlkWebView::setWebPage(AlkWebPage *webPage)
 {
     setPage(dynamic_cast<QWebPage*>(webPage));
+}
+
+AlkWebPage *AlkWebView::webPage()
+{
+    return dynamic_cast<AlkWebPage*>(page());
 }
 
 #else
@@ -190,14 +190,14 @@ bool AlkWebView::webInspectorEnabled()
     return false;
 }
 
-AlkWebPage *AlkWebView::webPage()
-{
-    return m_page;
-}
-
 void AlkWebView::setWebPage(AlkWebPage *webPage)
 {
     m_page = webPage;
+}
+
+AlkWebPage *AlkWebView::webPage()
+{
+    return m_page;
 }
 
 QVariant AlkWebView::loadResource(int type, const QUrl &name)
