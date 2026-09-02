@@ -64,6 +64,8 @@ public:
     explicit AlkWebView(QWidget *parent = nullptr);
     virtual ~AlkWebView();
 
+    void setHtml(const QString &data, const QUrl &baseUrl);
+
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
 
@@ -76,7 +78,7 @@ Q_SIGNALS:
 
 #else
 
-#include <QTextBrowser>
+#include <QWidget>
 
 class AlkWebPage;
 
@@ -86,7 +88,7 @@ class AlkWebPage;
  *
  * @author Ralf Habacker ralf.habacker @freenet.de
  */
-class ALK_EXPORT AlkWebView : public QTextBrowser
+class ALK_EXPORT AlkWebView : public QWidget
 {
     Q_OBJECT
 public:
@@ -110,7 +112,6 @@ Q_SIGNALS:
 
 private:
     AlkWebPage *m_page{nullptr};
-    QVariant loadResource(int type, const QUrl &name) override;
 };
 #endif
 

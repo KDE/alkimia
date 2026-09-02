@@ -72,7 +72,7 @@ public:
     virtual ~AlkWebPage();
 
     void load(const QUrl &url, const QString &acceptLanguage);
-    void setHtml(const QString &data);
+    void setHtml(const QString &data, const QUrl &baseUrl = QUrl());
     QString toHtml();
 
     QStringList getAllElements(const QString &symbol);
@@ -108,6 +108,7 @@ public:
     virtual ~AlkWebPage();
 
     void load(const QUrl &url, const QString &acceptLanguage);
+    void setHtml(const QString &data, const QUrl &baseUrl);
     void setUrl(const QUrl &url);
 
     QStringList getAllElements(const QString &symbol);

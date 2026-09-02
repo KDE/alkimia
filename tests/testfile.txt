@@ -1,0 +1,3 @@
+Alkimia browser test file
+
+When this file is loaded, the 'baseurl' parameter is processed correctly when the 'setHtml()' method is called.

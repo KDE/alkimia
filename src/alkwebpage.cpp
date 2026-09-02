@@ -8,6 +8,7 @@
 
 #include "alkwebpage.h"
 
+#include "alkdebug.h"
 #include "alkwebview.h"
 
 #if defined(ALKIMIA_WEBENGINE)
@@ -161,10 +162,9 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
         mainFrame()->load(request);
 }
 
-void AlkWebPage::setHtml(const QString &data)
+void AlkWebPage::setHtml(const QString &data, const QUrl &baseUrl)
 {
-    // TODO baseurl
-    mainFrame()->setHtml(data);
+    mainFrame()->setHtml(data, baseUrl);
 }
 
 QString AlkWebPage::toHtml()
@@ -209,7 +209,10 @@ AlkWebPage::AlkWebPage(QWidget *parent)
 {
     setOpenExternalLinks(false);
     setOpenLinks(false);
+
+    // The events that trigger the ‘loadRedirectedTo’ signal differ from those of other backends.
     connect(this, SIGNAL(sourceChanged(QUrl)), SIGNAL(loadRedirectedTo(QUrl)));
+    connect(this, &QTextBrowser::anchorClicked, this, &AlkWebPage::linkClicked);
 }
 
 AlkWebPage::~AlkWebPage()
@@ -226,6 +229,12 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
     setSource(url);
 #endif
     Q_EMIT loadStarted();
+}
+
+void AlkWebPage::setHtml(const QString &data, const QUrl &baseUrl)
+{
+    QTextBrowser::setHtml(data);
+    document()->setBaseUrl(baseUrl);
 }
 
 void AlkWebPage::setUrl(const QUrl &url)
@@ -254,12 +263,28 @@ QVariant AlkWebPage::loadResource(int type, const QUrl &name)
     case QTextDocument::StyleSheetResource:
         QNetworkAccessManager networkManager;
         QNetworkRequest request;
-        request.setUrl(name);
-        QNetworkReply* reply = networkManager.get(request);
-        QEventLoop loop;
-        connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-        connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), &loop, SLOT(quit()));
-        loop.exec();
+        QUrl url = name;
+        QNetworkReply *reply;
+        int counts = 3;
+        while (--counts > 0) {
+            request.setUrl(url);
+            reply = networkManager.get(request);
+            QEventLoop loop;
+            connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+            connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), &loop, SLOT(quit()));
+            loop.exec();
+            if (reply->error() == QNetworkReply::NoError) {
+                url = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
+                if (!url.isEmpty() && url != reply->url()) {
+                    Q_EMIT loadRedirectedTo(reply->url().resolved(url));
+                } else {
+                    break;
+                }
+            } else {
+                alkDebug() << reply->error();
+                return QString();
+            }
+        }
         QString data = reply->readAll();
         Q_EMIT loadFinished(true);
         return data;
@@ -267,5 +292,4 @@ QVariant AlkWebPage::loadResource(int type, const QUrl &name)
 
     return QVariant();
 }
-
 #endif
