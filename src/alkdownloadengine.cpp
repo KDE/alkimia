@@ -117,6 +117,9 @@ bool AlkDownloadEngine::Private::downloadUrlQt(const QUrl &url)
     m_url = url;
     QNetworkRequest request;
     request.setUrl(url);
+#if QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+    request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy);
+#endif
     request.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
     if (!m_acceptLanguage.isEmpty())
         request.setRawHeader("Accept-Language: ", m_acceptLanguage.toLocal8Bit());
@@ -134,6 +137,9 @@ bool AlkDownloadEngine::Private::downloadUrlQt(const QUrl &url)
     if (result == Result::Redirect) {
         QNetworkRequest req;
         req.setUrl(m_url);
+#if QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+        req.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy);
+#endif
         req.setRawHeader("User-Agent", "alkimia " ALK_VERSION_STRING);
         manager.get(req);
 
