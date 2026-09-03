@@ -333,6 +333,24 @@ if (NOT WIN32)
     endif()
 endif(NOT WIN32)
 
+if(${ECM_VERSION} VERSION_GREATER_EQUAL 6.30)
+    include(ECMInstalledLibraryCheck)
+
+    ecm_add_installed_library_check(alkimia
+        PACKAGE_NAME "LibAlkimia${ALKIMIA_PATH_SUFFIX}"
+        PACKAGE_VERSION ${alkimia_VERSION}
+        PACKAGE_TARGET_NAMESPACE "Alkimia::"
+        # needed for AlkFinanceQuoteProcess currently
+        EXTRA_DEPENDENCIES KF${QT_MAJOR_VERSION}CoreAddons
+        EXTRA_LINK_LIBRARIES KF${QT_MAJOR_VERSION}::CoreAddons
+    )
+
+    ecm_installed_library_check_include_strings(alkimia
+        HEADERS ${alkimia_LIB_HEADERS}
+        PREFIX alkimia
+    )
+endif()
+
 ########### documentation ###################
 
 if(DOXYGEN_FOUND)
