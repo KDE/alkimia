@@ -35,3 +35,4 @@ Dependencies:
 
 Options:
   cmake-options: '-DBUILD_WITH_WEBENGINE=ON'
+  run-installed-library-check: True
