@@ -296,6 +296,16 @@ ecm_setup_version(${alkimia_VERSION} VARIABLE_PREFIX ALKIMIA
     COMPATIBILITY SameMajorVersion
 )
 
+if(QT_MAJOR_VERSION EQUAL 4)
+    set(_FIND_KF_DEP_STATEMENTS "find_dependency(KF4 ${KF_MIN_VERSION} COMPONENTS ${CMAKECONFIG_KF_COMPONENTS})")
+else()
+    set(_FIND_KF_DEP_STATEMENTS)
+    foreach(_kf_component IN LISTS CMAKECONFIG_KF_COMPONENTS)
+        list(APPEND _FIND_KF_DEP_STATEMENTS "find_dependency(KF${QT_MAJOR_VERSION}${_kf_component} ${KF_MIN_VERSION})")
+    endforeach()
+    list(JOIN _FIND_KF_DEP_STATEMENTS "\n" _FIND_KF_DEP_STATEMENTS)
+endif()
+
 configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/LibAlkimiaConfig.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/LibAlkimia${ALKIMIA_PATH_SUFFIX}Config.cmake"
@@ -332,6 +342,20 @@ if (NOT WIN32)
             DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
     endif()
 endif(NOT WIN32)
+
+if(${ECM_VERSION} VERSION_GREATER_EQUAL 6.30)
+    include(ECMInstalledLibraryCheck)
+
+    ecm_add_installed_library_check(alkimia
+        PACKAGE_NAME "LibAlkimia${ALKIMIA_PATH_SUFFIX}"
+        PACKAGE_TARGET_NAMESPACE "Alkimia::"
+    )
+
+    ecm_installed_library_check_include_strings(alkimia
+        HEADERS ${alkimia_LIB_HEADERS}
+        PREFIX alkimia
+    )
+endif()
 
 ########### documentation ###################
 
