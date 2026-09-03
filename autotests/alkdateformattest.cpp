@@ -52,10 +52,13 @@ void AlkDateFormatTest::testDateFormatKMyMoney()
     QCOMPARE(format.convertString("1/1/90", false, 2000), QDate(1990, 1, 1));
     QCOMPARE(format.convertString("december 31st, 5", false), QDate(2005, 12, 31));
 
+    // check that negative timestamps are converted in UTC
+    QCOMPARE(QDateTime::fromMSecsSinceEpoch(-1234000, Qt::UTC).date(), QDate(1969, 12, 31));
+
     format = AlkDateFormat("%u");
     QCOMPARE(format.convertString("1714827042", false), QDate(2024, 5, 4));
     QCOMPARE(format.convertString("ABC", false), QDate());
-    QCOMPARE(format.convertString("-1234", false), QDate(1970, 1, 1));
+    QCOMPARE(format.convertString("-1234", false), QDate(1969, 12, 31));
 
     format = AlkDateFormat("%ud");
     QCOMPARE(format.convertString("19847", false), QDate(2024, 5, 4));
@@ -65,7 +68,7 @@ void AlkDateFormatTest::testDateFormatKMyMoney()
     format = AlkDateFormat("%um");
     QCOMPARE(format.convertString("1753875094117", false), QDate(2025, 7, 30));
     QCOMPARE(format.convertString("ABC", false), QDate());
-    QCOMPARE(format.convertString("-1234", false), QDate(1970, 1, 1));
+    QCOMPARE(format.convertString("-1234", false), QDate(1969, 12, 31));
 }
 
 void AlkDateFormatTest::testDateFormatSkrooge()

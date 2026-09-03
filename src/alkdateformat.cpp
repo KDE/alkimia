@@ -124,10 +124,11 @@ public:
         }
         if (m_format.startsWith(QLatin1String("%ud"))) {
             unixTime *= 86400; // times seconds per day
+            return QDateTime::fromSecsSinceEpoch(unixTime, Qt::UTC).date();
         } else if (m_format.startsWith(QLatin1String("%um"))) {
-            return QDateTime::fromMSecsSinceEpoch(unixTime).date();
+            return QDateTime::fromMSecsSinceEpoch(unixTime, Qt::UTC).date();
         }
-        return QDateTime::fromMSecsSinceEpoch(unixTime * 1000).date();
+        return QDateTime::fromSecsSinceEpoch(unixTime, Qt::UTC).date();
     }
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
