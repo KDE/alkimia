@@ -11,6 +11,8 @@
 
 #include "alkdebug.h"
 
+#include <KProcess>
+
 #include <QMap>
 #include <QString>
 #include <QtDebug>
@@ -22,6 +24,7 @@ public:
     bool m_isDone;
     QString m_string;
     fqNameMap m_fqNames;
+    KProcess m_process;
 
     Private() : m_isDone(false)
     {
@@ -85,16 +88,21 @@ AlkFinanceQuoteProcess::AlkFinanceQuoteProcess()
     d->m_fqNames["yahoo_europe"] = "Yahoo Europe";
     d->m_fqNames["yahoo_nz"] = "Yahoo New Zealand";
     d->m_fqNames["zifunds"] = "Zuerich Investments";
-    connect(this, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReceivedDataFromFilter()));
-    connect(this, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(slotProcessExited()));
-    connect(this, SIGNAL(error(QProcess::ProcessError)), this, SLOT(slotProcessExited()));
+    connect(&d->m_process, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReceivedDataFromFilter()));
+    connect(&d->m_process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotProcessExited()));
+    connect(&d->m_process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(slotProcessExited()));
+}
+
+AlkFinanceQuoteProcess::~AlkFinanceQuoteProcess()
+{
+    delete d;
 }
 
 void AlkFinanceQuoteProcess::slotReceivedDataFromFilter()
 {
-    QByteArray data(readAllStandardOutput());
+    QByteArray data(d->m_process.readAllStandardOutput());
 
-//   kDebug(2) << "WebPriceQuoteProcess::slotReceivedDataFromFilter(): " << QString(data);
+    //   kDebug(2) << "WebPriceQuoteProcess::slotReceivedDataFromFilter(): " << QString(data);
     d->m_string += QString(data);
 }
 
@@ -106,28 +114,32 @@ void AlkFinanceQuoteProcess::slotProcessExited()
 
 void AlkFinanceQuoteProcess::testLaunch(const QString& scriptPath)
 {
-    clearProgram();
+    d->m_isDone = false;
+    d->m_string.clear();
+    d->m_process.clearProgram();
 
     alkDebug() << "running perl" << scriptPath << "-t";
 
-    *this << "perl" << scriptPath << "-t";
-    setOutputChannelMode(KProcess::OnlyStdoutChannel);
-    start();
-    if (!waitForStarted()) {
+    d->m_process << "perl" << scriptPath << "-t";
+    d->m_process.setOutputChannelMode(KProcess::OnlyStdoutChannel);
+    d->m_process.start();
+    if (!d->m_process.waitForStarted()) {
         qWarning("Unable to start FQ script");
     }
 }
 
 void AlkFinanceQuoteProcess::launch(const QString &scriptPath)
 {
-    clearProgram();
+    d->m_isDone = false;
+    d->m_string.clear();
+    d->m_process.clearProgram();
 
     alkDebug() << "running" << "perl" << scriptPath << "-l";
 
-    *this << "perl" << scriptPath << "-l";
-    setOutputChannelMode(KProcess::OnlyStdoutChannel);
-    start();
-    if (!waitForStarted()) {
+    d->m_process << "perl" << scriptPath << "-l";
+    d->m_process.setOutputChannelMode(KProcess::OnlyStdoutChannel);
+    d->m_process.start();
+    if (!d->m_process.waitForStarted()) {
         qWarning("Unable to start FQ script");
     }
 }
@@ -135,6 +147,11 @@ void AlkFinanceQuoteProcess::launch(const QString &scriptPath)
 bool AlkFinanceQuoteProcess::isFinished() const
 {
     return d->m_isDone;
+}
+
+int AlkFinanceQuoteProcess::exitCode() const
+{
+    return d->m_process.exitCode();
 }
 
 const QStringList AlkFinanceQuoteProcess::getSourceList() const

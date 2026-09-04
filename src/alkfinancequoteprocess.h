@@ -12,7 +12,7 @@
 
 #include <alkimia/alk_export.h>
 
-#include <KProcess>
+#include <QObject>
 
 /**
  * Helper class to run the Finance::Quote process. This is used only for the purpose
@@ -26,22 +26,24 @@
  * @author Ace Jones <acejones@users.sourceforge.net>
  * @author Tony B<tonybloom@users.sourceforge.net>
  */
-class ALK_EXPORT AlkFinanceQuoteProcess : public KProcess
+class ALK_EXPORT AlkFinanceQuoteProcess : public QObject
 {
     Q_OBJECT
 public:
     AlkFinanceQuoteProcess();
+    ~AlkFinanceQuoteProcess() override;
     void launch(const QString &scriptPath);
     /**
      * Check that all modules for Finance::Quote are installed
      */
     void testLaunch(const QString& scriptPath);
     bool isFinished() const;
+    int exitCode() const;
     const QStringList getSourceList() const;
     const QString crypticName(const QString &niceName) const;
     const QString niceName(const QString &crypticName) const;
 
-public Q_SLOTS:
+private Q_SLOTS:
     void slotReceivedDataFromFilter();
     void slotProcessExited();
 
