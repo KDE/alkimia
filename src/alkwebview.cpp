@@ -44,6 +44,16 @@ void AlkWebView::load(const QUrl &url)
         triggerPageAction(QWebEnginePage::Reload);
 }
 
+void AlkWebView::setOpenLinks(bool enable)
+{
+    webPage()->setOpenLinks(enable);
+}
+
+bool AlkWebView::openLinks() const
+{
+    return qobject_cast<const AlkWebPage *>(page())->openLinks();
+}
+
 void AlkWebView::setWebInspectorEnabled(bool state)
 {
     s_webInspectorEnabled = state;
@@ -65,6 +75,9 @@ void AlkWebView::setWebPage(AlkWebPage *webPage)
 
     setPage(dynamic_cast<QWebEnginePage*>(webPage));
 
+    connect(webPage, &AlkWebPage::linkClicked,
+            this, &AlkWebView::linkClicked,
+            Qt::UniqueConnection);
     connect(webPage, &AlkWebPage::loadRedirectedTo,
             this, &AlkWebView::loadRedirectedTo,
             Qt::UniqueConnection);
@@ -138,6 +151,16 @@ void AlkWebView::setHtml(const QString &data, const QUrl &baseUrl)
     webPage()->setHtml(data, baseUrl);
 }
 
+void AlkWebView::setOpenLinks(bool enable)
+{
+    webPage()->setOpenLinks(enable);
+}
+
+bool AlkWebView::openLinks() const
+{
+    return qobject_cast<const AlkWebPage *>(page())->openLinks();
+}
+
 void AlkWebView::setWebInspectorEnabled(bool enable)
 {
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, enable);
@@ -159,6 +182,9 @@ void AlkWebView::setWebPage(AlkWebPage *webPage)
 
     setPage(dynamic_cast<QWebPage*>(webPage));
 
+    connect(webPage, &AlkWebPage::linkClicked,
+            this, &AlkWebView::linkClicked,
+            Qt::UniqueConnection);
     connect(webPage, &AlkWebPage::loadRedirectedTo,
             this, &AlkWebView::loadRedirectedTo,
             Qt::UniqueConnection);
@@ -188,6 +214,16 @@ void AlkWebView::load(const QUrl &url)
 void AlkWebView::setHtml(const QString &data, const QUrl &baseUrl)
 {
     webPage()->setHtml(data, baseUrl);
+}
+
+void AlkWebView::setOpenLinks(bool enable)
+{
+    webPage()->setOpenLinks(enable);
+}
+
+bool AlkWebView::openLinks() const
+{
+    return m_page->openLinks();
 }
 
 void AlkWebView::setWebInspectorEnabled(bool enable)
@@ -222,6 +258,9 @@ void AlkWebView::setWebPage(AlkWebPage *webPage)
     layout->addWidget(webPage);
 
     connect(webPage, &AlkWebPage::loadFinished, this, &AlkWebView::loadFinished, Qt::UniqueConnection);
+    connect(webPage, &AlkWebPage::linkClicked,
+            this, &AlkWebView::linkClicked,
+            Qt::UniqueConnection);
     connect(webPage, &AlkWebPage::loadRedirectedTo,
             this, &AlkWebView::loadRedirectedTo,
             Qt::UniqueConnection);

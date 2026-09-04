@@ -12,6 +12,7 @@
 #include "alkwebview.h"
 
 #include <QApplication>
+#include <QCheckBox>
 #include <QDialog>
 #include <QGridLayout>
 #include <QLabel>
@@ -27,6 +28,9 @@ public:
     QLabel *startedLabel;
     QLabel *finishedLabel;
     QLabel *redirectedLabel;
+    QLabel *clickedLabel;
+    QLabel *clickedUrlLabel;
+    QCheckBox *openLinksCheckBox;
 
     AlkWebViewTestDialog()
     {
@@ -71,6 +75,7 @@ public:
         startedLabel = new QLabel;
         finishedLabel = new QLabel;
         redirectedLabel = new QLabel;
+        clickedLabel = new QLabel;
 
         statusLayout->addWidget(new QLabel("started:"));
         statusLayout->addWidget(startedLabel);
@@ -87,9 +92,38 @@ public:
 
         statusLayout->addSpacing(10);
 
+        statusLayout->addWidget(new QLabel("link clicked:"));
+        statusLayout->addWidget(clickedLabel);
+
         statusLayout->addStretch();
 
         mainLayout->addLayout(statusLayout);
+
+        //
+        // Clicked URL
+        //
+        auto *clickedUrlLayout = new QHBoxLayout;
+
+        clickedUrlLabel = new QLabel;
+        clickedUrlLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
+
+        clickedUrlLayout->addWidget(new QLabel("clicked URL:"));
+        clickedUrlLayout->addWidget(clickedUrlLabel, 1);
+
+        mainLayout->addLayout(clickedUrlLayout);
+
+        //
+        // Options
+        //
+        auto *optionsLayout = new QHBoxLayout;
+
+        openLinksCheckBox = new QCheckBox("Open links");
+        openLinksCheckBox->setChecked(true);
+
+        optionsLayout->addStretch();
+        optionsLayout->addWidget(openLinksCheckBox);
+
+        mainLayout->addLayout(optionsLayout);
 
         setLayout(mainLayout);
 
@@ -108,6 +142,10 @@ public:
         connect(view, SIGNAL(loadFinished(bool)),
                 this, SLOT(slotFinished(bool)));
 
+        // this signal is passed from the page, so it must work too
+        connect(view, SIGNAL(linkClicked(QUrl)),
+                this, SLOT(slotLinkClicked(QUrl)));
+
         connect(loadButton, SIGNAL(pressed()),
                 this, SLOT(slotPressed()));
 
@@ -117,9 +155,15 @@ public:
         connect(loadTestHtmlButton, SIGNAL(pressed()),
                 this, SLOT(slotLoadTestHtml()));
 
+        connect(openLinksCheckBox, &QCheckBox::toggled,
+                this, [this](bool enabled) {
+                    view->setOpenLinks(enabled);
+                });
+
         QString url = QLatin1String(TEST_DOWNLOAD_URL_CURRENCY);
         urlEdit->setText(url);
 
+        view->setOpenLinks(openLinksCheckBox->isChecked());
         view->load(url);
     }
 
@@ -201,12 +245,20 @@ public Q_SLOTS:
         finishedLabel->setText(ok ? "ok" : "failed");
     }
 
+    void slotLinkClicked(const QUrl &url)
+    {
+        clickedLabel->setText("ok");
+        clickedUrlLabel->setText(url.toString());
+    }
+
 private:
     void resetStatus()
     {
         startedLabel->setText("");
         finishedLabel->setText("");
         redirectedLabel->setText("");
+        clickedLabel->setText("");
+        clickedUrlLabel->setText("");
     }
 };
 

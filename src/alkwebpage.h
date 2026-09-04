@@ -43,8 +43,12 @@ public:
     void setTimeout(int timeout = -1);
     int timeout();
 
+    void setOpenLinks(bool enable);
+    bool openLinks() const;
+
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);
+    void linkClicked(const QUrl &url);
 
 private:
     class Private;
@@ -81,12 +85,18 @@ public:
     void setTimeout(int timeout = -1) { Q_UNUSED(timeout) }
     int timeout() { return -1; }
 
+    void setOpenLinks(bool enable);
+    bool openLinks() const;
+
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl&);
+    void linkClicked(const QUrl &url);
 
 private:
     class Private;
     Private *d;
+
+    bool acceptNavigationRequest(QWebFrame *frame, const QNetworkRequest &request, NavigationType type) override;
 };
 
 #else
@@ -121,6 +131,7 @@ Q_SIGNALS:
     void loadStarted();
     void loadFinished(bool);
     void loadRedirectedTo(const QUrl&);
+    void linkClicked(const QUrl &);
 
 private:
     class Private;
