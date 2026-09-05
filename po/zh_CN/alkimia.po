@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:44+0000\n"
+"POT-Creation-Date: 2026-09-05 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 17:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1135,12 +1135,12 @@ msgstr "软件包已创建于："
 msgid "Package edit url:"
 msgstr "软件包编辑 URL："
 
-#: alkwebview.cpp:89
+#: alkwebview.cpp:110
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "在新建窗口中打开查看器"
 
-#: alkwebview.cpp:102
+#: alkwebview.cpp:123
 #, kde-format
 msgid "Inspect element"
 msgstr "检查元素"

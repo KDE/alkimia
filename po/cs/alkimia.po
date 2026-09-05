@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:44+0000\n"
+"POT-Creation-Date: 2026-09-05 00:45+0000\n"
 "PO-Revision-Date: 2026-06-28 12:12+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1154,12 +1154,12 @@ msgstr "Balíček byl vytvořen v:"
 msgid "Package edit url:"
 msgstr "URL pro úpravu balíčku:"
 
-#: alkwebview.cpp:89
+#: alkwebview.cpp:110
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Otevřít inspektor v novém okně"
 
-#: alkwebview.cpp:102
+#: alkwebview.cpp:123
 #, kde-format
 msgid "Inspect element"
 msgstr "Prozkoumat prvek"
