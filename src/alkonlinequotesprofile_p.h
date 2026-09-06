@@ -58,6 +58,7 @@ public:
     QString GHNSId(const QString &name);
     QString GHNSFilePath(const QString &name);
     QString GHNSName(const QString &id);
+    AlkNewStuffEntry::Status GHNSStatus(const QString &name);
 
     const QStringList quoteSourcesNative();
 

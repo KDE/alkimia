@@ -35,7 +35,7 @@ int AlkOnlineQuotesModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
 
-    return 4;
+    return 5;
 }
 
 int AlkOnlineQuotesModel::rowCount(const QModelIndex &parent) const
@@ -64,6 +64,15 @@ QVariant AlkOnlineQuotesModel::data(const QModelIndex &index, int role) const
                 return sourceTypeString(AlkOnlineQuoteSource(_sourceNames.at(index.row()), _profile));
             case ReferenceTo:
                 return AlkOnlineQuoteSource(_sourceNames.at(index.row()), _profile).referenceName();
+            case Updateable:
+                if (AlkOnlineQuoteSource(_sourceNames.at(index.row()), _profile).isGHNS())
+                    return _profile->GHNSIsUpdateable(_sourceNames.at(index.row())) ? QChar(0x2713) : QString();
+            }
+            break;
+        case Qt::TextAlignmentRole:
+            switch (index.column()) {
+            case Updateable:
+                return Qt::AlignCenter;
             }
             break;
         case NameRole:

@@ -253,3 +253,8 @@ QString AlkOnlineQuotesProfile::GHNSName(const QString &id) const
 {
     return  d->GHNSName(id);
 }
+
+bool AlkOnlineQuotesProfile::GHNSIsUpdateable(const QString &name) const
+{
+    return d->GHNSStatus(name) == AlkNewStuffEntry::Updateable;
+}

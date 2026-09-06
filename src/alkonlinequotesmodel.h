@@ -21,7 +21,8 @@ public:
         Name,
         Source,
         DataFormat,
-        ReferenceTo
+        ReferenceTo,
+        Updateable,
     };
 
     enum Roles {

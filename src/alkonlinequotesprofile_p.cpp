@@ -83,6 +83,15 @@ QString AlkOnlineQuotesProfile::Private::GHNSName(const QString &id)
     return QString();
 }
 
+AlkNewStuffEntry::Status AlkOnlineQuotesProfile::Private::GHNSStatus(const QString &name)
+{
+    for (const AlkNewStuffEntry &entry : installedNewStuffEntries()) {
+        if (entry.name == name)
+            return entry.status;
+    }
+    return AlkNewStuffEntry::Invalid;
+}
+
 const QStringList AlkOnlineQuotesProfile::Private::quoteSourcesNative()
 {
     auto kconfig = KSharedConfig::openConfig(m_kconfigFile, KConfig::SimpleConfig);
