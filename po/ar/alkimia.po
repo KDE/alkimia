@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:45+0000\n"
+"POT-Creation-Date: 2026-09-06 00:45+0000\n"
 "PO-Revision-Date: 2025-08-27 17:53+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -761,31 +761,31 @@ msgstr "المصدر"
 msgid "Reference to"
 msgstr "مرجع إلى"
 
-#: alkonlinequotesource.cpp:457
+#: alkonlinequotesource.cpp:456
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "HTML مُجرَّد"
 
-#: alkonlinequotesource.cpp:459
+#: alkonlinequotesource.cpp:458
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequotesource.cpp:461
+#: alkonlinequotesource.cpp:460
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequotesource.cpp:463
+#: alkonlinequotesource.cpp:462
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "أوراق الأنماط المتتالية"
 
-#: alkonlinequotesource.cpp:465
+#: alkonlinequotesource.cpp:464
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
