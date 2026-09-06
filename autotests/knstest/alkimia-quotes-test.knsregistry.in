@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="560">
+  <name>Test Quote Source [Currency]</name>
+  <providerid>@OCS_PROVIDER_ID@</providerid>
+  <author>testauthor</author>
+  <homepage>@OCS_BASE_URL@/p/1000</homepage>
+  <licence>MIT</licence>
+  <version>1.0</version>
+  <rating>50</rating>
+  <downloads>42</downloads>
+  <installedfile>@INSTALLED_FILE@</installedfile>
+  <id>1000</id>
+  <releasedate>2026-01-01</releasedate>
+  <summary>Local test quote source</summary>
+  <changelog></changelog>
+  <preview></preview>
+  <previewBig></previewBig>
+  <payload>@OCS_BASE_URL@/ocs/v1/content/download/1000/1</payload>
+  <tags>mit-license,addon,alkimia</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

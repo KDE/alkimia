@@ -153,6 +153,26 @@ else()
     message(WARNING "alknewstuffenginetest does not currently work because the KNewstuff6 installation API is faulty, even with the KNewstuff dialog")
 endif()
 
+# Fully local KHotNewStuff update test driven by a small Python OCS server.
+# Only the KF6/Qt6 code path implements the SearchRequest/ResultsStream flow
+# this test exercises, so it is gated on Qt6.
+if(QT_MAJOR_VERSION GREATER_EQUAL 6)
+    find_package(Python3 COMPONENTS Interpreter)
+    if(Python3_Interpreter_FOUND)
+        ecm_add_test(
+            alknewstuffengineservertest.cpp
+            COMPILE_DEFINITIONS
+                -DKNSTEST_DIR="${CMAKE_CURRENT_SOURCE_DIR}/knstest"
+                -DPYTHON_EXECUTABLE="${Python3_EXECUTABLE}"
+            ENV ${TEST_ENV}
+            LINK_LIBRARIES alkimia alkimia-internal ${KF_NEWSTUFF_LIB} Qt${QT_MAJOR_VERSION}::Test
+            TEST_NAME alknewstuffengineservertest
+        )
+    else()
+        message(STATUS "alknewstuffengineservertest disabled: no Python3 interpreter found")
+    endif()
+endif()
+
 ecm_add_test(
     alkwebpagetest.cpp
     ENV ${TEST_ENV}
