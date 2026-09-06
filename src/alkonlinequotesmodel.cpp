@@ -101,10 +101,16 @@ QVariant AlkOnlineQuotesModel::headerData(int section, Qt::Orientation orientati
 {
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
         switch(section) {
-        case DataFormat: return i18n("Format");
-        case Name: return i18n("Name");
-        case Source: return i18n("Source");
-        case ReferenceTo: return i18n("Reference to");
+        case DataFormat:
+                return i18nc("@title:column Online quotes", "Format");
+        case Name:
+                return i18nc("@title:column Online quotes", "Name");
+        case Source:
+                return i18nc("@title:column Online quotes", "Source");
+        case ReferenceTo:
+                return i18nc("@title:column Online quotes", "Reference to");
+        case Updateable:
+                return i18nc("@title:column Online quotes", "Updateable");
         }
     }
 
