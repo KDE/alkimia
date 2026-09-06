@@ -103,8 +103,8 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
         return false;
     m_cache = m_engine->cache();
 
-    q->connect(m_engine, &KNSCore::Engine::signalErrorCode, q, [](const KNSCore::ErrorCode &, const QString &message, const QVariant &) {
-        alkDebug() << message;
+    q->connect(m_engine, &KNSCore::Engine::signalErrorCode, q, [](const KNSCore::ErrorCode &errorCode, const QString &message, const QVariant &) {
+        alkDebug() << "KNSCore::Engine error:" << errorCode << message;
     });
 
     connect(m_engine, &KNSCore::Engine::signalProvidersLoaded, this, [this]()
