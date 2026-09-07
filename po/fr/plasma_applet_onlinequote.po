@@ -21,7 +21,7 @@ msgstr ""
 #: configwidget.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "Boîte de dialogue"
+msgstr "Boite de dialogue"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: configwidget.ui:25
