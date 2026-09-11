@@ -35,7 +35,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info AlkDateFormat info"
 msgid "Invalid format string '%1'"
-msgstr "Chaîne de format « %1 » non valable"
+msgstr "Chaine de format « %1 » non valable"
 
 #: alkdateformat.cpp:42
 #, kde-format
