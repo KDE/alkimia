@@ -40,6 +40,14 @@ public:
      */
     void checkForUpdates();
 
+    /**
+     * @return list of available entries
+     */
+    AlkNewStuffEntryList availableEntries() const;
+
+    /**
+     * @return list of installed entries
+     */
     AlkNewStuffEntryList installedEntries() const;
 
     /**
@@ -47,8 +55,23 @@ public:
      */
     void reload();
 
+    /**
+     * Install the entry identified by @p entry
+     * @return true - install succeeded
+     * @return false - install failed
+     */
+    bool install(const AlkNewStuffEntry &entry);
+
+    /**
+     * Uninstall the entry identified by @p entry
+     * @return true - uninstall succeeded
+     * @return false - uninstall failed
+     */
+    bool uninstall(const AlkNewStuffEntry &entry);
+
 Q_SIGNALS:
     void updatesAvailable(const AlkNewStuffEntryList &entries);
+    void entriesAvailable(const AlkNewStuffEntryList &entries);
 
 private:
     class Private;
