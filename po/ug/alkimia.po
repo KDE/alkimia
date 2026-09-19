@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2026-05-28 16:58-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -716,24 +716,37 @@ msgstr ""
 msgid "Local"
 msgstr "يەرلىك"
 
-#: alkonlinequotesmodel.cpp:104
-#, kde-format
+#: alkonlinequotesmodel.cpp:114
+#, fuzzy, kde-format
+#| msgid "Format"
+msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr "پىچىمى"
 
-#: alkonlinequotesmodel.cpp:105
-#, kde-format
+#: alkonlinequotesmodel.cpp:116
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "ئاتى"
 
-#: alkonlinequotesmodel.cpp:106
-#, kde-format
+#: alkonlinequotesmodel.cpp:118
+#, fuzzy, kde-format
+#| msgid "Source"
+msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "مەنبە"
 
-#: alkonlinequotesmodel.cpp:107
+#: alkonlinequotesmodel.cpp:120
 #, kde-format
+msgctxt "@title:column Online quotes"
 msgid "Reference to"
+msgstr ""
+
+#: alkonlinequotesmodel.cpp:122
+#, kde-format
+msgctxt "@title:column Online quotes"
+msgid "Updateable"
 msgstr ""
 
 #: alkonlinequotesource.cpp:456

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2026-03-06 14:08+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -763,25 +763,39 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Локальный"
 
-#: alkonlinequotesmodel.cpp:104
-#, kde-format
+#: alkonlinequotesmodel.cpp:114
+#, fuzzy, kde-format
+#| msgid "Format"
+msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr "Формат"
 
-#: alkonlinequotesmodel.cpp:105
-#, kde-format
+#: alkonlinequotesmodel.cpp:116
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "Имя"
 
-#: alkonlinequotesmodel.cpp:106
-#, kde-format
+#: alkonlinequotesmodel.cpp:118
+#, fuzzy, kde-format
+#| msgid "Source"
+msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "Источник котировок"
 
-#: alkonlinequotesmodel.cpp:107
-#, kde-format
+#: alkonlinequotesmodel.cpp:120
+#, fuzzy, kde-format
+#| msgid "Reference to"
+msgctxt "@title:column Online quotes"
 msgid "Reference to"
 msgstr "Ссылка"
+
+#: alkonlinequotesmodel.cpp:122
+#, kde-format
+msgctxt "@title:column Online quotes"
+msgid "Updateable"
+msgstr ""
 
 #: alkonlinequotesource.cpp:456
 #, kde-format

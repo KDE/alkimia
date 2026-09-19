@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2025-08-27 01:21+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -729,24 +729,39 @@ msgstr ""
 msgid "Local"
 msgstr "Lokala"
 
-#: alkonlinequotesmodel.cpp:104
-#, kde-format
+#: alkonlinequotesmodel.cpp:114
+#, fuzzy, kde-format
+#| msgid "Format"
+msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr "Formatua"
 
-#: alkonlinequotesmodel.cpp:105
-#, kde-format
+#: alkonlinequotesmodel.cpp:116
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "Izena"
 
-#: alkonlinequotesmodel.cpp:106
-#, kde-format
+#: alkonlinequotesmodel.cpp:118
+#, fuzzy, kde-format
+#| msgid "Source"
+msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "Sorburua"
 
-#: alkonlinequotesmodel.cpp:107
-#, kde-format
+#: alkonlinequotesmodel.cpp:120
+#, fuzzy, kde-format
+#| msgctxt "@item:valuesuffix to name for a quote source reference"
+#| msgid ".reference"
+msgctxt "@title:column Online quotes"
 msgid "Reference to"
+msgstr ".reference"
+
+#: alkonlinequotesmodel.cpp:122
+#, kde-format
+msgctxt "@title:column Online quotes"
+msgid "Updateable"
 msgstr ""
 
 #: alkonlinequotesource.cpp:456

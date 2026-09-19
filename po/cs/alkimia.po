@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2026-06-28 12:12+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -745,26 +745,40 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "Místní"
 
-#: alkonlinequotesmodel.cpp:104
-#, kde-format
+#: alkonlinequotesmodel.cpp:114
+#, fuzzy, kde-format
+#| msgid "Format"
+msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr "Formát"
 
 # Tohle vypadá na název vlastnosti. Jméno bycvh nechal pro lidi a zvířata.
-#: alkonlinequotesmodel.cpp:105
-#, kde-format
+#: alkonlinequotesmodel.cpp:116
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "Název"
 
-#: alkonlinequotesmodel.cpp:106
-#, kde-format
+#: alkonlinequotesmodel.cpp:118
+#, fuzzy, kde-format
+#| msgid "Source"
+msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "Zdroj"
 
-#: alkonlinequotesmodel.cpp:107
-#, kde-format
+#: alkonlinequotesmodel.cpp:120
+#, fuzzy, kde-format
+#| msgid "Reference to"
+msgctxt "@title:column Online quotes"
 msgid "Reference to"
 msgstr "Odkaz na"
+
+#: alkonlinequotesmodel.cpp:122
+#, kde-format
+msgctxt "@title:column Online quotes"
+msgid "Updateable"
+msgstr ""
 
 #: alkonlinequotesource.cpp:456
 #, kde-format

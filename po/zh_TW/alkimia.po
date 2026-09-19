@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2026-08-04 07:49+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -732,25 +732,37 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "本地"
 
-#: alkonlinequotesmodel.cpp:104
+#: alkonlinequotesmodel.cpp:114
 #, fuzzy, kde-format
 #| msgid "Data Format"
+msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr "資料格式"
 
-#: alkonlinequotesmodel.cpp:105
-#, kde-format
+#: alkonlinequotesmodel.cpp:116
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "名稱"
 
-#: alkonlinequotesmodel.cpp:106
-#, kde-format
+#: alkonlinequotesmodel.cpp:118
+#, fuzzy, kde-format
+#| msgid "Source"
+msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "來源"
 
-#: alkonlinequotesmodel.cpp:107
+#: alkonlinequotesmodel.cpp:120
 #, kde-format
+msgctxt "@title:column Online quotes"
 msgid "Reference to"
+msgstr ""
+
+#: alkonlinequotesmodel.cpp:122
+#, kde-format
+msgctxt "@title:column Online quotes"
+msgid "Updateable"
 msgstr ""
 
 #: alkonlinequotesource.cpp:456

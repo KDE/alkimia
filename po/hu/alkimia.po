@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2021-11-05 11:17+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -746,25 +746,37 @@ msgstr "Finance::Quote"
 msgid "Local"
 msgstr "helyi"
 
-#: alkonlinequotesmodel.cpp:104
+#: alkonlinequotesmodel.cpp:114
 #, fuzzy, kde-format
 #| msgid "Date Format"
+msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr "Dátumformátum"
 
-#: alkonlinequotesmodel.cpp:105
-#, kde-format
+#: alkonlinequotesmodel.cpp:116
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "Név"
 
-#: alkonlinequotesmodel.cpp:106
-#, kde-format
+#: alkonlinequotesmodel.cpp:118
+#, fuzzy, kde-format
+#| msgid "Source"
+msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "Forrás"
 
-#: alkonlinequotesmodel.cpp:107
+#: alkonlinequotesmodel.cpp:120
 #, kde-format
+msgctxt "@title:column Online quotes"
 msgid "Reference to"
+msgstr ""
+
+#: alkonlinequotesmodel.cpp:122
+#, kde-format
+msgctxt "@title:column Online quotes"
+msgid "Updateable"
 msgstr ""
 
 #: alkonlinequotesource.cpp:456

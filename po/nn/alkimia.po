@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2020-12-11 19:27+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -717,24 +717,34 @@ msgstr ""
 msgid "Local"
 msgstr ""
 
-#: alkonlinequotesmodel.cpp:104
+#: alkonlinequotesmodel.cpp:114
 #, kde-format
+msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr ""
 
-#: alkonlinequotesmodel.cpp:105
+#: alkonlinequotesmodel.cpp:116
 #, kde-format
+msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr ""
 
-#: alkonlinequotesmodel.cpp:106
+#: alkonlinequotesmodel.cpp:118
 #, kde-format
+msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr ""
 
-#: alkonlinequotesmodel.cpp:107
+#: alkonlinequotesmodel.cpp:120
 #, kde-format
+msgctxt "@title:column Online quotes"
 msgid "Reference to"
+msgstr ""
+
+#: alkonlinequotesmodel.cpp:122
+#, kde-format
+msgctxt "@title:column Online quotes"
+msgid "Updateable"
 msgstr ""
 
 #: alkonlinequotesource.cpp:456
