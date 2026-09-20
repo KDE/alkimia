@@ -12,6 +12,7 @@
 #include <alkimia/alk_export.h>
 
 #include <QList>
+#include <QMetaType>
 #include <QStringList>
 
 /**
@@ -42,6 +43,9 @@ public:
 };
 
 typedef QList<AlkNewStuffEntry> AlkNewStuffEntryList;
+
+Q_DECLARE_METATYPE(AlkNewStuffEntry)
+Q_DECLARE_METATYPE(AlkNewStuffEntryList)
 
 ALK_EXPORT const char *toString(AlkNewStuffEntry::Status status);
 
