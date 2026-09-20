@@ -146,12 +146,8 @@ function(add_newstuffengine_test variant host)
     )
 endfunction()
 
-if(QT_MAJOR_VERSION LESS 6)
-    add_newstuffengine_test(remote ${TEST_DOWNLOAD_HOST_OCS_REMOTE})
-    add_newstuffengine_test(local ${TEST_DOWNLOAD_HOST_OCS_LOCAL})
-else()
-    message(WARNING "alknewstuffenginetest does not currently work because the KNewstuff6 installation API is faulty, even with the KNewstuff dialog")
-endif()
+add_newstuffengine_test(remote ${TEST_DOWNLOAD_HOST_OCS_REMOTE})
+add_newstuffengine_test(local ${TEST_DOWNLOAD_HOST_OCS_LOCAL})
 
 # Fully local KHotNewStuff update test driven by a small Python OCS server.
 # Only the KF6/Qt6 code path implements the SearchRequest/ResultsStream flow

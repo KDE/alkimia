@@ -17,6 +17,7 @@
 #include <KNSCore/Provider>
 #include <KNSCore/ResultsStream>
 #include <KNSCore/SearchRequest>
+#include <KNSCore/Transaction>
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <KNSCore/Cache>
 #include <knewstuff_version.h>
@@ -70,6 +71,11 @@ public:
     bool install(const AlkNewStuffEntry &entry);
     bool uninstall(const AlkNewStuffEntry &entry);
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    bool waitForTransaction(KNSCore::Transaction *transaction, KNSCore::Entry::Status expectedStatus, int timeout);
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    bool performOperation(const KNSCore::EntryInternal &entry, std::function<void()> operation, KNS3::Entry::Status expectedStatus, int milliSecondsTimeout);
+#endif
 public Q_SLOTS:
     void slotUpdatesAvailable(const KNS3::Entry::List &entries);
 };
@@ -252,115 +258,139 @@ void AlkNewStuffEngine::Private::slotUpdatesAvailable(const KNS3::Entry::List &e
 #endif
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+bool AlkNewStuffEngine::Private::waitForTransaction(KNSCore::Transaction *transaction, KNSCore::Entry::Status expectedStatus, int timeout)
+{
+    bool success = false;
+    QEventLoop loop;
+
+    connect(transaction, &KNSCore::Transaction::signalEntryEvent, &loop, [&](const KNSCore::Entry &entry, KNSCore::Entry::EntryEvent event) {
+        if (event == KNSCore::Entry::StatusChangedEvent && entry.status() == expectedStatus) {
+            success = true;
+            loop.quit();
+        }
+    });
+
+    connect(transaction, &KNSCore::Transaction::signalErrorCode, &loop, [&](KNSCore::ErrorCode::ErrorCode, const QString &message, const QVariant &) {
+        qDebug() << "KNewStuff transaction failed:" << message;
+        loop.quit();
+    });
+
+    QTimer timer;
+    timer.setSingleShot(true);
+
+    connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+
+    timer.start(timeout);
+
+    if (!transaction->isFinished()) {
+        loop.exec();
+    }
+
+    return success;
+}
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+bool AlkNewStuffEngine::Private::performOperation(const KNSCore::EntryInternal &entry,
+                                                  std::function<void()> operation,
+                                                  KNS3::Entry::Status expectedStatus,
+                                                  int milliSecondsTimeout)
+{
+    const auto uniqueId = entry.uniqueId();
+    bool finished = false;
+
+    const auto conn = connect(m_engine,
+                              &KNSCore::Engine::signalEntryEvent,
+                              [this, &finished, uniqueId, expectedStatus](const KNSCore::EntryInternal &entry, KNSCore::EntryInternal::EntryEvent event) {
+                                  if (event == KNSCore::EntryInternal::StatusChangedEvent && entry.status() == expectedStatus && uniqueId == entry.uniqueId()) {
+                                      finished = true;
+
+                                      if (m_loop.isRunning()) {
+                                          m_loop.quit();
+                                      }
+                                  }
+                              });
+
+    QTimer timeoutTimer;
+    timeoutTimer.setSingleShot(true);
+    connect(&timeoutTimer, &QTimer::timeout, &m_loop, &QEventLoop::quit);
+    timeoutTimer.start(milliSecondsTimeout);
+
+    operation();
+
+    // The operation may have completed synchronously.
+    if (!finished) {
+        m_loop.exec();
+    }
+
+    disconnect(conn);
+    return finished;
+}
+#endif
+
 bool AlkNewStuffEngine::Private::install(const AlkNewStuffEntry &entry)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    alkDebug() << "FIXME Qt6: mussing implementation for installing GHNS entries";
-#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    bool result = true;
     for (const auto &e : m_availableEntries) {
         if (entry.name != e.name() || entry.status == AlkNewStuffEntry::Installed) {
             continue;
         }
-        const auto uniqueId = e.uniqueId();
-        bool finished = false;
-        bool success = false;
-        auto conn = connect(m_engine,
-                            &KNSCore::Engine::signalEntryEvent,
-                            [this, &finished, &success, &uniqueId](const KNSCore::EntryInternal &entry, KNSCore::EntryInternal::EntryEvent event) {
-                                // qDebug() << event << entry.name() << entry.status();
-                                if (event == KNSCore::EntryInternal::StatusChangedEvent && entry.status() == KNS3::Entry::Status::Installed
-                                    && uniqueId == entry.uniqueId()) {
-                                    finished = true;
-                                    success = true;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        auto *transaction = KNSCore::Transaction::installLatest(m_engine, e);
+        bool success = waitForTransaction(transaction, KNSCore::Entry::Installed, 5000);
+        delete transaction;
 
-                                    if (m_loop.isRunning()) {
-                                        m_loop.quit();
-                                    }
-
-                                    qDebug() << "install completed";
-                                }
-                            });
-
-        QTimer timeout;
-        timeout.setSingleShot(true);
-        connect(&timeout, &QTimer::timeout, &m_loop, &QEventLoop::quit);
-        timeout.start(5000);
-
-        m_engine->install(e);
-
-        // The operation may have completed synchronously.
-        if (!finished) {
-            m_loop.exec();
-        }
-        disconnect(conn);
-
-        if (!finished || !success) {
+        if (!success)
+            result = false;
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        if (!performOperation(
+                e,
+                [this, &e] {
+                    m_engine->install(e);
+                },
+                KNS3::Entry::Status::Installed,
+                5000)) {
             qDebug() << "timeout installing" << e.name();
-            return false;
+            result = false;
         }
-
-        return true;
-    }
 #else
+        m_engine->installEntry(e);
 #endif
-    return false;
+    }
+    return result;
 }
 
 bool AlkNewStuffEngine::Private::uninstall(const AlkNewStuffEntry &entry)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    alkDebug() << "FIXME Qt6: mussing implementation for installing GHNS entries";
-#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    bool result = true;
     for (const auto &e : m_availableEntries) {
         if (entry.name != e.name() || (entry.status != AlkNewStuffEntry::Installed && entry.status != AlkNewStuffEntry::Updateable)) {
             continue;
         }
-        const auto uniqueId = e.uniqueId();
-        bool finished = false;
-        bool success = false;
-        auto conn = connect(m_engine,
-                            &KNSCore::Engine::signalEntryEvent,
-                            [this, &finished, &success, &uniqueId](const KNSCore::EntryInternal &entry, KNSCore::EntryInternal::EntryEvent event) {
-                                // qDebug() << event << entry.name() << entry.status();
-                                if (event == KNSCore::EntryInternal::StatusChangedEvent && entry.status() == KNS3::Entry::Status::Deleted
-                                    && uniqueId == entry.uniqueId()) {
-                                    finished = true;
-                                    success = true;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        auto *transaction = KNSCore::Transaction::uninstall(m_engine, e);
 
-                                    if (m_loop.isRunning()) {
-                                        m_loop.quit();
-                                    }
+        bool success = waitForTransaction(transaction, KNSCore::Entry::Deleted, 10000);
+        delete transaction;
 
-                                    qDebug() << "uninstall completed";
-                                }
-                            });
-
-        QTimer timeout;
-        timeout.setSingleShot(true);
-        connect(&timeout, &QTimer::timeout, &m_loop, &QEventLoop::quit);
-        timeout.start(10000);
-
-        m_engine->uninstall(e);
-
-        // The operation may have completed synchronously.
-        if (!finished) {
-            m_loop.exec();
-        }
-
-        disconnect(conn);
-        qDebug() << "after loop";
-
-        if (!finished || !success) {
+        if (!success)
+            result = false;
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        if (!performOperation(
+                e,
+                [this, &e] {
+                    m_engine->uninstall(e);
+                },
+                KNS3::Entry::Status::Deleted,
+                5000)) {
             qDebug() << "timeout uninstalling" << e.name();
-            return false;
+            result = false;
         }
-
-        return true;
-    }
 #else
-    alkDebug() << "FIXME: mussing implementation for installing GHNS entries";
+        m_engine->installEntry(e);
 #endif
-    return false;
+    }
+
+    return result;
 }
 
 AlkNewStuffEngine::AlkNewStuffEngine(QObject *parent)
@@ -407,19 +437,22 @@ bool AlkNewStuffEngine::uninstall(const AlkNewStuffEntry &entry)
 
 void AlkNewStuffEngine::setProviderId(const QString &name, const QString &providerId)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    alkDebug() << "FIXME Qt6: mussing implementation for provider id setup";
-#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     for (const auto &e : d->m_cache->registry()) {
         if (name == e.name()) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            KNSCore::Entry entry(e);
+#else
             KNSCore::EntryInternal entry(e);
+#endif
             entry.setProviderId(providerId);
             d->m_cache->registerChangedEntry(entry);
             d->m_cache->writeRegistry();
         }
     }
 #else
-    alkDebug() << "FIXME: mussing implementation for provider id setup";
+    Q_UNUSED(name);
+    Q_UNUSED(providerId);
 #endif
 }
 
