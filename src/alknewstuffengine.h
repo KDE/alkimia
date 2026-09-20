@@ -69,6 +69,14 @@ public:
      */
     bool uninstall(const AlkNewStuffEntry &entry);
 
+    /**
+     * Set provider id of an entry identified by @p name
+     * @param name the name of the entry
+     * @param providerId the provider id to set
+     * @note This function is used as workaround for a limitation in knewstuff using the baseurl as id
+     */
+    void setProviderId(const QString &name, const QString &providerId);
+
 Q_SIGNALS:
     void updatesAvailable(const AlkNewStuffEntryList &entries);
     void entriesAvailable(const AlkNewStuffEntryList &entries);

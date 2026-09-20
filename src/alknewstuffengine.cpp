@@ -357,6 +357,24 @@ bool AlkNewStuffEngine::uninstall(const AlkNewStuffEntry &entry)
     return d->uninstall(entry);
 }
 
+void AlkNewStuffEngine::setProviderId(const QString &name, const QString &providerId)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    alkDebug() << "FIXME Qt6: mussing implementation for provider id setup";
+#elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    for (const auto &e : d->m_cache->registry()) {
+        if (name == e.name()) {
+            KNSCore::EntryInternal entry(e);
+            entry.setProviderId(providerId);
+            d->m_cache->registerChangedEntry(entry);
+            d->m_cache->writeRegistry();
+        }
+    }
+#else
+    alkDebug() << "FIXME: mussing implementation for provider id setup";
+#endif
+}
+
 const char *toString(AlkNewStuffEntry::Status status)
 {
     switch(status) {

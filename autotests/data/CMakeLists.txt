@@ -1,0 +1,10 @@
+function(configure_test_store_knsrc variant host)
+    set(TEST_DOWNLOAD_HOST_OCS "${host}")
+    set(output_dir "${CMAKE_CURRENT_BINARY_DIR}/${variant}")
+    file(MAKE_DIRECTORY "${output_dir}/v1" "${output_dir}/v2")
+    configure_file(v1/test-store.knsrc.cmake "${output_dir}/v1/test-store.knsrc" @ONLY)
+    configure_file(v2/test-store.knsrc.cmake "${output_dir}/v2/test-store.knsrc" @ONLY)
+endfunction()
+
+configure_test_store_knsrc(remote "${TEST_DOWNLOAD_HOST_OCS_REMOTE}")
+configure_test_store_knsrc(local "${TEST_DOWNLOAD_HOST_OCS_LOCAL}")

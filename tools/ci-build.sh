@@ -94,6 +94,7 @@ function start_webserver() {
             echo "127.0.0.1 $test_host" | $sudo tee --append /etc/hosts
         fi
         $sudo php8 -S "$test_host:80" -t $srcdir/tools &
+        $sudo php8 -S "$test_host:8080"  $srcdir/tools/ocs/router.php &
     fi
 }
 

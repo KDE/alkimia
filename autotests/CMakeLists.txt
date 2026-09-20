@@ -1,8 +1,21 @@
 
 option(TEST_DEVELOP_HOST "Use development host for testing" OFF)
+set(TEST_DOWNLOAD_HOST_LOCAL "http://dev.kmymoney.org")
+set(TEST_DOWNLOAD_HOST_REMOTE "https://kmymoney.org")
+
+set(TEST_DOWNLOAD_HOST_OCS_LOCAL "${TEST_DOWNLOAD_HOST_LOCAL}:8080")
+set(TEST_DOWNLOAD_HOST_OCS_REMOTE "${TEST_DOWNLOAD_HOST_REMOTE}")
+
 if(TEST_DEVELOP_HOST)
+    set(TEST_DOWNLOAD_HOST "${TEST_DOWNLOAD_HOST_LOCAL}")
     add_definitions(-DTEST_DEVELOP_HOST)
+else()
+    set(TEST_DOWNLOAD_HOST "${TEST_DOWNLOAD_HOST_REMOTE}")
 endif()
+
+# Generate the KNSRC fixtures for each endpoint variant.
+add_subdirectory(data)
+
 
 include(ECMAddTests)
 set(TEST_LIB
@@ -115,12 +128,30 @@ if(BUILD_WITH_WEBENGINE)
     )
 endif()
 
-ecm_add_test(
-    alknewstuffenginetest.cpp
-    ENV ${TEST_ENV}
-    LINK_LIBRARIES alkimia alkimia-internal ${KF_NEWSTUFF_LIB}
-    TEST_NAME alknewstuffenginetest
-)
+function(add_newstuffengine_test variant host)
+    ecm_add_test(
+        alknewstuffenginetest.cpp
+        COMPILE_DEFINITIONS
+            -DTEST_KNSRC_DIR="${CMAKE_CURRENT_BINARY_DIR}/data/${variant}"
+            -DTEST_DOWNLOAD_HOST_OCS="${host}"
+        ENV
+            ${TEST_ENV}
+            #QT_LOGGING_RULES=kf.*.debug=true
+        LINK_LIBRARIES
+            alkimia
+            alkimia-internal
+            ${KF_NEWSTUFF_LIB}
+            Qt${QT_MAJOR_VERSION}::Test
+        TEST_NAME alknewstuffenginetest-${variant}
+    )
+endfunction()
+
+if(QT_MAJOR_VERSION LESS 6)
+    add_newstuffengine_test(remote ${TEST_DOWNLOAD_HOST_OCS_REMOTE})
+    add_newstuffengine_test(local ${TEST_DOWNLOAD_HOST_OCS_LOCAL})
+else()
+    message(WARNING "alknewstuffenginetest does not currently work because the KNewstuff6 installation API is faulty, even with the KNewstuff dialog")
+endif()
 
 ecm_add_test(
     alkwebpagetest.cpp
