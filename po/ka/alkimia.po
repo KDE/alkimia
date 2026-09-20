@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:45+0000\n"
-"PO-Revision-Date: 2025-08-09 08:33+0200\n"
+"PO-Revision-Date: 2026-09-19 06:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -750,29 +750,25 @@ msgid "Local"
 msgstr "ლოკალური"
 
 #: alkonlinequotesmodel.cpp:114
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr "ფორმატი"
 
 #: alkonlinequotesmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "სახელი"
 
 #: alkonlinequotesmodel.cpp:118
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "წყარო"
 
 #: alkonlinequotesmodel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Reference to"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Reference to"
 msgstr "მიმართავს"
@@ -781,7 +777,7 @@ msgstr "მიმართავს"
 #, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Updateable"
-msgstr ""
+msgstr "განახლებადი"
 
 #: alkonlinequotesource.cpp:456
 #, kde-format
