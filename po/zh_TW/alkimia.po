@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:45+0000\n"
-"PO-Revision-Date: 2026-08-04 07:49+0900\n"
+"PO-Revision-Date: 2026-09-21 21:43+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -205,7 +205,7 @@ msgstr "無法在報價資料中找到日期/價格對"
 #: alkonlinequote_p.cpp:875
 #, kde-format
 msgid "Json file with invalid content found for '%1'"
-msgstr ""
+msgstr "'%1' 發現內容無效的 JSON 檔案"
 
 #: alkonlinequote_p.cpp:886
 #, kde-format
@@ -457,7 +457,7 @@ msgstr "取消"
 #: alkonlinequotedetails.ui:302
 #, kde-format
 msgid "Copies the details as text to the clipboard."
-msgstr ""
+msgstr "將詳細資料作為文字複製到剪貼簿中。"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:305
@@ -465,14 +465,14 @@ msgstr ""
 msgid ""
 "Use this to copy the details as text to the clipboard to e.g. paste it in an "
 "email."
-msgstr ""
+msgstr "用這個來將詳細資料作為文字複製到剪貼簿中，方便將它貼上至郵件等用途。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_copyButton)
 #: alkonlinequotedetails.ui:308
 #, kde-format
 msgctxt "@action copy details to clipboard"
 msgid "Copy"
-msgstr ""
+msgstr "複製"
 
 #. i18n: ectx: property (text), widget (QLabel, m_buildKey)
 #: alkonlinequotedetails.ui:336
@@ -506,20 +506,18 @@ msgstr "檢查來源"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:55
-#, fuzzy, kde-format
-#| msgid "Show the selected source entry in a web browser"
+#, kde-format
 msgid ""
 "Display the response of a query of the selected source entry in a web browser"
-msgstr "在網頁瀏覽器中線上所選的來源項目"
+msgstr "在網頁瀏覽器中顯示所選來源項目一個查詢的回應"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:58
-#, fuzzy, kde-format
-#| msgid "Use this to delete the selected online source entry"
+#, kde-format
 msgid ""
 "Use this option to display the response to a query from the selected online "
 "source."
-msgstr "用這個來刪除選取的來源項目"
+msgstr "用這個選項來顯示所選線上來源的一個查詢的回應。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_showButton)
 #: alkonlinequotesdebug.ui:61 alkonlinequotesprofile.ui:413
@@ -555,7 +553,7 @@ msgstr "一個符號"
 #: alkonlinequotesdebug.ui:129
 #, kde-format
 msgid "Return last price state"
-msgstr ""
+msgstr "回傳最後價格狀態"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_reverseSearchStateCheckBox)
 #: alkonlinequotesdebug.ui:139
@@ -577,10 +575,9 @@ msgstr "建立新的線上報價來源項目"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:51
-#, fuzzy, kde-format
-#| msgid "Use this to create a new entry for online quotes"
+#, kde-format
 msgid "Use this to create a new entry for online quotes."
-msgstr "用這個來建立新的線上報價項目"
+msgstr "用這個來建立新的線上報價項目。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_newButton)
 #: alkonlinequoteslist.ui:54 alkonlinequotesprofile.ui:54
@@ -631,12 +628,11 @@ msgstr "建立複本"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:100
-#, fuzzy, kde-format
-#| msgid "Create a new source entry for online quotes"
+#, kde-format
 msgid ""
 "Creates a new local online source as reference to a remote online quote "
 "source"
-msgstr "建立新的線上報價來源項目"
+msgstr "建立新的本地線上報價來源（參照遠端線上報價來源）"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:103
@@ -646,24 +642,26 @@ msgid ""
 "online quote source. The attributes of the remote online course source are "
 "then used for a price or quote request."
 msgstr ""
+"用這個來建立新的本地線上報價來源，並讓它連結到一個遠端線上報價來源。報價請求"
+"會使用該遠端線上報價來源的屬性。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_addReferenceButton)
 #: alkonlinequoteslist.ui:106
 #, kde-format
 msgid "Add reference"
-msgstr ""
+msgstr "新增參照"
 
 #. i18n: ectx: property (toolTip), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:118
 #, kde-format
 msgid "Install online quote source from the KDE Store"
-msgstr ""
+msgstr "從 KDE Store 安裝線上報價來源"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:121
 #, kde-format
 msgid "Use this to install an online quote source from the KDE Store."
-msgstr ""
+msgstr "用這個來從 KDE Store 安裝線上報價來源。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_installButton)
 #: alkonlinequoteslist.ui:124 alkonlinequotesprofile.ui:85
@@ -675,14 +673,13 @@ msgstr "安裝"
 #: alkonlinequoteslist.ui:136
 #, kde-format
 msgid "Upload modified remote online quote source to the KDE Store"
-msgstr ""
+msgstr "將已修改的遠端線上報價來源上傳到 KDE Store"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:139
-#, fuzzy, kde-format
-#| msgid "Use this to show the selected online source entry"
+#, kde-format
 msgid "Use this to upload a modified online quote source to the KDE Store."
-msgstr "用這個來顯示選取的來源項目"
+msgstr "用這個將已修改的遠端線上報價來源上傳到 KDE Store。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_uploadButton)
 #: alkonlinequoteslist.ui:142
@@ -696,7 +693,7 @@ msgstr "上傳"
 msgid ""
 "Reset changes to local sources that were made after the last selection of "
 "this profile"
-msgstr ""
+msgstr "重設本地來源在上次選取此設定檔之後所做的變更"
 
 #. i18n: ectx: property (whatsThis), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:157
@@ -704,13 +701,13 @@ msgstr ""
 msgid ""
 "Use this to reset changes to local sources that were made after the last "
 "selection of this profile."
-msgstr ""
+msgstr "用這個來重設本地來源在上次選取此設定檔之後所做的變更。"
 
 #. i18n: ectx: property (text), widget (AlkPushButton, m_resetButton)
 #: alkonlinequoteslist.ui:160
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "重設"
 
 #: alkonlinequotesmodel.cpp:19
 #, kde-format
@@ -733,22 +730,19 @@ msgid "Local"
 msgstr "本地"
 
 #: alkonlinequotesmodel.cpp:114
-#, fuzzy, kde-format
-#| msgid "Data Format"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Format"
-msgstr "資料格式"
+msgstr "格式"
 
 #: alkonlinequotesmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "名稱"
 
 #: alkonlinequotesmodel.cpp:118
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "來源"
@@ -757,13 +751,13 @@ msgstr "來源"
 #, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Reference to"
-msgstr ""
+msgstr "參照"
 
 #: alkonlinequotesmodel.cpp:122
 #, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Updateable"
-msgstr ""
+msgstr "可更新"
 
 #: alkonlinequotesource.cpp:456
 #, kde-format
@@ -793,7 +787,7 @@ msgstr "CSS"
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_ghnsSource)
 #: alkonlinequotesprofile.ui:244
@@ -982,7 +976,7 @@ msgstr "識別子：%1"
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
-msgstr ""
+msgstr "選取方式：%1"
 
 #: alkonlinequoteswidget.cpp:648
 #, kde-format
@@ -1024,19 +1018,19 @@ msgstr "遠端來源：%1"
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
-msgstr "已勾選"
+msgstr "已檢查"
 
 #: alkonlinequoteswidget.cpp:654
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
-msgstr "未勾選"
+msgstr "未檢查"
 
 #: alkonlinequoteswidget.cpp:667
 #, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
-msgstr ""
+msgstr ".參照"
 
 #: alkonlinequoteswidget.cpp:683 alkonlinequoteswidget.cpp:685
 #, kde-format
