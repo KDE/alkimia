@@ -24,6 +24,7 @@ case "$ci_distro" in
         ;;
     (opensuse-tumbleweed)
         ci_image=opensuse/tumbleweed
+        precmd="zypper --non-interactive install gawk"
         ;;
 esac
 
@@ -51,7 +52,7 @@ options=
 shopts="export ci_parallel=$ci_parallel; export ci_distro=$ci_distro; export ci_variant=$ci_variant; export ci_host=$ci_host;"
 if [ "$1" == "--use-host-display" ]; then
     options="-v $HOME/.Xauthority:/root/.Xauthority:rw --env=DISPLAY --net=host"
-    shopts="export DISPLAY=$DISPLAY;"
+    shopts+="export DISPLAY=$DISPLAY;"
 fi
 
 sudo docker pull $ci_image
@@ -59,5 +60,5 @@ sudo docker run \
     -v $PWD:/mnt \
     $options \
     -it $ci_image \
-    /bin/bash -c "cd /mnt; $shopts tools/ci-install.sh; tools/ci-build.sh; bash"
+    /bin/bash -c "cd /mnt; $precmd; $shopts tools/ci-install.sh; tools/ci-build.sh; bash"
 
