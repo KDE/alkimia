@@ -1,16 +1,16 @@
 # Translation of alkimia.po to Catalan (Valencian)
-# Copyright (C) 2018-2025 This_file_is_part_of_KDE
+# Copyright (C) 2018-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2018, 2020-2025 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2018, 2020-2026 Josep M. Ferrer <txemaq@gmail.com>
 # SPDX-FileCopyrightText: 2018, 2020, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:45+0000\n"
-"PO-Revision-Date: 2025-06-02 11:33+0200\n"
+"PO-Revision-Date: 2026-09-19 10:39+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -774,29 +774,25 @@ msgid "Local"
 msgstr "Local"
 
 #: alkonlinequotesmodel.cpp:114
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Format"
 msgstr "Format"
 
 #: alkonlinequotesmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Name"
 msgstr "Nom"
 
 #: alkonlinequotesmodel.cpp:118
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Source"
 msgstr "Font"
 
 #: alkonlinequotesmodel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Reference to"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Reference to"
 msgstr "Referència a"
@@ -805,7 +801,7 @@ msgstr "Referència a"
 #, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Updateable"
-msgstr ""
+msgstr "Actualitzable"
 
 #: alkonlinequotesource.cpp:456
 #, kde-format
