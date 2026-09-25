@@ -257,14 +257,10 @@ void AlkWebView::setWebPage(AlkWebPage *webPage)
     m_page = webPage;
     layout->addWidget(webPage);
 
-    connect(webPage, &AlkWebPage::loadFinished, this, &AlkWebView::loadFinished, Qt::UniqueConnection);
-    connect(webPage, &AlkWebPage::linkClicked,
-            this, &AlkWebView::linkClicked,
-            Qt::UniqueConnection);
-    connect(webPage, &AlkWebPage::loadRedirectedTo,
-            this, &AlkWebView::loadRedirectedTo,
-            Qt::UniqueConnection);
-    connect(webPage, &AlkWebPage::loadStarted, this, &AlkWebView::loadStarted, Qt::UniqueConnection);
+    connect(webPage, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished(bool)), Qt::UniqueConnection);
+    connect(webPage, SIGNAL(linkClicked(QUrl)), this, SLOT(linkClicked(QUrl)), Qt::UniqueConnection);
+    connect(webPage, SIGNAL(loadRedirectedTo(QUrl)), this, SLOT(loadRedirectedTo(QUrl)), Qt::UniqueConnection);
+    connect(webPage, SIGNAL(loadStarted()), this, SLOT(loadStarted()), Qt::UniqueConnection);
 }
 
 AlkWebPage *AlkWebView::webPage()

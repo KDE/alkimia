@@ -54,6 +54,7 @@ public:
 #else
     QPointer<KNS3::DownloadManager> m_engine;
     Cache* m_cache;
+    KNS3::Entry::List m_availableEntries;
 #endif
     QEventLoop m_loop;
 

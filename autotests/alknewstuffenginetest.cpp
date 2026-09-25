@@ -34,19 +34,19 @@ private:
 
 void AlkNewStuffEngineTest::initTestCase()
 {
-    _configFile = QStringLiteral("%1/%2").arg(TEST_KNSRC_DIR, QStringLiteral("v1/test-store.knsrc"));
+    _configFile = QString(QStringLiteral("%1/%2")).arg(TEST_KNSRC_DIR, QStringLiteral("v1/test-store.knsrc"));
 
-    QVERIFY(QFileInfo::exists(_configFile));
+    QVERIFY(QFileInfo(_configFile).exists());
 
-    _configFileV2 = QStringLiteral("%1/%2").arg(TEST_KNSRC_DIR, QStringLiteral("v2/test-store.knsrc"));
+    _configFileV2 = QString(QStringLiteral("%1/%2")).arg(TEST_KNSRC_DIR, QStringLiteral("v2/test-store.knsrc"));
 
-    QVERIFY(QFileInfo::exists(_configFileV2));
+    QVERIFY(QFileInfo(_configFileV2).exists());
 }
 
 void AlkNewStuffEngineTest::cleanupTestCase()
 {
     AlkNewStuffEngine engine;
-    QSignalSpy spy(&engine, &AlkNewStuffEngine::entriesAvailable);
+    QSignalSpy spy(&engine, SIGNAL(entriesAvailable(AlkNewStuffEntryList)));
 
     qDebug() << "using knsrc file" << _configFile;
     engine.init(_configFile);
@@ -63,7 +63,7 @@ void AlkNewStuffEngineTest::cleanupTestCase()
 void AlkNewStuffEngineTest::entriesAvailable()
 {
     AlkNewStuffEngine engine;
-    QSignalSpy spy(&engine, &AlkNewStuffEngine::entriesAvailable);
+    QSignalSpy spy(&engine, SIGNAL(entriesAvailable(AlkNewStuffEntryList)));
 
     qDebug() << "using knsrc file" << _configFile;
     engine.init(_configFile);
@@ -82,7 +82,7 @@ void AlkNewStuffEngineTest::entriesAvailable()
 void AlkNewStuffEngineTest::installDownloadableEntry()
 {
     AlkNewStuffEngine engine;
-    QSignalSpy spy(&engine, &AlkNewStuffEngine::entriesAvailable);
+    QSignalSpy spy(&engine, SIGNAL(entriesAvailable(AlkNewStuffEntryList)));
 
     qDebug() << "using knsrc file" << _configFile;
     engine.init(_configFile);
@@ -123,7 +123,7 @@ void AlkNewStuffEngineTest::installDownloadableEntry()
 void AlkNewStuffEngineTest::updatesAvailable()
 {
     AlkNewStuffEngine engine;
-    QSignalSpy spy(&engine, &AlkNewStuffEngine::updatesAvailable);
+    QSignalSpy spy(&engine, SIGNAL(updatesAvailable(AlkNewStuffEntryList)));
 
     // switch to v2 with the same entry but updateable state
     qDebug() << "using knsrc file" << _configFileV2;

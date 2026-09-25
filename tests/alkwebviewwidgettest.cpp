@@ -155,10 +155,7 @@ public:
         connect(loadTestHtmlButton, SIGNAL(pressed()),
                 this, SLOT(slotLoadTestHtml()));
 
-        connect(openLinksCheckBox, &QCheckBox::toggled,
-                this, [this](bool enabled) {
-                    view->setOpenLinks(enabled);
-                });
+        connect(openLinksCheckBox, SIGNAL(toggled(bool)), view, SLOT(setOpenLinks(bool)));
 
         QString url = QLatin1String(TEST_DOWNLOAD_URL_CURRENCY);
         urlEdit->setText(url);
@@ -199,30 +196,29 @@ public Q_SLOTS:
          * not navigate away from this page.
          */
         const QUrl baseUrl = QUrl::fromLocalFile(CMAKE_CURRENT_SOURCE_DIR "/");
-        QString html = QStringLiteral(
-                           "<html>"
-                           "<head>"
-                           "<title>AlkWebView link test</title>"
-                           "</head>"
-                           "<body>"
-                           "<h1>AlkWebView link test</h1>"
-                           "<p>Click one of the following links:</p>"
-                           "<ul>"
-                           "<li><a href=\"https://www.example.com/\">Example.com</a></li>"
-                           "<li><a href=\"https://www.kde.org/\">KDE</a></li>"
-                           "<li><a href=\"testfile.txt\">a relative test path</a></li>"
-                           "<li><a href=\"%1testfile.txt\">an absolute test path</a></li>"
-                           "</ul>"
-                           "<p>"
-                           "With <b>Open links</b> enabled, the browser navigates to the "
-                           "clicked URL."
-                           "</p>"
-                           "<p>"
-                           "With <b>Open links</b> disabled, the browser remains on this "
-                           "page while the <code>linkClicked</code> signal is still emitted."
-                           "</p>"
-                           "</body>"
-                           "</html>")
+        QString html = QString(QStringLiteral("<html>"
+                                              "<head>"
+                                              "<title>AlkWebView link test</title>"
+                                              "</head>"
+                                              "<body>"
+                                              "<h1>AlkWebView link test</h1>"
+                                              "<p>Click one of the following links:</p>"
+                                              "<ul>"
+                                              "<li><a href=\"https://www.example.com/\">Example.com</a></li>"
+                                              "<li><a href=\"https://www.kde.org/\">KDE</a></li>"
+                                              "<li><a href=\"testfile.txt\">a relative test path</a></li>"
+                                              "<li><a href=\"%1testfile.txt\">an absolute test path</a></li>"
+                                              "</ul>"
+                                              "<p>"
+                                              "With <b>Open links</b> enabled, the browser navigates to the "
+                                              "clicked URL."
+                                              "</p>"
+                                              "<p>"
+                                              "With <b>Open links</b> disabled, the browser remains on this "
+                                              "page while the <code>linkClicked</code> signal is still emitted."
+                                              "</p>"
+                                              "</body>"
+                                              "</html>"))
                            .arg(baseUrl.toString());
         view->setHtml(html, baseUrl);
     }

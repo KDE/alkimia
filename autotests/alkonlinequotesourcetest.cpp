@@ -158,6 +158,6 @@ void AlkOnlineQuoteSourceTest::testNullProfile()
     m0.setReferenceName(empty);
     QCOMPARE(m0.referenceName(), empty);
     m0.rename("test2");
-    QCOMPARE(m0.name(), "test2");
+    QCOMPARE(m0.name(), QStringLiteral("test2"));
     m0.remove();
 }

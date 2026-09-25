@@ -32,7 +32,6 @@ public:
 
     void load(const QUrl &url);
 
-    void setOpenLinks(bool enable);
     bool openLinks() const;
 
     static void setWebInspectorEnabled(bool state);
@@ -40,6 +39,9 @@ public:
 
     void setWebPage(AlkWebPage *webPage);
     AlkWebPage *webPage();
+
+public Q_SLOTS:
+    void setOpenLinks(bool enable);
 
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);
@@ -70,7 +72,6 @@ public:
 
     void setHtml(const QString &data, const QUrl &baseUrl);
 
-    void setOpenLinks(bool enable);
     bool openLinks() const;
 
     void setWebInspectorEnabled(bool enable);
@@ -79,6 +80,9 @@ public:
     void setWebPage(AlkWebPage *webPage);
     AlkWebPage *webPage();
 
+public Q_SLOTS:
+    void setOpenLinks(bool enable);
+
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);
     void linkClicked(const QUrl &url);
@@ -86,6 +90,7 @@ Q_SIGNALS:
 
 #else
 
+#include <QUrl>
 #include <QWidget>
 
 class AlkWebPage;
@@ -107,7 +112,6 @@ public:
     void setHtml(const QString &data, const QUrl &baseUrl);
     void setUrl(const QUrl &url);
 
-    void setOpenLinks(bool enable);
     bool openLinks() const;
 
     void setWebInspectorEnabled(bool enable);
@@ -115,6 +119,9 @@ public:
 
     void setWebPage(AlkWebPage *webPage);
     AlkWebPage *webPage();
+
+public Q_SLOTS:
+    void setOpenLinks(bool enable);
 
 Q_SIGNALS:
     void loadStarted();

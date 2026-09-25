@@ -252,7 +252,7 @@ AlkWebPage::AlkWebPage(QWidget *parent)
 
     // The events that trigger the ‘loadRedirectedTo’ signal differ from those of other backends.
     connect(this, SIGNAL(sourceChanged(QUrl)), SIGNAL(loadRedirectedTo(QUrl)));
-    connect(this, &QTextBrowser::anchorClicked, this, &AlkWebPage::linkClicked);
+    connect(this, SIGNAL(anchorClicked(QUrl)), this, SLOT(linkClicked(QUrl)));
 }
 
 AlkWebPage::~AlkWebPage()
@@ -274,7 +274,11 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 void AlkWebPage::setHtml(const QString &data, const QUrl &baseUrl)
 {
     QTextBrowser::setHtml(data);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     document()->setBaseUrl(baseUrl);
+#else
+    Q_UNUSED(baseUrl);
+#endif
 }
 
 void AlkWebPage::setUrl(const QUrl &url)
