@@ -115,6 +115,15 @@ public:
         return date;
     }
 
+    QDate fromMSecsToDate(qlonglong unixTime)
+    {
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+        return QDateTime::fromMSecsSinceEpoch(unixTime).date();
+#else
+        return QDateTime::fromMSecsSinceEpoch(unixTime, Qt::UTC).date();
+#endif
+    }
+
     QDate convertStringUnix(const QString& _in)
     {
         bool ok;
@@ -124,11 +133,11 @@ public:
         }
         if (m_format.startsWith(QLatin1String("%ud"))) {
             unixTime *= 86400; // times seconds per day
-            return QDateTime::fromSecsSinceEpoch(unixTime, Qt::UTC).date();
+            return fromMSecsToDate(unixTime * 1000);
         } else if (m_format.startsWith(QLatin1String("%um"))) {
-            return QDateTime::fromMSecsSinceEpoch(unixTime, Qt::UTC).date();
+            return fromMSecsToDate(unixTime);
         }
-        return QDateTime::fromSecsSinceEpoch(unixTime, Qt::UTC).date();
+        return fromMSecsToDate(unixTime * 1000);
     }
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
