@@ -16,6 +16,7 @@
 #include <KNSCore/EngineBase>
 #include <KNSCore/Provider>
 #include <KNSCore/ResultsStream>
+#include <KNSCore/SearchRequest>
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <KNSCore/Cache>
 #include <knewstuff_version.h>
@@ -38,11 +39,12 @@ public:
     AlkNewStuffEngine *q;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QPointer<KNSCore::EngineBase> m_engine;
-    #define KNS3 KNSCore
+#define KNS3 KNSCore
     QSharedPointer<KNSCore::Cache> m_cache;
     bool m_providersLoaded{false};
     bool m_wantUpdates{false};
     KNSCore::Entry::List m_availableEntries;
+    bool m_updateCheckPending{false};
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QPointer<KNSCore::Engine> m_engine;
     QSharedPointer<KNSCore::Cache> m_cache;
@@ -95,13 +97,16 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
     if (!state)
         return false;
     m_cache = m_engine->cache();
-    connect(m_engine, &KNSCore::EngineBase::signalProvidersLoaded, this, [this]()
-    {
+    connect(m_engine, &KNSCore::EngineBase::signalProvidersLoaded, this, [this]() {
         alkDebug() << "providers loaded";
         m_providersLoaded = true;
         if (m_wantUpdates) {
             checkForUpdates();
         }
+    });
+
+    connect(m_engine, &KNSCore::EngineBase::signalErrorCode, this, [](const KNSCore::ErrorCode::ErrorCode errorCode, const QString &message, const QVariant &) {
+        alkDebug() << "KNSCore::EngineBase error:" << errorCode << message;
     });
 #elif KNEWSTUFF_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     m_engine = new KNSCore::Engine(this);
@@ -157,7 +162,49 @@ bool AlkNewStuffEngine::Private::init(const QString &configFile)
 void AlkNewStuffEngine::Private::checkForUpdates()
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    alkDebug() << "FIXME Qt6: no checkforUpdates() - how to proceed ?";
+    if (!m_providersLoaded) {
+        m_wantUpdates = true;
+        return;
+    }
+
+    if (m_updateCheckPending) {
+        return;
+    }
+
+    m_updateCheckPending = true;
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+    KNSCore::SearchRequest request(KNSCore::SortMode::Downloads, KNSCore::Filter::Updates);
+#else
+    KNSCore::SearchRequest request;
+    request.setFilter(KNSCore::Filter::Updates);
+#endif
+
+    KNSCore::ResultsStream *stream = m_engine->search(request);
+
+    auto *entries = new KNSCore::Entry::List;
+
+    connect(stream, &KNSCore::ResultsStream::entriesFound, this, [entries](const KNSCore::Entry::List &found) {
+        entries->append(found);
+    });
+
+    connect(stream, &KNSCore::ResultsStream::finished, this, [this, entries]() {
+        alkDebug() << entries->size() << "updates loaded";
+
+        AlkNewStuffEntryList updateEntries;
+        toAlkEntryList(updateEntries, *entries);
+
+        delete entries;
+
+        m_updateCheckPending = false;
+        m_wantUpdates = false;
+
+        alkDebug() << "update from KNSCore results stream" << updateEntries;
+
+        Q_EMIT q->updatesAvailable(updateEntries);
+    });
+
+    stream->fetch();
 #elif QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     if (m_providersLoaded && !m_wantUpdates) {
         m_engine->checkForUpdates();
