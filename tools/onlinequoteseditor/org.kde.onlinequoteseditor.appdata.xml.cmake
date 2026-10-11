@@ -27,7 +27,7 @@
   <name xml:lang="pl">Edytor wycen z sieci</name>
   <name xml:lang="pt">Editor de Cotações 'Online'</name>
   <name xml:lang="pt-BR">Editor de cotações online</name>
-  <name xml:lang="ru">Редактор котировок в интернете</name>
+  <name xml:lang="ru">Редактор онлайн-котировок</name>
   <name xml:lang="sk">Editor online ponúk</name>
   <name xml:lang="sl">Urejevalnik spletnih kotacij</name>
   <name xml:lang="sv">Direktkurseditor</name>
