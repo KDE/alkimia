@@ -17,7 +17,7 @@ foreach(P ${POLICIES})
     endif()
 endforeach()
 
-project(alkimia VERSION 8.2.70)
+project(alkimia VERSION 8.2.80)
 
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
