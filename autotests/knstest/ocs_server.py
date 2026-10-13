@@ -143,6 +143,35 @@ def content_data_xml(base, version):
         payload=payload,
     )
 
+def content_download_xml(base, version):
+    return """<?xml version="1.0" encoding="UTF-8"?>
+<ocs>
+  <meta>
+    <status>ok</status>
+    <statuscode>100</statuscode>
+    <message></message>
+  </meta>
+  <data>
+    <content details="download">
+      <downloadway>1</downloadway>
+      <downloadlink>{base}/ocs/Test-{version}.zip</downloadlink>
+      <mimetype>application/zip</mimetype>
+      <gpgfingerprint></gpgfingerprint>
+      <gpgsignature></gpgsignature>
+      <packagename></packagename>
+      <repository></repository>
+      <download_package_type></download_package_type>
+      <download_package_arch></download_package_arch>
+      <download_version>2026-09-12</download_version>
+      <downloadtags>data##mimetype=application/zip</downloadtags>
+      <downloadmd5sum></downloadmd5sum>
+    </content>
+  </data>
+</ocs>
+""".format(
+        base=base,
+        version=version
+    )
 
 # A tiny but valid ZIP archive containing a single file "Test.txt".
 # KNS uncompresses "archive" payloads; the contents are irrelevant to the
@@ -201,7 +230,13 @@ class Handler(BaseHTTPRequestHandler):
             self._send(content_data_xml(base, self.server.content_version))
             return
 
-        if "/content/download" in path:
+        # Download metadata: Attica expects OCS XML here.
+        if "/content/download/" in path:
+            self._send(content_download_xml(base, self.server.content_version))
+            return
+
+        # Actual ZIP payload.
+        if path in (f"/ocs/Test-{self.server.content_version}.zip"):
             self._send(make_zip(), content_type="application/zip")
             return
 
