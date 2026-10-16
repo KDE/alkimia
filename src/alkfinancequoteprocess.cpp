@@ -156,21 +156,26 @@ int AlkFinanceQuoteProcess::exitCode() const
 
 const QStringList AlkFinanceQuoteProcess::getSourceList() const
 {
+    QString normalized = d->m_string;
+    normalized.replace(QStringLiteral("\r\n"), QStringLiteral("\n"));
+    normalized.replace(QLatin1Char('\r'), QLatin1Char('\n'));
+
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    QStringList raw = d->m_string.split('\r', QString::SkipEmptyParts);
+    QStringList raw = normalized.split(QLatin1Char('\n'), QString::SkipEmptyParts);
 #else
-    QStringList raw = d->m_string.split('\r', Qt::SkipEmptyParts);
+    QStringList raw = normalized.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
 #endif
+
     QStringList sources;
-    QStringList::iterator it;
-    for (it = raw.begin(); it != raw.end(); ++it) {
-        if (d->m_fqNames[*it].isEmpty()) {
-            sources.append(*it);
-        } else {
-            sources.append(d->m_fqNames[*it]);
-        }
+    sources.reserve(raw.size());
+
+    for (const QString &source : raw) {
+        const QString name = d->m_fqNames.value(source);
+
+        sources.append(name.isEmpty() ? source : name);
     }
-    sources.sort();
+
+    sources.sort(Qt::CaseInsensitive);
     return sources;
 }
 
