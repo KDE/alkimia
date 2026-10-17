@@ -232,12 +232,6 @@ bool AlkOnlineQuote::Private::initLaunch(const QString &_symbol, const QString &
 bool AlkOnlineQuote::Private::launch(const QString &symbol, const QString &id, const QString &source)
 {
     bool result = false;
-#ifdef ENABLE_FINANCEQUOTE
-    if (AlkOnlineQuoteSource::isFinanceQuote(source) ||
-            m_profile->type() == AlkOnlineQuotesProfile::Type::Script) {
-        result = launchFinanceQuote(symbol, id, source);
-    } else
-#endif
     if (!initSource(source))
         return false;
 
@@ -249,7 +243,12 @@ bool AlkOnlineQuote::Private::launch(const QString &symbol, const QString &id, c
         Q_EMIT m_p->dataRangeChanged(m_startDate, m_endDate);
     }
 
-    if (m_source.downloadType() == AlkOnlineQuoteSource::Javascript) {
+#ifdef ENABLE_FINANCEQUOTE
+    if (AlkOnlineQuoteSource::isFinanceQuote(source) || m_profile->type() == AlkOnlineQuotesProfile::Type::Script) {
+        result = launchFinanceQuote(symbol, id, source);
+    } else
+#endif
+        if (m_source.downloadType() == AlkOnlineQuoteSource::Javascript) {
         result = launchWithJavaScriptSupport(symbol, id, AlkDownloadEngine::JavaScriptEngine);
     } else if (m_source.dataFormat() == AlkOnlineQuoteSource::CSS) {
         result = launchWithJavaScriptSupport(symbol, id, AlkDownloadEngine::JavaScriptEngineCSS);
