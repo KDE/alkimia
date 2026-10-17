@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use Finance::Quote;
+use Data::Dumper;
+
+my $source = shift // "yahoo_json";
+my $symbol = shift // "MSFT";
+
+print "Finance::Quote version: $Finance::Quote::VERSION\n";
+print "Source: $source\n";
+print "Symbol: $symbol\n\n";
+
+my $q = Finance::Quote->new();
+$q->set_currency();       # No currency conversion
+$q->timeout(30);
+$q->failover(0);
+
+my %quotes = eval { $q->fetch($source, $symbol) };
+
+if ($@) {
+    die "fetch() raised an error: $@\n";
+}
+
+if (!%quotes) {
+    die "fetch() returned no data\n";
+}
+
+print Dumper(\%quotes);
+
+print "\n--- Summary ---\n";
+print "success: ",
+    (defined $quotes{$symbol, "success"}
+        ? $quotes{$symbol, "success"} : "(undefined)"), "\n";
+print "last: ",
+    (defined $quotes{$symbol, "last"}
+        ? $quotes{$symbol, "last"} : "(undefined)"), "\n";
+print "price: ",
+    (defined $quotes{$symbol, "price"}
+        ? $quotes{$symbol, "price"} : "(undefined)"), "\n";
+print "date: ",
+    (defined $quotes{$symbol, "date"}
+        ? $quotes{$symbol, "date"} : "(undefined)"), "\n";
