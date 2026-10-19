@@ -160,14 +160,15 @@ bool AlkOnlineQuote::Private::initSource(const QString &_source)
         source = "KMyMoney Currency";
     }
 
-    if (!m_profile->quoteSources().contains(source)) {
+    QString sourceName = source.startsWith(QStringLiteral("Finance::Quote")) ? source.section(' ', 1) : source;
+    if (!m_profile->quoteSources().contains(sourceName)) {
         Q_EMIT m_p->error(i18n("Source <placeholder>%1</placeholder> does not exist.", source));
         m_errors |= Errors::Source;
         return false;
     }
 
     //m_profile->createSource(source);
-    m_source = AlkOnlineQuoteSource(source, m_profile);
+    m_source = AlkOnlineQuoteSource(sourceName, m_profile);
     if (m_source.isReference())
         m_source = m_source.asReference();
 
@@ -244,8 +245,8 @@ bool AlkOnlineQuote::Private::launch(const QString &symbol, const QString &id, c
     }
 
 #ifdef ENABLE_FINANCEQUOTE
-    if (AlkOnlineQuoteSource::isFinanceQuote(source) || m_profile->type() == AlkOnlineQuotesProfile::Type::Script) {
-        result = launchFinanceQuote(symbol, id, source);
+    if (m_source.isFinanceQuote()) {
+        result = launchFinanceQuote(symbol, id, m_source.name());
     } else
 #endif
         if (m_source.downloadType() == AlkOnlineQuoteSource::Javascript) {
@@ -417,8 +418,7 @@ bool AlkOnlineQuote::Private::launchFinanceQuote(const QString &_symbol, const Q
 
     //Q_EMIT status(QString("(Debug) symbol=%1 id=%2...").arg(_symbol,_id));
     AlkFinanceQuoteProcess tmp;
-    QString fQSource = m_profile->type() == AlkOnlineQuotesProfile::Type::Script ?
-                tmp.crypticName(_sourcename) : _sourcename.section(' ', 1);
+    QString fQSource = tmp.crypticName(_sourcename);
 
     QStringList args;
     args << "perl" << m_profile->scriptPath() << fQSource << m_symbol;

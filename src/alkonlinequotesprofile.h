@@ -48,6 +48,13 @@ public:
     void setKConfig(KSharedConfigPtr kconfig);
 
     /**
+     * Check whether this profile is intended for “Finance::Quote”
+     * @returns @c true if the profile is intended for “Finance::Quote”
+     * @returns @c false if the profile is not intended for “Finance::Quote”
+     */
+    bool isFinanceQuote();
+
+    /**
      * Check if the profile is supported (build) by Alkimia
      *
      * @returns @c true if support is compiled, @c false otherwise.

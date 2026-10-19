@@ -40,6 +40,7 @@ public:
         CSV,
         CSS,
         JSON,
+        Unknown,
     };
 
     /**
@@ -122,13 +123,11 @@ public:
     QString dateRegex() const;
     QString dateFormat() const;
     DownloadType downloadType() const;
-    QString financeQuoteName() const;
     IdSelector idSelector() const;
 
     bool isGHNS() const;
     bool isReadOnly() const;
     bool isFinanceQuote() const;
-    static bool isFinanceQuote(const QString &name);
 
     /**
      * Make this source a reference

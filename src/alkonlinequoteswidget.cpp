@@ -467,8 +467,7 @@ void AlkOnlineQuotesWidget::Private::slotLoadQuoteSource(const QModelIndex &inde
     }
 
     bool enabled = !name.isEmpty() && !m_currentItem.isReference();
-    bool isFinanceQuoteSource = (enabled && AlkOnlineQuoteSource::isFinanceQuote(name)) ||
-            m_profile->type() == AlkOnlineQuotesProfile::Type::Script;
+    bool isFinanceQuoteSource = (enabled && m_profile->isFinanceQuote());
 
     if (isFinanceQuoteSource || (m_currentItem.isGHNS() && !m_ghnsEditable))
         enabled = false;

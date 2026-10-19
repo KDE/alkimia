@@ -180,6 +180,15 @@ bool AlkOnlineQuotesProfile::hasGHNSSupport()
     return !d->m_GHNSFile.isEmpty();
 }
 
+bool AlkOnlineQuotesProfile::isFinanceQuote()
+{
+#ifdef ENABLE_FINANCEQUOTE
+    return d->m_type == Type::Script && d->m_name == QStringLiteral("Finance::Quote");
+#else
+    return false;
+#endif
+}
+
 const AlkOnlineQuotesProfile::Map AlkOnlineQuotesProfile::defaultQuoteSources()
 {
     switch(d->m_type) {
