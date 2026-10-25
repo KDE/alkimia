@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2025-06-19 10:07+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -69,50 +69,50 @@ msgctxt "@info AlkDateFormat info"
 msgid "Length of year (%1) does not match expected length (%2)."
 msgstr "A lonxitude do ano (%1) non é a esperada (%2)."
 
-#: alkonlinequote_p.cpp:164
+#: alkonlinequote_p.cpp:165
 #, kde-format
 msgid "Source <placeholder>%1</placeholder> does not exist."
 msgstr "A fonte <placeholder>%1</placeholder> non existe."
 
-#: alkonlinequote_p.cpp:220
+#: alkonlinequote_p.cpp:221
 #, kde-format
 msgid "Cannot resolve input date."
 msgstr "Non é posíbel resolver a data de entrada."
 
-#: alkonlinequote_p.cpp:242
+#: alkonlinequote_p.cpp:243
 #, kde-format
 msgid "Start date moved to before the weekend"
 msgstr "A data de inicio púxose antes da fin de semana."
 
-#: alkonlinequote_p.cpp:275
+#: alkonlinequote_p.cpp:276
 #, kde-format
 msgid "Unable to fetch url for %1"
 msgstr "Non é posíbel obter o URL de %1"
 
-#: alkonlinequote_p.cpp:284 alkonlinequote_p.cpp:286
+#: alkonlinequote_p.cpp:285 alkonlinequote_p.cpp:287
 #, kde-format
 msgid "The URL has been redirected; check an update of the online quote URL"
 msgstr ""
 "O URL redirixiuse; comprobe se hai unha actualización do URL de cotizacións "
 "de Internet"
 
-#: alkonlinequote_p.cpp:310
+#: alkonlinequote_p.cpp:311
 #, kde-format
 msgid "Fetching URL %1..."
 msgstr "Obtendo o URL %1…"
 
-#: alkonlinequote_p.cpp:359
+#: alkonlinequote_p.cpp:360
 #, kde-format
 msgctxt "The process x is executing"
 msgid "Executing %1..."
 msgstr "Executando %1…"
 
-#: alkonlinequote_p.cpp:376 alkonlinequote_p.cpp:436
+#: alkonlinequote_p.cpp:377 alkonlinequote_p.cpp:436
 #, kde-format
 msgid "Unable to launch: %1"
 msgstr "Non é posíbel iniciar: %1"
 
-#: alkonlinequote_p.cpp:397
+#: alkonlinequote_p.cpp:398
 #, kde-format
 msgid "URL found: %1..."
 msgstr "Atopouse o URL: %1…"
@@ -798,31 +798,31 @@ msgctxt "@title:column Online quotes"
 msgid "Updateable"
 msgstr ""
 
-#: alkonlinequotesource.cpp:456
+#: alkonlinequotesource.cpp:437
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "Stripped HTML"
 msgstr "HTML rozado"
 
-#: alkonlinequotesource.cpp:458
+#: alkonlinequotesource.cpp:439
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "HTML"
 msgstr "HTML"
 
-#: alkonlinequotesource.cpp:460
+#: alkonlinequotesource.cpp:441
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSV"
 msgstr "CSV"
 
-#: alkonlinequotesource.cpp:462
+#: alkonlinequotesource.cpp:443
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "CSS"
 msgstr "CSS"
 
-#: alkonlinequotesource.cpp:464
+#: alkonlinequotesource.cpp:445
 #, kde-format
 msgctxt "@item:inlistbox Stock"
 msgid "JSON"
@@ -969,123 +969,123 @@ msgctxt "@item:inlistbox Stock"
 msgid "Always when today"
 msgstr "Sempre que sexa hoxe"
 
-#: alkonlinequoteswidget.cpp:587
+#: alkonlinequoteswidget.cpp:586
 #, kde-format
 msgid "Are you sure to delete this online quote ?"
 msgstr "Seguro que quere eliminar a cotización de Internet?"
 
-#: alkonlinequoteswidget.cpp:588
+#: alkonlinequoteswidget.cpp:587
 #, kde-format
 msgid "Delete online quote"
 msgstr "Eliminar a cotización de Internet"
 
-#: alkonlinequoteswidget.cpp:609
+#: alkonlinequoteswidget.cpp:608
 #, kde-format
 msgid ".copy"
 msgstr ".copia"
 
-#: alkonlinequoteswidget.cpp:640
+#: alkonlinequoteswidget.cpp:639
 #, kde-format
 msgctxt "@title %1 is version info"
 msgid "Online quote settings generated with Alkimia %1"
 msgstr "Configuración de cotizacións por Internet xerada con Alkimia %1"
 
-#: alkonlinequoteswidget.cpp:643
+#: alkonlinequoteswidget.cpp:642
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "URL: %1"
 msgstr "URL: %1"
 
-#: alkonlinequoteswidget.cpp:644
+#: alkonlinequoteswidget.cpp:643
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Download mode: %1"
 msgstr "Modo de descarga: %1"
 
-#: alkonlinequoteswidget.cpp:645
+#: alkonlinequoteswidget.cpp:644
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Data format: %1"
 msgstr "Formato dos datos: %1"
 
-#: alkonlinequoteswidget.cpp:646
+#: alkonlinequoteswidget.cpp:645
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Identifier: %1"
 msgstr "Identificador: %1"
 
-#: alkonlinequoteswidget.cpp:647
+#: alkonlinequoteswidget.cpp:646
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Select by: %1"
 msgstr "Seleccionado por: %1"
 
-#: alkonlinequoteswidget.cpp:648
+#: alkonlinequoteswidget.cpp:647
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price: %1"
 msgstr "Prezo: %1"
 
-#: alkonlinequoteswidget.cpp:649
+#: alkonlinequoteswidget.cpp:648
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Price decimal separator: %1"
 msgstr "Separador dos decimais dos prezos: %1"
 
-#: alkonlinequoteswidget.cpp:650
+#: alkonlinequoteswidget.cpp:649
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Date: %1"
 msgstr "Data: %1"
 
-#: alkonlinequoteswidget.cpp:651
+#: alkonlinequoteswidget.cpp:650
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Date format: %1"
 msgstr "Formato da data: %1"
 
-#: alkonlinequoteswidget.cpp:652
+#: alkonlinequoteswidget.cpp:651
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Default identifier: %1"
 msgstr "Identificador predeterminado: %1"
 
-#: alkonlinequoteswidget.cpp:653
+#: alkonlinequoteswidget.cpp:652
 #, kde-format
 msgctxt "@info online quote setting"
 msgid "Remote source: %1"
 msgstr "Fonte remota: %1"
 
-#: alkonlinequoteswidget.cpp:654
+#: alkonlinequoteswidget.cpp:653
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "checked"
 msgstr "marcada"
 
-#: alkonlinequoteswidget.cpp:654
+#: alkonlinequoteswidget.cpp:653
 #, kde-format
 msgctxt "@item:intext checkbox setting"
 msgid "not checked"
 msgstr "non marcada"
 
-#: alkonlinequoteswidget.cpp:667
+#: alkonlinequoteswidget.cpp:666
 #, kde-format
 msgctxt "@item:valuesuffix to name for a quote source reference"
 msgid ".reference"
 msgstr ".reference"
 
-#: alkonlinequoteswidget.cpp:683 alkonlinequoteswidget.cpp:685
+#: alkonlinequoteswidget.cpp:682 alkonlinequoteswidget.cpp:684
 #, kde-format
 msgid "New Quote Source"
 msgstr "Nova fonte de cotizacións"
 
-#: alkonlinequoteswidget.cpp:695
+#: alkonlinequoteswidget.cpp:694
 #, kde-format
 msgctxt "@info Detail that only one new entry can exist at any time"
 msgid "<b>New Quote Source</b> already exists."
 msgstr "A <b>nova fonte de cotizacións</b> xa existe."
 
-#: alkonlinequoteswidget.cpp:836
+#: alkonlinequoteswidget.cpp:835
 #, kde-format
 msgid "Online Quote HTML Result Window"
 msgstr "Xanela HTML de resultados de cotizacións de Internet"
