@@ -60,12 +60,28 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
     setUrl(url);
 }
 
+bool AlkWebPage::print(QPrinter *printer)
+{
+    CallbackSpy<bool> spy;
+    QWebEnginePage::print(printer, spy.ref());
+    bool result = d->timeout != -1 ? spy.waitForResult(d->timeout) : spy.waitForResult();
+    return result;
+}
+
 QString AlkWebPage::toHtml()
 {
     CallbackSpy<QString> spy;
     QWebEnginePage::toHtml(spy.ref());
     QString html = d->timeout != -1 ? spy.waitForResult(d->timeout) : spy.waitForResult();
     return html;
+}
+
+QString AlkWebPage::toPlainText()
+{
+    CallbackSpy<QString> spy;
+    QWebEnginePage::toPlainText(spy.ref());
+    QString result = d->timeout != -1 ? spy.waitForResult(d->timeout) : spy.waitForResult();
+    return result;
 }
 
 QStringList AlkWebPage::getAllElements(const QString &symbol)

@@ -34,6 +34,10 @@ public:
 
     bool openLinks() const;
 
+    bool print(QPrinter *printer);
+
+    QString toPlainText();
+
     static void setWebInspectorEnabled(bool state);
     static bool webInspectorEnabled();
 

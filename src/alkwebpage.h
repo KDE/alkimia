@@ -35,6 +35,7 @@ public:
 
     void load(const QUrl &url, const QString &acceptLanguage);
     QString toHtml();
+    QString toPlainText();
 
     QStringList getAllElements(const QString &symbol);
     QString getFirstElement(const QString &symbol);
@@ -45,6 +46,7 @@ public:
 
     void setOpenLinks(bool enable);
     bool openLinks() const;
+    bool print(QPrinter *printer);
 
 Q_SIGNALS:
     void loadRedirectedTo(const QUrl &url);

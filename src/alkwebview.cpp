@@ -54,6 +54,16 @@ bool AlkWebView::openLinks() const
     return qobject_cast<const AlkWebPage *>(page())->openLinks();
 }
 
+bool AlkWebView::print(QPrinter *printer)
+{
+    return webPage()->print(printer);
+}
+
+QString AlkWebView::toPlainText()
+{
+    return webPage()->toPlainText();
+}
+
 void AlkWebView::setWebInspectorEnabled(bool state)
 {
     s_webInspectorEnabled = state;
