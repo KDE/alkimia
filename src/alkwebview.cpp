@@ -11,10 +11,14 @@
 #include "alkdebug.h"
 #include "alkwebpage.h"
 
+#include <QDir>
 #include <QEventLoop>
 #include <QLayout>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QRegularExpression>
+#include <QStandardPaths>
+#include <QTemporaryFile>
 
 #if defined(ALKIMIA_WEBENGINE)
 #include <klocalizedstring.h>
@@ -27,8 +31,60 @@
 static const int s_webInspectorPort{8181};
 static bool s_webInspectorEnabled{false};
 
+class AlkWebView::Private : public QObject
+{
+    Q_OBJECT
+public:
+    QList<QTemporaryFile *> m_temporaryHtmlFiles;
+    AlkWebView *m_p;
+
+    Private(AlkWebView *p)
+        : m_p(p)
+    {
+    }
+
+    bool loadHtmlFromTemporaryFile(const QString &html, const QUrl &baseUrl)
+    {
+        const QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+
+        auto *file = new QTemporaryFile(tempDir + QStringLiteral("/alkwebview-XXXXXX.html"), m_p);
+
+        file->setAutoRemove(true);
+
+        if (!file->open()) {
+            qWarning() << "Cannot create temporary HTML file:" << file->errorString();
+            delete file;
+            return false;
+        }
+
+        const QByteArray data = html.toUtf8();
+
+        if (file->write(data) != data.size()) {
+            qWarning() << "Cannot write temporary HTML file:" << file->errorString();
+            delete file;
+            return false;
+        }
+
+        const QUrl fileUrl = QUrl::fromLocalFile(file->fileName());
+
+        file->close();
+
+        m_temporaryHtmlFiles.append(file);
+
+        if (baseUrl == QUrl(QStringLiteral("file://"))) {
+            // Keep the original base URL semantics.
+            // No <base> element is needed.
+        }
+
+        m_p->QWebEngineView::load(fileUrl);
+
+        return true;
+    }
+};
+
 AlkWebView::AlkWebView(QWidget *parent)
     : QWebEngineView(parent)
+    , d(new Private(this))
 {
     connect(page(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(loadRedirectedTo(QUrl)));
 }
@@ -42,6 +98,21 @@ void AlkWebView::load(const QUrl &url)
     QWebEngineView::load(url);
     if (QWebEngineView::url() == url)
         triggerPageAction(QWebEnginePage::Reload);
+}
+
+void AlkWebView::setHtml(const QString &html, const QUrl &baseUrl)
+{
+    const QByteArray utf8 = html.toUtf8();
+    const QByteArray encoded = QUrl::toPercentEncoding(utf8);
+
+    // https://doc.qt.io/qt-6.11/qwebenginepage.html#setHtml
+    constexpr qsizetype maxEncodedSize = 1800 * 1024;
+
+    if (encoded.size() < maxEncodedSize) {
+        QWebEngineView::setHtml(html, baseUrl);
+    } else {
+        d->loadHtmlFromTemporaryFile(html, baseUrl);
+    }
 }
 
 void AlkWebView::setOpenLinks(bool enable)
@@ -134,6 +205,8 @@ void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
     }
     menu->popup(event->globalPos());
 }
+
+#include "alkwebview.moc"
 
 #elif defined(ALKIMIA_WEBKIT)
 #include <QPointer>

@@ -32,6 +32,8 @@ public:
 
     void load(const QUrl &url);
 
+    void setHtml(const QString &html, const QUrl &baseUrl);
+
     bool openLinks() const;
 
     bool print(QPrinter *printer);
@@ -53,6 +55,10 @@ Q_SIGNALS:
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
+
+private:
+    class Private;
+    Private *const d;
 };
 
 #elif defined(ALKIMIA_WEBKIT)
