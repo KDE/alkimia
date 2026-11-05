@@ -127,7 +127,11 @@ bool AlkWebView::openLinks() const
 
 bool AlkWebView::print(QPrinter *printer)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 11, 0)
+    return QWebEngineView::print(printer);
+#else
     return webPage()->print(printer);
+#endif
 }
 
 QString AlkWebView::toPlainText()

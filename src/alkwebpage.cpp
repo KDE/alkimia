@@ -62,10 +62,14 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
 
 bool AlkWebPage::print(QPrinter *printer)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 11, 0)
     CallbackSpy<bool> spy;
     QWebEnginePage::print(printer, spy.ref());
     bool result = d->timeout != -1 ? spy.waitForResult(d->timeout) : spy.waitForResult();
     return result;
+#else
+    return false;
+#endif
 }
 
 QString AlkWebPage::toHtml()
