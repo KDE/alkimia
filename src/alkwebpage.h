@@ -13,6 +13,7 @@
 
 #include <QObject>
 
+class QPrinter;
 class QUrl;
 
 #if defined(ALKIMIA_WEBENGINE)
