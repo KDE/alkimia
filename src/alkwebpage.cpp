@@ -60,9 +60,9 @@ void AlkWebPage::load(const QUrl &url, const QString &acceptLanguage)
     setUrl(url);
 }
 
-bool AlkWebPage::print(QPrinter *printer)
+bool AlkWebPage::print([[maybe_unused]] QPrinter *printer)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 11, 0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     CallbackSpy<bool> spy;
     QWebEnginePage::print(printer, spy.ref());
     bool result = d->timeout != -1 ? spy.waitForResult(d->timeout) : spy.waitForResult();

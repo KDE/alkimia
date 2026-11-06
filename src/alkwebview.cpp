@@ -127,7 +127,7 @@ bool AlkWebView::openLinks() const
 
 bool AlkWebView::print(QPrinter *printer)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 11, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
     QWebEngineView::print(printer);
     // TODO to get return state need to wait on signal printFinished(bool success)
     return true;
