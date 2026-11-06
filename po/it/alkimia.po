@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
 "PO-Revision-Date: 2026-09-22 10:33+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1180,12 +1180,12 @@ msgstr "Il pacchetto è stato creato in:"
 msgid "Package edit url:"
 msgstr "URL di modifica del pacchetto:"
 
-#: alkwebview.cpp:110
+#: alkwebview.cpp:197
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Apri l'ispettore in una nuova finestra"
 
-#: alkwebview.cpp:123
+#: alkwebview.cpp:210
 #, kde-format
 msgid "Inspect element"
 msgstr "Ispeziona elemento"

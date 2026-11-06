@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmymoney\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
 "PO-Revision-Date: 2026-09-22 21:55+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1182,12 +1182,12 @@ msgstr "Пакет создан в:"
 msgid "Package edit url:"
 msgstr "URL редактирования пакета:"
 
-#: alkwebview.cpp:110
+#: alkwebview.cpp:197
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Открыть исследование в новом окне"
 
-#: alkwebview.cpp:123
+#: alkwebview.cpp:210
 #, kde-format
 msgid "Inspect element"
 msgstr "Исследовать элемент"

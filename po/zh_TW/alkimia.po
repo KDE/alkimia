@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
 "PO-Revision-Date: 2026-09-21 21:43+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1144,12 +1144,12 @@ msgstr "軟體包建立於："
 msgid "Package edit url:"
 msgstr "軟體包編輯網址："
 
-#: alkwebview.cpp:110
+#: alkwebview.cpp:197
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "在新視窗中開啟檢測器"
 
-#: alkwebview.cpp:123
+#: alkwebview.cpp:210
 #, kde-format
 msgid "Inspect element"
 msgstr "檢測元素"

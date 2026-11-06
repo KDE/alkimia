@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
 "PO-Revision-Date: 2023-12-04 09:37+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1159,12 +1159,12 @@ msgstr "Balíček bol vytvorený na:"
 msgid "Package edit url:"
 msgstr "URL úpravy balíčka:"
 
-#: alkwebview.cpp:110
+#: alkwebview.cpp:197
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Otvoriť inšpektor v novom okne"
 
-#: alkwebview.cpp:123
+#: alkwebview.cpp:210
 #, kde-format
 msgid "Inspect element"
 msgstr "Preskúmať prvok"
