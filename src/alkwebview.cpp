@@ -91,6 +91,7 @@ AlkWebView::AlkWebView(QWidget *parent)
 
 AlkWebView::~AlkWebView()
 {
+    delete d;
 }
 
 void AlkWebView::load(const QUrl &url)
