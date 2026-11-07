@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"POT-Creation-Date: 2026-11-07 00:57+0000\n"
 "PO-Revision-Date: 2026-09-20 10:10+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -1204,12 +1204,12 @@ msgstr "Le paquet a été créé à :"
 msgid "Package edit url:"
 msgstr "URL de modification du paquet :"
 
-#: alkwebview.cpp:197
+#: alkwebview.cpp:198
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Ouvrir l'inspecteur dans une nouvelle fenêtre"
 
-#: alkwebview.cpp:210
+#: alkwebview.cpp:211
 #, kde-format
 msgid "Inspect element"
 msgstr "Inspecter un élément"

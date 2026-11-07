@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alkimia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"POT-Creation-Date: 2026-11-07 00:57+0000\n"
 "PO-Revision-Date: 2026-09-19 14:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1179,12 +1179,12 @@ msgstr "Пакунок створено тут:"
 msgid "Package edit url:"
 msgstr "Адреса редагування пакунка:"
 
-#: alkwebview.cpp:197
+#: alkwebview.cpp:198
 #, kde-format
 msgid "Open inspector in new window"
 msgstr "Відкрити інспектор у новому вікні"
 
-#: alkwebview.cpp:210
+#: alkwebview.cpp:211
 #, kde-format
 msgid "Inspect element"
 msgstr "Перевірити елемент"
