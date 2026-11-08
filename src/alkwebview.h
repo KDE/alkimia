@@ -84,6 +84,8 @@ public:
 
     bool openLinks() const;
 
+    QString toPlainText();
+
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
 

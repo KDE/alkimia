@@ -217,6 +217,7 @@ void AlkWebView::contextMenuEvent(QContextMenuEvent *event)
 
 #elif defined(ALKIMIA_WEBKIT)
 #include <QPointer>
+#include <QWebFrame>
 #include <QWebInspector>
 #include <QWebView>
 
@@ -249,6 +250,11 @@ void AlkWebView::setOpenLinks(bool enable)
 bool AlkWebView::openLinks() const
 {
     return qobject_cast<const AlkWebPage *>(page())->openLinks();
+}
+
+QString AlkWebView::toPlainText()
+{
+    return page()->mainFrame()->toPlainText();
 }
 
 void AlkWebView::setWebInspectorEnabled(bool enable)
