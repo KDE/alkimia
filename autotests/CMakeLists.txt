@@ -36,13 +36,7 @@ if(TEST_IN_DOCKER)
     list(APPEND TEST_ENV "QT_QPA_PLATFORM=offscreen")
 endif()
 
-if(BUILD_WITH_WEBKIT)
-    set(TEST_SUFFIX "-webkit-")
-elseif(BUILD_WITH_WEBENGINE)
-    set(TEST_SUFFIX "-webengine-")
-else(BUILD_WITH_WEBKIT)
-    set(TEST_SUFFIX "")
-endif()
+set(TEST_SUFFIX "-${ALKIMIA_WEB_BACKEND_KEY}-")
 
 ecm_add_tests(
     alkonlinequotesourcetest.cpp
