@@ -322,6 +322,16 @@ bool AlkWebView::openLinks() const
     return m_page->openLinks();
 }
 
+void AlkWebView::print(QPagedPaintDevice *printer)
+{
+    webPage()->print(printer);
+}
+
+QString AlkWebView::toPlainText()
+{
+    return webPage()->toPlainText();
+}
+
 void AlkWebView::setWebInspectorEnabled(bool enable)
 {
     Q_UNUSED(enable);
@@ -362,5 +372,15 @@ void AlkWebView::setWebPage(AlkWebPage *webPage)
 AlkWebPage *AlkWebView::webPage()
 {
     return m_page;
+}
+
+void AlkWebView::setZoomFactor(qreal factor)
+{
+    Q_UNUSED(factor);
+}
+
+qreal AlkWebView::zoomFactor() const
+{
+    return 0.0;
 }
 #endif

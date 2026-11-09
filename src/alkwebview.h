@@ -106,6 +106,7 @@ Q_SIGNALS:
 #include <QWidget>
 
 class AlkWebPage;
+class QPagedPaintDevice;
 
 /**
  *  The AlkWebView class provides a widget that
@@ -126,11 +127,18 @@ public:
 
     bool openLinks() const;
 
+    void print(QPagedPaintDevice *printer);
+
+    QString toPlainText();
+
     void setWebInspectorEnabled(bool enable);
     bool webInspectorEnabled();
 
     void setWebPage(AlkWebPage *webPage);
     AlkWebPage *webPage();
+
+    void setZoomFactor(qreal factor);
+    qreal zoomFactor() const;
 
 public Q_SLOTS:
     void setOpenLinks(bool enable);

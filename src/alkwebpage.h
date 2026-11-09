@@ -13,12 +13,13 @@
 
 #include <QObject>
 
-class QPrinter;
 class QUrl;
 
 #if defined(ALKIMIA_WEBENGINE)
 
 #include <QWebEnginePage>
+
+class QPrinter;
 
 /**
  * The AlkWebPage class provides an object for loading
@@ -103,6 +104,8 @@ private:
 };
 
 #else
+
+class QPagedPaintDevice;
 
 #include <QTextBrowser>
 
