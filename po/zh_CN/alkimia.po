@@ -731,32 +731,28 @@ msgid "Local"
 msgstr "本地"
 
 #: alkonlinequotesmodel.cpp:114
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Format"
-msgstr "格式"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Name"
-msgstr "姓名"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:118
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Source"
-msgstr "来源"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Reference to"
+#, kde-format
 msgctxt "@title:column Online quotes"
 msgid "Reference to"
-msgstr "引用至"
+msgstr ""
 
 #: alkonlinequotesmodel.cpp:122
 #, kde-format
